@@ -1,0 +1,26 @@
+var class_physics_body =
+[
+    [ "PhysicsBody", "class_physics_body.html#a9344242b318fd8ae207d6fda9cdc270e", null ],
+    [ "~PhysicsBody", "class_physics_body.html#a4d09ec1845ec536f78d1c2f2fa9d789f", null ],
+    [ "getDensity", "class_physics_body.html#a37f4794ae80528f7b5cb6c55cde9ca48", null ],
+    [ "getFriction", "class_physics_body.html#a5663ab620e5c1b5330d41ac00da9c4ea", null ],
+    [ "getHeight", "class_physics_body.html#a35755815b4f473156241b0d348fd6df5", null ],
+    [ "getJumpHeight", "class_physics_body.html#a24b822739d39ff66a85f889fc4a69c49", null ],
+    [ "getPositionX", "class_physics_body.html#a2c0add405efd0adcebe4c40f4e15c2db", null ],
+    [ "getPositionY", "class_physics_body.html#a438457b0ea8f6772dd89e0e929871cff", null ],
+    [ "getRestitution", "class_physics_body.html#a5b998d2267c9286909cc8c0a94ac0a7a", null ],
+    [ "getRotation", "class_physics_body.html#ab39691165dcc0575f8e96a5b5d61b29a", null ],
+    [ "getSpeed", "class_physics_body.html#ac23749cf0e91824409bcb5517501c1e7", null ],
+    [ "getSpriteID", "class_physics_body.html#aa728656aaba269d2de75b2d18a73ad52", null ],
+    [ "getWidth", "class_physics_body.html#afd7ce04fe6909548b57dbc93feff13bc", null ],
+    [ "setDensity", "class_physics_body.html#a994e06d412aabc3a1b4532b8d081b662", null ],
+    [ "setFriction", "class_physics_body.html#ac234af682d0d14a1c9d8d12ea96472fc", null ],
+    [ "setHeight", "class_physics_body.html#a1b0a5d53be5e43c2d318feca8cb718fc", null ],
+    [ "setJumpHeight", "class_physics_body.html#a70da8ea666c5718808d02304b8a8e219", null ],
+    [ "setPositionX", "class_physics_body.html#a352a15dc6f89edbd01d1b72497d7ee6f", null ],
+    [ "setPositionY", "class_physics_body.html#abe4f3394f54627b70da85fd31f307b81", null ],
+    [ "setRestitution", "class_physics_body.html#aec04bf1a2a7cd02f64e86574d1f2ae56", null ],
+    [ "setRotation", "class_physics_body.html#ab47c9b5d16008374324e50588173417d", null ],
+    [ "setSpeed", "class_physics_body.html#ab18f2e101e61232bfb158cfae31cb645", null ],
+    [ "setWidth", "class_physics_body.html#a12d6dd6b8fe824fb03fc43303a2eba51", null ]
+];
