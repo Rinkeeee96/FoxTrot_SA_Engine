@@ -30,5 +30,13 @@ var class_s_v_i =
     [ "StopLoopedEffect", "class_s_v_i.html#a643e8010f0c08253f905ad317295c5b6", null ],
     [ "StopMusic", "class_s_v_i.html#a85f8151d0d914a97ca66ab3629abcebf", null ],
     [ "UnloadEffect", "class_s_v_i.html#a74a0fa8bcf98530bfc2d7991bd099157", null ],
-    [ "textureMap", "class_s_v_i.html#a8806498ea2df26009291403fd3efb869", null ]
+    [ "loadedSoundEffects", "class_s_v_i.html#a0ccd7e7feca55a15854a716621254a94", null ],
+    [ "loopChannels", "class_s_v_i.html#a9655a7c5ecc135506ebfbc2130b043bf", null ],
+    [ "mousex", "class_s_v_i.html#a63b6575a7eda591ccc3b1c56fc7435f8", null ],
+    [ "mousey", "class_s_v_i.html#a192a7bd97301eeedce8f13570144b555", null ],
+    [ "music", "class_s_v_i.html#af3832ae64add605188f1c262439fb0b9", null ],
+    [ "renderer", "class_s_v_i.html#a25ae882b1a991abd3676285c320dcec5", null ],
+    [ "soundPaths", "class_s_v_i.html#a4eb938955f530767f31d0ceafe347d0c", null ],
+    [ "textureMap", "class_s_v_i.html#a8806498ea2df26009291403fd3efb869", null ],
+    [ "window", "class_s_v_i.html#a344f9e3d0b9146fd7985ca2e2bdcfc82", null ]
 ];

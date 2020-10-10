@@ -32,5 +32,21 @@ var class_object =
     [ "setScale", "class_object.html#ac79ed205fdf159edbf2e391e4b37a26e", null ],
     [ "setSpeed", "class_object.html#a630ed9acd70382a75678490abbce81e5", null ],
     [ "setStatic", "class_object.html#a53e7fe8ff944a5e3eee66b4f6ea22ebc", null ],
-    [ "setWidth", "class_object.html#ac5a16618480d5f61ce0ff3b2a473d8b1", null ]
+    [ "setWidth", "class_object.html#ac5a16618480d5f61ce0ff3b2a473d8b1", null ],
+    [ "changed", "class_object.html#ac595c87946cbc368de9600ce6a0c647b", null ],
+    [ "density", "class_object.html#a32c2d504acd384f4d7124624d8982338", null ],
+    [ "direction", "class_object.html#a514a121fa81e7893f0e786e463946910", null ],
+    [ "friction", "class_object.html#a78074de0295e274cd7236590c5eb9dfb", null ],
+    [ "height", "class_object.html#a91cd011fc7b03ae185983737e3d4285c", null ],
+    [ "jumpHeight", "class_object.html#ae8386db524136eb28a2c214620e705fd", null ],
+    [ "name", "class_object.html#af849c7778ff8399ac4440062ac5a38a3", null ],
+    [ "positionX", "class_object.html#aca0718480d4debef09c19503f0849cba", null ],
+    [ "positionY", "class_object.html#a5259a192018c59221ff194eb8b40ebe5", null ],
+    [ "restitution", "class_object.html#a38cbcd72bd4d51687826c77dd83298dd", null ],
+    [ "rotation", "class_object.html#a32727401ffdeb7b08d2798b41845581a", null ],
+    [ "scale", "class_object.html#a7856e394ae169ef2acac75bf1398ba38", null ],
+    [ "speed", "class_object.html#a7013eaf1c55e51dc0d4c62ea11156110", null ],
+    [ "spriteID", "class_object.html#ac81c3624b756aaf8b55127f332763f3c", null ],
+    [ "staticObject", "class_object.html#a1c9270f18f17a76c94a5974bcc3b5449", null ],
+    [ "width", "class_object.html#a49ac59a7fb5c7c130ffc625af4384d08", null ]
 ];

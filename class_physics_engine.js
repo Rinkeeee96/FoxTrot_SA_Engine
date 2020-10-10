@@ -2,6 +2,7 @@ var class_physics_engine =
 [
     [ "PhysicsEngine", "class_physics_engine.html#a7fc9180ea453680df0b863fa157c5b92", null ],
     [ "~PhysicsEngine", "class_physics_engine.html#ae5f076ee99bbfdbc79ab2d27366d8476", null ],
+    [ "getObject", "class_physics_engine.html#a7f57185a4e18281af53f71edd985d0b5", null ],
     [ "Jump", "class_physics_engine.html#a91c7d87b41e0b547d6f0402b3524a4b6", null ],
     [ "JumpLeft", "class_physics_engine.html#ab6e39aa8c5bc1b1d3e35434ef1f9973d", null ],
     [ "JumpRight", "class_physics_engine.html#a9ab47875c09b96dd5f012d41e78224ea", null ],

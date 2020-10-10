@@ -61,6 +61,8 @@ $(document).ready(function(){initNavTree('class_scene_manager.html',''); initRes
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_scene_manager-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">SceneManager Class Reference</div>  </div>
@@ -115,10 +117,60 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a4c41ec2045324562ec9925daeda36fb7"><td class="memItemLeft" align="right" valign="top"><a id="a4c41ec2045324562ec9925daeda36fb7"></a>
 vector&lt; <a class="el" href="class_object.html">Object</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>pointerToCurrentObjectVector</b></td></tr>
 <tr class="separator:a4c41ec2045324562ec9925daeda36fb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:af389da14e5c53ef063275ec285e84293"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_manager.html#af389da14e5c53ef063275ec285e84293">checkIfSceneExists</a> (const int)</td></tr>
+<tr class="memdesc:af389da14e5c53ef063275ec285e84293"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to check if a scene exists.  <a href="class_scene_manager.html#af389da14e5c53ef063275ec285e84293">More...</a><br /></td></tr>
+<tr class="separator:af389da14e5c53ef063275ec285e84293"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a61fb6deaad8c240b54833caf36c1f19a"><td class="memItemLeft" align="right" valign="top"><a id="a61fb6deaad8c240b54833caf36c1f19a"></a>
+<a class="el" href="class_scene.html">Scene</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>currentScene</b> = nullptr</td></tr>
+<tr class="separator:a61fb6deaad8c240b54833caf36c1f19a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa16f9d77dc186aed1cd02964ff9518f"><td class="memItemLeft" align="right" valign="top"><a id="aaa16f9d77dc186aed1cd02964ff9518f"></a>
+vector&lt; <a class="el" href="class_scene.html">Scene</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>scenes</b></td></tr>
+<tr class="separator:aaa16f9d77dc186aed1cd02964ff9518f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains all scenes. Manages all scenes and objects. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="af389da14e5c53ef063275ec285e84293"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af389da14e5c53ef063275ec285e84293">&#9670;&nbsp;</a></span>checkIfSceneExists()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SceneManager::checkIfSceneExists </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>sceneID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A function to check if a scene exists. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sceneID</td><td>Identifier to a SceneID. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>If SceneID has a valid scene returns true else false </dd></dl>
+
+</div>
+</div>
 <a id="afded3decca827c4132711257eeeed4ca"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afded3decca827c4132711257eeeed4ca">&#9670;&nbsp;</a></span>createNewScene()</h2>
 

@@ -62,13 +62,14 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 
 <h3><a id="index_a"></a>- a -</h3><ul>
 <li>addEventListener()
-: <a class="el" href="class_engine.html#a45d2009b0d89d435f68251e150df4952">Engine</a>
+: <a class="el" href="class_engine.html#a458215d2926098d5bb760058214613aa">Engine</a>
 </li>
 <li>AddFile()
 : <a class="el" href="class_s_v_i.html#a0ac14ae17a76d06fa0c1aa898d62e0a5">SVI</a>
+, <a class="el" href="class_s_v_i_engine.html#a67df6e67fda34b58b5f8cf1e688d957e">SVIEngine</a>
 </li>
 <li>addNewObject()
-: <a class="el" href="class_scene.html#aa758f27e93e45bd4edbc6b3377ea5fb7">Scene</a>
+: <a class="el" href="class_scene.html#a73e52314df3ec8962c234ec56854030a">Scene</a>
 </li>
 <li>addNonStaticObject()
 : <a class="el" href="class_physics_facade.html#a59fed05d919471a83b5908ac6f32343c">PhysicsFacade</a>
@@ -82,22 +83,29 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <h3><a id="index_c"></a>- c -</h3><ul>
 <li>ChangeMusic()
 : <a class="el" href="class_s_v_i.html#a2702dc872fbf8a042f49dc7aac80f501">SVI</a>
+, <a class="el" href="class_s_v_i_engine.html#a814af4642f40c1e2a1991e5ed635a908">SVIEngine</a>
 </li>
 <li>checkIfObjectExists()
 : <a class="el" href="class_scene.html#aac71c7f4b71ed38cc8b6a794c7799fd6">Scene</a>
+</li>
+<li>checkIfSceneExists()
+: <a class="el" href="class_scene_manager.html#af389da14e5c53ef063275ec285e84293">SceneManager</a>
 </li>
 <li>clearScreen()
 : <a class="el" href="class_s_v_i.html#abc27796327ede7f6db11ae0e38fc643a">SVI</a>
 , <a class="el" href="class_s_v_i_engine.html#ad049fcc4df89edc1c28e6846023b618d">SVIEngine</a>
 </li>
 <li>createNewObjectWithSceneID()
-: <a class="el" href="class_engine.html#ac75e97d36626c0dc7af8128225fdf265">Engine</a>
+: <a class="el" href="class_engine.html#af1fc5d99f31a19eafce7ba2ad007a1ac">Engine</a>
 </li>
 <li>createNewScene()
 : <a class="el" href="class_scene_manager.html#afded3decca827c4132711257eeeed4ca">SceneManager</a>
 </li>
 <li>createNewSceneWithSceneID()
-: <a class="el" href="class_engine.html#ae23821c0f4229f207f20c0f4edca96e6">Engine</a>
+: <a class="el" href="class_engine.html#ab0ae6ddb59e7a0249c80f153481aaecc">Engine</a>
+</li>
+<li>createObject()
+: <a class="el" href="class_engine.html#a5ad59acaa6552f983352a3759b4fcf94">Engine</a>
 </li>
 </ul>
 
@@ -110,12 +118,27 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 </ul>
 
 
+<h3><a id="index_e"></a>- e -</h3><ul>
+<li>engineTick30()
+: <a class="el" href="class_engine.html#a3db3800cb4d022a4ea03ec2b2729320d">Engine</a>
+</li>
+<li>engineTick60()
+: <a class="el" href="class_engine.html#a4d2f80b56adcec8d2044f5c6ea3798aa">Engine</a>
+</li>
+</ul>
+
+
 <h3><a id="index_f"></a>- f -</h3><ul>
 <li>FadeInMusic()
 : <a class="el" href="class_s_v_i.html#a565f1007284abfce7b4cc745ccd384a8">SVI</a>
+, <a class="el" href="class_s_v_i_engine.html#a3f7482687f42201d0732330ee7c7cc60">SVIEngine</a>
 </li>
 <li>FadeOutMusic()
 : <a class="el" href="class_s_v_i.html#a3b5439903f09e0b7292d524d0e5a3b3b">SVI</a>
+, <a class="el" href="class_s_v_i_engine.html#a61243c961a610753ae78d13300f64668">SVIEngine</a>
+</li>
+<li>findBody()
+: <a class="el" href="class_physics_facade.html#a60324e2e674f8b0c43f3d1b659587d8f">PhysicsFacade</a>
 </li>
 <li>Flush()
 : <a class="el" href="class_s_v_i.html#aaba17ca235db498c262c010c404650c3">SVI</a>
@@ -125,7 +148,8 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 
 <h3><a id="index_g"></a>- g -</h3><ul>
 <li>getObject()
-: <a class="el" href="class_scene.html#a72486463c25db408ff5cf771bc6ba2b1">Scene</a>
+: <a class="el" href="class_physics_engine.html#a7f57185a4e18281af53f71edd985d0b5">PhysicsEngine</a>
+, <a class="el" href="class_scene.html#a72486463c25db408ff5cf771bc6ba2b1">Scene</a>
 </li>
 <li>getPhysicsObject()
 : <a class="el" href="class_physics_facade.html#ad75ac7ca0679788123d87d8fe88b537d">PhysicsFacade</a>
@@ -139,16 +163,19 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <h3><a id="index_i"></a>- i -</h3><ul>
 <li>IdentifierExists()
 : <a class="el" href="class_s_v_i.html#a7240ceb4cce2b56790a700f3a34f30a0">SVI</a>
+, <a class="el" href="class_s_v_i_engine.html#ad4c8d4e616732d2e341e4d87c82fb896">SVIEngine</a>
 </li>
 <li>IdentifierIsLoaded()
 : <a class="el" href="class_s_v_i.html#ae131b6e58d9f2c0efbece4550354d512">SVI</a>
+, <a class="el" href="class_s_v_i_engine.html#ad967f5680ded3e5a596e272e074a42e4">SVIEngine</a>
 </li>
 <li>initSDL()
 : <a class="el" href="class_s_v_i.html#a229a304d030b4754973d84a9b29a4eab">SVI</a>
 , <a class="el" href="class_s_v_i_engine.html#a56a3ce408e669f0fdf0f1e1774c4bd33">SVIEngine</a>
 </li>
 <li>input()
-: <a class="el" href="class_s_v_i_engine.html#af74f7ea60c7bdf0f80eaf44320013421">SVIEngine</a>
+: <a class="el" href="class_s_v_i.html#a4505f4fbcba83c4e8113cfd1aa2bbfe9">SVI</a>
+, <a class="el" href="class_s_v_i_engine.html#af74f7ea60c7bdf0f80eaf44320013421">SVIEngine</a>
 </li>
 </ul>
 
@@ -171,10 +198,11 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 
 <h3><a id="index_l"></a>- l -</h3><ul>
 <li>linkSpriteIDWithAssetPath()
-: <a class="el" href="class_engine.html#afaf48efac7f5143035a624de7561e298">Engine</a>
+: <a class="el" href="class_engine.html#a8f753dd2454bd84a3d58ce79284f1cb7">Engine</a>
 </li>
 <li>LoadEffect()
 : <a class="el" href="class_s_v_i.html#a046353faab55f68d8908a55096d7e7bb">SVI</a>
+, <a class="el" href="class_s_v_i_engine.html#a740daf0339e91141e35d3decfe9b9335">SVIEngine</a>
 </li>
 <li>loadImage()
 : <a class="el" href="class_s_v_i.html#a43515982a8eac6b99fb90b610713290b">SVI</a>
@@ -182,6 +210,10 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 </li>
 <li>LoadMusic()
 : <a class="el" href="class_s_v_i.html#a1e2ecda600e2fc76fb1ef71890038229">SVI</a>
+, <a class="el" href="class_s_v_i_engine.html#a3a66f9017d6617e5605826ec3ff6a027">SVIEngine</a>
+</li>
+<li>loadSpriteArray()
+: <a class="el" href="class_engine.html#a67d15ed7455059d7ca34003b859b0c86">Engine</a>
 </li>
 </ul>
 
@@ -195,13 +227,13 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 : <a class="el" href="class_scene_manager.html#adf57bcd6aa6279b84c9f7f3a965f4805">SceneManager</a>
 </li>
 <li>moveObjectBy()
-: <a class="el" href="class_engine.html#a016965c23dae1bf0bee7494fb3ec463c">Engine</a>
+: <a class="el" href="class_engine.html#a57503acb3c089dcb1724377f44a7f932">Engine</a>
 </li>
 <li>moveObjectRelative()
 : <a class="el" href="class_scene_manager.html#a33f92a8c8e376baf7ad3d77b4a32cc35">SceneManager</a>
 </li>
 <li>moveObjectTo()
-: <a class="el" href="class_engine.html#a615b01f5febe075f8e6dbf2449c5d116">Engine</a>
+: <a class="el" href="class_engine.html#af04bf4d1909e4f6add025a654b1d3b34">Engine</a>
 </li>
 <li>MoveRight()
 : <a class="el" href="class_physics_engine.html#a8249741588d894972e2bdc121fa60257">PhysicsEngine</a>
@@ -248,14 +280,19 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 </li>
 <li>PlayEffect()
 : <a class="el" href="class_s_v_i.html#abfe188c34308023cebd128bcd75a33d4">SVI</a>
+, <a class="el" href="class_s_v_i_engine.html#a1fd4bed3507e3be2a4c7acb8f5c423d9">SVIEngine</a>
 </li>
 <li>PlayMusic()
-: <a class="el" href="class_s_v_i.html#ab51119a4eaf1066dc60928905e1d2feb">SVI</a>
+: <a class="el" href="class_s_v_i.html#aa76512fd21cff64c48b0b0d315293f84">SVI</a>
+, <a class="el" href="class_s_v_i_engine.html#a880a6683977ca67285449167e5f37bb7">SVIEngine</a>
 </li>
 </ul>
 
 
 <h3><a id="index_r"></a>- r -</h3><ul>
+<li>receiveTick()
+: <a class="el" href="class_s_v_i_engine.html#a5158f765804db94f4074ba3c357d2aec">SVIEngine</a>
+</li>
 <li>registerObjectInCurrentVectorWithPhysicsEngine()
 : <a class="el" href="class_physics_engine.html#a395053a3efe7baf0d5154a204b81b062">PhysicsEngine</a>
 </li>
@@ -283,35 +320,44 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 : <a class="el" href="class_scene_manager.html#a52085e6737c23b491c228e86781af808">SceneManager</a>
 </li>
 <li>setCurrentScene()
-: <a class="el" href="class_engine.html#ae1670099cd0f4c7a5114eb4e932f5b59">Engine</a>
+: <a class="el" href="class_engine.html#afacb7e390439a2603729200ea99177b0">Engine</a>
 , <a class="el" href="class_scene_manager.html#a3668167e7d70c9000f21c7e7f38bfad2">SceneManager</a>
 </li>
 <li>SetFiles()
 : <a class="el" href="class_s_v_i.html#a349d31219f9d305eab70fc2247c4fa43">SVI</a>
+, <a class="el" href="class_s_v_i_engine.html#a2e6a076f7f75f878acec34c252682b7f">SVIEngine</a>
 </li>
 <li>setObjectDirection()
-: <a class="el" href="class_engine.html#a9266ca04cd93428922c838f2c1e2572c">Engine</a>
+: <a class="el" href="class_engine.html#a1209f5318cbb247c77d1921991bb2c7e">Engine</a>
 , <a class="el" href="class_scene_manager.html#a741f0d359f3c3281ff33d671e32766e9">SceneManager</a>
 </li>
 <li>setObjectRotation()
-: <a class="el" href="class_engine.html#a67a6d56e4423e3d5aeb76b374853e8e5">Engine</a>
+: <a class="el" href="class_engine.html#a7c9b9d2a5ab7301790089ff2535bb7ca">Engine</a>
 </li>
 <li>setObjectScale()
-: <a class="el" href="class_engine.html#ab45bcc5eae4cb8f09a91b09796fe1d13">Engine</a>
+: <a class="el" href="class_engine.html#a893ee66e7a96375be45d25b10b1635dc">Engine</a>
 , <a class="el" href="class_scene_manager.html#abb9fdca9ebc2284758c9f6c70726b1e0">SceneManager</a>
 </li>
 <li>setObjectStatic()
-: <a class="el" href="class_engine.html#af07579133a99b7650e781a23cacd0b55">Engine</a>
+: <a class="el" href="class_engine.html#a8f2848f31ead1e4c54b5d8e7f3417dad">Engine</a>
 , <a class="el" href="class_scene_manager.html#a91c4a3b719b0c488e9c9e64fd1f6a7ec">SceneManager</a>
 </li>
 <li>StartLoopedEffect()
 : <a class="el" href="class_s_v_i.html#a334e4fff9115ef7c714acf0bd4a1b750">SVI</a>
+, <a class="el" href="class_s_v_i_engine.html#aafde2dc0c49d4005ef08566342e5c4b3">SVIEngine</a>
+</li>
+<li>startTickThreads()
+: <a class="el" href="class_engine.html#a32cfa84cab0fa0ed5e09b0f8ce3db41c">Engine</a>
 </li>
 <li>StopLoopedEffect()
 : <a class="el" href="class_s_v_i.html#a643e8010f0c08253f905ad317295c5b6">SVI</a>
+, <a class="el" href="class_s_v_i_engine.html#a3c4d5ae2042cac3adb4272916b2f6015">SVIEngine</a>
 </li>
 <li>StopMusic()
 : <a class="el" href="class_s_v_i.html#a85f8151d0d914a97ca66ab3629abcebf">SVI</a>
+</li>
+<li>stopTickThreads()
+: <a class="el" href="class_engine.html#a8c4b8e69dcf1537e433053790733e143">Engine</a>
 </li>
 <li>subscribe()
 : <a class="el" href="class_event_manager.html#a7193027e0b43497da76ba9c8344d9ffa">EventManager</a>
@@ -322,6 +368,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <h3><a id="index_u"></a>- u -</h3><ul>
 <li>UnloadEffect()
 : <a class="el" href="class_s_v_i.html#a74a0fa8bcf98530bfc2d7991bd099157">SVI</a>
+, <a class="el" href="class_s_v_i_engine.html#a74eef58fdcc9070de45192617af922a6">SVIEngine</a>
 </li>
 <li>unsubscribe()
 : <a class="el" href="class_event_manager.html#a1b76f82ad25cee486939bec99db701b2">EventManager</a>
@@ -329,6 +376,9 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <li>update()
 : <a class="el" href="class_physics_facade.html#a385afe67398479d31386edfc92371bd2">PhysicsFacade</a>
 , <a class="el" href="class_s_v_i_engine.html#ad8b2212c311b1d520a9d411f543628f1">SVIEngine</a>
+</li>
+<li>update30()
+: <a class="el" href="class_physics_engine.html#a60bbab82ca72d53f45865ca012a3926e">PhysicsEngine</a>
 </li>
 <li>updateScreen()
 : <a class="el" href="class_s_v_i_engine.html#af716029699dc7408565581f66fc14c8b">SVIEngine</a>

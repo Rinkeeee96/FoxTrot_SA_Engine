@@ -7,5 +7,7 @@ var class_scene =
     [ "checkIfObjectExists", "class_scene.html#aac71c7f4b71ed38cc8b6a794c7799fd6", null ],
     [ "getObject", "class_scene.html#a72486463c25db408ff5cf771bc6ba2b1", null ],
     [ "getPtrToObjects", "class_scene.html#a85bcd58ee7edb41cd93550c1d8fab2d8", null ],
-    [ "getSceneID", "class_scene.html#a673aa1c80fd3dd735cfc353f8fc20d9f", null ]
+    [ "getSceneID", "class_scene.html#a673aa1c80fd3dd735cfc353f8fc20d9f", null ],
+    [ "objects", "class_scene.html#ae8e53f973297c858c89fcec9d93ac174", null ],
+    [ "sceneID", "class_scene.html#a4b9a37b8f4701eb269ff2a92dc429d1a", null ]
 ];
