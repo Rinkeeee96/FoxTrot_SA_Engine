@@ -30,3 +30,7 @@
 // https://gamedev.net/forums/topic/685960-the-39perfect39-game-loop-fix-your-time-step-by-step/5330446/
 // limiting op basis van static constanten is a big nono 
 // https://www.gamedev.net/forums/topic/665939-how-to-limit-your-fps/
+
+#include "box2d.h"
+
+b2Vec2 gravity(0.0f, -10.0f);
