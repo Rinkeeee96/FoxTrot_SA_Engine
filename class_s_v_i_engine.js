@@ -25,7 +25,7 @@ var class_s_v_i_engine =
     [ "PlayMusic", "class_s_v_i_engine.html#ab06841577c482cb5fb14f5539afc1b93", null ],
     [ "receiveTick", "class_s_v_i_engine.html#a5158f765804db94f4074ba3c357d2aec", null ],
     [ "renderCopy", "class_s_v_i_engine.html#abb0a23dbc89640840948c704b1d40217", null ],
-    [ "renderCopy", "class_s_v_i_engine.html#a46eeb068f1eb207a1b2085db923066b8", null ],
+    [ "renderCopy", "class_s_v_i_engine.html#a0a3665bd10ba1360db1b2e90328655c5", null ],
     [ "ResumeMusic", "class_s_v_i_engine.html#afdd579bd159f2512ce2122f79271e33c", null ],
     [ "RewindMusic", "class_s_v_i_engine.html#acd05ef52b4109924bbcc5a3b0b506b54", null ],
     [ "SetFiles", "class_s_v_i_engine.html#a2e6a076f7f75f878acec34c252682b7f", null ],
