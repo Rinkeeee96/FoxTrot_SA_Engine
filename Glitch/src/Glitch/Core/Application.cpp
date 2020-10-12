@@ -25,6 +25,8 @@ namespace Glitch {
 		{
 			m_window->OnUpdate();
 			renderer->OnUpdate();
+					// TODO rename
+			physics.update30();
 			// etc. OnUpdate();
 		}
 	}

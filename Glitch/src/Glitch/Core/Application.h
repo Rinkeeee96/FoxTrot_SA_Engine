@@ -3,6 +3,7 @@
 #include "Glitch/Renderer/window.h"
 #include <Glitch\Renderer\SceneManager\SceneManager.h>
 #include <Glitch\Renderer\Renderer2d.h>
+#include <Glitch\Physics\PhysicsEngine.h>
 
 namespace Glitch {
 	class GLITCH_API Application
@@ -15,10 +16,11 @@ namespace Glitch {
 
 		void OnEvent(Event& e);
 
-	private:
+	protected:
 		ISDL2Facade* sdlFacade;
+		PhysicsEngine physics;
 		
-		SceneManager* sceneManager;
+		SceneManager* sceneManager = new SceneManager();
 		Renderer2d* renderer;
 
 

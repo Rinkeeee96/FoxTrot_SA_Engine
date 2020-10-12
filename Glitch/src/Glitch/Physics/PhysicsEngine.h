@@ -1,9 +1,10 @@
 #pragma once
 
 #include "PhysicsFacade.h"
+#include "Glitch/Core/Core.h"
 
 namespace Glitch {
-	class PhysicsEngine
+	class GLITCH_API PhysicsEngine
 	{
 	public:
 		vector <Object*>* pointerToObjectVector = nullptr;

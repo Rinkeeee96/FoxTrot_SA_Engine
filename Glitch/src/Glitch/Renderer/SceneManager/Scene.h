@@ -14,6 +14,8 @@ namespace Glitch {
 		~Scene();
 
 		void addNewObject(int id, int xPos, int yPos, int height, int width);
+		void addNewObject(Object* object);
+
 		Object* getObject(int spriteID);
 
 		int getSceneID() { return sceneID; }
@@ -22,6 +24,5 @@ namespace Glitch {
 	private:
 		int sceneID = 0;
 		vector<Object*> objects;
-
 	};
 }

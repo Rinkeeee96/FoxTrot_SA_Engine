@@ -16,6 +16,9 @@
 // -- EntryPoint -------------------------------
 #include "Glitch/EntryPoint.h"
 // ---------------------------------------------
+// -- Physics -------------------------------
+#include "Glitch/Physics/PhysicsEngine.h"
+// ---------------------------------------------
 
 // TODO Physics implementeren
 // TODO Sound overzetten
