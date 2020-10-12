@@ -94,7 +94,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_mixer.lib;SDL2_ttf.lib;SDL2_image.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>..\bin\Debug-windows-x86_64\Glitch\Glitch.lib</ImportLibrary>
-      <AdditionalLibraryDirectories>vendor\box2d-master\build\src\dabug;vendor\SDL2\lib\x64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>vendor\box2d-master\build;vendor\SDL2\lib\x64</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>IF EXIST ..\bin\Debug-windows-x86_64\Glitch\Glitch.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Glitch\Glitch.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\Glitch\Glitch.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul)</Command>
