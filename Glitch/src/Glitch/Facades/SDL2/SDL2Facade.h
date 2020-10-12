@@ -4,6 +4,7 @@
 #include <unordered_map>
 #include "Glitch/Renderer/WindowProps.h"
 #include "Glitch/Facades/SDL2/ISDL2Facade.h"
+#include <Glitch\Core\Object.h>
 
 #undef main
 namespace Glitch {
@@ -22,6 +23,7 @@ namespace Glitch {
 		void drawScreen();
 		void loadImage(int spriteID, const char* filename);
 		void renderCopy(int spriteID, int xPos, int yPos, int width, int height, int rotation);
+		//void renderCopy(Object* o);
 
 		void deallocateSurface();
 		SDL_Window* getWindow() { return window; }

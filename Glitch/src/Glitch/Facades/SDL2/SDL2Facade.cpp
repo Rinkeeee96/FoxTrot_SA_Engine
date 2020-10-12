@@ -52,6 +52,24 @@ namespace Glitch {
 		SDL_RenderCopyEx(renderer, textureMap[spriteID], NULL, &destination, rotation, NULL, SDL_FLIP_NONE);
 	}
 
+	//void SDL2Facade::renderCopy(Object* o)
+	//{
+	//	// TODO
+	//	//if (textureMap[spriteID] == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_SPRITE_ID_IS_NULL;
+	//	//if (xPos == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_XPOS_IS_NULL;
+	//	//if (yPos == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_YPOS_IS_NULL;
+	//	//if (height == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_HEIGHT_IS_NULL;
+	//	//if (width == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_WIDTH_IS_NULL;
+	//	//if (rotation == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_ROTATION_IS_NULL;
+
+	//	SDL_Rect destination;
+	//	destination.x = o->getPositionX();
+	//	destination.y = o->getPositionY();
+	//	destination.w = o->getWidth();
+	//	destination.h = o->getHeight();
+	//	SDL_RenderCopyEx(renderer, textureMap[o->getSpriteID()], NULL, &destination, o->getRotation(), NULL, SDL_FLIP_NONE);
+	//}
+
 	void SDL2Facade::loadImage(int spriteID, const char* filename)
 	{
 		if (spriteID == NULL) throw ERROR_CODE_SVIFACADE_LOADIMAGE_SPRITE_ID_IS_NULL;

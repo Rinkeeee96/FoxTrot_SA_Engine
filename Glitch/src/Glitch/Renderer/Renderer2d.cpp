@@ -14,6 +14,16 @@ namespace Glitch {
 	void Renderer2d::OnUpdate()
 	{
 		clearScreen();
+
+		//if (pointerToObjectVector == nullptr) return;
+		////if (pointerToObjectVector->capacity() <= 0) return;
+		//if (pointerToObjectVector->size() <= 0) return;
+		//for (Object* obj : *pointerToObjectVector) {
+		//	if (obj != nullptr) {
+		//		facadeTest->renderCopy(obj);
+		//	}
+		//}
+
 		drawScreen();
 		// TODO draw object vector
 	}
@@ -58,6 +68,4 @@ namespace Glitch {
 	{
 		facadeTest->renderCopy(spriteID, xPos, yPos, width, height, rotation);
 	}
-
-
 }

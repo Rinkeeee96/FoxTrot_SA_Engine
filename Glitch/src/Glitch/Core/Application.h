@@ -23,7 +23,6 @@ namespace Glitch {
 		SceneManager* sceneManager = new SceneManager();
 		Renderer2d* renderer;
 
-
 		bool OnWindowClose(WindowCloseEvent& e);
 		std::unique_ptr<Window> m_window;
 		bool isRunning = true;

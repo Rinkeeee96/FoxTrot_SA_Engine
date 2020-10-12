@@ -20,6 +20,7 @@ namespace Glitch {
 		virtual void drawScreen() = 0;
 		virtual void loadImage(int spriteID, const char* filename) = 0;
 		virtual void renderCopy(int spriteID, int xPos, int yPos, int width, int height, int rotation) = 0;
+		//virtual void renderCopy(Glitch::Object* o) = 0;
 		virtual void deallocateSurface() = 0;
 
 		virtual void Init() = 0;
