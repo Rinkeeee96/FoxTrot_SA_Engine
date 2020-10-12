@@ -69,6 +69,10 @@
     <ClInclude Include="src\Glitch\Renderer\WindowProps.h" />
     <ClInclude Include="src\Glitch\Facades\SDL2\SDL2Facade.h" />
     <ClInclude Include="src\Glitch\Facades\SDL2\ISDL2Facade.h" />
+    <ClInclude Include="src\Glitch\Physics\PhysicsFacade.h" />
+    <ClInclude Include="src\Glitch\Physics\PhysicsEngine.h" />
+    <ClInclude Include="src\Glitch\Physics\PhysicsBody.h" />
+    <ClInclude Include="src\Glitch\Physics\IPhysicsFacade.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Glitch\Log\Log.cpp">
@@ -89,5 +93,8 @@
     </ClCompile>
     <ClCompile Include="src\Glitch\Renderer\Renderer2d.cpp" />
     <ClCompile Include="src\Glitch\Facades\SDL2\SDL2Facade.cpp" />
+    <ClCompile Include="src\Glitch\Physics\PhysicsEngine.cpp" />
+    <ClCompile Include="src\Glitch\Physics\PhysicsFacade.cpp" />
+    <ClCompile Include="src\Glitch\Physics\PhysicsBody.cpp" />
   </ItemGroup>
 </Project>

@@ -159,6 +159,10 @@
     <ClInclude Include="src\Glitch\Events\ObjectEventCodes.h" />
     <ClInclude Include="src\Glitch\Events\ObjectEvents.h" />
     <ClInclude Include="src\Glitch\ISystem.h" />
+    <ClInclude Include="src\Glitch\Physics\IPhysicsFacade.h" />
+    <ClInclude Include="src\Glitch\Physics\PhysicsBody.h" />
+    <ClInclude Include="src\Glitch\Physics\PhysicsEngine.h" />
+    <ClInclude Include="src\Glitch\Physics\PhysicsFacade.h" />
     <ClInclude Include="src\Glitch\Renderer\Renderer2d.h" />
     <ClInclude Include="src\Glitch\Renderer\SceneManager\Scene.h" />
     <ClInclude Include="src\Glitch\Renderer\SceneManager\SceneManager.h" />
@@ -184,6 +188,9 @@
   <ItemGroup>
     <ClCompile Include="src\Glitch\Facades\SDL2\SDL2Facade.cpp" />
     <ClCompile Include="src\Glitch\Core\Object.cpp" />
+    <ClCompile Include="src\Glitch\Physics\PhysicsBody.cpp" />
+    <ClCompile Include="src\Glitch\Physics\PhysicsEngine.cpp" />
+    <ClCompile Include="src\Glitch\Physics\PhysicsFacade.cpp" />
     <ClCompile Include="src\Glitch\Renderer\Renderer2d.cpp" />
     <ClCompile Include="src\Glitch\Renderer\SceneManager\Scene.cpp" />
     <ClCompile Include="src\Glitch\Renderer\SceneManager\SceneManager+ObjectModifiers.cpp" />
