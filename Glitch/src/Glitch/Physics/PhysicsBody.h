@@ -1,10 +1,8 @@
 #pragma once
-
-#include "Glitch/Core/Core.h"
-#include <Glitch.h>
+#include <Glitch\Core\Object.h>
 
 namespace Glitch {
-	class GLITCH_API PhysicsBody
+	class PhysicsBody
 	{
 	public:
 		PhysicsBody(Object* object);

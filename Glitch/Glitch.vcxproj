@@ -84,7 +84,7 @@
       <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\SDL2\include;vendor\box2d-master\include\box2d;vendor\box2d\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ForcedIncludeFiles>
       </ForcedIncludeFiles>

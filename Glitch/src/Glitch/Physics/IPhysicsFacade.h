@@ -1,12 +1,11 @@
 #pragma once
 
-#include "Glitch/Core/Core.h"
 #include "PhysicsBody.h"
 
 /// @brief 
 /// Interface facade for all physics actions
 namespace Glitch {
-	class GLITCH_API IPhysicsFacade
+	class IPhysicsFacade
 	{
 	public:
 		IPhysicsFacade() {};

@@ -1,13 +1,7 @@
 #pragma once
 #include "IPhysicsFacade.h"
 
-#include <unordered_map>
 #include "PhysicsBody.h"
-#include "string"
-#include <iostream>
-#include <map>
-#include "Glitch/Core/Core.h"
-
 #include "box2d.h"
 
 using namespace std;
@@ -28,7 +22,7 @@ using namespace std;
 namespace Glitch {
 	/// @brief 
 	/// PhysicsFacade class. Class for update physics off objects
-	class GLITCH_API PhysicsFacade : public IPhysicsFacade
+	class PhysicsFacade : public IPhysicsFacade
 	{
 	public:
 		PhysicsFacade();
@@ -53,6 +47,5 @@ namespace Glitch {
 
 		b2Body* findBody(const int objectId);
 		map <PhysicsBody*, b2Body*> bodies;
-
 	};
 }

@@ -5,6 +5,7 @@
 #include "Glitch/Renderer/WindowProps.h"
 #include "Glitch/Facades/SDL2/ISDL2Facade.h"
 
+#undef main
 namespace Glitch {
 	class GLITCH_API SDL2Facade : public ISDL2Facade
 	{
