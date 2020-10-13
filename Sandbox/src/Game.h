@@ -64,6 +64,3 @@ public:
 	};
 	~Game() {};
 };
-Glitch::Application* Glitch::CreateApplication() {
-	return new Game();
-}
