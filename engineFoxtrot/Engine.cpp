@@ -226,5 +226,5 @@ void Engine::fps() {
 	framespersecond /= count;
 
 	framespersecond = 1000.f / framespersecond;
-	cout << round(framespersecond) << " fps (" << framespersecond << ") - Tick diff: " << endl;
+	cout << round(framespersecond) << " fps (" << framespersecond << ")" << endl;
 }
