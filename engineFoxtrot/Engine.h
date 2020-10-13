@@ -29,6 +29,8 @@
 #define	ENGINE_TICK60	 17
 #define ENGINE_TICK30	 33
 
+#define FRAME_VALUES 10
+
 /// @brief 
 #if(EXPORT)
 class DLLEXPORT Engine
@@ -47,6 +49,13 @@ public:
 	void engineTick30();
 	void startTickThreads();
 	void stopTickThreads();
+
+	//Fps
+	void fps();
+	int framecount;
+	int frametimes[FRAME_VALUES];
+	int frametimelast;
+	int framespersecond;
 
 	atomic_bool stopThreadTick60 = false;
 	atomic_bool stopThreadTick30 = false;

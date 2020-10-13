@@ -131,10 +131,14 @@ void Engine::engineTick60()
 {
 	cout << "Thread started" << endl;
 	while (!stopThreadTick60){
+		fps();
 		//eventManager.notify(EventType::ENGINE60, new Object);
-
-		this_thread::sleep_for(chrono::milliseconds(ENGINE_TICK60));
+		int startTicks = SDL_GetTicks();
 		eventManager.notify(EventType::ENGINE60, new Object(1));
+		physicsEngine.update30();
+		int endTicks = SDL_GetTicks();
+		int diff = endTicks - startTicks;
+		this_thread::sleep_for(chrono::milliseconds(1000/60 - diff));
 		//svi.receiveTick();
 	}
 
@@ -150,7 +154,7 @@ void Engine::engineTick30()
 		this_thread::sleep_for(chrono::milliseconds(ENGINE_TICK30));
 
 		//eventManager.notify(EventType::ENGINE30, new Object);
-		physicsEngine.update30();
+		//physicsEngine.update30();
 
 	}
 	cout << "Thread killed 30" << endl;
@@ -184,3 +188,43 @@ void Engine::addEventListener(EventListener* listener, const EventType eventType
     eventManager.subscribe(eventType, listener);
 }
 
+/// @brief
+/// Calculates the average fps based on the last few fps values
+void Engine::fps() {
+	Uint32 frametimesindex;
+	Uint32 getticks;
+	Uint32 count;
+	Uint32 i;
+	const int frames = 10;
+
+	// frametimesindex is the position in the array. It ranges from 0 to FRAME_VALUES.
+	// This value rotates back to 0 after it hits FRAME_VALUES.
+	frametimesindex = framecount % frames;
+
+	getticks = SDL_GetTicks();
+
+	frametimes[frametimesindex] = getticks - frametimelast;
+
+	frametimelast = getticks;
+
+	framecount++;
+
+	if (framecount < frames) {
+		count = framecount;
+	}
+	else {
+		count = frames;
+	}
+
+	framespersecond = 0;
+	for (i = 0; i < count; i++) {
+
+		framespersecond += frametimes[i];
+
+	}
+
+	framespersecond /= count;
+
+	framespersecond = 1000.f / framespersecond;
+	cout << round(framespersecond) << " fps (" << framespersecond << ") - Tick diff: " << endl;
+}
