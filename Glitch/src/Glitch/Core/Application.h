@@ -20,7 +20,7 @@ namespace Glitch {
 		ISDL2Facade* sdlFacade;
 		PhysicsEngine physics;
 		
-		SceneManager* sceneManager = new SceneManager();
+		SceneManager sceneManager;
 		Renderer2d* renderer;
 
 		bool OnWindowClose(WindowCloseEvent& e);
