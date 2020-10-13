@@ -1,22 +1,4 @@
-﻿  D:\Github\Game\FoxTrot_SA_Engine\Glitch\vendor\SDL2\lib\x64\libFLAC-8.dll
-  D:\Github\Game\FoxTrot_SA_Engine\Glitch\vendor\SDL2\lib\x64\libfreetype-6.dll
-  D:\Github\Game\FoxTrot_SA_Engine\Glitch\vendor\SDL2\lib\x64\libjpeg-9.dll
-  D:\Github\Game\FoxTrot_SA_Engine\Glitch\vendor\SDL2\lib\x64\libmodplug-1.dll
-  D:\Github\Game\FoxTrot_SA_Engine\Glitch\vendor\SDL2\lib\x64\libmpg123-0.dll
-  D:\Github\Game\FoxTrot_SA_Engine\Glitch\vendor\SDL2\lib\x64\libogg-0.dll
-  D:\Github\Game\FoxTrot_SA_Engine\Glitch\vendor\SDL2\lib\x64\libopus-0.dll
-  D:\Github\Game\FoxTrot_SA_Engine\Glitch\vendor\SDL2\lib\x64\libopusfile-0.dll
-  D:\Github\Game\FoxTrot_SA_Engine\Glitch\vendor\SDL2\lib\x64\libpng16-16.dll
-  D:\Github\Game\FoxTrot_SA_Engine\Glitch\vendor\SDL2\lib\x64\libtiff-5.dll
-  D:\Github\Game\FoxTrot_SA_Engine\Glitch\vendor\SDL2\lib\x64\libvorbis-0.dll
-  D:\Github\Game\FoxTrot_SA_Engine\Glitch\vendor\SDL2\lib\x64\libvorbisfile-3.dll
-  D:\Github\Game\FoxTrot_SA_Engine\Glitch\vendor\SDL2\lib\x64\libwebp-7.dll
-  D:\Github\Game\FoxTrot_SA_Engine\Glitch\vendor\SDL2\lib\x64\SDL2.dll
-  D:\Github\Game\FoxTrot_SA_Engine\Glitch\vendor\SDL2\lib\x64\SDL2_image.dll
-  D:\Github\Game\FoxTrot_SA_Engine\Glitch\vendor\SDL2\lib\x64\SDL2_mixer.dll
-  D:\Github\Game\FoxTrot_SA_Engine\Glitch\vendor\SDL2\lib\x64\SDL2_ttf.dll
-  D:\Github\Game\FoxTrot_SA_Engine\Glitch\vendor\SDL2\lib\x64\zlib1.dll
-  18 File(s) copied
+﻿  0 File(s) copied
   0 File(s) copied
   Game.cpp
 D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Log\log.h(17,56): warning C4251: 'Glitch::Log::s_ClientLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'Glitch::Log'
@@ -26,7 +8,7 @@ D:\Github\Game\FoxTrot_SA_Engine\Glitch\vendor\spdlog\include\spdlog\details\reg
 D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Core\Object.h(62,14): warning C4251: 'Glitch::Object::name': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Glitch::Object'
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\xstring(4564): message : see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
 D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Facades\SDL2\SDL2Facade.h(12,2): warning C4275: non dll-interface class 'Glitch::ISDL2Facade' used as base for dll-interface class 'Glitch::SDL2Facade'
-D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Facades\SDL2\ISDL2Facade.h(4): message : see declaration of 'Glitch::ISDL2Facade'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Facades\SDL2\ISDL2Facade.h(5): message : see declaration of 'Glitch::ISDL2Facade'
 D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Facades\SDL2\SDL2Facade.h(11): message : see declaration of 'Glitch::SDL2Facade'
 D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Facades\SDL2\SDL2Facade.h(38,46): warning C4251: 'Glitch::SDL2Facade::textureMap': class 'std::unordered_map<int,SDL_Texture *,std::hash<int>,std::equal_to<int>,std::allocator<std::pair<const int,SDL_Texture *>>>' needs to have dll-interface to be used by clients of class 'Glitch::SDL2Facade'
 D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Facades\SDL2\SDL2Facade.h(38): message : see declaration of 'std::unordered_map<int,SDL_Texture *,std::hash<int>,std::equal_to<int>,std::allocator<std::pair<const int,SDL_Texture *>>>'
