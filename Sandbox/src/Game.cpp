@@ -60,8 +60,7 @@ public:
 
 
 		sceneManager.setCurrentScene(3);
-		std::vector<Glitch::Object*> o = sceneManager.getSceneWithID(3)->getPtrToObjects();
-		physics.pointerToObjectVector = &o;
+	
 		physics.registerObjectInCurrentVectorWithPhysicsEngine();
 	};
 	~Game() {};
