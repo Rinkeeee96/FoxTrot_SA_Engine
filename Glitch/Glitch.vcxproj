@@ -164,8 +164,8 @@
     <ClInclude Include="src\Glitch\Physics\PhysicsEngine.h" />
     <ClInclude Include="src\Glitch\Physics\PhysicsFacade.h" />
     <ClInclude Include="src\Glitch\Renderer\Renderer2d.h" />
-    <ClInclude Include="src\Glitch\Renderer\SceneManager\Scene.h" />
-    <ClInclude Include="src\Glitch\Renderer\SceneManager\SceneManager.h" />
+    <ClInclude Include="src\Glitch\SceneManager\Scene.h" />
+    <ClInclude Include="src\Glitch\SceneManager\SceneManager.h" />
     <ClInclude Include="src\Glitch\Renderer\WindowProps.h" />
     <ClInclude Include="src\Glitch\Sound\SoundEngine.h" />
     <ClInclude Include="src\Glitch.h" />
@@ -192,9 +192,9 @@
     <ClCompile Include="src\Glitch\Physics\PhysicsEngine.cpp" />
     <ClCompile Include="src\Glitch\Physics\PhysicsFacade.cpp" />
     <ClCompile Include="src\Glitch\Renderer\Renderer2d.cpp" />
-    <ClCompile Include="src\Glitch\Renderer\SceneManager\Scene.cpp" />
-    <ClCompile Include="src\Glitch\Renderer\SceneManager\SceneManager+ObjectModifiers.cpp" />
-    <ClCompile Include="src\Glitch\Renderer\SceneManager\SceneManager.cpp" />
+    <ClCompile Include="src\Glitch\SceneManager\Scene.cpp" />
+    <ClCompile Include="src\Glitch\SceneManager\SceneManager+ObjectModifiers.cpp" />
+    <ClCompile Include="src\Glitch\SceneManager\SceneManager.cpp" />
     <ClCompile Include="src\Glitch\Sound\SoundEngine.cpp" />
     <ClCompile Include="src\Glitch\Core\Application.cpp" />
     <ClCompile Include="src\Glitch\General\HelperFunctions.cpp" />

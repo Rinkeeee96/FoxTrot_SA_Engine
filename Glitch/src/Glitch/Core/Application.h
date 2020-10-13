@@ -1,7 +1,7 @@
 #pragma once
 #include "Core.h"
 #include "Glitch/Renderer/window.h"
-#include <Glitch\Renderer\SceneManager\SceneManager.h>
+#include <Glitch\SceneManager\SceneManager.h>
 #include <Glitch\Renderer\Renderer2d.h>
 #include <Glitch\Physics\PhysicsEngine.h>
 
@@ -15,7 +15,6 @@ namespace Glitch {
 		void Run();
 
 		void OnEvent(Event& e);
-
 	protected:
 		ISDL2Facade* sdlFacade;
 		PhysicsEngine physics;

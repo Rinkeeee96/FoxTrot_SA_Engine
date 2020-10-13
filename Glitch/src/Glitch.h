@@ -7,8 +7,8 @@
 #include "Glitch/Events/Event.h"
 // ---------------------------------------------
 // -- SceneManager -----------------------------
-#include "Glitch/Renderer/SceneManager/SceneManager.h"
-#include "Glitch/Renderer/SceneManager/Scene.h"
+#include "Glitch/SceneManager/SceneManager.h"
+#include "Glitch/SceneManager/Scene.h"
 // ---------------------------------------------
 // -- SoundEngine ------------------------------
 #include "Glitch/Sound/SoundEngine.h"
