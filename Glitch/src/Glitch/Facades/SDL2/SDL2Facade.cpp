@@ -21,9 +21,8 @@ namespace Glitch {
 
 	void SDL2Facade::deallocateSurface()
 	{
-		//Deallocate surface
-		SDL_FreeSurface(screenSurface);
-		screenSurface = NULL;
+		//Deallocate surfaces
+
 	}
 
 	/// @brief 
@@ -36,6 +35,7 @@ namespace Glitch {
 	/// @param rotation 
 	void SDL2Facade::renderCopy(Object& object)
 	{
+
 		// TODO
 		//if (textureMap[spriteID] == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_SPRITE_ID_IS_NULL;
 		//if (xPos == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_XPOS_IS_NULL;
@@ -43,13 +43,14 @@ namespace Glitch {
 		//if (height == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_HEIGHT_IS_NULL;
 		//if (width == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_WIDTH_IS_NULL;
 		//if (rotation == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_ROTATION_IS_NULL;
-		// changed to frect to avoid dataloss
-		SDL_FRect destination;
+		// TODO find out why floats ruin stuff
+		SDL_Rect destination;
 		destination.x = object.getPositionX();	
-		destination.y = object.getPositionY();
+		destination.y = object.getPositionY() - object.getHeight();
 		destination.w = object.getWidth();
 		destination.h = object.getHeight();
-		SDL_RenderCopyEx(renderer, textureMap[object.getSpriteID()], NULL, &destination, object.getRotation(), NULL, SDL_FLIP_NONE);
+
+		SDL_RenderCopy(renderer, textureMap[object.getSpriteID()], nullptr, &destination);
 	}
 
 	//void SDL2Facade::renderCopy(Object* o)
@@ -78,6 +79,7 @@ namespace Glitch {
 		SDL_Surface* surface = IMG_Load(filename);
 		SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
 		textureMap[spriteID] = texture;
+		SDL_FreeSurface(surface);
 		// ----
 	}
 
