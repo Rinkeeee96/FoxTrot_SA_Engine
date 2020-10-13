@@ -1,0 +1,47 @@
+﻿  Application.cpp
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Core\Object.h(62,14): warning C4251: 'Glitch::Object::name': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Glitch::Object'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\xstring(4564): message : see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Facades\SDL2\SDL2Facade.h(12,2): warning C4275: non dll-interface class 'Glitch::ISDL2Facade' used as base for dll-interface class 'Glitch::SDL2Facade'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Facades\SDL2\ISDL2Facade.h(5): message : see declaration of 'Glitch::ISDL2Facade'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Facades\SDL2\SDL2Facade.h(11): message : see declaration of 'Glitch::SDL2Facade'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Facades\SDL2\SDL2Facade.h(38,46): warning C4251: 'Glitch::SDL2Facade::textureMap': class 'std::unordered_map<int,SDL_Texture *,std::hash<int>,std::equal_to<int>,std::allocator<std::pair<const int,SDL_Texture *>>>' needs to have dll-interface to be used by clients of class 'Glitch::SDL2Facade'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Facades\SDL2\SDL2Facade.h(38): message : see declaration of 'std::unordered_map<int,SDL_Texture *,std::hash<int>,std::equal_to<int>,std::allocator<std::pair<const int,SDL_Texture *>>>'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Renderer\SceneManager\Scene.h(26,26): warning C4251: 'Glitch::Scene::objects': class 'std::vector<Glitch::Object *,std::allocator<Glitch::Object *>>' needs to have dll-interface to be used by clients of class 'Glitch::Scene'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Renderer\SceneManager\Scene.h(22): message : see declaration of 'std::vector<Glitch::Object *,std::allocator<Glitch::Object *>>'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Renderer\SceneManager\SceneManager.h(28,48): warning C4251: 'Glitch::SceneManager::pointerToCurrentObjectVector': class 'std::vector<Glitch::Object *,std::allocator<Glitch::Object *>>' needs to have dll-interface to be used by clients of class 'Glitch::SceneManager'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Renderer\SceneManager\Scene.h(22): message : see declaration of 'std::vector<Glitch::Object *,std::allocator<Glitch::Object *>>'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Renderer\SceneManager\SceneManager.h(39,25): warning C4251: 'Glitch::SceneManager::scenes': class 'std::vector<Glitch::Scene *,std::allocator<Glitch::Scene *>>' needs to have dll-interface to be used by clients of class 'Glitch::SceneManager'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Renderer\SceneManager\SceneManager.h(39): message : see declaration of 'std::vector<Glitch::Scene *,std::allocator<Glitch::Scene *>>'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Core\Application.h(27,35): warning C4251: 'Glitch::Application::m_window': class 'std::unique_ptr<Glitch::Window,std::default_delete<Glitch::Window>>' needs to have dll-interface to be used by clients of class 'Glitch::Application'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Core\Application.h(27): message : see declaration of 'std::unique_ptr<Glitch::Window,std::default_delete<Glitch::Window>>'
+  SDL2Facade.cpp
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Core\Object.h(62,14): warning C4251: 'Glitch::Object::name': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Glitch::Object'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\xstring(4564): message : see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Facades\SDL2\SDL2Facade.h(12,2): warning C4275: non dll-interface class 'Glitch::ISDL2Facade' used as base for dll-interface class 'Glitch::SDL2Facade'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Facades\SDL2\ISDL2Facade.h(5): message : see declaration of 'Glitch::ISDL2Facade'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Facades\SDL2\SDL2Facade.h(11): message : see declaration of 'Glitch::SDL2Facade'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Facades\SDL2\SDL2Facade.h(38,46): warning C4251: 'Glitch::SDL2Facade::textureMap': class 'std::unordered_map<int,SDL_Texture *,std::hash<int>,std::equal_to<int>,std::allocator<std::pair<const int,SDL_Texture *>>>' needs to have dll-interface to be used by clients of class 'Glitch::SDL2Facade'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Facades\SDL2\SDL2Facade.h(38): message : see declaration of 'std::unordered_map<int,SDL_Texture *,std::hash<int>,std::equal_to<int>,std::allocator<std::pair<const int,SDL_Texture *>>>'
+  Renderer2d.cpp
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Core\Object.h(62,14): warning C4251: 'Glitch::Object::name': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Glitch::Object'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\xstring(4564): message : see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Facades\SDL2\SDL2Facade.h(12,2): warning C4275: non dll-interface class 'Glitch::ISDL2Facade' used as base for dll-interface class 'Glitch::SDL2Facade'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Facades\SDL2\ISDL2Facade.h(5): message : see declaration of 'Glitch::ISDL2Facade'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Facades\SDL2\SDL2Facade.h(11): message : see declaration of 'Glitch::SDL2Facade'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Facades\SDL2\SDL2Facade.h(38,46): warning C4251: 'Glitch::SDL2Facade::textureMap': class 'std::unordered_map<int,SDL_Texture *,std::hash<int>,std::equal_to<int>,std::allocator<std::pair<const int,SDL_Texture *>>>' needs to have dll-interface to be used by clients of class 'Glitch::SDL2Facade'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Facades\SDL2\SDL2Facade.h(38): message : see declaration of 'std::unordered_map<int,SDL_Texture *,std::hash<int>,std::equal_to<int>,std::allocator<std::pair<const int,SDL_Texture *>>>'
+  windowsWindow.cpp
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Core\Object.h(62,14): warning C4251: 'Glitch::Object::name': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Glitch::Object'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\xstring(4564): message : see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Facades\SDL2\SDL2Facade.h(12,2): warning C4275: non dll-interface class 'Glitch::ISDL2Facade' used as base for dll-interface class 'Glitch::SDL2Facade'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Facades\SDL2\ISDL2Facade.h(5): message : see declaration of 'Glitch::ISDL2Facade'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Facades\SDL2\SDL2Facade.h(11): message : see declaration of 'Glitch::SDL2Facade'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Facades\SDL2\SDL2Facade.h(38,46): warning C4251: 'Glitch::SDL2Facade::textureMap': class 'std::unordered_map<int,SDL_Texture *,std::hash<int>,std::equal_to<int>,std::allocator<std::pair<const int,SDL_Texture *>>>' needs to have dll-interface to be used by clients of class 'Glitch::SDL2Facade'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Facades\SDL2\SDL2Facade.h(38): message : see declaration of 'std::unordered_map<int,SDL_Texture *,std::hash<int>,std::equal_to<int>,std::allocator<std::pair<const int,SDL_Texture *>>>'
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Renderer\Windows\windowsWindow.cpp(82,66): warning C4244: 'argument': conversion from 'Sint32' to 'const float', possible loss of data
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Renderer\Windows\windowsWindow.cpp(82,47): warning C4244: 'argument': conversion from 'Sint32' to 'const float', possible loss of data
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Renderer\Windows\windowsWindow.cpp(90,37): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+D:\Github\Game\FoxTrot_SA_Engine\Glitch\src\Glitch\Renderer\Windows\windowsWindow.cpp(90,29): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+  Generating Code...
+     Creating library ..\bin\Debug-windows-x86_64\Glitch\Glitch.lib and object ..\bin\Debug-windows-x86_64\Glitch\Glitch.exp
+  Glitch.vcxproj -> D:\Github\Game\FoxTrot_SA_Engine\Glitch\..\bin\Debug-windows-x86_64\Glitch\Glitch.dll
