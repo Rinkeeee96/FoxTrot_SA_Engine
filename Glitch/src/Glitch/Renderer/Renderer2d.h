@@ -5,6 +5,8 @@
 #include "Glitch\ISystem.h"
 #include <Glitch\Renderer\window.h>
 #include "Glitch\Facades\SDL2\SDL2Facade.h"
+#include <filesystem>
+
 
 namespace Glitch {
 	class GLITCH_API Renderer2d : public ISystem

@@ -27,7 +27,6 @@ namespace Glitch {
 	{
 		if (pointerToObjectVector == nullptr) return;
 		//if (pointerToObjectVector->capacity() <= 0) return;
-		if (pointerToObjectVector->size() <= 0) return;
 		for (Object* obj : *pointerToObjectVector) {
 			if (obj != nullptr) {
 				facadeTest->renderCopy(*obj);
@@ -55,6 +54,8 @@ namespace Glitch {
 	/// @param filename 
 	void Renderer2d::loadImage(int spriteID, const char* filename)
 	{
+		// TODO error if file cannot be found
+		bool exists = std::filesystem::exists(filename);
 		facadeTest->loadImage(spriteID, filename);
 	}
 
