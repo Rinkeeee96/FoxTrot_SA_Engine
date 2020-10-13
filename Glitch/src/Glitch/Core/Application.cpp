@@ -15,7 +15,7 @@ namespace Glitch {
 		m_window->SetEventCallback(BIND_EVENT_FN(Application::OnEvent));
 
 		m_window->Init();
-		renderer->Init();
+		renderer->Init(&sceneManager.pointerToCurrentObjectVector);
 	}
 
 	Application::~Application() {}

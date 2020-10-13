@@ -25,7 +25,7 @@ namespace Glitch {
 		virtual void OnUpdate() override;
 		virtual void Shutdown() override;
 		void renderSprites();
-		void Init();
+		void Init(vector<Object*>* objectpointer);
 
 	private:
 		//const WindowProps* windowData;

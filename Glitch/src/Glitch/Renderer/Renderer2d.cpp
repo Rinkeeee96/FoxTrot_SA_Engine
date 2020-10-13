@@ -5,10 +5,10 @@ namespace Glitch {
 
 	/// @brief 
 	/// Inits SDL2 renderer on window
-	void Renderer2d::Init()
+	void Renderer2d::Init(vector<Object*>* objectpointer)
 	{
+		this->pointerToObjectVector = objectpointer;
 		facadeTest->createRenderer();
-
 	}
 
 	void Renderer2d::OnUpdate()
@@ -16,12 +16,11 @@ namespace Glitch {
 		clearScreen();
 		renderSprites();
 		drawScreen();
-		// TODO draw object vector
 	}
 
 	void Renderer2d::Shutdown()
 	{
-		//facadeTest.deallocateSurface();
+		facadeTest->deallocateSurface();
 	}
 
 	void Renderer2d::renderSprites()
