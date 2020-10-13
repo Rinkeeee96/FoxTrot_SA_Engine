@@ -1,6 +1,7 @@
 #pragma once
 
 #include "PhysicsFacade.h"
+#include "Glitch/Core/Object.h"
 #include "Glitch/Core/Core.h"
 
 namespace Glitch {
@@ -8,6 +9,8 @@ namespace Glitch {
 	{
 	public:
 		vector <Object*>* pointerToObjectVector = nullptr;
+
+		void Init(vector<Object*>* objectVector);
 
 		PhysicsEngine();
 		~PhysicsEngine();

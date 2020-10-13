@@ -2,6 +2,10 @@
 #include "PhysicsEngine.h"
 
 namespace Glitch {
+	void PhysicsEngine::Init(vector<Object*>* objectVector)
+	{
+		this->pointerToObjectVector = objectVector;
+	}
 	/// @brief Constructor
 	PhysicsEngine::PhysicsEngine()
 	{

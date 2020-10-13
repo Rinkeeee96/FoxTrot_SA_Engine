@@ -16,6 +16,7 @@ namespace Glitch {
 
 		m_window->Init();
 		renderer->Init(&sceneManager.pointerToCurrentObjectVector);
+		physics.Init(&sceneManager.pointerToCurrentObjectVector);
 	}
 
 	Application::~Application() {}
@@ -24,9 +25,8 @@ namespace Glitch {
 		while (isRunning)
 		{
 			m_window->OnUpdate();
-			renderer->OnUpdate();
-					// TODO rename
 			physics.update30();
+			renderer->OnUpdate();
 			// etc. OnUpdate();
 		}
 	}
