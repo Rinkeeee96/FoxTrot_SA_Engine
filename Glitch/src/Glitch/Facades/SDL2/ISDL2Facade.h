@@ -1,4 +1,5 @@
 #pragma once
+#include "Glitch/Core/Object.h"
 
 namespace Glitch {
 	class ISDL2Facade
@@ -19,7 +20,7 @@ namespace Glitch {
 		virtual void clearScreen() = 0;
 		virtual void drawScreen() = 0;
 		virtual void loadImage(int spriteID, const char* filename) = 0;
-		virtual void renderCopy(int spriteID, int xPos, int yPos, int width, int height, int rotation) = 0;
+		virtual void renderCopy(Object& object) = 0;
 		//virtual void renderCopy(Glitch::Object* o) = 0;
 		virtual void deallocateSurface() = 0;
 

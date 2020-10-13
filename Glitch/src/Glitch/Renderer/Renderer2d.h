@@ -19,12 +19,12 @@ namespace Glitch {
 		void clearScreen();
 		void drawScreen();
 		void loadImage(int spriteID, const char* filename);
-		void renderCopy(int spriteID, int xPos, int yPos, int width, int height, int rotation);
+		void renderCopy(Object& object);
 
 		// Inherited via ISystem
 		virtual void OnUpdate() override;
 		virtual void Shutdown() override;
-
+		void renderSprites();
 		void Init();
 
 	private:

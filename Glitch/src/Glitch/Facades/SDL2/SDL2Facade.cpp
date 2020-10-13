@@ -34,7 +34,7 @@ namespace Glitch {
 	/// @param width 
 	/// @param height 
 	/// @param rotation 
-	void SDL2Facade::renderCopy(int spriteID, int xPos, int yPos, int width, int height, int rotation)
+	void SDL2Facade::renderCopy(Object& object)
 	{
 		// TODO
 		//if (textureMap[spriteID] == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_SPRITE_ID_IS_NULL;
@@ -43,13 +43,13 @@ namespace Glitch {
 		//if (height == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_HEIGHT_IS_NULL;
 		//if (width == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_WIDTH_IS_NULL;
 		//if (rotation == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_ROTATION_IS_NULL;
-
-		SDL_Rect destination;
-		destination.x = xPos;
-		destination.y = yPos;
-		destination.w = width;
-		destination.h = height;
-		SDL_RenderCopyEx(renderer, textureMap[spriteID], NULL, &destination, rotation, NULL, SDL_FLIP_NONE);
+		// changed to frect to avoid dataloss
+		SDL_FRect destination;
+		destination.x = object.getPositionX();	
+		destination.y = object.getPositionY();
+		destination.w = object.getWidth();
+		destination.h = object.getHeight();
+		SDL_RenderCopyEx(renderer, textureMap[object.getSpriteID()], NULL, &destination, object.getRotation(), NULL, SDL_FLIP_NONE);
 	}
 
 	//void SDL2Facade::renderCopy(Object* o)

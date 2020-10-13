@@ -889,8 +889,8 @@ extern DECLSPEC int SDLCALL SDL_RenderCopy(SDL_Renderer * renderer,
  */
 extern DECLSPEC int SDLCALL SDL_RenderCopyEx(SDL_Renderer * renderer,
                                            SDL_Texture * texture,
-                                           const SDL_Rect * srcrect,
-                                           const SDL_Rect * dstrect,
+                                           const SDL_FRect * srcrect,
+                                           const SDL_FRect * dstrect,
                                            const double angle,
                                            const SDL_Point *center,
                                            const SDL_RendererFlip flip);

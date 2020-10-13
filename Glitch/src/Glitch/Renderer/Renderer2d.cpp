@@ -14,16 +14,7 @@ namespace Glitch {
 	void Renderer2d::OnUpdate()
 	{
 		clearScreen();
-
-		//if (pointerToObjectVector == nullptr) return;
-		////if (pointerToObjectVector->capacity() <= 0) return;
-		//if (pointerToObjectVector->size() <= 0) return;
-		//for (Object* obj : *pointerToObjectVector) {
-		//	if (obj != nullptr) {
-		//		facadeTest->renderCopy(obj);
-		//	}
-		//}
-
+		renderSprites();
 		drawScreen();
 		// TODO draw object vector
 	}
@@ -31,6 +22,18 @@ namespace Glitch {
 	void Renderer2d::Shutdown()
 	{
 		//facadeTest.deallocateSurface();
+	}
+
+	void Renderer2d::renderSprites()
+	{
+		if (pointerToObjectVector == nullptr) return;
+		//if (pointerToObjectVector->capacity() <= 0) return;
+		if (pointerToObjectVector->size() <= 0) return;
+		for (Object* obj : *pointerToObjectVector) {
+			if (obj != nullptr) {
+				facadeTest->renderCopy(*obj);
+			}
+		}
 	}
 
 	/// @brief 
@@ -64,8 +67,8 @@ namespace Glitch {
 	/// @param width 
 	/// @param height 
 	/// @param rotation 
-	void Renderer2d::renderCopy(int spriteID, int xPos, int yPos, int width, int height, int rotation)
+	void Renderer2d::renderCopy(Object& object)
 	{
-		facadeTest->renderCopy(spriteID, xPos, yPos, width, height, rotation);
+		facadeTest->renderCopy(object);
 	}
 }
