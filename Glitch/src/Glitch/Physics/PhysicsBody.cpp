@@ -18,7 +18,7 @@ namespace Glitch {
 	void PhysicsBody::setPositionY(const float y) { this->posY = y; this->object->setPositionY(y); }
 	float PhysicsBody::getPositionY() const { return posY; }
 
-	void PhysicsBody::setRotation(const float r) { this->rotation = r; this->object->setRotation(r); }
+	void PhysicsBody::setRotation(const float r) { this->rotation = r; this->object->setRotation(r); } // TODO convert radians to degrees
 	float PhysicsBody::getRotation() const { return rotation; }
 
 	void PhysicsBody::setHeight(const float h) { this->height = h; this->object->setHeight(h); }

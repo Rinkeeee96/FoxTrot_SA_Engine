@@ -157,8 +157,6 @@
     <ClInclude Include="src\Glitch\Facades\SDL2\ISDL2Facade.h" />
     <ClInclude Include="src\Glitch\Facades\SDL2\SDL2Facade.h" />
     <ClInclude Include="src\Glitch\Core\Object.h" />
-    <ClInclude Include="src\Glitch\Events\ObjectEventCodes.h" />
-    <ClInclude Include="src\Glitch\Events\ObjectEvents.h" />
     <ClInclude Include="src\Glitch\ISystem.h" />
     <ClInclude Include="src\Glitch\Physics\IPhysicsFacade.h" />
     <ClInclude Include="src\Glitch\Physics\PhysicsBody.h" />

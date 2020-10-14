@@ -60,7 +60,8 @@ namespace Glitch {
 
 		/// @brief
 		/// Checks wheter the event is in the eventCategory
-		/// @param EventCategory
+		/// @param category
+		/// EventCategory enum
 		bool IsInCategory(EventCategory category)
 		{
 			return GetCategoryFlags() & category;

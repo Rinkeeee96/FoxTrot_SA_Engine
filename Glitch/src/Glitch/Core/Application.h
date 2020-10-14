@@ -26,7 +26,8 @@ namespace Glitch {
 
 		/// @brief
 		/// OnEvent handle an event specified within this method. Event can be on any eventType
-		/// @param Abstract event 
+		/// @param event 
+		/// Abstract event can be of any type
 		void OnEvent(Event& e);
 	protected:
 		ISDL2Facade* sdlFacade;

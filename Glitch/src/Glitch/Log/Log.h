@@ -6,12 +6,18 @@
 #include <stdarg.h>   
 
 namespace Glitch {
+	/// @brief
+	/// Log singleton class contains multiple loggers
 	class GLITCH_API Log
 	{
 	public:
 		static void Init();
 
+		/// @brief
+		/// Engine logger as a shared pointer, can be used to log in multiple classes within te engine
 		static std::shared_ptr<spdlog::logger>& GetCoreLogger() { return s_CoreLogger; }
+		/// @brief
+		/// Client logger as a shared pointer, can be used to log in multiple classes within the game
 		static std::shared_ptr<spdlog::logger>& GetClientLogger() { return s_ClientLogger; }
 
 		void LogInfo(...);
