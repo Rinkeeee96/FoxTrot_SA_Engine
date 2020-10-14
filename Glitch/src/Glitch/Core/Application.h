@@ -4,7 +4,8 @@
 #include <Glitch\SceneManager\SceneManager.h>
 #include <Glitch\Renderer\Renderer2d.h>
 #include <Glitch\Physics\PhysicsEngine.h>
-#include <FPS\FrameData.h>
+#include <Glitch\FPS\FrameData.h>
+#include <Glitch\Events\\KeyEvent.h>
 
 namespace Glitch {
 	class GLITCH_API Application
@@ -26,6 +27,7 @@ namespace Glitch {
 		Renderer2d* renderer;
 
 		bool OnWindowClose(WindowCloseEvent& e);
+		bool OnKeyPressed(KeyPressedEvent& e);
 		std::unique_ptr<Window> m_window;
 		bool isRunning = true;
 	};

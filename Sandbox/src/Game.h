@@ -57,7 +57,6 @@ public:
 		staticGround->setStatic(true);
 		sceneManager.getSceneWithID(3)->addNewObject(staticGround);
 
-
 		sceneManager.setCurrentScene(3);
 
 		physics.registerObjectInCurrentVectorWithPhysicsEngine();

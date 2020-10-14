@@ -1,10 +1,12 @@
 #pragma once
 #include "SDL.h"
 #include "SDL_image.h"
+#include "SDL_TTF.h"
 #include <unordered_map>
 #include "Glitch/Renderer/WindowProps.h"
 #include "Glitch/Facades/SDL2/ISDL2Facade.h"
 #include <Glitch\Core\Object.h>
+#include <filesystem>
 
 #undef main
 namespace Glitch {
@@ -25,13 +27,15 @@ namespace Glitch {
 		virtual void renderCopy(Object& object) override;
 		//void renderCopy(Object* o);
 
+		void drawMessageAt(const Message& message, const Position& pos);
+
 		void deallocateSurface();
 		SDL_Window* getWindow() { return window; }
 
 		void Init();
 		void destroyScreen();
 	private:
-
+		TTF_Font* Sans;
 		SDL_Window* window;
 		SDL_Surface* screenSurface;
 		SDL_Renderer* renderer;

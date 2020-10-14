@@ -73,7 +73,7 @@
     <ClInclude Include="src\Glitch\Physics\IPhysicsFacade.h" />
     <ClInclude Include="src\Glitch\SceneManager\Scene.h" />
     <ClInclude Include="src\Glitch\SceneManager\SceneManager.h" />
-    <ClInclude Include="src\FPS\FrameData.h" />
+    <ClInclude Include="src\Glitch\FPS\FrameData.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Glitch\Log\Log.cpp">
@@ -97,6 +97,6 @@
     <ClCompile Include="src\Glitch\SceneManager\Scene.cpp" />
     <ClCompile Include="src\Glitch\SceneManager\SceneManager.cpp" />
     <ClCompile Include="src\Glitch\SceneManager\SceneManager+ObjectModifiers.cpp" />
-    <ClCompile Include="src\FPS\FrameData.cpp" />
+    <ClCompile Include="src\Glitch\FPS\FrameData.cpp" />
   </ItemGroup>
 </Project>

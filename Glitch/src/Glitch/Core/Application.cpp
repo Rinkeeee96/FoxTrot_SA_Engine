@@ -26,11 +26,13 @@ namespace Glitch {
 	void Application::Run() {
 		while (isRunning)
 		{
+			frameData->startTimer();
 			m_window->OnUpdate();
 			physics.update30();
 			renderer->OnUpdate();
-			int fps = frameData->calculateAverageFps();
-			cout << fps << " fps";
+			renderer->drawFps();
+			renderer->drawScreen();
+			FrameData::loopFps = frameData->calculateAverageFps();
 			// etc. OnUpdate();
 		}
 	}
@@ -42,11 +44,22 @@ namespace Glitch {
 		return true;
 	}
 
+	/// @brief
+	/// Handles all key press events
+	/// @param e (event)
+	/// Contains all data given by the triggered event
+	bool Application::OnKeyPressed(KeyPressedEvent& e) {
+		if (e.GetKeyCode() == KeyCode::KEY_F1) {
+			renderer->toggleFps();
+		}
+		return true;
+	}
+
 	void Application::OnEvent(Event& e)
 	{
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(Application::OnWindowClose));
-
+		dispatcher.Dispatch<KeyPressedEvent>(BIND_EVENT_FN(Application::OnKeyPressed));
 		GL_INFO(e.ToString());
 	}
 }

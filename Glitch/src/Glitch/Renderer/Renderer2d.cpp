@@ -8,14 +8,20 @@ namespace Glitch {
 	void Renderer2d::Init(vector<Object*>* objectpointer)
 	{
 		this->pointerToObjectVector = objectpointer;
+		frameData = new FrameData;
 		facadeTest->createRenderer();
 	}
 
 	void Renderer2d::OnUpdate()
 	{
+		frameData->startTimer();
 		clearScreen();
 		renderSprites();
+		if (shouldDrawFps) {
+			drawFps();
+		}
 		drawScreen();
+		FrameData::renderFps = frameData->calculateAverageFps();
 	}
 
 	void Renderer2d::Shutdown()
@@ -34,6 +40,12 @@ namespace Glitch {
 		}
 	}
 
+	/// @brief
+	/// Toggles the fps counter
+	void Renderer2d::toggleFps() {
+		shouldDrawFps = !shouldDrawFps;
+	}
+
 	/// @brief 
 	/// Clears SDL screen
 	void Renderer2d::clearScreen()
@@ -46,6 +58,27 @@ namespace Glitch {
 	void Renderer2d::drawScreen()
 	{
 		facadeTest->drawScreen();
+	}
+
+	/// @brief
+	/// Calls the drawFps function for all fps counters
+	void Renderer2d::drawFps() {
+		drawFps(FrameData::loopFps, X_ZERO, Y_ZERO, "Game Fps: ");
+		drawFps(FrameData::loopFps, X_ZERO, SDL_FPS_Y, "SDL Fps: ");
+	}
+
+	/// @brief
+	/// Draws the fps if toggled on
+	void Renderer2d::drawFps(double fps, int x, int y, const string& prefix = "fps: ")
+	{
+		ostringstream stre;
+		stre << prefix << fps;
+		string str = stre.str();
+		if (shouldDrawFps) {
+			Message m(str, NO_RED, NO_BLUE, NO_GREEN);
+			Position p(x, y);
+			facadeTest->drawMessageAt(m, p);
+		}
 	}
 
 	/// @brief 

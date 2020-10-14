@@ -7,7 +7,8 @@ namespace Glitch {
 	/// Inits SDL2 renderer on window
 	void SDL2Facade::Init()
 	{
-		
+		TTF_Init();
+		Sans = TTF_OpenFont("../Assets/Fonts/Sans.ttf", 24);
 	}
 
 	void SDL2Facade::destroyScreen() {
@@ -17,6 +18,38 @@ namespace Glitch {
 
 		// Clean up
 		SDL_Quit();
+	}
+
+	/// @brief
+	/// Draws a text message at the given position
+	/// @param message
+	/// Message struct containing the message text and color
+	/// @param pos
+	/// Position struct containing an x and y position
+	void SDL2Facade::drawMessageAt(const Message& message, const Position& pos)
+	{
+		bool exists = std::filesystem::exists("../Assets/Fonts/Sans.ttf"); // TODO dynamic fonts
+
+		if (exists) {
+
+			SDL_Color Color = { message.r, message.g, message.b };
+			SDL_Surface* surfaceMessage = TTF_RenderText_Solid(Sans, message.text.c_str(), Color);
+			SDL_Texture* Message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+
+			SDL_Rect Message_rect;
+			Message_rect.x = pos.x;
+			Message_rect.y = pos.y;
+			Message_rect.w = 150;
+			Message_rect.h = 35;
+
+			SDL_RenderCopy(renderer, Message, NULL, &Message_rect);
+
+			SDL_FreeSurface(surfaceMessage);
+			SDL_DestroyTexture(Message);
+		}
+		else {
+			
+		}
 	}
 
 	void SDL2Facade::deallocateSurface()
