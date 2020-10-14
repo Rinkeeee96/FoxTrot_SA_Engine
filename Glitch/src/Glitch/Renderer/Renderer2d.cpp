@@ -13,6 +13,7 @@ namespace Glitch {
 
 	void Renderer2d::OnUpdate()
 	{
+		updateParticleList();
 		clearScreen();
 		renderSprites();
 		drawScreen();
@@ -34,6 +35,12 @@ namespace Glitch {
 		}
 	}
 
+	Renderer2d::Renderer2d(ISDL2Facade* rendererFacade, ParticleEmitter* _particleEmitter)
+	{
+		facadeTest = rendererFacade;
+		particleEmitter = _particleEmitter;
+	}
+
 	/// @brief 
 	/// Clears SDL screen
 	void Renderer2d::clearScreen()
@@ -41,11 +48,21 @@ namespace Glitch {
 		facadeTest->clearScreen();
 	}
 
+	void Renderer2d::renderParticles()
+	{
+		
+	}
+
 	/// @brief 
 	/// Draws SDL screen
 	void Renderer2d::drawScreen()
 	{
 		facadeTest->drawScreen();
+	}
+
+	void Renderer2d::updateParticleList()
+	{
+		particleList = particleEmitter->getParticlesVector();
 	}
 
 	/// @brief 

@@ -73,6 +73,9 @@
     <ClInclude Include="src\Glitch\Physics\IPhysicsFacade.h" />
     <ClInclude Include="src\Glitch\SceneManager\Scene.h" />
     <ClInclude Include="src\Glitch\SceneManager\SceneManager.h" />
+    <ClInclude Include="src\Glitch\Renderer\Particles\ParticleEmitter.h" />
+    <ClInclude Include="src\Glitch\Renderer\Particles\Particle.h" />
+    <ClInclude Include="src\Glitch\Renderer\Particles\ParticleStruct.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Glitch\Log\Log.cpp">
@@ -96,5 +99,7 @@
     <ClCompile Include="src\Glitch\SceneManager\Scene.cpp" />
     <ClCompile Include="src\Glitch\SceneManager\SceneManager.cpp" />
     <ClCompile Include="src\Glitch\SceneManager\SceneManager+ObjectModifiers.cpp" />
+    <ClCompile Include="src\Glitch\Renderer\Particles\ParticleEmitter.cpp" />
+    <ClCompile Include="src\Glitch\Renderer\Particles\Particle.cpp" />
   </ItemGroup>
 </Project>

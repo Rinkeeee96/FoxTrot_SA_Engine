@@ -1,10 +1,9 @@
 #pragma once
 #include <Glitch\Core\Object.h>
-#include "SDL.h"
-#include "SDL_image.h"
 #include "Glitch\ISystem.h"
 #include <Glitch\Renderer\window.h>
 #include "Glitch\Facades\SDL2\SDL2Facade.h"
+#include "Glitch\Renderer\Particles\ParticleEmitter.h"
 #include <filesystem>
 
 
@@ -13,30 +12,31 @@ namespace Glitch {
 	{
 	public:
 		ISDL2Facade* facadeTest;
+		ParticleEmitter* particleEmitter;
 
-		Renderer2d(ISDL2Facade* rendererFacade) : facadeTest { rendererFacade } {};
+		Renderer2d(ISDL2Facade* rendererFacade, ParticleEmitter* _particleEmitter);
 		~Renderer2d() {};
 
-		vector <Object*>* pointerToObjectVector = nullptr;
-		void clearScreen();
-		void drawScreen();
+		
+
+		void updateParticleList();
+
 		void loadImage(int spriteID, const char* filename);
 		void renderCopy(Object& object);
 
 		// Inherited via ISystem
 		virtual void OnUpdate() override;
 		virtual void Shutdown() override;
-		void renderSprites();
 		void Init(vector<Object*>* objectpointer);
 
 	private:
-		//const WindowProps* windowData;
-		//SDL_Window* window;
-		//SDL_Surface* screenSurface;
-		//SDL_Renderer* renderer;
-		//unordered_map<int, SDL_Texture*> textureMap;
+		vector <Object*>* pointerToObjectVector = nullptr;
+		vector <Particle*> particleList;
 
-
+		void clearScreen();
+		void renderParticles();
+		void renderSprites();
+		void drawScreen();
 	};
 
 }

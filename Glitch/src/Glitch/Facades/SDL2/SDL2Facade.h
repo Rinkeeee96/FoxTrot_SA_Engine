@@ -22,6 +22,7 @@ namespace Glitch {
 		void clearScreen();
 		void drawScreen();
 		void loadImage(int spriteID, const char* filename);
+		void loadParticleBMP(int particleID, const char* filename);
 		virtual void renderCopy(Object& object) override;
 		//void renderCopy(Object* o);
 
@@ -35,7 +36,9 @@ namespace Glitch {
 		SDL_Window* window;
 		SDL_Surface* screenSurface;
 		SDL_Renderer* renderer;
+
 		unordered_map<int, SDL_Texture*> textureMap;
+		unordered_map<int, SDL_Texture*> particleMap;
 	};
 }
 

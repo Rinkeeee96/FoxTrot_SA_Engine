@@ -75,12 +75,26 @@ namespace Glitch {
 	{
 		if (spriteID == NULL) throw ERROR_CODE_SVIFACADE_LOADIMAGE_SPRITE_ID_IS_NULL;
 		if (filename == NULL) throw ERROR_CODE_SVIFACADE_FILENAME_IS_NULL;
-		// naar facade
+		// TODO check if filename exists
 		SDL_Surface* surface = IMG_Load(filename);
 		SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
 		textureMap[spriteID] = texture;
 		SDL_FreeSurface(surface);
-		// ----
+
+	}
+
+	void SDL2Facade::loadParticleBMP(int particleID, const char* filename)
+	{
+		if (particleID == NULL) throw ERROR_CODE_SVIFACADE_LOADIMAGE_PARTICLE_ID_IS_NULL;
+		if (filename == NULL) throw ERROR_CODE_SVIFACADE_FILENAME_IS_NULL;
+		// TODO check if filename exists
+		SDL_Surface* surface = IMG_Load(filename);
+		SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
+
+		SDL_SetTextureAlphaMod(texture, 192);
+
+		particleMap[particleID] = texture;
+		SDL_FreeSurface(surface);
 	}
 
 	void SDL2Facade::createWindow(WindowProps* m_data)

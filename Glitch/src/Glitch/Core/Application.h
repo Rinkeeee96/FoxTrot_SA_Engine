@@ -4,6 +4,7 @@
 #include <Glitch\SceneManager\SceneManager.h>
 #include <Glitch\Renderer\Renderer2d.h>
 #include <Glitch\Physics\PhysicsEngine.h>
+#include <Glitch/Renderer/Particles/ParticleEmitter.h>
 
 namespace Glitch {
 	class GLITCH_API Application
@@ -19,8 +20,10 @@ namespace Glitch {
 		ISDL2Facade* sdlFacade;
 		PhysicsEngine physics;
 		
+		ParticleEmitter* particleEmitter;
 		SceneManager sceneManager;
 		Renderer2d* renderer;
+
 
 		bool OnWindowClose(WindowCloseEvent& e);
 		std::unique_ptr<Window> m_window;

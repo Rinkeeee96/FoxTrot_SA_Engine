@@ -7,7 +7,8 @@ namespace Glitch {
 	Application::Application()
 	{
 		sdlFacade = new SDL2Facade();
-		renderer = new Renderer2d(sdlFacade);
+		particleEmitter = new ParticleEmitter();
+		renderer = new Renderer2d(sdlFacade, particleEmitter);
 
 		m_window = std::unique_ptr<Window>(Window::Create());
 
@@ -26,6 +27,7 @@ namespace Glitch {
 		{
 			m_window->OnUpdate();
 			physics.update30();
+			particleEmitter->onUpdate();
 			renderer->OnUpdate();
 			// etc. OnUpdate();
 		}

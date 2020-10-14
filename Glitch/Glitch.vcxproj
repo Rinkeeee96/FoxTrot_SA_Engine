@@ -154,6 +154,8 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Glitch\Renderer\Particles\Particle.h" />
+    <ClInclude Include="src\Glitch\Renderer\Particles\ParticleEmitter.h" />
     <ClInclude Include="src\Glitch\Facades\SDL2\ISDL2Facade.h" />
     <ClInclude Include="src\Glitch\Facades\SDL2\SDL2Facade.h" />
     <ClInclude Include="src\Glitch\Core\Object.h" />
@@ -164,6 +166,7 @@
     <ClInclude Include="src\Glitch\Physics\PhysicsBody.h" />
     <ClInclude Include="src\Glitch\Physics\PhysicsEngine.h" />
     <ClInclude Include="src\Glitch\Physics\PhysicsFacade.h" />
+    <ClInclude Include="src\Glitch\Renderer\Particles\ParticleStruct.h" />
     <ClInclude Include="src\Glitch\Renderer\Renderer2d.h" />
     <ClInclude Include="src\Glitch\SceneManager\Scene.h" />
     <ClInclude Include="src\Glitch\SceneManager\SceneManager.h" />
@@ -187,6 +190,8 @@
     <ClInclude Include="src\glpch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Glitch\Renderer\Particles\Particle.cpp" />
+    <ClCompile Include="src\Glitch\Renderer\Particles\ParticleEmitter.cpp" />
     <ClCompile Include="src\Glitch\Facades\SDL2\SDL2Facade.cpp" />
     <ClCompile Include="src\Glitch\Core\Object.cpp" />
     <ClCompile Include="src\Glitch\Physics\PhysicsBody.cpp" />
