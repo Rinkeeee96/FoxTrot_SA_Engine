@@ -5,7 +5,9 @@
 namespace Glitch {
 	// events zijn nu blocking, zodra er een event wordt afgevuurd stopt de main code
 	// en processed de engine het event, in de toekomst framebuffer toevoegen voor events
-
+	
+	/// @brief
+	/// EventType enum all the derived event types that can be fired as an enum
 	enum class EventType
 	{
 		None = 0,
@@ -17,6 +19,8 @@ namespace Glitch {
 		Engine30, Engine60
 	};
 
+	/// @brief
+	/// EventCategory catagorizes any event in this enum
 	enum EventCategory
 	{
 		None = 0,
@@ -33,32 +37,50 @@ namespace Glitch {
 
 #define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
 
+	/// @brief
+	/// Abstract event class. Multiple events have this class as a super class
 	class Event
 	{
 	public:
 		virtual ~Event() = default;
 
 		bool Handled = false;
-
+		/// @brief
+		/// Returns the eventType of a specific event
+		/// @return EventType
 		virtual EventType GetEventType() const = 0;
+		/// @brief
+		/// Returns the name of a specific event
 		virtual const char* GetName() const = 0;
+		/// @brief
+		/// Returns the category of a specific event
+		/// @return EventCatagory enum as int
 		virtual int GetCategoryFlags() const = 0;
 		virtual std::string ToString() const { return GetName(); }
 
+		/// @brief
+		/// Checks wheter the event is in the eventCategory
+		/// @param EventCategory
 		bool IsInCategory(EventCategory category)
 		{
 			return GetCategoryFlags() & category;
 		}
 	};
 
+	/// @brief
+	/// Event dispatcher responsible for dispatching events to the corresponding classes that listen to these events
 	class EventDispatcher
 	{
 	public:
+		/// @brief Constructor
 		EventDispatcher(Event& event)
 			: m_Event(event)
 		{
 		}
-
+		
+		/// @brief
+		/// Generic method. Dispatches the event to the corresponding classes
+		/// @param func
 		template<typename T, typename F>
 		bool Dispatch(const F& func)
 		{

@@ -7,6 +7,8 @@
 // SOURCED FROM SDL KEYCODES FILE
 namespace Glitch
 {
+	/// @brief
+	/// All keycodes based on the USB keycodes; https://www.usb.org/sites/default/files/documents/hut1_12v2.pdf  PAGE 53
 	enum KeyCode
 	{
 		KEY_UNKNOWN = 0,
