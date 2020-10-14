@@ -1,6 +1,7 @@
 #pragma once
 #include "Glitch/Core/Core.h"
 #include "glpch.h"
+#include "SpriteObject.h"
 using namespace std;
 namespace Glitch {
 	/// @brief 
@@ -15,7 +16,7 @@ namespace Glitch {
 		void setName(const string);
 		string getName() const;
 
-		int getSpriteID() const;
+		int getSpriteID();
 
 		void setPositionX(const float);
 		float getPositionX() const;
@@ -57,11 +58,14 @@ namespace Glitch {
 		float getJumpHeight() const;
 
 		bool getChanged() const;
+
+		void registerSprite(std::string state, int spriteID);
+		void changeTextureToState(std::string state);
 	private:
 
 		string name;
 
-		const int spriteID = 0;
+		int spriteID = 0;
 		float positionX = 0;
 		float positionY = 0;
 		float rotation = 0;
@@ -76,5 +80,6 @@ namespace Glitch {
 		float restitution = 0;
 		bool staticObject = false;
 		bool changed = false;
+		std::map<std::string, int> textures = std::map<std::string, int>();//action / spriteID (has auto animation)
 	};
 }

@@ -52,11 +52,17 @@ namespace Glitch {
 	/// Loads PNG files and makes them textures to be added to the unordered map
 	/// @param spriteID 
 	/// @param filename 
-	void Renderer2d::loadImage(int spriteID, const char* filename)
+	void Renderer2d::loadSingleSprite(int spriteID, const char* filename)
 	{
 		// TODO error if file cannot be found
 		bool exists = std::filesystem::exists(filename);
-		facadeTest->loadImage(spriteID, filename);
+		facadeTest->loadSingleSprite(spriteID, filename);
+	}
+
+	void Renderer2d::loadSprite(int spriteID, const char* filename, int singleSpriteHeight, int singleSpriteWidth, int size) {
+		// TODO error if file cannot be found
+		bool exists = std::filesystem::exists(filename);
+		facadeTest->loadSprite(spriteID, filename, singleSpriteHeight, singleSpriteWidth, size);
 	}
 
 	/// @brief 

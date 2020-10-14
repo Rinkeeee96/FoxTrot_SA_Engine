@@ -20,7 +20,8 @@ namespace Glitch {
 		vector <Object*>* pointerToObjectVector = nullptr;
 		void clearScreen();
 		void drawScreen();
-		void loadImage(int spriteID, const char* filename);
+		void loadSingleSprite(int spriteID, const char* filename);
+		void loadSprite(int spriteID, const char* filename, int singleSpriteHeight, int singleSpriteWidth, int size);
 		void renderCopy(Object& object);
 
 		// Inherited via ISystem

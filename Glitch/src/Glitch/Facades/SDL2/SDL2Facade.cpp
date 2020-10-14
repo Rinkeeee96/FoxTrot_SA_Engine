@@ -50,28 +50,21 @@ namespace Glitch {
 		destination.w = object.getWidth();
 		destination.h = object.getHeight();
 
-		SDL_RenderCopy(renderer, textureMap[object.getSpriteID()], nullptr, &destination);
+		if (animatedTextureMap[object.getSpriteID()] != NULL) {
+			SpriteObject* sprite = animatedTextureMap[object.getSpriteID()];
+			Uint32 ticks = SDL_GetTicks();
+			Uint32 seconds = ticks / 300;
+			Uint32 pos = seconds % sprite->size;
+			int leftPos = pos * sprite->width;
+			SDL_Rect rect{ leftPos, 0, sprite->width, sprite->height };
+			SDL_RenderCopy(renderer, textureMap[object.getSpriteID()], &rect, &destination);
+		}
+		else {
+			SDL_RenderCopy(renderer, textureMap[object.getSpriteID()], nullptr, &destination);
+		}
 	}
 
-	//void SDL2Facade::renderCopy(Object* o)
-	//{
-	//	// TODO
-	//	//if (textureMap[spriteID] == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_SPRITE_ID_IS_NULL;
-	//	//if (xPos == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_XPOS_IS_NULL;
-	//	//if (yPos == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_YPOS_IS_NULL;
-	//	//if (height == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_HEIGHT_IS_NULL;
-	//	//if (width == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_WIDTH_IS_NULL;
-	//	//if (rotation == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_ROTATION_IS_NULL;
-
-	//	SDL_Rect destination;
-	//	destination.x = o->getPositionX();
-	//	destination.y = o->getPositionY();
-	//	destination.w = o->getWidth();
-	//	destination.h = o->getHeight();
-	//	SDL_RenderCopyEx(renderer, textureMap[o->getSpriteID()], NULL, &destination, o->getRotation(), NULL, SDL_FLIP_NONE);
-	//}
-
-	void SDL2Facade::loadImage(int spriteID, const char* filename)
+	void SDL2Facade::loadSingleSprite(int spriteID, const char* filename)
 	{
 		if (spriteID == NULL) throw ERROR_CODE_SVIFACADE_LOADIMAGE_SPRITE_ID_IS_NULL;
 		if (filename == NULL) throw ERROR_CODE_SVIFACADE_FILENAME_IS_NULL;
@@ -81,6 +74,19 @@ namespace Glitch {
 		textureMap[spriteID] = texture;
 		SDL_FreeSurface(surface);
 		// ----
+	}
+
+	void SDL2Facade::loadSprite(int spriteID, const char* filename, int singleSpriteHeight, int singleSpriteWidth, int size) {
+		if (spriteID == NULL) throw ERROR_CODE_SVIFACADE_LOADIMAGE_SPRITE_ID_IS_NULL;
+		if (filename == NULL) throw ERROR_CODE_SVIFACADE_FILENAME_IS_NULL;
+		// naar facade
+		SDL_Surface* surface = IMG_Load(filename);
+		SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
+		
+		SpriteObject* spriteObject = new SpriteObject(spriteID, size, singleSpriteHeight, singleSpriteWidth);
+		textureMap[spriteID] = texture;
+		animatedTextureMap[spriteID] = spriteObject;
+		SDL_FreeSurface(surface);
 	}
 
 	void SDL2Facade::createWindow(WindowProps* m_data)

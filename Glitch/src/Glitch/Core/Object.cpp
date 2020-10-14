@@ -25,7 +25,7 @@ namespace Glitch {
 	void Object::setName(const string n) { this->name = n; }
 	string Object::getName() const { return name; }
 
-	int Object::getSpriteID() const { return spriteID; }
+	int Object::getSpriteID(){ return spriteID; }
 
 	void Object::setPositionX(const float x) { this->positionX = x; }
 	float Object::getPositionX() const { return positionX; }
@@ -67,4 +67,16 @@ namespace Glitch {
 	void Object::setJumpHeight(const float val) { this->jumpHeight = val; }
 
 	bool Object::getChanged() const { return changed; }
+
+	void Object::registerSprite(const std::string state, const int spriteID) {
+		textures[state] = spriteID;
+	}
+
+	void Object::changeTextureToState(std::string state) {
+		int spriteID = textures[state];
+		if (spriteID == NULL) {
+			//throw error
+		}
+		this->spriteID = spriteID;
+	}
 }

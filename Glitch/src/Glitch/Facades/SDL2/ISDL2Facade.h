@@ -19,7 +19,8 @@ namespace Glitch {
 		virtual void createRenderer() = 0;
 		virtual void clearScreen() = 0;
 		virtual void drawScreen() = 0;
-		virtual void loadImage(int spriteID, const char* filename) = 0;
+		virtual void loadSingleSprite(int spriteID, const char* filename) = 0;
+		virtual void loadSprite(int spriteID, const char* filename, int singleSpriteHeight, int singleSpriteWidth, int size) = 0;
 		virtual void renderCopy(Object& object) = 0;
 		//virtual void renderCopy(Glitch::Object* o) = 0;
 		virtual void deallocateSurface() = 0;
