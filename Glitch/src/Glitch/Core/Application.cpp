@@ -6,6 +6,8 @@ namespace Glitch {
 
 	Application::Application()
 	{
+		frameData = new FrameData;
+
 		sdlFacade = new SDL2Facade();
 		renderer = new Renderer2d(sdlFacade);
 
@@ -27,6 +29,8 @@ namespace Glitch {
 			m_window->OnUpdate();
 			physics.update30();
 			renderer->OnUpdate();
+			int fps = frameData->calculateAverageFps();
+			cout << fps << " fps";
 			// etc. OnUpdate();
 		}
 	}

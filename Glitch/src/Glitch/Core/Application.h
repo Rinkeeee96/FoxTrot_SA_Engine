@@ -4,6 +4,7 @@
 #include <Glitch\SceneManager\SceneManager.h>
 #include <Glitch\Renderer\Renderer2d.h>
 #include <Glitch\Physics\PhysicsEngine.h>
+#include <FPS\FrameData.h>
 
 namespace Glitch {
 	class GLITCH_API Application
@@ -16,6 +17,8 @@ namespace Glitch {
 
 		void OnEvent(Event& e);
 	protected:
+		FrameData* frameData;
+
 		ISDL2Facade* sdlFacade;
 		PhysicsEngine physics;
 		
