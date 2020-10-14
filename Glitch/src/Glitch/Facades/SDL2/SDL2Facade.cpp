@@ -26,7 +26,7 @@ namespace Glitch {
 	}
 
 	/// @brief 
-	/// Takes the sprites from the Textuture map and copys them to the screen
+	/// Takes the sprites from the Textuture map animated and copys them to the screen
 	/// @param spriteID 
 	/// @param xPos 
 	/// @param yPos 
@@ -54,9 +54,9 @@ namespace Glitch {
 			SpriteObject* sprite = animatedTextureMap[object.getSpriteID()];
 			Uint32 ticks = SDL_GetTicks();
 			Uint32 seconds = ticks / 300;
-			Uint32 pos = seconds % sprite->size;
-			int leftPos = pos * sprite->width;
-			SDL_Rect rect{ leftPos, 0, sprite->width, sprite->height };
+			Uint32 pos = seconds % sprite->getAmountOfTextures();
+			int leftPos = pos * sprite->getWidth();
+			SDL_Rect rect{ leftPos, 0, sprite->getWidth(), sprite->getHeight() };
 			SDL_RenderCopy(renderer, textureMap[object.getSpriteID()], &rect, &destination);
 		}
 		else {
@@ -64,11 +64,15 @@ namespace Glitch {
 		}
 	}
 
+	/// @brief 
+	/// Load a single sprite into the Texture map
+	/// @param spriteID 
+	/// @param filename 
 	void SDL2Facade::loadSingleSprite(int spriteID, const char* filename)
 	{
 		if (spriteID == NULL) throw ERROR_CODE_SVIFACADE_LOADIMAGE_SPRITE_ID_IS_NULL;
 		if (filename == NULL) throw ERROR_CODE_SVIFACADE_FILENAME_IS_NULL;
-		// naar facade
+
 		SDL_Surface* surface = IMG_Load(filename);
 		SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
 		textureMap[spriteID] = texture;
@@ -76,10 +80,17 @@ namespace Glitch {
 		// ----
 	}
 
+	/// @brief 
+	/// Load a animated sprite into the AnimatedTexture map
+	/// @param spriteID 
+	/// @param filename
+	/// @param height of 1 single animation sprite
+	/// @param widht of 1 single animation sprite
+	/// @param amount of animations of 1 sprite
 	void SDL2Facade::loadSprite(int spriteID, const char* filename, int singleSpriteHeight, int singleSpriteWidth, int size) {
 		if (spriteID == NULL) throw ERROR_CODE_SVIFACADE_LOADIMAGE_SPRITE_ID_IS_NULL;
 		if (filename == NULL) throw ERROR_CODE_SVIFACADE_FILENAME_IS_NULL;
-		// naar facade
+
 		SDL_Surface* surface = IMG_Load(filename);
 		SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
 		

@@ -68,15 +68,20 @@ namespace Glitch {
 
 	bool Object::getChanged() const { return changed; }
 
+	/// @brief
+	/// register a new state or overwrite a existing state
+	/// register the spriteID
+	/// link a state with a sprite
 	void Object::registerSprite(const std::string state, const int spriteID) {
 		textures[state] = spriteID;
 	}
 
-	void Object::changeTextureToState(std::string state) {
+	/// @brief
+	/// change the state
+	/// change the textureID to the current state
+	void Object::changeToState(const std::string state) {
 		int spriteID = textures[state];
-		if (spriteID == NULL) {
-			//throw error
-		}
+		if (spriteID == NULL) throw ERROR_CODE_SPRITE_DOENST_EXIST;
 		this->spriteID = spriteID;
 	}
 }

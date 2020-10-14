@@ -8,14 +8,16 @@ namespace Glitch {
 	class GLITCH_API SpriteObject
 	{
 	public:
-		SpriteObject(int textureID, int size, int height, int width);
-		int textureID; 
-		int pos = 0;
-		int size;
+		SpriteObject(const int _textureID, const int _size, const int _height, const int _width) : textureID(_textureID), lengthOfTextures(_size), height(_height), width(_width) {}
+
+		int getTextureID() const;
+		int getAmountOfTextures() const;
+		int getHeight() const;
+		int getWidth() const;
+	private:
+		int textureID;
+		int lengthOfTextures;
 		int height;
 		int width;
-
-		int getCurrentTextureLeft();
-	private:
 	};
 }

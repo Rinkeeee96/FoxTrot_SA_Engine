@@ -60,7 +60,7 @@ namespace Glitch {
 		bool getChanged() const;
 
 		void registerSprite(std::string state, int spriteID);
-		void changeTextureToState(std::string state);
+		void changeToState(const std::string state);
 	private:
 
 		string name;
@@ -80,6 +80,6 @@ namespace Glitch {
 		float restitution = 0;
 		bool staticObject = false;
 		bool changed = false;
-		std::map<std::string, int> textures = std::map<std::string, int>();//action / spriteID (has auto animation)
+		std::map<std::string, int> textures = std::map<std::string, int>();
 	};
 }

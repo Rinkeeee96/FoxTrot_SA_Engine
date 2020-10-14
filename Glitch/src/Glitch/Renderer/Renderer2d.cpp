@@ -52,16 +52,24 @@ namespace Glitch {
 	/// Loads PNG files and makes them textures to be added to the unordered map
 	/// @param spriteID 
 	/// @param filename 
-	void Renderer2d::loadSingleSprite(int spriteID, const char* filename)
-	{
-		// TODO error if file cannot be found
+	void Renderer2d::loadSingleSprite(int spriteID, const char* filename){
 		bool exists = std::filesystem::exists(filename);
+		if (!exists)
+			throw ERROR_CODE_IMAGE_FILE_NOT_FOUND;
 		facadeTest->loadSingleSprite(spriteID, filename);
 	}
 
+	/// @brief 
+	/// Load a animated sprite (PNG) into the AnimatedTexture map
+	/// @param spriteID 
+	/// @param filename
+	/// @param height of 1 single animation sprite
+	/// @param widht of 1 single animation sprite
+	/// @param amount of animations of 1 sprite
 	void Renderer2d::loadSprite(int spriteID, const char* filename, int singleSpriteHeight, int singleSpriteWidth, int size) {
-		// TODO error if file cannot be found
 		bool exists = std::filesystem::exists(filename);
+		if (!exists)
+			throw ERROR_CODE_IMAGE_FILE_NOT_FOUND;
 		facadeTest->loadSprite(spriteID, filename, singleSpriteHeight, singleSpriteWidth, size);
 	}
 

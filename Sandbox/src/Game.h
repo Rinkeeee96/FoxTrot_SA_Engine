@@ -29,7 +29,7 @@ public:
 		object->registerSprite("air_attack", 101);
 		object->registerSprite("run", 102);
 		object->registerSprite("slide", 103);
-		object->changeTextureToState("run");
+		object->changeToState("run");
 		sceneManager.getSceneWithID(1)->addNewObject(object);
 
 		Glitch::Object* staticGround = new Glitch::Object(1);
