@@ -5,40 +5,17 @@ class Game : public Glitch::Application
 public:
 	Game() {
 		sceneManager.createNewScene(1);
-		sceneManager.createNewScene(2);
-		sceneManager.createNewScene(3);
-		sceneManager.createNewScene(20);
 
-		sceneManager.getSceneWithID(1)->addNewObject(1, 1, 1, 1, 1);
-		sceneManager.setCurrentScene(1);
-
-		sceneManager.getSceneWithID(1)->addNewObject(2, 1, 50, 50, 40);
-		sceneManager.getSceneWithID(1)->addNewObject(2, 2, 100, 50, 40);
-		sceneManager.getSceneWithID(1)->addNewObject(2, 3, 150, 50, 40);
-		sceneManager.getSceneWithID(1)->addNewObject(2, 4, 200, 50, 40);
-		sceneManager.getSceneWithID(1)->addNewObject(2, 5, 250, 50, 40);
-		sceneManager.getSceneWithID(1)->addNewObject(2, 6, 50, 100, 40);
-		sceneManager.getSceneWithID(1)->addNewObject(2, 7, 150, 100, 40);
-		sceneManager.getSceneWithID(1)->addNewObject(2, 8, 200, 100, 40);
-		sceneManager.getSceneWithID(1)->addNewObject(2, 9, 250, 100, 40);
-		sceneManager.getSceneWithID(1)->addNewObject(2, 10, 300, 100, 40);
-
-		renderer->loadImage(1, "../Assets/Sprites/Project assets/Adventurer-1.5/Individual Sprites/adventurer-air-attack1-00.png");
-		renderer->loadImage(2, "../Assets/Sprites/Project assets/Adventurer-1.5/Individual Sprites/adventurer-air-attack1-01.png");
-		renderer->loadImage(3, "../Assets/Sprites/Project assets/Adventurer-1.5/Individual Sprites/adventurer-air-attack1-02.png");
-		renderer->loadImage(4, "../Assets/Sprites/Project assets/Adventurer-1.5/Individual Sprites/adventurer-air-attack1-03.png");
-		renderer->loadImage(5, "../Assets/Sprites/Project assets/Adventurer-1.5/Individual Sprites/adventurer-attack1-00.png");
-		renderer->loadImage(6, "../Assets/Sprites/Project assets/Adventurer-1.5/Individual Sprites/adventurer-attack1-01.png");
-		renderer->loadImage(7, "../Assets/Sprites/Project assets/Adventurer-1.5/Individual Sprites/adventurer-attack1-02.png");
-		renderer->loadImage(8, "../Assets/Sprites/Project assets/Adventurer-1.5/Individual Sprites/adventurer-attack1-03.png");
-		renderer->loadImage(9, "../Assets/Sprites/Project assets/Adventurer-1.5/Individual Sprites/adventurer-attack1-04.png");
-		renderer->loadImage(10, "../Assets/Sprites/Project assets/Adventurer-1.5/Individual Sprites/helmet_02a.png");
-		renderer->loadImage(101, "../Assets/Sprites/Project assets/LIGHT TILE WITHOUT TOP.png");
+		renderer->loadSingleSprite(1, "../Assets/Sprites/Project assets/Adventurer-1.5/Individual Sprites/adventurer-air-attack1-00.png");
+		renderer->loadSingleSprite(101, "../Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png");
+		renderer->loadSprite(2, "../Assets/Sprites/Character/adventure_air_attack1.png", 37, 250, 4);
+		renderer->loadSprite(3, "../Assets/Sprites/Character/adventure_run.png", 37, 250, 6);
+		renderer->loadSprite(4, "../Assets/Sprites/Character/adventure_slide.png", 37, 250, 2);
 
 		Glitch::Object* object = new Glitch::Object(1);
-		object->setName("house");
-		object->setHeight(80);
-		object->setWidth(80);
+		object->setName("character");
+		object->setHeight(200);
+		object->setWidth(200);
 		object->setPositionX(30);
 		object->setPositionY(80);
 		object->setSpeed(100);
@@ -47,7 +24,10 @@ public:
 		object->setFriction(0);
 		object->setRestitution(0);
 		object->setStatic(false);
-		sceneManager.getSceneWithID(3)->addNewObject(object);
+		object->registerSprite("air_attack", 2);
+		object->registerSprite("run", 3);
+		object->registerSprite("slide", 4);
+		sceneManager.getSceneWithID(1)->addNewObject(object);
 
 		Glitch::Object* staticGround = new Glitch::Object(101);
 		staticGround->setWidth(500); // width
@@ -55,10 +35,9 @@ public:
 		staticGround->setPositionX(20); // x 20 left down
 		staticGround->setPositionY(300);// y 300 left down
 		staticGround->setStatic(true);
-		sceneManager.getSceneWithID(3)->addNewObject(staticGround);
+		sceneManager.getSceneWithID(1)->addNewObject(staticGround);
 
-
-		sceneManager.setCurrentScene(3);
+		sceneManager.setCurrentScene(1);
 
 		physics.registerObjectInCurrentVectorWithPhysicsEngine();
 	};

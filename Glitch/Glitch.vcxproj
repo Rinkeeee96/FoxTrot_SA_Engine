@@ -154,6 +154,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Glitch\Core\SpriteObject.h" />
     <ClInclude Include="src\Glitch\Facades\SDL2\ISDL2Facade.h" />
     <ClInclude Include="src\Glitch\Facades\SDL2\SDL2Facade.h" />
     <ClInclude Include="src\Glitch\Core\Object.h" />
@@ -187,6 +188,7 @@
     <ClInclude Include="src\glpch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Glitch\Core\SpriteObject.cpp" />
     <ClCompile Include="src\Glitch\Facades\SDL2\SDL2Facade.cpp" />
     <ClCompile Include="src\Glitch\Core\Object.cpp" />
     <ClCompile Include="src\Glitch\Physics\PhysicsBody.cpp" />
