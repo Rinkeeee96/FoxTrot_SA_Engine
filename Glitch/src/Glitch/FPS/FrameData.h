@@ -2,7 +2,7 @@
 #include <SDL.h>
 #include <iostream>
 
-#define FRAME_VALUES 10
+#define FRAME_VALUES 100
 #define TIMESTEP 1.f
 
 using namespace std;
