@@ -3,4 +3,3 @@ bin-int
 x64
 .vs
 *.vcxproj.user
-Debug
