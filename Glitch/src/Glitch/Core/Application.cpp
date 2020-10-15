@@ -3,6 +3,7 @@
 namespace Glitch {
 
 #define BIND_EVENT_FN(x) std::bind(&x, this, std::placeholders::_1)
+	/// @brief Constructor
 	Application::Application()
 	{
 		sdlFacade = new SDL2Facade();
@@ -18,8 +19,14 @@ namespace Glitch {
 		physics.Init(&sceneManager.pointerToCurrentObjectVector);
 	}
 
+	/// @brief Destructor
 	Application::~Application() {}
 
+	/// @brief Run
+	/// The main of the application. Calls all the subsystems OnUpdate in order
+	///		Window
+	///		Renderer
+	///		Physics
 	void Application::Run() {
 		while (isRunning)
 		{
@@ -37,6 +44,10 @@ namespace Glitch {
 		return true;
 	}
 
+	/// @brief
+	/// OnEvent handle an event specified within this method. Event can be on any eventType
+	/// @param event 
+	/// Abstract event can be of any type
 	void Application::OnEvent(Event& e)
 	{
 		EventDispatcher dispatcher(e);

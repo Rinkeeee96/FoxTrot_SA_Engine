@@ -2,6 +2,7 @@
 #include "Glitch/Core/Object.h"
 
 namespace Glitch {
+	// TODO rename, SLD2 is very specific call it something like a GUIFacade
 	class ISDL2Facade
 	{
 	public:

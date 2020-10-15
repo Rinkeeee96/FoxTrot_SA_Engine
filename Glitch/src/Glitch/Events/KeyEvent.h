@@ -3,7 +3,9 @@
 #include "Glitch/Events/KeyCodes.h"
 
 namespace Glitch {
-
+	/// @brief
+	/// KeyEvent base class for all key events:
+	/// Keypressed, KeyReleased, KeyTyped
 	class KeyEvent : public Event
 	{
 	public:
@@ -17,6 +19,8 @@ namespace Glitch {
 		KeyCode m_KeyCode;
 	};
 
+	/// @brief
+	/// KeyPressedEvent is triggered when a key is pressed
 	class KeyPressedEvent : public KeyEvent
 	{
 	public:
@@ -37,6 +41,9 @@ namespace Glitch {
 		uint16_t m_RepeatCount;
 	};
 
+
+	/// @brief
+	/// KeyPressedEvent is triggered when a key is released
 	class KeyReleasedEvent : public KeyEvent
 	{
 	public:
@@ -53,6 +60,9 @@ namespace Glitch {
 		EVENT_CLASS_TYPE(KeyReleased)
 	};
 
+
+	/// @brief
+	/// KeyPressedEvent is triggered when a key is typed
 	class KeyTypedEvent : public KeyEvent
 	{
 	public:

@@ -13,6 +13,9 @@ namespace Glitch {
 	public:
 		static void Init();
 
+		// TODO check wheter logging in this way is thread safe (Singleton shared pointer)
+		// https://stackoverflow.com/questions/14482830/stdshared-ptr-thread-safety
+
 		/// @brief
 		/// Engine logger as a shared pointer, can be used to log in multiple classes within te engine
 		static std::shared_ptr<spdlog::logger>& GetCoreLogger() { return s_CoreLogger; }

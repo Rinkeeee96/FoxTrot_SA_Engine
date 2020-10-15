@@ -16,8 +16,6 @@ namespace Glitch {
 		void setPositionY(const float);
 		float getPositionY() const;
 
-		//TODO same as angle??
-
 		void setRotation(const float);
 		float getRotation() const;
 

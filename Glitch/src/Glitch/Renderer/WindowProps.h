@@ -4,6 +4,8 @@
 
 namespace Glitch {
 	using EventCallbackFn = std::function<void(Event&)>;
+	/// @brief 
+	/// Struct for windowproperties, can be passed around to get data from the window
 	struct WindowProps
 	{
 		int Id;

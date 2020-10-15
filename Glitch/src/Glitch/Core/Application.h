@@ -12,22 +12,10 @@ namespace Glitch {
 	class GLITCH_API Application
 	{
 	public:
-		/// @brief Constructor
 		Application();
-		/// @brief Destructor
 		virtual ~Application();
 
-		/// @brief Run
-		/// The main of the application. Calls all the subsystems OnUpdate in order
-		///		Window
-		///		Renderer
-		///		Physics
 		void Run();
-
-		/// @brief
-		/// OnEvent handle an event specified within this method. Event can be on any eventType
-		/// @param event 
-		/// Abstract event can be of any type
 		void OnEvent(Event& e);
 	protected:
 		ISDL2Facade* sdlFacade;

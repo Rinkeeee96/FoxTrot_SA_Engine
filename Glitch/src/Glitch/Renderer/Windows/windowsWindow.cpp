@@ -11,22 +11,35 @@ namespace Glitch {
 	
 	static bool p_isSDLInitialized = false;
 
+
+	/// @brief 
+	/// Creates a windows based on windows properties
+	/// @param WindowProperties
+	/// Properties used for initializing properties
 	Window* Window::Create(const WindowProps& props) {
 		return new WindowsWindow(props);
 	}
 
+	/// @brief 
+	/// Initializes all necessary classes for base class Window
 	void Window::Init()
 	{
 	}
 
+	/// @brief 
+	/// Cleanup the used classes for base class Window
 	void Window::Shutdown()
 	{
 	}
 
+	/// @brief 
+	/// Shutdown the window
 	WindowsWindow::~WindowsWindow() {
 		Shutdown();
 	}
 
+	/// @brief 
+	/// Constructor
 	WindowsWindow::WindowsWindow(const WindowProps& props)
 	{
 		m_data = new WindowProps();
@@ -36,6 +49,9 @@ namespace Glitch {
 		//Init(props);
 	}
 
+
+	/// @brief 
+	/// Window on update start listening to events on the window
 	void WindowsWindow::OnUpdate()
 	{
 		PollEvents();
@@ -45,6 +61,7 @@ namespace Glitch {
 
 	void WindowsWindow::PollEvents()
 	{
+		// TODO Inputfacade
 		SDL_Event sdl_event;
 		if (&sdl_event)
 		{
@@ -120,6 +137,8 @@ namespace Glitch {
 		m_data->vSync = enabled;
 	}
 
+	/// @brief 
+	/// Initializes all necessary classes for the platform specific window
 	void WindowsWindow::Init()
 	{
 		
@@ -127,6 +146,8 @@ namespace Glitch {
 		facade->createWindow(m_data);
 	}
 
+	/// @brief 
+	/// Cleanup the used classes for the platform specific window
 	void WindowsWindow::Shutdown()
 	{
 		facade->destroyScreen();

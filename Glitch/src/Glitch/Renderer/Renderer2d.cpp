@@ -11,6 +11,8 @@ namespace Glitch {
 		facadeTest->createRenderer();
 	}
 
+	/// @brief 
+	/// Updates screen, draw and renders the sprites
 	void Renderer2d::OnUpdate()
 	{
 		clearScreen();
@@ -18,11 +20,15 @@ namespace Glitch {
 		drawScreen();
 	}
 
+	/// @brief 
+	/// Calls deallocateSurface in the facade, clean up to prevent memory leaks
 	void Renderer2d::Shutdown()
 	{
 		facadeTest->deallocateSurface();
 	}
 
+	/// @brief 
+	/// Inits SDL2 renderer on window
 	void Renderer2d::renderSprites()
 	{
 		if (pointerToObjectVector == nullptr) return;

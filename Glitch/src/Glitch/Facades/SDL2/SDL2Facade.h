@@ -8,6 +8,7 @@
 
 #undef main
 namespace Glitch {
+	// TODO rename, SLD2 is very specific call it something like a GUIFacade
 	class GLITCH_API SDL2Facade : public ISDL2Facade
 	{
 	public:

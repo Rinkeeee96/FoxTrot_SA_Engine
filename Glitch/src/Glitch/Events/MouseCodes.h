@@ -6,6 +6,10 @@ namespace Glitch
 
 	namespace Mouse
 	{
+
+
+		/// @brief
+		/// MouseCode is an enum for all mouse events
 		enum : MouseCode
 		{
 			MOUSE_BTN_LEFT = SDL_BUTTON_LEFT, 

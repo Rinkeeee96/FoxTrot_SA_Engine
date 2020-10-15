@@ -4,7 +4,8 @@
 #include "Glitch/Renderer/WindowProps.h"
 #include "Glitch/ISystem.h"
 namespace Glitch {
-
+	/// @brief 
+	/// Abstract base class of a window. A window is platform specific, so for every platform a window base class should be created
 	class GLITCH_API Window : public ISystem
 	{
 	public:

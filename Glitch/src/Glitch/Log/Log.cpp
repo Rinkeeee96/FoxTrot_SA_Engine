@@ -5,6 +5,8 @@ namespace Glitch {
 	std::shared_ptr<spdlog::logger> Log::s_ClientLogger;
 	std::shared_ptr<spdlog::logger> Log::s_CoreLogger;
 
+	/// @brief
+	/// Initializes both the client and the core logger
 	void Log::Init() {
 		spdlog::set_pattern("%^[%T] %n: %v%$");
 		s_CoreLogger = spdlog::stdout_color_mt("ENGINE");
