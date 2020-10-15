@@ -21,7 +21,6 @@ namespace Glitch {
 		void createRenderer();
 		void clearScreen();
 		void drawScreen();
-		void loadSingleSprite(int spriteID, const char* filename);
 		void loadSprite(int spriteID, const char* filename, int singleSpriteHeight, int singleSpriteWidth, int size);
 		virtual void renderCopy(Object& object) override;
 		//void renderCopy(Object* o);

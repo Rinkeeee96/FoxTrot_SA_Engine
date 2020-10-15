@@ -36,6 +36,8 @@
 #define ERROR_CODE_SPRITE_DOENST_EXIST								0x40
 #define ERROR_CODE_IMAGE_FILE_NOT_FOUND								0x41
 
+#define ERROR_CODE_SDL2FACADE_SPRITE_DOESNT_EXISTS					0x50
+
 #endif
 
 static const char* ERRORCODES[] =

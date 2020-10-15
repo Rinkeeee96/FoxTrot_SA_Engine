@@ -13,7 +13,6 @@ namespace Glitch {
 		Scene(int);
 		~Scene();
 
-		void addNewObject(int id, int xPos, int yPos, int height, int width);
 		void addNewObject(Object* object);
 
 		Object* getObject(int spriteID);

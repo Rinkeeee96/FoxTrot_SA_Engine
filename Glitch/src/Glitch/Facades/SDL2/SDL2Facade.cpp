@@ -27,12 +27,7 @@ namespace Glitch {
 
 	/// @brief 
 	/// Takes the sprites from the Textuture map animated and copys them to the screen
-	/// @param spriteID 
-	/// @param xPos 
-	/// @param yPos 
-	/// @param width 
-	/// @param height 
-	/// @param rotation 
+	/// @param object 
 	void SDL2Facade::renderCopy(Object& object)
 	{
 
@@ -50,34 +45,16 @@ namespace Glitch {
 		destination.w = object.getWidth();
 		destination.h = object.getHeight();
 
-		if (animatedTextureMap[object.getSpriteID()] != NULL) {
-			SpriteObject* sprite = animatedTextureMap[object.getSpriteID()];
-			Uint32 ticks = SDL_GetTicks();
-			Uint32 seconds = ticks / 300;
-			Uint32 pos = seconds % sprite->getAmountOfTextures();
-			int leftPos = pos * sprite->getWidth();
-			SDL_Rect rect{ leftPos, 0, sprite->getWidth(), sprite->getHeight() };
-			SDL_RenderCopy(renderer, textureMap[object.getSpriteID()], &rect, &destination);
+		SpriteObject* sprite = animatedTextureMap[object.getSpriteID()];
+		if (sprite == NULL) {
+			throw ERROR_CODE_SDL2FACADE_SPRITE_DOESNT_EXISTS;
 		}
-		else {
-			SDL_RenderCopy(renderer, textureMap[object.getSpriteID()], nullptr, &destination);
-		}
-	}
-
-	/// @brief 
-	/// Load a single sprite into the Texture map
-	/// @param spriteID 
-	/// @param filename 
-	void SDL2Facade::loadSingleSprite(int spriteID, const char* filename)
-	{
-		if (spriteID == NULL) throw ERROR_CODE_SVIFACADE_LOADIMAGE_SPRITE_ID_IS_NULL;
-		if (filename == NULL) throw ERROR_CODE_SVIFACADE_FILENAME_IS_NULL;
-
-		SDL_Surface* surface = IMG_Load(filename);
-		SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
-		textureMap[spriteID] = texture;
-		SDL_FreeSurface(surface);
-		// ----
+		Uint32 ticks = SDL_GetTicks();
+		Uint32 seconds = ticks / 300;
+		Uint32 pos = seconds % sprite->getAmountOfTextures();
+		int leftPos = pos * sprite->getWidth();
+		SDL_Rect rect{ leftPos, 0, sprite->getWidth(), sprite->getHeight() };
+		SDL_RenderCopy(renderer, textureMap[object.getSpriteID()], &rect, &destination);
 	}
 
 	/// @brief 

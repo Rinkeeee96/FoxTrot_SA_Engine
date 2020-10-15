@@ -9,8 +9,7 @@ namespace Glitch {
 	class GLITCH_API Object
 	{
 	public:
-		Object(const int id);
-		Object(const int id, const float xPos, const float yPos, const float height, const float width);
+		Object();
 		~Object();
 
 		void setName(const string);

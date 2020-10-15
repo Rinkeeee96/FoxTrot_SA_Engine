@@ -2,17 +2,7 @@
 #include "Object.h"
 namespace Glitch {
 	/// @brief 
-	Object::Object(int id) : spriteID(id)
-	{
-	}
-
-	/// @brief 
-	/// @param id 
-	/// @param xPos 
-	/// @param yPos 
-	/// @param height 
-	/// @param width 
-	Object::Object(const int id, const float xPos, const float yPos, const float _height, const float _width) : spriteID(id), positionX(xPos), positionY(yPos), height(_height), width(_width)
+	Object::Object() 
 	{
 	}
 
