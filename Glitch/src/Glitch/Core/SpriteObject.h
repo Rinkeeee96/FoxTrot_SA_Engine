@@ -4,7 +4,7 @@
 using namespace std;
 namespace Glitch {
 	/// @brief 
-/// Object class. Object is linked with a sprite id in SVI. 
+	/// SpriteObject class. SpriteObject has all information about 1 sprite
 	class GLITCH_API SpriteObject
 	{
 	public:
