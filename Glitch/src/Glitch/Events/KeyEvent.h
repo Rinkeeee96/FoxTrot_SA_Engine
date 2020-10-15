@@ -3,6 +3,8 @@
 #include "Glitch/Events/KeyCodes.h"
 
 namespace Glitch {
+	// TODO Event classes in diffrent files so file exporer gives a clear overview of all the events? 
+
 	/// @brief
 	/// KeyEvent base class for all key events:
 	/// Keypressed, KeyReleased, KeyTyped
