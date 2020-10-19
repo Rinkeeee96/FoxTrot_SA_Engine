@@ -3,6 +3,7 @@
 #include <SDL.h>
 #include <SDL_mixer.h>
 #include <SDL_image.h>
+#include <SDL_ttf.h>
 #include "../../SDL2/include/SDL_mixer.h"
 #include "../../SDL2/include/SDL_image.h"
 #undef main
@@ -13,6 +14,8 @@
 void SVI::initSDL()
 {
 	SDL_Init(SDL_INIT_EVERYTHING);
+	TTF_Init();
+	Sans = TTF_OpenFont("../Assets/Fonts/Sans.ttf", 24);
 	window = SDL_CreateWindow("Foxtrot Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
 	if (window == NULL)
 	{
@@ -115,28 +118,26 @@ void SVI::renderCopy(Object& object)
 /// A Position struct containing x and y coords at which to draw the text
 void SVI::drawMessageAt(const Message& message, const Position& pos)
 {
-	//fstream fileStream;
-	//fileStream.open("../../Assets/Fonts/Sans.ttf");
-	//bool exists = !fileStream.fail(); // TODO dynamic fonts
+	bool exists = std::filesystem::exists("../Assets/Fonts/Sans.ttf"); // TODO dynamic fonts
 
-	//if (exists) {
+	if (exists) {
 
-	//	SDL_Color Color = { message.r, message.g, message.b };
-	//	SDL_Surface* surfaceMessage = TTF_RenderText_Solid(Sans, message.text.c_str(), Color);
-	//	SDL_Texture* Message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+		SDL_Color Color = { message.r, message.g, message.b };
+		SDL_Surface* surfaceMessage = TTF_RenderText_Solid(Sans, message.text.c_str(), Color);
+		SDL_Texture* Message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 
-	//	SDL_Rect Message_rect;
-	//	Message_rect.x = pos.x;
-	//	Message_rect.y = pos.y;
-	//	Message_rect.w = 150;
-	//	Message_rect.h = 35;
+		SDL_Rect Message_rect;
+		Message_rect.x = pos.x;
+		Message_rect.y = pos.y;
+		Message_rect.w = 150;
+		Message_rect.h = 35;
 
-	//	SDL_RenderCopy(renderer, Message, NULL, &Message_rect);
+		SDL_RenderCopy(renderer, Message, NULL, &Message_rect);
 
-	//	SDL_FreeSurface(surfaceMessage);
-	//	SDL_DestroyTexture(Message);
-	//}
-	//else {
+		SDL_FreeSurface(surfaceMessage);
+		SDL_DestroyTexture(Message);
+	}
+	else {
 
-	//}
+	}
 }
