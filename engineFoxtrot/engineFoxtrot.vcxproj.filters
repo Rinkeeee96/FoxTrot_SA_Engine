@@ -46,6 +46,9 @@
     <Filter Include="Header Files\Object">
       <UniqueIdentifier>{dc5ebff8-c42f-49dd-90ab-8ec2303bb001}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\FPS">
+      <UniqueIdentifier>{5d0d91e3-df75-448d-8d4a-e25affd429f7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Engine.cpp">
