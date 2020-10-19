@@ -116,10 +116,11 @@ void SVIEngine::updateScreen()
 /// Update function
 void SVIEngine::update(Object* object)
 {
-	
+	frameData.startTimer();
 	clearScreen();
 	updateScreen();
 	drawScreen();
+	FrameData::renderFps = frameData.calculateAverageFps();
 }
 
 /// @brief Handle the tick update from the thread

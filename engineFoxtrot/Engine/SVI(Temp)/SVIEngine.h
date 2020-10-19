@@ -1,9 +1,18 @@
 #pragma once
 #include "../Events/EventManager.h"
+#include "./FPS/FrameData.h"
 #include "SVI.h"
 
 
 #define MAX_VOLUME 128
+
+#define NO_RED 0
+#define NO_BLUE 0
+#define NO_GREEN 0
+
+#define X_ZERO 0
+#define Y_ZERO 0
+#define SDL_FPS_Y 36
 
 #if(EXPORT)
 struct DLLEXPORT Sprite
@@ -82,4 +91,5 @@ public:
 	EventManager* eventManager = nullptr;
 	ISVI * sviFacade = new SVI;
 private:
+	FrameData frameData;
 };
