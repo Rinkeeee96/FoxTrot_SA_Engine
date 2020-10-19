@@ -148,11 +148,12 @@ void Engine::engineTick30()
 {
 	cout << "Thread started" << endl;
 	while (!stopThreadTick30) {
+		frameData.startTimer();
 		this_thread::sleep_for(chrono::milliseconds(ENGINE_TICK30));
 
 		//eventManager.notify(EventType::ENGINE30, new Object);
 		physicsEngine.update30();
-
+		FrameData::gameFps = frameData.calculateAverageFps();
 	}
 	cout << "Thread killed 30" << endl;
 }

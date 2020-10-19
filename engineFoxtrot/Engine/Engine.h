@@ -11,6 +11,7 @@
 #include "./SceneManager/SceneManager.h"
 #include "./Events/EventManager.h"
 #include "./Events/EventListener.h"
+#include "./FPS/FrameData.h"
 
 #define	ENGINE_TICK60	 17
 #define ENGINE_TICK30	 33
@@ -69,6 +70,7 @@ private:
 	FileParser fileParser;
 	ParticleEngine particleEngine;
 	SceneManager sceneManager;
+	FrameData frameData;
 
 	void loadSpriteArray(vector<Sprite> spriteVector);
 };
