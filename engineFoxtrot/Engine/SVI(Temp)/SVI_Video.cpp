@@ -106,3 +106,37 @@ void SVI::renderCopy(Object& object)
 
 	SDL_RenderCopyEx(renderer, textureMap[object.getSpriteID()], NULL, &destination, object.getRotation(), NULL, SDL_FLIP_NONE);
 }
+
+/// @brief
+/// Draws the given text message at the given position
+/// @param message
+/// A message struct containing the string to draw and the color
+/// @param pos
+/// A Position struct containing x and y coords at which to draw the text
+void SVI::drawMessageAt(const Message& message, const Position& pos)
+{
+	//fstream fileStream;
+	//fileStream.open("../../Assets/Fonts/Sans.ttf");
+	//bool exists = !fileStream.fail(); // TODO dynamic fonts
+
+	//if (exists) {
+
+	//	SDL_Color Color = { message.r, message.g, message.b };
+	//	SDL_Surface* surfaceMessage = TTF_RenderText_Solid(Sans, message.text.c_str(), Color);
+	//	SDL_Texture* Message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+
+	//	SDL_Rect Message_rect;
+	//	Message_rect.x = pos.x;
+	//	Message_rect.y = pos.y;
+	//	Message_rect.w = 150;
+	//	Message_rect.h = 35;
+
+	//	SDL_RenderCopy(renderer, Message, NULL, &Message_rect);
+
+	//	SDL_FreeSurface(surfaceMessage);
+	//	SDL_DestroyTexture(Message);
+	//}
+	//else {
+
+	//}
+}

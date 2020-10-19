@@ -8,6 +8,7 @@
 #include <unordered_map>
 #include "../../SDL2/include/SDL_mixer.h"
 #include "../../SDL2/include/SDL_image.h"
+#include "../../SDL2/include/SDL_ttf.h"
 #include "../SceneManager/Object.h"
 #undef main
 
@@ -44,6 +45,7 @@ public:
 private:
 	SDL_Renderer* renderer;
 	SDL_Window* window;
+	TTF_Font* Sans;
 
 
 
@@ -89,6 +91,7 @@ public:
 
 	void renderCopy(Object& object);
 
+	void drawMessageAt(const Message& message, const Position& pos);
 
 	unordered_map<int, SDL_Texture*> textureMap;
 

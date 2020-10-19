@@ -55,6 +55,10 @@ public:
 	void update(Object* object) override;
 	void receiveTick();
 
+	void drawFps();
+
+	void drawFps(double fps, int x, int y, const string& prefix);
+
 	// Input Functions
 	void input();
 

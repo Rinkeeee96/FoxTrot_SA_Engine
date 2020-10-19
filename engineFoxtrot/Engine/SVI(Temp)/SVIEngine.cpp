@@ -119,6 +119,7 @@ void SVIEngine::update(Object* object)
 	frameData.startTimer();
 	clearScreen();
 	updateScreen();
+	drawFps();
 	drawScreen();
 	FrameData::renderFps = frameData.calculateAverageFps();
 }
@@ -129,6 +130,27 @@ void SVIEngine::receiveTick()
 	clearScreen();
 	updateScreen();
 	drawScreen();
+}
+
+/// @brief
+/// Calls the drawFps function for all fps counters
+void SVIEngine::drawFps() {
+	drawFps(FrameData::gameFps, X_ZERO, Y_ZERO, "Game Fps: ");
+	drawFps(FrameData::renderFps, X_ZERO, SDL_FPS_Y, "SDL Fps: ");
+}
+
+/// @brief
+/// Draws the fps if toggled on
+void SVIEngine::drawFps(double fps, int x, int y, const string& prefix = "fps: ")
+{
+	ostringstream stre;
+	stre << prefix << fps;
+	string str = stre.str();
+	if (1) {
+		Message m(str, NO_RED, NO_BLUE, NO_GREEN);
+		Position p(x, y);
+		sviFacade->drawMessageAt(m, p);
+	}
 }
 
 /// @brief 

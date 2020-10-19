@@ -1,6 +1,44 @@
 #pragma once
 #include "../SceneManager/Object.h"
 
+/// @brief
+/// A struct containing data for showing messages on screen
+#if(EXPORT)
+class DLLEXPORT Message
+#else
+struct Message
+#endif
+{
+	Message(const string& _text, int _r, int _g, int _b)
+		: text{ _text }, r{ _r }, g{ _g }, b{ _b }{}
+	const string& text;
+	int r, g, b;
+};
+
+/// @brief
+/// A struct containing data for 2d positions
+#if(EXPORT)
+class DLLEXPORT Position
+#else
+struct Position
+#endif
+{
+	Position(int _x, int _y) : x{ _x }, y{ _y } {}
+	int x, y;
+};
+
+/// @brief
+/// A struct containing data for width and height
+#if(EXPORT)
+class DLLEXPORT Size
+#else
+struct Size
+#endif
+{
+	Size(int _w, int _h) : w{ _w }, h{ _h } {}
+	int w, h;
+};
+
 /// @brief Interface class for SDL2 facade
 #if(EXPORT)
 class DLLEXPORT ISVI
@@ -24,6 +62,7 @@ public:
 
 	virtual void renderCopy(Object& object) = 0;
 
+	virtual void drawMessageAt(const Message& message, const Position& pos) = 0;
 
 	// Input Functions
 	virtual void input() = 0;
