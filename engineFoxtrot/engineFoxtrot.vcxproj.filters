@@ -117,6 +117,9 @@
     <ClCompile Include="Engine\stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\FPS\FrameData.cpp">
+      <Filter>Header Files\FPS</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Engine.h">
@@ -196,6 +199,9 @@
     </ClInclude>
     <ClInclude Include="Engine\stdafx.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\FPS\FrameData.h">
+      <Filter>Header Files\FPS</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
