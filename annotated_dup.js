@@ -4,10 +4,14 @@ var annotated_dup =
     [ "EventListener", "class_event_listener.html", "class_event_listener" ],
     [ "EventManager", "class_event_manager.html", "class_event_manager" ],
     [ "FileParser", "class_file_parser.html", "class_file_parser" ],
+    [ "IInputFacade", "class_i_input_facade.html", "class_i_input_facade" ],
     [ "IJsonFacade", "class_i_json_facade.html", null ],
+    [ "InputEngine", "class_input_engine.html", "class_input_engine" ],
+    [ "InputFacade", "class_input_facade.html", "class_input_facade" ],
     [ "IParticleFacade", "class_i_particle_facade.html", "class_i_particle_facade" ],
     [ "IPhysicsFacade", "class_i_physics_facade.html", "class_i_physics_facade" ],
-    [ "ISVI", "class_i_s_v_i.html", "class_i_s_v_i" ],
+    [ "ISoundFacade", "class_i_sound_facade.html", "class_i_sound_facade" ],
+    [ "IVideoFacade", "class_i_video_facade.html", "class_i_video_facade" ],
     [ "JsonFacade", "class_json_facade.html", null ],
     [ "Object", "class_object.html", "class_object" ],
     [ "ParticleEngine", "class_particle_engine.html", "class_particle_engine" ],
@@ -17,8 +21,9 @@ var annotated_dup =
     [ "PhysicsFacade", "class_physics_facade.html", "class_physics_facade" ],
     [ "Scene", "class_scene.html", "class_scene" ],
     [ "SceneManager", "class_scene_manager.html", "class_scene_manager" ],
-    [ "Sound", "class_sound.html", "class_sound" ],
+    [ "SoundEngine", "class_sound_engine.html", "class_sound_engine" ],
+    [ "SoundFacade", "class_sound_facade.html", "class_sound_facade" ],
     [ "Sprite", "struct_sprite.html", "struct_sprite" ],
-    [ "SVI", "class_s_v_i.html", "class_s_v_i" ],
-    [ "SVIEngine", "class_s_v_i_engine.html", "class_s_v_i_engine" ]
+    [ "VideoEngine", "class_video_engine.html", "class_video_engine" ],
+    [ "VideoFacade", "class_video_facade.html", "class_video_facade" ]
 ];

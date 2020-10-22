@@ -1,0 +1,27 @@
+var class_i_sound_facade =
+[
+    [ "ISoundFacade", "class_i_sound_facade.html#afbd1dff5289ae03fc6d6b748865c8fe6", null ],
+    [ "~ISoundFacade", "class_i_sound_facade.html#a22994390b35a678bb814b078b0c26f25", null ],
+    [ "AddFile", "class_i_sound_facade.html#a108dc24cdb5a79467d340b5bc31b5da6", null ],
+    [ "ChangeMusic", "class_i_sound_facade.html#a896b410f3f23bd49398362e85ef84644", null ],
+    [ "FadeInMusic", "class_i_sound_facade.html#a65c18177742e86555e099a6c16e9358e", null ],
+    [ "FadeInMusic", "class_i_sound_facade.html#a17bd754788360fe4c1ba5cacf4eeaaa8", null ],
+    [ "FadeOutMusic", "class_i_sound_facade.html#a91fe97305025537c747f2aaeade4a218", null ],
+    [ "Flush", "class_i_sound_facade.html#a97a1be6b9e5e590e06cb5a7777ecd397", null ],
+    [ "IdentifierExists", "class_i_sound_facade.html#a73af0cf6e2220d18ee66c0c9a27bb9a2", null ],
+    [ "IdentifierIsLoaded", "class_i_sound_facade.html#a8851bc7a6b8c945ea32036c0b77984a6", null ],
+    [ "isMix_PlayingMusic", "class_i_sound_facade.html#a939c780c11dc9927eed0c2105a29e35c", null ],
+    [ "LoadEffect", "class_i_sound_facade.html#acdb8fff20f894f062116a32355a1b037", null ],
+    [ "LoadMusic", "class_i_sound_facade.html#a91283878c25f677753efbf9f304471d8", null ],
+    [ "PauseMusic", "class_i_sound_facade.html#ac164c9080ea09a185cd743a297617e84", null ],
+    [ "PlayEffect", "class_i_sound_facade.html#a97ade319a5948b62786001d8a09ba94f", null ],
+    [ "PlayMusic", "class_i_sound_facade.html#aa7b02d2a0cee9090fccf3ec2e90c0497", null ],
+    [ "PlayMusic", "class_i_sound_facade.html#a1ba55d79418abc5a8e96e852acb9d730", null ],
+    [ "ResumeMusic", "class_i_sound_facade.html#afea8f62c6d6b4f1aa9fbd7590c325272", null ],
+    [ "RewindMusic", "class_i_sound_facade.html#ac5f6cdf98f9457271732784f4df66993", null ],
+    [ "SetFiles", "class_i_sound_facade.html#a93edaeebe51a22920d886f4c0bf89ddd", null ],
+    [ "StartLoopedEffect", "class_i_sound_facade.html#a9af29b75bf30f13c01930c0cb52366b5", null ],
+    [ "StopLoopedEffect", "class_i_sound_facade.html#adf722154d5aa05c8bff9ce7fb8f9c0de", null ],
+    [ "StopMusic", "class_i_sound_facade.html#a904b46a25b315cb9f87e55b7cd8f3382", null ],
+    [ "UnloadEffect", "class_i_sound_facade.html#a4ccf6ecff368448ad5eb78dc4077f533", null ]
+];

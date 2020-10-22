@@ -25,6 +25,7 @@
 var NAVTREE =
 [
   [ "Foxtrot_Game_Engine", "index.html", [
+    [ "PointerUsage", "md__engine__documentation__pointer_usage.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -43,7 +44,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_debug_8h_source.html",
-"class_s_v_i.html#a27d2d50db6c943ba82e172c06b963d31"
+"class_physics_facade.html#a26c3abb1379e7b99b569e16840d9e796"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

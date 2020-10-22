@@ -24,10 +24,12 @@ var class_engine =
     [ "engineTick60Thread", "class_engine.html#a1e71514a14ac02aa42021ab3e9bb4bc1", null ],
     [ "eventManager", "class_engine.html#aeda9fd72cfc0f90907a6361532563cdb", null ],
     [ "fileParser", "class_engine.html#a7a035976177f6d76dcc6548db1812870", null ],
+    [ "inputEngine", "class_engine.html#a69edf25f489a43c1658aa93db5d2ca73", null ],
     [ "particleEngine", "class_engine.html#ad15e0daf5264d8e6478efb9c1ad1a152", null ],
     [ "physicsEngine", "class_engine.html#ac52b19aa960d18ddd73492979754467a", null ],
     [ "sceneManager", "class_engine.html#ae998ed00ca0d7cb439f7cdc0d4084ccf", null ],
+    [ "soundEngine", "class_engine.html#a7e3f297e995c280e5edcf9101f4f9c35", null ],
     [ "stopThreadTick30", "class_engine.html#a18c2961416a93a6b2684d4d7cde146b4", null ],
     [ "stopThreadTick60", "class_engine.html#a1632553ca52ddaf2e7303c0c33f96ad5", null ],
-    [ "sviEngine", "class_engine.html#ae776a6d618659b698ebf8686dff84811", null ]
+    [ "videoEngine", "class_engine.html#a95a022b976d0b54867ad32dbf611d652", null ]
 ];
