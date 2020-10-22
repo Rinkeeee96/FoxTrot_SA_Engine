@@ -9,9 +9,7 @@ var class_physics_engine =
     [ "MoveLeft", "class_physics_engine.html#a499d880ae6fefd558c842293ab4b3e05", null ],
     [ "MoveRight", "class_physics_engine.html#a8249741588d894972e2bdc121fa60257", null ],
     [ "registerObjectInCurrentVectorWithPhysicsEngine", "class_physics_engine.html#a395053a3efe7baf0d5154a204b81b062", null ],
-    [ "update", "class_physics_engine.html#a2a7071d532bd587b89f524f796627eb6", null ],
-    [ "update30", "class_physics_engine.html#a60bbab82ca72d53f45865ca012a3926e", null ],
-    [ "eventManager", "class_physics_engine.html#a77786ec4ec8ac6a88b4fa07f074ba6e5", null ],
+    [ "update30", "class_physics_engine.html#a8d989a3865c2aa978b5d6712e88bca2b", null ],
     [ "physicsFacade", "class_physics_engine.html#a6c5b158b02bc35ac02008cbedae5bfeb", null ],
     [ "pointerToObjectVector", "class_physics_engine.html#aff3d75acf695054b177e9c522b1bb41b", null ]
 ];

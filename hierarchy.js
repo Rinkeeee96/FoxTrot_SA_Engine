@@ -1,12 +1,24 @@
 var hierarchy =
 [
     [ "Engine", "class_engine.html", null ],
-    [ "EventListener", "class_event_listener.html", [
-      [ "PhysicsEngine", "class_physics_engine.html", null ],
-      [ "SoundEngine", "class_sound_engine.html", null ],
-      [ "VideoEngine", "class_video_engine.html", null ]
+    [ "Event", "class_event.html", [
+      [ "AppTickEvent30", "class_app_tick_event30.html", null ],
+      [ "AppTickEvent60", "class_app_tick_event60.html", null ],
+      [ "KeyEvent", "class_key_event.html", [
+        [ "KeyPressedEvent", "class_key_pressed_event.html", null ],
+        [ "KeyReleasedEvent", "class_key_released_event.html", null ],
+        [ "KeyTypedEvent", "class_key_typed_event.html", null ]
+      ] ],
+      [ "MouseButtonEvent", "class_mouse_button_event.html", [
+        [ "MouseButtonPressed", "class_mouse_button_pressed.html", null ],
+        [ "MouseButtonReleasedEvent", "class_mouse_button_released_event.html", null ]
+      ] ],
+      [ "MouseMovedEvent", "class_mouse_moved_event.html", null ],
+      [ "MouseScrolledEvent", "class_mouse_scrolled_event.html", null ],
+      [ "WindowCloseEvent", "class_window_close_event.html", null ],
+      [ "WindowResizeEvent", "class_window_resize_event.html", null ]
     ] ],
-    [ "EventManager", "class_event_manager.html", null ],
+    [ "EventSingleton", "class_event_singleton.html", null ],
     [ "FileParser", "class_file_parser.html", null ],
     [ "IInputFacade", "class_i_input_facade.html", [
       [ "InputFacade", "class_input_facade.html", null ]
@@ -30,7 +42,10 @@ var hierarchy =
     [ "Object", "class_object.html", null ],
     [ "ParticleEngine", "class_particle_engine.html", null ],
     [ "PhysicsBody", "class_physics_body.html", null ],
+    [ "PhysicsEngine", "class_physics_engine.html", null ],
     [ "Scene", "class_scene.html", null ],
     [ "SceneManager", "class_scene_manager.html", null ],
-    [ "Sprite", "struct_sprite.html", null ]
+    [ "SoundEngine", "class_sound_engine.html", null ],
+    [ "Sprite", "struct_sprite.html", null ],
+    [ "VideoEngine", "class_video_engine.html", null ]
 ];

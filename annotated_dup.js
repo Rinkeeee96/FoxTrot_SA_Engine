@@ -1,8 +1,10 @@
 var annotated_dup =
 [
+    [ "AppTickEvent30", "class_app_tick_event30.html", "class_app_tick_event30" ],
+    [ "AppTickEvent60", "class_app_tick_event60.html", "class_app_tick_event60" ],
     [ "Engine", "class_engine.html", "class_engine" ],
-    [ "EventListener", "class_event_listener.html", "class_event_listener" ],
-    [ "EventManager", "class_event_manager.html", "class_event_manager" ],
+    [ "Event", "class_event.html", "class_event" ],
+    [ "EventSingleton", "class_event_singleton.html", "class_event_singleton" ],
     [ "FileParser", "class_file_parser.html", "class_file_parser" ],
     [ "IInputFacade", "class_i_input_facade.html", "class_i_input_facade" ],
     [ "IJsonFacade", "class_i_json_facade.html", null ],
@@ -13,6 +15,15 @@ var annotated_dup =
     [ "ISoundFacade", "class_i_sound_facade.html", "class_i_sound_facade" ],
     [ "IVideoFacade", "class_i_video_facade.html", "class_i_video_facade" ],
     [ "JsonFacade", "class_json_facade.html", null ],
+    [ "KeyEvent", "class_key_event.html", "class_key_event" ],
+    [ "KeyPressedEvent", "class_key_pressed_event.html", "class_key_pressed_event" ],
+    [ "KeyReleasedEvent", "class_key_released_event.html", "class_key_released_event" ],
+    [ "KeyTypedEvent", "class_key_typed_event.html", "class_key_typed_event" ],
+    [ "MouseButtonEvent", "class_mouse_button_event.html", "class_mouse_button_event" ],
+    [ "MouseButtonPressed", "class_mouse_button_pressed.html", "class_mouse_button_pressed" ],
+    [ "MouseButtonReleasedEvent", "class_mouse_button_released_event.html", "class_mouse_button_released_event" ],
+    [ "MouseMovedEvent", "class_mouse_moved_event.html", "class_mouse_moved_event" ],
+    [ "MouseScrolledEvent", "class_mouse_scrolled_event.html", "class_mouse_scrolled_event" ],
     [ "Object", "class_object.html", "class_object" ],
     [ "ParticleEngine", "class_particle_engine.html", "class_particle_engine" ],
     [ "ParticleFacade", "class_particle_facade.html", "class_particle_facade" ],
@@ -25,5 +36,7 @@ var annotated_dup =
     [ "SoundFacade", "class_sound_facade.html", "class_sound_facade" ],
     [ "Sprite", "struct_sprite.html", "struct_sprite" ],
     [ "VideoEngine", "class_video_engine.html", "class_video_engine" ],
-    [ "VideoFacade", "class_video_facade.html", "class_video_facade" ]
+    [ "VideoFacade", "class_video_facade.html", "class_video_facade" ],
+    [ "WindowCloseEvent", "class_window_close_event.html", "class_window_close_event" ],
+    [ "WindowResizeEvent", "class_window_resize_event.html", "class_window_resize_event" ]
 ];

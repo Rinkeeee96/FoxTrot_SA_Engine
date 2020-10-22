@@ -72,22 +72,19 @@ $(document).ready(function(){initNavTree('class_sound_engine.html',''); initResi
  <a href="class_sound_engine.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_sound_engine_8h_source.html">SoundEngine.h</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for SoundEngine:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="class_sound_engine.png" usemap="#SoundEngine_map" alt=""/>
-  <map id="SoundEngine_map" name="SoundEngine_map">
-<area href="class_event_listener.html" alt="EventListener" shape="rect" coords="0,0,89,24"/>
-  </map>
-</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad98ebf8033af3783552fca393d563ae6"><td class="memItemLeft" align="right" valign="top"><a id="ad98ebf8033af3783552fca393d563ae6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_engine.html#ad98ebf8033af3783552fca393d563ae6">update</a> (<a class="el" href="class_object.html">Object</a> *object) override</td></tr>
-<tr class="memdesc:ad98ebf8033af3783552fca393d563ae6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update function. <br /></td></tr>
-<tr class="separator:ad98ebf8033af3783552fca393d563ae6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0142abe409de430b9e1a7f02dbb1c092"><td class="memItemLeft" align="right" valign="top"><a id="a0142abe409de430b9e1a7f02dbb1c092"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>receiveTick</b> ()</td></tr>
+<tr class="separator:a0142abe409de430b9e1a7f02dbb1c092"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a408a4c8553e41b9f01579cd25bc5deb9"><td class="memItemLeft" align="right" valign="top"><a id="a408a4c8553e41b9f01579cd25bc5deb9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>input</b> ()</td></tr>
+<tr class="separator:a408a4c8553e41b9f01579cd25bc5deb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3978e73bd2f48ecc852ff3b4fc7dfcd1"><td class="memItemLeft" align="right" valign="top"><a id="a3978e73bd2f48ecc852ff3b4fc7dfcd1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_engine.html#a3978e73bd2f48ecc852ff3b4fc7dfcd1">update</a> (<a class="el" href="class_object.html">Object</a> *object)</td></tr>
+<tr class="memdesc:a3978e73bd2f48ecc852ff3b4fc7dfcd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update function. <br /></td></tr>
+<tr class="separator:a3978e73bd2f48ecc852ff3b4fc7dfcd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90dba333e99e7c11d430e6bcf56cfaec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_engine.html#a90dba333e99e7c11d430e6bcf56cfaec">SetFiles</a> (map&lt; string, string &gt; files)</td></tr>
 <tr class="separator:a90dba333e99e7c11d430e6bcf56cfaec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3b45d4fc4a9e92ef136871c14ffba05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_engine.html#af3b45d4fc4a9e92ef136871c14ffba05">AddFile</a> (const string &amp;identifier, const string &amp;file)</td></tr>
@@ -132,10 +129,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ResumeMusic</b> ()</t
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Flush</b> ()</td></tr>
 <tr class="separator:aad93b5d18b8544c98f9e9ef68897a81b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a928b0e2ab21092978ba9e030c2b10fd0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_engine.html#a928b0e2ab21092978ba9e030c2b10fd0">onPlayEffect</a> (const string &amp;identifier, const int volume)</td></tr>
-<tr class="memdesc:a928b0e2ab21092978ba9e030c2b10fd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event listener for when an effect has to be played.  <a href="class_sound_engine.html#a928b0e2ab21092978ba9e030c2b10fd0">More...</a><br /></td></tr>
+<tr class="memdesc:a928b0e2ab21092978ba9e030c2b10fd0"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_event.html">Event</a> listener for when an effect has to be played.  <a href="class_sound_engine.html#a928b0e2ab21092978ba9e030c2b10fd0">More...</a><br /></td></tr>
 <tr class="separator:a928b0e2ab21092978ba9e030c2b10fd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a959cde32fbd97eaae1d93f7e7bc90616"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_engine.html#a959cde32fbd97eaae1d93f7e7bc90616">onChangeBackgroundMusic</a> (const string &amp;identifier, const int volume)</td></tr>
-<tr class="memdesc:a959cde32fbd97eaae1d93f7e7bc90616"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event listener for when the music has to be changed.  <a href="class_sound_engine.html#a959cde32fbd97eaae1d93f7e7bc90616">More...</a><br /></td></tr>
+<tr class="memdesc:a959cde32fbd97eaae1d93f7e7bc90616"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_event.html">Event</a> listener for when the music has to be changed.  <a href="class_sound_engine.html#a959cde32fbd97eaae1d93f7e7bc90616">More...</a><br /></td></tr>
 <tr class="separator:a959cde32fbd97eaae1d93f7e7bc90616"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a584aa1c4a46c954f72b3775c10351655"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_engine.html#a584aa1c4a46c954f72b3775c10351655">IdentifierExists</a> (const string &amp;identifier)</td></tr>
 <tr class="separator:a584aa1c4a46c954f72b3775c10351655"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -147,9 +144,6 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ae29b99fd9ed30487d68b9bdeae336b5e"><td class="memItemLeft" align="right" valign="top"><a id="ae29b99fd9ed30487d68b9bdeae336b5e"></a>
 vector&lt; <a class="el" href="class_object.html">Object</a> * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>pointerToObjectVector</b> = nullptr</td></tr>
 <tr class="separator:ae29b99fd9ed30487d68b9bdeae336b5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a817001dd76935554e5ae4b21729c13ef"><td class="memItemLeft" align="right" valign="top"><a id="a817001dd76935554e5ae4b21729c13ef"></a>
-<a class="el" href="class_event_manager.html">EventManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>eventManager</b> = nullptr</td></tr>
-<tr class="separator:a817001dd76935554e5ae4b21729c13ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -435,7 +429,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Event listener for when the music has to be changed. </p>
+<p><a class="el" href="class_event.html">Event</a> listener for when the music has to be changed. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">identifier</td><td>The identifier of the music to play </td></tr>
@@ -472,7 +466,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Event listener for when an effect has to be played. </p>
+<p><a class="el" href="class_event.html">Event</a> listener for when an effect has to be played. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">identifier</td><td>The identifier of the effect to play </td></tr>

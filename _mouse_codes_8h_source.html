@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Foxtrot_Game_Engine: Engine/Events/EventListener.h Source File</title>
+<title>Foxtrot_Game_Engine: Engine/Events/Codes/MouseCodes.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -53,35 +53,32 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('_event_listener_8h_source.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('_mouse_codes_8h_source.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">EventListener.h</div>  </div>
+<div class="title">MouseCodes.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;../SceneManager/Object.h&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// TODO find a suitable place for the conversion from sdl to &#39;our own&#39;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#if(EXPORT)</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">class </span>DLLEXPORT <a class="code" href="class_event_listener.html">EventListener</a></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;#else</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_event_listener.html">    7</a></span>&#160;class <a class="code" href="class_event_listener.html">EventListener</a></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;#endif</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> update(<a class="code" href="class_object.html">Object</a>* <span class="keywordtype">object</span>) = 0;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;};</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">enum</span> MouseCode</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    MOUSE_BTN_LEFT = 1, </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    MOUSE_BTN_MIDDLE = 2,</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    MOUSE_BTN_RIGHT = 3,</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    MOUSE_BTN_1 = 4,</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    MOUSE_BTN_2 = 5,</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_event_listener_html"><div class="ttname"><a href="class_event_listener.html">EventListener</a></div><div class="ttdef"><b>Definition:</b> EventListener.h:9</div></div>
-<div class="ttc" id="aclass_object_html"><div class="ttname"><a href="class_object.html">Object</a></div><div class="ttdoc">Object class. Object is linked with a sprite id in SVI.</div><div class="ttdef"><b>Definition:</b> Object.h:11</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a class="el" href="dir_44b26ab0b0dff386c17ba862e0f4423d.html">Events</a></li><li class="navelem"><b>EventListener.h</b></li>
+    <li class="navelem"><a class="el" href="dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a class="el" href="dir_44b26ab0b0dff386c17ba862e0f4423d.html">Events</a></li><li class="navelem"><a class="el" href="dir_fd8b0673c717371c7973e7210347eb64.html">Codes</a></li><li class="navelem"><b>MouseCodes.h</b></li>
     <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
   </ul>
 </div>

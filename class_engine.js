@@ -2,7 +2,6 @@ var class_engine =
 [
     [ "Engine", "class_engine.html#a8c98683b0a3aa28d8ab72a8bcd0d52f2", null ],
     [ "~Engine", "class_engine.html#a8ef7030a089ecb30bbfcb9e43094717a", null ],
-    [ "addEventListener", "class_engine.html#a458215d2926098d5bb760058214613aa", null ],
     [ "createNewObjectWithSceneID", "class_engine.html#a6035e7cc7664a44fc0812827a503df27", null ],
     [ "createNewObjectWithSceneID", "class_engine.html#af1fc5d99f31a19eafce7ba2ad007a1ac", null ],
     [ "createNewSceneWithSceneID", "class_engine.html#ab0ae6ddb59e7a0249c80f153481aaecc", null ],
@@ -22,7 +21,6 @@ var class_engine =
     [ "stopTickThreads", "class_engine.html#a8c4b8e69dcf1537e433053790733e143", null ],
     [ "engineTick30Thread", "class_engine.html#a24be7a8ec0e5e0dee543ebc571cff21d", null ],
     [ "engineTick60Thread", "class_engine.html#a1e71514a14ac02aa42021ab3e9bb4bc1", null ],
-    [ "eventManager", "class_engine.html#aeda9fd72cfc0f90907a6361532563cdb", null ],
     [ "fileParser", "class_engine.html#a7a035976177f6d76dcc6548db1812870", null ],
     [ "inputEngine", "class_engine.html#a69edf25f489a43c1658aa93db5d2ca73", null ],
     [ "particleEngine", "class_engine.html#ad15e0daf5264d8e6478efb9c1ad1a152", null ],
