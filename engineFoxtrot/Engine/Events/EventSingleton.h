@@ -1,20 +1,16 @@
 #pragma once
 #include "Event.h";
-
 using EventCallbackFn = std::function<void(Event&)>;
 
 #define BIND_EVENT_FN(x) std::bind(&x, this, std::placeholders::_1)
-
 class EventSingleton
 {
 public:
-    static EventSingleton& get_instance() { return instance; }
-
-    // prohibit copy & move
-    EventSingleton(const EventSingleton&) = delete;
-    EventSingleton(EventSingleton&&) = delete;
-    EventSingleton& operator=(const EventSingleton&) = delete;
-    EventSingleton& operator=(EventSingleton&&) = delete;
+    // https://stackoverflow.com/questions/12248747/singleton-with-multithreads
+    static EventSingleton& get_instance() {
+        static EventSingleton instance;
+        return instance;
+    }
 
     /// @brief
     /// OnEvent is triggered when an event is fired, and send message to all registered listiners
@@ -54,7 +50,10 @@ public:
 
 private:
     map<string, vector<function<void(Event&)>>> handlers = map<string, vector<function<void(Event&)>>>();
-    static EventSingleton instance;
-
-    EventSingleton() {}
+ 
+    // prohibit copy & move
+    EventSingleton() = default;
+    ~EventSingleton() = default;
+    EventSingleton(const EventSingleton&) = delete;
+    EventSingleton& operator=(const EventSingleton&) = delete;
 };
