@@ -169,7 +169,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Engine\Events\EventSingleton.cpp" />
     <ClCompile Include="Main\main.cpp" />
     <ClCompile Include="Engine\SceneManager\Object.cpp" />
     <ClCompile Include="Engine\Particles\ParticleEngine.cpp" />
