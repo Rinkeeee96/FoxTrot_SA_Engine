@@ -82,21 +82,9 @@ Public Member Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a395053a3efe7baf0d5154a204b81b062">registerObjectInCurrentVectorWithPhysicsEngine</a> ()</td></tr>
 <tr class="memdesc:a395053a3efe7baf0d5154a204b81b062"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to create all objects in the facade. <br /></td></tr>
 <tr class="separator:a395053a3efe7baf0d5154a204b81b062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a499d880ae6fefd558c842293ab4b3e05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a499d880ae6fefd558c842293ab4b3e05">MoveLeft</a> (const int objectId)</td></tr>
-<tr class="memdesc:a499d880ae6fefd558c842293ab4b3e05"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to add a linearImpulse to a object for moving to left.  <a href="class_physics_engine.html#a499d880ae6fefd558c842293ab4b3e05">More...</a><br /></td></tr>
-<tr class="separator:a499d880ae6fefd558c842293ab4b3e05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8249741588d894972e2bdc121fa60257"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a8249741588d894972e2bdc121fa60257">MoveRight</a> (const int objectId)</td></tr>
-<tr class="memdesc:a8249741588d894972e2bdc121fa60257"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to add a linearImpulse to a object for moving to right.  <a href="class_physics_engine.html#a8249741588d894972e2bdc121fa60257">More...</a><br /></td></tr>
-<tr class="separator:a8249741588d894972e2bdc121fa60257"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91c7d87b41e0b547d6f0402b3524a4b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a91c7d87b41e0b547d6f0402b3524a4b6">Jump</a> (const int objectId)</td></tr>
-<tr class="memdesc:a91c7d87b41e0b547d6f0402b3524a4b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to add a linearImpulse to a object for jumping.  <a href="class_physics_engine.html#a91c7d87b41e0b547d6f0402b3524a4b6">More...</a><br /></td></tr>
-<tr class="separator:a91c7d87b41e0b547d6f0402b3524a4b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6e39aa8c5bc1b1d3e35434ef1f9973d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#ab6e39aa8c5bc1b1d3e35434ef1f9973d">JumpLeft</a> (const int objectId)</td></tr>
-<tr class="memdesc:ab6e39aa8c5bc1b1d3e35434ef1f9973d"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to add a linearImpulse to a object for jumping to the left.  <a href="class_physics_engine.html#ab6e39aa8c5bc1b1d3e35434ef1f9973d">More...</a><br /></td></tr>
-<tr class="separator:ab6e39aa8c5bc1b1d3e35434ef1f9973d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ab47875c09b96dd5f012d41e78224ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a9ab47875c09b96dd5f012d41e78224ea">JumpRight</a> (const int objectId)</td></tr>
-<tr class="memdesc:a9ab47875c09b96dd5f012d41e78224ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to add a linearImpulse to a object for jumping to the right.  <a href="class_physics_engine.html#a9ab47875c09b96dd5f012d41e78224ea">More...</a><br /></td></tr>
-<tr class="separator:a9ab47875c09b96dd5f012d41e78224ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa724aeb32c4a813ec99b1d32fd562595"><td class="memItemLeft" align="right" valign="top"><a id="aa724aeb32c4a813ec99b1d32fd562595"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>handleAction</b> (<a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
+<tr class="separator:aa724aeb32c4a813ec99b1d32fd562595"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d989a3865c2aa978b5d6712e88bca2b"><td class="memItemLeft" align="right" valign="top"><a id="a8d989a3865c2aa978b5d6712e88bca2b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a8d989a3865c2aa978b5d6712e88bca2b">update30</a> (<a class="el" href="class_event.html">Event</a> &amp;tick30Event)</td></tr>
 <tr class="memdesc:a8d989a3865c2aa978b5d6712e88bca2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle the tick given from the thread. <br  />
@@ -144,136 +132,6 @@ Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>A function to search a object with the ObjectId If a object is not found throw PHYSICS_ENGINE_OBJECT_DOESNT_EXIST. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">objectId</td><td>Identifier for ObjectID </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a91c7d87b41e0b547d6f0402b3524a4b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91c7d87b41e0b547d6f0402b3524a4b6">&#9670;&nbsp;</a></span>Jump()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PhysicsEngine::Jump </td>
-          <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>objectId</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A function to add a linearImpulse to a object for jumping. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">objectId</td><td>Identifier for ObjectID </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ab6e39aa8c5bc1b1d3e35434ef1f9973d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6e39aa8c5bc1b1d3e35434ef1f9973d">&#9670;&nbsp;</a></span>JumpLeft()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PhysicsEngine::JumpLeft </td>
-          <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>objectId</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A function to add a linearImpulse to a object for jumping to the left. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">objectId</td><td>Identifier for ObjectID </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a9ab47875c09b96dd5f012d41e78224ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ab47875c09b96dd5f012d41e78224ea">&#9670;&nbsp;</a></span>JumpRight()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PhysicsEngine::JumpRight </td>
-          <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>objectId</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A function to add a linearImpulse to a object for jumping to the right. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">objectId</td><td>Identifier for ObjectID </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a499d880ae6fefd558c842293ab4b3e05"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a499d880ae6fefd558c842293ab4b3e05">&#9670;&nbsp;</a></span>MoveLeft()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PhysicsEngine::MoveLeft </td>
-          <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>objectId</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A function to add a linearImpulse to a object for moving to left. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">objectId</td><td>Identifier for ObjectID </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a8249741588d894972e2bdc121fa60257"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8249741588d894972e2bdc121fa60257">&#9670;&nbsp;</a></span>MoveRight()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PhysicsEngine::MoveRight </td>
-          <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>objectId</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A function to add a linearImpulse to a object for moving to right. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">objectId</td><td>Identifier for ObjectID </td></tr>

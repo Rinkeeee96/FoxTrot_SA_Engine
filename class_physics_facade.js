@@ -7,8 +7,6 @@ var class_physics_facade =
     [ "findBody", "class_physics_facade.html#a60324e2e674f8b0c43f3d1b659587d8f", null ],
     [ "getPhysicsObject", "class_physics_facade.html#ad75ac7ca0679788123d87d8fe88b537d", null ],
     [ "Jump", "class_physics_facade.html#ada17497182472bf05707ce261fa2cdad", null ],
-    [ "JumpLeft", "class_physics_facade.html#a54ffdc194ea18c5715d90a7ff343bccb", null ],
-    [ "JumpRight", "class_physics_facade.html#aa5b13be00395277001ee9b48c601a197", null ],
     [ "MoveLeft", "class_physics_facade.html#a007c3c74101d15854182eafe77d51134", null ],
     [ "MoveRight", "class_physics_facade.html#a986be15be922656f6a43513ff177b181", null ],
     [ "update", "class_physics_facade.html#a385afe67398479d31386edfc92371bd2", null ],

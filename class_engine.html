@@ -102,18 +102,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="separator:af1fc5d99f31a19eafce7ba2ad007a1ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f753dd2454bd84a3d58ce79284f1cb7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a8f753dd2454bd84a3d58ce79284f1cb7">linkSpriteIDWithAssetPath</a> (const int spriteID, const char *assetPath)</td></tr>
 <tr class="separator:a8f753dd2454bd84a3d58ce79284f1cb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af04bf4d1909e4f6add025a654b1d3b34"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#af04bf4d1909e4f6add025a654b1d3b34">moveObjectTo</a> (const int objId, const int x, const int y)</td></tr>
-<tr class="separator:af04bf4d1909e4f6add025a654b1d3b34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57503acb3c089dcb1724377f44a7f932"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a57503acb3c089dcb1724377f44a7f932">moveObjectBy</a> (const int objId, const int withX, const int withY)</td></tr>
-<tr class="separator:a57503acb3c089dcb1724377f44a7f932"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c9b9d2a5ab7301790089ff2535bb7ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a7c9b9d2a5ab7301790089ff2535bb7ca">setObjectRotation</a> (const int objId, const int rotation)</td></tr>
-<tr class="separator:a7c9b9d2a5ab7301790089ff2535bb7ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a893ee66e7a96375be45d25b10b1635dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a893ee66e7a96375be45d25b10b1635dc">setObjectScale</a> (const int objId, const int scale)</td></tr>
-<tr class="separator:a893ee66e7a96375be45d25b10b1635dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1209f5318cbb247c77d1921991bb2c7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a1209f5318cbb247c77d1921991bb2c7e">setObjectDirection</a> (const int objId, const int dir)</td></tr>
-<tr class="separator:a1209f5318cbb247c77d1921991bb2c7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f2848f31ead1e4c54b5d8e7f3417dad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a8f2848f31ead1e4c54b5d8e7f3417dad">setObjectStatic</a> (const int objId, const bool stat)</td></tr>
-<tr class="separator:a8f2848f31ead1e4c54b5d8e7f3417dad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f8e79fdc1bbc45bda882c408cd8dc72"><td class="memItemLeft" align="right" valign="top"><a id="a6f8e79fdc1bbc45bda882c408cd8dc72"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a6f8e79fdc1bbc45bda882c408cd8dc72">pollInput</a> ()</td></tr>
+<tr class="memdesc:a6f8e79fdc1bbc45bda882c408cd8dc72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Polls for input using SDL poll events. <br /></td></tr>
+<tr class="separator:a6f8e79fdc1bbc45bda882c408cd8dc72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac65190735eef07d92b45ca2f59264512"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#ac65190735eef07d92b45ca2f59264512">configureInput</a> (KeyCode key, <a class="el" href="class_command.html">Command</a> *command)</td></tr>
+<tr class="memdesc:ac65190735eef07d92b45ca2f59264512"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to bind keys to commands.  <a href="class_engine.html#ac65190735eef07d92b45ca2f59264512">More...</a><br /></td></tr>
+<tr class="separator:ac65190735eef07d92b45ca2f59264512"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -132,6 +127,9 @@ thread *&#160;</td><td class="memItemRight" valign="bottom"><b>engineTick30Threa
 <tr class="memitem:ac52b19aa960d18ddd73492979754467a"><td class="memItemLeft" align="right" valign="top"><a id="ac52b19aa960d18ddd73492979754467a"></a>
 <a class="el" href="class_physics_engine.html">PhysicsEngine</a>&#160;</td><td class="memItemRight" valign="bottom"><b>physicsEngine</b></td></tr>
 <tr class="separator:ac52b19aa960d18ddd73492979754467a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95a022b976d0b54867ad32dbf611d652"><td class="memItemLeft" align="right" valign="top"><a id="a95a022b976d0b54867ad32dbf611d652"></a>
+<a class="el" href="class_video_engine.html">VideoEngine</a>&#160;</td><td class="memItemRight" valign="bottom"><b>videoEngine</b></td></tr>
+<tr class="separator:a95a022b976d0b54867ad32dbf611d652"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -140,9 +138,6 @@ Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a95a022b976d0b54867ad32dbf611d652"><td class="memItemLeft" align="right" valign="top"><a id="a95a022b976d0b54867ad32dbf611d652"></a>
-<a class="el" href="class_video_engine.html">VideoEngine</a>&#160;</td><td class="memItemRight" valign="bottom"><b>videoEngine</b></td></tr>
-<tr class="separator:a95a022b976d0b54867ad32dbf611d652"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e3f297e995c280e5edcf9101f4f9c35"><td class="memItemLeft" align="right" valign="top"><a id="a7e3f297e995c280e5edcf9101f4f9c35"></a>
 <a class="el" href="class_sound_engine.html">SoundEngine</a>&#160;</td><td class="memItemRight" valign="bottom"><b>soundEngine</b></td></tr>
 <tr class="separator:a7e3f297e995c280e5edcf9101f4f9c35"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -160,6 +155,43 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ae998ed00ca0d7cb439f7cdc0d4084ccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac65190735eef07d92b45ca2f59264512"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac65190735eef07d92b45ca2f59264512">&#9670;&nbsp;</a></span>configureInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Engine::configureInput </td>
+          <td>(</td>
+          <td class="paramtype">KeyCode&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_command.html">Command</a> *&#160;</td>
+          <td class="paramname"><em>command</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function to bind keys to commands. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>KeyCode key </td></tr>
+    <tr><td class="paramname">command</td><td><a class="el" href="class_command.html" title="Virtual class for all commands.">Command</a> to be executed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a6035e7cc7664a44fc0812827a503df27"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6035e7cc7664a44fc0812827a503df27">&#9670;&nbsp;</a></span>createNewObjectWithSceneID() <span class="overload">[1/2]</span></h2>
 
@@ -462,92 +494,6 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a57503acb3c089dcb1724377f44a7f932"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57503acb3c089dcb1724377f44a7f932">&#9670;&nbsp;</a></span>moveObjectBy()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Engine::moveObjectBy </td>
-          <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>objId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>withX</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>withY</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">objId</td><td></td></tr>
-    <tr><td class="paramname">withX</td><td></td></tr>
-    <tr><td class="paramname">withY</td><td><br  />
- </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="af04bf4d1909e4f6add025a654b1d3b34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af04bf4d1909e4f6add025a654b1d3b34">&#9670;&nbsp;</a></span>moveObjectTo()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Engine::moveObjectTo </td>
-          <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>objId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">objId</td><td></td></tr>
-    <tr><td class="paramname">x</td><td></td></tr>
-    <tr><td class="paramname">y</td><td><br  />
- </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="afacb7e390439a2603729200ea99177b0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afacb7e390439a2603729200ea99177b0">&#9670;&nbsp;</a></span>setCurrentScene()</h2>
 
@@ -574,153 +520,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a1209f5318cbb247c77d1921991bb2c7e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1209f5318cbb247c77d1921991bb2c7e">&#9670;&nbsp;</a></span>setObjectDirection()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Engine::setObjectDirection </td>
-          <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>objId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>dir</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">objId</td><td></td></tr>
-    <tr><td class="paramname">dir</td><td><br  />
- </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a7c9b9d2a5ab7301790089ff2535bb7ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c9b9d2a5ab7301790089ff2535bb7ca">&#9670;&nbsp;</a></span>setObjectRotation()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Engine::setObjectRotation </td>
-          <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>objId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>rotation</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">objId</td><td></td></tr>
-    <tr><td class="paramname">rotation</td><td><br  />
- </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a893ee66e7a96375be45d25b10b1635dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a893ee66e7a96375be45d25b10b1635dc">&#9670;&nbsp;</a></span>setObjectScale()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Engine::setObjectScale </td>
-          <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>objId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>scale</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">objId</td><td></td></tr>
-    <tr><td class="paramname">scale</td><td><br  />
- </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a8f2848f31ead1e4c54b5d8e7f3417dad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f2848f31ead1e4c54b5d8e7f3417dad">&#9670;&nbsp;</a></span>setObjectStatic()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Engine::setObjectStatic </td>
-          <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>objId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>stat</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">objId</td><td></td></tr>
-    <tr><td class="paramname">stat</td><td><br  />
- </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>Engine/<a class="el" href="_engine_8h_source.html">Engine.h</a></li>
-<li>Engine/Engine+ObjectModifiers.cpp</li>
 <li>Engine/Engine.cpp</li>
 </ul>
 </div><!-- contents -->

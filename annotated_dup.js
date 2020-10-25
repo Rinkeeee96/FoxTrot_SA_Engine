@@ -1,7 +1,9 @@
 var annotated_dup =
 [
+    [ "ActionEvent", "class_action_event.html", "class_action_event" ],
     [ "AppTickEvent30", "class_app_tick_event30.html", "class_app_tick_event30" ],
     [ "AppTickEvent60", "class_app_tick_event60.html", "class_app_tick_event60" ],
+    [ "Command", "class_command.html", "class_command" ],
     [ "Engine", "class_engine.html", "class_engine" ],
     [ "Event", "class_event.html", "class_event" ],
     [ "EventSingleton", "class_event_singleton.html", "class_event_singleton" ],
@@ -15,6 +17,7 @@ var annotated_dup =
     [ "ISoundFacade", "class_i_sound_facade.html", "class_i_sound_facade" ],
     [ "IVideoFacade", "class_i_video_facade.html", "class_i_video_facade" ],
     [ "JsonFacade", "class_json_facade.html", null ],
+    [ "Jump", "class_jump.html", "class_jump" ],
     [ "KeyEvent", "class_key_event.html", "class_key_event" ],
     [ "KeyPressedEvent", "class_key_pressed_event.html", "class_key_pressed_event" ],
     [ "KeyReleasedEvent", "class_key_released_event.html", "class_key_released_event" ],
@@ -24,6 +27,8 @@ var annotated_dup =
     [ "MouseButtonReleasedEvent", "class_mouse_button_released_event.html", "class_mouse_button_released_event" ],
     [ "MouseMovedEvent", "class_mouse_moved_event.html", "class_mouse_moved_event" ],
     [ "MouseScrolledEvent", "class_mouse_scrolled_event.html", "class_mouse_scrolled_event" ],
+    [ "MoveLeft", "class_move_left.html", "class_move_left" ],
+    [ "MoveRight", "class_move_right.html", "class_move_right" ],
     [ "Object", "class_object.html", "class_object" ],
     [ "ParticleEngine", "class_particle_engine.html", "class_particle_engine" ],
     [ "ParticleFacade", "class_particle_facade.html", "class_particle_facade" ],

@@ -1,7 +1,13 @@
 var hierarchy =
 [
+    [ "Command", "class_command.html", [
+      [ "Jump", "class_jump.html", null ],
+      [ "MoveLeft", "class_move_left.html", null ],
+      [ "MoveRight", "class_move_right.html", null ]
+    ] ],
     [ "Engine", "class_engine.html", null ],
     [ "Event", "class_event.html", [
+      [ "ActionEvent", "class_action_event.html", null ],
       [ "AppTickEvent30", "class_app_tick_event30.html", null ],
       [ "AppTickEvent60", "class_app_tick_event60.html", null ],
       [ "KeyEvent", "class_key_event.html", [

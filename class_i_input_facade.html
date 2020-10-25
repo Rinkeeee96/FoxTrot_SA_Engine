@@ -65,23 +65,35 @@ $(document).ready(function(){initNavTree('class_i_input_facade.html',''); initRe
 <div class="title">IInputFacade Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Interface Inputfacade <br  />
+  
+ <a href="class_i_input_facade.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_i_input_facade_8h_source.html">IInputFacade.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for IInputFacade:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_i_input_facade.png" usemap="#IInputFacade_map" alt=""/>
   <map id="IInputFacade_map" name="IInputFacade_map">
-<area href="class_input_facade.html" alt="InputFacade" shape="rect" coords="0,56,85,80"/>
+<area href="class_input_facade.html" title="Facade for SDL input part." alt="InputFacade" shape="rect" coords="0,56,85,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad526e9075e70fc4c0026a8bac8c734a7"><td class="memItemLeft" align="right" valign="top"><a id="ad526e9075e70fc4c0026a8bac8c734a7"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>input</b> ()=0</td></tr>
-<tr class="separator:ad526e9075e70fc4c0026a8bac8c734a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e6d3bfab17806908013d07d0a34041b"><td class="memItemLeft" align="right" valign="top"><a id="a1e6d3bfab17806908013d07d0a34041b"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>fill</b> (vector&lt; <a class="el" href="class_command.html">Command</a> * &gt; &amp;command_queue)=0</td></tr>
+<tr class="separator:a1e6d3bfab17806908013d07d0a34041b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af91f6157fb184d98e200af1b5a3c04b8"><td class="memItemLeft" align="right" valign="top"><a id="af91f6157fb184d98e200af1b5a3c04b8"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>configure</b> (KeyCode key, <a class="el" href="class_command.html">Command</a> *command)=0</td></tr>
+<tr class="separator:af91f6157fb184d98e200af1b5a3c04b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Interface Inputfacade <br  />
+ </p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>Engine/Input/<a class="el" href="_i_input_facade_8h_source.html">IInputFacade.h</a></li>
 </ul>
 </div><!-- contents -->
