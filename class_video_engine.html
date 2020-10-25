@@ -93,6 +93,17 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_engine.html#a69a5bbd9eeef2970613bc13d2880fcd4">updateScreen</a> ()</td></tr>
 <tr class="memdesc:a69a5bbd9eeef2970613bc13d2880fcd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update all the sprites on the screen. <br /></td></tr>
 <tr class="separator:a69a5bbd9eeef2970613bc13d2880fcd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e5f05b3866c92d801214a378d448a60"><td class="memItemLeft" align="right" valign="top"><a id="a2e5f05b3866c92d801214a378d448a60"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_engine.html#a2e5f05b3866c92d801214a378d448a60">drawFps</a> ()</td></tr>
+<tr class="memdesc:a2e5f05b3866c92d801214a378d448a60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls the drawFps method with parameters for all calculated Fps types. <br /></td></tr>
+<tr class="separator:a2e5f05b3866c92d801214a378d448a60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4de84f7e2801cda58af13aaa969b940"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_engine.html#ad4de84f7e2801cda58af13aaa969b940">drawFps</a> (double fps, int xPos, int yPos, const string &amp;prefix)</td></tr>
+<tr class="memdesc:ad4de84f7e2801cda58af13aaa969b940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gathers the given fps data, stores them in structs and passes the data to the videofacade if fps should be drawn.  <a href="class_video_engine.html#ad4de84f7e2801cda58af13aaa969b940">More...</a><br /></td></tr>
+<tr class="separator:ad4de84f7e2801cda58af13aaa969b940"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e9b2cce9ab07835539914853c098f7e"><td class="memItemLeft" align="right" valign="top"><a id="a9e9b2cce9ab07835539914853c098f7e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_engine.html#a9e9b2cce9ab07835539914853c098f7e">toggleFps</a> ()</td></tr>
+<tr class="memdesc:a9e9b2cce9ab07835539914853c098f7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles fps visibility. <br /></td></tr>
+<tr class="separator:a9e9b2cce9ab07835539914853c098f7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe6e69c9e48e2139ad1d6e4208b98189"><td class="memItemLeft" align="right" valign="top"><a id="afe6e69c9e48e2139ad1d6e4208b98189"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_engine.html#afe6e69c9e48e2139ad1d6e4208b98189">update</a> (<a class="el" href="class_object.html">Object</a> *object)</td></tr>
 <tr class="memdesc:afe6e69c9e48e2139ad1d6e4208b98189"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update function. <br /></td></tr>
@@ -113,10 +124,67 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a543e6fc3d634b03f75aabb4ceb99ce49"><td class="memItemLeft" align="right" valign="top"><a id="a543e6fc3d634b03f75aabb4ceb99ce49"></a>
 <a class="el" href="class_i_video_facade.html">IVideoFacade</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>videoFacade</b> = new <a class="el" href="class_video_facade.html">VideoFacade</a></td></tr>
 <tr class="separator:a543e6fc3d634b03f75aabb4ceb99ce49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f50c15b39979ac5f7b06ad8fb3d9429"><td class="memItemLeft" align="right" valign="top"><a id="a8f50c15b39979ac5f7b06ad8fb3d9429"></a>
+<a class="el" href="class_frame_data.html">FrameData</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>frameData</b> = nullptr</td></tr>
+<tr class="separator:a8f50c15b39979ac5f7b06ad8fb3d9429"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93c2c5c62c525777d014bcf3d189f0ce"><td class="memItemLeft" align="right" valign="top"><a id="a93c2c5c62c525777d014bcf3d189f0ce"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>shouldDrawFps</b> = true</td></tr>
+<tr class="separator:a93c2c5c62c525777d014bcf3d189f0ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Video is the SDL2 wrapper. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad4de84f7e2801cda58af13aaa969b940"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4de84f7e2801cda58af13aaa969b940">&#9670;&nbsp;</a></span>drawFps()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VideoEngine::drawFps </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>fps</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>xPos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>yPos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>prefix</em> = <code>&quot;fps:&#160;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gathers the given fps data, stores them in structs and passes the data to the videofacade if fps should be drawn. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fps</td><td>The fps to show on screen </td></tr>
+    <tr><td class="paramname">xPos</td><td>The X position of where the fps should be drawn </td></tr>
+    <tr><td class="paramname">yPos</td><td>The Y position of where the fps should be drawn </td></tr>
+    <tr><td class="paramname">prefix</td><td>The prefix message for the fps </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="aba100bd8189f32ce833446e0be41e847"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aba100bd8189f32ce833446e0be41e847">&#9670;&nbsp;</a></span>loadImage()</h2>
 

@@ -26,6 +26,8 @@ var hierarchy =
     ] ],
     [ "EventSingleton", "class_event_singleton.html", null ],
     [ "FileParser", "class_file_parser.html", null ],
+    [ "FpsMessage", "struct_fps_message.html", null ],
+    [ "FrameData", "class_frame_data.html", null ],
     [ "IInputFacade", "class_i_input_facade.html", [
       [ "InputFacade", "class_input_facade.html", null ]
     ] ],
@@ -53,5 +55,7 @@ var hierarchy =
     [ "SceneManager", "class_scene_manager.html", null ],
     [ "SoundEngine", "class_sound_engine.html", null ],
     [ "Sprite", "struct_sprite.html", null ],
+    [ "TextPosition", "struct_text_position.html", null ],
+    [ "TextSize", "struct_text_size.html", null ],
     [ "VideoEngine", "class_video_engine.html", null ]
 ];

@@ -102,6 +102,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a41d255eee99dfaee488ceb41c8e50577"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_facade.html#a41d255eee99dfaee488ceb41c8e50577">renderCopy</a> (<a class="el" href="class_object.html">Object</a> &amp;object)</td></tr>
 <tr class="memdesc:a41d255eee99dfaee488ceb41c8e50577"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes the sprites from the Textuture map and copys them to the screen.  <a href="class_video_facade.html#a41d255eee99dfaee488ceb41c8e50577">More...</a><br /></td></tr>
 <tr class="separator:a41d255eee99dfaee488ceb41c8e50577"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f19d1aecaa24fa36e74ede06c0a2ae7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_facade.html#a0f19d1aecaa24fa36e74ede06c0a2ae7">drawMessageAt</a> (const <a class="el" href="struct_fps_message.html">FpsMessage</a> message, const <a class="el" href="struct_text_position.html">TextPosition</a> pos)</td></tr>
+<tr class="memdesc:a0f19d1aecaa24fa36e74ede06c0a2ae7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the given text message at the given position.  <a href="class_video_facade.html#a0f19d1aecaa24fa36e74ede06c0a2ae7">More...</a><br /></td></tr>
+<tr class="separator:a0f19d1aecaa24fa36e74ede06c0a2ae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -117,10 +120,60 @@ SDL_Renderer *&#160;</td><td class="memItemRight" valign="bottom"><b>renderer</b
 <tr class="memitem:a3c5385743dc86ae8dc53d286d600ebaa"><td class="memItemLeft" align="right" valign="top"><a id="a3c5385743dc86ae8dc53d286d600ebaa"></a>
 SDL_Window *&#160;</td><td class="memItemRight" valign="bottom"><b>window</b></td></tr>
 <tr class="separator:a3c5385743dc86ae8dc53d286d600ebaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe6a926f0923fc672ac9e49283b221d9"><td class="memItemLeft" align="right" valign="top"><a id="afe6a926f0923fc672ac9e49283b221d9"></a>
+TTF_Font *&#160;</td><td class="memItemRight" valign="bottom"><b>Sans</b></td></tr>
+<tr class="separator:afe6a926f0923fc672ac9e49283b221d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_video_facade.html" title="VideoFacade is de SDL2 facade.">VideoFacade</a> is de SDL2 facade. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a0f19d1aecaa24fa36e74ede06c0a2ae7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f19d1aecaa24fa36e74ede06c0a2ae7">&#9670;&nbsp;</a></span>drawMessageAt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VideoFacade::drawMessageAt </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_fps_message.html">FpsMessage</a>&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_text_position.html">TextPosition</a>&#160;</td>
+          <td class="paramname"><em>pos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Draws the given text message at the given position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>A Message struct containing the message and the color of the message </td></tr>
+    <tr><td class="paramname">pos</td><td>A Position struct containing the position to draw the message at </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_i_video_facade.html">IVideoFacade</a>.</p>
+
+</div>
+</div>
 <a id="a8726fe5a8ee1a063582d0b5129c06dfe"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8726fe5a8ee1a063582d0b5129c06dfe">&#9670;&nbsp;</a></span>loadImage()</h2>
 
