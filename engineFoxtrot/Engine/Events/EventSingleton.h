@@ -6,7 +6,8 @@ using EventCallbackFn = std::function<void(Event&)>;
 class EventSingleton
 {
 public:
-    // https://stackoverflow.com/questions/12248747/singleton-with-multithreads
+    /// @brief
+    /// get_instance returns the currently registered instance of the singleton in a threadsafe manner
     static EventSingleton& get_instance() {
         static EventSingleton instance;
         return instance;
@@ -49,11 +50,14 @@ public:
     }
 
 private:
-    map<string, vector<function<void(Event&)>>> handlers = map<string, vector<function<void(Event&)>>>();
  
     // prohibit copy & move
     EventSingleton() = default;
     ~EventSingleton() = default;
     EventSingleton(const EventSingleton&) = delete;
     EventSingleton& operator=(const EventSingleton&) = delete;
+
+    map<string, vector<EventCallbackFn>> handlers = map<string, vector<EventCallbackFn>>();
+    static EventSingleton instance;
+
 };
