@@ -218,6 +218,7 @@
     <ClInclude Include="Engine\Input\InputEngine.h" />
     <ClInclude Include="Engine\Particles\IParticleFacade.h" />
     <ClInclude Include="Engine\Physics\IPhysicsFacade.h" />
+    <ClInclude Include="Engine\SceneManager\Layer.h" />
     <ClInclude Include="Engine\stdafx.h" />
     <ClInclude Include="Engine\FileParser\JsonFacade.h" />
     <ClInclude Include="Engine\SceneManager\Object.h" />
@@ -229,6 +230,7 @@
     <ClInclude Include="Engine\SceneManager\Scene.h" />
     <ClInclude Include="Engine\SceneManager\SceneManager.h" />
     <ClInclude Include="Engine\General\Version.h" />
+    <ClInclude Include="Engine\Events\EventSingleton.h" />
     <ClInclude Include="Engine\Video\IVideoFacade.h" />
     <ClInclude Include="Engine\Video\VideoEngine.h" />
     <ClInclude Include="Engine\Video\VideoFacade.h" />
