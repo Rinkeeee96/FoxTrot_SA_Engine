@@ -60,7 +60,7 @@ $(document).ready(function(){initNavTree('class_physics_body.html',''); initResi
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_physics_body-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">PhysicsBody Class Reference</div>  </div>
@@ -135,9 +135,21 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setJumpHeight</b> (co
 <tr class="memitem:a24b822739d39ff66a85f889fc4a69c49"><td class="memItemLeft" align="right" valign="top"><a id="a24b822739d39ff66a85f889fc4a69c49"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>getJumpHeight</b> () const</td></tr>
 <tr class="separator:a24b822739d39ff66a85f889fc4a69c49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a457077a7db48320be30b5905c8445e0c"><td class="memItemLeft" align="right" valign="top"><a id="a457077a7db48320be30b5905c8445e0c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setLinearVelocity</b> (const float val)</td></tr>
+<tr class="separator:a457077a7db48320be30b5905c8445e0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abea5a8818e85faa0de571bec99fd122b"><td class="memItemLeft" align="right" valign="top"><a id="abea5a8818e85faa0de571bec99fd122b"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>getLinearVelocity</b> () const</td></tr>
+<tr class="separator:abea5a8818e85faa0de571bec99fd122b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d2fa88d36c421f8028288c2bf7985b8"><td class="memItemLeft" align="right" valign="top"><a id="a0d2fa88d36c421f8028288c2bf7985b8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setCanChangeAngle</b> (const bool val)</td></tr>
+<tr class="separator:a0d2fa88d36c421f8028288c2bf7985b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32c1f0949fcf597a9a984c4dcc0f26a6"><td class="memItemLeft" align="right" valign="top"><a id="a32c1f0949fcf597a9a984c4dcc0f26a6"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>getCanChangeAngle</b> () const</td></tr>
+<tr class="separator:a32c1f0949fcf597a9a984c4dcc0f26a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
 <tr class="memitem:a812f2366fdb505de6cdc25ffa2049d80"><td class="memItemLeft" align="right" valign="top"><a id="a812f2366fdb505de6cdc25ffa2049d80"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>objectID</b> = 0</td></tr>
 <tr class="separator:a812f2366fdb505de6cdc25ffa2049d80"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -174,6 +186,12 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>jumpHeight</b> = 0</
 <tr class="memitem:afc5b2bce7ecedc991d5f49d7e241bbb2"><td class="memItemLeft" align="right" valign="top"><a id="afc5b2bce7ecedc991d5f49d7e241bbb2"></a>
 <a class="el" href="class_object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>object</b></td></tr>
 <tr class="separator:afc5b2bce7ecedc991d5f49d7e241bbb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cc68403d384631391d38a9e5bc9a497"><td class="memItemLeft" align="right" valign="top"><a id="a6cc68403d384631391d38a9e5bc9a497"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>linearVelocity</b> = 0</td></tr>
+<tr class="separator:a6cc68403d384631391d38a9e5bc9a497"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3363cd3e69aef0511ab9488efc0aa201"><td class="memItemLeft" align="right" valign="top"><a id="a3363cd3e69aef0511ab9488efc0aa201"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>canChangeAngle</b> = false</td></tr>
+<tr class="separator:a3363cd3e69aef0511ab9488efc0aa201"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>Engine/Physics/<a class="el" href="_physics_body_8h_source.html">PhysicsBody.h</a></li>

@@ -60,6 +60,7 @@ $(document).ready(function(){initNavTree('class_object.html',''); initResizable(
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_object-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -72,6 +73,15 @@ $(document).ready(function(){initNavTree('class_object.html',''); initResizable(
  <a href="class_object.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_object_8h_source.html">Object.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Object:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_object.png" usemap="#Object_map" alt=""/>
+  <map id="Object_map" name="Object_map">
+<area href="class_player.html" alt="Player" shape="rect" coords="0,56,49,80"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -167,18 +177,27 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setJumpHeight</b> (co
 <tr class="memitem:a5be3ec38865b48a92f748e0d5dc14dc5"><td class="memItemLeft" align="right" valign="top"><a id="a5be3ec38865b48a92f748e0d5dc14dc5"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>getJumpHeight</b> () const</td></tr>
 <tr class="separator:a5be3ec38865b48a92f748e0d5dc14dc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae03f9b350318cbb5d9eea1e52b312416"><td class="memItemLeft" align="right" valign="top"><a id="ae03f9b350318cbb5d9eea1e52b312416"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setLinearVelocity</b> (const float val)</td></tr>
+<tr class="separator:ae03f9b350318cbb5d9eea1e52b312416"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18b1d9963cb389ed62998979de86c16a"><td class="memItemLeft" align="right" valign="top"><a id="a18b1d9963cb389ed62998979de86c16a"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>getLinearVelocity</b> () const</td></tr>
+<tr class="separator:a18b1d9963cb389ed62998979de86c16a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad795f8078c5eab7fc85bb6e41753fc5f"><td class="memItemLeft" align="right" valign="top"><a id="ad795f8078c5eab7fc85bb6e41753fc5f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setCanChangeAngle</b> (const bool val)</td></tr>
+<tr class="separator:ad795f8078c5eab7fc85bb6e41753fc5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49cee0457861f6a6997d70fec8bb6416"><td class="memItemLeft" align="right" valign="top"><a id="a49cee0457861f6a6997d70fec8bb6416"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>getCanChangeAngle</b> () const</td></tr>
+<tr class="separator:a49cee0457861f6a6997d70fec8bb6416"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4064487ed29575a8f02ee6f45631149d"><td class="memItemLeft" align="right" valign="top"><a id="a4064487ed29575a8f02ee6f45631149d"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>getChanged</b> () const</td></tr>
 <tr class="separator:a4064487ed29575a8f02ee6f45631149d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
 <tr class="memitem:af849c7778ff8399ac4440062ac5a38a3"><td class="memItemLeft" align="right" valign="top"><a id="af849c7778ff8399ac4440062ac5a38a3"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><b>name</b></td></tr>
 <tr class="separator:af849c7778ff8399ac4440062ac5a38a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac81c3624b756aaf8b55127f332763f3c"><td class="memItemLeft" align="right" valign="top"><a id="ac81c3624b756aaf8b55127f332763f3c"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>spriteID</b> = 0</td></tr>
-<tr class="separator:ac81c3624b756aaf8b55127f332763f3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca0718480d4debef09c19503f0849cba"><td class="memItemLeft" align="right" valign="top"><a id="aca0718480d4debef09c19503f0849cba"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>positionX</b> = 0</td></tr>
 <tr class="separator:aca0718480d4debef09c19503f0849cba"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -221,6 +240,18 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>staticObject</b> = fa
 <tr class="memitem:ac595c87946cbc368de9600ce6a0c647b"><td class="memItemLeft" align="right" valign="top"><a id="ac595c87946cbc368de9600ce6a0c647b"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>changed</b> = false</td></tr>
 <tr class="separator:ac595c87946cbc368de9600ce6a0c647b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c805f0e358c44c3b96c5e5924cf2fd6"><td class="memItemLeft" align="right" valign="top"><a id="a3c805f0e358c44c3b96c5e5924cf2fd6"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>canChangeAngle</b> = false</td></tr>
+<tr class="separator:a3c805f0e358c44c3b96c5e5924cf2fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bcf8e31d7ccd9701699644496cec7ea"><td class="memItemLeft" align="right" valign="top"><a id="a7bcf8e31d7ccd9701699644496cec7ea"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>linearVelocity</b> = 0</td></tr>
+<tr class="separator:a7bcf8e31d7ccd9701699644496cec7ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ac81c3624b756aaf8b55127f332763f3c"><td class="memItemLeft" align="right" valign="top"><a id="ac81c3624b756aaf8b55127f332763f3c"></a>
+const int&#160;</td><td class="memItemRight" valign="bottom"><b>spriteID</b> = 0</td></tr>
+<tr class="separator:ac81c3624b756aaf8b55127f332763f3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_object.html" title="Object class. Object is linked with a sprite id in SVI.">Object</a> class. <a class="el" href="class_object.html" title="Object class. Object is linked with a sprite id in SVI.">Object</a> is linked with a sprite id in SVI. <br  />

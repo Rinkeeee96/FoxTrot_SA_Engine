@@ -11,6 +11,7 @@ var class_engine =
     [ "engineTick60", "class_engine.html#a4d2f80b56adcec8d2044f5c6ea3798aa", null ],
     [ "linkSpriteIDWithAssetPath", "class_engine.html#a8f753dd2454bd84a3d58ce79284f1cb7", null ],
     [ "loadSpriteArray", "class_engine.html#a67d15ed7455059d7ca34003b859b0c86", null ],
+    [ "pollEvents", "class_engine.html#aa2ecb7debf3913287a29e3b2de4fd67a", null ],
     [ "pollInput", "class_engine.html#a6f8e79fdc1bbc45bda882c408cd8dc72", null ],
     [ "setCurrentScene", "class_engine.html#afacb7e390439a2603729200ea99177b0", null ],
     [ "startTickThreads", "class_engine.html#a32cfa84cab0fa0ed5e09b0f8ce3db41c", null ],
