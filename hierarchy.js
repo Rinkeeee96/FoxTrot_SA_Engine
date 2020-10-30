@@ -1,5 +1,9 @@
 var hierarchy =
 [
+    [ "b2ContactListener", null, [
+      [ "ContactListenerAdapter", "class_contact_listener_adapter.html", null ]
+    ] ],
+    [ "CollisionStruct", "struct_collision_struct.html", null ],
     [ "Command", "class_command.html", [
       [ "Jump", "class_jump.html", null ],
       [ "MoveLeft", "class_move_left.html", null ],
@@ -21,6 +25,10 @@ var hierarchy =
       ] ],
       [ "MouseMovedEvent", "class_mouse_moved_event.html", null ],
       [ "MouseScrolledEvent", "class_mouse_scrolled_event.html", null ],
+      [ "OnCollisionEvent", "class_on_collision_event.html", [
+        [ "OnCollisionBeginEvent", "class_on_collision_begin_event.html", null ],
+        [ "OnCollisionEndEvent", "class_on_collision_end_event.html", null ]
+      ] ],
       [ "WindowCloseEvent", "class_window_close_event.html", null ],
       [ "WindowResizeEvent", "class_window_resize_event.html", null ]
     ] ],
@@ -47,8 +55,9 @@ var hierarchy =
     [ "IVideoFacade", "class_i_video_facade.html", [
       [ "VideoFacade", "class_video_facade.html", null ]
     ] ],
-    [ "Layer", "struct_layer.html", null ],
-    [ "Object", "class_object.html", null ],
+    [ "Object", "class_object.html", [
+      [ "Player", "class_player.html", null ]
+    ] ],
     [ "ParticleEngine", "class_particle_engine.html", null ],
     [ "PhysicsBody", "class_physics_body.html", null ],
     [ "PhysicsEngine", "class_physics_engine.html", null ],

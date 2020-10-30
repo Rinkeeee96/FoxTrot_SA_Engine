@@ -10,6 +10,7 @@ var class_input_facade =
     [ "is_held", "class_input_facade.html#a8b9cffce8b08b7f1d6c70f159666ae46", null ],
     [ "keydown", "class_input_facade.html#a44a9ef742ec67b29199ad769f0369849", null ],
     [ "keyup", "class_input_facade.html#a1815de6860908ff48db69286d5fde029", null ],
+    [ "pollEvents", "class_input_facade.html#a0b28837972a82e4548e18d1cf01bc00d", null ],
     [ "was_pressed", "class_input_facade.html#a0c4c2ef1a868199b6e7afb87c317dbba", null ],
     [ "action_map", "class_input_facade.html#a914acff39694ee0c0864bdfb606e0568", null ],
     [ "commands", "class_input_facade.html#ab8fa8d1cee258a955f67b7b5e25c5a50", null ],

@@ -11,7 +11,6 @@ var dir_0b6ee6e7e9547e675db4add2e5de97da =
     [ "Sound", "dir_484b4b5b9f128f93489aed0a6588b53a.html", "dir_484b4b5b9f128f93489aed0a6588b53a" ],
     [ "Structs", "dir_b8666b013eed3d49507b4fbdde144f3b.html", "dir_b8666b013eed3d49507b4fbdde144f3b" ],
     [ "Video", "dir_28eef9245d7d186b94bea73b0526b1bc.html", "dir_28eef9245d7d186b94bea73b0526b1bc" ],
-    [ "core.h", "core_8h_source.html", null ],
     [ "Engine.h", "_engine_8h_source.html", null ],
     [ "stdafx.h", "stdafx_8h_source.html", null ]
 ];

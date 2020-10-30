@@ -84,21 +84,21 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_manager.html#a2bb376a85d29e85f47753e26c7539229">~SceneManager</a> ()</td></tr>
 <tr class="memdesc:a2bb376a85d29e85f47753e26c7539229"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br /></td></tr>
 <tr class="separator:a2bb376a85d29e85f47753e26c7539229"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afded3decca827c4132711257eeeed4ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_manager.html#afded3decca827c4132711257eeeed4ca">createNewScene</a> (const int sceneID)</td></tr>
+<tr class="memdesc:afded3decca827c4132711257eeeed4ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to create a new scene, if a scene already exists throw ERROR_CODE_SCENEMANAGER_SCENE_ALREADY_EXISTS.  <a href="class_scene_manager.html#afded3decca827c4132711257eeeed4ca">More...</a><br /></td></tr>
+<tr class="separator:afded3decca827c4132711257eeeed4ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3668167e7d70c9000f21c7e7f38bfad2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_manager.html#a3668167e7d70c9000f21c7e7f38bfad2">setCurrentScene</a> (const int sceneID)</td></tr>
 <tr class="memdesc:a3668167e7d70c9000f21c7e7f38bfad2"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to change a scene If a scene does not exists throw ERROR_CODE_SCENEMANAGER_SCENES_IS_EMPTY.  <a href="class_scene_manager.html#a3668167e7d70c9000f21c7e7f38bfad2">More...</a><br /></td></tr>
 <tr class="separator:a3668167e7d70c9000f21c7e7f38bfad2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a614c53d3e88e8755b387d2482bffb344"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_scene.html">Scene</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_manager.html#a614c53d3e88e8755b387d2482bffb344">getSceneWithID</a> (const int sceneID)</td></tr>
 <tr class="memdesc:a614c53d3e88e8755b387d2482bffb344"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a scene with a sceneID If a scene does not exists throw ERROR_CODE_SCENEMANAGER_SCENES_IS_EMPTY.  <a href="class_scene_manager.html#a614c53d3e88e8755b387d2482bffb344">More...</a><br /></td></tr>
 <tr class="separator:a614c53d3e88e8755b387d2482bffb344"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f390dbfd91c6f94cb9c8a0fbda72524"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_manager.html#a7f390dbfd91c6f94cb9c8a0fbda72524">insertScene</a> (<a class="el" href="class_scene.html">Scene</a> *scene)</td></tr>
-<tr class="memdesc:a7f390dbfd91c6f94cb9c8a0fbda72524"><td class="mdescLeft">&#160;</td><td class="mdescRight">Able to insert a <a class="el" href="class_scene.html" title="Scene Class Contains all the objects that should be drawn in this scene.">Scene</a> into the scenemanager.  <a href="class_scene_manager.html#a7f390dbfd91c6f94cb9c8a0fbda72524">More...</a><br /></td></tr>
-<tr class="separator:a7f390dbfd91c6f94cb9c8a0fbda72524"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a61fb6deaad8c240b54833caf36c1f19a"><td class="memItemLeft" align="right" valign="top"><a id="a61fb6deaad8c240b54833caf36c1f19a"></a>
-<a class="el" href="class_scene.html">Scene</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>currentScene</b> = nullptr</td></tr>
-<tr class="separator:a61fb6deaad8c240b54833caf36c1f19a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c41ec2045324562ec9925daeda36fb7"><td class="memItemLeft" align="right" valign="top"><a id="a4c41ec2045324562ec9925daeda36fb7"></a>
+vector&lt; <a class="el" href="class_object.html">Object</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>pointerToCurrentObjectVector</b></td></tr>
+<tr class="separator:a4c41ec2045324562ec9925daeda36fb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -108,6 +108,9 @@ Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:a61fb6deaad8c240b54833caf36c1f19a"><td class="memItemLeft" align="right" valign="top"><a id="a61fb6deaad8c240b54833caf36c1f19a"></a>
+<a class="el" href="class_scene.html">Scene</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>currentScene</b> = nullptr</td></tr>
+<tr class="separator:a61fb6deaad8c240b54833caf36c1f19a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa16f9d77dc186aed1cd02964ff9518f"><td class="memItemLeft" align="right" valign="top"><a id="aaa16f9d77dc186aed1cd02964ff9518f"></a>
 vector&lt; <a class="el" href="class_scene.html">Scene</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>scenes</b></td></tr>
 <tr class="separator:aaa16f9d77dc186aed1cd02964ff9518f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -150,6 +153,32 @@ vector&lt; <a class="el" href="class_scene.html">Scene</a> * &gt;&#160;</td><td 
 
 </div>
 </div>
+<a id="afded3decca827c4132711257eeeed4ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afded3decca827c4132711257eeeed4ca">&#9670;&nbsp;</a></span>createNewScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SceneManager::createNewScene </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>sceneID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function to create a new scene, if a scene already exists throw ERROR_CODE_SCENEMANAGER_SCENE_ALREADY_EXISTS. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sceneID</td><td>Identifier to a SceneID. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a614c53d3e88e8755b387d2482bffb344"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a614c53d3e88e8755b387d2482bffb344">&#9670;&nbsp;</a></span>getSceneWithID()</h2>
 
@@ -175,32 +204,6 @@ vector&lt; <a class="el" href="class_scene.html">Scene</a> * &gt;&#160;</td><td 
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns pointer to the found <a class="el" href="class_scene.html" title="Scene Class Contains all the objects that should be drawn in this scene.">Scene</a>. <br  />
  </dd></dl>
-
-</div>
-</div>
-<a id="a7f390dbfd91c6f94cb9c8a0fbda72524"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f390dbfd91c6f94cb9c8a0fbda72524">&#9670;&nbsp;</a></span>insertScene()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SceneManager::insertScene </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_scene.html">Scene</a> *&#160;</td>
-          <td class="paramname"><em>scene</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Able to insert a <a class="el" href="class_scene.html" title="Scene Class Contains all the objects that should be drawn in this scene.">Scene</a> into the scenemanager. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">scene</td><td>Pointer to a scene </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>

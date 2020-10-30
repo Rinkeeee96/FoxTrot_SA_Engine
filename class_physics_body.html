@@ -60,7 +60,7 @@ $(document).ready(function(){initNavTree('class_physics_body.html',''); initResi
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_physics_body-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">PhysicsBody Class Reference</div>  </div>
@@ -135,9 +135,21 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setJumpHeight</b> (co
 <tr class="memitem:a24b822739d39ff66a85f889fc4a69c49"><td class="memItemLeft" align="right" valign="top"><a id="a24b822739d39ff66a85f889fc4a69c49"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>getJumpHeight</b> () const</td></tr>
 <tr class="separator:a24b822739d39ff66a85f889fc4a69c49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a173c604bd0e4ae9edf3764c48c01be97"><td class="memItemLeft" align="right" valign="top"><a id="a173c604bd0e4ae9edf3764c48c01be97"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setYAxisVelocity</b> (const float val)</td></tr>
+<tr class="separator:a173c604bd0e4ae9edf3764c48c01be97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac47ed5c02e54d551157ed96a2e8ddc4e"><td class="memItemLeft" align="right" valign="top"><a id="ac47ed5c02e54d551157ed96a2e8ddc4e"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>getYAxisVelocity</b> () const</td></tr>
+<tr class="separator:ac47ed5c02e54d551157ed96a2e8ddc4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac39e14526bb73cf2492d395f210bb11f"><td class="memItemLeft" align="right" valign="top"><a id="ac39e14526bb73cf2492d395f210bb11f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setRotatable</b> (const bool val)</td></tr>
+<tr class="separator:ac39e14526bb73cf2492d395f210bb11f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dbc8bd89fe414262f242177a4d64310"><td class="memItemLeft" align="right" valign="top"><a id="a6dbc8bd89fe414262f242177a4d64310"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>getRotatable</b> () const</td></tr>
+<tr class="separator:a6dbc8bd89fe414262f242177a4d64310"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
 <tr class="memitem:a812f2366fdb505de6cdc25ffa2049d80"><td class="memItemLeft" align="right" valign="top"><a id="a812f2366fdb505de6cdc25ffa2049d80"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>objectID</b> = 0</td></tr>
 <tr class="separator:a812f2366fdb505de6cdc25ffa2049d80"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -174,6 +186,12 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>jumpHeight</b> = 0</
 <tr class="memitem:afc5b2bce7ecedc991d5f49d7e241bbb2"><td class="memItemLeft" align="right" valign="top"><a id="afc5b2bce7ecedc991d5f49d7e241bbb2"></a>
 <a class="el" href="class_object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>object</b></td></tr>
 <tr class="separator:afc5b2bce7ecedc991d5f49d7e241bbb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac38a97e7edf37c29d8bf4b304f6cc67b"><td class="memItemLeft" align="right" valign="top"><a id="ac38a97e7edf37c29d8bf4b304f6cc67b"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>yAxisVelocity</b> = 0</td></tr>
+<tr class="separator:ac38a97e7edf37c29d8bf4b304f6cc67b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6f975ca733f02b4adeefb34b5e220f5"><td class="memItemLeft" align="right" valign="top"><a id="ad6f975ca733f02b4adeefb34b5e220f5"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>rotatable</b> = false</td></tr>
+<tr class="separator:ad6f975ca733f02b4adeefb34b5e220f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>Engine/Physics/<a class="el" href="_physics_body_8h_source.html">PhysicsBody.h</a></li>

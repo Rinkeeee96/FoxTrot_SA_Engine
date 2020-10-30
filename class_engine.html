@@ -91,9 +91,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:afacb7e390439a2603729200ea99177b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#afacb7e390439a2603729200ea99177b0">setCurrentScene</a> (const int sceneID)</td></tr>
 <tr class="memdesc:afacb7e390439a2603729200ea99177b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the current <a class="el" href="class_scene.html" title="Scene Class Contains all the objects that should be drawn in this scene.">Scene</a> in the scenemanager. Called from game to switch screens.  <a href="class_engine.html#afacb7e390439a2603729200ea99177b0">More...</a><br /></td></tr>
 <tr class="separator:afacb7e390439a2603729200ea99177b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab12a03be719deab6073873235b87d2d5"><td class="memItemLeft" align="right" valign="top"><a id="ab12a03be719deab6073873235b87d2d5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>insertScene</b> (<a class="el" href="class_scene.html">Scene</a> *scene)</td></tr>
-<tr class="separator:ab12a03be719deab6073873235b87d2d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0ae6ddb59e7a0249c80f153481aaecc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#ab0ae6ddb59e7a0249c80f153481aaecc">createNewSceneWithSceneID</a> (const int sceneID)</td></tr>
+<tr class="memdesc:ab0ae6ddb59e7a0249c80f153481aaecc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="class_scene.html" title="Scene Class Contains all the objects that should be drawn in this scene.">Scene</a> in the <a class="el" href="class_scene.html" title="Scene Class Contains all the objects that should be drawn in this scene.">Scene</a> manager given the sceneID.  <a href="class_engine.html#ab0ae6ddb59e7a0249c80f153481aaecc">More...</a><br /></td></tr>
+<tr class="separator:ab0ae6ddb59e7a0249c80f153481aaecc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ad59acaa6552f983352a3759b4fcf94"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a5ad59acaa6552f983352a3759b4fcf94">createObject</a> (const int sceneID, <a class="el" href="class_object.html">Object</a> *object)</td></tr>
+<tr class="separator:a5ad59acaa6552f983352a3759b4fcf94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6035e7cc7664a44fc0812827a503df27"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a6035e7cc7664a44fc0812827a503df27">createNewObjectWithSceneID</a> (const int sceneID, const int id, const int xPos, const int yPos, const int height, const int width, const bool stat)</td></tr>
+<tr class="separator:a6035e7cc7664a44fc0812827a503df27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1fc5d99f31a19eafce7ba2ad007a1ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#af1fc5d99f31a19eafce7ba2ad007a1ac">createNewObjectWithSceneID</a> (const int sceneID, const int id, const int xPos, const int yPos, const int height, const int width, const bool stat, const int speed, const int jumpHeight, const int density, const int friction, const int restitution)</td></tr>
+<tr class="separator:af1fc5d99f31a19eafce7ba2ad007a1ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f753dd2454bd84a3d58ce79284f1cb7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a8f753dd2454bd84a3d58ce79284f1cb7">linkSpriteIDWithAssetPath</a> (const int spriteID, const char *assetPath)</td></tr>
 <tr class="separator:a8f753dd2454bd84a3d58ce79284f1cb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f8e79fdc1bbc45bda882c408cd8dc72"><td class="memItemLeft" align="right" valign="top"><a id="a6f8e79fdc1bbc45bda882c408cd8dc72"></a>
@@ -103,6 +109,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:ac65190735eef07d92b45ca2f59264512"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#ac65190735eef07d92b45ca2f59264512">configureInput</a> (KeyCode key, <a class="el" href="class_command.html">Command</a> *command)</td></tr>
 <tr class="memdesc:ac65190735eef07d92b45ca2f59264512"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to bind keys to commands.  <a href="class_engine.html#ac65190735eef07d92b45ca2f59264512">More...</a><br /></td></tr>
 <tr class="separator:ac65190735eef07d92b45ca2f59264512"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2ecb7debf3913287a29e3b2de4fd67a"><td class="memItemLeft" align="right" valign="top"><a id="aa2ecb7debf3913287a29e3b2de4fd67a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>pollEvents</b> ()</td></tr>
+<tr class="separator:aa2ecb7debf3913287a29e3b2de4fd67a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -118,12 +127,6 @@ thread *&#160;</td><td class="memItemRight" valign="bottom"><b>engineTick60Threa
 <tr class="memitem:a24be7a8ec0e5e0dee543ebc571cff21d"><td class="memItemLeft" align="right" valign="top"><a id="a24be7a8ec0e5e0dee543ebc571cff21d"></a>
 thread *&#160;</td><td class="memItemRight" valign="bottom"><b>engineTick30Thread</b> = nullptr</td></tr>
 <tr class="separator:a24be7a8ec0e5e0dee543ebc571cff21d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac52b19aa960d18ddd73492979754467a"><td class="memItemLeft" align="right" valign="top"><a id="ac52b19aa960d18ddd73492979754467a"></a>
-<a class="el" href="class_physics_engine.html">PhysicsEngine</a>&#160;</td><td class="memItemRight" valign="bottom"><b>physicsEngine</b></td></tr>
-<tr class="separator:ac52b19aa960d18ddd73492979754467a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95a022b976d0b54867ad32dbf611d652"><td class="memItemLeft" align="right" valign="top"><a id="a95a022b976d0b54867ad32dbf611d652"></a>
-<a class="el" href="class_video_engine.html">VideoEngine</a>&#160;</td><td class="memItemRight" valign="bottom"><b>videoEngine</b></td></tr>
-<tr class="separator:a95a022b976d0b54867ad32dbf611d652"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -147,6 +150,12 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:ae998ed00ca0d7cb439f7cdc0d4084ccf"><td class="memItemLeft" align="right" valign="top"><a id="ae998ed00ca0d7cb439f7cdc0d4084ccf"></a>
 <a class="el" href="class_scene_manager.html">SceneManager</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sceneManager</b></td></tr>
 <tr class="separator:ae998ed00ca0d7cb439f7cdc0d4084ccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac52b19aa960d18ddd73492979754467a"><td class="memItemLeft" align="right" valign="top"><a id="ac52b19aa960d18ddd73492979754467a"></a>
+<a class="el" href="class_physics_engine.html">PhysicsEngine</a>&#160;</td><td class="memItemRight" valign="bottom"><b>physicsEngine</b></td></tr>
+<tr class="separator:ac52b19aa960d18ddd73492979754467a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95a022b976d0b54867ad32dbf611d652"><td class="memItemLeft" align="right" valign="top"><a id="a95a022b976d0b54867ad32dbf611d652"></a>
+<a class="el" href="class_video_engine.html">VideoEngine</a>&#160;</td><td class="memItemRight" valign="bottom"><b>videoEngine</b></td></tr>
+<tr class="separator:a95a022b976d0b54867ad32dbf611d652"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4de34329d4b56e77d1426c9819a20d9"><td class="memItemLeft" align="right" valign="top"><a id="aa4de34329d4b56e77d1426c9819a20d9"></a>
 <a class="el" href="class_frame_data.html">FrameData</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>frameData</b> = nullptr</td></tr>
 <tr class="separator:aa4de34329d4b56e77d1426c9819a20d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -183,6 +192,239 @@ Private Attributes</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">key</td><td>KeyCode key </td></tr>
     <tr><td class="paramname">command</td><td><a class="el" href="class_command.html" title="Virtual class for all commands.">Command</a> to be executed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6035e7cc7664a44fc0812827a503df27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6035e7cc7664a44fc0812827a503df27">&#9670;&nbsp;</a></span>createNewObjectWithSceneID() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Engine::createNewObjectWithSceneID </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>sceneID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>xPos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>yPos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>stat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sceneID</td><td></td></tr>
+    <tr><td class="paramname">id</td><td></td></tr>
+    <tr><td class="paramname">xPos</td><td></td></tr>
+    <tr><td class="paramname">yPos</td><td></td></tr>
+    <tr><td class="paramname">height</td><td></td></tr>
+    <tr><td class="paramname">width</td><td></td></tr>
+    <tr><td class="paramname">stat</td><td><br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af1fc5d99f31a19eafce7ba2ad007a1ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1fc5d99f31a19eafce7ba2ad007a1ac">&#9670;&nbsp;</a></span>createNewObjectWithSceneID() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Engine::createNewObjectWithSceneID </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>sceneID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>xPos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>yPos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>stat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>speed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>jumpHeight</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>density</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>friction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>restitution</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sceneID</td><td></td></tr>
+    <tr><td class="paramname">id</td><td></td></tr>
+    <tr><td class="paramname">xPos</td><td></td></tr>
+    <tr><td class="paramname">yPos</td><td></td></tr>
+    <tr><td class="paramname">height</td><td></td></tr>
+    <tr><td class="paramname">width</td><td><br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab0ae6ddb59e7a0249c80f153481aaecc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0ae6ddb59e7a0249c80f153481aaecc">&#9670;&nbsp;</a></span>createNewSceneWithSceneID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Engine::createNewSceneWithSceneID </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>sceneID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a new <a class="el" href="class_scene.html" title="Scene Class Contains all the objects that should be drawn in this scene.">Scene</a> in the <a class="el" href="class_scene.html" title="Scene Class Contains all the objects that should be drawn in this scene.">Scene</a> manager given the sceneID. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sceneID</td><td>int SceneID </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5ad59acaa6552f983352a3759b4fcf94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ad59acaa6552f983352a3759b4fcf94">&#9670;&nbsp;</a></span>createObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Engine::createObject </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>sceneID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_object.html">Object</a> *&#160;</td>
+          <td class="paramname"><em>object</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sceneID</td><td></td></tr>
+    <tr><td class="paramname">object</td><td><br  />
+ </td></tr>
   </table>
   </dd>
 </dl>
