@@ -67,8 +67,7 @@ $(document).ready(function(){initNavTree('class_on_collision_event.html',''); in
 </div><!--header-->
 <div class="contents">
 
-<p>AppTickEvent is fired when a tick happened in the engine. Derived class of event. <br  />
-  
+<p><a class="el" href="class_on_collision_event.html" title="OnCollisionEvent base class of CollisionEnd and CollisionStart.">OnCollisionEvent</a> base class of CollisionEnd and CollisionStart.  
  <a href="class_on_collision_event.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_on_collision_event_8h_source.html">OnCollisionEvent.h</a>&gt;</code></p>
@@ -79,8 +78,8 @@ Inheritance diagram for OnCollisionEvent:</div>
   <img src="class_on_collision_event.png" usemap="#OnCollisionEvent_map" alt=""/>
   <map id="OnCollisionEvent_map" name="OnCollisionEvent_map">
 <area href="class_event.html" alt="Event" shape="rect" coords="75,0,216,24"/>
-<area href="class_on_collision_begin_event.html" alt="OnCollisionBeginEvent" shape="rect" coords="0,112,141,136"/>
-<area href="class_on_collision_end_event.html" alt="OnCollisionEndEvent" shape="rect" coords="151,112,292,136"/>
+<area href="class_on_collision_begin_event.html" title="OnCollisionEvent is fired when a a collision started." alt="OnCollisionBeginEvent" shape="rect" coords="0,112,141,136"/>
+<area href="class_on_collision_end_event.html" title="OnCollisionEvent is fired when a a collision ended." alt="OnCollisionEndEvent" shape="rect" coords="151,112,292,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -90,14 +89,16 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>OnCollisionEvent</b> (int _objectOneId, int _objectTwoId, const std::map&lt; int, Direction &gt; _directionMap)</td></tr>
 <tr class="separator:ad18b49c71862a487d9c5a907ba17fe48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab132c05dddfeb5c7b86c37d9baac2888"><td class="memItemLeft" align="right" valign="top"><a id="ab132c05dddfeb5c7b86c37d9baac2888"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>GetObjectOneId</b> () const</td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_on_collision_event.html#ab132c05dddfeb5c7b86c37d9baac2888">GetObjectOneId</a> () const</td></tr>
+<tr class="memdesc:ab132c05dddfeb5c7b86c37d9baac2888"><td class="mdescLeft">&#160;</td><td class="mdescRight">The id of one of the objects where collision happend. <br /></td></tr>
 <tr class="separator:ab132c05dddfeb5c7b86c37d9baac2888"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ba274bf890e0aadf8eafd1640f0963b"><td class="memItemLeft" align="right" valign="top"><a id="a8ba274bf890e0aadf8eafd1640f0963b"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>GetObjectTwoId</b> () const</td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_on_collision_event.html#a8ba274bf890e0aadf8eafd1640f0963b">GetObjectTwoId</a> () const</td></tr>
+<tr class="memdesc:a8ba274bf890e0aadf8eafd1640f0963b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The id of one of the objects where collision happend. <br /></td></tr>
 <tr class="separator:a8ba274bf890e0aadf8eafd1640f0963b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e5e7e3acde451d02d1ac612f5ee01e7"><td class="memItemLeft" align="right" valign="top">EventType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_on_collision_event.html#a4e5e7e3acde451d02d1ac612f5ee01e7">GetEventType</a> () const override</td></tr>
-<tr class="memdesc:a4e5e7e3acde451d02d1ac612f5ee01e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the eventType of a specific event.  <a href="class_on_collision_event.html#a4e5e7e3acde451d02d1ac612f5ee01e7">More...</a><br /></td></tr>
-<tr class="separator:a4e5e7e3acde451d02d1ac612f5ee01e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a658631f75d92fd2310a1b16fac48bb2f"><td class="memItemLeft" align="right" valign="top">virtual EventType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_on_collision_event.html#a658631f75d92fd2310a1b16fac48bb2f">GetEventType</a> () const override=0</td></tr>
+<tr class="memdesc:a658631f75d92fd2310a1b16fac48bb2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the eventType of a specific event.  <a href="class_on_collision_event.html#a658631f75d92fd2310a1b16fac48bb2f">More...</a><br /></td></tr>
+<tr class="separator:a658631f75d92fd2310a1b16fac48bb2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb5cfec652e068719b9795d9676faa46"><td class="memItemLeft" align="right" valign="top"><a id="adb5cfec652e068719b9795d9676faa46"></a>
 virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_on_collision_event.html#adb5cfec652e068719b9795d9676faa46">GetName</a> () const override=0</td></tr>
 <tr class="memdesc:adb5cfec652e068719b9795d9676faa46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of the event. <br /></td></tr>
@@ -131,11 +132,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>Handled</b> = false</
 <tr class="separator:a8ad0c350a8f569dbb05cf845caa4737e inherit pub_attribs_class_event"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>AppTickEvent is fired when a tick happened in the engine. Derived class of event. <br  />
- </p>
+<div class="textblock"><p><a class="el" href="class_on_collision_event.html" title="OnCollisionEvent base class of CollisionEnd and CollisionStart.">OnCollisionEvent</a> base class of CollisionEnd and CollisionStart. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4e5e7e3acde451d02d1ac612f5ee01e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e5e7e3acde451d02d1ac612f5ee01e7">&#9670;&nbsp;</a></span>GetEventType()</h2>
+<a id="a658631f75d92fd2310a1b16fac48bb2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a658631f75d92fd2310a1b16fac48bb2f">&#9670;&nbsp;</a></span>GetEventType()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -144,7 +144,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>Handled</b> = false</
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">EventType OnCollisionEvent::GetEventType </td>
+          <td class="memname">virtual EventType OnCollisionEvent::GetEventType </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -152,7 +152,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>Handled</b> = false</
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -161,6 +161,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>Handled</b> = false</
 <dl class="section return"><dt>Returns</dt><dd>EventType </dd></dl>
 
 <p>Implements <a class="el" href="class_event.html#af14bbd8f69c2778def9462375a0e70f2">Event</a>.</p>
+
+<p>Implemented in <a class="el" href="class_on_collision_begin_event.html#ae4b7d372b60af7dd586133e83d464bf4">OnCollisionBeginEvent</a>, and <a class="el" href="class_on_collision_end_event.html#a627a7445d9a9654004c2ae413152dd37">OnCollisionEndEvent</a>.</p>
 
 </div>
 </div>

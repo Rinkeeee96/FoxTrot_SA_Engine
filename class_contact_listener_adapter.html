@@ -83,22 +83,28 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a6a19385a80e55e375a398e98d261d8f3"><td class="memItemLeft" align="right" valign="top"><a id="a6a19385a80e55e375a398e98d261d8f3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>BeginContact</b> (b2Contact *contact) override</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_contact_listener_adapter.html#a6a19385a80e55e375a398e98d261d8f3">BeginContact</a> (b2Contact *contact) override</td></tr>
+<tr class="memdesc:a6a19385a80e55e375a398e98d261d8f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fires <a class="el" href="class_event.html">Event</a> when a contact between two objects begin @overrides box2dContactListener. <br /></td></tr>
 <tr class="separator:a6a19385a80e55e375a398e98d261d8f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d015a593d5a55097caa4ddf4a479ce6"><td class="memItemLeft" align="right" valign="top"><a id="a2d015a593d5a55097caa4ddf4a479ce6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>EndContact</b> (b2Contact *contact) override</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_contact_listener_adapter.html#a2d015a593d5a55097caa4ddf4a479ce6">EndContact</a> (b2Contact *contact) override</td></tr>
+<tr class="memdesc:a2d015a593d5a55097caa4ddf4a479ce6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fires <a class="el" href="class_event.html">Event</a> when a contact between two objects end @overrides box2dContactListener. <br /></td></tr>
 <tr class="separator:a2d015a593d5a55097caa4ddf4a479ce6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b221a975028fce5a3905d757ba41d7e"><td class="memItemLeft" align="right" valign="top"><a id="a3b221a975028fce5a3905d757ba41d7e"></a>
-pair&lt; int, Direction &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getCollidedBeginByObject</b> (b2Vec2 collidedPoint, <a class="el" href="class_physics_body.html">PhysicsBody</a> *object)</td></tr>
+pair&lt; int, Direction &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_contact_listener_adapter.html#a3b221a975028fce5a3905d757ba41d7e">getCollidedBeginByObject</a> (b2Vec2 collidedPoint, <a class="el" href="class_physics_body.html">PhysicsBody</a> *object)</td></tr>
+<tr class="memdesc:a3b221a975028fce5a3905d757ba41d7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">When a contact begins gets the direction of where the collision happend on the object. <br /></td></tr>
 <tr class="separator:a3b221a975028fce5a3905d757ba41d7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91b6960b63ee8101727a4ec8b2af5750"><td class="memItemLeft" align="right" valign="top"><a id="a91b6960b63ee8101727a4ec8b2af5750"></a>
-pair&lt; int, Direction &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getCollidedEndByObject</b> (b2Vec2 collidedPoint, <a class="el" href="class_physics_body.html">PhysicsBody</a> *object)</td></tr>
+pair&lt; int, Direction &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_contact_listener_adapter.html#a91b6960b63ee8101727a4ec8b2af5750">getCollidedEndByObject</a> (b2Vec2 collidedPoint, <a class="el" href="class_physics_body.html">PhysicsBody</a> *object)</td></tr>
+<tr class="memdesc:a91b6960b63ee8101727a4ec8b2af5750"><td class="mdescLeft">&#160;</td><td class="mdescRight">When a contact ends gets the direction of where the collision happend on the object. <br /></td></tr>
 <tr class="separator:a91b6960b63ee8101727a4ec8b2af5750"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf9d4c05044db333ddc0ef04f71b421d"><td class="memItemLeft" align="right" valign="top"><a id="aaf9d4c05044db333ddc0ef04f71b421d"></a>
-b2Vec2&#160;</td><td class="memItemRight" valign="bottom"><b>getCollidedPoint</b> (b2Contact *contact)</td></tr>
+b2Vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_contact_listener_adapter.html#aaf9d4c05044db333ddc0ef04f71b421d">getCollidedPoint</a> (b2Contact *contact)</td></tr>
+<tr class="memdesc:aaf9d4c05044db333ddc0ef04f71b421d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the box2d vector (x, y) on what point the collision happend. <br /></td></tr>
 <tr class="separator:aaf9d4c05044db333ddc0ef04f71b421d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3a1a0d54ae4e8b52beaead798fdd5c3"><td class="memItemLeft" align="right" valign="top"><a id="af3a1a0d54ae4e8b52beaead798fdd5c3"></a>
-map&lt; int, Direction &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getCollisionDirection</b> (b2Contact *contact, pair&lt; int, Direction &gt; pairObject1, pair&lt; int, Direction &gt; pairObject2)</td></tr>
+map&lt; int, Direction &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_contact_listener_adapter.html#af3a1a0d54ae4e8b52beaead798fdd5c3">getCollisionDirection</a> (b2Contact *contact, pair&lt; int, Direction &gt; pairObject1, pair&lt; int, Direction &gt; pairObject2)</td></tr>
+<tr class="memdesc:af3a1a0d54ae4e8b52beaead798fdd5c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a map &lt;int, Direction&gt; with the ID of an object and the side where the collision happend. <br /></td></tr>
 <tr class="separator:af3a1a0d54ae4e8b52beaead798fdd5c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
