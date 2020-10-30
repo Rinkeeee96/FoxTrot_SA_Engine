@@ -82,12 +82,12 @@ Inheritance diagram for IPhysicsFacade:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae14223caac95c95aae7fc84e86b237cc"><td class="memItemLeft" align="right" valign="top"><a id="ae14223caac95c95aae7fc84e86b237cc"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>addStaticObject</b> (<a class="el" href="class_physics_body.html">PhysicsBody</a> *object)=0</td></tr>
-<tr class="separator:ae14223caac95c95aae7fc84e86b237cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a567437c48554c94971da9bf177f56219"><td class="memItemLeft" align="right" valign="top"><a id="a567437c48554c94971da9bf177f56219"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>addDynamicObject</b> (<a class="el" href="class_physics_body.html">PhysicsBody</a> *object)=0</td></tr>
-<tr class="separator:a567437c48554c94971da9bf177f56219"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a473d0afe6f96ae99170414fd70c36019"><td class="memItemLeft" align="right" valign="top"><a id="a473d0afe6f96ae99170414fd70c36019"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>addStaticObject</b> (const <a class="el" href="class_physics_body.html">PhysicsBody</a> *object)=0</td></tr>
+<tr class="separator:a473d0afe6f96ae99170414fd70c36019"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1424aaa5d4ac36557475f8f244f4b80"><td class="memItemLeft" align="right" valign="top"><a id="ac1424aaa5d4ac36557475f8f244f4b80"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>addNonStaticObject</b> (<a class="el" href="class_physics_body.html">PhysicsBody</a> *object)=0</td></tr>
+<tr class="separator:ac1424aaa5d4ac36557475f8f244f4b80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31c9333d63f157cf22b6b893bcc43e54"><td class="memItemLeft" align="right" valign="top"><a id="a31c9333d63f157cf22b6b893bcc43e54"></a>
 virtual <a class="el" href="class_physics_body.html">PhysicsBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getPhysicsObject</b> (const int objectId)=0</td></tr>
 <tr class="separator:a31c9333d63f157cf22b6b893bcc43e54"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -103,6 +103,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Jump</b> (con
 <tr class="memitem:a7042b06e70573e0023382e4735de38fb"><td class="memItemLeft" align="right" valign="top"><a id="a7042b06e70573e0023382e4735de38fb"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()=0</td></tr>
 <tr class="separator:a7042b06e70573e0023382e4735de38fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2ecdb1dedc70836fdf57ab544407e0e"><td class="memItemLeft" align="right" valign="top"><a id="af2ecdb1dedc70836fdf57ab544407e0e"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>cleanMap</b> ()=0</td></tr>
+<tr class="separator:af2ecdb1dedc70836fdf57ab544407e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface facade for all physics actions. </p>

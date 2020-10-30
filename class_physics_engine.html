@@ -62,6 +62,7 @@ $(document).ready(function(){initNavTree('class_physics_engine.html',''); initRe
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_physics_engine-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">PhysicsEngine Class Reference</div>  </div>
@@ -83,8 +84,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:a395053a3efe7baf0d5154a204b81b062"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to create all objects in the facade. <br /></td></tr>
 <tr class="separator:a395053a3efe7baf0d5154a204b81b062"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa724aeb32c4a813ec99b1d32fd562595"><td class="memItemLeft" align="right" valign="top"><a id="aa724aeb32c4a813ec99b1d32fd562595"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#aa724aeb32c4a813ec99b1d32fd562595">handleAction</a> (<a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
-<tr class="memdesc:aa724aeb32c4a813ec99b1d32fd562595"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles a <a class="el" href="class_action_event.html" title="AppTickEvent is fired when a tick happened in the engine. Derived class of event.">ActionEvent</a> and according to the given direction moves the object. <br /></td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>handleAction</b> (<a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
 <tr class="separator:aa724aeb32c4a813ec99b1d32fd562595"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d989a3865c2aa978b5d6712e88bca2b"><td class="memItemLeft" align="right" valign="top"><a id="a8d989a3865c2aa978b5d6712e88bca2b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a8d989a3865c2aa978b5d6712e88bca2b">update30</a> (<a class="el" href="class_event.html">Event</a> &amp;tick30Event)</td></tr>
@@ -94,18 +94,24 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aff3d75acf695054b177e9c522b1bb41b"><td class="memItemLeft" align="right" valign="top"><a id="aff3d75acf695054b177e9c522b1bb41b"></a>
-vector&lt; <a class="el" href="class_object.html">Object</a> * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>pointerToObjectVector</b> = nullptr</td></tr>
-<tr class="separator:aff3d75acf695054b177e9c522b1bb41b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c5b158b02bc35ac02008cbedae5bfeb"><td class="memItemLeft" align="right" valign="top"><a id="a6c5b158b02bc35ac02008cbedae5bfeb"></a>
-<a class="el" href="class_i_physics_facade.html">IPhysicsFacade</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>physicsFacade</b> = new <a class="el" href="class_physics_facade.html">PhysicsFacade</a></td></tr>
+<a class="el" href="class_i_physics_facade.html">IPhysicsFacade</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>physicsFacade</b></td></tr>
 <tr class="separator:a6c5b158b02bc35ac02008cbedae5bfeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a87eef7b319b415385b63724195fb41"><td class="memItemLeft" align="right" valign="top"><a id="a7a87eef7b319b415385b63724195fb41"></a>
+<a class="el" href="class_scene.html">Scene</a> **&#160;</td><td class="memItemRight" valign="bottom"><b>pointerToCurrentScene</b> = nullptr</td></tr>
+<tr class="separator:a7a87eef7b319b415385b63724195fb41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a7f57185a4e18281af53f71edd985d0b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a7f57185a4e18281af53f71edd985d0b5">getObject</a> (const int objectId)</td></tr>
 <tr class="memdesc:a7f57185a4e18281af53f71edd985d0b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to search a object with the ObjectId If a object is not found throw PHYSICS_ENGINE_OBJECT_DOESNT_EXIST.  <a href="class_physics_engine.html#a7f57185a4e18281af53f71edd985d0b5">More...</a><br /></td></tr>
 <tr class="separator:a7f57185a4e18281af53f71edd985d0b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a858c48efe8067f869a2512301e609edc"><td class="memItemLeft" align="right" valign="top"><a id="a858c48efe8067f869a2512301e609edc"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>currentSceneID</b> = 0</td></tr>
+<tr class="separator:a858c48efe8067f869a2512301e609edc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a7f57185a4e18281af53f71edd985d0b5"></a>

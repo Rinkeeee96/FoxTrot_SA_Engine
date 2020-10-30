@@ -10,7 +10,6 @@ var class_sound_engine =
     [ "Flush", "class_sound_engine.html#aad93b5d18b8544c98f9e9ef68897a81b", null ],
     [ "IdentifierExists", "class_sound_engine.html#a584aa1c4a46c954f72b3775c10351655", null ],
     [ "IdentifierIsLoaded", "class_sound_engine.html#aa1cc645493ab28fd156d89373bbc596e", null ],
-    [ "input", "class_sound_engine.html#a408a4c8553e41b9f01579cd25bc5deb9", null ],
     [ "LoadEffect", "class_sound_engine.html#a5a1afdec5f866cd7b17bca234eaeaeb7", null ],
     [ "LoadMusic", "class_sound_engine.html#afb3454530194f2ab9b025fd4342a4de9", null ],
     [ "onChangeBackgroundMusic", "class_sound_engine.html#a959cde32fbd97eaae1d93f7e7bc90616", null ],
@@ -19,7 +18,6 @@ var class_sound_engine =
     [ "PlayEffect", "class_sound_engine.html#abd730b5ba5d3108bdafd99f49d72915d", null ],
     [ "PlayMusic", "class_sound_engine.html#a181f637117b2b99cd69dbd3103d24ac9", null ],
     [ "PlayMusic", "class_sound_engine.html#af95f7727102f77d642fb6bdf4aa6bbda", null ],
-    [ "receiveTick", "class_sound_engine.html#a0142abe409de430b9e1a7f02dbb1c092", null ],
     [ "ResumeMusic", "class_sound_engine.html#a7ff656cba560fabda5e0592bbe1135e9", null ],
     [ "RewindMusic", "class_sound_engine.html#a65457895dbea746bb6b81d4e99a7a98c", null ],
     [ "SetFiles", "class_sound_engine.html#a90dba333e99e7c11d430e6bcf56cfaec", null ],
@@ -27,7 +25,5 @@ var class_sound_engine =
     [ "StopLoopedEffect", "class_sound_engine.html#a159c13f0eb5d07005e11ca24a18fbdcd", null ],
     [ "StopMusic", "class_sound_engine.html#a7bdac3dcfb48423055fcef599f8aefb3", null ],
     [ "UnloadEffect", "class_sound_engine.html#a2b01089764c4a8df912117c41e8fd36e", null ],
-    [ "update", "class_sound_engine.html#a3978e73bd2f48ecc852ff3b4fc7dfcd1", null ],
-    [ "pointerToObjectVector", "class_sound_engine.html#ae29b99fd9ed30487d68b9bdeae336b5e", null ],
     [ "soundFacade", "class_sound_engine.html#ac8a2b0e10df3f7bcc4fad9e5fd60b6f2", null ]
 ];

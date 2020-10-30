@@ -79,29 +79,30 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aac71c7f4b71ed38cc8b6a794c7799fd6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#aac71c7f4b71ed38cc8b6a794c7799fd6">checkIfObjectExists</a> (const int objectID)</td></tr>
 <tr class="memdesc:aac71c7f4b71ed38cc8b6a794c7799fd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for checking if an object with ObjectID exists in a <a class="el" href="class_scene.html" title="Scene Class Contains all the objects that should be drawn in this scene.">Scene</a>.  <a href="class_scene.html#aac71c7f4b71ed38cc8b6a794c7799fd6">More...</a><br /></td></tr>
 <tr class="separator:aac71c7f4b71ed38cc8b6a794c7799fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa758f27e93e45bd4edbc6b3377ea5fb7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#aa758f27e93e45bd4edbc6b3377ea5fb7">addNewObject</a> (<a class="el" href="class_object.html">Object</a> *object)</td></tr>
-<tr class="memdesc:aa758f27e93e45bd4edbc6b3377ea5fb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds new object to the scene. If <a class="el" href="class_object.html" title="Object class. Object is linked with a sprite id in SVI.">Object</a> is empty function does not do anything.  <a href="class_scene.html#aa758f27e93e45bd4edbc6b3377ea5fb7">More...</a><br /></td></tr>
-<tr class="separator:aa758f27e93e45bd4edbc6b3377ea5fb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73e52314df3ec8962c234ec56854030a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a73e52314df3ec8962c234ec56854030a">addNewObject</a> (const int id, const int xPos, const int yPos, const int height, const int width, const int speed, const int jumpHeight, const int density, const int friction, const int restitution, const bool stat)</td></tr>
-<tr class="separator:a73e52314df3ec8962c234ec56854030a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedaad4ca2d73ffdc2ebf0de2a31f4ca5"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#aedaad4ca2d73ffdc2ebf0de2a31f4ca5">toggleLayer</a> (const int zIndex, bool render)</td></tr>
+<tr class="memdesc:aedaad4ca2d73ffdc2ebf0de2a31f4ca5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns the layer on or off.  <a href="class_scene.html#aedaad4ca2d73ffdc2ebf0de2a31f4ca5">More...</a><br /></td></tr>
+<tr class="separator:aedaad4ca2d73ffdc2ebf0de2a31f4ca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92db1f6b504acc764896c84ec85a0626"><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a92db1f6b504acc764896c84ec85a0626">addNewObjectToLayer</a> (const int zIndex, <a class="el" href="class_object.html">Object</a> *object)</td></tr>
+<tr class="memdesc:a92db1f6b504acc764896c84ec85a0626"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new object to the given Z index.  <a href="class_scene.html#a92db1f6b504acc764896c84ec85a0626">More...</a><br /></td></tr>
+<tr class="separator:a92db1f6b504acc764896c84ec85a0626"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d0bba022bb38ac9a0a5de5df6787c3d"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_object.html">Object</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a2d0bba022bb38ac9a0a5de5df6787c3d">getAllObjectsInScene</a> ()</td></tr>
+<tr class="memdesc:a2d0bba022bb38ac9a0a5de5df6787c3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns pointers to all available objects in the whole scene.  <a href="class_scene.html#a2d0bba022bb38ac9a0a5de5df6787c3d">More...</a><br /></td></tr>
+<tr class="separator:a2d0bba022bb38ac9a0a5de5df6787c3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72486463c25db408ff5cf771bc6ba2b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a72486463c25db408ff5cf771bc6ba2b1">getObject</a> (const int objectID)</td></tr>
 <tr class="memdesc:a72486463c25db408ff5cf771bc6ba2b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the object matched with the given objectID, if none are found an error is thrown.  <a href="class_scene.html#a72486463c25db408ff5cf771bc6ba2b1">More...</a><br /></td></tr>
 <tr class="separator:a72486463c25db408ff5cf771bc6ba2b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a673aa1c80fd3dd735cfc353f8fc20d9f"><td class="memItemLeft" align="right" valign="top"><a id="a673aa1c80fd3dd735cfc353f8fc20d9f"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>getSceneID</b> ()</td></tr>
 <tr class="separator:a673aa1c80fd3dd735cfc353f8fc20d9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85bcd58ee7edb41cd93550c1d8fab2d8"><td class="memItemLeft" align="right" valign="top"><a id="a85bcd58ee7edb41cd93550c1d8fab2d8"></a>
-vector&lt; <a class="el" href="class_object.html">Object</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getPtrToObjects</b> ()</td></tr>
-<tr class="separator:a85bcd58ee7edb41cd93550c1d8fab2d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a4b9a37b8f4701eb269ff2a92dc429d1a"><td class="memItemLeft" align="right" valign="top"><a id="a4b9a37b8f4701eb269ff2a92dc429d1a"></a>
 const int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneID</b> = 0</td></tr>
 <tr class="separator:a4b9a37b8f4701eb269ff2a92dc429d1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8e53f973297c858c89fcec9d93ac174"><td class="memItemLeft" align="right" valign="top"><a id="ae8e53f973297c858c89fcec9d93ac174"></a>
-vector&lt; <a class="el" href="class_object.html">Object</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>objects</b></td></tr>
-<tr class="separator:ae8e53f973297c858c89fcec9d93ac174"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74e4f5ca42c101124f8838424ef44e67"><td class="memItemLeft" align="right" valign="top"><a id="a74e4f5ca42c101124f8838424ef44e67"></a>
+std::map&lt; int, <a class="el" href="struct_layer.html">Layer</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>layers</b></td></tr>
+<tr class="separator:a74e4f5ca42c101124f8838424ef44e67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_scene.html" title="Scene Class Contains all the objects that should be drawn in this scene.">Scene</a> Class Contains all the objects that should be drawn in this scene. </p>
@@ -132,77 +133,23 @@ vector&lt; <a class="el" href="class_object.html">Object</a> * &gt;&#160;</td><t
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a73e52314df3ec8962c234ec56854030a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73e52314df3ec8962c234ec56854030a">&#9670;&nbsp;</a></span>addNewObject() <span class="overload">[1/2]</span></h2>
+<a id="a92db1f6b504acc764896c84ec85a0626"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92db1f6b504acc764896c84ec85a0626">&#9670;&nbsp;</a></span>addNewObjectToLayer()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Scene::addNewObject </td>
+          <td class="memname">const void Scene::addNewObjectToLayer </td>
           <td>(</td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
+          <td class="paramname"><em>zIndex</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>xPos</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>yPos</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>height</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>width</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>speed</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>jumpHeight</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>density</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>friction</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>restitution</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>stat</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_object.html">Object</a> *&#160;</td>
+          <td class="paramname"><em>object</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -211,46 +158,12 @@ vector&lt; <a class="el" href="class_object.html">Object</a> * &gt;&#160;</td><t
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Adds a new object to the given Z index. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">id</td><td></td></tr>
-    <tr><td class="paramname">xPos</td><td></td></tr>
-    <tr><td class="paramname">yPos</td><td></td></tr>
-    <tr><td class="paramname">height</td><td></td></tr>
-    <tr><td class="paramname">width</td><td></td></tr>
-    <tr><td class="paramname">speed</td><td></td></tr>
-    <tr><td class="paramname">jumpHeight</td><td></td></tr>
-    <tr><td class="paramname">density</td><td></td></tr>
-    <tr><td class="paramname">friction</td><td></td></tr>
-    <tr><td class="paramname">restitution</td><td></td></tr>
-    <tr><td class="paramname">stat</td><td><br  />
- </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="aa758f27e93e45bd4edbc6b3377ea5fb7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa758f27e93e45bd4edbc6b3377ea5fb7">&#9670;&nbsp;</a></span>addNewObject() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Scene::addNewObject </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_object.html">Object</a> *&#160;</td>
-          <td class="paramname"><em>object</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Adds new object to the scene. If <a class="el" href="class_object.html" title="Object class. Object is linked with a sprite id in SVI.">Object</a> is empty function does not do anything. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">object</td><td>Pointer to a new <a class="el" href="class_object.html" title="Object class. Object is linked with a sprite id in SVI.">Object</a> to be added to the <a class="el" href="class_scene.html" title="Scene Class Contains all the objects that should be drawn in this scene.">Scene</a>. </td></tr>
+    <tr><td class="paramname">zIndex</td><td>Zindex of the layer that the object should be added to </td></tr>
+    <tr><td class="paramname">object</td><td>Pointer to the object </td></tr>
   </table>
   </dd>
 </dl>
@@ -284,6 +197,27 @@ vector&lt; <a class="el" href="class_object.html">Object</a> * &gt;&#160;</td><t
 
 </div>
 </div>
+<a id="a2d0bba022bb38ac9a0a5de5df6787c3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d0bba022bb38ac9a0a5de5df6787c3d">&#9670;&nbsp;</a></span>getAllObjectsInScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; <a class="el" href="class_object.html">Object</a> * &gt; Scene::getAllObjectsInScene </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns pointers to all available objects in the whole scene. </p>
+<dl class="section return"><dt>Returns</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
 <a id="a72486463c25db408ff5cf771bc6ba2b1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a72486463c25db408ff5cf771bc6ba2b1">&#9670;&nbsp;</a></span>getObject()</h2>
 
@@ -308,6 +242,45 @@ vector&lt; <a class="el" href="class_object.html">Object</a> * &gt;&#160;</td><t
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns pointer to the found <a class="el" href="class_object.html" title="Object class. Object is linked with a sprite id in SVI.">Object</a> </dd></dl>
+
+</div>
+</div>
+<a id="aedaad4ca2d73ffdc2ebf0de2a31f4ca5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedaad4ca2d73ffdc2ebf0de2a31f4ca5">&#9670;&nbsp;</a></span>toggleLayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool Scene::toggleLayer </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>zIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>render</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Turns the layer on or off. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">zIndex</td><td>The zindex of the layer to be toggled </td></tr>
+    <tr><td class="paramname">render</td><td>True for on, false for off </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the new state of the layer. False in case the layer is not available. <br  />
+ </dd></dl>
 
 </div>
 </div>
