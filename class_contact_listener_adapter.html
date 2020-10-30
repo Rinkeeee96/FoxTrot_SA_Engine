@@ -82,18 +82,24 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:acafd4a243540873d800d5ad8ff728646"><td class="memItemLeft" align="right" valign="top"><a id="acafd4a243540873d800d5ad8ff728646"></a>
-std::map&lt; int, Direction &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GetCollidedDirectionTopDown</b> (b2ManifoldPoint contactPoint, <a class="el" href="class_physics_body.html">PhysicsBody</a> *object)</td></tr>
-<tr class="separator:acafd4a243540873d800d5ad8ff728646"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a133ef8895731d97cbeeb506fc86731a3"><td class="memItemLeft" align="right" valign="top"><a id="a133ef8895731d97cbeeb506fc86731a3"></a>
-std::map&lt; int, Direction &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GetCollidedDirectionRightLeft</b> (b2ManifoldPoint contactPoint, <a class="el" href="class_physics_body.html">PhysicsBody</a> *object)</td></tr>
-<tr class="separator:a133ef8895731d97cbeeb506fc86731a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a19385a80e55e375a398e98d261d8f3"><td class="memItemLeft" align="right" valign="top"><a id="a6a19385a80e55e375a398e98d261d8f3"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>BeginContact</b> (b2Contact *contact) override</td></tr>
 <tr class="separator:a6a19385a80e55e375a398e98d261d8f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d015a593d5a55097caa4ddf4a479ce6"><td class="memItemLeft" align="right" valign="top"><a id="a2d015a593d5a55097caa4ddf4a479ce6"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>EndContact</b> (b2Contact *contact) override</td></tr>
 <tr class="separator:a2d015a593d5a55097caa4ddf4a479ce6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b221a975028fce5a3905d757ba41d7e"><td class="memItemLeft" align="right" valign="top"><a id="a3b221a975028fce5a3905d757ba41d7e"></a>
+pair&lt; int, Direction &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getCollidedBeginByObject</b> (b2Vec2 collidedPoint, <a class="el" href="class_physics_body.html">PhysicsBody</a> *object)</td></tr>
+<tr class="separator:a3b221a975028fce5a3905d757ba41d7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91b6960b63ee8101727a4ec8b2af5750"><td class="memItemLeft" align="right" valign="top"><a id="a91b6960b63ee8101727a4ec8b2af5750"></a>
+pair&lt; int, Direction &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getCollidedEndByObject</b> (b2Vec2 collidedPoint, <a class="el" href="class_physics_body.html">PhysicsBody</a> *object)</td></tr>
+<tr class="separator:a91b6960b63ee8101727a4ec8b2af5750"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf9d4c05044db333ddc0ef04f71b421d"><td class="memItemLeft" align="right" valign="top"><a id="aaf9d4c05044db333ddc0ef04f71b421d"></a>
+b2Vec2&#160;</td><td class="memItemRight" valign="bottom"><b>getCollidedPoint</b> (b2Contact *contact)</td></tr>
+<tr class="separator:aaf9d4c05044db333ddc0ef04f71b421d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3a1a0d54ae4e8b52beaead798fdd5c3"><td class="memItemLeft" align="right" valign="top"><a id="af3a1a0d54ae4e8b52beaead798fdd5c3"></a>
+map&lt; int, Direction &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getCollisionDirection</b> (b2Contact *contact, pair&lt; int, Direction &gt; pairObject1, pair&lt; int, Direction &gt; pairObject2)</td></tr>
+<tr class="separator:af3a1a0d54ae4e8b52beaead798fdd5c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -101,8 +107,9 @@ Private Attributes</h2></td></tr>
 <a class="el" href="class_physics_facade.html">PhysicsFacade</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>facade</b></td></tr>
 <tr class="separator:aebecb17764a720342d90759c46aaaf3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>Engine/Physics/<a class="el" href="_contact_listener_adapter_8h_source.html">ContactListenerAdapter.h</a></li>
+<li>Engine/Physics/ContactListenerAdapter.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

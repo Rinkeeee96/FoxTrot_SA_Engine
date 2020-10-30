@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"class_sound_facade.html#aafc82e9cfd5fd61c602695833accf600":[1,0,46,27],
+"class_sound_facade.html#ad668daa8ddb782cede8c2c60f470aa95":[1,0,46,12],
 "class_sound_facade.html#ade7b05ae603a1eb8a275ab05f1a77443":[1,0,46,8],
 "class_sound_facade.html#ae88e0c30d34bfe6464a2ea8bc413af3c":[1,0,46,14],
 "class_sound_facade.html#aebf761031ea3c958b4f5eca9c2c092cf":[1,0,46,3],
