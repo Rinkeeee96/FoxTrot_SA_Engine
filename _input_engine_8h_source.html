@@ -63,53 +63,30 @@ $(document).ready(function(){initNavTree('_input_engine_8h_source.html',''); ini
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;InputFacade.h&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Events/Action/ActionEvent.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Events/Action/FpsToggleEvent.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;Events/EventSingleton.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_input_engine.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_input_engine.html">InputEngine</a></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="class_input_engine.html">InputEngine</a>();</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    ~<a class="code" href="class_input_engine.html">InputEngine</a>();</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_input_engine.html#a16318198e571278e2ee8e70fdaa1bfcc">moveLeft</a>();</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_input_engine.html#aceef2323b25b0fd85f105bc85d3c47dc">moveRight</a>();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_input_engine.html#a7727e1f90ccc0eb27b72278efb452b23">jump</a>();</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> toggleFps();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> pollEvents();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_input_engine.html#a5303881bd6faa229abbd43c949bb83d8">fill</a>(vector&lt;Command*&gt;&amp; command_queue);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_input_engine.html#a6b560935f8b15f0363f38ceb238b5416">configure</a>(KeyCode key, <a class="code" href="class_command.html">Command</a>* command, <span class="keywordtype">bool</span> runOnce);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_input_engine.html#aac2eb8fd2f724e6b63205309b82ab087">   29</a></span>&#160;    T* <a class="code" href="class_input_engine.html#aac2eb8fd2f724e6b63205309b82ab087">makeCommand</a>() {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        static_assert(is_base_of&lt;Command, T&gt;::value, <span class="stringliteral">&quot;Type parameter for this function must derive from Command&quot;</span>);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">new</span> T(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_input_engine.html#aeab4aa571a7d29fc483d0492dda6919b">updateInput</a>();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="class_i_input_facade.html">IInputFacade</a> *inputFacade = <span class="keyword">new</span> <a class="code" href="class_input_facade.html">InputFacade</a>();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    vector&lt;Command*&gt; commandQueue;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;};</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;InputFacade.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Events/Action/ActionEvent.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;Events/Action/FpsToggleEvent.h&quot;</span> <span class="comment">//TODO check this</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;Events/EventSingleton.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_input_engine.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_input_engine.html">InputEngine</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    API <a class="code" href="class_input_engine.html">InputEngine</a>();</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    API ~<a class="code" href="class_input_engine.html">InputEngine</a>();</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">void</span> pollEvents();</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_i_input_facade.html">IInputFacade</a> *inputFacade = <span class="keyword">new</span> <a class="code" href="class_input_facade.html">InputFacade</a>();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">void</span> onKeyPressed(<a class="code" href="class_event.html">Event</a>&amp; event);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_input_engine_html_aeab4aa571a7d29fc483d0492dda6919b"><div class="ttname"><a href="class_input_engine.html#aeab4aa571a7d29fc483d0492dda6919b">InputEngine::updateInput</a></div><div class="ttdeci">void updateInput()</div><div class="ttdoc">Executes the events from polling.</div><div class="ttdef"><b>Definition:</b> InputEngine.cpp:46</div></div>
-<div class="ttc" id="aclass_input_engine_html_aceef2323b25b0fd85f105bc85d3c47dc"><div class="ttname"><a href="class_input_engine.html#aceef2323b25b0fd85f105bc85d3c47dc">InputEngine::moveRight</a></div><div class="ttdeci">void moveRight()</div><div class="ttdoc">Moveright function called when a according key is pressed.</div><div class="ttdef"><b>Definition:</b> InputEngine.cpp:25</div></div>
-<div class="ttc" id="aclass_input_engine_html_a16318198e571278e2ee8e70fdaa1bfcc"><div class="ttname"><a href="class_input_engine.html#a16318198e571278e2ee8e70fdaa1bfcc">InputEngine::moveLeft</a></div><div class="ttdeci">void moveLeft()</div><div class="ttdoc">Moveleft function called when a according key is pressed.</div><div class="ttdef"><b>Definition:</b> InputEngine.cpp:17</div></div>
+<div class="ttc" id="aclass_event_html"><div class="ttname"><a href="class_event.html">Event</a></div><div class="ttdef"><b>Definition:</b> Event.h:9</div></div>
 <div class="ttc" id="aclass_i_input_facade_html"><div class="ttname"><a href="class_i_input_facade.html">IInputFacade</a></div><div class="ttdoc">Interface Inputfacade</div><div class="ttdef"><b>Definition:</b> IInputFacade.h:7</div></div>
-<div class="ttc" id="aclass_input_engine_html_aac2eb8fd2f724e6b63205309b82ab087"><div class="ttname"><a href="class_input_engine.html#aac2eb8fd2f724e6b63205309b82ab087">InputEngine::makeCommand</a></div><div class="ttdeci">T * makeCommand()</div><div class="ttdoc">Generic function for creating command externally.</div><div class="ttdef"><b>Definition:</b> InputEngine.h:29</div></div>
-<div class="ttc" id="aclass_input_engine_html_a7727e1f90ccc0eb27b72278efb452b23"><div class="ttname"><a href="class_input_engine.html#a7727e1f90ccc0eb27b72278efb452b23">InputEngine::jump</a></div><div class="ttdeci">void jump()</div><div class="ttdoc">Jump function called when a according key is pressed.</div><div class="ttdef"><b>Definition:</b> InputEngine.cpp:33</div></div>
-<div class="ttc" id="aclass_command_html"><div class="ttname"><a href="class_command.html">Command</a></div><div class="ttdoc">Virtual class for all commands.</div><div class="ttdef"><b>Definition:</b> Commands.h:8</div></div>
-<div class="ttc" id="aclass_input_engine_html_a6b560935f8b15f0363f38ceb238b5416"><div class="ttname"><a href="class_input_engine.html#a6b560935f8b15f0363f38ceb238b5416">InputEngine::configure</a></div><div class="ttdeci">void configure(KeyCode key, Command *command, bool runOnce)</div><div class="ttdef"><b>Definition:</b> InputEngine.cpp:71</div></div>
-<div class="ttc" id="aclass_input_facade_html"><div class="ttname"><a href="class_input_facade.html">InputFacade</a></div><div class="ttdoc">Facade for SDL input part.</div><div class="ttdef"><b>Definition:</b> InputFacade.h:20</div></div>
-<div class="ttc" id="aclass_input_engine_html"><div class="ttname"><a href="class_input_engine.html">InputEngine</a></div><div class="ttdoc">Input engine for handling input.</div><div class="ttdef"><b>Definition:</b> InputEngine.h:10</div></div>
-<div class="ttc" id="aclass_input_engine_html_a5303881bd6faa229abbd43c949bb83d8"><div class="ttname"><a href="class_input_engine.html#a5303881bd6faa229abbd43c949bb83d8">InputEngine::fill</a></div><div class="ttdeci">bool fill(vector&lt; Command * &gt; &amp;command_queue)</div><div class="ttdef"><b>Definition:</b> InputEngine.cpp:63</div></div>
+<div class="ttc" id="aclass_input_facade_html"><div class="ttname"><a href="class_input_facade.html">InputFacade</a></div><div class="ttdoc">Facade for SDL input part.</div><div class="ttdef"><b>Definition:</b> InputFacade.h:17</div></div>
+<div class="ttc" id="aclass_input_engine_html"><div class="ttname"><a href="class_input_engine.html">InputEngine</a></div><div class="ttdoc">Input engine for handling input.</div><div class="ttdef"><b>Definition:</b> InputEngine.h:11</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

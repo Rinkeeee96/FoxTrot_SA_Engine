@@ -5,12 +5,6 @@ var hierarchy =
     ] ],
     [ "CollisionStruct", "struct_collision_struct.html", null ],
     [ "Color4F", "struct_color4_f.html", null ],
-    [ "Command", "class_command.html", [
-      [ "Jump", "class_jump.html", null ],
-      [ "MoveLeft", "class_move_left.html", null ],
-      [ "MoveRight", "class_move_right.html", null ],
-      [ "ToggleFps", "class_toggle_fps.html", null ]
-    ] ],
     [ "Engine", "class_engine.html", null ],
     [ "Event", "class_event.html", [
       [ "ActionEvent", "class_action_event.html", null ],
@@ -62,8 +56,7 @@ var hierarchy =
     ] ],
     [ "Layer", "struct_layer.html", null ],
     [ "Object", "class_object.html", [
-      [ "ParticleAdapter", "class_particle_adapter.html", null ],
-      [ "Player", "class_player.html", null ]
+      [ "ParticleAdapter", "class_particle_adapter.html", null ]
     ] ],
     [ "Particle", "class_particle.html", [
       [ "ParticleInit", "class_particle_init.html", [
@@ -76,9 +69,7 @@ var hierarchy =
     [ "PhysicsBody", "class_physics_body.html", null ],
     [ "PhysicsEngine", "class_physics_engine.html", null ],
     [ "Pointf", "struct_pointf.html", null ],
-    [ "Scene", "class_scene.html", [
-      [ "Level", "class_level.html", null ]
-    ] ],
+    [ "Scene", "class_scene.html", null ],
     [ "SceneManager", "class_scene_manager.html", null ],
     [ "SoundEngine", "class_sound_engine.html", null ],
     [ "Sprite", "struct_sprite.html", null ],

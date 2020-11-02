@@ -72,7 +72,7 @@ $(document).ready(function(){initNavTree('_mouse_released_8h_source.html',''); i
 <div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_mouse_button_released_event.html#a194c36efc926e8a7707dfcf1b23d5704">   13</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="class_mouse_button_released_event.html#a194c36efc926e8a7707dfcf1b23d5704">ToString</a>()<span class="keyword"> const override</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">    </span>{</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        stringstream stream;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        stream &lt;&lt; <span class="stringliteral">&quot;MouseButtonReleased Event: &quot;</span> &lt;&lt; button;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        stream &lt;&lt; <span class="stringliteral">&quot;MouseButtonReleased Event: &quot;</span> &lt;&lt; (int)button;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keyword">auto</span> <span class="keywordtype">string</span> = stream.str();</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordflow">return</span> string;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    }</div>

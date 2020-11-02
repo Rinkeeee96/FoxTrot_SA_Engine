@@ -1,6 +1,6 @@
 var class_object =
 [
-    [ "Object", "class_object.html#acfd60e178f71fd892351d8b4b31f2150", null ],
+    [ "Object", "class_object.html#ac4cb6f28e180f36354f22002a4f30dd6", null ],
     [ "~Object", "class_object.html#ae8f5483f459e46687bd01e6f9977afd3", null ],
     [ "Object", "class_object.html#a8156919a53cc2bb7c28867a39b4d6ca8", null ],
     [ "changeToState", "class_object.html#a8f8214a8f5294e9d29d000c1caedfccb", null ],
@@ -22,6 +22,7 @@ var class_object =
     [ "getScalable", "class_object.html#ae9b003b291cc10ee605a4d85db869b1e", null ],
     [ "getScale", "class_object.html#a521b49578be7b0aade3922d4f4b10753", null ],
     [ "getSpeed", "class_object.html#abe2266dcfa7d2fb5a527236b046a8553", null ],
+    [ "getSpriteID", "class_object.html#aa87ce8337b0fb8e60502897d38df90e9", null ],
     [ "getStatic", "class_object.html#a7d8ba0a76c18a026e040959be8c8ee2f", null ],
     [ "getWidth", "class_object.html#a6c1edada408d830ea9001d89daa898df", null ],
     [ "getYAxisVelocity", "class_object.html#a91c888e69faceb416a3eef290ff40fde", null ],
@@ -32,7 +33,7 @@ var class_object =
     [ "setFriction", "class_object.html#aa1ef52b289dc2203654e0af50145f030", null ],
     [ "setHeight", "class_object.html#a2713ff1d83a1bcd9d5271423e47f120f", null ],
     [ "setJumpHeight", "class_object.html#a7a134043cd65617759d40e3654e3b656", null ],
-    [ "setName", "class_object.html#a116953ab03b67bf5a1298780bb6fdbe7", null ],
+    [ "setName", "class_object.html#a69efdc71353e351ec1fa258a91e7a6bb", null ],
     [ "setPositionX", "class_object.html#aee7c600682bbe25a21e518296d72e5ab", null ],
     [ "setPositionY", "class_object.html#a227f665f922490ddec574aabb7045126", null ],
     [ "setRestitution", "class_object.html#a66e7c194cb3c29903834bacb816dd5ea", null ],

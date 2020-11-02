@@ -72,7 +72,7 @@ $(document).ready(function(){initNavTree('_particle_init_8h_source.html',''); in
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_particle_init.html">ParticleInit</a>(){};</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_particle_init.html">ParticleInit</a>() {}</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">enum</span> ParticleStyle</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">enum class</span> ParticleStyle</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    {</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        NONE,</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        FIRE,</div>
@@ -88,8 +88,8 @@ $(document).ready(function(){initNavTree('_particle_init_8h_source.html',''); in
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        RAIN,</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    };</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    ParticleStyle style_ = NONE;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> setStyle(ParticleStyle style);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    ParticleStyle style_ = ParticleStyle::NONE;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    API <span class="keywordtype">void</span> setStyle(ParticleStyle style);</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
