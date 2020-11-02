@@ -52,6 +52,16 @@ public:
 
 	CollisionStruct getObjectsByFixture(b2Fixture* fixture1, b2Fixture* fixture2);
 	void update() override;
+
+	void cleanMap() 
+	{ 
+		for (auto b : bodies)
+		{
+			world.DestroyBody(b.second);
+		}
+		bodies.clear();
+	}
+
 private:
 	b2World * world;
 	const float timeStep = TIMESTEP_SEC / TIMESTEP_FRAMES;

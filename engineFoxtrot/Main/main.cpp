@@ -93,20 +93,12 @@ public:
 
 void sceneTestSetup()
 {
-	engine.createNewSceneWithSceneID(3);
 
-	engine.linkSpriteIDWithAssetPath(1, "../Assets/Sprites/Project assets/Adventurer-1.5/Individual Sprites/adventurer-air-attack1-00.png");
-	engine.linkSpriteIDWithAssetPath(2, "../Assets/Sprites/Project assets/Adventurer-1.5/Individual Sprites/adventurer-air-attack1-01.png");
-	engine.linkSpriteIDWithAssetPath(3, "../Assets/Sprites/Project assets/Adventurer-1.5/Individual Sprites/adventurer-air-attack1-02.png");
-	engine.linkSpriteIDWithAssetPath(4, "../Assets/Sprites/Project assets/Adventurer-1.5/Individual Sprites/adventurer-air-attack1-03.png");
-	engine.linkSpriteIDWithAssetPath(5, "../Assets/Sprites/Project assets/Adventurer-1.5/Individual Sprites/adventurer-attack1-00.png");
-	engine.linkSpriteIDWithAssetPath(6, "../Assets/Sprites/Project assets/Adventurer-1.5/Individual Sprites/adventurer-attack1-01.png");
-	engine.linkSpriteIDWithAssetPath(7, "../Assets/Sprites/Project assets/Adventurer-1.5/Individual Sprites/adventurer-attack1-02.png");
-	engine.linkSpriteIDWithAssetPath(8, "../Assets/Sprites/Project assets/Adventurer-1.5/Individual Sprites/adventurer-attack1-03.png");
-	engine.linkSpriteIDWithAssetPath(9, "../Assets/Sprites/Project assets/Adventurer-1.5/Individual Sprites/adventurer-attack1-04.png");
-	engine.linkSpriteIDWithAssetPath(10, "../Assets/Sprites/Project assets/Adventurer-1.5/Individual Sprites/helmet_02a.png");
-	engine.linkSpriteIDWithAssetPath(101, "../Assets/Sprites/Project assets/LIGHT TILE WITHOUT TOP.png");
-	engine.linkSpriteIDWithAssetPath(102, "../Assets/Sprites/Project assets/LIGHT TILE WITHOUT TOP.png");
+	engine.linkSpriteIDWithAssetPath(1, "../Assets/Sprites/character/adventure.png");
+	engine.linkSpriteIDWithAssetPath(2, "../Assets/Sprites/character/adventure.png");
+	engine.linkSpriteIDWithAssetPath(101, "../Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png");
+
+	Scene* testScene = new Scene(3);
 
 	Object* object = new Object(1);
 	object->setName("house");
@@ -120,7 +112,6 @@ void sceneTestSetup()
 	object->setFriction(0);
 	object->setRestitution(0);
 	object->setStatic(false);
-	engine.createObject(3, object);
 
 	Object* object2 = new Player();
 	engine.createObject(3, object2);
@@ -131,6 +122,10 @@ void sceneTestSetup()
 	staticGround->setPositionX(20); // x 20 left down
 	staticGround->setPositionY(300);// y 300 left down
 	staticGround->setStatic(true);
+	testScene->addNewObjectToLayer(1, staticGround);
+	
+	engine.insertScene(testScene);
+	engine.insertScene(new Scene(4));
 	staticGround->setFriction(0);
 	engine.createObject(3, staticGround);
 
@@ -144,7 +139,7 @@ void sceneTestSetup()
 	engine.createObject(3, staticGround2);
 
 	engine.setCurrentScene(3);
-	engine.physicsEngine.registerObjectInCurrentVectorWithPhysicsEngine();
+	engine.startTickThreads();
 }
 
 int main() {
