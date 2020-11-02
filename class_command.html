@@ -60,6 +60,7 @@ $(document).ready(function(){initNavTree('class_command.html',''); initResizable
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_command-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Command Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -79,22 +80,33 @@ Inheritance diagram for Command:</div>
 <area href="class_jump.html" alt="Jump" shape="rect" coords="0,56,72,80"/>
 <area href="class_move_left.html" alt="MoveLeft" shape="rect" coords="82,56,154,80"/>
 <area href="class_move_right.html" alt="MoveRight" shape="rect" coords="164,56,236,80"/>
+<area href="class_toggle_fps.html" alt="ToggleFps" shape="rect" coords="246,56,318,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2a5bd67fb4ad5ec43a55e5d85288ce34"><td class="memItemLeft" align="right" valign="top"><a id="a2a5bd67fb4ad5ec43a55e5d85288ce34"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>execute</b> (<a class="el" href="class_input_engine.html">InputEngine</a> *inputEngine)=0</td></tr>
-<tr class="separator:a2a5bd67fb4ad5ec43a55e5d85288ce34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeeedaba6a44a832ac020a45b8c60e455"><td class="memItemLeft" align="right" valign="top"><a id="aeeedaba6a44a832ac020a45b8c60e455"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Command</b> (<a class="el" href="class_input_engine.html">InputEngine</a> *inputEngine)</td></tr>
+<tr class="separator:aeeedaba6a44a832ac020a45b8c60e455"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fd7d9bd8df8bfc881e4d6c7cd1878b7"><td class="memItemLeft" align="right" valign="top"><a id="a6fd7d9bd8df8bfc881e4d6c7cd1878b7"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>execute</b> ()=0</td></tr>
+<tr class="separator:a6fd7d9bd8df8bfc881e4d6c7cd1878b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa888b9b0bcdf7fc13d3db9d4129f0003"><td class="memItemLeft" align="right" valign="top"><a id="aa888b9b0bcdf7fc13d3db9d4129f0003"></a>
 virtual InputType&#160;</td><td class="memItemRight" valign="bottom"><b>get_input_type</b> ()=0</td></tr>
 <tr class="separator:aa888b9b0bcdf7fc13d3db9d4129f0003"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a61f264dcf350b38b0658eeafa3301ae4"><td class="memItemLeft" align="right" valign="top"><a id="a61f264dcf350b38b0658eeafa3301ae4"></a>
+<a class="el" href="class_input_engine.html">InputEngine</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>inputEngine</b></td></tr>
+<tr class="separator:a61f264dcf350b38b0658eeafa3301ae4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Virtual class for all commands. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>Engine/Input/<a class="el" href="_commands_8h_source.html">Commands.h</a></li>
+<li>Engine/Input/Commands.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

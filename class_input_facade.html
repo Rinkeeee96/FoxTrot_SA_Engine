@@ -87,9 +87,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae475e9470db5b2b2e265920dcec651f1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_facade.html#ae475e9470db5b2b2e265920dcec651f1">fill</a> (vector&lt; <a class="el" href="class_command.html">Command</a> * &gt; &amp;command_queue)</td></tr>
 <tr class="memdesc:ae475e9470db5b2b2e265920dcec651f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills the command queue with the dispatcher if a key is pressed.  <a href="class_input_facade.html#ae475e9470db5b2b2e265920dcec651f1">More...</a><br /></td></tr>
 <tr class="separator:ae475e9470db5b2b2e265920dcec651f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61f17a624ea5e213bcade5018d2087d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_facade.html#a61f17a624ea5e213bcade5018d2087d1">configure</a> (KeyCode key, <a class="el" href="class_command.html">Command</a> *command)</td></tr>
-<tr class="memdesc:a61f17a624ea5e213bcade5018d2087d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the key to a command.  <a href="class_input_facade.html#a61f17a624ea5e213bcade5018d2087d1">More...</a><br /></td></tr>
-<tr class="separator:a61f17a624ea5e213bcade5018d2087d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdb8644ace2539b8aa661057812579f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_facade.html#afdb8644ace2539b8aa661057812579f4">configure</a> (KeyCode key, <a class="el" href="class_command.html">Command</a> *command, bool runOnce)</td></tr>
+<tr class="memdesc:afdb8644ace2539b8aa661057812579f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the key to a command.  <a href="class_input_facade.html#afdb8644ace2539b8aa661057812579f4">More...</a><br /></td></tr>
+<tr class="separator:afdb8644ace2539b8aa661057812579f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -126,12 +126,15 @@ map&lt; KeyCode, Action &gt;&#160;</td><td class="memItemRight" valign="bottom">
 <tr class="memitem:ab8fa8d1cee258a955f67b7b5e25c5a50"><td class="memItemLeft" align="right" valign="top"><a id="ab8fa8d1cee258a955f67b7b5e25c5a50"></a>
 map&lt; KeyCode, <a class="el" href="class_command.html">Command</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>commands</b></td></tr>
 <tr class="separator:ab8fa8d1cee258a955f67b7b5e25c5a50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bf9f6763c0fe2d313750cf44145d33e"><td class="memItemLeft" align="right" valign="top"><a id="a3bf9f6763c0fe2d313750cf44145d33e"></a>
+vector&lt; KeyCode &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>handleOnce</b></td></tr>
+<tr class="separator:a3bf9f6763c0fe2d313750cf44145d33e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Facade for SDL input part. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a61f17a624ea5e213bcade5018d2087d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a61f17a624ea5e213bcade5018d2087d1">&#9670;&nbsp;</a></span>configure()</h2>
+<a id="afdb8644ace2539b8aa661057812579f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdb8644ace2539b8aa661057812579f4">&#9670;&nbsp;</a></span>configure()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -149,7 +152,13 @@ map&lt; KeyCode, <a class="el" href="class_command.html">Command</a> * &gt;&#160
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="class_command.html">Command</a> *&#160;</td>
-          <td class="paramname"><em>command</em>&#160;</td>
+          <td class="paramname"><em>command</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>runOnce</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

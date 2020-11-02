@@ -86,10 +86,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_engine.html#a7727e1f90ccc0eb27b72278efb452b23">jump</a> ()</td></tr>
 <tr class="memdesc:a7727e1f90ccc0eb27b72278efb452b23"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_jump.html">Jump</a> function called when a according key is pressed. <br /></td></tr>
 <tr class="separator:a7727e1f90ccc0eb27b72278efb452b23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8d1ce3fc3e9f09ceed10b9cd9f477ba"><td class="memItemLeft" align="right" valign="top"><a id="ae8d1ce3fc3e9f09ceed10b9cd9f477ba"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>toggleFps</b> ()</td></tr>
+<tr class="separator:ae8d1ce3fc3e9f09ceed10b9cd9f477ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5303881bd6faa229abbd43c949bb83d8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_engine.html#a5303881bd6faa229abbd43c949bb83d8">fill</a> (vector&lt; <a class="el" href="class_command.html">Command</a> * &gt; &amp;command_queue)</td></tr>
 <tr class="separator:a5303881bd6faa229abbd43c949bb83d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11eea8510b759698a8b8d0383d856f08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_engine.html#a11eea8510b759698a8b8d0383d856f08">configure</a> (KeyCode key, <a class="el" href="class_command.html">Command</a> *command)</td></tr>
-<tr class="separator:a11eea8510b759698a8b8d0383d856f08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b560935f8b15f0363f38ceb238b5416"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_engine.html#a6b560935f8b15f0363f38ceb238b5416">configure</a> (KeyCode key, <a class="el" href="class_command.html">Command</a> *command, bool runOnce)</td></tr>
+<tr class="separator:a6b560935f8b15f0363f38ceb238b5416"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac2eb8fd2f724e6b63205309b82ab087"><td class="memTemplParams" colspan="2"><a id="aac2eb8fd2f724e6b63205309b82ab087"></a>
+template&lt;class T &gt; </td></tr>
+<tr class="memitem:aac2eb8fd2f724e6b63205309b82ab087"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_input_engine.html#aac2eb8fd2f724e6b63205309b82ab087">makeCommand</a> ()</td></tr>
+<tr class="memdesc:aac2eb8fd2f724e6b63205309b82ab087"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic function for creating command externally. <br /></td></tr>
+<tr class="separator:aac2eb8fd2f724e6b63205309b82ab087"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeab4aa571a7d29fc483d0492dda6919b"><td class="memItemLeft" align="right" valign="top"><a id="aeab4aa571a7d29fc483d0492dda6919b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_engine.html#aeab4aa571a7d29fc483d0492dda6919b">updateInput</a> ()</td></tr>
 <tr class="memdesc:aeab4aa571a7d29fc483d0492dda6919b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the events from polling. <br /></td></tr>
@@ -107,8 +115,8 @@ vector&lt; <a class="el" href="class_command.html">Command</a> * &gt;&#160;</td>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Input engine for handling input. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a11eea8510b759698a8b8d0383d856f08"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a11eea8510b759698a8b8d0383d856f08">&#9670;&nbsp;</a></span>configure()</h2>
+<a id="a6b560935f8b15f0363f38ceb238b5416"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b560935f8b15f0363f38ceb238b5416">&#9670;&nbsp;</a></span>configure()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -123,7 +131,13 @@ vector&lt; <a class="el" href="class_command.html">Command</a> * &gt;&#160;</td>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="class_command.html">Command</a> *&#160;</td>
-          <td class="paramname"><em>command</em>&#160;</td>
+          <td class="paramname"><em>command</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>runOnce</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

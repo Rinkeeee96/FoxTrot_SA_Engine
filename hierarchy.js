@@ -3,7 +3,8 @@ var hierarchy =
     [ "Command", "class_command.html", [
       [ "Jump", "class_jump.html", null ],
       [ "MoveLeft", "class_move_left.html", null ],
-      [ "MoveRight", "class_move_right.html", null ]
+      [ "MoveRight", "class_move_right.html", null ],
+      [ "ToggleFps", "class_toggle_fps.html", null ]
     ] ],
     [ "Engine", "class_engine.html", null ],
     [ "Event", "class_event.html", [
@@ -15,6 +16,7 @@ var hierarchy =
         [ "OnMusicStopEvent", "class_on_music_stop_event.html", null ],
         [ "SoundAttachEvent", "class_sound_attach_event.html", null ]
       ] ],
+      [ "FpsToggleEvent", "class_fps_toggle_event.html", null ],
       [ "KeyEvent", "class_key_event.html", [
         [ "KeyPressedEvent", "class_key_pressed_event.html", null ],
         [ "KeyReleasedEvent", "class_key_released_event.html", null ],

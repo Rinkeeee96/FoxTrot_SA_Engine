@@ -9,7 +9,7 @@ var class_video_engine =
     [ "loadImage", "class_video_engine.html#aba100bd8189f32ce833446e0be41e847", null ],
     [ "receiveTick", "class_video_engine.html#acb5b352b9741322a542efa954d9130d8", null ],
     [ "renderCopy", "class_video_engine.html#a3445cb3c48fa12c185fef39ced23577e", null ],
-    [ "toggleFps", "class_video_engine.html#a9e9b2cce9ab07835539914853c098f7e", null ],
+    [ "toggleFps", "class_video_engine.html#a9a9d9f6a4d7fbdb8bb3d5216ea387e84", null ],
     [ "update", "class_video_engine.html#afe6e69c9e48e2139ad1d6e4208b98189", null ],
     [ "updateScreen", "class_video_engine.html#a69a5bbd9eeef2970613bc13d2880fcd4", null ],
     [ "frameData", "class_video_engine.html#a8f50c15b39979ac5f7b06ad8fb3d9429", null ],

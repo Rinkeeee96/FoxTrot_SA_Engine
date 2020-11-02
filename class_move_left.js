@@ -1,5 +1,6 @@
 var class_move_left =
 [
-    [ "execute", "class_move_left.html#a481d9a27ad6f25e2c08555b510141a68", null ],
+    [ "MoveLeft", "class_move_left.html#a7e2492421c68b715b89711d12984fa62", null ],
+    [ "execute", "class_move_left.html#a59f8ef888d53bd0554cef054a80159fc", null ],
     [ "get_input_type", "class_move_left.html#a4fc07211afd4cf470730287d258dd3e0", null ]
 ];
