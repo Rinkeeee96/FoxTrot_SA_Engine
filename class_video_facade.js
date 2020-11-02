@@ -4,6 +4,7 @@ var class_video_facade =
     [ "~VideoFacade", "class_video_facade.html#a3f976afeff890ec99b164f74b224b659", null ],
     [ "clearScreen", "class_video_facade.html#ae98c664027935e2a960ecf25dff1d4a8", null ],
     [ "drawMessageAt", "class_video_facade.html#a0f19d1aecaa24fa36e74ede06c0a2ae7", null ],
+    [ "drawParticle", "class_video_facade.html#aeafc3c888821adac9f19a185dff87231", null ],
     [ "drawScreen", "class_video_facade.html#ab90d16a2784490d00753d26262472d68", null ],
     [ "initSDL", "class_video_facade.html#a3a4ea140c4b79bea2d0da11e948257d9", null ],
     [ "loadImage", "class_video_facade.html#a8726fe5a8ee1a063582d0b5129c06dfe", null ],

@@ -1,5 +1,6 @@
 var hierarchy =
 [
+    [ "Color4F", "struct_color4_f.html", null ],
     [ "Command", "class_command.html", [
       [ "Jump", "class_jump.html", null ],
       [ "MoveLeft", "class_move_left.html", null ],
@@ -42,9 +43,6 @@ var hierarchy =
       [ "JsonFacade", "class_json_facade.html", null ]
     ] ],
     [ "InputEngine", "class_input_engine.html", null ],
-    [ "IParticleFacade", "class_i_particle_facade.html", [
-      [ "ParticleFacade", "class_particle_facade.html", null ]
-    ] ],
     [ "IPhysicsFacade", "class_i_physics_facade.html", [
       [ "PhysicsFacade", "class_physics_facade.html", null ]
     ] ],
@@ -55,10 +53,20 @@ var hierarchy =
       [ "VideoFacade", "class_video_facade.html", null ]
     ] ],
     [ "Layer", "struct_layer.html", null ],
-    [ "Object", "class_object.html", null ],
+    [ "Object", "class_object.html", [
+      [ "ParticleAdapter", "class_particle_adapter.html", null ]
+    ] ],
+    [ "Particle", "class_particle.html", [
+      [ "ParticleInit", "class_particle_init.html", [
+        [ "ParticleAdapter", "class_particle_adapter.html", null ]
+      ] ]
+    ] ],
+    [ "ParticleData", "class_particle_data.html", null ],
     [ "ParticleEngine", "class_particle_engine.html", null ],
+    [ "ParticleSystem", "class_particle_system.html", null ],
     [ "PhysicsBody", "class_physics_body.html", null ],
     [ "PhysicsEngine", "class_physics_engine.html", null ],
+    [ "Pointf", "struct_pointf.html", null ],
     [ "Scene", "class_scene.html", [
       [ "Level", "class_level.html", null ]
     ] ],

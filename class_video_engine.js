@@ -5,6 +5,7 @@ var class_video_engine =
     [ "clearScreen", "class_video_engine.html#a82bd8f470de6e28cb38ab1ec6b588144", null ],
     [ "drawFps", "class_video_engine.html#a2e5f05b3866c92d801214a378d448a60", null ],
     [ "drawFps", "class_video_engine.html#ad4de84f7e2801cda58af13aaa969b940", null ],
+    [ "drawParticle", "class_video_engine.html#a9e9e7abbd486c9183255406ab0ce078d", null ],
     [ "drawScreen", "class_video_engine.html#ae473587fb274cac6d77ccf9312d38b3f", null ],
     [ "loadImage", "class_video_engine.html#aba100bd8189f32ce833446e0be41e847", null ],
     [ "receiveTick", "class_video_engine.html#acb5b352b9741322a542efa954d9130d8", null ],

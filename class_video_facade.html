@@ -102,6 +102,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a41d255eee99dfaee488ceb41c8e50577"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_facade.html#a41d255eee99dfaee488ceb41c8e50577">renderCopy</a> (<a class="el" href="class_object.html">Object</a> &amp;object)</td></tr>
 <tr class="memdesc:a41d255eee99dfaee488ceb41c8e50577"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes the sprites from the Textuture map and copys them to the screen.  <a href="class_video_facade.html#a41d255eee99dfaee488ceb41c8e50577">More...</a><br /></td></tr>
 <tr class="separator:a41d255eee99dfaee488ceb41c8e50577"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeafc3c888821adac9f19a185dff87231"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_facade.html#aeafc3c888821adac9f19a185dff87231">drawParticle</a> (<a class="el" href="class_particle_data.html">ParticleData</a> data, int spriteID)</td></tr>
+<tr class="memdesc:aeafc3c888821adac9f19a185dff87231"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to draw Particles.  <a href="class_video_facade.html#aeafc3c888821adac9f19a185dff87231">More...</a><br /></td></tr>
+<tr class="separator:aeafc3c888821adac9f19a185dff87231"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f19d1aecaa24fa36e74ede06c0a2ae7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_facade.html#a0f19d1aecaa24fa36e74ede06c0a2ae7">drawMessageAt</a> (const <a class="el" href="struct_fps_message.html">FpsMessage</a> message, const <a class="el" href="struct_text_position.html">TextPosition</a> pos)</td></tr>
 <tr class="memdesc:a0f19d1aecaa24fa36e74ede06c0a2ae7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the given text message at the given position.  <a href="class_video_facade.html#a0f19d1aecaa24fa36e74ede06c0a2ae7">More...</a><br /></td></tr>
 <tr class="separator:a0f19d1aecaa24fa36e74ede06c0a2ae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -166,6 +169,63 @@ TTF_Font *&#160;</td><td class="memItemRight" valign="bottom"><b>Sans</b></td></
   <table class="params">
     <tr><td class="paramname">message</td><td>A Message struct containing the message and the color of the message </td></tr>
     <tr><td class="paramname">pos</td><td>A Position struct containing the position to draw the message at </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_i_video_facade.html">IVideoFacade</a>.</p>
+
+</div>
+</div>
+<a id="aeafc3c888821adac9f19a185dff87231"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeafc3c888821adac9f19a185dff87231">&#9670;&nbsp;</a></span>drawParticle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VideoFacade::drawParticle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_particle_data.html">ParticleData</a>&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>spriteID</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function to draw Particles. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">posX</td><td></td></tr>
+    <tr><td class="paramname">startPosX</td><td></td></tr>
+    <tr><td class="paramname">posY</td><td></td></tr>
+    <tr><td class="paramname">startPosY</td><td></td></tr>
+    <tr><td class="paramname">size</td><td></td></tr>
+    <tr><td class="paramname">spriteID</td><td></td></tr>
+    <tr><td class="paramname">colorR</td><td></td></tr>
+    <tr><td class="paramname">colorG</td><td></td></tr>
+    <tr><td class="paramname">colorB</td><td></td></tr>
+    <tr><td class="paramname">colorA</td><td></td></tr>
+    <tr><td class="paramname">rotation</td><td><br  />
+ </td></tr>
   </table>
   </dd>
 </dl>
