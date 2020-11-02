@@ -5,9 +5,6 @@
 #include "Physics\PhysicsFacade.h"
 #include "box2d/box2d.h"
 
-//class b2ContactListener;
-//class b2Contact;
-//struct PhysicsFacade;
 
 /// @brief 
 /// Class that listens to contactEvents. Fired by box2d

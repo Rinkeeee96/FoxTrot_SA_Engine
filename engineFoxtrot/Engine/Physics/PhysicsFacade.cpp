@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "PhysicsFacade.h"
 #include "./ContactListenerAdapter.h"
-#include "box2d/box2d.h"
+
 
 /// @brief Constructor
 PhysicsFacade::PhysicsFacade()
