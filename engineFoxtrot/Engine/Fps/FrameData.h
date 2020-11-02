@@ -10,6 +10,7 @@ public:
 	API double calculateAverageFps();
 	API void startTimer();
 
+	// Todo getters and Setters
 	double gameFps = 0;
 	double renderFps = 0;
 
