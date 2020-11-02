@@ -61,25 +61,18 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <div class="textblock">Here is a list of all documented class members with links to the class documentation for each member:</div>
 
 <h3><a id="index_a"></a>- a -</h3><ul>
-<li>addDynamicObject()
-: <a class="el" href="class_physics_facade.html#ab60f5c0b3ffe5dd616dbfdaec7540e39">PhysicsFacade</a>
-</li>
 <li>AddFile()
 : <a class="el" href="class_sound_engine.html#af3b45d4fc4a9e92ef136871c14ffba05">SoundEngine</a>
 , <a class="el" href="class_sound_facade.html#a9dfc806cd55e65685fb486ef603ee8c5">SoundFacade</a>
 </li>
-<li>addNewObject()
-: <a class="el" href="class_scene.html#aa758f27e93e45bd4edbc6b3377ea5fb7">Scene</a>
+<li>addNewObjectToLayer()
+: <a class="el" href="class_scene.html#a92db1f6b504acc764896c84ec85a0626">Scene</a>
+</li>
+<li>addNonStaticObject()
+: <a class="el" href="class_physics_facade.html#a59fed05d919471a83b5908ac6f32343c">PhysicsFacade</a>
 </li>
 <li>addStaticObject()
-: <a class="el" href="class_physics_facade.html#a216f120ad23d942ac2c94d09bebbb948">PhysicsFacade</a>
-</li>
-</ul>
-
-
-<h3><a id="index_b"></a>- b -</h3><ul>
-<li>BeginContact()
-: <a class="el" href="class_contact_listener_adapter.html#a6a19385a80e55e375a398e98d261d8f3">ContactListenerAdapter</a>
+: <a class="el" href="class_physics_facade.html#a4f7d3fddce2620ec5a45844823314424">PhysicsFacade</a>
 </li>
 </ul>
 
@@ -109,18 +102,6 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <li>configureInput()
 : <a class="el" href="class_engine.html#ac65190735eef07d92b45ca2f59264512">Engine</a>
 </li>
-<li>createNewObjectWithSceneID()
-: <a class="el" href="class_engine.html#a6035e7cc7664a44fc0812827a503df27">Engine</a>
-</li>
-<li>createNewScene()
-: <a class="el" href="class_scene_manager.html#afded3decca827c4132711257eeeed4ca">SceneManager</a>
-</li>
-<li>createNewSceneWithSceneID()
-: <a class="el" href="class_engine.html#ab0ae6ddb59e7a0249c80f153481aaecc">Engine</a>
-</li>
-<li>createObject()
-: <a class="el" href="class_engine.html#a5ad59acaa6552f983352a3759b4fcf94">Engine</a>
-</li>
 </ul>
 
 
@@ -145,9 +126,6 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 
 
 <h3><a id="index_e"></a>- e -</h3><ul>
-<li>EndContact()
-: <a class="el" href="class_contact_listener_adapter.html#a2d015a593d5a55097caa4ddf4a479ce6">ContactListenerAdapter</a>
-</li>
 <li>engineTick30()
 : <a class="el" href="class_engine.html#a3db3800cb4d022a4ea03ec2b2729320d">Engine</a>
 </li>
@@ -188,36 +166,31 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 
 
 <h3><a id="index_g"></a>- g -</h3><ul>
+<li>getAllObjectsInScene()
+: <a class="el" href="class_scene.html#a2d0bba022bb38ac9a0a5de5df6787c3d">Scene</a>
+</li>
 <li>GetButton()
 : <a class="el" href="class_mouse_button_event.html#a4837605f9d7aaedbca4e71d08bf60b1a">MouseButtonEvent</a>
-</li>
-<li>getCollidedBeginByObject()
-: <a class="el" href="class_contact_listener_adapter.html#a3b221a975028fce5a3905d757ba41d7e">ContactListenerAdapter</a>
-</li>
-<li>getCollidedEndByObject()
-: <a class="el" href="class_contact_listener_adapter.html#a91b6960b63ee8101727a4ec8b2af5750">ContactListenerAdapter</a>
-</li>
-<li>getCollidedPoint()
-: <a class="el" href="class_contact_listener_adapter.html#aaf9d4c05044db333ddc0ef04f71b421d">ContactListenerAdapter</a>
-</li>
-<li>getCollisionDirection()
-: <a class="el" href="class_contact_listener_adapter.html#af3a1a0d54ae4e8b52beaead798fdd5c3">ContactListenerAdapter</a>
 </li>
 <li>GetEventType()
 : <a class="el" href="class_action_event.html#aa8ee3d6e90bf7ede827102d1ab37dc98">ActionEvent</a>
 , <a class="el" href="class_app_tick_event30.html#acf6d02eeca6d359ad7af7d1bd2138630">AppTickEvent30</a>
 , <a class="el" href="class_app_tick_event60.html#a1a01a732295fd2aec8384fd3538f9731">AppTickEvent60</a>
 , <a class="el" href="class_event.html#af14bbd8f69c2778def9462375a0e70f2">Event</a>
-, <a class="el" href="class_key_event.html#aba1bc77a6676e8a62dd26a14670a69e1">KeyEvent</a>
-, <a class="el" href="class_mouse_button_event.html#ac6b8e90d0d6ed6bc07199726f209b72e">MouseButtonEvent</a>
-, <a class="el" href="class_on_collision_begin_event.html#ae4b7d372b60af7dd586133e83d464bf4">OnCollisionBeginEvent</a>
-, <a class="el" href="class_on_collision_end_event.html#a627a7445d9a9654004c2ae413152dd37">OnCollisionEndEvent</a>
-, <a class="el" href="class_on_collision_event.html#a658631f75d92fd2310a1b16fac48bb2f">OnCollisionEvent</a>
+, <a class="el" href="class_on_music_start_event.html#aeb8ba6297b90281f8ef00baf345d156b">OnMusicStartEvent</a>
+, <a class="el" href="class_on_music_stop_event.html#ad5dfa746db44d9a80cb52e7703b3fbc0">OnMusicStopEvent</a>
+, <a class="el" href="class_sound_attach_event.html#a4573db00c86576a432a22ba6ffb5343e">SoundAttachEvent</a>
 , <a class="el" href="class_window_close_event.html#a4ad7d8ef5ba544c908e1a59a74b40492">WindowCloseEvent</a>
 , <a class="el" href="class_window_resize_event.html#a60b310d95bea3bfa3b53ce70fb9a98f2">WindowResizeEvent</a>
 </li>
+<li>GetFileName()
+: <a class="el" href="class_sound_attach_event.html#a814160b3fd04f342e0f2cecf8f8e7ca1">SoundAttachEvent</a>
+</li>
 <li>GetHeight()
 : <a class="el" href="class_window_resize_event.html#af4462447097e161ddc9bf30652df55b3">WindowResizeEvent</a>
+</li>
+<li>Getidentifier()
+: <a class="el" href="class_base_sound_event.html#a04d116f8ec298b076c3f0a4b0186c6cc">BaseSoundEvent</a>
 </li>
 <li>GetKeyCode()
 : <a class="el" href="class_key_event.html#aafb30a778bc4cce0995cc07075721ecb">KeyEvent</a>
@@ -227,23 +200,15 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 , <a class="el" href="class_app_tick_event30.html#ab73b0fdcacb432e085cf6827e4b8cb7c">AppTickEvent30</a>
 , <a class="el" href="class_app_tick_event60.html#aab8cb9b8ee53d12db2c0d6ab7a936d43">AppTickEvent60</a>
 , <a class="el" href="class_event.html#ad251ba19770b3e9c9ba20a6558ffe8b1">Event</a>
-, <a class="el" href="class_key_event.html#afc35d07becd949f68b1ad1323d2d26e0">KeyEvent</a>
-, <a class="el" href="class_mouse_button_event.html#adf09cf8a04d50888b4c8d4b011388422">MouseButtonEvent</a>
-, <a class="el" href="class_on_collision_begin_event.html#a8fbbec6093503dd51b57c0e0c7352cf3">OnCollisionBeginEvent</a>
-, <a class="el" href="class_on_collision_end_event.html#a3a505658a19c69f38f0ed639912e2385">OnCollisionEndEvent</a>
-, <a class="el" href="class_on_collision_event.html#adb5cfec652e068719b9795d9676faa46">OnCollisionEvent</a>
+, <a class="el" href="class_on_music_start_event.html#a4abe1e5d80212bec837786408c28ee39">OnMusicStartEvent</a>
+, <a class="el" href="class_on_music_stop_event.html#a1da896747f37620f836251f08afb57c1">OnMusicStopEvent</a>
+, <a class="el" href="class_sound_attach_event.html#a2a1f2a6143f2a58fbdbbfb2c949d9c79">SoundAttachEvent</a>
 , <a class="el" href="class_window_close_event.html#a530fcffabdf7d7c069f16c681e41cc3e">WindowCloseEvent</a>
 , <a class="el" href="class_window_resize_event.html#a9d554a62ceaac99ae571dbcaab87c6a7">WindowResizeEvent</a>
 </li>
 <li>getObject()
 : <a class="el" href="class_physics_engine.html#a7f57185a4e18281af53f71edd985d0b5">PhysicsEngine</a>
 , <a class="el" href="class_scene.html#a72486463c25db408ff5cf771bc6ba2b1">Scene</a>
-</li>
-<li>GetObjectOneId()
-: <a class="el" href="class_on_collision_event.html#ab132c05dddfeb5c7b86c37d9baac2888">OnCollisionEvent</a>
-</li>
-<li>GetObjectTwoId()
-: <a class="el" href="class_on_collision_event.html#a8ba274bf890e0aadf8eafd1640f0963b">OnCollisionEvent</a>
 </li>
 <li>getPhysicsObject()
 : <a class="el" href="class_physics_facade.html#ad75ac7ca0679788123d87d8fe88b537d">PhysicsFacade</a>
@@ -272,13 +237,6 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 </ul>
 
 
-<h3><a id="index_h"></a>- h -</h3><ul>
-<li>handleAction()
-: <a class="el" href="class_physics_engine.html#aa724aeb32c4a813ec99b1d32fd562595">PhysicsEngine</a>
-</li>
-</ul>
-
-
 <h3><a id="index_i"></a>- i -</h3><ul>
 <li>IdentifierExists()
 : <a class="el" href="class_sound_engine.html#a584aa1c4a46c954f72b3775c10351655">SoundEngine</a>
@@ -293,6 +251,9 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 </li>
 <li>input_mapping()
 : <a class="el" href="class_input_facade.html#a9cff2d6fb73fbfd9a165fa5a9a7c36d5">InputFacade</a>
+</li>
+<li>insertScene()
+: <a class="el" href="class_scene_manager.html#a7f390dbfd91c6f94cb9c8a0fbda72524">SceneManager</a>
 </li>
 <li>is_held()
 : <a class="el" href="class_input_facade.html#a8b9cffce8b08b7f1d6c70f159666ae46">InputFacade</a>
@@ -324,6 +285,9 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 
 
 <h3><a id="index_l"></a>- l -</h3><ul>
+<li>Level()
+: <a class="el" href="class_level.html#a7b04705581eb46c8fec23a7f92bcad43">Level</a>
+</li>
 <li>linkSpriteIDWithAssetPath()
 : <a class="el" href="class_engine.html#a8f753dd2454bd84a3d58ce79284f1cb7">Engine</a>
 </li>
@@ -365,17 +329,16 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <li>Object()
 : <a class="el" href="class_object.html#adb711517dbb385cad9ae3d887ccd04bf">Object</a>
 </li>
+<li>OnAttach()
+: <a class="el" href="class_level.html#af13b48bdaa977a2264a9c8f2009f8f96">Level</a>
+, <a class="el" href="class_scene.html#a0ac0c9429528fd2a5b845a4b5c702f0c">Scene</a>
+</li>
 <li>onChangeBackgroundMusic()
 : <a class="el" href="class_sound_engine.html#a959cde32fbd97eaae1d93f7e7bc90616">SoundEngine</a>
 </li>
-<li>onCollisionBeginEvent()
-: <a class="el" href="class_player.html#a24306cf3918db059a52c57d87f3bea27">Player</a>
-</li>
-<li>onCollisionEndEvent()
-: <a class="el" href="class_player.html#a764e97b2f0afbc3495c4f9f204b363e3">Player</a>
-</li>
-<li>onKeyPressed()
-: <a class="el" href="class_player.html#a6b5128e80982d824278782ebe1262da3">Player</a>
+<li>OnDetach()
+: <a class="el" href="class_level.html#af25c3fea34a41308cd052799ee749dd0">Level</a>
+, <a class="el" href="class_scene.html#a1f9207ca0a3ceaa66f2af557ea306465">Scene</a>
 </li>
 <li>onPlayEffect()
 : <a class="el" href="class_sound_engine.html#a928b0e2ab21092978ba9e030c2b10fd0">SoundEngine</a>
@@ -389,6 +352,9 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 </li>
 <li>ParticleFacade()
 : <a class="el" href="class_particle_facade.html#adbd889f9327f23eb5e8294863dea3ed1">ParticleFacade</a>
+</li>
+<li>Pause()
+: <a class="el" href="class_level.html#a32cb9699bda7d5510ce9be612b63b8c7">Level</a>
 </li>
 <li>PauseMusic()
 : <a class="el" href="class_sound_facade.html#a549f3c4ebadb1d9ad4296e67f1dfccaf">SoundFacade</a>
@@ -404,7 +370,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 , <a class="el" href="class_sound_facade.html#ae88e0c30d34bfe6464a2ea8bc413af3c">SoundFacade</a>
 </li>
 <li>PlayMusic()
-: <a class="el" href="class_sound_engine.html#af95f7727102f77d642fb6bdf4aa6bbda">SoundEngine</a>
+: <a class="el" href="class_sound_engine.html#a181f637117b2b99cd69dbd3103d24ac9">SoundEngine</a>
 , <a class="el" href="class_sound_facade.html#a5fdf3f796a6d627ae382400fba238f00">SoundFacade</a>
 </li>
 <li>pollInput()
@@ -451,6 +417,10 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 : <a class="el" href="class_sound_engine.html#a90dba333e99e7c11d430e6bcf56cfaec">SoundEngine</a>
 , <a class="el" href="class_sound_facade.html#a76da0902795296c1c3619ceb24818ded">SoundFacade</a>
 </li>
+<li>Start()
+: <a class="el" href="class_level.html#ac86511c36d777f386d40dfbf123ddad2">Level</a>
+, <a class="el" href="class_scene.html#aa6ddc7631708f3599e6d6a62520d9c7f">Scene</a>
+</li>
 <li>StartLoopedEffect()
 : <a class="el" href="class_sound_engine.html#a8bb2936f4978692b0fa8f26cac9540a8">SoundEngine</a>
 , <a class="el" href="class_sound_facade.html#a9bc77a0577436d3b8ad3e4042f9a7a0b">SoundFacade</a>
@@ -478,17 +448,21 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <li>toggleFps()
 : <a class="el" href="class_video_engine.html#a9e9b2cce9ab07835539914853c098f7e">VideoEngine</a>
 </li>
+<li>toggleLayer()
+: <a class="el" href="class_scene.html#aedaad4ca2d73ffdc2ebf0de2a31f4ca5">Scene</a>
+</li>
 <li>ToString()
 : <a class="el" href="class_event.html#a17303a8089a66eece86b41cdea845f55">Event</a>
-, <a class="el" href="class_key_event.html#acc2a11387eebd0c5421ecc4faa12d935">KeyEvent</a>
 , <a class="el" href="class_key_pressed_event.html#a8c567ae5b3c15df083f051a1a37c33e2">KeyPressedEvent</a>
 , <a class="el" href="class_key_released_event.html#a92469fcd15c086d8a1515e7531dafd8f">KeyReleasedEvent</a>
 , <a class="el" href="class_key_typed_event.html#ad02588d34e65e0415d93a75a105f15a3">KeyTypedEvent</a>
-, <a class="el" href="class_mouse_button_event.html#a3db3bb74b395e28bbae51087afd29480">MouseButtonEvent</a>
 , <a class="el" href="class_mouse_button_pressed.html#a536f2dac2166874a6ed24c2d5537e6b1">MouseButtonPressed</a>
 , <a class="el" href="class_mouse_button_released_event.html#a2df202924fc8870f0649d1d4c2a924af">MouseButtonReleasedEvent</a>
 , <a class="el" href="class_mouse_moved_event.html#a19099ea15500bf87ded9159322a79154">MouseMovedEvent</a>
 , <a class="el" href="class_mouse_scrolled_event.html#a33faaf2f4e120de4716591174b020319">MouseScrolledEvent</a>
+, <a class="el" href="class_on_music_start_event.html#aecb18176a6d81d71e7cad1278e6c096d">OnMusicStartEvent</a>
+, <a class="el" href="class_on_music_stop_event.html#acf23d84aa27ec54c3cdd814820a01943">OnMusicStopEvent</a>
+, <a class="el" href="class_sound_attach_event.html#a9c5ccb7286fef4a86da6a4395ad3cfdd">SoundAttachEvent</a>
 , <a class="el" href="class_window_resize_event.html#ae2378189874a18d24933b707c0275619">WindowResizeEvent</a>
 </li>
 </ul>
@@ -501,7 +475,6 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 </li>
 <li>update()
 : <a class="el" href="class_physics_facade.html#a385afe67398479d31386edfc92371bd2">PhysicsFacade</a>
-, <a class="el" href="class_sound_engine.html#a3978e73bd2f48ecc852ff3b4fc7dfcd1">SoundEngine</a>
 , <a class="el" href="class_video_engine.html#afe6e69c9e48e2139ad1d6e4208b98189">VideoEngine</a>
 </li>
 <li>update30()

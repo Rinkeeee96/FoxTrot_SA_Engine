@@ -107,44 +107,41 @@ $(document).ready(function(){initNavTree('_engine_8h_source.html',''); initResiz
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    thread *engineTick60Thread = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    thread *engineTick30Thread = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> setCurrentScene(<span class="keyword">const</span> <span class="keywordtype">int</span> sceneID);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> createNewSceneWithSceneID(<span class="keyword">const</span> <span class="keywordtype">int</span> sceneID);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> createObject(<span class="keyword">const</span> <span class="keywordtype">int</span> sceneID, <a class="code" href="class_object.html">Object</a>* <span class="keywordtype">object</span>);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> createNewObjectWithSceneID(<span class="keyword">const</span> <span class="keywordtype">int</span> sceneID, <span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keyword">const</span> <span class="keywordtype">int</span> xPos, <span class="keyword">const</span> <span class="keywordtype">int</span> yPos, <span class="keyword">const</span> <span class="keywordtype">int</span> height, <span class="keyword">const</span> <span class="keywordtype">int</span> width, <span class="keyword">const</span> <span class="keywordtype">bool</span> stat);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> createNewObjectWithSceneID(<span class="keyword">const</span> <span class="keywordtype">int</span> sceneID, <span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keyword">const</span> <span class="keywordtype">int</span> xPos, <span class="keyword">const</span> <span class="keywordtype">int</span> yPos, <span class="keyword">const</span> <span class="keywordtype">int</span> height, <span class="keyword">const</span> <span class="keywordtype">int</span> width, <span class="keyword">const</span> <span class="keywordtype">bool</span> stat, <span class="keyword">const</span> <span class="keywordtype">int</span> speed, <span class="keyword">const</span> <span class="keywordtype">int</span> jumpHeight, <span class="keyword">const</span> <span class="keywordtype">int</span> density, <span class="keyword">const</span> <span class="keywordtype">int</span> friction, <span class="keyword">const</span> <span class="keywordtype">int</span> restitution);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> linkSpriteIDWithAssetPath(<span class="keyword">const</span> <span class="keywordtype">int</span> spriteID, <span class="keyword">const</span> <span class="keywordtype">char</span>* assetPath);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> pollInput();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> configureInput(KeyCode key, <a class="code" href="class_command.html">Command</a>* command);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> pollEvents();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="class_physics_engine.html">PhysicsEngine</a> physicsEngine;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="class_sound_engine.html">SoundEngine</a> soundEngine;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="class_input_engine.html">InputEngine</a> inputEngine;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="class_file_parser.html">FileParser</a> fileParser;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="class_particle_engine.html">ParticleEngine</a> particleEngine;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="class_scene_manager.html">SceneManager</a> sceneManager;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="class_video_engine.html">VideoEngine</a> videoEngine;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="class_frame_data.html">FrameData</a>* frameData = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> loadSpriteArray(vector&lt;Sprite&gt; spriteVector);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;};</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">//SceneManager calls</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> setCurrentScene(<span class="keyword">const</span> <span class="keywordtype">int</span> sceneID);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> insertScene(<a class="code" href="class_scene.html">Scene</a> * scene);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">// Video calls</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> linkSpriteIDWithAssetPath(<span class="keyword">const</span> <span class="keywordtype">int</span> spriteID, <span class="keyword">const</span> <span class="keywordtype">char</span>* assetPath);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> pollInput();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> configureInput(KeyCode key, <a class="code" href="class_command.html">Command</a>* command);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="class_physics_engine.html">PhysicsEngine</a> physicsEngine;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="class_video_engine.html">VideoEngine</a> videoEngine;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="class_sound_engine.html">SoundEngine</a> soundEngine;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="class_input_engine.html">InputEngine</a> inputEngine;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="class_file_parser.html">FileParser</a> fileParser;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="class_particle_engine.html">ParticleEngine</a> particleEngine;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="class_scene_manager.html">SceneManager</a> sceneManager;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="class_frame_data.html">FrameData</a>* frameData = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> loadSpriteArray(vector&lt;Sprite&gt; spriteVector);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;};</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_engine_html"><div class="ttname"><a href="class_engine.html">Engine</a></div><div class="ttdef"><b>Definition:</b> Engine.h:30</div></div>
-<div class="ttc" id="aclass_physics_engine_html"><div class="ttname"><a href="class_physics_engine.html">PhysicsEngine</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngine.h:12</div></div>
+<div class="ttc" id="aclass_physics_engine_html"><div class="ttname"><a href="class_physics_engine.html">PhysicsEngine</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngine.h:14</div></div>
 <div class="ttc" id="aclass_frame_data_html"><div class="ttname"><a href="class_frame_data.html">FrameData</a></div><div class="ttdef"><b>Definition:</b> FrameData.h:11</div></div>
-<div class="ttc" id="aclass_sound_engine_html"><div class="ttname"><a href="class_sound_engine.html">SoundEngine</a></div><div class="ttdoc">SoundEngine is the Sound SDL2 wrapper.</div><div class="ttdef"><b>Definition:</b> SoundEngine.h:15</div></div>
+<div class="ttc" id="aclass_sound_engine_html"><div class="ttname"><a href="class_sound_engine.html">SoundEngine</a></div><div class="ttdoc">SoundEngine is the Sound SDL2 wrapper.</div><div class="ttdef"><b>Definition:</b> SoundEngine.h:16</div></div>
 <div class="ttc" id="aclass_file_parser_html"><div class="ttname"><a href="class_file_parser.html">FileParser</a></div><div class="ttdef"><b>Definition:</b> FileParser.h:9</div></div>
 <div class="ttc" id="aclass_particle_engine_html"><div class="ttname"><a href="class_particle_engine.html">ParticleEngine</a></div><div class="ttdef"><b>Definition:</b> ParticleEngine.h:10</div></div>
-<div class="ttc" id="aclass_object_html"><div class="ttname"><a href="class_object.html">Object</a></div><div class="ttdoc">Object class. Object is linked with a sprite id in SVI.</div><div class="ttdef"><b>Definition:</b> Object.h:11</div></div>
+<div class="ttc" id="aclass_scene_html"><div class="ttname"><a href="class_scene.html">Scene</a></div><div class="ttdoc">Scene Class Contains all the objects that should be drawn in this scene.</div><div class="ttdef"><b>Definition:</b> Scene.h:14</div></div>
 <div class="ttc" id="aclass_command_html"><div class="ttname"><a href="class_command.html">Command</a></div><div class="ttdoc">Virtual class for all commands.</div><div class="ttdef"><b>Definition:</b> Commands.h:8</div></div>
-<div class="ttc" id="aclass_video_engine_html"><div class="ttname"><a href="class_video_engine.html">VideoEngine</a></div><div class="ttdoc">Video is the SDL2 wrapper.</div><div class="ttdef"><b>Definition:</b> VideoEngine.h:32</div></div>
+<div class="ttc" id="aclass_video_engine_html"><div class="ttname"><a href="class_video_engine.html">VideoEngine</a></div><div class="ttdoc">Video is the SDL2 wrapper.</div><div class="ttdef"><b>Definition:</b> VideoEngine.h:33</div></div>
 <div class="ttc" id="aclass_input_engine_html"><div class="ttname"><a href="class_input_engine.html">InputEngine</a></div><div class="ttdoc">Input engine for handling input.</div><div class="ttdef"><b>Definition:</b> InputEngine.h:9</div></div>
 <div class="ttc" id="aclass_scene_manager_html"><div class="ttname"><a href="class_scene_manager.html">SceneManager</a></div><div class="ttdoc">Contains all scenes. Manages all scenes and objects.</div><div class="ttdef"><b>Definition:</b> SceneManager.h:13</div></div>
 <!-- start footer part -->

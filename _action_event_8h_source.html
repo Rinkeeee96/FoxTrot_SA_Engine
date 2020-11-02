@@ -67,31 +67,32 @@ $(document).ready(function(){initNavTree('_action_event_8h_source.html',''); ini
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">enum class</span> Direction {</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    UP,</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    DOWN,</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    RIGHT,</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    LEFT</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;};</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_action_event.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_action_event.html">ActionEvent</a> : <span class="keyword">public</span> <a class="code" href="class_event.html">Event</a></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="class_action_event.html">ActionEvent</a>(<span class="keyword">const</span> Direction _direction, <span class="keywordtype">int</span> _objectId) : direction{ _direction }, objectId{ _objectId } {};</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    Direction GetDirection()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> direction; }</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">int</span> GetObjectId()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> objectId; }</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_action_event.html#aa8ee3d6e90bf7ede827102d1ab37dc98">   24</a></span>&#160;    EventType <a class="code" href="class_action_event.html#aa8ee3d6e90bf7ede827102d1ab37dc98">GetEventType</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> EventType::Action; }</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_action_event.html#af4fb4c280abfe9814ee5f04b99caebb9">   27</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="class_action_event.html#af4fb4c280abfe9814ee5f04b99caebb9">GetName</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;Action Event&quot;</span>; }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">int</span> objectId;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    Direction direction;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    UP_RIGHT,</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    UP_LEFT,</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    UP,</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    RIGHT,</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    LEFT</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;};</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_action_event.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_action_event.html">ActionEvent</a> : <span class="keyword">public</span> <a class="code" href="class_event.html">Event</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_action_event.html">ActionEvent</a>(<span class="keyword">const</span> Direction _direction, <span class="keywordtype">int</span> _objectId) : direction{ _direction }, objectId{ _objectId } {};</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    Direction GetDirection()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> direction; }</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">int</span> GetObjectId()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> objectId; }</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_action_event.html#aa8ee3d6e90bf7ede827102d1ab37dc98">   25</a></span>&#160;    EventType <a class="code" href="class_action_event.html#aa8ee3d6e90bf7ede827102d1ab37dc98">GetEventType</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> EventType::Action; }</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="class_action_event.html#af4fb4c280abfe9814ee5f04b99caebb9">   28</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="class_action_event.html#af4fb4c280abfe9814ee5f04b99caebb9">GetName</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;Action Event&quot;</span>; }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">int</span> objectId;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    Direction direction;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_event_html"><div class="ttname"><a href="class_event.html">Event</a></div><div class="ttdef"><b>Definition:</b> Event.h:8</div></div>
-<div class="ttc" id="aclass_action_event_html_aa8ee3d6e90bf7ede827102d1ab37dc98"><div class="ttname"><a href="class_action_event.html#aa8ee3d6e90bf7ede827102d1ab37dc98">ActionEvent::GetEventType</a></div><div class="ttdeci">EventType GetEventType() const override</div><div class="ttdoc">Returns the eventType of a specific event.</div><div class="ttdef"><b>Definition:</b> ActionEvent.h:24</div></div>
-<div class="ttc" id="aclass_action_event_html_af4fb4c280abfe9814ee5f04b99caebb9"><div class="ttname"><a href="class_action_event.html#af4fb4c280abfe9814ee5f04b99caebb9">ActionEvent::GetName</a></div><div class="ttdeci">const char * GetName() const override</div><div class="ttdoc">Returns the name of the event.</div><div class="ttdef"><b>Definition:</b> ActionEvent.h:27</div></div>
-<div class="ttc" id="aclass_action_event_html"><div class="ttname"><a href="class_action_event.html">ActionEvent</a></div><div class="ttdoc">AppTickEvent is fired when a tick happened in the engine. Derived class of event.</div><div class="ttdef"><b>Definition:</b> ActionEvent.h:15</div></div>
+<div class="ttc" id="aclass_action_event_html_aa8ee3d6e90bf7ede827102d1ab37dc98"><div class="ttname"><a href="class_action_event.html#aa8ee3d6e90bf7ede827102d1ab37dc98">ActionEvent::GetEventType</a></div><div class="ttdeci">EventType GetEventType() const override</div><div class="ttdoc">Returns the eventType of a specific event.</div><div class="ttdef"><b>Definition:</b> ActionEvent.h:25</div></div>
+<div class="ttc" id="aclass_action_event_html_af4fb4c280abfe9814ee5f04b99caebb9"><div class="ttname"><a href="class_action_event.html#af4fb4c280abfe9814ee5f04b99caebb9">ActionEvent::GetName</a></div><div class="ttdeci">const char * GetName() const override</div><div class="ttdoc">Returns the name of the event.</div><div class="ttdef"><b>Definition:</b> ActionEvent.h:28</div></div>
+<div class="ttc" id="aclass_action_event_html"><div class="ttname"><a href="class_action_event.html">ActionEvent</a></div><div class="ttdoc">AppTickEvent is fired when a tick happened in the engine. Derived class of event.</div><div class="ttdef"><b>Definition:</b> ActionEvent.h:16</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
