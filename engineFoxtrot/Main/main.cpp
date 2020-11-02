@@ -151,7 +151,7 @@ int main() {
 		AppTickEvent60 appTick;
 		AppTickEvent30 appTick30;
 
-		engine.pollEvents();
+		//engine.pollEvents();
 		EventSingleton::get_instance().dispatchEvent<AppTickEvent60>(appTick);
 		EventSingleton::get_instance().dispatchEvent<AppTickEvent30>(appTick30);
 
