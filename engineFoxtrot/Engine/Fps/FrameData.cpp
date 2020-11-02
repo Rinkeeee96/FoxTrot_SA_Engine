@@ -1,9 +1,6 @@
 #include "stdafx.h"
 #include "FrameData.h"
 
-double FrameData::gameFps = 0;
-double FrameData::renderFps = 0;
-
 FrameData::FrameData() {
 }
 

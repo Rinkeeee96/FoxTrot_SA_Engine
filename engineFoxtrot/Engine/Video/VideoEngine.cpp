@@ -102,7 +102,7 @@ void VideoEngine::updateScreen()
 /// Calls the drawFps method with parameters for all calculated Fps types
 void VideoEngine::drawFps() {
 	//drawFps(FrameData::gameFps, FPS_X_POSITION, Y_POSITION_TOP_OF_SCREEN, "Game Fps: ");
-	drawFps(FrameData::renderFps, FPS_X_POSITION, FPS_Y_POSITION_OFFSET, "Fps: ");
+	drawFps(frameData->renderFps, FPS_X_POSITION, FPS_Y_POSITION_OFFSET, "Fps: ");
 }
 
 /// @brief
@@ -151,7 +151,7 @@ void VideoEngine::receiveTick(Event& tickEvent)
 
 	drawFps();
 	drawScreen();
-	FrameData::renderFps = frameData->calculateAverageFps();
+	frameData->renderFps = frameData->calculateAverageFps();
 }
 
 /// @brief Draws the Particles

@@ -65,7 +65,7 @@ void Engine::engineTick60()
 		this_thread::sleep_for(chrono::milliseconds(ENGINE_TICK60));		
 		AppTickEvent60 appTick;
 		EventSingleton::get_instance().dispatchEvent<AppTickEvent60>(appTick);
-		FrameData::gameFps = frameData->calculateAverageFps();
+		frameData->gameFps = frameData->calculateAverageFps();
 	}
 
 	cout << "Thread killed 60" << endl;
