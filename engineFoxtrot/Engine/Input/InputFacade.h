@@ -12,7 +12,7 @@
 #include "./Events/Mouse/MouseReleased.h"
 #include "./Events/Mouse/MouseScrolledEvent.h"
 
-typedef union SDL_Event;
+union SDL_Event;
 
 
 

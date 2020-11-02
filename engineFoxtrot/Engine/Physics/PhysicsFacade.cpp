@@ -36,6 +36,16 @@ CollisionStruct PhysicsFacade::getObjectsByFixture(b2Fixture* fixture1, b2Fixtur
 }
 
 /// @brief 
+void PhysicsFacade::cleanMap()
+{
+	for (auto b : bodies)
+	{
+		world->DestroyBody(b.second);
+	}
+	bodies.clear();
+}
+
+/// @brief 
 /// A function to search a physicsObject with the ObjectId
 /// If a body is not found throw PHYSICS_FACADE_OBJECT_DOESNT_EXIST
 /// @param objectId 

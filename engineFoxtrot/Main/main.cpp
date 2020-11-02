@@ -114,7 +114,7 @@ void sceneTestSetup()
 	object->setStatic(false);
 
 	Object* object2 = new Player();
-	engine.createObject(3, object2);
+	testScene->addNewObjectToLayer(2, object2);
 
 	Object* staticGround = new Object(101);
 	staticGround->setWidth(500); // width
@@ -122,12 +122,12 @@ void sceneTestSetup()
 	staticGround->setPositionX(20); // x 20 left down
 	staticGround->setPositionY(300);// y 300 left down
 	staticGround->setStatic(true);
+	staticGround->setFriction(0);
+
 	testScene->addNewObjectToLayer(1, staticGround);
 	
 	engine.insertScene(testScene);
 	engine.insertScene(new Scene(4));
-	staticGround->setFriction(0);
-	engine.createObject(3, staticGround);
 
 	Object* staticGround2 = new Object(102);
 	staticGround2->setWidth(100); // width
@@ -136,7 +136,7 @@ void sceneTestSetup()
 	staticGround2->setPositionY(290);// y 300 left down
 	staticGround2->setStatic(true);
 	staticGround2->setFriction(0);
-	engine.createObject(3, staticGround2);
+	testScene->addNewObjectToLayer(1, staticGround2);
 
 	engine.setCurrentScene(3);
 	engine.startTickThreads();
