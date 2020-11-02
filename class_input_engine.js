@@ -8,6 +8,7 @@ var class_input_engine =
     [ "makeCommand", "class_input_engine.html#aac2eb8fd2f724e6b63205309b82ab087", null ],
     [ "moveLeft", "class_input_engine.html#a16318198e571278e2ee8e70fdaa1bfcc", null ],
     [ "moveRight", "class_input_engine.html#aceef2323b25b0fd85f105bc85d3c47dc", null ],
+    [ "pollEvents", "class_input_engine.html#abc55f12bd95969c286ffb900cab0b62a", null ],
     [ "toggleFps", "class_input_engine.html#ae8d1ce3fc3e9f09ceed10b9cd9f477ba", null ],
     [ "updateInput", "class_input_engine.html#aeab4aa571a7d29fc483d0492dda6919b", null ],
     [ "commandQueue", "class_input_engine.html#ace71e4fe2f97f0816ff29a52ea2515f2", null ],

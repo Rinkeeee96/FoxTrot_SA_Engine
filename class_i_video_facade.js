@@ -7,6 +7,6 @@ var class_i_video_facade =
     [ "drawParticle", "class_i_video_facade.html#a54386c1a4d6d61602cdf53303c7ad2ca", null ],
     [ "drawScreen", "class_i_video_facade.html#a171a10c375ae89473aa7d446c79f8d74", null ],
     [ "initSDL", "class_i_video_facade.html#a1c96743f151db9cb60e503d18602762e", null ],
-    [ "loadImage", "class_i_video_facade.html#ae16955bc4b72a80a646ce8bf0537d7eb", null ],
+    [ "loadImage", "class_i_video_facade.html#a9d190b7aa09598ae96d52e23fa52f664", null ],
     [ "renderCopy", "class_i_video_facade.html#afb134b2b878d6f7d5d687fd16b06b934", null ]
 ];

@@ -65,9 +65,9 @@ $(document).ready(function(){initNavTree('_event_singleton_8h_source.html',''); 
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;Event.h&quot;</span>;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using</span> EventCallbackFn = std::function&lt;void(<a class="code" href="class_event.html">Event</a>&amp;)&gt;;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using</span> EventCallbackFn = <span class="keyword">function</span>&lt;void(<a class="code" href="class_event.html">Event</a>&amp;)&gt;;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define BIND_EVENT_FN(x) std::bind(&amp;x, this, std::placeholders::_1)</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define BIND_EVENT_FN(x) bind(&amp;x, this, placeholders::_1)</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_event_singleton.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_event_singleton.html">EventSingleton</a></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
@@ -82,7 +82,7 @@ $(document).ready(function(){initNavTree('_event_singleton_8h_source.html',''); 
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_event_singleton.html#a8ed64f214ac9b72c34fda92ce16df2a8">   25</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_event_singleton.html#a8ed64f214ac9b72c34fda92ce16df2a8">dispatchEvent</a>(<a class="code" href="class_event.html">Event</a>&amp; event) {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        static_assert(std::is_base_of&lt;Event, T&gt;::value, <span class="stringliteral">&quot;dispatchEvent Assert fail: Make sure the event that is fired and the Template Type is the same&quot;</span>);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        static_assert(is_base_of&lt;Event, T&gt;::value, <span class="stringliteral">&quot;dispatchEvent Assert fail: Make sure the event that is fired and the Template Type is the same&quot;</span>);</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="comment">// Contains element </span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">string</span> typeName = <span class="keyword">typeid</span>(T).name();</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">if</span> (handlers.count(typeName) &gt; 0) {</div>

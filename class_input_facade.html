@@ -96,9 +96,9 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a9cff2d6fb73fbfd9a165fa5a9a7c36d5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_facade.html#a9cff2d6fb73fbfd9a165fa5a9a7c36d5">input_mapping</a> ()</td></tr>
 <tr class="memdesc:a9cff2d6fb73fbfd9a165fa5a9a7c36d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if any keys are pressed and will call keydown or keyup function.  <a href="class_input_facade.html#a9cff2d6fb73fbfd9a165fa5a9a7c36d5">More...</a><br /></td></tr>
 <tr class="separator:a9cff2d6fb73fbfd9a165fa5a9a7c36d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc75951eb716a91b802a1f6f906039d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_facade.html#afc75951eb716a91b802a1f6f906039d5">dispatcher</a> (std::vector&lt; <a class="el" href="class_command.html">Command</a> * &gt; &amp;command_queue)</td></tr>
-<tr class="memdesc:afc75951eb716a91b802a1f6f906039d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills the command queue with pressed keys.  <a href="class_input_facade.html#afc75951eb716a91b802a1f6f906039d5">More...</a><br /></td></tr>
-<tr class="separator:afc75951eb716a91b802a1f6f906039d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc1df90e0715fa923e6bc573671cdd8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_facade.html#adc1df90e0715fa923e6bc573671cdd8f">dispatcher</a> (vector&lt; <a class="el" href="class_command.html">Command</a> * &gt; &amp;command_queue)</td></tr>
+<tr class="memdesc:adc1df90e0715fa923e6bc573671cdd8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills the command queue with pressed keys.  <a href="class_input_facade.html#adc1df90e0715fa923e6bc573671cdd8f">More...</a><br /></td></tr>
+<tr class="separator:adc1df90e0715fa923e6bc573671cdd8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44a9ef742ec67b29199ad769f0369849"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_facade.html#a44a9ef742ec67b29199ad769f0369849">keydown</a> (SDL_Event &amp;event)</td></tr>
 <tr class="memdesc:a44a9ef742ec67b29199ad769f0369849"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles Keydown event from sdl2.  <a href="class_input_facade.html#a44a9ef742ec67b29199ad769f0369849">More...</a><br /></td></tr>
 <tr class="separator:a44a9ef742ec67b29199ad769f0369849"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -111,6 +111,10 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a0c4c2ef1a868199b6e7afb87c317dbba"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_facade.html#a0c4c2ef1a868199b6e7afb87c317dbba">was_pressed</a> (int key)</td></tr>
 <tr class="memdesc:a0c4c2ef1a868199b6e7afb87c317dbba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a key was pressed, then the key will be in action_map.  <a href="class_input_facade.html#a0c4c2ef1a868199b6e7afb87c317dbba">More...</a><br /></td></tr>
 <tr class="separator:a0c4c2ef1a868199b6e7afb87c317dbba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b28837972a82e4548e18d1cf01bc00d"><td class="memItemLeft" align="right" valign="top"><a id="a0b28837972a82e4548e18d1cf01bc00d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_facade.html#a0b28837972a82e4548e18d1cf01bc00d">pollEvents</a> () override</td></tr>
+<tr class="memdesc:a0b28837972a82e4548e18d1cf01bc00d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Poll the input events and dispatch a <a class="el" href="class_key_pressed_event.html" title="KeyPressedEvent is triggered when a key is released.">KeyPressedEvent</a>. <br /></td></tr>
+<tr class="separator:a0b28837972a82e4548e18d1cf01bc00d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeee9b27e0d09c9f816f4555a906d6696"><td class="memItemLeft" align="right" valign="top">KeyCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_facade.html#aeee9b27e0d09c9f816f4555a906d6696">eventToKeyCode</a> (SDL_Event &amp;event)</td></tr>
 <tr class="memdesc:aeee9b27e0d09c9f816f4555a906d6696"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to convert event scancode to KeyCode.  <a href="class_input_facade.html#aeee9b27e0d09c9f816f4555a906d6696">More...</a><br /></td></tr>
 <tr class="separator:aeee9b27e0d09c9f816f4555a906d6696"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -187,8 +191,8 @@ vector&lt; KeyCode &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ha
 
 </div>
 </div>
-<a id="afc75951eb716a91b802a1f6f906039d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc75951eb716a91b802a1f6f906039d5">&#9670;&nbsp;</a></span>dispatcher()</h2>
+<a id="adc1df90e0715fa923e6bc573671cdd8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc1df90e0715fa923e6bc573671cdd8f">&#9670;&nbsp;</a></span>dispatcher()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -199,7 +203,7 @@ vector&lt; KeyCode &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ha
         <tr>
           <td class="memname">void InputFacade::dispatcher </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="class_command.html">Command</a> * &gt; &amp;&#160;</td>
+          <td class="paramtype">vector&lt; <a class="el" href="class_command.html">Command</a> * &gt; &amp;&#160;</td>
           <td class="paramname"><em>command_queue</em></td><td>)</td>
           <td></td>
         </tr>

@@ -1,5 +1,9 @@
 var hierarchy =
 [
+    [ "b2ContactListener", null, [
+      [ "ContactListenerAdapter", "class_contact_listener_adapter.html", null ]
+    ] ],
+    [ "CollisionStruct", "struct_collision_struct.html", null ],
     [ "Color4F", "struct_color4_f.html", null ],
     [ "Command", "class_command.html", [
       [ "Jump", "class_jump.html", null ],
@@ -29,6 +33,10 @@ var hierarchy =
       ] ],
       [ "MouseMovedEvent", "class_mouse_moved_event.html", null ],
       [ "MouseScrolledEvent", "class_mouse_scrolled_event.html", null ],
+      [ "OnCollisionEvent", "class_on_collision_event.html", [
+        [ "OnCollisionBeginEvent", "class_on_collision_begin_event.html", null ],
+        [ "OnCollisionEndEvent", "class_on_collision_end_event.html", null ]
+      ] ],
       [ "WindowCloseEvent", "class_window_close_event.html", null ],
       [ "WindowResizeEvent", "class_window_resize_event.html", null ]
     ] ],
@@ -54,7 +62,8 @@ var hierarchy =
     ] ],
     [ "Layer", "struct_layer.html", null ],
     [ "Object", "class_object.html", [
-      [ "ParticleAdapter", "class_particle_adapter.html", null ]
+      [ "ParticleAdapter", "class_particle_adapter.html", null ],
+      [ "Player", "class_player.html", null ]
     ] ],
     [ "Particle", "class_particle.html", [
       [ "ParticleInit", "class_particle_init.html", [
@@ -73,6 +82,7 @@ var hierarchy =
     [ "SceneManager", "class_scene_manager.html", null ],
     [ "SoundEngine", "class_sound_engine.html", null ],
     [ "Sprite", "struct_sprite.html", null ],
+    [ "SpriteObject", "class_sprite_object.html", null ],
     [ "TextPosition", "struct_text_position.html", null ],
     [ "TextSize", "struct_text_size.html", null ],
     [ "VideoEngine", "class_video_engine.html", null ]

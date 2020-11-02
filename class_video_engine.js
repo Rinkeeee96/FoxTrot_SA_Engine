@@ -7,7 +7,7 @@ var class_video_engine =
     [ "drawFps", "class_video_engine.html#ad4de84f7e2801cda58af13aaa969b940", null ],
     [ "drawParticle", "class_video_engine.html#a9e9e7abbd486c9183255406ab0ce078d", null ],
     [ "drawScreen", "class_video_engine.html#ae473587fb274cac6d77ccf9312d38b3f", null ],
-    [ "loadImage", "class_video_engine.html#aba100bd8189f32ce833446e0be41e847", null ],
+    [ "loadImage", "class_video_engine.html#a66f02fe551b1b47b0dfe20be415b5a5c", null ],
     [ "receiveTick", "class_video_engine.html#acb5b352b9741322a542efa954d9130d8", null ],
     [ "renderCopy", "class_video_engine.html#a3445cb3c48fa12c185fef39ced23577e", null ],
     [ "toggleFps", "class_video_engine.html#a9a9d9f6a4d7fbdb8bb3d5216ea387e84", null ],

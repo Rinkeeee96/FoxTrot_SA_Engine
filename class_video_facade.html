@@ -60,7 +60,6 @@ $(document).ready(function(){initNavTree('class_video_facade.html',''); initResi
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_video_facade-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -96,11 +95,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_facade.html#ab90d16a2784490d00753d26262472d68">drawScreen</a> ()</td></tr>
 <tr class="memdesc:ab90d16a2784490d00753d26262472d68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws SDL screen. <br /></td></tr>
 <tr class="separator:ab90d16a2784490d00753d26262472d68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8726fe5a8ee1a063582d0b5129c06dfe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_facade.html#a8726fe5a8ee1a063582d0b5129c06dfe">loadImage</a> (const int spriteID, const char *filename)</td></tr>
-<tr class="memdesc:a8726fe5a8ee1a063582d0b5129c06dfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads PNG files and makes them textures to be added to the unordered map.  <a href="class_video_facade.html#a8726fe5a8ee1a063582d0b5129c06dfe">More...</a><br /></td></tr>
-<tr class="separator:a8726fe5a8ee1a063582d0b5129c06dfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36160d28e599dc69719458d53e6546e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_facade.html#a36160d28e599dc69719458d53e6546e4">loadImage</a> (const <a class="el" href="class_sprite_object.html">SpriteObject</a> &amp;spriteObject)</td></tr>
+<tr class="memdesc:a36160d28e599dc69719458d53e6546e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load a animated sprite into the texturemap map.  <a href="class_video_facade.html#a36160d28e599dc69719458d53e6546e4">More...</a><br /></td></tr>
+<tr class="separator:a36160d28e599dc69719458d53e6546e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41d255eee99dfaee488ceb41c8e50577"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_facade.html#a41d255eee99dfaee488ceb41c8e50577">renderCopy</a> (<a class="el" href="class_object.html">Object</a> &amp;object)</td></tr>
-<tr class="memdesc:a41d255eee99dfaee488ceb41c8e50577"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes the sprites from the Textuture map and copys them to the screen.  <a href="class_video_facade.html#a41d255eee99dfaee488ceb41c8e50577">More...</a><br /></td></tr>
+<tr class="memdesc:a41d255eee99dfaee488ceb41c8e50577"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes the sprites from the Textuture map animated and copys them to the screen.  <a href="class_video_facade.html#a41d255eee99dfaee488ceb41c8e50577">More...</a><br /></td></tr>
 <tr class="separator:a41d255eee99dfaee488ceb41c8e50577"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeafc3c888821adac9f19a185dff87231"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_facade.html#aeafc3c888821adac9f19a185dff87231">drawParticle</a> (<a class="el" href="class_particle_data.html">ParticleData</a> data, int spriteID)</td></tr>
 <tr class="memdesc:aeafc3c888821adac9f19a185dff87231"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to draw Particles.  <a href="class_video_facade.html#aeafc3c888821adac9f19a185dff87231">More...</a><br /></td></tr>
@@ -109,14 +108,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:a0f19d1aecaa24fa36e74ede06c0a2ae7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the given text message at the given position.  <a href="class_video_facade.html#a0f19d1aecaa24fa36e74ede06c0a2ae7">More...</a><br /></td></tr>
 <tr class="separator:a0f19d1aecaa24fa36e74ede06c0a2ae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
 <tr class="memitem:afc5632d73fe9f80ce7e6e0915512e74c"><td class="memItemLeft" align="right" valign="top"><a id="afc5632d73fe9f80ce7e6e0915512e74c"></a>
 unordered_map&lt; int, SDL_Texture * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>textureMap</b></td></tr>
 <tr class="separator:afc5632d73fe9f80ce7e6e0915512e74c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
 <tr class="memitem:aaaa013d32a93a52bda2dfb5dd549a7f4"><td class="memItemLeft" align="right" valign="top"><a id="aaaa013d32a93a52bda2dfb5dd549a7f4"></a>
 SDL_Renderer *&#160;</td><td class="memItemRight" valign="bottom"><b>renderer</b></td></tr>
 <tr class="separator:aaaa013d32a93a52bda2dfb5dd549a7f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -234,8 +230,8 @@ TTF_Font *&#160;</td><td class="memItemRight" valign="bottom"><b>Sans</b></td></
 
 </div>
 </div>
-<a id="a8726fe5a8ee1a063582d0b5129c06dfe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8726fe5a8ee1a063582d0b5129c06dfe">&#9670;&nbsp;</a></span>loadImage()</h2>
+<a id="a36160d28e599dc69719458d53e6546e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36160d28e599dc69719458d53e6546e4">&#9670;&nbsp;</a></span>loadImage()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -246,19 +242,9 @@ TTF_Font *&#160;</td><td class="memItemRight" valign="bottom"><b>Sans</b></td></
         <tr>
           <td class="memname">void VideoFacade::loadImage </td>
           <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>spriteID</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const <a class="el" href="class_sprite_object.html">SpriteObject</a> &amp;&#160;</td>
+          <td class="paramname"><em>spriteObject</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>filename</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -268,12 +254,11 @@ TTF_Font *&#160;</td><td class="memItemRight" valign="bottom"><b>Sans</b></td></
 </table>
 </div><div class="memdoc">
 
-<p>Loads PNG files and makes them textures to be added to the unordered map. </p>
+<p>Load a animated sprite into the texturemap map. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">spriteID</td><td></td></tr>
-    <tr><td class="paramname">filename</td><td><br  />
- </td></tr>
+    <tr><td class="paramname">spriteObject</td><td></td></tr>
+    <tr><td class="paramname">filename</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -306,10 +291,10 @@ TTF_Font *&#160;</td><td class="memItemRight" valign="bottom"><b>Sans</b></td></
 </table>
 </div><div class="memdoc">
 
-<p>Takes the sprites from the Textuture map and copys them to the screen. </p>
+<p>Takes the sprites from the Textuture map animated and copys them to the screen. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_object.html" title="Object class. Object is linked with a sprite id in SVI.">Object</a></td><td><br  />
+    <tr><td class="paramname">object</td><td><br  />
  </td></tr>
   </table>
   </dd>
