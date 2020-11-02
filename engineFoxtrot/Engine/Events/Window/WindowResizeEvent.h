@@ -32,7 +32,7 @@ public:
 	/// @brief
 	/// Event to string
 	/// @return string with the width and height
-	std::string ToString() const override
+	string ToString() const override
 	{
 		std::stringstream stream;
 		stream << "WindowResizeEvent: " << m_Width << ", " << m_Height;

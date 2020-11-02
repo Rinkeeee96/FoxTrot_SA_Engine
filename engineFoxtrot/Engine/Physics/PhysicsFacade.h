@@ -4,7 +4,9 @@
 #include "Events/EventSingleton.h"
 #include "Events/Action/OnCollisionEvent.h"
 
-#define PI 3.14159
+#define _USE_MATH_DEFINES
+#include <math.h>
+
 #define TOTAL_DEGREES 180
 
 #define VELOCITY_ITERATIONS 8

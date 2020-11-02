@@ -1,7 +1,7 @@
 #pragma once
 #include "Events/Event.h"
 #include "Events/Action/ActionEvent.h"
-#include "./SceneManager/Object.h"
+#include "SceneManager/Object.h"
 
 /// @brief
 /// OnCollisionEvent base class of CollisionEnd and CollisionStart
@@ -27,7 +27,7 @@ public:
 	/// Returns the name of the event
 	virtual const char* GetName() const override = 0;
 
-	std::map<int, Direction> getDirectionMap() { return directionMap; };
+	map<int, Direction> getDirectionMap() { return directionMap; };
 protected:
 	int objectOneId;
 	int objectTwoId;

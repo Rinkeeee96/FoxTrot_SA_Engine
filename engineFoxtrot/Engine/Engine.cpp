@@ -145,3 +145,8 @@ void Engine::configureInput(KeyCode key, Command* command)
 	inputEngine.configure(key, command);
 }
 
+void Engine::pollEvents()
+{
+	inputEngine.pollEvents();
+}
+

@@ -97,6 +97,7 @@ void sceneTestSetup()
 	engine.linkSpriteIDWithAssetPath(1, "../Assets/Sprites/character/adventure.png");
 	engine.linkSpriteIDWithAssetPath(2, "../Assets/Sprites/character/adventure.png");
 	engine.linkSpriteIDWithAssetPath(101, "../Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png");
+	engine.linkSpriteIDWithAssetPath(102, "../Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png");
 
 	Scene* testScene = new Scene(3);
 
@@ -112,6 +113,7 @@ void sceneTestSetup()
 	object->setFriction(0);
 	object->setRestitution(0);
 	object->setStatic(false);
+	testScene->addNewObjectToLayer(1, object);
 
 	Object* object2 = new Player();
 	testScene->addNewObjectToLayer(2, object2);
@@ -123,7 +125,6 @@ void sceneTestSetup()
 	staticGround->setPositionY(300);// y 300 left down
 	staticGround->setStatic(true);
 	staticGround->setFriction(0);
-
 	testScene->addNewObjectToLayer(1, staticGround);
 	
 	engine.insertScene(testScene);

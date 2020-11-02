@@ -13,9 +13,7 @@ PhysicsFacade::PhysicsFacade()
 /// @brief Destructor
 PhysicsFacade::~PhysicsFacade()
 {
-	// When a world leaves scope or is deleted by calling delete on a pointer, all the memory reserved for bodies, fixtures, and joints is freed.This is done to improve performanceand make your life easier.
-	// However, you will need to nullify any body, fixture, or joint pointers you have because they will become invalid.
-	// https://box2d.org/documentation/md__d_1__git_hub_box2d_docs_dynamics.html#autotoc_md113
+	delete world;
 }
 
 CollisionStruct PhysicsFacade::getObjectsByFixture(b2Fixture* fixture1, b2Fixture* fixture2) {
@@ -151,7 +149,7 @@ void PhysicsFacade::update() {
 		object->setPositionX(body->GetWorldCenter().x - object->getWidth() / 2);
 		object->setPositionY(body->GetWorldCenter().y + object->getHeight() / 2);
 
-		if (object->getRotatable()) object->setRotation(body->GetAngle() * (TOTAL_DEGREES / PI));
+		if (object->getRotatable()) object->setRotation(body->GetAngle() * (TOTAL_DEGREES / M_PI));
 		object->setYAxisVelocity(body->GetLinearVelocity().y);
 	}	
 }
