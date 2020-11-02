@@ -15,7 +15,7 @@ void ContactListenerAdapter::BeginContact(b2Contact* contact) {
 		direction.insert(pair<int, vector<Direction>>(result.object1->getObjectId(), getCollidedBeginByObject(collidedPoint, result.object1)));
 		direction.insert(pair<int, vector<Direction>>(result.object2->getObjectId(), getCollidedBeginByObject(collidedPoint, result.object2)));
 
-		EventSingleton::get_instance().dispatchEvent<OnCollisionBeginEvent>((Event&)OnCollisionBeginEvent(result.object1->getObjectId(), result.object2->getObjectId(), direction));
+		//EventSingleton::get_instance().dispatchEvent<OnCollisionBeginEvent>((Event&)OnCollisionBeginEvent(result.object1->getObjectId(), result.object2->getObjectId(), direction));
 	}
 }
 
@@ -34,7 +34,7 @@ void ContactListenerAdapter::EndContact(b2Contact* contact) {
 		direction.insert(pair<int, vector<Direction>>(result.object1->getObjectId(), getCollidedEndByObject(collidedPoint, result.object1)));
 		direction.insert(pair<int, vector<Direction>>(result.object2->getObjectId(), getCollidedEndByObject(collidedPoint, result.object2)));
 
-		EventSingleton::get_instance().dispatchEvent<OnCollisionEndEvent>((Event&)OnCollisionEndEvent(result.object1->getObjectId(), result.object2->getObjectId(), direction));
+		//EventSingleton::get_instance().dispatchEvent<OnCollisionEndEvent>((Event&)OnCollisionEndEvent(result.object1->getObjectId(), result.object2->getObjectId(), direction));
 	}
 };
 

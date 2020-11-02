@@ -3,16 +3,16 @@
 
 /// @brief 
 /// Contains all scenes. Manages all scenes and objects.
-class SceneManager
+class DLLEXPORT SceneManager
 {
 public:
-	API SceneManager();
-	API ~SceneManager();
+	SceneManager();
+	~SceneManager();
 
 	// Scene modifiers
-	void API setCurrentScene(const int sceneID);
-	API Scene* getSceneWithID(const int sceneID);
-	void API insertScene(Scene* scene);
+	void setCurrentScene(const int sceneID);
+	Scene* getSceneWithID(const int sceneID);
+	void insertScene(Scene* scene);
 
 	// Pointer
 	Scene* currentScene = nullptr;

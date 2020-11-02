@@ -8,7 +8,7 @@
 
 /// @brief 
 /// SoundEngine is the Sound SDL2 wrapper
-class API SoundEngine
+class DLLEXPORT SoundEngine
 {
 public:
 	SoundEngine();

@@ -6,7 +6,7 @@
 
 #include "../SceneManager/Scene.h"
 
-class API PhysicsEngine
+class DLLEXPORT PhysicsEngine
 {
 public:
 	PhysicsEngine();

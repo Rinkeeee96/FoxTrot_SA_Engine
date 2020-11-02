@@ -1,7 +1,7 @@
 #pragma once
 #include "SceneManager/Object.h"
 
-struct Pointf
+struct DLLEXPORT Pointf
 {
 public:
     Pointf() {}
@@ -23,16 +23,16 @@ public:
     }
 };
 
-typedef Pointf Vec2;
+typedef DLLEXPORT Pointf Vec2;
 
 //class ParticleBatchNode;
 
-struct Color4F
+struct DLLEXPORT Color4F
 {
     float red = 0, green = 0, blue = 0, alpha = 0;
 };
 
-class ParticleData
+class DLLEXPORT ParticleData
 {
 public:
     float posx = 0;
@@ -110,7 +110,7 @@ emitter.startSpin = 0;
 
 */
 
-class Particle
+class DLLEXPORT Particle
 {
 public:
     enum class Mode

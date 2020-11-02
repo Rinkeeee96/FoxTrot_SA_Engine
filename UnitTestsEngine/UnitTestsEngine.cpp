@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "CppUnitTest.h"
-#include "../engineFoxtrot/api.h"
+#include "../api.h"
 
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -10,10 +10,11 @@ namespace UnitTestsEngine
 	TEST_CLASS(UnitTestsEngine)
 	{
 	public:
-		Engine engine;
+		Object *obj = new Object(1);
 		TEST_METHOD(TestMethod1)
 		{
-			
+			obj->setName("test1");
+			Assert::AreEqual(1, 1);
 		}
 	};
 }

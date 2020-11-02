@@ -2,16 +2,15 @@
 #define FRAME_VALUES 100
 #define TIMESTEP 1.f
 
-class FrameData
+class DLLEXPORT FrameData
 {
 public:
-	API FrameData();
-	API ~FrameData();
-	API double calculateAverageFps();
-	API void startTimer();
-
 	double gameFps = 0;
 	double renderFps = 0;
+	FrameData();
+	~FrameData();
+	double calculateAverageFps();
+	void startTimer();
 
 private:
 	list<chrono::duration<double>> frametimes;

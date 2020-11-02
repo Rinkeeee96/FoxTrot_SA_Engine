@@ -2,21 +2,21 @@
 
 
 
-class SpriteObject
+class DLLEXPORT SpriteObject
 {
 public:
-	API SpriteObject();
-	API SpriteObject(const int _textureID, const float _height, const float _width, const int _size, int _animationDelay, const char * _fileName );
-	API ~SpriteObject();
-	API int getTextureID() const;
-	API int getAmountOfTextures() const;
-	API float getHeight() const;
-	API float getWidth() const;
-	API const char * getFileName() const;
-	API float getLeftPos(uint32_t ticks);
+	SpriteObject();
+	SpriteObject(const int _textureID, const float _height, const float _width, const int _size, int _animationDelay, const char * _fileName );
+	~SpriteObject();
+	int getTextureID() const;
+	int getAmountOfTextures() const;
+	float getHeight() const;
+	float getWidth() const;
+	const char * getFileName() const;
+	float getLeftPos(uint32_t ticks);
 
-	API int getAnimationDelay();
-	API void setAnimationDelay(int speed);
+	int getAnimationDelay();
+	void setAnimationDelay(int speed);
 private:
 	int animationDelay = 0;
 	const int textureID =0;

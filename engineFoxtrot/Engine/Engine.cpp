@@ -64,7 +64,7 @@ void Engine::engineTick60()
 		frameData->startTimer();
 		this_thread::sleep_for(chrono::milliseconds(ENGINE_TICK60));		
 		AppTickEvent60 appTick;
-		EventSingleton::get_instance().dispatchEvent<AppTickEvent60>(appTick);
+		//EventSingleton::get_instance().dispatchEvent<AppTickEvent60>(appTick);
 		frameData->gameFps = frameData->calculateAverageFps();
 	}
 
@@ -79,7 +79,7 @@ void Engine::engineTick30()
 	while (!stopThreadTick30) {
 		this_thread::sleep_for(chrono::milliseconds(ENGINE_TICK30));
 		AppTickEvent30 appTick;
-		EventSingleton::get_instance().dispatchEvent<AppTickEvent30>(appTick);
+		//EventSingleton::get_instance().dispatchEvent<AppTickEvent30>(appTick);
 	}
 	cout << "Thread killed 30" << endl;
 }

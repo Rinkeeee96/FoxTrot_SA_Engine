@@ -15,7 +15,7 @@
 #define Y_POSITION_TOP_OF_SCREEN 0
 #define FPS_Y_POSITION_OFFSET 36
 
-struct API Sprite
+struct DLLEXPORT Sprite
 {
 	int spriteID = 0;
 	const char* filename = "";
@@ -24,7 +24,7 @@ struct API Sprite
 /// @brief 
 /// Video is the SDL2 wrapper
 
-class API VideoEngine
+class DLLEXPORT VideoEngine
 {
 public:
 	VideoEngine();

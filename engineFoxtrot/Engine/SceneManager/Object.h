@@ -5,75 +5,75 @@
 
 /// @brief 
 /// Object class. Object is linked with a sprite id in SVI. 
-class Object
+class DLLEXPORT Object
 {
 public:
-	API Object(const int id);
-	API ~Object();
+	 Object(const int id);
+	 ~Object();
 
-	void API setName(const string val);
-	string API getName() const;
+	void  setName(const string val);
+	string  getName() const;
 
-	int API getSpriteID() const;
+	int  getSpriteID() const;
 
-	void API setPositionX(const float);
-	float API getPositionX() const;
+	void  setPositionX(const float);
+	float  getPositionX() const;
 	
-	API SpriteObject& GetCurrentSprite() const;
-	API int getObjectId() const;
+	 SpriteObject& GetCurrentSprite() const;
+	 int getObjectId() const;
 
-	void API setPositionY(const float);
-	float API getPositionY() const;
+	void  setPositionY(const float);
+	float  getPositionY() const;
 
-	void API setRotation(const float);
-	float API getRotation() const;
+	void  setRotation(const float);
+	float  getRotation() const;
 
-	void API setScale(const float);
-	float API getScale() const;
+	void  setScale(const float);
+	float  getScale() const;
 
-	void API setDirection(const float);
-	float API getDirection() const;
+	void  setDirection(const float);
+	float  getDirection() const;
 
-	void API setHeight(const float);
-	float API getHeight() const;
+	void  setHeight(const float);
+	float  getHeight() const;
 
-	void API setWidth(const float);
-	float API getWidth() const;
+	void  setWidth(const float);
+	float  getWidth() const;
 
-	void API setStatic(const bool);
-	bool API getStatic() const;
+	void  setStatic(const bool);
+	bool  getStatic() const;
 
-	void API setRestitution(const float val);
-	float API getRestitution() const;
+	void  setRestitution(const float val);
+	float  getRestitution() const;
 
-	void API setFriction(const float val);
-	float API getFriction() const;
+	void  setFriction(const float val);
+	float  getFriction() const;
 
-	void API setDensity(const float val);
-	float API getDensity() const;
+	void  setDensity(const float val);
+	float  getDensity() const;
 
-	void API setSpeed(const float val);
-	float API getSpeed() const;
+	void  setSpeed(const float val);
+	float  getSpeed() const;
 
-	void API setJumpHeight(const float val);
-	float API getJumpHeight() const;
+	void  setJumpHeight(const float val);
+	float  getJumpHeight() const;
 
-	API virtual void setYAxisVelocity(const float val);
-	API float getYAxisVelocity() const;
+	 virtual void setYAxisVelocity(const float val);
+	 float getYAxisVelocity() const;
 
-	API void registerSprite(int state, SpriteObject* spriteObject);
-	API void changeToState(const int state);
+	 void registerSprite(int state, SpriteObject* spriteObject);
+	 void changeToState(const int state);
 
-	API void setScalable(const bool val);
-	API bool getScalable() const;
+	 void setScalable(const bool val);
+	 bool getScalable() const;
 
-	API void setRotatable(const bool val);
-	API bool getRotatable() const;
+	 void setRotatable(const bool val);
+	 bool getRotatable() const;
 
-	API bool getChanged() const;
-	API void setChanged(const bool c);
+	 bool getChanged() const;
+	 void setChanged(const bool c);
 
-	API bool getIsParticle();
+	 bool getIsParticle();
 	
 protected:
 

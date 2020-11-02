@@ -5,16 +5,17 @@ using EventCallbackFn = function<void(Event&)>;
 
 #define BIND_EVENT_FN(x) bind(&x, this, placeholders::_1)
 
-class EventSingleton
+class DLLEXPORT EventSingleton
 {
 public:
-    static API EventSingleton& get_instance() { return instance; }
+    EventSingleton& get_instance() { return *instance; }
 
     // prohibit copy & move
-    API EventSingleton(const EventSingleton&) = delete;
-    API EventSingleton(EventSingleton&&) = delete;
-    API EventSingleton& operator=(const EventSingleton&) = delete;
-    API EventSingleton& operator=(EventSingleton&&) = delete;
+    //EventSingleton() {};
+    EventSingleton(const EventSingleton&) = delete;
+    EventSingleton(EventSingleton&&) = delete;
+    EventSingleton& operator=(const EventSingleton&) = delete;
+    EventSingleton& operator=(EventSingleton&&) = delete;
 
     /// @brief
     /// OnEvent is triggered when an event is fired, and send message to all registered listiners
@@ -54,7 +55,7 @@ public:
 
 private:
     map<string, vector<EventCallbackFn>> handlers = map<string, vector<EventCallbackFn>>();
-    static EventSingleton instance;
+    EventSingleton *instance = new EventSingleton();
 
     EventSingleton() {}
 };

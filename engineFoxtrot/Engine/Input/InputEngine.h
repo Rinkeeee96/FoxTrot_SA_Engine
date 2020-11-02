@@ -7,11 +7,11 @@
 
 /// @brief 
 /// Input engine for handling input
-class InputEngine
+class DLLEXPORT InputEngine
 {
 public:
-	API InputEngine();
-	API ~InputEngine();
+	InputEngine();
+	~InputEngine();
 
 	void pollEvents();
 private:

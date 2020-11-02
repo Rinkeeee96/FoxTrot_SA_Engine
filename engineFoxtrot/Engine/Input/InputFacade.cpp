@@ -26,12 +26,12 @@ void InputFacade::pollEvents() {
             case SDL_KEYDOWN: {
                 // Command queue with events to fire
                 KeyPressedEvent event((KeyCode)sdl_event.key.keysym.scancode, 1);
-                EventSingleton::get_instance().dispatchEvent<KeyPressedEvent>(event);
+                //EventSingleton::get_instance().dispatchEvent<KeyPressedEvent>(event);
                 break;
             }
             case SDL_KEYUP: {
                 KeyReleasedEvent event((KeyCode)sdl_event.key.keysym.scancode);
-                EventSingleton::get_instance().dispatchEvent<KeyReleasedEvent>(event);
+                //EventSingleton::get_instance().dispatchEvent<KeyReleasedEvent>(event);
                 break;
             }
             default:

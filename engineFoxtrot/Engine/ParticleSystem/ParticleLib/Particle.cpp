@@ -2,7 +2,7 @@
 
 #include "Particle.h"
 
-inline void normalize_point(float x, float y, Pointf* out)
+inline void DLLEXPORT normalize_point(float x, float y, Pointf* out)
 {
     float n = x * x + y * y;
     // Already normalized.

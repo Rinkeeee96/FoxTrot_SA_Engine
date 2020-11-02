@@ -1,7 +1,7 @@
 #pragma once
 #include "IJsonFacade.h"
-class JsonFacade: public IJsonFacade
-{
-
-};
+//class JsonFacade: public IJsonFacade
+//{
+//
+//};
 

@@ -2,7 +2,7 @@
 #include "Particle.h"
 #include "./SceneManager/Object.h"
 
-class ParticleInit : public Particle
+class DLLEXPORT ParticleInit : public Particle
 {
 public:
     ParticleInit(){};
@@ -25,5 +25,5 @@ public:
     };
 
     ParticleStyle style_ = ParticleStyle::NONE;
-    API void setStyle(ParticleStyle style);
+    void setStyle(ParticleStyle style);
 };

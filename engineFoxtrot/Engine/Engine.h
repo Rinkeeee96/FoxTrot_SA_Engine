@@ -21,17 +21,17 @@
 #define ENGINE_TICK30	 33
 
 /// @brief 
-class Engine
+class DLLEXPORT Engine
 {
 public:
-	API Engine();
-	API ~Engine();
+	Engine();
+	~Engine();
 
 //private:
-	API void engineTick60();
-	API void engineTick30();
-	API void startTickThreads();
-	API void stopTickThreads();
+	void engineTick60();
+	void engineTick30();
+	void startTickThreads();
+	void stopTickThreads();
 
 	atomic_bool stopThreadTick60 = false;
 	atomic_bool stopThreadTick30 = false;
@@ -40,23 +40,23 @@ public:
 	thread *engineTick30Thread = nullptr;
 
 	//SceneManager calls
-	API void setCurrentScene(const int sceneID);
-	API void insertScene(Scene * scene);
+	void setCurrentScene(const int sceneID);
+	void insertScene(Scene * scene);
 
 	// Video calls
-	API void loadSprite(const SpriteObject& spriteObject);
+	void loadSprite(const SpriteObject& spriteObject);
 
 	// Input calls
-	API void pollEvents();
+	void pollEvents();
 private:
 	PhysicsEngine physicsEngine;
 	ParticleEngine particleEngine;
 	SoundEngine soundEngine;
 	InputEngine inputEngine;
-	FileParser fileParser;
+	//FileParser fileParser;
 	SceneManager sceneManager;
 	VideoEngine videoEngine;
-
+	//EventSingleton *eventSingleton = new EventSingleton;
 	FrameData* frameData = nullptr;
 };
 #endif
