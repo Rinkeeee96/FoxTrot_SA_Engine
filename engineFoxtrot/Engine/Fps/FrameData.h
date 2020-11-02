@@ -5,6 +5,7 @@
 class DLLEXPORT FrameData
 {
 public:
+	// Todo getters and Setters
 	double gameFps = 0;
 	double renderFps = 0;
 	FrameData();
