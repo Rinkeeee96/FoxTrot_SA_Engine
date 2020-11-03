@@ -263,5 +263,61 @@ namespace UnitTestsEngine
 				else Assert::IsTrue(false);
 			}
 		}
+
+		TEST_METHOD(UpdateDynamicBody_Should_Update_Body)
+		{
+			// Arrange
+			IPhysicsFacade* physicsFacade = new PhysicsFacade();
+
+			Object* object = new Object(1);
+			object->setName("person1");
+			object->setHeight(100);
+			object->setWidth(100);
+			object->setPositionX(30);
+			object->setPositionY(300);
+			object->setSpeed(100);
+			object->setJumpHeight(400);
+			object->setDensity(1000000);
+			object->setFriction(0);
+			object->setRestitution(0);
+			object->setStatic(false);
+			PhysicsBody* physicsBody = new PhysicsBody(object);
+
+			physicsFacade->addDynamicObject(physicsBody);
+			// Act
+			auto oldY = object->getYAxisVelocity();
+			physicsFacade->Jump(1);
+			physicsFacade->update();
+			// Assert
+			Assert::AreNotEqual(oldY, object->getYAxisVelocity());
+		}
+
+		TEST_METHOD(UpdateStaticBody_Should_Not_Update_Body)
+		{
+			// Arrange
+			IPhysicsFacade* physicsFacade = new PhysicsFacade();
+
+			Object* object = new Object(1);
+			object->setName("person1");
+			object->setHeight(100);
+			object->setWidth(100);
+			object->setPositionX(30);
+			object->setPositionY(300);
+			object->setSpeed(100);
+			object->setJumpHeight(400);
+			object->setDensity(1000000);
+			object->setFriction(0);
+			object->setRestitution(0);
+			object->setStatic(true);
+			PhysicsBody* physicsBody = new PhysicsBody(object);
+
+			physicsFacade->addStaticObject(physicsBody);
+			// Act
+			auto oldY = object->getYAxisVelocity();
+			physicsFacade->Jump(1);
+			physicsFacade->update();
+			// Assert
+			Assert::AreEqual(oldY, object->getYAxisVelocity());
+		}
 	};
 }
