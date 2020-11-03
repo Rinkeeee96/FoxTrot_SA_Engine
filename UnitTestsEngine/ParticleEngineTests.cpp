@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "CppUnitTest.h"
-#include "../api.h"
+
+#include "Events/AppTickEvent60.h"
+#include "ParticleSystem/ParticleEngine.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -93,7 +95,7 @@ namespace ParticleEngineTests
 
 			// assert
 			Assert::AreNotEqual(particle1VectorBeforeRun, particle1VectorToBeModified);
-			Assert::AreNotEqual(particle1VectorBeforeRun, particle1VectorToBeModified);
+			Assert::AreNotEqual(particle2VectorBeforeRun, particle2VectorToBeModified);
 		}
 	};
 }

@@ -4,7 +4,7 @@
 
 /// @brief 
 /// Particle Bridge that inherits from Object and ParticleInit(Cocos2dx Library)
-class DLLEXPORT ParticleAdapter : public Object, public ParticleInit
+class API ParticleAdapter : public Object, public ParticleInit
 {
 public:
 	ParticleAdapter(const int id) : Object(id, true) {};

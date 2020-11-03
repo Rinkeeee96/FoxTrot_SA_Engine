@@ -5,7 +5,7 @@
 
 /// @brief 
 /// Object class. Object is linked with a sprite id in SVI. 
-class DLLEXPORT Object
+class API Object
 {
 public:
 	 Object(const int id);

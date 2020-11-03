@@ -2,7 +2,7 @@
 #include "Particle.h"
 #include "./SceneManager/Object.h"
 
-class DLLEXPORT ParticleInit : public Particle
+class API ParticleInit : public Particle
 {
 public:
     ParticleInit(){};
