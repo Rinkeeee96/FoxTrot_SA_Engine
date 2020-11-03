@@ -55,16 +55,6 @@ namespace UnitTestsEngine
 			Assert::AreEqual(count, particle.getParticleCount());
 		}
 
-		TEST_METHOD(ParticleIsStopedWhenStyleIsNONE)
-		{
-			// arrange
-			ParticleAdapter particle(1);
-			// act
-			particle.setStyle(ParticleInit::ParticleStyle::NONE);
-			// assert
-			// todo ????
-		}
-
 		//TEST_METHOD(ParticlesAreUpdated)
 		//{
 		//	// arrange
