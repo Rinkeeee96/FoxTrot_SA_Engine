@@ -8,13 +8,13 @@
 
 /// @brief 
 /// SoundEngine is the Sound SDL2 wrapper
-class DLLEXPORT SoundEngine
+class API SoundEngine
 {
 public:
 	SoundEngine();
 	~SoundEngine();
 
-	void SetFiles(map<string, string> files);
+	void SetFiles(unordered_map<string, string> files);
 	void AddFile(const string& identifier, const string& file);
 	void PlayEffect(const string& identifier, const int volume);
 	void LoadEffect(const string& identifier);

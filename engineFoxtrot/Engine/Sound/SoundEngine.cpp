@@ -17,7 +17,7 @@ SoundEngine::~SoundEngine()
 
 /// @brief 
 /// @param files 
-void SoundEngine::SetFiles(map<string, string> files)
+void SoundEngine::SetFiles(unordered_map<string, string> files)
 {
 	soundFacade->SetFiles(files);
 }
