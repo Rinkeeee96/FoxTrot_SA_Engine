@@ -13,9 +13,10 @@ public:
 	double calculateAverageFps();
 	void startTimer();
 
-private:
+	list<chrono::duration<double>> getFrameTimes() const;
+
+protected:
 	list<chrono::duration<double>> frametimes;
 	chrono::high_resolution_clock::time_point startTime;
 	double framesPerSecond = 0;
-
 };

@@ -13,6 +13,13 @@ void FrameData::startTimer() {
 	startTime = chrono::high_resolution_clock::now();
 }
 
+/// @brief Returns the frametimes vector
+/// @return 
+list<chrono::duration<double>> FrameData::getFrameTimes() const
+{
+	return frametimes;
+}
+
 /// @brief
 /// Calculates the average fps of the last few ticks
 double FrameData::calculateAverageFps()

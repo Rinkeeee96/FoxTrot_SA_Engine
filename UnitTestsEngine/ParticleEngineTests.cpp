@@ -7,9 +7,7 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-
-
-namespace ParticleEngineTests
+namespace UnitTestsEngine
 {
 	TEST_CLASS(ParticleEngineTests)
 	{

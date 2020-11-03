@@ -163,6 +163,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="UnitTestsFPS.cpp" />
     <ClCompile Include="SoundEngineTests.cpp" />
     <ClCompile Include="UnitTestsEngine.cpp" />
   </ItemGroup>
