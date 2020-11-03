@@ -40,21 +40,6 @@ namespace UnitTestsEngine
 			Assert::AreNotEqual(particle.getPositionY(), 4.f);
 		}
 
-		TEST_METHOD(ParticleCountIsOverridable)
-		{
-			// arrange
-			unsigned int fireDefaultCount = 250;
-			ParticleAdapter particle(1);        
-			particle.setPosition(800, 384);
-			particle.setStyle(ParticleInit::ParticleStyle::FIRE);
-			// act
-			particle.initWithTotalParticles(5);
-			// assert
-			unsigned int count = 5;
-			Assert::AreNotEqual(fireDefaultCount, particle.getParticleCount());
-			Assert::AreEqual(count, particle.getParticleCount());
-		}
-
 		//TEST_METHOD(ParticlesAreUpdated)
 		//{
 		//	// arrange
