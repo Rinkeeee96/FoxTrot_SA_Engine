@@ -35,7 +35,7 @@ void sceneTestSetup()
 	engine.loadSprite(*so6);
 	engine.loadSprite(*so7);
 
-	map<string, string> soundL1 = {
+	unordered_map<string, string> soundL1 = {
 		{"Level_1_Sound", "../Assets/Sound/file_example_WAV_1MG.wav"},
 	};
 
