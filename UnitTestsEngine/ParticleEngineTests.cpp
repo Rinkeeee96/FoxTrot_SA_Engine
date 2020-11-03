@@ -3,8 +3,11 @@
 
 #include "Events/AppTickEvent60.h"
 #include "ParticleSystem/ParticleEngine.h"
+#include <CppUnitTestAssert.h>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
+
+
 
 namespace ParticleEngineTests
 {
@@ -89,13 +92,13 @@ namespace ParticleEngineTests
 
 			// act
 			// create a reference to the modifiable data vectors that are modified in the onUpdate
-			auto& particle1VectorToBeModified = particle1.getParticleDataVector();
-			auto& particle2VectorToBeModified = particle2.getParticleDataVector();
 			engine.onUpdate(tickEvent);
+			auto particle2VectorToBeModified = particle2.getParticleDataVector();
+			auto particle1VectorToBeModified = particle1.getParticleDataVector();
 
 			// assert
-			Assert::AreNotEqual(particle1VectorBeforeRun, particle1VectorToBeModified);
-			Assert::AreNotEqual(particle2VectorBeforeRun, particle2VectorToBeModified);
+			Assert::IsFalse(particle1VectorBeforeRun == particle1VectorToBeModified);
+			Assert::IsFalse(particle2VectorBeforeRun == particle2VectorToBeModified);
 		}
 	};
 }
