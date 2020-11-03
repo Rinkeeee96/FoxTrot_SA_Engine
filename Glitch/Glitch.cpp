@@ -90,10 +90,10 @@ void sceneTestSetup()
 	particle1->changeToState(SpriteState::DEFAULT);
 	particle1->setPosition(800, 384);              // set the position
 	particle1->setStyle(ParticleInit::ParticleStyle::FIRE);    // set the example effects
+	particle1->initWithTotalParticles(5);
 	particle1->setStartSpin(0);
 	particle1->setStartSpinVar(90);
 	particle1->setEndSpin(90);
-	particle1->setStartSpinVar(90);
 
 	testScene->addNewObjectToLayer(4, particle1);
 
@@ -105,7 +105,6 @@ void sceneTestSetup()
 	particle2->setStartSpin(0);
 	particle2->setStartSpinVar(90);
 	particle2->setEndSpin(90);
-	particle2->setStartSpinVar(90);
 
 	testScene->addNewObjectToLayer(2, particle2);
 
