@@ -56,7 +56,7 @@ private:
 	//FileParser fileParser;
 	SceneManager sceneManager;
 	VideoEngine videoEngine;
-	//EventSingleton *eventSingleton = new EventSingleton;
+	//EventSingleton eventSingleton;
 	FrameData* frameData = nullptr;
 };
 #endif

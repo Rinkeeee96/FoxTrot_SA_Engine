@@ -21,6 +21,10 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UnitTestsFPS.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleEngineTests.cpp">
     <ClCompile Include="ParticleEngineTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
