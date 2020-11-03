@@ -34,7 +34,7 @@ bool SoundFacade::isMix_PlayingMusic()
 /// @brief
 /// Replaces the identifier,filepath map
 /// @param files
-void SoundFacade::SetFiles(map<string, string> files)
+void SoundFacade::SetFiles(unordered_map<string, string> files)
 {
 	this->soundPaths = files;
 }
@@ -284,4 +284,13 @@ bool SoundFacade::IdentifierExists(const string& identifier) {
 /// The identifier to check for
 bool SoundFacade::IdentifierIsLoaded(const string& identifier) {
 	return (loadedSoundEffects.find(identifier) != loadedSoundEffects.end());
+}
+
+const unordered_map<string, string>& SoundFacade::GetSoundPaths()
+{
+	return soundPaths;
+}
+
+const unordered_map<string, int>& SoundFacade::GetLoopchannels() {
+	return loopChannels;
 }

@@ -20,7 +20,7 @@ typedef struct _Mix_Music Mix_Music;
 
 /// @brief 
 /// SoundFacade is de Sound SDL2 facade
-class SoundFacade : public ISoundFacade
+class API SoundFacade : public ISoundFacade
 {
 public:
 	SoundFacade();
@@ -28,30 +28,34 @@ public:
 
 	bool isMix_PlayingMusic();
 
-	void SetFiles(map<string, string> files);
-	void AddFile(const string& identifier, const string& file);
-	void PlayEffect(const string& identifier, const int volume);
-	void LoadEffect(const string& identifier);
-	void UnloadEffect(const string& identifier);
-	void StartLoopedEffect(const string& effect);
-	void StopLoopedEffect(const string& identifier);
-	void LoadMusic(const string& identifier);
-	void PlayMusic(const int volume);
-	void PlayMusic(const string& identifier, const int volume);
-	void ChangeMusic(const string& identifier);
-	void FadeOutMusic(const int fadeTime);
-	void FadeInMusic(const int fadeTime);
-	void FadeInMusic(const string& identifier, const int fadeTime);
-	void RewindMusic();
-	void StopMusic();
-	void PauseMusic();
-	void ResumeMusic();
-	void Flush();
-	bool IdentifierExists(const string& identifier);
-	bool IdentifierIsLoaded(const string& identifier);
+	void SetFiles(unordered_map<string, string> files) override;
+	void AddFile(const string& identifier, const string& file) override;
+	void PlayEffect(const string& identifier, const int volume) override;
+	void LoadEffect(const string& identifier) override;
+	void UnloadEffect(const string& identifier) override;
+	void StartLoopedEffect(const string& effect) override;
+	void StopLoopedEffect(const string& identifier) override;
+	void LoadMusic(const string& identifier) override;
+	void PlayMusic(const int volume) override;
+	void PlayMusic(const string& identifier, const int volume) override;
+	void ChangeMusic(const string& identifier) override;
+	void FadeOutMusic(const int fadeTime) override;
+	void FadeInMusic(const int fadeTime) override;
+	void FadeInMusic(const string& identifier, const int fadeTime) override;
+	void RewindMusic() override;
+	void StopMusic() override;
+	void PauseMusic() override;
+	void ResumeMusic() override;
+	void Flush() override;
+	bool IdentifierExists(const string& identifier) override;
+	bool IdentifierIsLoaded(const string& identifier) override;
+	const unordered_map<string, int>& GetLoopchannels() override;
+	const unordered_map<string, string>& GetSoundPaths() override;
+
+
 private:
-	map<string, string> soundPaths;
-	map<string, int> loopChannels;
+	unordered_map<string, string> soundPaths;
+	unordered_map<string, int> loopChannels;
 	Mix_Music* music;
 	map<std::string, Mix_Chunk*> loadedSoundEffects;
 
