@@ -67,6 +67,9 @@ public:
 	 void setScalable(const bool val);
 	 bool getScalable() const;
 
+	 virtual void setXAxisVelocity(const float val);
+	 float getXAxisVelocity() const;
+
 	 void setRotatable(const bool val);
 	 bool getRotatable() const;
 
@@ -101,4 +104,5 @@ protected:
 	map<const int, SpriteObject*> textures;
 	bool rotatable = false;
 	float yAxisVelocity = 0;
+	float xAxisVelocity = 0;
 };
