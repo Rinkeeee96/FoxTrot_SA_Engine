@@ -132,6 +132,10 @@ public:
     };
 
 public:
+
+    int getParticlePositionX() const;
+    int getParticlePositionY() const;
+
     void addParticles(int count);
 
     void stopSystem();
@@ -143,8 +147,6 @@ public:
      * @return True if the system is full.
      */
     bool isFull();
-
-    void updateColorSizeRadius(int dt);
 
     /** Whether or not the particle system removed self on finish.
      *
