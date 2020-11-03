@@ -2,8 +2,8 @@
 #include "CppUnitTest.h"
 
 #include "Events/AppTickEvent60.h"
-#include "ParticleSystem/ParticleEngine.h"
 #include <CppUnitTestAssert.h>
+#include "Engine.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -40,33 +40,5 @@ namespace UnitTestsEngine
 			Assert::AreNotEqual(particle.getPositionY(), 4.f);
 		}
 
-		//TEST_METHOD(ParticlesAreUpdated)
-		//{
-		//	// arrange
-		//	ParticleAdapter *particle1 = new ParticleAdapter(1);
-		//	particle1->setStyle(ParticleInit::ParticleStyle::RAIN);
-		//	particle1->initWithTotalParticles(5);
-
-		//	ParticleAdapter *particle2 = new ParticleAdapter(2);
-		//	particle2->setStyle(ParticleInit::ParticleStyle::SMOKE);
-		//	particle2->initWithTotalParticles(5);
-
-		//	// copy the particle data vectors
-		//	auto particle1VectorBeforeRun = particle1->getParticleDataVector();
-		//	auto particle2VectorBeforeRun = particle2->getParticleDataVector();
-
-		//	ParticleEngine engine;
-		//	AppTickEvent60 tickEvent;
-
-		//	// act
-		//	create a reference to the modifiable data vectors that are modified in the onUpdate
-		//	engine.onUpdate(tickEvent);
-		//	auto particle1VectorToBeModified = particle1->getParticleDataVector();
-		//	auto particle2VectorToBeModified = particle2->getParticleDataVector();
-
-		//	 assert
-		//	Assert::IsFalse(particle1VectorBeforeRun == particle1VectorToBeModified);
-		//	Assert::IsFalse(particle2VectorBeforeRun == particle2VectorToBeModified);
-		//}
 	};
 }
