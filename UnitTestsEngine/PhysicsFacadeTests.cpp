@@ -159,8 +159,7 @@ namespace UnitTestsEngine
 			// Assert
 			catch (int e)
 			{
-				if (e == PHYSICS_FACADE_BODY_DOESNT_EXIST) Assert::IsTrue(true);
-				else Assert::IsTrue(false);
+				Assert::AreEqual(e, PHYSICS_FACADE_BODY_DOESNT_EXIST);
 			}
 		}
 
@@ -176,8 +175,7 @@ namespace UnitTestsEngine
 			// Assert
 			catch (int e)
 			{
-				if (e == PHYSICS_FACADE_BODY_DOESNT_EXIST) Assert::IsTrue(true);
-				else Assert::IsTrue(false);
+				Assert::AreEqual(e, PHYSICS_FACADE_BODY_DOESNT_EXIST);
 			}
 		}
 
@@ -193,8 +191,7 @@ namespace UnitTestsEngine
 			// Assert
 			catch (int e)
 			{
-				if (e == PHYSICS_FACADE_BODY_DOESNT_EXIST) Assert::IsTrue(true);
-				else Assert::IsTrue(false);
+				Assert::AreEqual(e, PHYSICS_FACADE_BODY_DOESNT_EXIST);
 			}
 		}
 
@@ -226,8 +223,7 @@ namespace UnitTestsEngine
 			// Assert
 			catch (int e)
 			{
-				if (e == PHYSICS_FACADE_BODY_DOESNT_EXIST) Assert::IsTrue(true);
-				else Assert::IsTrue(false);
+				Assert::AreEqual(e, PHYSICS_FACADE_BODY_DOESNT_EXIST);
 			}
 		}
 
@@ -259,8 +255,7 @@ namespace UnitTestsEngine
 			// Assert
 			catch (int e)
 			{
-				if (e == PHYSICS_FACADE_BODY_DOESNT_EXIST) Assert::IsTrue(true);
-				else Assert::IsTrue(false);
+				Assert::AreEqual(e, PHYSICS_FACADE_BODY_DOESNT_EXIST);
 			}
 		}
 
