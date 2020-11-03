@@ -1,6 +1,6 @@
 var class_on_collision_begin_event =
 [
-    [ "OnCollisionBeginEvent", "class_on_collision_begin_event.html#abcf323aef947d7139843cc8dba122cd1", null ],
-    [ "GetEventType", "class_on_collision_begin_event.html#ae4b7d372b60af7dd586133e83d464bf4", null ],
-    [ "GetName", "class_on_collision_begin_event.html#a8fbbec6093503dd51b57c0e0c7352cf3", null ]
+    [ "OnCollisionBeginEvent", "class_on_collision_begin_event.html#aecec126ef91beb788e0b8ba3a2d91653", null ],
+    [ "GetEventType", "class_on_collision_begin_event.html#ad07829b6e681748e44f632494918d145", null ],
+    [ "GetName", "class_on_collision_begin_event.html#af5240be5e259b4ce7995bc8796751b9f", null ]
 ];

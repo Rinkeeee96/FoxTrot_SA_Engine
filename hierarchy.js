@@ -35,10 +35,14 @@ var hierarchy =
       [ "WindowResizeEvent", "class_window_resize_event.html", null ]
     ] ],
     [ "EventSingleton", "class_event_singleton.html", null ],
+    [ "FileParser", "class_file_parser.html", null ],
     [ "FpsMessage", "struct_fps_message.html", null ],
     [ "FrameData", "class_frame_data.html", null ],
     [ "IInputFacade", "class_i_input_facade.html", [
       [ "InputFacade", "class_input_facade.html", null ]
+    ] ],
+    [ "IJsonFacade", "class_i_json_facade.html", [
+      [ "JsonFacade", "class_json_facade.html", null ]
     ] ],
     [ "InputEngine", "class_input_engine.html", null ],
     [ "IPhysicsFacade", "class_i_physics_facade.html", [
