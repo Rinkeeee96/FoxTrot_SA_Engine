@@ -9,7 +9,7 @@
 /// @brief 
 /// @param sceneID 
 /// @param _sounds this contains the sounds for the level with identifier and filepath
-Level::Level(const int id, map<string, string> _sounds = map<string, string>()) : Scene::Scene(id), sounds(_sounds)
+Level::Level(const int id, unordered_map<string, string> _sounds = unordered_map<string, string>()) : Scene::Scene(id), sounds(_sounds)
 {
 
 }

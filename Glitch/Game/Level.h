@@ -11,11 +11,11 @@ class Level : public Scene
 #endif
 {
 public:
-	Level(const int id, map<string, string> sounds);
+	Level(const int id, unordered_map<string, string> sounds);
 	virtual void OnAttach() override;
 	virtual void Start() override;
 	virtual void Pause();
 	virtual void OnDetach() override;
 private:
-	map<string, string> sounds;
+	unordered_map<string, string> sounds;
 };
