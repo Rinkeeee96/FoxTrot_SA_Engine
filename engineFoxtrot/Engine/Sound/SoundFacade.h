@@ -49,10 +49,8 @@ public:
 	void Flush() override;
 	bool IdentifierExists(const string& identifier) override;
 	bool IdentifierIsLoaded(const string& identifier) override;
-	const unordered_map<string, int>& GetLoopchannels() override;
-	const unordered_map<string, string>& GetSoundPaths() override;
-
-
+	unordered_map<string, int>& GetLoopchannels() override;
+	unordered_map<string, string>& GetSoundPaths() override;
 private:
 	unordered_map<string, string> soundPaths;
 	unordered_map<string, int> loopChannels;

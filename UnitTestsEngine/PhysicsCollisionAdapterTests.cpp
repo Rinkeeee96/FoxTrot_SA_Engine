@@ -39,7 +39,7 @@ namespace UnitTestsEngine
 		}
 	};
 
-	TEST_CLASS(UnitTestsPhysicsCollisionAdapter)
+	TEST_CLASS(PhysicsCollisionAdapterTests)
 	{
 	public:
 		TEST_METHOD(OnCollision_Bottom_Top_Should_Return_void)

@@ -286,11 +286,11 @@ bool SoundFacade::IdentifierIsLoaded(const string& identifier) {
 	return (loadedSoundEffects.find(identifier) != loadedSoundEffects.end());
 }
 
-const unordered_map<string, string>& SoundFacade::GetSoundPaths()
+const unordered_map<string, string>& SoundFacade::GetSoundPaths() 
 {
 	return soundPaths;
 }
 
-const unordered_map<string, int>& SoundFacade::GetLoopchannels() {
+unordered_map<string, int>& SoundFacade::GetLoopchannels() {
 	return loopChannels;
 }

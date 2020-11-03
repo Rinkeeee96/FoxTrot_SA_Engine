@@ -4,8 +4,6 @@
 class ISoundFacade
 {
 public:
-	int SoundFacade() {};
-	virtual ~ISoundFacade() {};
 	virtual bool isMix_PlayingMusic() = 0;
 	virtual void SetFiles(unordered_map<string, string> files) = 0;
 	virtual void AddFile(const string& identifier, const string& file) = 0;
@@ -34,8 +32,8 @@ public:
 	virtual bool IdentifierExists(const string& identifier) = 0;
 	virtual bool IdentifierIsLoaded(const string& identifier) = 0;
 
-	virtual const unordered_map<string, string>& GetSoundPaths() = 0;
-	virtual const unordered_map<string, int>& GetLoopchannels() = 0;
+	virtual unordered_map<string, string>& GetSoundPaths() = 0;
+	virtual unordered_map<string, int>& GetLoopchannels() = 0;
 
 private:
 

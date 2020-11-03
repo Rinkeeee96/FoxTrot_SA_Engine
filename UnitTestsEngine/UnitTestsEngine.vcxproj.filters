@@ -6,8 +6,9 @@
     <ClCompile Include="UnitTestsFPS.cpp" />
     <ClCompile Include="SoundEngineTests.cpp" />
     <ClCompile Include="UnitTestsEngine.cpp" />
-    <ClCompile Include="PhysicsTests.cpp" />
     <ClCompile Include="PhysicsFacadeTests.cpp" />
+    <ClCompile Include="PhysicsEngineTests.cpp" />
+    <ClCompile Include="PhysicsCollisionAdapterTests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
