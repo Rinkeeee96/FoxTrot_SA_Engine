@@ -3,6 +3,7 @@
 #include "Events/Event.h"
 #include "Events/Action/ActionEvent.h"
 #include "IPhysicsFacade.h"
+#include "PhysicsFacade.h"
 
 #include "../SceneManager/Scene.h"
 

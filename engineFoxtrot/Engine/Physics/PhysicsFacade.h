@@ -20,18 +20,9 @@
 #define X_AXIS_STATIC 0
 #define Y_AXIS_STATIC 0
 
-struct CollisionStruct {
-	PhysicsBody* object1 = nullptr;
-	PhysicsBody* object2 = nullptr;
-};
-
-class b2Fixture;
-class b2World;
-class b2Body;
-
 /// @brief 
 /// PhysicsFacade class. Class for update physics off objects
-class PhysicsFacade : public IPhysicsFacade
+class API PhysicsFacade : public IPhysicsFacade
 {
 public:
 	PhysicsFacade();

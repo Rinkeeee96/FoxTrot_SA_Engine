@@ -6,12 +6,12 @@
 #include "box2d/box2d.h"
 #include <math.h>
 
-class ContactListenerAdapter : public b2ContactListener
+class API ContactListenerAdapter : public b2ContactListener
 {
 private:
-	PhysicsFacade* facade;
+	IPhysicsFacade* facade;
 public:
-	ContactListenerAdapter(PhysicsFacade* _facade) : facade(_facade) { }
+	ContactListenerAdapter(IPhysicsFacade* _facade) : facade(_facade) { }
 protected:
 	void BeginContact(b2Contact* contact) override;
 	void EndContact(b2Contact* contact) override;

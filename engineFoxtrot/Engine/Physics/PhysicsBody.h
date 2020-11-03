@@ -1,7 +1,7 @@
 #pragma once
 #include "../SceneManager/Object.h"
 
-class PhysicsBody
+class API PhysicsBody
 {
 public:
 	PhysicsBody(Object* object);
