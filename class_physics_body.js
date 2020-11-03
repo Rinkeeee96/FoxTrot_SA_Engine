@@ -14,6 +14,7 @@ var class_physics_body =
     [ "getRotation", "class_physics_body.html#ab39691165dcc0575f8e96a5b5d61b29a", null ],
     [ "getSpeed", "class_physics_body.html#ac23749cf0e91824409bcb5517501c1e7", null ],
     [ "getWidth", "class_physics_body.html#afd7ce04fe6909548b57dbc93feff13bc", null ],
+    [ "getXAxisVelocity", "class_physics_body.html#a907d164217607d65a77deedab18b69b2", null ],
     [ "getYAxisVelocity", "class_physics_body.html#ac47ed5c02e54d551157ed96a2e8ddc4e", null ],
     [ "setDensity", "class_physics_body.html#a5995250298aeb54dd0a32791ffd45341", null ],
     [ "setFriction", "class_physics_body.html#a3efa4ce11223e299bc6d68eacab68375", null ],
@@ -26,6 +27,7 @@ var class_physics_body =
     [ "setRotation", "class_physics_body.html#a1d1fa93c58a55208aba5fdeae49bae4f", null ],
     [ "setSpeed", "class_physics_body.html#a01a4d976a15edbc3cc055a0ea82cae9a", null ],
     [ "setWidth", "class_physics_body.html#a3e61766dc30cf0e697a2667791896c4c", null ],
+    [ "setXAxisVelocity", "class_physics_body.html#a4d7ae302dbb99d405ece662b412ecb6b", null ],
     [ "setYAxisVelocity", "class_physics_body.html#a173c604bd0e4ae9edf3764c48c01be97", null ],
     [ "density", "class_physics_body.html#acef2316b117c690fd5bed5b4d6e5b8e3", null ],
     [ "friction", "class_physics_body.html#ab3e6147de0da0c9f2f7caf07e2787878", null ],
@@ -40,5 +42,6 @@ var class_physics_body =
     [ "rotation", "class_physics_body.html#a6754f3dac25def1e82b41b7fcb7665c4", null ],
     [ "speed", "class_physics_body.html#acc8bda62bda66b0ca925e2cc0db7421f", null ],
     [ "width", "class_physics_body.html#aa5ab6cddbbf660eeaea58bb9626e3bed", null ],
+    [ "xAxisVelocity", "class_physics_body.html#a87217c22e4b3ea6a46d797572c6aae82", null ],
     [ "yAxisVelocity", "class_physics_body.html#ac38a97e7edf37c29d8bf4b304f6cc67b", null ]
 ];

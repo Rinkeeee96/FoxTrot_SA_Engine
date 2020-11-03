@@ -25,6 +25,7 @@ var class_object =
     [ "getSpriteID", "class_object.html#aa87ce8337b0fb8e60502897d38df90e9", null ],
     [ "getStatic", "class_object.html#a7d8ba0a76c18a026e040959be8c8ee2f", null ],
     [ "getWidth", "class_object.html#a6c1edada408d830ea9001d89daa898df", null ],
+    [ "getXAxisVelocity", "class_object.html#acbe080fe787193c9342f28f23c2ddae2", null ],
     [ "getYAxisVelocity", "class_object.html#a91c888e69faceb416a3eef290ff40fde", null ],
     [ "registerSprite", "class_object.html#af9ec172dd20953754391ca913cc5ee2c", null ],
     [ "setChanged", "class_object.html#ac1e4e9736de77942fa3d9aa98423639e", null ],
@@ -44,6 +45,7 @@ var class_object =
     [ "setSpeed", "class_object.html#a630ed9acd70382a75678490abbce81e5", null ],
     [ "setStatic", "class_object.html#a53e7fe8ff944a5e3eee66b4f6ea22ebc", null ],
     [ "setWidth", "class_object.html#ac5a16618480d5f61ce0ff3b2a473d8b1", null ],
+    [ "setXAxisVelocity", "class_object.html#aa44c122948ab34bf367c0bd4f83a86ba", null ],
     [ "setYAxisVelocity", "class_object.html#aac36b9fe68e06a5a2eebdfabf74bc59b", null ],
     [ "changed", "class_object.html#ac595c87946cbc368de9600ce6a0c647b", null ],
     [ "currentSprite", "class_object.html#a5985ac4d252c9a12c937d2e4aaf62b52", null ],
@@ -66,5 +68,6 @@ var class_object =
     [ "staticObject", "class_object.html#a1c9270f18f17a76c94a5974bcc3b5449", null ],
     [ "textures", "class_object.html#a18ea482b56f75859d21fde968c7cdb5d", null ],
     [ "width", "class_object.html#a49ac59a7fb5c7c130ffc625af4384d08", null ],
+    [ "xAxisVelocity", "class_object.html#a4018aaa4309d5714972aa8b46cd7c3b5", null ],
     [ "yAxisVelocity", "class_object.html#a4f9a74751f6c75bc561882bc7fd335a2", null ]
 ];
