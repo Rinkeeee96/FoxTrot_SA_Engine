@@ -33,6 +33,7 @@ Particle::Particle()
 bool Particle::initWithTotalParticles(int numberOfParticles)
 {
     _totalParticles = numberOfParticles;
+    _particleCount = numberOfParticles;
     _isActive = true;
     _emitterMode = Mode::GRAVITY;
     _isAutoRemoveOnFinish = false;
@@ -53,6 +54,16 @@ void Particle::resetTotalParticles(int numberOfParticles)
 
 Particle::~Particle()
 {
+}
+
+int Particle::getParticlePositionX() const
+{
+    return x_;
+}
+
+int Particle::getParticlePositionY() const
+{
+    return y_;
 }
 
 void Particle::addParticles(int count)
