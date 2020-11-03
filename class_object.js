@@ -22,7 +22,7 @@ var class_object =
     [ "getScalable", "class_object.html#ae9b003b291cc10ee605a4d85db869b1e", null ],
     [ "getScale", "class_object.html#a521b49578be7b0aade3922d4f4b10753", null ],
     [ "getSpeed", "class_object.html#abe2266dcfa7d2fb5a527236b046a8553", null ],
-    [ "getSpriteID", "class_object.html#aa87ce8337b0fb8e60502897d38df90e9", null ],
+    [ "getSpriteID", "class_object.html#adf45c3be06f68a151150648f51d7ac6c", null ],
     [ "getStatic", "class_object.html#a7d8ba0a76c18a026e040959be8c8ee2f", null ],
     [ "getWidth", "class_object.html#a6c1edada408d830ea9001d89daa898df", null ],
     [ "getYAxisVelocity", "class_object.html#a91c888e69faceb416a3eef290ff40fde", null ],

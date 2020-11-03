@@ -65,16 +65,16 @@ $(document).ready(function(){initNavTree('_scene_manager_8h_source.html',''); in
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;Scene.h&quot;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_scene_manager.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_scene_manager.html">SceneManager</a></div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_scene_manager.html">    6</a></span>&#160;<span class="keyword">class </span>DLLEXPORT <a class="code" href="class_scene_manager.html">SceneManager</a></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    API <a class="code" href="class_scene_manager.html#a52085e6737c23b491c228e86781af808">SceneManager</a>();</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    API <a class="code" href="class_scene_manager.html#a2bb376a85d29e85f47753e26c7539229">~SceneManager</a>();</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="class_scene_manager.html">SceneManager</a>();</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    ~<a class="code" href="class_scene_manager.html">SceneManager</a>();</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="comment">// Scene modifiers</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">void</span> API <a class="code" href="class_scene_manager.html#a3668167e7d70c9000f21c7e7f38bfad2">setCurrentScene</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> sceneID);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    API <a class="code" href="class_scene.html">Scene</a>* <a class="code" href="class_scene_manager.html#a614c53d3e88e8755b387d2482bffb344">getSceneWithID</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> sceneID);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">void</span> API <a class="code" href="class_scene_manager.html#a7f390dbfd91c6f94cb9c8a0fbda72524">insertScene</a>(<a class="code" href="class_scene.html">Scene</a>* scene);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">void</span> setCurrentScene(<span class="keyword">const</span> <span class="keywordtype">int</span> sceneID);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="class_scene.html">Scene</a>* getSceneWithID(<span class="keyword">const</span> <span class="keywordtype">int</span> sceneID);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">void</span> insertScene(<a class="code" href="class_scene.html">Scene</a>* scene);</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="comment">// Pointer</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_scene.html">Scene</a>* currentScene = <span class="keyword">nullptr</span>;</div>
@@ -85,21 +85,15 @@ $(document).ready(function(){initNavTree('_scene_manager_8h_source.html',''); in
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment">// Helper Functions</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_scene_manager.html#af389da14e5c53ef063275ec285e84293">checkIfSceneExists</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">bool</span> checkIfSceneExists(<span class="keyword">const</span> <span class="keywordtype">int</span>);</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    vector&lt;Scene*&gt; scenes;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_scene_manager_html_a3668167e7d70c9000f21c7e7f38bfad2"><div class="ttname"><a href="class_scene_manager.html#a3668167e7d70c9000f21c7e7f38bfad2">SceneManager::setCurrentScene</a></div><div class="ttdeci">void API setCurrentScene(const int sceneID)</div><div class="ttdoc">A function to change a scene If a scene does not exists throw ERROR_CODE_SCENEMANAGER_SCENES_IS_EMPTY...</div><div class="ttdef"><b>Definition:</b> SceneManager.cpp:45</div></div>
-<div class="ttc" id="aclass_scene_manager_html_a2bb376a85d29e85f47753e26c7539229"><div class="ttname"><a href="class_scene_manager.html#a2bb376a85d29e85f47753e26c7539229">SceneManager::~SceneManager</a></div><div class="ttdeci">API ~SceneManager()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> SceneManager.cpp:11</div></div>
-<div class="ttc" id="aclass_scene_manager_html_a52085e6737c23b491c228e86781af808"><div class="ttname"><a href="class_scene_manager.html#a52085e6737c23b491c228e86781af808">SceneManager::SceneManager</a></div><div class="ttdeci">API SceneManager()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> SceneManager.cpp:5</div></div>
 <div class="ttc" id="aclass_scene_html"><div class="ttname"><a href="class_scene.html">Scene</a></div><div class="ttdoc">Scene Class Contains all the objects that should be drawn in this scene.</div><div class="ttdef"><b>Definition:</b> Scene.h:12</div></div>
-<div class="ttc" id="aclass_scene_manager_html_af389da14e5c53ef063275ec285e84293"><div class="ttname"><a href="class_scene_manager.html#af389da14e5c53ef063275ec285e84293">SceneManager::checkIfSceneExists</a></div><div class="ttdeci">bool checkIfSceneExists(const int)</div><div class="ttdoc">A function to check if a scene exists.</div><div class="ttdef"><b>Definition:</b> SceneManager.cpp:21</div></div>
-<div class="ttc" id="aclass_scene_manager_html_a7f390dbfd91c6f94cb9c8a0fbda72524"><div class="ttname"><a href="class_scene_manager.html#a7f390dbfd91c6f94cb9c8a0fbda72524">SceneManager::insertScene</a></div><div class="ttdeci">void API insertScene(Scene *scene)</div><div class="ttdoc">Able to insert a Scene into the scenemanager.</div><div class="ttdef"><b>Definition:</b> SceneManager.cpp:34</div></div>
 <div class="ttc" id="aclass_scene_manager_html"><div class="ttname"><a href="class_scene_manager.html">SceneManager</a></div><div class="ttdoc">Contains all scenes. Manages all scenes and objects.</div><div class="ttdef"><b>Definition:</b> SceneManager.h:7</div></div>
-<div class="ttc" id="aclass_scene_manager_html_a614c53d3e88e8755b387d2482bffb344"><div class="ttname"><a href="class_scene_manager.html#a614c53d3e88e8755b387d2482bffb344">SceneManager::getSceneWithID</a></div><div class="ttdeci">API Scene * getSceneWithID(const int sceneID)</div><div class="ttdoc">Get a scene with a sceneID If a scene does not exists throw ERROR_CODE_SCENEMANAGER_SCENES_IS_EMPTY.</div><div class="ttdef"><b>Definition:</b> SceneManager.cpp:61</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

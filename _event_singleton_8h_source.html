@@ -69,54 +69,55 @@ $(document).ready(function(){initNavTree('_event_singleton_8h_source.html',''); 
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define BIND_EVENT_FN(x) bind(&amp;x, this, placeholders::_1)</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_event_singleton.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_event_singleton.html">EventSingleton</a></div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_event_singleton.html">    8</a></span>&#160;<span class="keyword">class </span>DLLEXPORT <a class="code" href="class_event_singleton.html">EventSingleton</a></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">static</span> API <a class="code" href="class_event_singleton.html">EventSingleton</a>&amp; get_instance() { <span class="keywordflow">return</span> instance; }</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_event_singleton.html">EventSingleton</a>&amp; get_instance() { <span class="keywordflow">return</span> *instance; }</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="comment">// prohibit copy &amp; move</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    API <a class="code" href="class_event_singleton.html">EventSingleton</a>(<span class="keyword">const</span> <a class="code" href="class_event_singleton.html">EventSingleton</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    API <a class="code" href="class_event_singleton.html">EventSingleton</a>(<a class="code" href="class_event_singleton.html">EventSingleton</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    API <a class="code" href="class_event_singleton.html">EventSingleton</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="class_event_singleton.html">EventSingleton</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    API <a class="code" href="class_event_singleton.html">EventSingleton</a>&amp; operator=(<a class="code" href="class_event_singleton.html">EventSingleton</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_event_singleton.html#a8ed64f214ac9b72c34fda92ce16df2a8">   25</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_event_singleton.html#a8ed64f214ac9b72c34fda92ce16df2a8">dispatchEvent</a>(<a class="code" href="class_event.html">Event</a>&amp; event) {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        static_assert(is_base_of&lt;Event, T&gt;::value, <span class="stringliteral">&quot;dispatchEvent Assert fail: Make sure the event that is fired and the Template Type is the same&quot;</span>);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="comment">// Contains element </span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">string</span> typeName = <span class="keyword">typeid</span>(T).name();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">if</span> (handlers.count(typeName) &gt; 0) {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> handler : handlers.at(typeName)) {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                handler(event);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_event_singleton.html#a2f88719256a69d0e17a7a2767f431dc1">   42</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_event_singleton.html#a2f88719256a69d0e17a7a2767f431dc1">setEventCallback</a>(<span class="keyword">const</span> EventCallbackFn&amp; callback) {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        static_assert(std::is_base_of&lt;Event, T&gt;::value, <span class="stringliteral">&quot;setEventCallback Assert fail: Make sure the event in the param of callback is the same as the Template Type&quot;</span>);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="comment">// Contains element </span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordtype">string</span> typeName = <span class="keyword">typeid</span>(T).name();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">if</span>(handlers.count(typeName) &gt; 0) { </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            handlers[typeName].push_back(callback);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="comment">// Create new vector</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            handlers[typeName].push_back({ callback });</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    map&lt;string, vector&lt;EventCallbackFn&gt;&gt; handlers = map&lt;string, vector&lt;EventCallbackFn&gt;&gt;();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_event_singleton.html">EventSingleton</a> instance;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="class_event_singleton.html">EventSingleton</a>() {}</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;};</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="comment">//EventSingleton() {};</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="class_event_singleton.html">EventSingleton</a>(<span class="keyword">const</span> <a class="code" href="class_event_singleton.html">EventSingleton</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="class_event_singleton.html">EventSingleton</a>(<a class="code" href="class_event_singleton.html">EventSingleton</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="class_event_singleton.html">EventSingleton</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="class_event_singleton.html">EventSingleton</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_event_singleton.html">EventSingleton</a>&amp; operator=(<a class="code" href="class_event_singleton.html">EventSingleton</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_event_singleton.html#a8ed64f214ac9b72c34fda92ce16df2a8">   26</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_event_singleton.html#a8ed64f214ac9b72c34fda92ce16df2a8">dispatchEvent</a>(<a class="code" href="class_event.html">Event</a>&amp; event) {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        static_assert(is_base_of&lt;Event, T&gt;::value, <span class="stringliteral">&quot;dispatchEvent Assert fail: Make sure the event that is fired and the Template Type is the same&quot;</span>);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="comment">// Contains element </span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordtype">string</span> typeName = <span class="keyword">typeid</span>(T).name();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">if</span> (handlers.count(typeName) &gt; 0) {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> handler : handlers.at(typeName)) {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                handler(event);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_event_singleton.html#a2f88719256a69d0e17a7a2767f431dc1">   43</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_event_singleton.html#a2f88719256a69d0e17a7a2767f431dc1">setEventCallback</a>(<span class="keyword">const</span> EventCallbackFn&amp; callback) {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        static_assert(std::is_base_of&lt;Event, T&gt;::value, <span class="stringliteral">&quot;setEventCallback Assert fail: Make sure the event in the param of callback is the same as the Template Type&quot;</span>);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="comment">// Contains element </span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordtype">string</span> typeName = <span class="keyword">typeid</span>(T).name();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">if</span>(handlers.count(typeName) &gt; 0) { </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            handlers[typeName].push_back(callback);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="comment">// Create new vector</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            handlers[typeName].push_back({ callback });</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    map&lt;string, vector&lt;EventCallbackFn&gt;&gt; handlers = map&lt;string, vector&lt;EventCallbackFn&gt;&gt;();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="class_event_singleton.html">EventSingleton</a> *instance = <span class="keyword">new</span> <a class="code" href="class_event_singleton.html">EventSingleton</a>();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="class_event_singleton.html">EventSingleton</a>() {}</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_event_singleton_html_a2f88719256a69d0e17a7a2767f431dc1"><div class="ttname"><a href="class_event_singleton.html#a2f88719256a69d0e17a7a2767f431dc1">EventSingleton::setEventCallback</a></div><div class="ttdeci">void setEventCallback(const EventCallbackFn &amp;callback)</div><div class="ttdoc">Register a callback for a specific Event. @template T is fired.</div><div class="ttdef"><b>Definition:</b> EventSingleton.h:42</div></div>
+<div class="ttc" id="aclass_event_singleton_html_a2f88719256a69d0e17a7a2767f431dc1"><div class="ttname"><a href="class_event_singleton.html#a2f88719256a69d0e17a7a2767f431dc1">EventSingleton::setEventCallback</a></div><div class="ttdeci">void setEventCallback(const EventCallbackFn &amp;callback)</div><div class="ttdoc">Register a callback for a specific Event. @template T is fired.</div><div class="ttdef"><b>Definition:</b> EventSingleton.h:43</div></div>
 <div class="ttc" id="aclass_event_html"><div class="ttname"><a href="class_event.html">Event</a></div><div class="ttdef"><b>Definition:</b> Event.h:9</div></div>
-<div class="ttc" id="aclass_event_singleton_html_a8ed64f214ac9b72c34fda92ce16df2a8"><div class="ttname"><a href="class_event_singleton.html#a8ed64f214ac9b72c34fda92ce16df2a8">EventSingleton::dispatchEvent</a></div><div class="ttdeci">void dispatchEvent(Event &amp;event)</div><div class="ttdoc">OnEvent is triggered when an event is fired, and send message to all registered listiners @template T...</div><div class="ttdef"><b>Definition:</b> EventSingleton.h:25</div></div>
+<div class="ttc" id="aclass_event_singleton_html_a8ed64f214ac9b72c34fda92ce16df2a8"><div class="ttname"><a href="class_event_singleton.html#a8ed64f214ac9b72c34fda92ce16df2a8">EventSingleton::dispatchEvent</a></div><div class="ttdeci">void dispatchEvent(Event &amp;event)</div><div class="ttdoc">OnEvent is triggered when an event is fired, and send message to all registered listiners @template T...</div><div class="ttdef"><b>Definition:</b> EventSingleton.h:26</div></div>
 <div class="ttc" id="aclass_event_singleton_html"><div class="ttname"><a href="class_event_singleton.html">EventSingleton</a></div><div class="ttdef"><b>Definition:</b> EventSingleton.h:9</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

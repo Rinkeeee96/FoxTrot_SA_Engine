@@ -12,7 +12,6 @@ var class_engine =
     [ "stopTickThreads", "class_engine.html#a8c4b8e69dcf1537e433053790733e143", null ],
     [ "engineTick30Thread", "class_engine.html#a24be7a8ec0e5e0dee543ebc571cff21d", null ],
     [ "engineTick60Thread", "class_engine.html#a1e71514a14ac02aa42021ab3e9bb4bc1", null ],
-    [ "fileParser", "class_engine.html#a7a035976177f6d76dcc6548db1812870", null ],
     [ "frameData", "class_engine.html#aa4de34329d4b56e77d1426c9819a20d9", null ],
     [ "inputEngine", "class_engine.html#a69edf25f489a43c1658aa93db5d2ca73", null ],
     [ "particleEngine", "class_engine.html#ad15e0daf5264d8e6478efb9c1ad1a152", null ],
