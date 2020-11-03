@@ -7,6 +7,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTestsEngine
 {
+
 	class PhysicsFacadeMock : public IPhysicsFacade {
 		void addStaticObject(PhysicsBody* object) override {
 		}
@@ -46,17 +47,6 @@ namespace UnitTestsEngine
 			IPhysicsFacade* mock = new PhysicsFacadeMock();
 			ContactListenerAdapter contactListener = ContactListenerAdapter(mock);
 
-
-			Assert::AreEqual(1, 1);
-		}
-	};
-
-	TEST_CLASS(UnitTestsPhysicsEngine)
-	{
-	public:
-		TEST_METHOD(OnCollision_Bottom_Top_Should_Return_void)
-		{
-			PhysicsEngine engine = PhysicsEngine();
 
 			Assert::AreEqual(1, 1);
 		}
