@@ -24,7 +24,7 @@ var class_sound_facade =
     [ "StopLoopedEffect", "class_sound_facade.html#a6b1e8cbd539c214b111e2a86cb3bbb4a", null ],
     [ "StopMusic", "class_sound_facade.html#a1d602a5ff9f64a8a8ccea97fddf81920", null ],
     [ "UnloadEffect", "class_sound_facade.html#a96f46b7372b27662ae4cd795c9b8db5d", null ],
-    [ "loadedSoundEffects", "class_sound_facade.html#a10ca6141ca3cd3b32203cc02299dbc8e", null ],
+    [ "loadedSoundEffects", "class_sound_facade.html#a92aec84f2317a15257dc0f390352ebf0", null ],
     [ "loopChannels", "class_sound_facade.html#a6b613fe90cbdb1bbb24fc35e7c0a8e2e", null ],
     [ "music", "class_sound_facade.html#a0be2dd7cbec885acf462c7abc1dcb42c", null ],
     [ "soundPaths", "class_sound_facade.html#aafc82e9cfd5fd61c602695833accf600", null ]

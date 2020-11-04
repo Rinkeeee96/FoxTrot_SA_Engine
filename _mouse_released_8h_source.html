@@ -69,10 +69,10 @@ $(document).ready(function(){initNavTree('_mouse_released_8h_source.html',''); i
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_mouse_button_released_event.html">MouseButtonReleasedEvent</a>(MouseCode code) : <a class="code" href="class_mouse_button_event.html">MouseButtonEvent</a>(code) {}</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_mouse_button_released_event.html#a2df202924fc8870f0649d1d4c2a924af">   13</a></span>&#160;    std::string <a class="code" href="class_mouse_button_released_event.html#a2df202924fc8870f0649d1d4c2a924af">ToString</a>()<span class="keyword"> const override</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_mouse_button_released_event.html#a194c36efc926e8a7707dfcf1b23d5704">   13</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="class_mouse_button_released_event.html#a194c36efc926e8a7707dfcf1b23d5704">ToString</a>()<span class="keyword"> const override</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        std::stringstream stream;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        stream &lt;&lt; <span class="stringliteral">&quot;MouseButtonReleased Event: &quot;</span> &lt;&lt; button;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        stringstream stream;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        stream &lt;&lt; <span class="stringliteral">&quot;MouseButtonReleased Event: &quot;</span> &lt;&lt; (int)button;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keyword">auto</span> <span class="keywordtype">string</span> = stream.str();</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordflow">return</span> string;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    }</div>
@@ -80,8 +80,8 @@ $(document).ready(function(){initNavTree('_mouse_released_8h_source.html',''); i
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_mouse_button_released_event_html"><div class="ttname"><a href="class_mouse_button_released_event.html">MouseButtonReleasedEvent</a></div><div class="ttdoc">MouseButtonRealeasedEvent is triggered when left or right click is released. Derived class of MouseBu...</div><div class="ttdef"><b>Definition:</b> MouseReleased.h:7</div></div>
+<div class="ttc" id="aclass_mouse_button_released_event_html_a194c36efc926e8a7707dfcf1b23d5704"><div class="ttname"><a href="class_mouse_button_released_event.html#a194c36efc926e8a7707dfcf1b23d5704">MouseButtonReleasedEvent::ToString</a></div><div class="ttdeci">string ToString() const override</div><div class="ttdoc">MouseButtonReleasedEvent to string.</div><div class="ttdef"><b>Definition:</b> MouseReleased.h:13</div></div>
 <div class="ttc" id="aclass_mouse_button_event_html"><div class="ttname"><a href="class_mouse_button_event.html">MouseButtonEvent</a></div><div class="ttdoc">Base class for all mouse buttons events.</div><div class="ttdef"><b>Definition:</b> MouseButtonEvent.h:8</div></div>
-<div class="ttc" id="aclass_mouse_button_released_event_html_a2df202924fc8870f0649d1d4c2a924af"><div class="ttname"><a href="class_mouse_button_released_event.html#a2df202924fc8870f0649d1d4c2a924af">MouseButtonReleasedEvent::ToString</a></div><div class="ttdeci">std::string ToString() const override</div><div class="ttdoc">MouseButtonReleasedEvent to string.</div><div class="ttdef"><b>Definition:</b> MouseReleased.h:13</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

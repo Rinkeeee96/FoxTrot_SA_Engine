@@ -65,59 +65,60 @@ $(document).ready(function(){initNavTree('_video_facade_8h_source.html',''); ini
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;IVideoFacade.h&quot;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define WINDOW_WIDTH 600</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#define WINDOW_HEIGHT 400</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define MESSAGE_WIDTH 150</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define MESSAGE_HEIGHT 30</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define FONT_PATH &quot;../Assets/Fonts/Sans.ttf&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define FONT_POINT_SIZE 24</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">struct </span>SDL_Renderer;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">struct </span>SDL_Window;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">struct </span>SDL_Texture;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>_TTF_Font TTF_Font;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#if(EXPORT)</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">class </span>DLLEXPORT <a class="code" href="class_video_facade.html">VideoFacade</a> : <span class="keyword">public</span> <a class="code" href="class_i_video_facade.html">IVideoFacade</a></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;class <a class="code" href="class_video_facade.html">VideoFacade</a> : <span class="keyword">public</span> <a class="code" href="class_i_video_facade.html">IVideoFacade</a></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="class_video_facade.html">VideoFacade</a>();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    ~<a class="code" href="class_video_facade.html">VideoFacade</a>();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_video_facade.html#a3a4ea140c4b79bea2d0da11e948257d9">initSDL</a>();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_video_facade.html#ae98c664027935e2a960ecf25dff1d4a8">clearScreen</a>();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_video_facade.html#ab90d16a2784490d00753d26262472d68">drawScreen</a>();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_video_facade.html#a8726fe5a8ee1a063582d0b5129c06dfe">loadImage</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> spriteID, <span class="keyword">const</span> <span class="keywordtype">char</span>* filename);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_video_facade.html#a41d255eee99dfaee488ceb41c8e50577">renderCopy</a>(<a class="code" href="class_object.html">Object</a>&amp; <span class="keywordtype">object</span>);</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;ParticleSystem/ParticleLib/ParticleInit.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define FONT_PATH &quot;Assets/Fonts/Sans.ttf&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define FONT_POINT_SIZE 24</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">struct </span>SDL_Renderer;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">struct </span>SDL_Window;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">struct </span>SDL_Texture;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>_TTF_Font TTF_Font;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#if(EXPORT)</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">class </span>DLLEXPORT <a class="code" href="class_video_facade.html">VideoFacade</a> : <span class="keyword">public</span> <a class="code" href="class_i_video_facade.html">IVideoFacade</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;class <a class="code" href="class_video_facade.html">VideoFacade</a> : <span class="keyword">public</span> <a class="code" href="class_i_video_facade.html">IVideoFacade</a></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_video_facade.html">VideoFacade</a>();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    ~<a class="code" href="class_video_facade.html">VideoFacade</a>();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_video_facade.html#a3a4ea140c4b79bea2d0da11e948257d9">initSDL</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_video_facade.html#ae98c664027935e2a960ecf25dff1d4a8">clearScreen</a>();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_video_facade.html#ab90d16a2784490d00753d26262472d68">drawScreen</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_video_facade.html#a36160d28e599dc69719458d53e6546e4">loadImage</a>(<span class="keyword">const</span> <a class="code" href="class_sprite_object.html">SpriteObject</a>&amp; spriteObject);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_video_facade.html#a41d255eee99dfaee488ceb41c8e50577">renderCopy</a>(<a class="code" href="class_object.html">Object</a>&amp; <span class="keywordtype">object</span>);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_video_facade.html#aeafc3c888821adac9f19a185dff87231">drawParticle</a>(<a class="code" href="class_particle_data.html">ParticleData</a> data, <span class="keywordtype">int</span> spriteID);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_video_facade.html#a0f19d1aecaa24fa36e74ede06c0a2ae7">drawMessageAt</a>(<span class="keyword">const</span> <a class="code" href="struct_fps_message.html">FpsMessage</a> message, <span class="keyword">const</span> <a class="code" href="struct_text_position.html">TextPosition</a> pos);</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_video_facade.html#a0f19d1aecaa24fa36e74ede06c0a2ae7">drawMessageAt</a>(<span class="keyword">const</span> <a class="code" href="struct_fps_message.html">FpsMessage</a> message, <span class="keyword">const</span> <a class="code" href="struct_text_position.html">TextPosition</a> pos);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    unordered_map&lt;int, SDL_Texture*&gt; textureMap;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    unordered_map&lt;int, SDL_Texture*&gt; textureMap;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    SDL_Renderer* renderer;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    SDL_Window* window;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    TTF_Font* Sans;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    SDL_Renderer* renderer;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    SDL_Window* window;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    TTF_Font* Sans;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="astruct_fps_message_html"><div class="ttname"><a href="struct_fps_message.html">FpsMessage</a></div><div class="ttdef"><b>Definition:</b> fpsStructs.h:7</div></div>
-<div class="ttc" id="aclass_video_facade_html_ab90d16a2784490d00753d26262472d68"><div class="ttname"><a href="class_video_facade.html#ab90d16a2784490d00753d26262472d68">VideoFacade::drawScreen</a></div><div class="ttdeci">void drawScreen()</div><div class="ttdoc">Draws SDL screen.</div><div class="ttdef"><b>Definition:</b> VideoFacade.cpp:72</div></div>
-<div class="ttc" id="aclass_video_facade_html_a3a4ea140c4b79bea2d0da11e948257d9"><div class="ttname"><a href="class_video_facade.html#a3a4ea140c4b79bea2d0da11e948257d9">VideoFacade::initSDL</a></div><div class="ttdeci">void initSDL()</div><div class="ttdoc">Inits SDL2.</div><div class="ttdef"><b>Definition:</b> VideoFacade.cpp:26</div></div>
-<div class="ttc" id="astruct_text_position_html"><div class="ttname"><a href="struct_text_position.html">TextPosition</a></div><div class="ttdef"><b>Definition:</b> fpsStructs.h:19</div></div>
-<div class="ttc" id="aclass_video_facade_html"><div class="ttname"><a href="class_video_facade.html">VideoFacade</a></div><div class="ttdoc">VideoFacade is de SDL2 facade.</div><div class="ttdef"><b>Definition:</b> VideoFacade.h:25</div></div>
-<div class="ttc" id="aclass_i_video_facade_html"><div class="ttname"><a href="class_i_video_facade.html">IVideoFacade</a></div><div class="ttdoc">Interface class for Video facade.</div><div class="ttdef"><b>Definition:</b> IVideoFacade.h:11</div></div>
-<div class="ttc" id="aclass_object_html"><div class="ttname"><a href="class_object.html">Object</a></div><div class="ttdoc">Object class. Object is linked with a sprite id in SVI.</div><div class="ttdef"><b>Definition:</b> Object.h:11</div></div>
-<div class="ttc" id="aclass_video_facade_html_ae98c664027935e2a960ecf25dff1d4a8"><div class="ttname"><a href="class_video_facade.html#ae98c664027935e2a960ecf25dff1d4a8">VideoFacade::clearScreen</a></div><div class="ttdeci">void clearScreen()</div><div class="ttdoc">Clears SDL screen.</div><div class="ttdef"><b>Definition:</b> VideoFacade.cpp:64</div></div>
-<div class="ttc" id="aclass_video_facade_html_a8726fe5a8ee1a063582d0b5129c06dfe"><div class="ttname"><a href="class_video_facade.html#a8726fe5a8ee1a063582d0b5129c06dfe">VideoFacade::loadImage</a></div><div class="ttdeci">void loadImage(const int spriteID, const char *filename)</div><div class="ttdoc">Loads PNG files and makes them textures to be added to the unordered map.</div><div class="ttdef"><b>Definition:</b> VideoFacade.cpp:86</div></div>
-<div class="ttc" id="aclass_video_facade_html_a0f19d1aecaa24fa36e74ede06c0a2ae7"><div class="ttname"><a href="class_video_facade.html#a0f19d1aecaa24fa36e74ede06c0a2ae7">VideoFacade::drawMessageAt</a></div><div class="ttdeci">void drawMessageAt(const FpsMessage message, const TextPosition pos)</div><div class="ttdoc">Draws the given text message at the given position.</div><div class="ttdef"><b>Definition:</b> VideoFacade.cpp:116</div></div>
-<div class="ttc" id="aclass_video_facade_html_a41d255eee99dfaee488ceb41c8e50577"><div class="ttname"><a href="class_video_facade.html#a41d255eee99dfaee488ceb41c8e50577">VideoFacade::renderCopy</a></div><div class="ttdeci">void renderCopy(Object &amp;object)</div><div class="ttdoc">Takes the sprites from the Textuture map and copys them to the screen.</div><div class="ttdef"><b>Definition:</b> VideoFacade.cpp:99</div></div>
+<div class="ttc" id="astruct_fps_message_html"><div class="ttname"><a href="struct_fps_message.html">FpsMessage</a></div><div class="ttdef"><b>Definition:</b> fpsStructs.h:3</div></div>
+<div class="ttc" id="aclass_video_facade_html_ab90d16a2784490d00753d26262472d68"><div class="ttname"><a href="class_video_facade.html#ab90d16a2784490d00753d26262472d68">VideoFacade::drawScreen</a></div><div class="ttdeci">void drawScreen()</div><div class="ttdoc">Draws SDL screen.</div><div class="ttdef"><b>Definition:</b> VideoFacade.cpp:73</div></div>
+<div class="ttc" id="aclass_video_facade_html_a3a4ea140c4b79bea2d0da11e948257d9"><div class="ttname"><a href="class_video_facade.html#a3a4ea140c4b79bea2d0da11e948257d9">VideoFacade::initSDL</a></div><div class="ttdeci">void initSDL()</div><div class="ttdoc">Inits SDL2.</div><div class="ttdef"><b>Definition:</b> VideoFacade.cpp:27</div></div>
+<div class="ttc" id="astruct_text_position_html"><div class="ttname"><a href="struct_text_position.html">TextPosition</a></div><div class="ttdef"><b>Definition:</b> fpsStructs.h:11</div></div>
+<div class="ttc" id="aclass_video_facade_html"><div class="ttname"><a href="class_video_facade.html">VideoFacade</a></div><div class="ttdoc">VideoFacade is de SDL2 facade.</div><div class="ttdef"><b>Definition:</b> VideoFacade.h:21</div></div>
+<div class="ttc" id="aclass_particle_data_html"><div class="ttname"><a href="class_particle_data.html">ParticleData</a></div><div class="ttdef"><b>Definition:</b> Particle.h:36</div></div>
+<div class="ttc" id="aclass_i_video_facade_html"><div class="ttname"><a href="class_i_video_facade.html">IVideoFacade</a></div><div class="ttdoc">Interface class for Video facade.</div><div class="ttdef"><b>Definition:</b> IVideoFacade.h:9</div></div>
+<div class="ttc" id="aclass_object_html"><div class="ttname"><a href="class_object.html">Object</a></div><div class="ttdoc">Object class. Object is linked with a sprite id in SVI.</div><div class="ttdef"><b>Definition:</b> Object.h:9</div></div>
+<div class="ttc" id="aclass_sprite_object_html"><div class="ttname"><a href="class_sprite_object.html">SpriteObject</a></div><div class="ttdef"><b>Definition:</b> SpriteObject.h:6</div></div>
+<div class="ttc" id="aclass_video_facade_html_ae98c664027935e2a960ecf25dff1d4a8"><div class="ttname"><a href="class_video_facade.html#ae98c664027935e2a960ecf25dff1d4a8">VideoFacade::clearScreen</a></div><div class="ttdeci">void clearScreen()</div><div class="ttdoc">Clears SDL screen.</div><div class="ttdef"><b>Definition:</b> VideoFacade.cpp:65</div></div>
+<div class="ttc" id="aclass_video_facade_html_a36160d28e599dc69719458d53e6546e4"><div class="ttname"><a href="class_video_facade.html#a36160d28e599dc69719458d53e6546e4">VideoFacade::loadImage</a></div><div class="ttdeci">void loadImage(const SpriteObject &amp;spriteObject)</div><div class="ttdoc">Load a animated sprite into the texturemap map.</div><div class="ttdef"><b>Definition:</b> VideoFacade.cpp:86</div></div>
+<div class="ttc" id="aclass_video_facade_html_aeafc3c888821adac9f19a185dff87231"><div class="ttname"><a href="class_video_facade.html#aeafc3c888821adac9f19a185dff87231">VideoFacade::drawParticle</a></div><div class="ttdeci">void drawParticle(ParticleData data, int spriteID)</div><div class="ttdoc">Function to draw Particles.</div><div class="ttdef"><b>Definition:</b> VideoFacade.cpp:150</div></div>
+<div class="ttc" id="aclass_video_facade_html_a0f19d1aecaa24fa36e74ede06c0a2ae7"><div class="ttname"><a href="class_video_facade.html#a0f19d1aecaa24fa36e74ede06c0a2ae7">VideoFacade::drawMessageAt</a></div><div class="ttdeci">void drawMessageAt(const FpsMessage message, const TextPosition pos)</div><div class="ttdoc">Draws the given text message at the given position.</div><div class="ttdef"><b>Definition:</b> VideoFacade.cpp:166</div></div>
+<div class="ttc" id="aclass_video_facade_html_a41d255eee99dfaee488ceb41c8e50577"><div class="ttname"><a href="class_video_facade.html#a41d255eee99dfaee488ceb41c8e50577">VideoFacade::renderCopy</a></div><div class="ttdeci">void renderCopy(Object &amp;object)</div><div class="ttdoc">Takes the sprites from the Textuture map animated and copys them to the screen.</div><div class="ttdef"><b>Definition:</b> VideoFacade.cpp:100</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

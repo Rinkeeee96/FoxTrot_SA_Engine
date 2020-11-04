@@ -77,12 +77,15 @@ Inheritance diagram for Event:</div>
 <area href="class_action_event.html" title="AppTickEvent is fired when a tick happened in the engine. Derived class of event." alt="ActionEvent" shape="rect" coords="139,56,268,80"/>
 <area href="class_app_tick_event30.html" alt="AppTickEvent30" shape="rect" coords="139,112,268,136"/>
 <area href="class_app_tick_event60.html" title="AppTickEvent is fired when a tick happened in the engine. Derived class of event." alt="AppTickEvent60" shape="rect" coords="139,168,268,192"/>
-<area href="class_key_event.html" title="KeyEvent base class for all key events: Keypressed, KeyReleased, KeyTyped." alt="KeyEvent" shape="rect" coords="139,224,268,248"/>
-<area href="class_mouse_button_event.html" title="Base class for all mouse buttons events." alt="MouseButtonEvent" shape="rect" coords="139,280,268,304"/>
-<area href="class_mouse_moved_event.html" title="MouseMoved event is triggered when the mouse is moved. Derived class of Event." alt="MouseMovedEvent" shape="rect" coords="139,336,268,360"/>
-<area href="class_mouse_scrolled_event.html" title="MouseMoved event is triggered when the mousewheel is scrolled. Derived class of Event." alt="MouseScrolledEvent" shape="rect" coords="139,392,268,416"/>
-<area href="class_window_close_event.html" title="WindowClosedEvent is fired when the window is closed. Derived class of event." alt="WindowCloseEvent" shape="rect" coords="139,448,268,472"/>
-<area href="class_window_resize_event.html" title="WindowResizedEvent is fired when the window is resized. Derived class of event." alt="WindowResizeEvent" shape="rect" coords="139,504,268,528"/>
+<area href="class_base_sound_event.html" title="KeyEvent base class for all key events: Keypressed, KeyReleased, KeyTyped." alt="BaseSoundEvent" shape="rect" coords="139,224,268,248"/>
+<area href="class_fps_toggle_event.html" title="An event fired when the user toggles the fps counter using the set button." alt="FpsToggleEvent" shape="rect" coords="139,280,268,304"/>
+<area href="class_key_event.html" title="KeyEvent base class for all key events: Keypressed, KeyReleased, KeyTyped." alt="KeyEvent" shape="rect" coords="139,336,268,360"/>
+<area href="class_mouse_button_event.html" title="Base class for all mouse buttons events." alt="MouseButtonEvent" shape="rect" coords="139,392,268,416"/>
+<area href="class_mouse_moved_event.html" title="MouseMoved event is triggered when the mouse is moved. Derived class of Event." alt="MouseMovedEvent" shape="rect" coords="139,448,268,472"/>
+<area href="class_mouse_scrolled_event.html" title="MouseMoved event is triggered when the mousewheel is scrolled. Derived class of Event." alt="MouseScrolledEvent" shape="rect" coords="139,504,268,528"/>
+<area href="class_on_collision_event.html" title="OnCollisionEvent base class of CollisionEnd and CollisionStart." alt="OnCollisionEvent" shape="rect" coords="139,560,268,584"/>
+<area href="class_window_close_event.html" title="WindowClosedEvent is fired when the window is closed. Derived class of event." alt="WindowCloseEvent" shape="rect" coords="139,616,268,640"/>
+<area href="class_window_resize_event.html" title="WindowResizedEvent is fired when the window is resized. Derived class of event." alt="WindowResizeEvent" shape="rect" coords="139,672,268,696"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -95,10 +98,10 @@ Public Member Functions</h2></td></tr>
 virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#ad251ba19770b3e9c9ba20a6558ffe8b1">GetName</a> () const =0</td></tr>
 <tr class="memdesc:ad251ba19770b3e9c9ba20a6558ffe8b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of a specific event. <br /></td></tr>
 <tr class="separator:ad251ba19770b3e9c9ba20a6558ffe8b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17303a8089a66eece86b41cdea845f55"><td class="memItemLeft" align="right" valign="top"><a id="a17303a8089a66eece86b41cdea845f55"></a>
-virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#a17303a8089a66eece86b41cdea845f55">ToString</a> () const</td></tr>
-<tr class="memdesc:a17303a8089a66eece86b41cdea845f55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of the event. <br /></td></tr>
-<tr class="separator:a17303a8089a66eece86b41cdea845f55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeefbee01da4bfb430cc729e268ac69b1"><td class="memItemLeft" align="right" valign="top"><a id="aeefbee01da4bfb430cc729e268ac69b1"></a>
+virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#aeefbee01da4bfb430cc729e268ac69b1">ToString</a> () const</td></tr>
+<tr class="memdesc:aeefbee01da4bfb430cc729e268ac69b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of the event. <br /></td></tr>
+<tr class="separator:aeefbee01da4bfb430cc729e268ac69b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -135,7 +138,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>Handled</b> = false</
 <p>Returns the eventType of a specific event. </p>
 <dl class="section return"><dt>Returns</dt><dd>EventType </dd></dl>
 
-<p>Implemented in <a class="el" href="class_window_resize_event.html#a60b310d95bea3bfa3b53ce70fb9a98f2">WindowResizeEvent</a>, <a class="el" href="class_window_close_event.html#a4ad7d8ef5ba544c908e1a59a74b40492">WindowCloseEvent</a>, <a class="el" href="class_app_tick_event60.html#a1a01a732295fd2aec8384fd3538f9731">AppTickEvent60</a>, <a class="el" href="class_app_tick_event30.html#acf6d02eeca6d359ad7af7d1bd2138630">AppTickEvent30</a>, and <a class="el" href="class_action_event.html#aa8ee3d6e90bf7ede827102d1ab37dc98">ActionEvent</a>.</p>
+<p>Implemented in <a class="el" href="class_on_collision_event.html#a97c6f2c153de2341ed22df1478f9d048">OnCollisionEvent</a>, <a class="el" href="class_window_resize_event.html#a60b310d95bea3bfa3b53ce70fb9a98f2">WindowResizeEvent</a>, <a class="el" href="class_window_close_event.html#a4ad7d8ef5ba544c908e1a59a74b40492">WindowCloseEvent</a>, <a class="el" href="class_sound_attach_event.html#a4573db00c86576a432a22ba6ffb5343e">SoundAttachEvent</a>, <a class="el" href="class_on_music_stop_event.html#ad5dfa746db44d9a80cb52e7703b3fbc0">OnMusicStopEvent</a>, <a class="el" href="class_on_music_start_event.html#aeb8ba6297b90281f8ef00baf345d156b">OnMusicStartEvent</a>, <a class="el" href="class_mouse_button_event.html#ac6b8e90d0d6ed6bc07199726f209b72e">MouseButtonEvent</a>, <a class="el" href="class_key_event.html#aba1bc77a6676e8a62dd26a14670a69e1">KeyEvent</a>, <a class="el" href="class_app_tick_event60.html#a1a01a732295fd2aec8384fd3538f9731">AppTickEvent60</a>, <a class="el" href="class_app_tick_event30.html#acf6d02eeca6d359ad7af7d1bd2138630">AppTickEvent30</a>, <a class="el" href="class_on_collision_begin_event.html#ad07829b6e681748e44f632494918d145">OnCollisionBeginEvent</a>, <a class="el" href="class_on_collision_end_event.html#a9b08811ede1f8a55604ae62762cb6acd">OnCollisionEndEvent</a>, <a class="el" href="class_fps_toggle_event.html#a99feb383fb438a7240ff333e9c9772b4">FpsToggleEvent</a>, and <a class="el" href="class_action_event.html#aa8ee3d6e90bf7ede827102d1ab37dc98">ActionEvent</a>.</p>
 
 </div>
 </div>

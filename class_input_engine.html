@@ -60,6 +60,7 @@ $(document).ready(function(){initNavTree('class_input_engine.html',''); initResi
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_input_engine-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -74,102 +75,25 @@ $(document).ready(function(){initNavTree('class_input_engine.html',''); initResi
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a16318198e571278e2ee8e70fdaa1bfcc"><td class="memItemLeft" align="right" valign="top"><a id="a16318198e571278e2ee8e70fdaa1bfcc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_engine.html#a16318198e571278e2ee8e70fdaa1bfcc">moveLeft</a> ()</td></tr>
-<tr class="memdesc:a16318198e571278e2ee8e70fdaa1bfcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moveleft function called when a according key is pressed. <br /></td></tr>
-<tr class="separator:a16318198e571278e2ee8e70fdaa1bfcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aceef2323b25b0fd85f105bc85d3c47dc"><td class="memItemLeft" align="right" valign="top"><a id="aceef2323b25b0fd85f105bc85d3c47dc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_engine.html#aceef2323b25b0fd85f105bc85d3c47dc">moveRight</a> ()</td></tr>
-<tr class="memdesc:aceef2323b25b0fd85f105bc85d3c47dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moveright function called when a according key is pressed. <br /></td></tr>
-<tr class="separator:aceef2323b25b0fd85f105bc85d3c47dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7727e1f90ccc0eb27b72278efb452b23"><td class="memItemLeft" align="right" valign="top"><a id="a7727e1f90ccc0eb27b72278efb452b23"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_engine.html#a7727e1f90ccc0eb27b72278efb452b23">jump</a> ()</td></tr>
-<tr class="memdesc:a7727e1f90ccc0eb27b72278efb452b23"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_jump.html">Jump</a> function called when a according key is pressed. <br /></td></tr>
-<tr class="separator:a7727e1f90ccc0eb27b72278efb452b23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5303881bd6faa229abbd43c949bb83d8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_engine.html#a5303881bd6faa229abbd43c949bb83d8">fill</a> (vector&lt; <a class="el" href="class_command.html">Command</a> * &gt; &amp;command_queue)</td></tr>
-<tr class="separator:a5303881bd6faa229abbd43c949bb83d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11eea8510b759698a8b8d0383d856f08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_engine.html#a11eea8510b759698a8b8d0383d856f08">configure</a> (KeyCode key, <a class="el" href="class_command.html">Command</a> *command)</td></tr>
-<tr class="separator:a11eea8510b759698a8b8d0383d856f08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeab4aa571a7d29fc483d0492dda6919b"><td class="memItemLeft" align="right" valign="top"><a id="aeab4aa571a7d29fc483d0492dda6919b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_engine.html#aeab4aa571a7d29fc483d0492dda6919b">updateInput</a> ()</td></tr>
-<tr class="memdesc:aeab4aa571a7d29fc483d0492dda6919b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the events from polling. <br /></td></tr>
-<tr class="separator:aeab4aa571a7d29fc483d0492dda6919b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc55f12bd95969c286ffb900cab0b62a"><td class="memItemLeft" align="right" valign="top"><a id="abc55f12bd95969c286ffb900cab0b62a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>pollEvents</b> ()</td></tr>
+<tr class="separator:abc55f12bd95969c286ffb900cab0b62a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:af7b3c43d7968c9466f11fbb66870e57d"><td class="memItemLeft" align="right" valign="top"><a id="af7b3c43d7968c9466f11fbb66870e57d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>onKeyPressed</b> (<a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
+<tr class="separator:af7b3c43d7968c9466f11fbb66870e57d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:ac6586627bfe398e3e1e2e9eeb76e3e9f"><td class="memItemLeft" align="right" valign="top"><a id="ac6586627bfe398e3e1e2e9eeb76e3e9f"></a>
 <a class="el" href="class_i_input_facade.html">IInputFacade</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>inputFacade</b> = new <a class="el" href="class_input_facade.html">InputFacade</a>()</td></tr>
 <tr class="separator:ac6586627bfe398e3e1e2e9eeb76e3e9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace71e4fe2f97f0816ff29a52ea2515f2"><td class="memItemLeft" align="right" valign="top"><a id="ace71e4fe2f97f0816ff29a52ea2515f2"></a>
-vector&lt; <a class="el" href="class_command.html">Command</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>commandQueue</b></td></tr>
-<tr class="separator:ace71e4fe2f97f0816ff29a52ea2515f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Input engine for handling input. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a11eea8510b759698a8b8d0383d856f08"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a11eea8510b759698a8b8d0383d856f08">&#9670;&nbsp;</a></span>configure()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void InputEngine::configure </td>
-          <td>(</td>
-          <td class="paramtype">KeyCode&#160;</td>
-          <td class="paramname"><em>key</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_command.html">Command</a> *&#160;</td>
-          <td class="paramname"><em>command</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">key</td><td></td></tr>
-    <tr><td class="paramname">command</td><td><br  />
- </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a5303881bd6faa229abbd43c949bb83d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5303881bd6faa229abbd43c949bb83d8">&#9670;&nbsp;</a></span>fill()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool InputEngine::fill </td>
-          <td>(</td>
-          <td class="paramtype">vector&lt; <a class="el" href="class_command.html">Command</a> * &gt; &amp;&#160;</td>
-          <td class="paramname"><em>command_queue</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">command_queue</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><br  />
- </dd></dl>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>Engine/Input/<a class="el" href="_input_engine_8h_source.html">InputEngine.h</a></li>
 <li>Engine/Input/InputEngine.cpp</li>
 </ul>

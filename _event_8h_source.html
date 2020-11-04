@@ -63,30 +63,31 @@ $(document).ready(function(){initNavTree('_event_8h_source.html',''); initResiza
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;stdafx.h&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Events/EventType.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_event.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_event.html">Event</a></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_event.html">Event</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">bool</span> Handled = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_event.html#af14bbd8f69c2778def9462375a0e70f2">   16</a></span>&#160;    <span class="keyword">virtual</span> EventType <a class="code" href="class_event.html#af14bbd8f69c2778def9462375a0e70f2">GetEventType</a>() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_event.html#ad251ba19770b3e9c9ba20a6558ffe8b1">   19</a></span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="class_event.html#ad251ba19770b3e9c9ba20a6558ffe8b1">GetName</a>() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_event.html#a17303a8089a66eece86b41cdea845f55">   23</a></span>&#160;    <span class="keyword">virtual</span> std::string <a class="code" href="class_event.html#a17303a8089a66eece86b41cdea845f55">ToString</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="class_event.html#ad251ba19770b3e9c9ba20a6558ffe8b1">GetName</a>(); }</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">inline</span> std::ostream&amp; operator&lt;&lt;(std::ostream&amp; osStream, <span class="keyword">const</span> <a class="code" href="class_event.html">Event</a>&amp; event)</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">return</span> osStream &lt;&lt; <span class="keyword">event</span>.ToString();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;ostream&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;EventType.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_event.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_event.html">Event</a></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_event.html">Event</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">bool</span> Handled = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_event.html#af14bbd8f69c2778def9462375a0e70f2">   17</a></span>&#160;    <span class="keyword">virtual</span> EventType <a class="code" href="class_event.html#af14bbd8f69c2778def9462375a0e70f2">GetEventType</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_event.html#ad251ba19770b3e9c9ba20a6558ffe8b1">   20</a></span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="class_event.html#ad251ba19770b3e9c9ba20a6558ffe8b1">GetName</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_event.html#aeefbee01da4bfb430cc729e268ac69b1">   24</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">string</span> <a class="code" href="class_event.html#aeefbee01da4bfb430cc729e268ac69b1">ToString</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> GetName(); }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">inline</span> ostream&amp; operator&lt;&lt;(ostream&amp; osStream, <span class="keyword">const</span> <a class="code" href="class_event.html">Event</a>&amp; event)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">return</span> osStream &lt;&lt; <span class="keyword">event</span>.ToString();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_event_html_af14bbd8f69c2778def9462375a0e70f2"><div class="ttname"><a href="class_event.html#af14bbd8f69c2778def9462375a0e70f2">Event::GetEventType</a></div><div class="ttdeci">virtual EventType GetEventType() const =0</div><div class="ttdoc">Returns the eventType of a specific event.</div></div>
-<div class="ttc" id="aclass_event_html"><div class="ttname"><a href="class_event.html">Event</a></div><div class="ttdef"><b>Definition:</b> Event.h:8</div></div>
-<div class="ttc" id="aclass_event_html_a17303a8089a66eece86b41cdea845f55"><div class="ttname"><a href="class_event.html#a17303a8089a66eece86b41cdea845f55">Event::ToString</a></div><div class="ttdeci">virtual std::string ToString() const</div><div class="ttdoc">Returns the name of the event.</div><div class="ttdef"><b>Definition:</b> Event.h:23</div></div>
+<div class="ttc" id="aclass_event_html_aeefbee01da4bfb430cc729e268ac69b1"><div class="ttname"><a href="class_event.html#aeefbee01da4bfb430cc729e268ac69b1">Event::ToString</a></div><div class="ttdeci">virtual string ToString() const</div><div class="ttdoc">Returns the name of the event.</div><div class="ttdef"><b>Definition:</b> Event.h:24</div></div>
+<div class="ttc" id="aclass_event_html"><div class="ttname"><a href="class_event.html">Event</a></div><div class="ttdef"><b>Definition:</b> Event.h:9</div></div>
 <div class="ttc" id="aclass_event_html_ad251ba19770b3e9c9ba20a6558ffe8b1"><div class="ttname"><a href="class_event.html#ad251ba19770b3e9c9ba20a6558ffe8b1">Event::GetName</a></div><div class="ttdeci">virtual const char * GetName() const =0</div><div class="ttdoc">Returns the name of a specific event.</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

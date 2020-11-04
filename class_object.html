@@ -60,7 +60,8 @@ $(document).ready(function(){initNavTree('class_object.html',''); initResizable(
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_object-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Object Class Reference</div>  </div>
@@ -72,113 +73,176 @@ $(document).ready(function(){initNavTree('class_object.html',''); initResizable(
  <a href="class_object.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_object_8h_source.html">Object.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Object:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_object.png" usemap="#Object_map" alt=""/>
+  <map id="Object_map" name="Object_map">
+<area href="class_particle_adapter.html" title="Particle Bridge that inherits from Object and ParticleInit(Cocos2dx Library)" alt="ParticleAdapter" shape="rect" coords="0,56,100,80"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ac4cb6f28e180f36354f22002a4f30dd6"><td class="memItemLeft" align="right" valign="top"><a id="ac4cb6f28e180f36354f22002a4f30dd6"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> (const int id)</td></tr>
+API&#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> (const int id)</td></tr>
 <tr class="separator:ac4cb6f28e180f36354f22002a4f30dd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb711517dbb385cad9ae3d887ccd04bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#adb711517dbb385cad9ae3d887ccd04bf">Object</a> (const int id, const float xPos, const float yPos, const float height, const float width)</td></tr>
-<tr class="separator:adb711517dbb385cad9ae3d887ccd04bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a116953ab03b67bf5a1298780bb6fdbe7"><td class="memItemLeft" align="right" valign="top"><a id="a116953ab03b67bf5a1298780bb6fdbe7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setName</b> (const string)</td></tr>
-<tr class="separator:a116953ab03b67bf5a1298780bb6fdbe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69efdc71353e351ec1fa258a91e7a6bb"><td class="memItemLeft" align="right" valign="top"><a id="a69efdc71353e351ec1fa258a91e7a6bb"></a>
+void API&#160;</td><td class="memItemRight" valign="bottom"><b>setName</b> (const string val)</td></tr>
+<tr class="separator:a69efdc71353e351ec1fa258a91e7a6bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade517616d51cd9ab581ec5afeb37b313"><td class="memItemLeft" align="right" valign="top"><a id="ade517616d51cd9ab581ec5afeb37b313"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>getName</b> () const</td></tr>
+string API&#160;</td><td class="memItemRight" valign="bottom"><b>getName</b> () const</td></tr>
 <tr class="separator:ade517616d51cd9ab581ec5afeb37b313"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf45c3be06f68a151150648f51d7ac6c"><td class="memItemLeft" align="right" valign="top"><a id="adf45c3be06f68a151150648f51d7ac6c"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getSpriteID</b> () const</td></tr>
-<tr class="separator:adf45c3be06f68a151150648f51d7ac6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa87ce8337b0fb8e60502897d38df90e9"><td class="memItemLeft" align="right" valign="top"><a id="aa87ce8337b0fb8e60502897d38df90e9"></a>
+int API&#160;</td><td class="memItemRight" valign="bottom"><b>getSpriteID</b> () const</td></tr>
+<tr class="separator:aa87ce8337b0fb8e60502897d38df90e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee7c600682bbe25a21e518296d72e5ab"><td class="memItemLeft" align="right" valign="top"><a id="aee7c600682bbe25a21e518296d72e5ab"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPositionX</b> (const float)</td></tr>
+void API&#160;</td><td class="memItemRight" valign="bottom"><b>setPositionX</b> (const float)</td></tr>
 <tr class="separator:aee7c600682bbe25a21e518296d72e5ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94e39463eeaea17f22a04e36c735da30"><td class="memItemLeft" align="right" valign="top"><a id="a94e39463eeaea17f22a04e36c735da30"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getPositionX</b> () const</td></tr>
+float API&#160;</td><td class="memItemRight" valign="bottom"><b>getPositionX</b> () const</td></tr>
 <tr class="separator:a94e39463eeaea17f22a04e36c735da30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11c57ba9fe78e906cfc0171ab9a56469"><td class="memItemLeft" align="right" valign="top"><a id="a11c57ba9fe78e906cfc0171ab9a56469"></a>
+API <a class="el" href="class_sprite_object.html">SpriteObject</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetCurrentSprite</b> () const</td></tr>
+<tr class="separator:a11c57ba9fe78e906cfc0171ab9a56469"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e97a1f1c03bd30956f62ca8e19bd1f1"><td class="memItemLeft" align="right" valign="top"><a id="a3e97a1f1c03bd30956f62ca8e19bd1f1"></a>
+API int&#160;</td><td class="memItemRight" valign="bottom"><b>getObjectId</b> () const</td></tr>
+<tr class="separator:a3e97a1f1c03bd30956f62ca8e19bd1f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a227f665f922490ddec574aabb7045126"><td class="memItemLeft" align="right" valign="top"><a id="a227f665f922490ddec574aabb7045126"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPositionY</b> (const float)</td></tr>
+void API&#160;</td><td class="memItemRight" valign="bottom"><b>setPositionY</b> (const float)</td></tr>
 <tr class="separator:a227f665f922490ddec574aabb7045126"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e68ee30df4218e016ebc1a9fb652955"><td class="memItemLeft" align="right" valign="top"><a id="a9e68ee30df4218e016ebc1a9fb652955"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getPositionY</b> () const</td></tr>
+float API&#160;</td><td class="memItemRight" valign="bottom"><b>getPositionY</b> () const</td></tr>
 <tr class="separator:a9e68ee30df4218e016ebc1a9fb652955"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a153787b07d5ef199d208b14938d0119a"><td class="memItemLeft" align="right" valign="top"><a id="a153787b07d5ef199d208b14938d0119a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setRotation</b> (const float)</td></tr>
+void API&#160;</td><td class="memItemRight" valign="bottom"><b>setRotation</b> (const float)</td></tr>
 <tr class="separator:a153787b07d5ef199d208b14938d0119a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cca4952a7036458bba740863a127ec1"><td class="memItemLeft" align="right" valign="top"><a id="a0cca4952a7036458bba740863a127ec1"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getRotation</b> () const</td></tr>
+float API&#160;</td><td class="memItemRight" valign="bottom"><b>getRotation</b> () const</td></tr>
 <tr class="separator:a0cca4952a7036458bba740863a127ec1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac79ed205fdf159edbf2e391e4b37a26e"><td class="memItemLeft" align="right" valign="top"><a id="ac79ed205fdf159edbf2e391e4b37a26e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setScale</b> (const float)</td></tr>
+void API&#160;</td><td class="memItemRight" valign="bottom"><b>setScale</b> (const float)</td></tr>
 <tr class="separator:ac79ed205fdf159edbf2e391e4b37a26e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a521b49578be7b0aade3922d4f4b10753"><td class="memItemLeft" align="right" valign="top"><a id="a521b49578be7b0aade3922d4f4b10753"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getScale</b> () const</td></tr>
+float API&#160;</td><td class="memItemRight" valign="bottom"><b>getScale</b> () const</td></tr>
 <tr class="separator:a521b49578be7b0aade3922d4f4b10753"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc5fb94c07fdc8c85adf18e846bbdeb2"><td class="memItemLeft" align="right" valign="top"><a id="afc5fb94c07fdc8c85adf18e846bbdeb2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setDirection</b> (const float)</td></tr>
+void API&#160;</td><td class="memItemRight" valign="bottom"><b>setDirection</b> (const float)</td></tr>
 <tr class="separator:afc5fb94c07fdc8c85adf18e846bbdeb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12b0a3ffb7be851a3befc7a2501bbfcd"><td class="memItemLeft" align="right" valign="top"><a id="a12b0a3ffb7be851a3befc7a2501bbfcd"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getDirection</b> () const</td></tr>
+float API&#160;</td><td class="memItemRight" valign="bottom"><b>getDirection</b> () const</td></tr>
 <tr class="separator:a12b0a3ffb7be851a3befc7a2501bbfcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2713ff1d83a1bcd9d5271423e47f120f"><td class="memItemLeft" align="right" valign="top"><a id="a2713ff1d83a1bcd9d5271423e47f120f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setHeight</b> (const float)</td></tr>
+void API&#160;</td><td class="memItemRight" valign="bottom"><b>setHeight</b> (const float)</td></tr>
 <tr class="separator:a2713ff1d83a1bcd9d5271423e47f120f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a797d2c880326fb7ff63e1b9b259350b9"><td class="memItemLeft" align="right" valign="top"><a id="a797d2c880326fb7ff63e1b9b259350b9"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getHeight</b> () const</td></tr>
+float API&#160;</td><td class="memItemRight" valign="bottom"><b>getHeight</b> () const</td></tr>
 <tr class="separator:a797d2c880326fb7ff63e1b9b259350b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5a16618480d5f61ce0ff3b2a473d8b1"><td class="memItemLeft" align="right" valign="top"><a id="ac5a16618480d5f61ce0ff3b2a473d8b1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setWidth</b> (const float)</td></tr>
+void API&#160;</td><td class="memItemRight" valign="bottom"><b>setWidth</b> (const float)</td></tr>
 <tr class="separator:ac5a16618480d5f61ce0ff3b2a473d8b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c1edada408d830ea9001d89daa898df"><td class="memItemLeft" align="right" valign="top"><a id="a6c1edada408d830ea9001d89daa898df"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getWidth</b> () const</td></tr>
+float API&#160;</td><td class="memItemRight" valign="bottom"><b>getWidth</b> () const</td></tr>
 <tr class="separator:a6c1edada408d830ea9001d89daa898df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53e7fe8ff944a5e3eee66b4f6ea22ebc"><td class="memItemLeft" align="right" valign="top"><a id="a53e7fe8ff944a5e3eee66b4f6ea22ebc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setStatic</b> (const bool)</td></tr>
+void API&#160;</td><td class="memItemRight" valign="bottom"><b>setStatic</b> (const bool)</td></tr>
 <tr class="separator:a53e7fe8ff944a5e3eee66b4f6ea22ebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d8ba0a76c18a026e040959be8c8ee2f"><td class="memItemLeft" align="right" valign="top"><a id="a7d8ba0a76c18a026e040959be8c8ee2f"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getStatic</b> () const</td></tr>
+bool API&#160;</td><td class="memItemRight" valign="bottom"><b>getStatic</b> () const</td></tr>
 <tr class="separator:a7d8ba0a76c18a026e040959be8c8ee2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66e7c194cb3c29903834bacb816dd5ea"><td class="memItemLeft" align="right" valign="top"><a id="a66e7c194cb3c29903834bacb816dd5ea"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setRestitution</b> (const float val)</td></tr>
+void API&#160;</td><td class="memItemRight" valign="bottom"><b>setRestitution</b> (const float val)</td></tr>
 <tr class="separator:a66e7c194cb3c29903834bacb816dd5ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a489232564733fdcb952f80544bdefe4b"><td class="memItemLeft" align="right" valign="top"><a id="a489232564733fdcb952f80544bdefe4b"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getRestitution</b> () const</td></tr>
+float API&#160;</td><td class="memItemRight" valign="bottom"><b>getRestitution</b> () const</td></tr>
 <tr class="separator:a489232564733fdcb952f80544bdefe4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1ef52b289dc2203654e0af50145f030"><td class="memItemLeft" align="right" valign="top"><a id="aa1ef52b289dc2203654e0af50145f030"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setFriction</b> (const float val)</td></tr>
+void API&#160;</td><td class="memItemRight" valign="bottom"><b>setFriction</b> (const float val)</td></tr>
 <tr class="separator:aa1ef52b289dc2203654e0af50145f030"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af653187a71c850214040ce93935fb338"><td class="memItemLeft" align="right" valign="top"><a id="af653187a71c850214040ce93935fb338"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getFriction</b> () const</td></tr>
+float API&#160;</td><td class="memItemRight" valign="bottom"><b>getFriction</b> () const</td></tr>
 <tr class="separator:af653187a71c850214040ce93935fb338"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90bae92ec92ba0cafcdf0ab825ff487f"><td class="memItemLeft" align="right" valign="top"><a id="a90bae92ec92ba0cafcdf0ab825ff487f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setDensity</b> (const float val)</td></tr>
+void API&#160;</td><td class="memItemRight" valign="bottom"><b>setDensity</b> (const float val)</td></tr>
 <tr class="separator:a90bae92ec92ba0cafcdf0ab825ff487f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad21af4ef109d8c60f22e702419db8ada"><td class="memItemLeft" align="right" valign="top"><a id="ad21af4ef109d8c60f22e702419db8ada"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getDensity</b> () const</td></tr>
+float API&#160;</td><td class="memItemRight" valign="bottom"><b>getDensity</b> () const</td></tr>
 <tr class="separator:ad21af4ef109d8c60f22e702419db8ada"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a630ed9acd70382a75678490abbce81e5"><td class="memItemLeft" align="right" valign="top"><a id="a630ed9acd70382a75678490abbce81e5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setSpeed</b> (const float val)</td></tr>
+void API&#160;</td><td class="memItemRight" valign="bottom"><b>setSpeed</b> (const float val)</td></tr>
 <tr class="separator:a630ed9acd70382a75678490abbce81e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe2266dcfa7d2fb5a527236b046a8553"><td class="memItemLeft" align="right" valign="top"><a id="abe2266dcfa7d2fb5a527236b046a8553"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getSpeed</b> () const</td></tr>
+float API&#160;</td><td class="memItemRight" valign="bottom"><b>getSpeed</b> () const</td></tr>
 <tr class="separator:abe2266dcfa7d2fb5a527236b046a8553"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a134043cd65617759d40e3654e3b656"><td class="memItemLeft" align="right" valign="top"><a id="a7a134043cd65617759d40e3654e3b656"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setJumpHeight</b> (const float val)</td></tr>
+void API&#160;</td><td class="memItemRight" valign="bottom"><b>setJumpHeight</b> (const float val)</td></tr>
 <tr class="separator:a7a134043cd65617759d40e3654e3b656"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5be3ec38865b48a92f748e0d5dc14dc5"><td class="memItemLeft" align="right" valign="top"><a id="a5be3ec38865b48a92f748e0d5dc14dc5"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getJumpHeight</b> () const</td></tr>
+float API&#160;</td><td class="memItemRight" valign="bottom"><b>getJumpHeight</b> () const</td></tr>
 <tr class="separator:a5be3ec38865b48a92f748e0d5dc14dc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac36b9fe68e06a5a2eebdfabf74bc59b"><td class="memItemLeft" align="right" valign="top"><a id="aac36b9fe68e06a5a2eebdfabf74bc59b"></a>
+virtual API void&#160;</td><td class="memItemRight" valign="bottom"><b>setYAxisVelocity</b> (const float val)</td></tr>
+<tr class="separator:aac36b9fe68e06a5a2eebdfabf74bc59b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91c888e69faceb416a3eef290ff40fde"><td class="memItemLeft" align="right" valign="top"><a id="a91c888e69faceb416a3eef290ff40fde"></a>
+API float&#160;</td><td class="memItemRight" valign="bottom"><b>getYAxisVelocity</b> () const</td></tr>
+<tr class="separator:a91c888e69faceb416a3eef290ff40fde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9ec172dd20953754391ca913cc5ee2c"><td class="memItemLeft" align="right" valign="top"><a id="af9ec172dd20953754391ca913cc5ee2c"></a>
+API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#af9ec172dd20953754391ca913cc5ee2c">registerSprite</a> (int state, <a class="el" href="class_sprite_object.html">SpriteObject</a> *spriteObject)</td></tr>
+<tr class="memdesc:af9ec172dd20953754391ca913cc5ee2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">register a new state or overwrite a existing state register the spriteID link a state with a sprite <br /></td></tr>
+<tr class="separator:af9ec172dd20953754391ca913cc5ee2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f8214a8f5294e9d29d000c1caedfccb"><td class="memItemLeft" align="right" valign="top"><a id="a8f8214a8f5294e9d29d000c1caedfccb"></a>
+API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#a8f8214a8f5294e9d29d000c1caedfccb">changeToState</a> (const int state)</td></tr>
+<tr class="memdesc:a8f8214a8f5294e9d29d000c1caedfccb"><td class="mdescLeft">&#160;</td><td class="mdescRight">change the state change the textureID to the current state <br /></td></tr>
+<tr class="separator:a8f8214a8f5294e9d29d000c1caedfccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa44c122948ab34bf367c0bd4f83a86ba"><td class="memItemLeft" align="right" valign="top"><a id="aa44c122948ab34bf367c0bd4f83a86ba"></a>
+virtual API void&#160;</td><td class="memItemRight" valign="bottom"><b>setXAxisVelocity</b> (const float val)</td></tr>
+<tr class="separator:aa44c122948ab34bf367c0bd4f83a86ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbe080fe787193c9342f28f23c2ddae2"><td class="memItemLeft" align="right" valign="top"><a id="acbe080fe787193c9342f28f23c2ddae2"></a>
+API float&#160;</td><td class="memItemRight" valign="bottom"><b>getXAxisVelocity</b> () const</td></tr>
+<tr class="separator:acbe080fe787193c9342f28f23c2ddae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9d029f9cc8fb5c78ae47fb966853287"><td class="memItemLeft" align="right" valign="top"><a id="aa9d029f9cc8fb5c78ae47fb966853287"></a>
+API void&#160;</td><td class="memItemRight" valign="bottom"><b>setScalable</b> (const bool val)</td></tr>
+<tr class="separator:aa9d029f9cc8fb5c78ae47fb966853287"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9b003b291cc10ee605a4d85db869b1e"><td class="memItemLeft" align="right" valign="top"><a id="ae9b003b291cc10ee605a4d85db869b1e"></a>
+API bool&#160;</td><td class="memItemRight" valign="bottom"><b>getScalable</b> () const</td></tr>
+<tr class="separator:ae9b003b291cc10ee605a4d85db869b1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6f16742b587cee073e9d90099870472"><td class="memItemLeft" align="right" valign="top"><a id="ac6f16742b587cee073e9d90099870472"></a>
+API void&#160;</td><td class="memItemRight" valign="bottom"><b>setRotatable</b> (const bool val)</td></tr>
+<tr class="separator:ac6f16742b587cee073e9d90099870472"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1865fcaf3c27d43f9e7aa2a75a60b04"><td class="memItemLeft" align="right" valign="top"><a id="ab1865fcaf3c27d43f9e7aa2a75a60b04"></a>
+API bool&#160;</td><td class="memItemRight" valign="bottom"><b>getRotatable</b> () const</td></tr>
+<tr class="separator:ab1865fcaf3c27d43f9e7aa2a75a60b04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4064487ed29575a8f02ee6f45631149d"><td class="memItemLeft" align="right" valign="top"><a id="a4064487ed29575a8f02ee6f45631149d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getChanged</b> () const</td></tr>
+API bool&#160;</td><td class="memItemRight" valign="bottom"><b>getChanged</b> () const</td></tr>
 <tr class="separator:a4064487ed29575a8f02ee6f45631149d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1e4e9736de77942fa3d9aa98423639e"><td class="memItemLeft" align="right" valign="top"><a id="ac1e4e9736de77942fa3d9aa98423639e"></a>
+API void&#160;</td><td class="memItemRight" valign="bottom"><b>setChanged</b> (const bool c)</td></tr>
+<tr class="separator:ac1e4e9736de77942fa3d9aa98423639e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac558a202ba01a9756e5b53c77c42a2e3"><td class="memItemLeft" align="right" valign="top"><a id="ac558a202ba01a9756e5b53c77c42a2e3"></a>
+API bool&#160;</td><td class="memItemRight" valign="bottom"><b>getIsParticle</b> ()</td></tr>
+<tr class="separator:ac558a202ba01a9756e5b53c77c42a2e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a8156919a53cc2bb7c28867a39b4d6ca8"><td class="memItemLeft" align="right" valign="top"><a id="a8156919a53cc2bb7c28867a39b4d6ca8"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> (const int id, const bool particle)</td></tr>
+<tr class="separator:a8156919a53cc2bb7c28867a39b4d6ca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a3965d3082f5c66b50861c9e6ad7a8304"><td class="memItemLeft" align="right" valign="top"><a id="a3965d3082f5c66b50861c9e6ad7a8304"></a>
+const int&#160;</td><td class="memItemRight" valign="bottom"><b>objectId</b> = 0</td></tr>
+<tr class="separator:a3965d3082f5c66b50861c9e6ad7a8304"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5985ac4d252c9a12c937d2e4aaf62b52"><td class="memItemLeft" align="right" valign="top"><a id="a5985ac4d252c9a12c937d2e4aaf62b52"></a>
+<a class="el" href="class_sprite_object.html">SpriteObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>currentSprite</b> = nullptr</td></tr>
+<tr class="separator:a5985ac4d252c9a12c937d2e4aaf62b52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af849c7778ff8399ac4440062ac5a38a3"><td class="memItemLeft" align="right" valign="top"><a id="af849c7778ff8399ac4440062ac5a38a3"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>name</b></td></tr>
+string&#160;</td><td class="memItemRight" valign="bottom"><b>name</b> = &quot;&quot;</td></tr>
 <tr class="separator:af849c7778ff8399ac4440062ac5a38a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac81c3624b756aaf8b55127f332763f3c"><td class="memItemLeft" align="right" valign="top"><a id="ac81c3624b756aaf8b55127f332763f3c"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>spriteID</b> = 0</td></tr>
-<tr class="separator:ac81c3624b756aaf8b55127f332763f3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2674570b3b9af8ebd6c71af67d294a33"><td class="memItemLeft" align="right" valign="top"><a id="a2674570b3b9af8ebd6c71af67d294a33"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>scalable</b> = false</td></tr>
+<tr class="separator:a2674570b3b9af8ebd6c71af67d294a33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca0718480d4debef09c19503f0849cba"><td class="memItemLeft" align="right" valign="top"><a id="aca0718480d4debef09c19503f0849cba"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>positionX</b> = 0</td></tr>
 <tr class="separator:aca0718480d4debef09c19503f0849cba"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -221,69 +285,26 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>staticObject</b> = fa
 <tr class="memitem:ac595c87946cbc368de9600ce6a0c647b"><td class="memItemLeft" align="right" valign="top"><a id="ac595c87946cbc368de9600ce6a0c647b"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>changed</b> = false</td></tr>
 <tr class="separator:ac595c87946cbc368de9600ce6a0c647b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae53c5e8de76b504ef4396e254c986309"><td class="memItemLeft" align="right" valign="top"><a id="ae53c5e8de76b504ef4396e254c986309"></a>
+const bool&#160;</td><td class="memItemRight" valign="bottom"><b>isParticle</b> = false</td></tr>
+<tr class="separator:ae53c5e8de76b504ef4396e254c986309"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18ea482b56f75859d21fde968c7cdb5d"><td class="memItemLeft" align="right" valign="top"><a id="a18ea482b56f75859d21fde968c7cdb5d"></a>
+map&lt; const int, <a class="el" href="class_sprite_object.html">SpriteObject</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>textures</b></td></tr>
+<tr class="separator:a18ea482b56f75859d21fde968c7cdb5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bed002607c65812df8d646190999c40"><td class="memItemLeft" align="right" valign="top"><a id="a5bed002607c65812df8d646190999c40"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>rotatable</b> = false</td></tr>
+<tr class="separator:a5bed002607c65812df8d646190999c40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f9a74751f6c75bc561882bc7fd335a2"><td class="memItemLeft" align="right" valign="top"><a id="a4f9a74751f6c75bc561882bc7fd335a2"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>yAxisVelocity</b> = 0</td></tr>
+<tr class="separator:a4f9a74751f6c75bc561882bc7fd335a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4018aaa4309d5714972aa8b46cd7c3b5"><td class="memItemLeft" align="right" valign="top"><a id="a4018aaa4309d5714972aa8b46cd7c3b5"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>xAxisVelocity</b> = 0</td></tr>
+<tr class="separator:a4018aaa4309d5714972aa8b46cd7c3b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_object.html" title="Object class. Object is linked with a sprite id in SVI.">Object</a> class. <a class="el" href="class_object.html" title="Object class. Object is linked with a sprite id in SVI.">Object</a> is linked with a sprite id in SVI. <br  />
  </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="adb711517dbb385cad9ae3d887ccd04bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb711517dbb385cad9ae3d887ccd04bf">&#9670;&nbsp;</a></span>Object()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Object::Object </td>
-          <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const float&#160;</td>
-          <td class="paramname"><em>xPos</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const float&#160;</td>
-          <td class="paramname"><em>yPos</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const float&#160;</td>
-          <td class="paramname"><em>_height</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const float&#160;</td>
-          <td class="paramname"><em>_width</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">id</td><td></td></tr>
-    <tr><td class="paramname">xPos</td><td></td></tr>
-    <tr><td class="paramname">yPos</td><td></td></tr>
-    <tr><td class="paramname">height</td><td></td></tr>
-    <tr><td class="paramname">width</td><td><br  />
- </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>Engine/SceneManager/<a class="el" href="_object_8h_source.html">Object.h</a></li>
 <li>Engine/SceneManager/Object.cpp</li>
 </ul>
