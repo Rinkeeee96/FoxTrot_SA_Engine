@@ -60,6 +60,8 @@ $(document).ready(function(){initNavTree('class_input_facade.html',''); initResi
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_input_facade-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">InputFacade Class Reference</div>  </div>
@@ -82,14 +84,379 @@ Inheritance diagram for InputFacade:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0b28837972a82e4548e18d1cf01bc00d"><td class="memItemLeft" align="right" valign="top"><a id="a0b28837972a82e4548e18d1cf01bc00d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_facade.html#a0b28837972a82e4548e18d1cf01bc00d">pollEvents</a> () override</td></tr>
-<tr class="memdesc:a0b28837972a82e4548e18d1cf01bc00d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Poll the input events and dispatch a <a class="el" href="class_key_pressed_event.html" title="KeyPressedEvent is triggered when a key is released.">KeyPressedEvent</a>. <br /></td></tr>
-<tr class="separator:a0b28837972a82e4548e18d1cf01bc00d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae475e9470db5b2b2e265920dcec651f1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_facade.html#ae475e9470db5b2b2e265920dcec651f1">fill</a> (vector&lt; <a class="el" href="class_command.html">Command</a> * &gt; &amp;command_queue)</td></tr>
+<tr class="memdesc:ae475e9470db5b2b2e265920dcec651f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills the command queue with the dispatcher if a key is pressed.  <a href="class_input_facade.html#ae475e9470db5b2b2e265920dcec651f1">More...</a><br /></td></tr>
+<tr class="separator:ae475e9470db5b2b2e265920dcec651f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61f17a624ea5e213bcade5018d2087d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_facade.html#a61f17a624ea5e213bcade5018d2087d1">configure</a> (KeyCode key, <a class="el" href="class_command.html">Command</a> *command)</td></tr>
+<tr class="memdesc:a61f17a624ea5e213bcade5018d2087d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the key to a command.  <a href="class_input_facade.html#a61f17a624ea5e213bcade5018d2087d1">More...</a><br /></td></tr>
+<tr class="separator:a61f17a624ea5e213bcade5018d2087d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a9cff2d6fb73fbfd9a165fa5a9a7c36d5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_facade.html#a9cff2d6fb73fbfd9a165fa5a9a7c36d5">input_mapping</a> ()</td></tr>
+<tr class="memdesc:a9cff2d6fb73fbfd9a165fa5a9a7c36d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if any keys are pressed and will call keydown or keyup function.  <a href="class_input_facade.html#a9cff2d6fb73fbfd9a165fa5a9a7c36d5">More...</a><br /></td></tr>
+<tr class="separator:a9cff2d6fb73fbfd9a165fa5a9a7c36d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc75951eb716a91b802a1f6f906039d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_facade.html#afc75951eb716a91b802a1f6f906039d5">dispatcher</a> (std::vector&lt; <a class="el" href="class_command.html">Command</a> * &gt; &amp;command_queue)</td></tr>
+<tr class="memdesc:afc75951eb716a91b802a1f6f906039d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills the command queue with pressed keys.  <a href="class_input_facade.html#afc75951eb716a91b802a1f6f906039d5">More...</a><br /></td></tr>
+<tr class="separator:afc75951eb716a91b802a1f6f906039d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44a9ef742ec67b29199ad769f0369849"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_facade.html#a44a9ef742ec67b29199ad769f0369849">keydown</a> (SDL_Event &amp;event)</td></tr>
+<tr class="memdesc:a44a9ef742ec67b29199ad769f0369849"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles Keydown event from sdl2.  <a href="class_input_facade.html#a44a9ef742ec67b29199ad769f0369849">More...</a><br /></td></tr>
+<tr class="separator:a44a9ef742ec67b29199ad769f0369849"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1815de6860908ff48db69286d5fde029"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_facade.html#a1815de6860908ff48db69286d5fde029">keyup</a> (SDL_Event &amp;event)</td></tr>
+<tr class="memdesc:a1815de6860908ff48db69286d5fde029"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles keyup event from sdl2.  <a href="class_input_facade.html#a1815de6860908ff48db69286d5fde029">More...</a><br /></td></tr>
+<tr class="separator:a1815de6860908ff48db69286d5fde029"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b9cffce8b08b7f1d6c70f159666ae46"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_facade.html#a8b9cffce8b08b7f1d6c70f159666ae46">is_held</a> (int key)</td></tr>
+<tr class="memdesc:a8b9cffce8b08b7f1d6c70f159666ae46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the key is currently pressed down, then the key will be in state_map.  <a href="class_input_facade.html#a8b9cffce8b08b7f1d6c70f159666ae46">More...</a><br /></td></tr>
+<tr class="separator:a8b9cffce8b08b7f1d6c70f159666ae46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c4c2ef1a868199b6e7afb87c317dbba"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_facade.html#a0c4c2ef1a868199b6e7afb87c317dbba">was_pressed</a> (int key)</td></tr>
+<tr class="memdesc:a0c4c2ef1a868199b6e7afb87c317dbba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a key was pressed, then the key will be in action_map.  <a href="class_input_facade.html#a0c4c2ef1a868199b6e7afb87c317dbba">More...</a><br /></td></tr>
+<tr class="separator:a0c4c2ef1a868199b6e7afb87c317dbba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeee9b27e0d09c9f816f4555a906d6696"><td class="memItemLeft" align="right" valign="top">KeyCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_facade.html#aeee9b27e0d09c9f816f4555a906d6696">eventToKeyCode</a> (SDL_Event &amp;event)</td></tr>
+<tr class="memdesc:aeee9b27e0d09c9f816f4555a906d6696"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to convert event scancode to KeyCode.  <a href="class_input_facade.html#aeee9b27e0d09c9f816f4555a906d6696">More...</a><br /></td></tr>
+<tr class="separator:aeee9b27e0d09c9f816f4555a906d6696"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a70546ed5b6c3675dbfaa7efddc8f0db5"><td class="memItemLeft" align="right" valign="top"><a id="a70546ed5b6c3675dbfaa7efddc8f0db5"></a>
+map&lt; KeyCode, State &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>state_map</b></td></tr>
+<tr class="separator:a70546ed5b6c3675dbfaa7efddc8f0db5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a914acff39694ee0c0864bdfb606e0568"><td class="memItemLeft" align="right" valign="top"><a id="a914acff39694ee0c0864bdfb606e0568"></a>
+map&lt; KeyCode, Action &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>action_map</b></td></tr>
+<tr class="separator:a914acff39694ee0c0864bdfb606e0568"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8fa8d1cee258a955f67b7b5e25c5a50"><td class="memItemLeft" align="right" valign="top"><a id="ab8fa8d1cee258a955f67b7b5e25c5a50"></a>
+map&lt; KeyCode, <a class="el" href="class_command.html">Command</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>commands</b></td></tr>
+<tr class="separator:ab8fa8d1cee258a955f67b7b5e25c5a50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Facade for SDL input part. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a61f17a624ea5e213bcade5018d2087d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61f17a624ea5e213bcade5018d2087d1">&#9670;&nbsp;</a></span>configure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void InputFacade::configure </td>
+          <td>(</td>
+          <td class="paramtype">KeyCode&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_command.html">Command</a> *&#160;</td>
+          <td class="paramname"><em>command</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Configures the key to a command. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td></td></tr>
+    <tr><td class="paramname">command</td><td><br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_i_input_facade.html">IInputFacade</a>.</p>
+
+</div>
+</div>
+<a id="afc75951eb716a91b802a1f6f906039d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc75951eb716a91b802a1f6f906039d5">&#9670;&nbsp;</a></span>dispatcher()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void InputFacade::dispatcher </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_command.html">Command</a> * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>command_queue</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Fills the command queue with pressed keys. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command_queue</td><td><br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aeee9b27e0d09c9f816f4555a906d6696"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeee9b27e0d09c9f816f4555a906d6696">&#9670;&nbsp;</a></span>eventToKeyCode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">KeyCode InputFacade::eventToKeyCode </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Event &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function to convert event scancode to KeyCode. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>KeyCode </dd></dl>
+
+</div>
+</div>
+<a id="ae475e9470db5b2b2e265920dcec651f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae475e9470db5b2b2e265920dcec651f1">&#9670;&nbsp;</a></span>fill()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool InputFacade::fill </td>
+          <td>(</td>
+          <td class="paramtype">vector&lt; <a class="el" href="class_command.html">Command</a> * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>command_queue</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Fills the command queue with the dispatcher if a key is pressed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command_queue</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><br  />
+ </dd></dl>
+
+<p>Implements <a class="el" href="class_i_input_facade.html">IInputFacade</a>.</p>
+
+</div>
+</div>
+<a id="a9cff2d6fb73fbfd9a165fa5a9a7c36d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cff2d6fb73fbfd9a165fa5a9a7c36d5">&#9670;&nbsp;</a></span>input_mapping()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool InputFacade::input_mapping </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if any keys are pressed and will call keydown or keyup function. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns true poll events should quit, default false if none. </dd></dl>
+
+</div>
+</div>
+<a id="a8b9cffce8b08b7f1d6c70f159666ae46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b9cffce8b08b7f1d6c70f159666ae46">&#9670;&nbsp;</a></span>is_held()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool InputFacade::is_held </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the key is currently pressed down, then the key will be in state_map. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="a44a9ef742ec67b29199ad769f0369849"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44a9ef742ec67b29199ad769f0369849">&#9670;&nbsp;</a></span>keydown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void InputFacade::keydown </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Event &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handles Keydown event from sdl2. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td><br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1815de6860908ff48db69286d5fde029"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1815de6860908ff48db69286d5fde029">&#9670;&nbsp;</a></span>keyup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void InputFacade::keyup </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Event &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handles keyup event from sdl2. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td><br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0c4c2ef1a868199b6e7afb87c317dbba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c4c2ef1a868199b6e7afb87c317dbba">&#9670;&nbsp;</a></span>was_pressed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool InputFacade::was_pressed </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if a key was pressed, then the key will be in action_map. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>Engine/Input/<a class="el" href="_input_facade_8h_source.html">InputFacade.h</a></li>
 <li>Engine/Input/InputFacade.cpp</li>
 </ul>

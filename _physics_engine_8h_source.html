@@ -66,38 +66,43 @@ $(document).ready(function(){initNavTree('_physics_engine_8h_source.html',''); i
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// TODO wrong way to include event, identify why it breaks</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Events/Event.h&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Events/Action/ActionEvent.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;IPhysicsFacade.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;PhysicsFacade.h&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;../SceneManager/Scene.h&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_physics_engine.html">    9</a></span>&#160;<span class="keyword">class </span>API <a class="code" href="class_physics_engine.html">PhysicsEngine</a></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="class_physics_engine.html">PhysicsEngine</a>();</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    ~<a class="code" href="class_physics_engine.html">PhysicsEngine</a>();</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">void</span> registerObjectInCurrentVectorWithPhysicsEngine();</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> handleAction(<a class="code" href="class_event.html">Event</a>&amp; event);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">void</span> update30(<a class="code" href="class_event.html">Event</a>&amp; tick30Event);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="comment">//Set to private after testing!!!</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="class_i_physics_facade.html">IPhysicsFacade</a>* physicsFacade;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_scene.html">Scene</a>** pointerToCurrentScene = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#if(EXPORT)</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">class </span>DLLEXPORT <a class="code" href="class_physics_engine.html">PhysicsEngine</a> : <span class="keyword">public</span> EventListener</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_physics_engine.html">   10</a></span>&#160;class <a class="code" href="class_physics_engine.html">PhysicsEngine</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    vector &lt;Object*&gt;* pointerToObjectVector = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="class_physics_engine.html#a7fc9180ea453680df0b863fa157c5b92">PhysicsEngine</a>();</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="class_physics_engine.html#ae5f076ee99bbfdbc79ab2d27366d8476">~PhysicsEngine</a>();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_physics_engine.html#a395053a3efe7baf0d5154a204b81b062">registerObjectInCurrentVectorWithPhysicsEngine</a>();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> handleAction(<a class="code" href="class_event.html">Event</a>&amp; event);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_physics_engine.html#a8d989a3865c2aa978b5d6712e88bca2b">update30</a>(<a class="code" href="class_event.html">Event</a>&amp; tick30Event);</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">// CurrentScene is stored because if this changes then the objects need to be reset.</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">int</span> currentSceneID = 0;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="class_object.html">Object</a>* getObject(<span class="keyword">const</span> <span class="keywordtype">int</span> objectId);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">//Set to private after testing!!!</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="class_i_physics_facade.html">IPhysicsFacade</a> * physicsFacade = <span class="keyword">new</span> <a class="code" href="class_physics_facade.html">PhysicsFacade</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="class_object.html">Object</a>* <a class="code" href="class_physics_engine.html#a7f57185a4e18281af53f71edd985d0b5">getObject</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> objectId);</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_physics_engine_html"><div class="ttname"><a href="class_physics_engine.html">PhysicsEngine</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngine.h:10</div></div>
-<div class="ttc" id="aclass_event_html"><div class="ttname"><a href="class_event.html">Event</a></div><div class="ttdef"><b>Definition:</b> Event.h:9</div></div>
-<div class="ttc" id="aclass_scene_html"><div class="ttname"><a href="class_scene.html">Scene</a></div><div class="ttdoc">Scene Class Contains all the objects that should be drawn in this scene.</div><div class="ttdef"><b>Definition:</b> Scene.h:12</div></div>
-<div class="ttc" id="aclass_object_html"><div class="ttname"><a href="class_object.html">Object</a></div><div class="ttdoc">Object class. Object is linked with a sprite id in SVI.</div><div class="ttdef"><b>Definition:</b> Object.h:9</div></div>
-<div class="ttc" id="aclass_i_physics_facade_html"><div class="ttname"><a href="class_i_physics_facade.html">IPhysicsFacade</a></div><div class="ttdoc">Interface facade for all physics actions.</div><div class="ttdef"><b>Definition:</b> IPhysicsFacade.h:7</div></div>
+<div class="ttc" id="aclass_physics_engine_html_a7fc9180ea453680df0b863fa157c5b92"><div class="ttname"><a href="class_physics_engine.html#a7fc9180ea453680df0b863fa157c5b92">PhysicsEngine::PhysicsEngine</a></div><div class="ttdeci">PhysicsEngine()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> PhysicsEngine.cpp:7</div></div>
+<div class="ttc" id="aclass_physics_engine_html"><div class="ttname"><a href="class_physics_engine.html">PhysicsEngine</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngine.h:12</div></div>
+<div class="ttc" id="aclass_event_html"><div class="ttname"><a href="class_event.html">Event</a></div><div class="ttdef"><b>Definition:</b> Event.h:8</div></div>
+<div class="ttc" id="aclass_physics_engine_html_a395053a3efe7baf0d5154a204b81b062"><div class="ttname"><a href="class_physics_engine.html#a395053a3efe7baf0d5154a204b81b062">PhysicsEngine::registerObjectInCurrentVectorWithPhysicsEngine</a></div><div class="ttdeci">void registerObjectInCurrentVectorWithPhysicsEngine()</div><div class="ttdoc">A function to create all objects in the facade.</div><div class="ttdef"><b>Definition:</b> PhysicsEngine.cpp:59</div></div>
+<div class="ttc" id="aclass_physics_engine_html_ae5f076ee99bbfdbc79ab2d27366d8476"><div class="ttname"><a href="class_physics_engine.html#ae5f076ee99bbfdbc79ab2d27366d8476">PhysicsEngine::~PhysicsEngine</a></div><div class="ttdeci">~PhysicsEngine()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> PhysicsEngine.cpp:35</div></div>
+<div class="ttc" id="aclass_object_html"><div class="ttname"><a href="class_object.html">Object</a></div><div class="ttdoc">Object class. Object is linked with a sprite id in SVI.</div><div class="ttdef"><b>Definition:</b> Object.h:11</div></div>
+<div class="ttc" id="aclass_physics_engine_html_a7f57185a4e18281af53f71edd985d0b5"><div class="ttname"><a href="class_physics_engine.html#a7f57185a4e18281af53f71edd985d0b5">PhysicsEngine::getObject</a></div><div class="ttdeci">Object * getObject(const int objectId)</div><div class="ttdoc">A function to search a object with the ObjectId If a object is not found throw PHYSICS_ENGINE_OBJECT_...</div><div class="ttdef"><b>Definition:</b> PhysicsEngine.cpp:45</div></div>
+<div class="ttc" id="aclass_i_physics_facade_html"><div class="ttname"><a href="class_i_physics_facade.html">IPhysicsFacade</a></div><div class="ttdoc">Interface facade for all physics actions.</div><div class="ttdef"><b>Definition:</b> IPhysicsFacade.h:12</div></div>
+<div class="ttc" id="aclass_physics_engine_html_a8d989a3865c2aa978b5d6712e88bca2b"><div class="ttname"><a href="class_physics_engine.html#a8d989a3865c2aa978b5d6712e88bca2b">PhysicsEngine::update30</a></div><div class="ttdeci">void update30(Event &amp;tick30Event)</div><div class="ttdoc">Handle the tick given from the thread.</div><div class="ttdef"><b>Definition:</b> PhysicsEngine.cpp:80</div></div>
+<div class="ttc" id="aclass_physics_facade_html"><div class="ttname"><a href="class_physics_facade.html">PhysicsFacade</a></div><div class="ttdoc">PhysicsFacade class. Class for update physics off objects.</div><div class="ttdef"><b>Definition:</b> PhysicsFacade.h:25</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
