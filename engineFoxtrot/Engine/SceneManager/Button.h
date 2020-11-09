@@ -1,11 +1,11 @@
 #pragma once
+#include "Events/EventSingleton.h"
+#include "Events\Mouse\MouseMoved.h"
+#include "Events/Mouse/MousePressed.h"
 #include "SceneManager/Object.h"
 #include "Structs/Color.h"
-#include "Events/Mouse/MousePressed.h"
-#include "Events/EventSingleton.h"
 
-
-class Button : public Object
+class API Button : public Object
 {
 public:
 	Button(int id, string _text, Color _color, const function<void(void)> _onClick) :
@@ -14,9 +14,10 @@ public:
 		text(_text),
 		onClick(_onClick)
 	{
+
+		isMouseOver = true;
 		EventSingleton::get_instance().setEventCallback<MouseButtonPressed>(BIND_EVENT_FN(Button::isClicked));
 	}
-	~Button();
 
 	const string& getText() { return text; }
 	const Color& getColor() { return color; }
