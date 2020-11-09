@@ -7,8 +7,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "engineFoxtrot", "engineFoxt
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Glitch", "Glitch\Glitch.vcxproj", "{FC8933D1-F260-4449-8B07-D18F9B6C3EBF}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTestsGlitch", "UnitTestsGlitch\UnitTestsGlitch.vcxproj", "{E968F699-A194-4BD9-AA82-6629EBE35407}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTestsEngine", "UnitTestsEngine\UnitTestsEngine.vcxproj", "{F63CC6F6-67D7-4D5C-87D5-09B061252584}"
 EndProject
 Global
@@ -35,14 +33,6 @@ Global
 		{FC8933D1-F260-4449-8B07-D18F9B6C3EBF}.Release|x64.Build.0 = Release|x64
 		{FC8933D1-F260-4449-8B07-D18F9B6C3EBF}.Release|x86.ActiveCfg = Release|Win32
 		{FC8933D1-F260-4449-8B07-D18F9B6C3EBF}.Release|x86.Build.0 = Release|Win32
-		{E968F699-A194-4BD9-AA82-6629EBE35407}.Debug|x64.ActiveCfg = Debug|x64
-		{E968F699-A194-4BD9-AA82-6629EBE35407}.Debug|x64.Build.0 = Debug|x64
-		{E968F699-A194-4BD9-AA82-6629EBE35407}.Debug|x86.ActiveCfg = Debug|Win32
-		{E968F699-A194-4BD9-AA82-6629EBE35407}.Debug|x86.Build.0 = Debug|Win32
-		{E968F699-A194-4BD9-AA82-6629EBE35407}.Release|x64.ActiveCfg = Release|x64
-		{E968F699-A194-4BD9-AA82-6629EBE35407}.Release|x64.Build.0 = Release|x64
-		{E968F699-A194-4BD9-AA82-6629EBE35407}.Release|x86.ActiveCfg = Release|Win32
-		{E968F699-A194-4BD9-AA82-6629EBE35407}.Release|x86.Build.0 = Release|Win32
 		{F63CC6F6-67D7-4D5C-87D5-09B061252584}.Debug|x64.ActiveCfg = Debug|x64
 		{F63CC6F6-67D7-4D5C-87D5-09B061252584}.Debug|x64.Build.0 = Debug|x64
 		{F63CC6F6-67D7-4D5C-87D5-09B061252584}.Debug|x86.ActiveCfg = Debug|Win32

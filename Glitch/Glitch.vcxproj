@@ -118,6 +118,7 @@
       <PreprocessorDefinitions>_DEBUG;BUILD_WINDOWS;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)engineFoxtrot;$(SolutionDir)engineFoxtrot\Engine;$(SolutionDir)engineFoxtrot\Engine\SceneManager;$(SolutionDir)engineFoxtrot\Engine\Input;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
