@@ -27,6 +27,7 @@ var hierarchy =
       ] ],
       [ "MouseMovedEvent", "class_mouse_moved_event.html", null ],
       [ "MouseScrolledEvent", "class_mouse_scrolled_event.html", null ],
+      [ "ObjectStopEvent", "class_object_stop_event.html", null ],
       [ "OnCollisionEvent", "class_on_collision_event.html", [
         [ "OnCollisionBeginEvent", "class_on_collision_begin_event.html", null ],
         [ "OnCollisionEndEvent", "class_on_collision_end_event.html", null ]

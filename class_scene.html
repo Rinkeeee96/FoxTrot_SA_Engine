@@ -94,18 +94,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae3e629e67c6dc2e4dab696f63fd7fa9e"><td class="memItemLeft" align="right" valign="top"><a id="ae3e629e67c6dc2e4dab696f63fd7fa9e"></a>
 int API&#160;</td><td class="memItemRight" valign="bottom"><b>getSceneID</b> ()</td></tr>
 <tr class="separator:ae3e629e67c6dc2e4dab696f63fd7fa9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ac0c9429528fd2a5b845a4b5c702f0c"><td class="memItemLeft" align="right" valign="top"><a id="a0ac0c9429528fd2a5b845a4b5c702f0c"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a0ac0c9429528fd2a5b845a4b5c702f0c">OnAttach</a> ()=0</td></tr>
-<tr class="memdesc:a0ac0c9429528fd2a5b845a4b5c702f0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">OnAttach is executed when a scene is "attached" to the current running context usually this is can be used to prime a level with relevant data before starting it. Must be implemented by a concrete implementation of a scene. <br /></td></tr>
-<tr class="separator:a0ac0c9429528fd2a5b845a4b5c702f0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6ddc7631708f3599e6d6a62520d9c7f"><td class="memItemLeft" align="right" valign="top"><a id="aa6ddc7631708f3599e6d6a62520d9c7f"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#aa6ddc7631708f3599e6d6a62520d9c7f">Start</a> ()=0</td></tr>
-<tr class="memdesc:aa6ddc7631708f3599e6d6a62520d9c7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene Must be implemented by a concrete implementation of a scene. <br /></td></tr>
-<tr class="separator:aa6ddc7631708f3599e6d6a62520d9c7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f9207ca0a3ceaa66f2af557ea306465"><td class="memItemLeft" align="right" valign="top"><a id="a1f9207ca0a3ceaa66f2af557ea306465"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a1f9207ca0a3ceaa66f2af557ea306465">OnDetach</a> ()=0</td></tr>
-<tr class="memdesc:a1f9207ca0a3ceaa66f2af557ea306465"><td class="mdescLeft">&#160;</td><td class="mdescRight">OnDetach is called when a scene is destroyed/closed and is responsible for cleanup Must be implemented by a concrete implementation of a scene. <br /></td></tr>
-<tr class="separator:a1f9207ca0a3ceaa66f2af557ea306465"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaeb7fdb1cb8a44852a2fe593d912ccd"><td class="memItemLeft" align="right" valign="top"><a id="acaeb7fdb1cb8a44852a2fe593d912ccd"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#acaeb7fdb1cb8a44852a2fe593d912ccd">onAttach</a> ()=0</td></tr>
+<tr class="memdesc:acaeb7fdb1cb8a44852a2fe593d912ccd"><td class="mdescLeft">&#160;</td><td class="mdescRight">OnAttach is executed when a scene is "attached" to the current running context usually this is can be used to prime a level with relevant data before starting it. Must be implemented by a concrete implementation of a scene. <br /></td></tr>
+<tr class="separator:acaeb7fdb1cb8a44852a2fe593d912ccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ec5c2aa1fe770f3f72e1ce71138ae94"><td class="memItemLeft" align="right" valign="top"><a id="a2ec5c2aa1fe770f3f72e1ce71138ae94"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a2ec5c2aa1fe770f3f72e1ce71138ae94">start</a> ()=0</td></tr>
+<tr class="memdesc:a2ec5c2aa1fe770f3f72e1ce71138ae94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene Must be implemented by a concrete implementation of a scene. <br /></td></tr>
+<tr class="separator:a2ec5c2aa1fe770f3f72e1ce71138ae94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f91ee31f74510c0fae49984768e128f"><td class="memItemLeft" align="right" valign="top"><a id="a3f91ee31f74510c0fae49984768e128f"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a3f91ee31f74510c0fae49984768e128f">onDetach</a> ()=0</td></tr>
+<tr class="memdesc:a3f91ee31f74510c0fae49984768e128f"><td class="mdescLeft">&#160;</td><td class="mdescRight">OnDetach is called when a scene is destroyed/closed and is responsible for cleanup Must be implemented by a concrete implementation of a scene. <br /></td></tr>
+<tr class="separator:a3f91ee31f74510c0fae49984768e128f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28ea04044a289e5f781811a41206b0c9"><td class="memItemLeft" align="right" valign="top"><a id="a28ea04044a289e5f781811a41206b0c9"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>onUpdate</b> ()=0</td></tr>
+<tr class="separator:a28ea04044a289e5f781811a41206b0c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>

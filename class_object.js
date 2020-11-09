@@ -49,6 +49,7 @@ var class_object =
     [ "setYAxisVelocity", "class_object.html#aac36b9fe68e06a5a2eebdfabf74bc59b", null ],
     [ "changed", "class_object.html#ac595c87946cbc368de9600ce6a0c647b", null ],
     [ "currentSprite", "class_object.html#a5985ac4d252c9a12c937d2e4aaf62b52", null ],
+    [ "currentSpriteState", "class_object.html#a0a565eed4ec9ac0639e9592238b11eef", null ],
     [ "density", "class_object.html#a32c2d504acd384f4d7124624d8982338", null ],
     [ "direction", "class_object.html#a514a121fa81e7893f0e786e463946910", null ],
     [ "friction", "class_object.html#a78074de0295e274cd7236590c5eb9dfb", null ],

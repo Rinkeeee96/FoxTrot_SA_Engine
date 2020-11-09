@@ -33,6 +33,7 @@ var annotated_dup =
     [ "MouseMovedEvent", "class_mouse_moved_event.html", "class_mouse_moved_event" ],
     [ "MouseScrolledEvent", "class_mouse_scrolled_event.html", "class_mouse_scrolled_event" ],
     [ "Object", "class_object.html", "class_object" ],
+    [ "ObjectStopEvent", "class_object_stop_event.html", "class_object_stop_event" ],
     [ "OnCollisionBeginEvent", "class_on_collision_begin_event.html", "class_on_collision_begin_event" ],
     [ "OnCollisionEndEvent", "class_on_collision_end_event.html", "class_on_collision_end_event" ],
     [ "OnCollisionEvent", "class_on_collision_event.html", "class_on_collision_event" ],
