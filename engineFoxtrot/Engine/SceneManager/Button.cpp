@@ -17,9 +17,6 @@ void Button::mouseOver(Event& event) {
 
 void Button::isClicked(Event& event) {
 	auto mousePressedEvent = static_cast<MouseButtonPressed&>(event);
-
 	if (isMouseOver && isEnabled)
-	{
-
-	}
+		onClick();
 }

@@ -28,6 +28,7 @@
     <ClCompile Include="Engine\ParticleSystem\ParticleAdapter.cpp" />
     <ClCompile Include="Engine\ParticleSystem\ParticleEngine.cpp" />
     <ClCompile Include="Engine\ParticleSystem\ParticleLib\ParticleInit.cpp" />
+    <ClCompile Include="Engine\SceneManager\Button.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Engine.cpp">
@@ -177,6 +178,7 @@
     <ClInclude Include="Engine\ParticleSystem\ParticleAdapter.h" />
     <ClInclude Include="Engine\ParticleSystem\ParticleEngine.h" />
     <ClInclude Include="Engine\ParticleSystem\ParticleLib\ParticleInit.h" />
+    <ClInclude Include="Engine\SceneManager\Button.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Engine\Documentation\PointerUsage.md" />

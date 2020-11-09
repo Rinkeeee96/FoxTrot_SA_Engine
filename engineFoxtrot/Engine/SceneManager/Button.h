@@ -4,14 +4,17 @@
 #include "Events/Mouse/MousePressed.h"
 #include "Events/EventSingleton.h"
 
+
 class Button : public Object
 {
 public:
-	Button(int id, string _text, Color _color) :
-		Object(id), color(_color), text(_text)
+	Button(int id, string _text, Color _color, const function<void(void)> _onClick) :
+		Object(id), 
+		color(_color), 
+		text(_text),
+		onClick(_onClick)
 	{
-		EventSingleton::get_instance().setEventCallback<MouseButtonPressed>(BIND_EVENT_FN(isClicked));
-	
+		EventSingleton::get_instance().setEventCallback<MouseButtonPressed>(BIND_EVENT_FN(Button::isClicked));
 	}
 	~Button();
 
@@ -31,10 +34,11 @@ public:
 	void mouseOver(Event& event);
 	void isClicked(Event& event);
 
-
 private:
 	bool isEnabled = true;
 	bool isMouseOver = false;
+
+	const function<void(void)> onClick;
 
 	Color color;
 	string text;
