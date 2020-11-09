@@ -16,6 +16,7 @@ InputFacade::~InputFacade()
 /// @brief
 /// Poll the input events and dispatch a KeyPressedEvent
 void InputFacade::pollEvents() {
+
     SDL_Event sdl_event;
     if (&sdl_event)
     {
@@ -38,6 +39,9 @@ void InputFacade::pollEvents() {
 #endif
                 break;
             }
+			case SDL_QUIT: {
+				break;
+			}
             default:
                 break;
             }
