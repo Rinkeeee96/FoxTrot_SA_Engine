@@ -36,6 +36,9 @@ public:
 
 	unordered_map<int, SDL_Texture*> textureMap;
 
+	int xCameraOffset = 0;
+	int yCameraOffset = 0;
+
 private:
 	SDL_Renderer* renderer;
 	SDL_Window* window;

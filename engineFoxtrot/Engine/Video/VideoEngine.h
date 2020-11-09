@@ -64,7 +64,6 @@ private:
 	FrameData* frameData = nullptr;
 	bool shouldDrawFps = false;
 
-	int xCameraOffset = 0;
-	int yCameraOffset = 0;
+
 
 };

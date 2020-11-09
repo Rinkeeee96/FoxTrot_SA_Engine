@@ -19,7 +19,8 @@ public:
 	virtual void drawMessageAt(const FpsMessage message, const TextPosition pos) = 0;
 	virtual void drawParticle(ParticleData data, int spriteID) = 0;
 
-
+	int xCameraOffset = 0;
+	int yCameraOffset = 0;
 private:
 
 };
