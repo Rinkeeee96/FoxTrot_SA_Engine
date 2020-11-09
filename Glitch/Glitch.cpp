@@ -159,10 +159,61 @@ void sceneTestSetup()
 	testScene->Start();
 }
 
+void MenuTestSetup() {
+	SpriteObject* BG_LAYER_0 = new SpriteObject(1000, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_0.png");
+	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(1001, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png");
+	SpriteObject* BG_LAYER_2 = new SpriteObject(1002, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_2.png");
+
+
+	engine.loadSprite(*BG_LAYER_0);
+	engine.loadSprite(*BG_LAYER_ADVENTRUE);
+	engine.loadSprite(*BG_LAYER_2);
+
+	map<string, string> menu_sound  = {
+		{"menu_1_Sound", "Assets/Sound/file_example_WAV_1MG.wav"},
+	};
+
+	Level* menu = new Level(200, menu_sound);
+
+	Object* layer0 = new Object(1);
+	layer0->setStatic(true);
+	layer0->setPositionX(1);
+	layer0->setPositionY(1080);
+	layer0->setWidth(1920);
+	layer0->setHeight(1080);
+	layer0->registerSprite(SpriteState::DEFAULT, BG_LAYER_0);
+	layer0->changeToState(SpriteState::DEFAULT);
+
+	Object* animation = new Object(2);
+	animation->setStatic(true);
+	animation->setPositionX(175);
+	animation->setPositionY(875);
+	animation->setWidth(370);
+	animation->setHeight(500);
+	animation->registerSprite(SpriteState::DEFAULT, BG_LAYER_ADVENTRUE);
+	animation->changeToState(SpriteState::DEFAULT);
+
+	Object* layer2 = new Object(3);
+	layer2->setStatic(true);
+	layer2->setPositionX(1);
+	layer2->setPositionY(1080);
+	layer2->setWidth(1920);
+	layer2->setHeight(1080);
+	layer2->registerSprite(SpriteState::DEFAULT, BG_LAYER_2);
+	layer2->changeToState(SpriteState::DEFAULT);
+
+	menu->addNewObjectToLayer(0, layer0);
+	menu->addNewObjectToLayer(1, animation);
+	menu->addNewObjectToLayer(2, layer2);
+
+	engine.insertScene(menu);
+	engine.setCurrentScene(200);
+	menu->Start();
+}
 
 int main() {
-	sceneTestSetup();
-
+	//sceneTestSetup();
+	MenuTestSetup(); 
 	bool gameRunning = true;
 
 	engine.startTickThreads();
