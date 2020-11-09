@@ -77,26 +77,29 @@ void VideoEngine::calculateOffset(Object& obj)
 		return;
 	}
 
-	if (obj.getPositionX() + obj.getWidth() < (CAMERA_BOX_CENTER_X + (CAMERA_BOX_WIDTH / 2))
-		&& obj.getPositionX() > (CAMERA_BOX_CENTER_X - CAMERA_BOX_WIDTH / 2)
-		&& obj.getPositionY() < (CAMERA_BOX_CENTER_Y + CAMERA_BOX_HEIGHT / 2)
-		&& obj.getPositionY() - obj.getHeight()> (CAMERA_BOX_CENTER_Y - CAMERA_BOX_HEIGHT / 2))
+	int CameraCenterX = CAMERA_BOX_CENTER_X + videoFacade->getXCameraOffset();
+	int CameraCenterY = CAMERA_BOX_CENTER_Y + videoFacade->getYCameraOffset();
+
+	if (obj.getPositionX() + obj.getWidth() < (CameraCenterX + (CAMERA_BOX_WIDTH / 2))
+		&& obj.getPositionX() > (CameraCenterX - (CAMERA_BOX_WIDTH / 2))
+		&& obj.getPositionY() < (CameraCenterY + (CAMERA_BOX_HEIGHT / 2))
+		&& obj.getPositionY() - obj.getHeight()> (CameraCenterY - (CAMERA_BOX_HEIGHT / 2)))
 	{
 		return;
 	}
 
 
-	if (obj.getPositionX() + obj.getWidth() >= (CAMERA_BOX_CENTER_X + (CAMERA_BOX_WIDTH / 2))) {
+	if (obj.getPositionX() + obj.getWidth() >= (CameraCenterX + (CAMERA_BOX_WIDTH / 2))) {
 		videoFacade->setXCameraOffset(obj.getPositionX() + obj.getWidth() - (CAMERA_BOX_CENTER_X + (CAMERA_BOX_WIDTH / 2)));
 	}
-	else if (obj.getPositionX() <= (CAMERA_BOX_CENTER_X - (CAMERA_BOX_WIDTH / 2))) {
+	else if (obj.getPositionX() <= (CameraCenterX - (CAMERA_BOX_WIDTH / 2))) {
 		videoFacade->setXCameraOffset(obj.getPositionX() - (CAMERA_BOX_CENTER_X - (CAMERA_BOX_WIDTH / 2)));
 	}
 
-	if (obj.getPositionY() >= (CAMERA_BOX_CENTER_Y + (CAMERA_BOX_HEIGHT / 2))) {
+	if (obj.getPositionY() >= (CameraCenterY + (CAMERA_BOX_HEIGHT / 2))) {
 		videoFacade->setYCameraOffset(obj.getPositionY()- (CAMERA_BOX_CENTER_Y + (CAMERA_BOX_HEIGHT / 2)));
 	}
-	else if (obj.getPositionY() - obj.getHeight() <= (CAMERA_BOX_CENTER_Y - (CAMERA_BOX_HEIGHT / 2))) {
+	else if (obj.getPositionY() - obj.getHeight() <= (CameraCenterY - (CAMERA_BOX_HEIGHT / 2))) {
 		videoFacade->setYCameraOffset(obj.getPositionY() - obj.getHeight() - (CAMERA_BOX_CENTER_Y - (CAMERA_BOX_HEIGHT / 2)));
 	}
 
