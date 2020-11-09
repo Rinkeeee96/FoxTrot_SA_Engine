@@ -83,6 +83,24 @@ void VideoEngine::calculateOffset(Object& obj)
 		return;
 	}
 
+	if (obj.getPositionX() >= (CAMERA_BOX_CENTER_X + (CAMERA_BOX_WIDTH / 2))) {
+		xCameraOffset++;
+		cout << "xCam++" << endl;
+	}
+	else if (obj.getPositionX() <= (CAMERA_BOX_CENTER_X - (CAMERA_BOX_WIDTH / 2))) {
+		xCameraOffset--;
+		cout << "xCam--" << endl;
+	}
+
+	if (obj.getPositionY() >= (CAMERA_BOX_CENTER_Y + (CAMERA_BOX_HEIGHT / 2))) {
+		yCameraOffset++;
+		cout << "yCam++" << endl;
+	}
+	else if (obj.getPositionY() <= (CAMERA_BOX_CENTER_Y - (CAMERA_BOX_HEIGHT / 2))) {
+		yCameraOffset--;
+		cout << "yCam--" << endl;
+	}
+
 	cout << "Object is out of bounds" << endl;
 
 }
