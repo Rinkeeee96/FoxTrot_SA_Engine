@@ -30,7 +30,17 @@ public:
 		filestream >> json;
 		filestream.close();
 
-		// TODO read from somewhre
+		// TODO load sprites like this for reusability
+		map<string, vector<SpriteObject*>> sprites;
+		int spriteIds = 0;
+		if (sprites.count("Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png") > 0) {
+			sprites["Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png"].push_back(new SpriteObject(spriteIds++, 16, 16, 1, 300, "Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png"));
+		}
+		else {
+			sprites["Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png"] = {};
+			sprites["Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png"].push_back(new SpriteObject(spriteIds++, 16, 16, 1, 300, "Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png"));
+		}
+		// TODO read from somewhere
 		SpriteObject* so0 = new SpriteObject(1, 16, 16, 1, 300, "Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png");
 		SpriteObject* so1 = new SpriteObject(100, 37, 50, 1, 300, "Assets/Sprites/Character/adventure.png");
 		SpriteObject* so2 = new SpriteObject(101, 37, 50, 4, 300, "Assets/Sprites/Character/adventure_air_attack1.png");
@@ -53,15 +63,18 @@ public:
 		engine.loadSprite(*so9);
 
 		int id = 0;
+		int zMin = 0;
+		int zMax = 100;
 
 		for (auto& [key, value] : json.items()) {
+			// Layers
 			if (key == "layers") {
 				for (auto& [layerKey, layerValue] : value.items()) 
 				{
 					for (auto& [objectKey, objectValue] : layerValue["objects"].items())
 					{
 						// TODO player or enemy?
-						Object* object = new Object(1);
+						Object* object = new Object(id++);
 						object->setName(objectValue["name"]);
 						object->setHeight(objectValue["height"]);
 						object->setWidth(objectValue["width"]);
@@ -92,10 +105,15 @@ public:
 							if (objectPropertyValue["name"] == "health") {
 							}
 						}
+
+						// TODO fix based on Tiled
+						if(layerKey == "background") bLevel->addNewObjectToLayer(zMin++, object);
+						else bLevel->addNewObjectToLayer(zMax--, object);
 					}
+					
 				}
 			}
-		// Tiles
+			// Tiles
 			if (key == "tilesets") {
 				Object* tile = new Object(id++);
 				tile->setScalable(true);
