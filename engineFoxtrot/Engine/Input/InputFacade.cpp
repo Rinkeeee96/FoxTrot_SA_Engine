@@ -34,9 +34,8 @@ void InputFacade::pollEvents() {
 			case SDL_MOUSEBUTTONDOWN:
 			{
 				int keycode = sdl_event.button.button; 
-				MouseCode mouseKey = (MouseCode)keycode;
-				//MouseButtonPressed event(mouseKey);
-				//EventSingleton::get_instance().dispatchEvent<MouseButtonPressed>(event);
+				MouseButtonPressed event((MouseCode)keycode);
+				EventSingleton::get_instance().dispatchEvent<MouseButtonPressed>(event);
 			}
 			case SDL_KEYDOWN: {
 				if(sdl_event.key.keysym.sym == SDLK_F4)

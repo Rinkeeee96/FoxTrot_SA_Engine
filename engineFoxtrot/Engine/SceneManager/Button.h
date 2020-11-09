@@ -17,6 +17,7 @@ public:
 		setStatic(true);
 		isMouseOver = true;
 		EventSingleton::get_instance().setEventCallback<MouseButtonPressed>(BIND_EVENT_FN(Button::isClicked));
+		EventSingleton::get_instance().setEventCallback<MouseMovedEvent>(BIND_EVENT_FN(Button::mouseOver));
 	}
 
 	const string& getText() { return text; }
