@@ -92,7 +92,7 @@ void VideoEngine::updateScreen()
 		if ((*pointerToCurrentScene)->getAllObjectsInScene().size() <= 0) return;
 		for (Object* obj : (*pointerToCurrentScene)->getAllObjectsInScene()) {
 			if (obj != nullptr) {
-				calculateOffset(obj);
+				calculateOffset(*obj);
 				if (obj->getIsParticle())
 				{
 					drawParticle((ParticleAdapter*)obj);
