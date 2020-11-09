@@ -14,7 +14,7 @@ public:
 		text(_text),
 		onClick(_onClick)
 	{
-
+		setStatic(true);
 		isMouseOver = true;
 		EventSingleton::get_instance().setEventCallback<MouseButtonPressed>(BIND_EVENT_FN(Button::isClicked));
 	}

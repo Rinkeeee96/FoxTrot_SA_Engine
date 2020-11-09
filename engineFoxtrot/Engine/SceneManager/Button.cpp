@@ -7,6 +7,8 @@ void Button::mouseOver(Event& event) {
 	int mousePositionX = mouseOverEvent.GetX();
 	int mousePositionY = mouseOverEvent.GetY();
 
+	cout << "hovering over button" << endl;
+
 	isMouseOver = (mousePositionX >= positionX &&
 				mousePositionX <= (positionX + width) &&
 				mousePositionY >= positionY &&
