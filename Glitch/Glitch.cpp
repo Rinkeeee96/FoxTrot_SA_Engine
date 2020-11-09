@@ -5,13 +5,6 @@
 #include "./Game/SpriteState.h"
 #include "./Game/Player/Player.h"
 
-// TODO engine.h & engine.cpp
-
-// Doxygen
-// Cntrl + / above function or class to generate Doxygen
-// https://devblogs.microsoft.com/cppblog/doxygen-and-xml-doc-comment-support/
-// Installing
-// https://computingonplains.wordpress.com/doxygen-and-visual-studio/
 
 Engine engine;
 

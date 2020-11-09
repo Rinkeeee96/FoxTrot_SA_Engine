@@ -3,8 +3,12 @@
 #include "Events/Event.h"
 #include "Events/AppTickEvent30.h"
 #include "Events/AppTickEvent60.h"
+
+#ifndef RUN_UNIT_TESTS
 #include "Events/Action/OnCollisionEvent.h"
 #include "Events/EventSingleton.h"
+#endif
+
 // ----- engine core ----------------------
 #include "Engine/General/ErrorCodes.h"
 // ----- individual engines ----------------

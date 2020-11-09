@@ -5,7 +5,7 @@ using EventCallbackFn = function<void(Event&)>;
 
 #define BIND_EVENT_FN(x) bind(&x, this, placeholders::_1)
 
-class DLLEXPORT EventSingleton
+class API EventSingleton
 {
 public:
 #ifndef RUN_UNIT_TESTS
