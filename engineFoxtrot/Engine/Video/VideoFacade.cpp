@@ -154,7 +154,7 @@ void VideoFacade::renderCopy(Object& object)
 /// @param rotation 
 void VideoFacade::drawParticle(ParticleData data, int spriteID)
 {
-	SDL_Rect r = { int(data.posx + data.startPosX - data.size / 2), int(data.posy + data.startPosY - data.size / 2), int(data.size), int(data.size) };
+	SDL_Rect r = { int(data.posx + data.startPosX - data.size / 2) - xCameraOffset, int(data.posy + data.startPosY - data.size / 2) - yCameraOffset, int(data.size), int(data.size) };
 	SDL_Color c = { Uint8(data.colorR * 255), Uint8(data.colorG * 255), Uint8(data.colorB * 255), Uint8(data.colorA * 255) };
 	SDL_SetTextureColorMod(textureMap[spriteID], c.r, c.g, c.b);
 	SDL_SetTextureAlphaMod(textureMap[spriteID], c.a);
