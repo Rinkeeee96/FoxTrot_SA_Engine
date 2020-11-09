@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "Object.h"
+#include <Events\Video\VideoLoadSpriteEvent.h>
+#include <Events\EventSingleton.h>
 
 /// @brief 
 Object::Object(const int _objectId) : objectId(_objectId)
@@ -73,6 +75,8 @@ SpriteObject& Object::GetCurrentSprite() const { return *currentSprite; }
 /// link a state with a sprite
 void Object::registerSprite(int state, SpriteObject* spriteObject) {
 	textures.insert(pair<int, SpriteObject*>(state, spriteObject));
+
+	EventSingleton::get_instance().dispatchEvent<VideoLoadSpriteEvent>((Event&)VideoLoadSpriteEvent(*spriteObject));
 }
 
 /// @brief

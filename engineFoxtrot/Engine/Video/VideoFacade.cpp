@@ -87,11 +87,15 @@ void VideoFacade::drawScreen()
 void VideoFacade::loadImage(const SpriteObject& spriteObject) {
 	if (spriteObject.getFileName() == NULL) throw ERROR_CODE_SVIFACADE_FILENAME_IS_NULL;
 
+	int textureId = spriteObject.getTextureID();
+
+	if (textureMap[textureId] != nullptr)
+		return;
+
 	SDL_Surface* surface = IMG_Load(spriteObject.getFileName());
 	SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
 
-	int temp = spriteObject.getTextureID();
-	textureMap[temp] = texture;
+	textureMap[textureId] = texture;
 	SDL_FreeSurface(surface);
 }
 

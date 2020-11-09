@@ -15,8 +15,10 @@
 void MainMenu::OnAttach()
 {
 	Button* startBtn = new Button(1, "start", Color(0, 0, 0), BIND_FN(OnStartBtnClick));
+	
 	startBtn->setSize(100, 50);
-
+	startBtn->registerSprite(SpriteState::DEFAULT, new SpriteObject(1, 34, 10, 1, 300, "Assets/Buttons/btn_green_large.png"));
+	startBtn->changeToState(SpriteState::DEFAULT);
 	startBtn->setPositionX(CENTER_X);
 	startBtn->setPositionY(CENTER_Y);
 
@@ -31,10 +33,6 @@ void MainMenu::LoadBackground() {
 	SpriteObject* BG_LAYER_0 = new SpriteObject(1000, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_0.png");
 	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(1001, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png");
 	SpriteObject* BG_LAYER_2 = new SpriteObject(1002, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_2.png");
-
-	EventSingleton::get_instance().dispatchEvent<VideoLoadSpriteEvent>((Event&)VideoLoadSpriteEvent(*BG_LAYER_0));
-	EventSingleton::get_instance().dispatchEvent<VideoLoadSpriteEvent>((Event&)VideoLoadSpriteEvent(*BG_LAYER_ADVENTRUE));
-	EventSingleton::get_instance().dispatchEvent<VideoLoadSpriteEvent>((Event&)VideoLoadSpriteEvent(*BG_LAYER_2));
 
 	Object* layer0 = new Object(1);
 	layer0->setStatic(true);
