@@ -74,6 +74,7 @@ void VideoFacade::clearScreen()
 void VideoFacade::drawScreen()
 {
 	try {
+		// Todo remove
 		SDL_Rect r;
 		r.x = 785;
 		r.y = 365;
