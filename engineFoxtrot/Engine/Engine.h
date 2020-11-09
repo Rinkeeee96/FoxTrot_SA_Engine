@@ -21,7 +21,7 @@
 #define ENGINE_TICK30	 33
 
 /// @brief 
-class DLLEXPORT Engine
+class API Engine
 {
 public:
 	Engine();

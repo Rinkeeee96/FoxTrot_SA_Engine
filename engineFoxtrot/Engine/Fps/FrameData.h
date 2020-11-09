@@ -2,7 +2,7 @@
 #define FRAME_VALUES 100
 #define TIMESTEP 1.f
 
-class DLLEXPORT FrameData
+class API FrameData
 {
 public:
 	// Todo getters and Setters

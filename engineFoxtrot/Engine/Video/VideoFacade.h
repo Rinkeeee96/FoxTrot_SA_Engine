@@ -12,7 +12,7 @@ struct SDL_Texture;
 typedef struct _TTF_Font TTF_Font;
 
 #if(EXPORT)
-class DLLEXPORT VideoFacade : public IVideoFacade
+class API VideoFacade : public IVideoFacade
 #else
 /// @brief 
 /// VideoFacade is de SDL2 facade

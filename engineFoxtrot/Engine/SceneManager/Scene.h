@@ -8,7 +8,7 @@
 /// Scene Class
 /// Contains all the objects that should be drawn in this scene.
 
-class DLLEXPORT Scene 
+class API Scene 
 {
 public:
 	Scene(const int);

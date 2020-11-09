@@ -5,7 +5,7 @@
 
 /// @brief
 /// OnCollisionEvent base class of CollisionEnd and CollisionStart
-class DLLEXPORT OnCollisionEvent : public Event
+class API OnCollisionEvent : public Event
 {
 public:
 	OnCollisionEvent(int _objectOneId, int _objectTwoId, const map<int, vector<Direction>> _directionMap) : 
@@ -36,7 +36,7 @@ protected:
 
 /// @brief
 /// OnCollisionEvent is fired when a a collision ended
-class DLLEXPORT OnCollisionEndEvent : public OnCollisionEvent {
+class API OnCollisionEndEvent : public OnCollisionEvent {
 public:
 	OnCollisionEndEvent(int _objectOneId, int _objectTwoId, const map<int, vector<Direction>> _directionMap)
 		: OnCollisionEvent(_objectOneId, _objectTwoId, _directionMap) {};
@@ -47,7 +47,7 @@ public:
 
 /// @brief
 /// OnCollisionEvent is fired when a a collision started
-class DLLEXPORT OnCollisionBeginEvent : public OnCollisionEvent {
+class API OnCollisionBeginEvent : public OnCollisionEvent {
 public:
 	OnCollisionBeginEvent(int _objectOneId, int _objectTwoId, const map<int, vector<Direction>> _directionMap)
 		: OnCollisionEvent(_objectOneId, _objectTwoId, _directionMap) {};

@@ -3,7 +3,7 @@
 
 /// @brief 
 /// Contains all scenes. Manages all scenes and objects.
-class DLLEXPORT SceneManager
+class API SceneManager
 {
 public:
 	SceneManager();

@@ -2,7 +2,7 @@
 
 
 
-class DLLEXPORT SpriteObject
+class API SpriteObject
 {
 public:
 	SpriteObject();

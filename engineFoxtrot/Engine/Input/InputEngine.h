@@ -7,7 +7,7 @@
 
 /// @brief 
 /// Input engine for handling input
-class DLLEXPORT InputEngine
+class API InputEngine
 {
 public:
 	InputEngine();

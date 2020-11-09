@@ -1,6 +1,6 @@
 #pragma once
 #include "JsonFacade.h"
-//class DLLEXPORT FileParser
+//class API FileParser
 //{
 //public:
 //
