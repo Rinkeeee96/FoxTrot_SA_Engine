@@ -8,11 +8,13 @@ Button::~Button()
 
 void Button::mouseOver(Event& event) {
 	auto mouseOverEvent = static_cast<MouseMovedEvent&>(event);
-	int x = mouseOverEvent.GetX();
-	int y = mouseOverEvent.GetY();
+	int mousePositionX = mouseOverEvent.GetX();
+	int mousePositionY = mouseOverEvent.GetY();
 
-	// TODO check if mouse is in bounds
-
+	isMouseOver = (mousePositionX >= positionX &&
+				mousePositionX <= (positionX + width) &&
+				mousePositionY >= positionY &&
+				mousePositionY <= (positionY + height));
 }
 
 void Button::isClicked(Event& event) {
