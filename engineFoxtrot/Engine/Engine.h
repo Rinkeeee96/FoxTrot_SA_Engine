@@ -4,7 +4,6 @@
 #define ENGINE__H
 
 #include "./SceneManager/SceneManager.h"
-#include "./FileParser/FileParser.h"
 #include "./Physics/PhysicsEngine.h"
 #include "./ParticleSystem/ParticleEngine.h"
 #include "./SceneManager/SceneManager.h"
@@ -53,7 +52,6 @@ private:
 	ParticleEngine particleEngine;
 	SoundEngine soundEngine;
 	InputEngine inputEngine;
-	FileParser fileParser;
 	SceneManager sceneManager;
 	VideoEngine videoEngine;
 

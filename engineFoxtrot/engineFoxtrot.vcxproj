@@ -160,10 +160,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Engine.cpp" />
-    <ClCompile Include="Engine\FileParser\FileParser.cpp" />
+    <ClCompile Include="Engine\FileParser\FileLoader.cpp" />
     <ClCompile Include="Engine\Fps\FrameData.cpp" />
     <ClCompile Include="Engine\General\GeneralHelperFunctions.cpp" />
-    <ClCompile Include="Engine\FileParser\JsonFacade.cpp" />
     <ClCompile Include="Engine\Input\InputFacade.cpp" />
     <ClCompile Include="Engine\Input\InputEngine.cpp" />
     <ClCompile Include="Engine\ParticleSystem\ParticleLib\Particle.cpp" />
@@ -222,9 +221,8 @@
     <ClInclude Include="Engine\General\Debug.h" />
     <ClInclude Include="Engine\Engine.h" />
     <ClInclude Include="Engine\General\ErrorCodes.h" />
-    <ClInclude Include="Engine\FileParser\FileParser.h" />
+    <ClInclude Include="Engine\FileParser\FileLoader.h" />
     <ClInclude Include="Engine\General\GeneralDefines.h" />
-    <ClInclude Include="Engine\FileParser\IJsonFacade.h" />
     <ClInclude Include="Engine\Input\IInputFacade.h" />
     <ClInclude Include="Engine\Input\InputFacade.h" />
     <ClInclude Include="Engine\Input\InputEngine.h" />
@@ -238,7 +236,6 @@
     <ClInclude Include="Engine\SceneManager\Layer.h" />
     <ClInclude Include="Engine\SceneManager\SpriteObject.h" />
     <ClInclude Include="Engine\stdafx.h" />
-    <ClInclude Include="Engine\FileParser\JsonFacade.h" />
     <ClInclude Include="Engine\SceneManager\Object.h" />
     <ClInclude Include="Engine\Physics\PhysicsBody.h" />
     <ClInclude Include="Engine\Physics\PhysicsEngine.h" />
