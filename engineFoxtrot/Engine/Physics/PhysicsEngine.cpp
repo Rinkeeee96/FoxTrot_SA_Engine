@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include <Events\AppTickEvent30.h>
-//#include "Events/EventSingleton.h"
+#include "Events/EventSingleton.h"
 #include "PhysicsEngine.h"
 
 /// @brief Constructor
