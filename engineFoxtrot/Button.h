@@ -13,6 +13,8 @@ public:
 
 	void updateText(string updatedText) { text = updatedText; }
 
+	void onClick() {}
+
 private:
 	Color color;
 	string text;
