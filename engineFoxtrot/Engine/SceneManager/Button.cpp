@@ -3,7 +3,7 @@
 #include "Button.h"
 
 void Button::mouseOver(Event& event) {
-	auto mouseOverEvent = static_cast<MouseMovedEvent&>(event);
+	auto& mouseOverEvent = static_cast<MouseMovedEvent&>(event);
 	int mousePositionX = mouseOverEvent.GetX();
 	int mousePositionY = mouseOverEvent.GetY();
 
