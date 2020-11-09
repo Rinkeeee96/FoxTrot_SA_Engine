@@ -70,6 +70,17 @@ void VideoEngine::renderCopy(Object& object) {
 	}
 }
 
+void VideoEngine::calculateOffset(Object& obj)
+{
+	if (obj.getObjectId() != 2)
+	{
+		return;
+	}
+
+
+
+}
+
 /// @brief 
 /// Update all the sprites on the screen
 void VideoEngine::updateScreen()
@@ -81,6 +92,7 @@ void VideoEngine::updateScreen()
 		if ((*pointerToCurrentScene)->getAllObjectsInScene().size() <= 0) return;
 		for (Object* obj : (*pointerToCurrentScene)->getAllObjectsInScene()) {
 			if (obj != nullptr) {
+				calculateOffset(obj);
 				if (obj->getIsParticle())
 				{
 					drawParticle((ParticleAdapter*)obj);
@@ -147,6 +159,7 @@ void VideoEngine::receiveTick(Event& tickEvent)
 	//tickEvent = static_cast<AppTickEvent&>(tickEvent);
 	frameData->startTimer();
 	clearScreen();
+	calculateOffset();
 	updateScreen();
 
 	drawFps();

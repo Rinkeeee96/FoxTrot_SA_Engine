@@ -49,6 +49,8 @@ public:
 
 	void drawParticle(ParticleAdapter* part);
 
+	void calculateOffset(Object& obj));
+
 	Scene** pointerToCurrentScene = nullptr;
 
 private:
