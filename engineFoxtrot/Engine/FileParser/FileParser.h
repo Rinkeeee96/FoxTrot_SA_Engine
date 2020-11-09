@@ -15,16 +15,16 @@ public:
 			nlohmann::json j;
 			ifstream >> j;
 
-			for (auto& element : j) 
+			for (auto& element : j)
 			{
 				std::cout << element << '\n';
 			}
 
 			ifstream.close();
 
-			
 
-			return j.
+
+			return ifstream;
 		}
 		throw std::exception("file not found exception");
 	}
