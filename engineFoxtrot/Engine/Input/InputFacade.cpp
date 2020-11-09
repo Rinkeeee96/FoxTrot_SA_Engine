@@ -29,12 +29,11 @@ void InputFacade::pollEvents() {
 
 				MouseMovedEvent event(x, y);
 				EventSingleton::get_instance().dispatchEvent<MouseMovedEvent>(event);
-				cout << event << endl;
 				break;
 			}
 			case SDL_MOUSEBUTTONDOWN:
 			{
-				int keycode = sdl_event.button.button;
+				int keycode = sdl_event.button.button; 
 				MouseCode mouseKey = (MouseCode)keycode;
 				//MouseButtonPressed event(mouseKey);
 				//EventSingleton::get_instance().dispatchEvent<MouseButtonPressed>(event);
