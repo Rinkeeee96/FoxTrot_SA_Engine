@@ -12,6 +12,7 @@ Engine::Engine()
 	particleEngine.pointerToCurrentScene = &sceneManager.currentScene;
 	frameData = new FrameData;
 
+	EventListners();
 	//this->startTickThreads();
 }
 
