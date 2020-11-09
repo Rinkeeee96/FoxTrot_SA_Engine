@@ -10,7 +10,6 @@ var class_engine =
     [ "setCurrentScene", "class_engine.html#afacb7e390439a2603729200ea99177b0", null ],
     [ "startTickThreads", "class_engine.html#a32cfa84cab0fa0ed5e09b0f8ce3db41c", null ],
     [ "stopTickThreads", "class_engine.html#a8c4b8e69dcf1537e433053790733e143", null ],
-    [ "fileParser", "class_engine.html#a7a035976177f6d76dcc6548db1812870", null ],
     [ "frameData", "class_engine.html#aa4de34329d4b56e77d1426c9819a20d9", null ],
     [ "inputEngine", "class_engine.html#a69edf25f489a43c1658aa93db5d2ca73", null ],
     [ "particleEngine", "class_engine.html#ad15e0daf5264d8e6478efb9c1ad1a152", null ],
