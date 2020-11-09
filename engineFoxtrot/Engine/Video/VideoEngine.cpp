@@ -77,10 +77,10 @@ void VideoEngine::calculateOffset(Object& obj)
 		return;
 	}
 
-	if (obj.getPositionX() < (CAMERA_BOX_CENTER_X + (CAMERA_BOX_WIDTH / 2))
+	if (obj.getPositionX() + obj.getWidth() < (CAMERA_BOX_CENTER_X + (CAMERA_BOX_WIDTH / 2))
 		&& obj.getPositionX() > (CAMERA_BOX_CENTER_X - CAMERA_BOX_WIDTH / 2)
 		&& obj.getPositionY() < (CAMERA_BOX_CENTER_Y + CAMERA_BOX_HEIGHT / 2)
-		&& obj.getPositionY() > (CAMERA_BOX_CENTER_Y - CAMERA_BOX_HEIGHT / 2))
+		&& obj.getPositionY() - obj.getHeight()> (CAMERA_BOX_CENTER_Y - CAMERA_BOX_HEIGHT / 2))
 	{
 		return;
 	}
@@ -94,10 +94,10 @@ void VideoEngine::calculateOffset(Object& obj)
 	}
 
 	if (obj.getPositionY() >= (CAMERA_BOX_CENTER_Y + (CAMERA_BOX_HEIGHT / 2))) {
-		videoFacade->setYCameraOffset(obj.getPositionY() - (CAMERA_BOX_CENTER_Y + (CAMERA_BOX_HEIGHT / 2)));
+		videoFacade->setYCameraOffset(obj.getPositionY()- (CAMERA_BOX_CENTER_Y + (CAMERA_BOX_HEIGHT / 2)));
 	}
-	else if (obj.getPositionY() <= (CAMERA_BOX_CENTER_Y - (CAMERA_BOX_HEIGHT / 2))) {
-		videoFacade->setYCameraOffset(obj.getPositionY() - (CAMERA_BOX_CENTER_Y - (CAMERA_BOX_HEIGHT / 2)));
+	else if (obj.getPositionY() - obj.getHeight() <= (CAMERA_BOX_CENTER_Y - (CAMERA_BOX_HEIGHT / 2))) {
+		videoFacade->setYCameraOffset(obj.getPositionY() - obj.getHeight() - (CAMERA_BOX_CENTER_Y - (CAMERA_BOX_HEIGHT / 2)));
 	}
 
 }

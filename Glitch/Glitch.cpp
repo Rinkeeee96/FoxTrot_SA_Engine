@@ -105,7 +105,7 @@ void sceneTestSetup()
 
 	staticGround = new Object(101);
 	staticGround->setScalable(true);
-	staticGround->setWidth(500); // width
+	staticGround->setWidth(5000); // width
 	staticGround->setHeight(10);// height
 	staticGround->setPositionX(1200); // x 20 left down
 	staticGround->setPositionY(450);// y 300 left down
