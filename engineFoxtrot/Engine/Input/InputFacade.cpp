@@ -23,6 +23,22 @@ void InputFacade::pollEvents() {
 		{
 			switch (sdl_event.type)
 			{
+			case SDL_MOUSEMOTION: {
+				int x, y;
+				SDL_GetMouseState(&x, &y);
+
+				MouseMovedEvent event(x, y);
+				EventSingleton::get_instance().dispatchEvent<MouseMovedEvent>(event);
+				cout << event << endl;
+				break;
+			}
+			case SDL_MOUSEBUTTONDOWN:
+			{
+				int keycode = sdl_event.button.button;
+				MouseCode mouseKey = (MouseCode)keycode;
+				//MouseButtonPressed event(mouseKey);
+				//EventSingleton::get_instance().dispatchEvent<MouseButtonPressed>(event);
+			}
 			case SDL_KEYDOWN: {
 				if(sdl_event.key.keysym.sym == SDLK_F4)
 					exit(100);
