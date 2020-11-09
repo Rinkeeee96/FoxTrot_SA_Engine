@@ -66,6 +66,9 @@ void sceneTestSetup()
 	object2->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, object2);
 
+	object2->setScalable(true);
+	object2->setScale(7);
+
 
 	Object* staticGround = new Object(101);
 	staticGround->setScalable(true);
