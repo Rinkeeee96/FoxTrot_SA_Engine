@@ -87,21 +87,17 @@ void VideoEngine::calculateOffset(Object& obj)
 
 
 	if (obj.getPositionX() >= (CAMERA_BOX_CENTER_X + (CAMERA_BOX_WIDTH / 2))) {
-		videoFacade->xCameraOffset = obj.getPositionX() - (CAMERA_BOX_CENTER_X + (CAMERA_BOX_WIDTH / 2));
-		cout << "xCam++ " << videoFacade->xCameraOffset << endl;
+		videoFacade->setXCameraOffset(obj.getPositionX() - (CAMERA_BOX_CENTER_X + (CAMERA_BOX_WIDTH / 2)));
 	}
 	else if (obj.getPositionX() <= (CAMERA_BOX_CENTER_X - (CAMERA_BOX_WIDTH / 2))) {
-		videoFacade->xCameraOffset = obj.getPositionX() - (CAMERA_BOX_CENTER_X - (CAMERA_BOX_WIDTH / 2));
-		cout << "xCam-- " << videoFacade->xCameraOffset << endl;
+		videoFacade->setXCameraOffset(obj.getPositionX() - (CAMERA_BOX_CENTER_X - (CAMERA_BOX_WIDTH / 2)));
 	}
 
 	if (obj.getPositionY() >= (CAMERA_BOX_CENTER_Y + (CAMERA_BOX_HEIGHT / 2))) {
-		videoFacade->yCameraOffset = obj.getPositionY() - (CAMERA_BOX_CENTER_Y + (CAMERA_BOX_HEIGHT / 2));
-		cout << "yCam++ " << videoFacade->yCameraOffset << endl;
+		videoFacade->setYCameraOffset(obj.getPositionY() - (CAMERA_BOX_CENTER_Y + (CAMERA_BOX_HEIGHT / 2)));
 	}
 	else if (obj.getPositionY() <= (CAMERA_BOX_CENTER_Y - (CAMERA_BOX_HEIGHT / 2))) {
-		videoFacade->yCameraOffset = obj.getPositionY() - (CAMERA_BOX_CENTER_Y - (CAMERA_BOX_HEIGHT / 2));
-		cout << "yCam-- " << videoFacade->yCameraOffset << endl;
+		videoFacade->setYCameraOffset(obj.getPositionY() - (CAMERA_BOX_CENTER_Y - (CAMERA_BOX_HEIGHT / 2)));
 	}
 
 }

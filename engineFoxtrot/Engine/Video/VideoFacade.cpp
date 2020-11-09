@@ -133,8 +133,10 @@ void VideoFacade::renderCopy(Object& object)
 
 	//generate stratch of image
 	SDL_Rect destination;
-	destination.x = (int)object.getPositionX() + xCameraOffset;
-	destination.y = (int)object.getPositionY() - (int)object.getHeight() + yCameraOffset;
+	cout << "xCameraOffset: " << xCameraOffset << endl;
+	cout << "yCameraOffset: " << yCameraOffset << endl;
+	destination.x = (int)object.getPositionX() - xCameraOffset;
+	destination.y = (int)object.getPositionY() - (int)object.getHeight() - yCameraOffset;
 	destination.w = (int)object.getWidth();
 	destination.h = (int)object.getHeight();
 	SDL_RenderCopyEx(renderer, textureMap[sprite.getTextureID()], &rect, &destination, object.getRotation(), NULL, SDL_FLIP_NONE);
