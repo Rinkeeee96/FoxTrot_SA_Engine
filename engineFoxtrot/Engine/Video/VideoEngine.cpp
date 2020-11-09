@@ -77,12 +77,8 @@ void VideoEngine::calculateOffset(Object& obj)
 		return;
 	}
 
-	if (obj.getPositionX() < (CAMERA_BOX_CENTER_X + (CAMERA_BOX_WIDTH / 2)) && obj.getPositionX() > (CAMERA_BOX_CENTER_X - CAMERA_BOX_WIDTH / 2))
-	{
-		return;
-	}
-
-	if (obj.getPositionY() < (CAMERA_BOX_CENTER_Y + CAMERA_BOX_HEIGHT / 2) && obj.getPositionY() > (CAMERA_BOX_CENTER_Y - CAMERA_BOX_HEIGHT / 2))
+	if (obj.getPositionX() < (CAMERA_BOX_CENTER_X + (CAMERA_BOX_WIDTH / 2)) && obj.getPositionX() > (CAMERA_BOX_CENTER_X - (CAMERA_BOX_WIDTH / 2)) &&
+		obj.getPositionY() < (CAMERA_BOX_CENTER_Y + (CAMERA_BOX_HEIGHT / 2)) && obj.getPositionY() > (CAMERA_BOX_CENTER_Y - (CAMERA_BOX_HEIGHT / 2)))
 	{
 		return;
 	}
