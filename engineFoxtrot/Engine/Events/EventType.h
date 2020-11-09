@@ -29,5 +29,7 @@ enum class EventType
 
 	Action,
 	CollisionEnd,
-	CollisionBegin
+	CollisionBegin,
+
+	ObjectStop
 };

@@ -1,4 +1,5 @@
 #include "Player.h"
+#include <Engine\Events\Action\ObjectStopEvent.h>
 
 Player::Player() : Object(2) {
 	this->setName("person");
@@ -18,6 +19,7 @@ Player::Player() : Object(2) {
 	EventSingleton::get_instance().setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Player::onCollisionBeginEvent));
 	EventSingleton::get_instance().setEventCallback<OnCollisionEndEvent>(BIND_EVENT_FN(Player::onCollisionEndEvent));
 	EventSingleton::get_instance().setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Player::onKeyPressed));
+	EventSingleton::get_instance().setEventCallback<KeyReleasedEvent>(BIND_EVENT_FN(Player::onKeyReleased));
 }
 
 /// @brief 
@@ -55,13 +57,22 @@ void Player::onCollisionEndEvent(Event& event) {
 	}
 }
 
+void Player::setXAxisVelocity(const float val) {
+
+	if (val == 0 && this->getYAxisVelocity() == 0 && !changed) {
+		this->changeToState(SpriteState::DEFAULT);
+	}
+
+	Object::setXAxisVelocity(val);
+}
+
 void Player::setYAxisVelocity(const float val) {
 
 	if (!canJump) {
 		if (val > 0 && !changed) {
-			if (this->getXAxisVelocity() > 0)
+			if (this->getXAxisVelocity() > 0 || this->currentSpriteState == SpriteState::AIR_JUMP_RIGHT)
 				this->changeToState(SpriteState::AIR_FALL_RIGHT);
-			else
+			else if (this->currentSpriteState != AIR_FALL_RIGHT)
 				this->changeToState(SpriteState::AIR_FALL_LEFT);
 		}
 	}
@@ -110,6 +121,17 @@ void Player::onKeyPressed(Event& event) {
 		break;
 	default:
 		break;
+	}
+}
+
+void Player::onKeyReleased(Event& event)
+{
+	auto keyReleasedEvent = static_cast<KeyReleasedEvent&>(event);
+	
+	switch (keyReleasedEvent.GetKeyCode()) {
+		case KeyCode::KEY_A:
+		case KeyCode::KEY_D:
+			EventSingleton::get_instance().dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->objectId));
 	}
 }
 

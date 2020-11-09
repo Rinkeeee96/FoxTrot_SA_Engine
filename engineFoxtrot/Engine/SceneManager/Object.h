@@ -84,6 +84,7 @@ protected:
 	
 	const int objectId = 0;
 	SpriteObject* currentSprite = nullptr;
+	int currentSpriteState = 0;
 	string name = "";
 	bool scalable = false;
 	float positionX = 0;

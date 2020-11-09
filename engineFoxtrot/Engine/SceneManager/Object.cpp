@@ -79,6 +79,7 @@ void Object::registerSprite(int state, SpriteObject* spriteObject) {
 /// change the state
 /// change the textureID to the current state
 void Object::changeToState(const int state) {
+	currentSpriteState = state;
 	SpriteObject* spriteObject = textures[state];
 	if (spriteObject == nullptr) throw ERROR_CODE_SPRITE_DOESNT_EXIST;
 	this->currentSprite = spriteObject;
