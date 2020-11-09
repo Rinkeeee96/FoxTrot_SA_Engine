@@ -2,6 +2,7 @@
 #include "Levels/Builders/ILevelBuilder.h"
 #include "Levels/Builders/LevelBuilderDirector.h"
 #include "Levels/Builders/TestLevelBuilder.h"
+#include "Levels/Builders/LevelOneBuilder.h"
 
 void Game::run() {
 	LevelBuilderDirector builderDirector;
@@ -11,7 +12,12 @@ void Game::run() {
 
 	engine.insertScene(testLevel);
 	engine.setCurrentScene(100);
-	testLevel->Start();
+	testLevel->start();
+
+
+	LevelOneBuilder levelOneBuilder = LevelOneBuilder(engine);
+	builderDirector.construct(&levelOneBuilder);
+	auto levelOne = levelOneBuilder.getLevel();
 
 	engine.startTickThreads();
 	while (gameRunning)
