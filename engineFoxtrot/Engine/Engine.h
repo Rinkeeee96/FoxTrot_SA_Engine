@@ -33,11 +33,11 @@ public:
 	API void startTickThreads();
 	API void stopTickThreads();
 
-	atomic_bool stopThreadTick60 = false;
+	/*atomic_bool stopThreadTick60 = false;
 	atomic_bool stopThreadTick30 = false;
 
 	thread *engineTick60Thread = nullptr;
-	thread *engineTick30Thread = nullptr;
+	thread *engineTick30Thread = nullptr;*/
 
 	//SceneManager calls
 	API void setCurrentScene(const int sceneID);
