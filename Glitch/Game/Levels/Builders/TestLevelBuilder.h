@@ -1,9 +1,9 @@
 #pragma once
-#include "./LevelBuilder.h"
+#include "./AbstractLevelBuilder.h"
 
-class TestLevelBuilder : public LevelBuilder {
+class TestLevelBuilder : public AbstractLevelBuilder {
 public:
-	TestLevelBuilder(Engine& _engine) : LevelBuilder(_engine) { }
+	TestLevelBuilder(Engine& _engine) : AbstractLevelBuilder(_engine) { }
 
 	virtual void create() override;
 };

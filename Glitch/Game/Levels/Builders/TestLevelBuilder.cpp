@@ -134,6 +134,5 @@ void TestLevelBuilder::create()
 	testScene->addNewObjectToLayer(1, staticGround4);
 
 	engine.insertScene(testScene);
-
 	level = unique_ptr<Level>(testScene);
 }

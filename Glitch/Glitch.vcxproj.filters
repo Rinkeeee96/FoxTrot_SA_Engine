@@ -33,16 +33,16 @@
     <ClInclude Include="Game\Levels\Builders\ILevelBuilder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Levels\Builders\LevelBuilder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Levels\Builders\TestLevelBuilder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\Levels\Builders\LevelBuilderDirector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Levels\Builders\LevelOneBuilder.h">
+    <ClInclude Include="Game\Levels\Builders\AbstractLevelBuilder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Levels\Builders\LevelBuilder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -65,7 +65,7 @@
     <ClCompile Include="Game\Levels\Builders\LevelBuilderDirector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Levels\Builders\LevelOneBuilder.cpp">
+    <ClCompile Include="Game\Levels\Builders\LevelBuilder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
