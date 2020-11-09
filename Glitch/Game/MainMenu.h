@@ -12,8 +12,6 @@ public:
 	virtual void OnDetach() override;
 	virtual void Start() override;
 private:
-	vector<Button> buttons;
-
 	void OnStartBtnClick();
 	void LoadBackground();
 	void LoadMusic();
