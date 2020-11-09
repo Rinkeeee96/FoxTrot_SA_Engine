@@ -114,6 +114,17 @@ void sceneTestSetup()
 	staticGround->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, staticGround);
 
+	staticGround = new Object(101);
+	staticGround->setScalable(true);
+	staticGround->setWidth(250); // width
+	staticGround->setHeight(10);// height
+	staticGround->setPositionX(1); // x 20 left down
+	staticGround->setPositionY(330);// y 300 left down
+	staticGround->setStatic(true);
+	staticGround->registerSprite(SpriteState::DEFAULT, so0);
+	staticGround->changeToState(SpriteState::DEFAULT);
+	testScene->addNewObjectToLayer(1, staticGround);
+
 	SpriteObject* particle1Sprite = new SpriteObject(11, 20, 20, 20, 300, "Assets/Particles/fire.png");
 	engine.loadSprite(*particle1Sprite);
 
@@ -141,8 +152,9 @@ void sceneTestSetup()
 
 	testScene->addNewObjectToLayer(2, particle2);
 
-	Object* staticGround2 = new Object(102);
-	staticGround2->setWidth(100); // width
+	Object* staticGround2 = new Object(119);
+	staticGround2->setScalable(true);
+	staticGround2->setWidth(30); // width
 	staticGround2->setHeight(80);// height
 	staticGround2->setPositionX(220); // x 20 left down
 	staticGround2->setPositionY(540);// y 300 left down
@@ -156,7 +168,7 @@ void sceneTestSetup()
 	staticGround3->setScalable(true);
 	staticGround3->setWidth(30); // width
 	staticGround3->setHeight(80);// height
-	staticGround3->setPositionX(360); // x 20 left down
+	staticGround3->setPositionX(480); // x 20 left down
 	staticGround3->setPositionY(540);// y 300 left down
 	staticGround3->setStatic(true);
 	staticGround3->registerSprite(SpriteState::DEFAULT, so0);
@@ -167,7 +179,18 @@ void sceneTestSetup()
 	staticGround4->setScalable(true);
 	staticGround4->setWidth(30); // width
 	staticGround4->setHeight(140);// height
-	staticGround4->setPositionX(480); // x 20 left down
+	staticGround4->setPositionX(360); // x 20 left down
+	staticGround4->setPositionY(540);// y 300 left down
+	staticGround4->setStatic(true);
+	staticGround4->registerSprite(SpriteState::DEFAULT, so0);
+	staticGround4->changeToState(SpriteState::DEFAULT);
+	testScene->addNewObjectToLayer(1, staticGround4);
+
+	staticGround4 = new Object(120);
+	staticGround4->setScalable(true);
+	staticGround4->setWidth(30); // width
+	staticGround4->setHeight(140);// height
+	staticGround4->setPositionX(320); // x 20 left down
 	staticGround4->setPositionY(540);// y 300 left down
 	staticGround4->setStatic(true);
 	staticGround4->registerSprite(SpriteState::DEFAULT, so0);
