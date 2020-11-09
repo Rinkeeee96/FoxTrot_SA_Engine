@@ -152,17 +152,17 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Game\MainMenu.h" />
     <ClInclude Include="Game\Player\Player.h" />
     <ClInclude Include="Glitch.h" />
     <ClInclude Include="Game\Level.h" />
     <ClInclude Include="Game\SpriteState.h" />
-    <ClInclude Include="Game\MainMenu.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Game\MainMenu.cpp" />
     <ClCompile Include="Game\Player\Player.cpp" />
     <ClCompile Include="Glitch.cpp" />
     <ClCompile Include="Game\Level.cpp" />
-    <ClCompile Include="Game\MainMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\engineFoxtrot\engineFoxtrot.vcxproj">

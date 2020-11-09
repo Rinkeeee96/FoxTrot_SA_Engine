@@ -29,5 +29,8 @@ enum class EventType
 
 	Action,
 	CollisionEnd,
-	CollisionBegin
+	CollisionBegin,
+
+	// -- sprites events ----
+	LoadSprite,
 };

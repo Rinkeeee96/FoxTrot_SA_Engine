@@ -5,17 +5,18 @@
 class MainMenu : public Scene
 {
 public:
-	MainMenu() : Scene(1) {};
+	MainMenu() : Scene(1) { OnAttach(); };
 	~MainMenu();
+	// Inherited via Scene
+	virtual void OnAttach() override;
+	virtual void OnDetach() override;
+	virtual void Start() override;
 private:
 	vector<Button> buttons;
 
-	// Inherited via Scene
-	virtual void OnAttach() override;
-	virtual void Start() override;
-	virtual void OnDetach() override;
-
 	void OnStartBtnClick();
+	void LoadBackground();
+	void LoadMusic();
 };
 
 inline MainMenu::~MainMenu()
