@@ -35,8 +35,6 @@ public:
 	VideoEngine();
 	~VideoEngine();
 
-	//void initSDL();
-
 	void clearScreen();
 	void drawScreen();
 	void loadImage(const SpriteObject& spriteObject);
