@@ -173,7 +173,11 @@
     <ClInclude Include="Engine\ParticleSystem\ParticleAdapter.h" />
     <ClInclude Include="Engine\ParticleSystem\ParticleEngine.h" />
     <ClInclude Include="Engine\ParticleSystem\ParticleLib\ParticleInit.h" />
+<<<<<<< HEAD
     <ClInclude Include="Engine\FileParser\FileLoader.h" />
+=======
+    <ClInclude Include="Engine\Events\Action\ObjectStopEvent.h" />
+>>>>>>> d6a4b5716aa5bcedb32cda8274385788c9b8a18c
   </ItemGroup>
   <ItemGroup>
     <Text Include="Engine\Documentation\PointerUsage.md" />

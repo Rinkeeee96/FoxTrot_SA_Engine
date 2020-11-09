@@ -3,6 +3,7 @@
 #include "Events/EventSingleton.h"
 #include "PhysicsFacade.h"
 #include "PhysicsEngine.h"
+#include <Events\Action\ObjectStopEvent.h>
 
 /// @brief Constructor
 PhysicsEngine::PhysicsEngine()
@@ -10,6 +11,7 @@ PhysicsEngine::PhysicsEngine()
 	physicsFacade = new PhysicsFacade();
 	EventSingleton::get_instance().setEventCallback<AppTickEvent30>(BIND_EVENT_FN(PhysicsEngine::update30));
 	EventSingleton::get_instance().setEventCallback<ActionEvent>(BIND_EVENT_FN(PhysicsEngine::handleAction));
+	EventSingleton::get_instance().setEventCallback<ObjectStopEvent>(BIND_EVENT_FN(PhysicsEngine::stopObject));
 }
 
 /// @brief 
@@ -33,6 +35,11 @@ void PhysicsEngine::handleAction(Event& event) {
 		default:
 			break;
 	}
+}
+
+void PhysicsEngine::stopObject(Event& event) {
+	ObjectStopEvent e = static_cast<ObjectStopEvent&>(event);
+	physicsFacade->stopObject(e.GetObjectId());
 }
 
 /// @brief Destructor
