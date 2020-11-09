@@ -4,7 +4,9 @@
 /// @brief 
 InputEngine::InputEngine()
 {
-	//EventSingleton::get_instance().setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(InputEngine::onKeyPressed));
+#ifndef RUN_UNIT_TESTS
+	EventSingleton::get_instance().setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(InputEngine::onKeyPressed));
+#endif
 }
 
 /// @brief 
@@ -18,7 +20,9 @@ void InputEngine::onKeyPressed(Event& event) {
 	switch (keyPressedEvent.GetKeyCode())
 	{
 	case KeyCode::KEY_F12:
-		//EventSingleton::get_instance().dispatchEvent<FpsToggleEvent>((Event&)FpsToggleEvent());
+#ifndef RUN_UNIT_TESTS
+		EventSingleton::get_instance().dispatchEvent<FpsToggleEvent>((Event&)FpsToggleEvent());
+#endif
 		break;
 	default:
 		break;

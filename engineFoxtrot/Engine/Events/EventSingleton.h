@@ -8,10 +8,14 @@ using EventCallbackFn = function<void(Event&)>;
 class DLLEXPORT EventSingleton
 {
 public:
+#ifndef RUN_UNIT_TESTS
+    static EventSingleton& get_instance() { return instance; }
+#else
     EventSingleton& get_instance() { return *instance; }
+#endif
+    
 
     // prohibit copy & move
-    //EventSingleton() {};
     EventSingleton(const EventSingleton&) = delete;
     EventSingleton(EventSingleton&&) = delete;
     EventSingleton& operator=(const EventSingleton&) = delete;
@@ -55,7 +59,11 @@ public:
 
 private:
     map<string, vector<EventCallbackFn>> handlers = map<string, vector<EventCallbackFn>>();
-    EventSingleton *instance = new EventSingleton();
+#ifndef RUN_UNIT_TESTS
+    static EventSingleton instance;
+#else
+    EventSingleton *instance = nullptr;
+#endif
 
     EventSingleton() {}
 };

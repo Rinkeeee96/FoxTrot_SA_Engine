@@ -6,7 +6,9 @@
 /// @brief Constructor
 ParticleEngine::ParticleEngine()
 {
-	//EventSingleton::get_instance().setEventCallback<AppTickEvent60>(BIND_EVENT_FN(ParticleEngine::onUpdate));
+#ifndef RUN_UNIT_TESTS
+	EventSingleton::get_instance().setEventCallback<AppTickEvent60>(BIND_EVENT_FN(ParticleEngine::onUpdate));
+#endif
 }
 
 /// @brief Destructor

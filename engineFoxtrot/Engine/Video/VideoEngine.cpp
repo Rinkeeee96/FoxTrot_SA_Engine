@@ -6,8 +6,10 @@
 VideoEngine::VideoEngine()
 {
 	frameData = new FrameData;
-	//EventSingleton::get_instance().setEventCallback<AppTickEvent60>(BIND_EVENT_FN(VideoEngine::receiveTick));
-	//EventSingleton::get_instance().setEventCallback<FpsToggleEvent>(BIND_EVENT_FN(VideoEngine::toggleFps));
+#ifndef RUN_UNIT_TESTS
+	EventSingleton::get_instance().setEventCallback<AppTickEvent60>(BIND_EVENT_FN(VideoEngine::receiveTick));
+	EventSingleton::get_instance().setEventCallback<FpsToggleEvent>(BIND_EVENT_FN(VideoEngine::toggleFps));
+#endif
 }
 
 VideoEngine::~VideoEngine()

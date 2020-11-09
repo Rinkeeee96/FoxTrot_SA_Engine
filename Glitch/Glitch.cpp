@@ -171,8 +171,10 @@ int main() {
 		AppTickEvent30 appTick30;
 
 		engine.pollEvents();
-		//EventSingleton::get_instance().dispatchEvent<AppTickEvent60>(appTick);
-		//EventSingleton::get_instance().dispatchEvent<AppTickEvent30>(appTick30);
+#ifndef RUN_UNIT_TESTS
+		EventSingleton::get_instance().dispatchEvent<AppTickEvent60>(appTick);
+		EventSingleton::get_instance().dispatchEvent<AppTickEvent30>(appTick30);
+#endif
 
 		this_thread::sleep_for(chrono::milliseconds(10));
 	}

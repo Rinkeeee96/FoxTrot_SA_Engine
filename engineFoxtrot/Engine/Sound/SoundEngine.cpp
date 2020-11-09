@@ -182,8 +182,10 @@ bool SoundEngine::IdentifierIsLoaded(const string& identifier)
 }
 
 void SoundEngine::EventListners() {
-	//EventSingleton::get_instance().setEventCallback<OnMusicStartEvent>(BIND_EVENT_FN(SoundEngine::Event_StartEvent));
-	//EventSingleton::get_instance().setEventCallback<SoundAttachEvent>(BIND_EVENT_FN(SoundEngine::Event_AttachEvent));
+#ifndef RUN_UNIT_TESTS
+	EventSingleton::get_instance().setEventCallback<OnMusicStartEvent>(BIND_EVENT_FN(SoundEngine::Event_StartEvent));
+	EventSingleton::get_instance().setEventCallback<SoundAttachEvent>(BIND_EVENT_FN(SoundEngine::Event_AttachEvent));
+#endif
 }
 void SoundEngine::Event_StartEvent(Event& event) {
 	auto startEvent = static_cast<OnMusicStartEvent&>(event);

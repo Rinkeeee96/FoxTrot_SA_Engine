@@ -7,8 +7,10 @@
 PhysicsEngine::PhysicsEngine()
 {
 	physicsFacade = new PhysicsFacade();
-	//EventSingleton::get_instance().setEventCallback<AppTickEvent30>(BIND_EVENT_FN(PhysicsEngine::update30));
-	//EventSingleton::get_instance().setEventCallback<ActionEvent>(BIND_EVENT_FN(PhysicsEngine::handleAction));
+#ifndef RUN_UNIT_TESTS
+	EventSingleton::get_instance().setEventCallback<AppTickEvent30>(BIND_EVENT_FN(PhysicsEngine::update30));
+	EventSingleton::get_instance().setEventCallback<ActionEvent>(BIND_EVENT_FN(PhysicsEngine::handleAction));
+#endif
 }
 
 /// @brief 

@@ -15,9 +15,11 @@ Player::Player() : Object(2) {
 	this->setStatic(false);
 	this->setRotatable(false);
 
-	//EventSingleton::get_instance().setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Player::onCollisionBeginEvent));
-	//EventSingleton::get_instance().setEventCallback<OnCollisionEndEvent>(BIND_EVENT_FN(Player::onCollisionEndEvent));
-	//EventSingleton::get_instance().setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Player::onKeyPressed));
+#ifndef RUN_UNIT_TESTS
+	EventSingleton::get_instance().setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Player::onCollisionBeginEvent));
+	EventSingleton::get_instance().setEventCallback<OnCollisionEndEvent>(BIND_EVENT_FN(Player::onCollisionEndEvent));
+	EventSingleton::get_instance().setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Player::onKeyPressed));
+#endif
 }
 
 /// @brief 
@@ -80,8 +82,10 @@ void Player::onKeyPressed(Event& event) {
 	// TODO command pattern
 	switch (keyPressedEvent.GetKeyCode())
 	{
-	case KeyCode::KEY_A:
-			//EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::LEFT, this->getObjectId()));
+	case KeyCode::KEY_A:		
+#ifndef RUN_UNIT_TESTS
+			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::LEFT, this->getObjectId()));
+#endif
 			if (canJump)
 				this->changeToState(SpriteState::RUN_LEFT);
 			else if (this->getYAxisVelocity() > 0) 
@@ -90,7 +94,9 @@ void Player::onKeyPressed(Event& event) {
 				this->changeToState(SpriteState::AIR_JUMP_LEFT);
 		break;
 	case KeyCode::KEY_D:
-			//EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::RIGHT, this->getObjectId()));
+#ifndef RUN_UNIT_TESTS
+			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::RIGHT, this->getObjectId()));
+#endif
 			if (canJump) {
 				this->changeToState(SpriteState::RUN_RIGHT);
 			}
@@ -105,7 +111,9 @@ void Player::onKeyPressed(Event& event) {
 				this->changeToState(SpriteState::AIR_JUMP_RIGHT);
 			else
 				this->changeToState(SpriteState::AIR_JUMP_LEFT);
-			//EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
+#ifndef RUN_UNIT_TESTS
+			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
+#endif
 		}
 		break;
 	default:

@@ -4,6 +4,7 @@
 #define EXPORT				false
 #define DLLEXPORT			__declspec( dllexport )
 
+//#define RUN_UNIT_TESTS		true
 
 #define ZERO				0
 #define ONE					1

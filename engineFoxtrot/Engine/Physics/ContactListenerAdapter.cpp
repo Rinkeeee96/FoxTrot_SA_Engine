@@ -10,8 +10,9 @@ void ContactListenerAdapter::BeginContact(b2Contact* contact) {
 	auto result = facade->getObjectsByFixture(fixtureOne, fixtureTwo);
 	if (result.object1 != nullptr && result.object2 != nullptr) {
 		map<int, vector<Direction>> direction = getCollisionDirection(result);
-
-		//EventSingleton::get_instance().dispatchEvent<OnCollisionBeginEvent>((Event&)OnCollisionBeginEvent(result.object1->getObjectId(), result.object2->getObjectId(), direction));
+#ifndef RUN_UNIT_TESTS
+		EventSingleton::get_instance().dispatchEvent<OnCollisionBeginEvent>((Event&)OnCollisionBeginEvent(result.object1->getObjectId(), result.object2->getObjectId(), direction));
+#endif
 	}
 }
 
@@ -62,8 +63,9 @@ void ContactListenerAdapter::EndContact(b2Contact* contact) {
 	if (result.object1 != nullptr && result.object2 != nullptr) {
 
 		map<int, vector<Direction>> direction = getCollisionDirection(result);
-
-		//EventSingleton::get_instance().dispatchEvent<OnCollisionEndEvent>((Event&)OnCollisionEndEvent(result.object1->getObjectId(), result.object2->getObjectId(), direction));
+#ifndef RUN_UNIT_TESTS
+		EventSingleton::get_instance().dispatchEvent<OnCollisionEndEvent>((Event&)OnCollisionEndEvent(result.object1->getObjectId(), result.object2->getObjectId(), direction));
+#endif
 	}
 };
 
