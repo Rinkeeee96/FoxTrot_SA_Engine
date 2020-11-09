@@ -36,8 +36,10 @@ public:
 
 	unordered_map<int, SDL_Texture*> textureMap;
 
-	virtual void setXCameraOffset(int x) { xCameraOffset = x; }
-	virtual void setYCameraOffset(int y) { yCameraOffset = y; }
+	void setXCameraOffset(int x) override { xCameraOffset = x; }
+	void setYCameraOffset(int y) override { yCameraOffset = y; }
+	int getXCameraOffset() const { return xCameraOffset; };
+	int getYCameraOffset() const { return yCameraOffset; };
 	int xCameraOffset = 0;
 	int yCameraOffset = 0;
 

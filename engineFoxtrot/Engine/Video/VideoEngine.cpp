@@ -86,8 +86,8 @@ void VideoEngine::calculateOffset(Object& obj)
 	}
 
 
-	if (obj.getPositionX() >= (CAMERA_BOX_CENTER_X + (CAMERA_BOX_WIDTH / 2))) {
-		videoFacade->setXCameraOffset(obj.getPositionX() - (CAMERA_BOX_CENTER_X + (CAMERA_BOX_WIDTH / 2)));
+	if (obj.getPositionX() + obj.getWidth() >= (CAMERA_BOX_CENTER_X + (CAMERA_BOX_WIDTH / 2))) {
+		videoFacade->setXCameraOffset(obj.getPositionX() + obj.getWidth() - (CAMERA_BOX_CENTER_X + (CAMERA_BOX_WIDTH / 2)));
 	}
 	else if (obj.getPositionX() <= (CAMERA_BOX_CENTER_X - (CAMERA_BOX_WIDTH / 2))) {
 		videoFacade->setXCameraOffset(obj.getPositionX() - (CAMERA_BOX_CENTER_X - (CAMERA_BOX_WIDTH / 2)));
