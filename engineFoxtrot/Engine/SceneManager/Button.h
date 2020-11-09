@@ -28,24 +28,10 @@ public:
 		setHeight(height);
 	}
 
-	void mouseOver(Event& event) {
-		auto mouseOverEvent = static_cast<MouseMovedEvent&>(event);
-		int x = mouseOverEvent.GetX();
-		int y = mouseOverEvent.GetY();
-		
-		// TODO check if mouse is in bounds
-		
-	}
+	void mouseOver(Event& event);
+	void isClicked(Event& event);
 
-	void isClicked(Event& event) {
-		auto mousePressedEvent = static_cast<MouseButtonPressed&>(event);
 
-		if (isMouseOver && isEnabled)
-		{
-
-		}
-
-	}
 private:
 	bool isEnabled = true;
 	bool isMouseOver = false;
