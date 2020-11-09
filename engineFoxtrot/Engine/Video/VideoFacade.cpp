@@ -133,8 +133,6 @@ void VideoFacade::renderCopy(Object& object)
 
 	//generate stratch of image
 	SDL_Rect destination;
-	cout << "xCameraOffset: " << xCameraOffset << endl;
-	cout << "yCameraOffset: " << yCameraOffset << endl;
 	destination.x = (int)object.getPositionX() - xCameraOffset;
 	destination.y = (int)object.getPositionY() - (int)object.getHeight() - yCameraOffset;
 	destination.w = (int)object.getWidth();
