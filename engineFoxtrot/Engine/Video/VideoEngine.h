@@ -15,6 +15,11 @@
 #define Y_POSITION_TOP_OF_SCREEN 0
 #define FPS_Y_POSITION_OFFSET 36
 
+#define CAMERA_BOX_HEIGHT		350
+#define CAMERA_BOX_WIDTH		350
+#define CAMERA_BOX_CENTER_X		960
+#define CAMERA_BOX_CENTER_Y		540
+
 struct API Sprite
 {
 	int spriteID = 0;
@@ -49,7 +54,7 @@ public:
 
 	void drawParticle(ParticleAdapter* part);
 
-	void calculateOffset(Object& obj));
+	void calculateOffset(Object& obj);
 
 	Scene** pointerToCurrentScene = nullptr;
 
@@ -58,5 +63,8 @@ private:
 
 	FrameData* frameData = nullptr;
 	bool shouldDrawFps = false;
+
+	int xCameraOffset = 0;
+	int yCameraOffset = 0;
 
 };

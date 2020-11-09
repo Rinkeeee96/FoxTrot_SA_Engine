@@ -77,7 +77,17 @@ void VideoEngine::calculateOffset(Object& obj)
 		return;
 	}
 
+	if (obj.getPositionX() < (CAMERA_BOX_CENTER_X + (CAMERA_BOX_WIDTH / 2)) || obj.getPositionX() > (CAMERA_BOX_CENTER_X - CAMERA_BOX_WIDTH / 2))
+	{
+		return;
+	}
 
+	if (obj.getPositionY() < (CAMERA_BOX_CENTER_Y + CAMERA_BOX_HEIGHT / 2) || obj.getPositionY() > (CAMERA_BOX_CENTER_Y - CAMERA_BOX_HEIGHT / 2))
+	{
+		return;
+	}
+
+	cout << "Object is out of bounds" << endl;
 
 }
 
@@ -159,7 +169,6 @@ void VideoEngine::receiveTick(Event& tickEvent)
 	//tickEvent = static_cast<AppTickEvent&>(tickEvent);
 	frameData->startTimer();
 	clearScreen();
-	calculateOffset();
 	updateScreen();
 
 	drawFps();
