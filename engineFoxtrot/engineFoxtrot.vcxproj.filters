@@ -179,6 +179,7 @@
     <ClInclude Include="Engine\ParticleSystem\ParticleEngine.h" />
     <ClInclude Include="Engine\ParticleSystem\ParticleLib\ParticleInit.h" />
     <ClInclude Include="Engine\SceneManager\Button.h" />
+    <ClInclude Include="Engine\Events\Video\VideoLoadSpriteEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Engine\Documentation\PointerUsage.md" />

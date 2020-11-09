@@ -2,6 +2,7 @@
 #include "Engine.h"
 #include <Events\AppTickEvent30.h>
 #include <Events\AppTickEvent60.h>
+#include <Events\Video\VideoLoadSpriteEvent.h>
 
 /// @brief 
 Engine::Engine()
@@ -114,4 +115,14 @@ void Engine::loadSprite(const SpriteObject& spriteObject) {
 	if (!exists)
 		throw ERROR_CODE_IMAGE_FILE_NOT_FOUND;
 	videoEngine.loadImage(spriteObject);
+}
+
+
+void Engine::EventListners() {
+	EventSingleton::get_instance().setEventCallback<VideoLoadSpriteEvent>(BIND_EVENT_FN(Engine::Event_LoadSprite));
+}
+
+void Engine::Event_LoadSprite(Event& event) {
+	auto loadEvent = static_cast<VideoLoadSpriteEvent&>(event);
+	this->loadSprite(loadEvent.GetSpriteObject());
 }
