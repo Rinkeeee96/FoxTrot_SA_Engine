@@ -4,6 +4,7 @@
 #include "Events/AppTickEvent30.h"
 #include "Events/AppTickEvent60.h"
 #include "Events/Action/OnCollisionEvent.h"
+#include "Events/EventSingleton.h"
 // ----- engine core ----------------------
 #include "Engine/General/ErrorCodes.h"
 // ----- individual engines ----------------
