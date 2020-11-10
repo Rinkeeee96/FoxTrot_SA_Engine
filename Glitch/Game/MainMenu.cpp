@@ -24,9 +24,11 @@ void MainMenu::OnAttach()
 }
 
 void MainMenu::LoadButtons() {
+	auto mainSprite = new SpriteObject(1, 40, 116, 1, 300, "Assets/Buttons/btn_green_round.png");
+
 	Button* startBtn = new Button(1, "start", Color(0, 0, 0), BIND_FN(OnStartBtnClick));
 	startBtn->setSize(200, 50);
-	startBtn->registerSprite(SpriteState::DEFAULT, new SpriteObject(1, 40, 116, 1, 300, "Assets/Buttons/btn_green_round.png"));
+	startBtn->registerSprite(SpriteState::DEFAULT, mainSprite);
 	startBtn->changeToState(SpriteState::DEFAULT);
 	startBtn->setPositionX(CENTER_X - startBtn->getWidth() / 2);
 	startBtn->setPositionY(CENTER_Y - startBtn->getHeight() / 2);
@@ -39,9 +41,26 @@ void MainMenu::LoadButtons() {
 	stopBtn->setPositionX(MAX_X - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(MAX_Y - 10 - stopBtn->getHeight());
 
-	addNewObjectToLayer(3, startBtn);
+	Button* loadBtn = new Button(3, "Load", Color(0, 0, 0), BIND_FN(OnLoadBtnClick));
+	loadBtn->setSize(200, 50);
+	loadBtn->registerSprite(SpriteState::DEFAULT, mainSprite);
+	loadBtn->changeToState(SpriteState::DEFAULT);
+	loadBtn->setPositionX(CENTER_X - loadBtn->getWidth() / 2);
+	loadBtn->setPositionY(CENTER_Y - loadBtn->getHeight() / 2 + 100);
+	loadBtn->disable();
 
+	Button* creditsBtn = new Button(4, "Credits", Color(0, 0, 0), BIND_FN(OnCreditsBtnClick));
+	creditsBtn->setSize(200, 50);
+	creditsBtn->registerSprite(SpriteState::DEFAULT, mainSprite);
+	creditsBtn->changeToState(SpriteState::DEFAULT);
+	creditsBtn->setPositionX(CENTER_X - creditsBtn->getWidth() / 2);
+	creditsBtn->setPositionY(CENTER_Y - creditsBtn->getHeight() / 2 + 200);
+	creditsBtn->disable();
+
+	addNewObjectToLayer(3, startBtn);
 	addNewObjectToLayer(3, stopBtn);
+	addNewObjectToLayer(3, loadBtn);
+	addNewObjectToLayer(3, creditsBtn);
 }
 
 void MainMenu::LoadBackground() {
@@ -95,11 +114,18 @@ void MainMenu::OnDetach()
 
 void MainMenu::OnStartBtnClick()
 {
-	cout << "clickeroo" << endl;
+	cout << "Start BTN" << endl;
 }
 
 void MainMenu::OnStopBtnClick() {
-	cout << "STOP" << endl;
 	auto event = WindowCloseEvent();
 	EventSingleton::get_instance().dispatchEvent<WindowCloseEvent>(event);
+}
+
+void MainMenu::OnCreditsBtnClick() {
+	cout << "Start Credit" << endl;
+}
+
+void MainMenu::OnLoadBtnClick() {
+	cout << "Start Load game BTN" << endl;
 }

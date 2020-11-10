@@ -19,6 +19,8 @@ private:
 	//button functions
 	void OnStartBtnClick();
 	void OnStopBtnClick();
+	void OnCreditsBtnClick();
+	void OnLoadBtnClick();
 };
 
 inline MainMenu::~MainMenu()
