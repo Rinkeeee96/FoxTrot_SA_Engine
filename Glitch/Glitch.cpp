@@ -53,7 +53,7 @@ void sceneTestSetup()
 	Object* object2 = new Player();
 	object2->setStatic(false);
 	object2->setPositionX(800);
-	object2->setPositionY(300);
+	object2->setPositionY(100);
 	object2->registerSprite(SpriteState::DEFAULT, so1);
 	object2->registerSprite(SpriteState::AIR_ATTACK, so2);
 	object2->registerSprite(SpriteState::RUN_RIGHT, so3);
