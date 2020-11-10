@@ -5,12 +5,12 @@ void Game::run() {
 	TestLevelBuilder testLevelBuilder = TestLevelBuilder(engine);
 	builderDirector.construct(&testLevelBuilder);
 	auto testLevel = testLevelBuilder.getLevel();
-	engine.setCurrentScene(100);
 	testLevel->start();
 
 	LevelBuilder levelOneBuilder = LevelBuilder(engine);
 	builderDirector.construct(&levelOneBuilder);
 	auto levelOne = levelOneBuilder.getLevel();
+	engine.setCurrentScene(levelOne->getSceneID());
 
 	engine.startTickThreads();
 	while (gameRunning)

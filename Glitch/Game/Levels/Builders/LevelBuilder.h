@@ -115,7 +115,40 @@ public:
 					}
 					if (layerValue["name"] == "Ground") {
 						// TODO
-						int o = 0;
+						cout << "Tiles: " << layerValue["data"].size() << endl;
+						int tileNum = 1;
+						int currentX = 0;
+						int currentY = 0;
+						for (int tileId : layerValue["data"]) {
+							cout << "#" << tileNum << " / x: " << currentX << " / y: " << currentY << endl;
+							tileNum++;
+
+							if (tileId != 0) {
+								IGround* tile = new BaseGround(id++);
+
+								// TODO get width and height from json
+								tile->setWidth(16);
+								tile->setHeight(16);
+								tile->setStatic(true);
+								tile->setPositionX(currentX * 16);
+								tile->setPositionX(currentY * 16);
+
+								SpriteObject* tileSprite = new SpriteObject(1, 16, 16, 1, 300, textureMap[tileId].c_str());
+								engine.loadSprite(*tileSprite);
+
+								tile->registerSprite(SpriteState::DEFAULT, tileSprite);
+								tile->changeToState(SpriteState::DEFAULT);
+
+								bLevel->addNewObjectToLayer(1, tile);
+							}
+
+							if (currentX == (layerValue["width"] - 1)) {
+								currentY++;
+								currentX = 0;
+								continue;
+							}
+							currentX++;
+						}
 					}
 					if (layerValue["name"] == "Entities")
 					{
@@ -132,7 +165,8 @@ public:
 										object = new Slime(id++);
 									}
 									else {
-										throw std::exception("invalid type");
+										object = new Slime(id++);
+										//throw std::exception("invalid type");
 									}
 								}
 							}
