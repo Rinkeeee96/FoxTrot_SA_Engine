@@ -7,6 +7,7 @@
 #include <Engine\Events\Sound\SoundAttachEvent.h>
 #include <Engine\Events\Sound\OnMusicStartEvent.h>
 #include <Engine\Events\Sound\OnMusicStopEvent.h>
+#include <Engine\Events\Window\WindowCloseEvent.h>
 
 #define BIND_FN(function) std::bind(&MainMenu::function, *this)
 #define MAX_X 1920
@@ -99,5 +100,6 @@ void MainMenu::OnStartBtnClick()
 
 void MainMenu::OnStopBtnClick() {
 	cout << "STOP" << endl;
-	exit(100);
+	auto event = WindowCloseEvent();
+	EventSingleton::get_instance().dispatchEvent<WindowCloseEvent>(event);
 }

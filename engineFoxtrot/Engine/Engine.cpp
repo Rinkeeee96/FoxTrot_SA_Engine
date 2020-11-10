@@ -104,8 +104,8 @@ void Engine::stopTickThreads()
 	//engineTick60Thread->join();
 	//stopThreadTick60 = true;
 
-	engineTick30Thread->join();
-	stopThreadTick30 = true;
+	//engineTick30Thread->join();
+	//stopThreadTick30 = true;
 }
 
 /// @brief 
