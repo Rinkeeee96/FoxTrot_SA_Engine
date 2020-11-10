@@ -17,7 +17,7 @@ void InputEngine::onKeyPressed(Event& event) {
 
 	switch (keyPressedEvent.GetKeyCode())
 	{
-	case KeyCode::KEY_F12:
+	case KeyCode::KEY_F1:
 		EventSingleton::get_instance().dispatchEvent<FpsToggleEvent>((Event&)FpsToggleEvent());
 		break;
 	default:
