@@ -61,9 +61,10 @@ vector <Drawable*> Scene::getAllDrawablesInScene()
 	{
 		for (size_t i = 0; i < (*layer).second->objects.size(); i++)
 		{
-			Object* object = (*layer).second->objects[i];
-			if (typeid(*object) == typeid(Drawable))
-				returnVector.push_back((Drawable*)object);
+
+			Drawable* drawable = dynamic_cast<Drawable*> ((*layer).second->objects[i]);
+			if (drawable != nullptr)
+				returnVector.push_back(drawable);
 		}
 	}
 	return returnVector;
