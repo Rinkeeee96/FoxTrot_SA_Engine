@@ -30,7 +30,7 @@ public:
 		// TODO make dynamic from json
 		Level* bLevel = new Level(1);
 
-		auto filestream = fileLoader.readFile("C:\\Users\\Max van Nistelrooij\\Documents\\Tiled\\SWA Foxtrot Game\\Maps\\Level 1 - Simple.json");
+		auto filestream = fileLoader.readFile("C:\\Users\\thijs\\Downloads\\Level 1 - Simple (1).json");
 		nlohmann::json json;
 		filestream >> json;
 		filestream.close();
@@ -112,6 +112,19 @@ public:
 					}
 					if (layerValue["name"] == "Properties") {
 						// TODO
+						for (auto& [objectKey, objectValue] : layerValue["objects"].items())
+						{
+							for (auto& [objectPropertyKey, objectPropertyValue] : objectValue["properties"].items())
+							{
+								if (objectPropertyValue["name"] == "music") {
+									string music = objectPropertyValue["value"];
+									map<string, string> sound = {
+										{"Leve_Sound", "Assets/Sound/" + music},
+									};
+									bLevel->setSound(sound);
+								}
+							}
+						}
 					}
 					if (layerValue["name"] == "Ground") {
 						// TODO
@@ -125,10 +138,10 @@ public:
 							for (auto& [objectPropertyKey, objectPropertyValue] : objectValue["properties"].items())
 							{
 								if (objectPropertyValue["name"] == "type") {
-									if (objectPropertyKey == "player") {
+									if (objectPropertyValue["value"] == "player") {
 										object = new Player(id++);
 									}
-									else if (objectPropertyKey == "slime") {
+									else if (objectPropertyValue["value"] == "slime") {
 										object = new Slime(id++);
 									}
 									else {
@@ -149,29 +162,33 @@ public:
 							for (auto& [objectPropertyKey, objectPropertyValue] : objectValue["properties"].items())
 							{
 								if (objectPropertyValue["name"] == "density") {
-									object->setDensity(stringToFloat(objectPropertyKey));
+									int densityString = objectPropertyValue["value"];
+									object->setDensity(densityString);
 								}
 								if (objectPropertyValue["name"] == "friction") {
-									object->setFriction(stringToFloat(objectPropertyKey));
+									int frictionString = objectPropertyValue["value"];
+									object->setFriction(frictionString);
 								}
 								if (objectPropertyValue["name"] == "jump_height") {
-									object->setJumpHeight(stringToFloat(objectPropertyKey));
+									string jump_heightString = objectPropertyValue["value"];
+									object->setJumpHeight(stringToFloat(jump_heightString));
 								}
 								if (objectPropertyValue["name"] == "restitution") {
-									object->setRestitution(stringToFloat(objectPropertyKey));
+									int restitutionString = objectPropertyValue["value"];
+									object->setRestitution(restitutionString);
 								}
 								if (objectPropertyValue["name"] == "speed") {
-									object->setSpeed(stringToFloat(objectPropertyKey));
+									string speedString = objectPropertyValue["value"];
+									object->setSpeed(stringToFloat(speedString));
 								}
 								if (objectPropertyValue["name"] == "health") {
-									object->setHealth(std::stoi(objectPropertyKey));
+									string healthString = objectPropertyValue["value"];
+									object->setHealth(std::stoi(healthString));
 								}
 							}
 							bLevel->addNewObjectToLayer(3, object);
 						}
 					}
-
-					
 				}
 			}
 		}
