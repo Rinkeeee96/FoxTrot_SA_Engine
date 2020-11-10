@@ -4,7 +4,14 @@
 #include <nlohmann\json.hpp>
 
 class LevelBuilder : public AbstractLevelBuilder {
+
+#define TILESET_PATH "Assets/Levels/Tilesets/"
+#define TILE_IMAGE_PATH "Assets/Levels/Tiles/"
+
 private:
+
+	map<int, string> textureMap;
+
 	float stringToFloat(string stringToParse) {
 		try {
 			return std::stod(stringToParse);
@@ -25,7 +32,7 @@ public:
 		};
 		Level* bLevel = new Level(1, soundL1);
 
-		auto filestream = fileLoader.readFile("C:\\Users\\thijs\\Downloads\\Level 1 - Simple.json");
+		auto filestream = fileLoader.readFile("C:\\Users\\Max van Nistelrooij\\Documents\\Tiled\\SWA Foxtrot Game\\Maps\\Level 1 - Simple.json");
 		nlohmann::json json;
 		filestream >> json;
 		filestream.close();
@@ -115,18 +122,31 @@ public:
 			}
 			// Tiles
 			if (key == "tilesets") {
-				Object* tile = new BaseGround(id++);
-				tile->setScalable(true);
-				tile->setWidth(json["tilewidth"]);
-				tile->setHeight(json["tileheight"]);
-				// TODO position
-				tile->setPositionX(20); 
-				tile->setPositionY(300);
-				tile->setStatic(true);
-				// TODO sprite
-				tile->registerSprite(SpriteState::DEFAULT, so0);
-				tile->changeToState(SpriteState::DEFAULT);
-				bLevel->addNewObjectToLayer(1, tile);
+				for (auto& [tileKey, tileValue] : value.items()) {
+					int currentGid = tileValue["firstgid"];
+					const string& source = tileValue["source"];
+					const string& filename = std::filesystem::path(source).filename().string();
+					const string& tilesetPath = TILESET_PATH + filename;
+
+					auto tilesetFileStream = fileLoader.readFile(tilesetPath);
+					nlohmann::json tilesetJson;
+					tilesetFileStream >> tilesetJson;
+					tilesetFileStream.close();
+
+					for (auto& [tilesetKey, tilesetValue] : tilesetJson.items()) {
+						if (tilesetKey == "tiles") {
+							for (auto& [spriteKey, spriteValue] : tilesetValue.items()) {
+
+								const string& spriteSource = spriteValue["image"];
+								const string& spriteFilename = std::filesystem::path(spriteSource).filename().string();
+								const string& spritePath = TILE_IMAGE_PATH + spriteFilename;
+
+								textureMap.insert(pair<int, string>(currentGid, spritePath));
+								currentGid++;
+							}
+						}
+					}
+				}
 			}
 		}
 		
@@ -134,5 +154,3 @@ public:
 		level = unique_ptr<Level>(bLevel);
 	}
 };
-
-
