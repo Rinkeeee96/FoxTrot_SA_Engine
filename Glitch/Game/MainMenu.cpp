@@ -9,24 +9,38 @@
 #include <Engine\Events\Sound\OnMusicStopEvent.h>
 
 #define BIND_FN(function) std::bind(&MainMenu::function, *this)
-#define CENTER_X  1920 / 2
-#define CENTER_Y 1080 / 2
+#define MAX_X 1920
+#define MAX_Y 1080
+
+#define CENTER_X  (MAX_X / 2)
+#define CENTER_Y (MAX_Y / 2)
 
 void MainMenu::OnAttach()
 {
+	LoadButtons();
+	LoadBackground();
+	LoadMusic();
+}
+
+void MainMenu::LoadButtons() {
 	Button* startBtn = new Button(1, "start", Color(0, 0, 0), BIND_FN(OnStartBtnClick));
-	
 	startBtn->setSize(200, 50);
 	startBtn->registerSprite(SpriteState::DEFAULT, new SpriteObject(1, 40, 116, 1, 300, "Assets/Buttons/btn_green_round.png"));
 	startBtn->changeToState(SpriteState::DEFAULT);
-	startBtn->setPositionX(CENTER_X - startBtn->getWidth()/2);
-	startBtn->setPositionY(CENTER_Y - startBtn->getHeight()/2);
+	startBtn->setPositionX(CENTER_X - startBtn->getWidth() / 2);
+	startBtn->setPositionY(CENTER_Y - startBtn->getHeight() / 2);
+
+
+	Button* stopBtn = new Button(2, "stop", Color(0, 0, 0), BIND_FN(OnStopBtnClick));
+	stopBtn->setSize(200, 50);
+	stopBtn->registerSprite(SpriteState::DEFAULT, new SpriteObject(2, 40, 116, 1, 300, "Assets/Buttons/btn_red_round.png"));
+	stopBtn->changeToState(SpriteState::DEFAULT);
+	stopBtn->setPositionX(MAX_X - 40 - stopBtn->getWidth());
+	stopBtn->setPositionY(MAX_Y - 10 - stopBtn->getHeight());
 
 	addNewObjectToLayer(3, startBtn);
 
-	LoadBackground();
-	LoadMusic();
-
+	addNewObjectToLayer(3, stopBtn);
 }
 
 void MainMenu::LoadBackground() {
@@ -81,4 +95,9 @@ void MainMenu::OnDetach()
 void MainMenu::OnStartBtnClick()
 {
 	cout << "clickeroo" << endl;
+}
+
+void MainMenu::OnStopBtnClick() {
+	cout << "STOP" << endl;
+	exit(100);
 }

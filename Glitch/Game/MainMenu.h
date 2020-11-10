@@ -12,9 +12,13 @@ public:
 	virtual void OnDetach() override;
 	virtual void Start() override;
 private:
-	void OnStartBtnClick();
 	void LoadBackground();
 	void LoadMusic();
+	void LoadButtons();
+
+	//button functions
+	void OnStartBtnClick();
+	void OnStopBtnClick();
 };
 
 inline MainMenu::~MainMenu()
