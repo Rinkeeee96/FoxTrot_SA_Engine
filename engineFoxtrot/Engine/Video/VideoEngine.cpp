@@ -70,36 +70,38 @@ void VideoEngine::renderCopy(Object& object) {
 	}
 }
 
-void VideoEngine::calculateOffset(Object& obj)
+void VideoEngine::calculateOffset(Object& obj, int sceneWidth, int sceneHeight)
 {
+	int cameraCenterX		= CAMERA_BOX_CENTER_X + videoFacade->getXCameraOffset();
+	int cameraCenterY		= CAMERA_BOX_CENTER_Y + videoFacade->getYCameraOffset();
+	int localCameraCenterX	= CAMERA_BOX_CENTER_X + (obj.getPositionX() + obj.getWidth() - (CAMERA_BOX_CENTER_X + (CAMERA_BOX_WIDTH / 2)));
+	int localCameraCenterY	= CAMERA_BOX_CENTER_Y + (obj.getPositionX() + obj.getWidth() - (CAMERA_BOX_CENTER_X + (CAMERA_BOX_WIDTH / 2)));
+
 	if (obj.getObjectId() != 2)
 	{
 		return;
 	}
 
-	int CameraCenterX = CAMERA_BOX_CENTER_X + videoFacade->getXCameraOffset();
-	int CameraCenterY = CAMERA_BOX_CENTER_Y + videoFacade->getYCameraOffset();
-
-	if (obj.getPositionX() + obj.getWidth() < (CameraCenterX + (CAMERA_BOX_WIDTH / 2))
-		&& obj.getPositionX() > (CameraCenterX - (CAMERA_BOX_WIDTH / 2))
-		&& obj.getPositionY() < (CameraCenterY + (CAMERA_BOX_HEIGHT / 2))
-		&& obj.getPositionY() - obj.getHeight()> (CameraCenterY - (CAMERA_BOX_HEIGHT / 2)))
+	if (obj.getPositionX() + obj.getWidth()  < (cameraCenterX + (CAMERA_BOX_WIDTH / 2))  &&
+		obj.getPositionX()					 > (cameraCenterX - (CAMERA_BOX_WIDTH / 2))  &&
+		obj.getPositionY()					 < (cameraCenterY + (CAMERA_BOX_HEIGHT / 2)) &&
+		obj.getPositionY() - obj.getHeight() > (cameraCenterY - (CAMERA_BOX_HEIGHT / 2)))
 	{
 		return;
 	}
 
 
-	if (obj.getPositionX() + obj.getWidth() >= (CameraCenterX + (CAMERA_BOX_WIDTH / 2))) {
+	if (obj.getPositionX() + obj.getWidth() >= (cameraCenterX + (CAMERA_BOX_WIDTH / 2)) && (localCameraCenterX < -obj.getWidth() + sceneWidth - (WINDOW_WIDTH / 2))) {
 		videoFacade->setXCameraOffset(obj.getPositionX() + obj.getWidth() - (CAMERA_BOX_CENTER_X + (CAMERA_BOX_WIDTH / 2)));
 	}
-	else if (obj.getPositionX() <= (CameraCenterX - (CAMERA_BOX_WIDTH / 2))) {
+	else if (obj.getPositionX() <= (cameraCenterX - (CAMERA_BOX_WIDTH / 2)) && (localCameraCenterX > ((WINDOW_WIDTH / 2) - (CAMERA_BOX_WIDTH/4*3)))) {
 		videoFacade->setXCameraOffset(obj.getPositionX() - (CAMERA_BOX_CENTER_X - (CAMERA_BOX_WIDTH / 2)));
 	}
 
-	if (obj.getPositionY() >= (CameraCenterY + (CAMERA_BOX_HEIGHT / 2))) {
+	if (obj.getPositionY() >= (cameraCenterY + (CAMERA_BOX_HEIGHT / 2)) && !(localCameraCenterY > sceneHeight - (WINDOW_HEIGHT / 2))) {
 		videoFacade->setYCameraOffset(obj.getPositionY()- (CAMERA_BOX_CENTER_Y + (CAMERA_BOX_HEIGHT / 2)));
 	}
-	else if (obj.getPositionY() - obj.getHeight() <= (CameraCenterY - (CAMERA_BOX_HEIGHT / 2))) {
+	else if (obj.getPositionY() - obj.getHeight() <= (cameraCenterY - (CAMERA_BOX_HEIGHT / 2)) && !(localCameraCenterY > WINDOW_HEIGHT / 2)) {
 		videoFacade->setYCameraOffset(obj.getPositionY() - obj.getHeight() - (CAMERA_BOX_CENTER_Y - (CAMERA_BOX_HEIGHT / 2)));
 	}
 
@@ -116,7 +118,7 @@ void VideoEngine::updateScreen()
 		if ((*pointerToCurrentScene)->getAllObjectsInScene().size() <= 0) return;
 		for (Object* obj : (*pointerToCurrentScene)->getAllObjectsInScene()) {
 			if (obj != nullptr) {
-				calculateOffset(*obj);
+				calculateOffset(*obj, (*pointerToCurrentScene)->getSceneWidth(), (*pointerToCurrentScene)->getSceneHeight());
 				if (obj->getIsParticle())
 				{
 					drawParticle((ParticleAdapter*)obj);

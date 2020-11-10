@@ -48,7 +48,7 @@ void sceneTestSetup()
 		{"Level_1_Sound", "Assets/Sound/file_example_WAV_1MG.wav"},
 	};
 
-	Level* testScene = new Level(100, soundL1);
+	Level* testScene = new Level(100, 1080, 5000, soundL1);
 
 	Object* object2 = new Player();
 	object2->setStatic(false);

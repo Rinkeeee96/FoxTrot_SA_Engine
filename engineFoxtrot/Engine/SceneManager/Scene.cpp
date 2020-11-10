@@ -3,7 +3,7 @@
 
 /// @brief 
 /// @param sceneID 
-Scene::Scene(const int id) : sceneID(id)
+Scene::Scene(const int id, int _sceneHeight, int _sceneWidth) : sceneID(id), sceneHeight(_sceneHeight), sceneWidth(_sceneWidth)
 {
 
 }
@@ -100,4 +100,24 @@ Object * Scene::getObject(const int objectID)
 		}
 	}
 	throw ERROR_CODE_SCENE_NO_OBJECT_FOUND;
+}
+
+void Scene::setSceneWidth(int width)
+{
+	sceneWidth = width;
+}
+
+int Scene::getSceneWidth() const
+{
+	return sceneWidth;
+}
+
+void Scene::setSceneHeight(int height)
+{
+	sceneHeight = height;
+}
+
+int Scene::getSceneHeight() const
+{
+	return sceneHeight;
 }

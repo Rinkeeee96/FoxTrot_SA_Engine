@@ -52,7 +52,7 @@ public:
 
 	void drawParticle(ParticleAdapter* part);
 
-	void calculateOffset(Object& obj);
+	void calculateOffset(Object& obj, int sceneWidth, int sceneHeight);
 
 	Scene** pointerToCurrentScene = nullptr;
 
