@@ -131,13 +131,10 @@ public:
 								if (objectPropertyValue["name"] == "speed") {
 									object->setSpeed(stringToFloat(objectPropertyKey));
 								}
-								// TODO Health
 								if (objectPropertyValue["name"] == "health") {
-									object->setHealth(objectValue["name"]);
+									object->setHealth(std::stoi(objectPropertyKey));
 								}
 							}
-
-							// TODO fix based on Tiled
 							bLevel->addNewObjectToLayer(3, object);
 						}
 					}
