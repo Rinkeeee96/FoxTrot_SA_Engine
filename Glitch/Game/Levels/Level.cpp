@@ -24,7 +24,7 @@ void Level::setSound(map<string, string> _sounds)
 void Level::onAttach() {
 	for (const auto& s : sounds) {
 		if(DEBUG_MAIN)std::cout << s.first << " has value " << s.second << std::endl;
-		EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent(s.first, s.second));
+		//EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent(s.first, s.second));
 	}
 }
 /// @brief

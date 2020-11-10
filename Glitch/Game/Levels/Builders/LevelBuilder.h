@@ -30,32 +30,24 @@ public:
 		// TODO make dynamic from json
 		Level* bLevel = new Level(1);
 
-		auto filestream = fileLoader.readFile("C:\\Users\\thijs\\Downloads\\Level 1 - Simple (1).json");
+		auto filestream = fileLoader.readFile("C:\\Users\\Max van Nistelrooij\\Documents\\Tiled\\SWA Foxtrot Game\\Maps\\Level 1 - Simple.json");
 		nlohmann::json json;
 		filestream >> json;
 		filestream.close();
 
-		// TODO load sprites like this for reusability
-		map<string, vector<SpriteObject*>> sprites;
-		int spriteIds = 0;
-		if (sprites.count("Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png") > 0) {
-			sprites["Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png"].push_back(new SpriteObject(spriteIds++, 16, 16, 1, 300, "Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png"));
-		}
-		else {
-			sprites["Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png"] = {};
-			sprites["Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png"].push_back(new SpriteObject(spriteIds++, 16, 16, 1, 300, "Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png"));
-		}
 		// TODO read from somewhere
-		SpriteObject* so0 = new SpriteObject(1, 16, 16, 1, 300, "Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png");
-		SpriteObject* so1 = new SpriteObject(100, 37, 50, 1, 300, "Assets/Sprites/Character/adventure.png");
+		SpriteObject* so0 = new SpriteObject(1, 16, 16, 1, 150, "Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png");
+		SpriteObject* so1 = new SpriteObject(100, 37, 50, 1, 150, "Assets/Sprites/Character/adventure.png");
 		SpriteObject* so2 = new SpriteObject(101, 37, 50, 4, 300, "Assets/Sprites/Character/adventure_air_attack1.png");
-		SpriteObject* so3 = new SpriteObject(102, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png");
+		SpriteObject* so3 = new SpriteObject(102, 37, 50, 6, 150, "Assets/Sprites/Character/adventure_run_right.png");
 		SpriteObject* so4 = new SpriteObject(103, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_slide.png");
 		SpriteObject* so5 = new SpriteObject(104, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_fall_left.png");
 		SpriteObject* so8 = new SpriteObject(107, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_fall_right.png");
 		SpriteObject* so6 = new SpriteObject(105, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_jump_left.png");
-		SpriteObject* so7 = new SpriteObject(106, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_left.png");
+		SpriteObject* so7 = new SpriteObject(106, 37, 50, 6, 150, "Assets/Sprites/Character/adventure_run_left.png");
 		SpriteObject* so9 = new SpriteObject(108, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_jump_right.png");
+		SpriteObject* so10 = new SpriteObject(109, 37, 50, 1, 150, "Assets/Levels/Tiles/slime_blue.png");
+
 		engine.loadSprite(*so0);
 		engine.loadSprite(*so1);
 		engine.loadSprite(*so2);
@@ -66,6 +58,7 @@ public:
 		engine.loadSprite(*so7);
 		engine.loadSprite(*so8);
 		engine.loadSprite(*so9);
+		engine.loadSprite(*so10);
 
 		int id = 0;
 		int zMin = 0;
@@ -144,9 +137,9 @@ public:
 								tile->setHeight(16);
 								tile->setStatic(true);
 								tile->setPositionX(currentX * 16);
-								tile->setPositionX(currentY * 16);
+								tile->setPositionY(currentY * 16);
 
-								SpriteObject* tileSprite = new SpriteObject(1, 16, 16, 1, 300, textureMap[tileId].c_str());
+								SpriteObject* tileSprite = new SpriteObject(tileNum + 300, 16, 16, 1, 300, textureMap[tileId].c_str());
 								engine.loadSprite(*tileSprite);
 
 								tile->registerSprite(SpriteState::DEFAULT, tileSprite);
@@ -173,12 +166,26 @@ public:
 								if (objectPropertyValue["name"] == "type") {
 									if (objectPropertyValue["value"] == "player") {
 										object = new Player(id++);
+										object->registerSprite(SpriteState::DEFAULT, so1);
+										object->registerSprite(SpriteState::AIR_ATTACK, so2);
+										object->registerSprite(SpriteState::RUN_RIGHT, so3);
+										object->registerSprite(SpriteState::SLIDE, so4);
+										object->registerSprite(SpriteState::AIR_FALL_LEFT, so5);
+										object->registerSprite(SpriteState::AIR_JUMP_LEFT, so6);
+										object->registerSprite(SpriteState::AIR_FALL_RIGHT, so8);
+										object->registerSprite(SpriteState::AIR_JUMP_RIGHT, so9);
+										object->registerSprite(SpriteState::RUN_LEFT, so7);
+										object->changeToState(SpriteState::DEFAULT);
 									}
 									else if (objectPropertyValue["value"] == "slime") {
 										object = new Slime(id++);
+										object->registerSprite(SpriteState::DEFAULT, so10);
+										object->changeToState(SpriteState::DEFAULT);
 									}
 									else {
 										object = new Slime(id++);
+										object->registerSprite(SpriteState::DEFAULT, so10);
+										object->changeToState(SpriteState::DEFAULT);
 										//throw std::exception("invalid type");
 									}
 								}
@@ -191,6 +198,9 @@ public:
 							object->setPositionX(objectValue["x"]);
 							object->setPositionY(objectValue["y"]);
 							object->setStatic(false);
+
+
+
 							// TODO sprites
 
 							for (auto& [objectPropertyKey, objectPropertyValue] : objectValue["properties"].items())
