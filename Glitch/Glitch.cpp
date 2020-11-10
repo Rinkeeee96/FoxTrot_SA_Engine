@@ -5,6 +5,7 @@
 #include "./Game/SpriteState.h"
 #include "./Game/Player/Player.h"
 #include "Game/MainMenu.h"
+#include <Engine\Events\Window\WindowCloseEvent.h>
 
 // TODO engine.h & engine.cpp
 
@@ -15,6 +16,7 @@
 // https://computingonplains.wordpress.com/doxygen-and-visual-studio/
 
 Engine engine;
+bool gameRunning = true;
 
 void sceneTestSetup()
 {
@@ -168,10 +170,15 @@ void TestMainMenu() {
 	engine.setCurrentScene(1);
 	mainMenu->Start();
 }
+
+void StopLoop(Event& event) {
+	gameRunning = false;
+}
+
 int main() {
 	//sceneTestSetup();
 	TestMainMenu();
-	bool gameRunning = true;
+	EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(StopLoop);
 
 	engine.startTickThreads();
 	while (gameRunning)
