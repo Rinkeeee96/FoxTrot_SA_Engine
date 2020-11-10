@@ -17,6 +17,9 @@ class Level : public Scene
 {
 public:
 	Level(const int id, map<string, string> sounds);
+	Level(const int id);
+
+	virtual void setSound(map<string, string> sounds);
 	virtual void onAttach() override;
 	virtual void start() override;
 	virtual void pause();

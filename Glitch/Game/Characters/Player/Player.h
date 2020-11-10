@@ -23,9 +23,6 @@ public:
 	void onKeyReleased(Event& event);
 
 	void onUpdate() override {};
-
-	bool getCanJump() const;
-	void setCanJump(bool val);
 private:
 	bool canJump = false;
 };

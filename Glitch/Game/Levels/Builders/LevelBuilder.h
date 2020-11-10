@@ -27,10 +27,7 @@ public:
 		FileLoader fileLoader;
 
 		// TODO make dynamic from json
-		map<string, string> soundL1 = {
-			{"Level_1_Sound", "Assets/Sound/file_example_WAV_1MG.wav"},
-		};
-		Level* bLevel = new Level(1, soundL1);
+		Level* bLevel = new Level(1);
 
 		auto filestream = fileLoader.readFile("C:\\Users\\Max van Nistelrooij\\Documents\\Tiled\\SWA Foxtrot Game\\Maps\\Level 1 - Simple.json");
 		nlohmann::json json;
@@ -78,45 +75,73 @@ public:
 			if (key == "layers") {
 				for (auto& [layerKey, layerValue] : value.items()) 
 				{
-					for (auto& [objectKey, objectValue] : layerValue["objects"].items())
+					if (layerKey == "Background")
 					{
-						// TODO player or enemy?
-						Object* object = new Slime(id++);
-						object->setName(objectValue["name"]);
-						object->setHeight(objectValue["height"]);
-						object->setWidth(objectValue["width"]);
-						object->setRotation(objectValue["rotation"]);
-						object->setPositionX(objectValue["x"]);
-						object->setPositionY(objectValue["y"]);
-						object->setStatic(false);
-						// TODO sprites
-
-						for (auto& [objectPropertyKey, objectPropertyValue] : objectValue["properties"].items())
-						{
-							if (objectPropertyValue["name"] == "density") {
-								object->setDensity(stringToFloat(objectPropertyKey));
-							}
-							if (objectPropertyValue["name"] == "friction") {
-								object->setFriction(stringToFloat(objectPropertyKey));
-							}
-							if (objectPropertyValue["name"] == "jump_height") {
-								object->setJumpHeight(stringToFloat(objectPropertyKey));
-							}
-							if (objectPropertyValue["name"] == "restitution") {
-								object->setRestitution(stringToFloat(objectPropertyKey));
-							}
-							if (objectPropertyValue["name"] == "speed") {
-								object->setSpeed(stringToFloat(objectPropertyKey));
-							}
-							// TODO Health
-							if (objectPropertyValue["name"] == "health") {
-							}
-						}
-
-						// TODO fix based on Tiled
-						if(layerKey == "background") bLevel->addNewObjectToLayer(zMin++, object);
-						else bLevel->addNewObjectToLayer(zMax--, object);
+						// TODO
 					}
+					if (layerKey == "Properties") {
+						// TODO
+					}
+					if (layerKey == "Ground") {
+						// TODO
+					}
+					if (layerKey == "Entities")
+					{
+						for (auto& [objectKey, objectValue] : layerValue["objects"].items())
+						{
+							ICharacter* object = nullptr;
+							for (auto& [objectPropertyKey, objectPropertyValue] : objectValue["properties"].items())
+							{
+								if (objectPropertyValue["name"] == "type") {
+									if (objectPropertyKey == "player") {
+										object = new Player(id++);
+									}
+									else if (objectPropertyKey == "slime") {
+										object = new Slime(id++);
+									}
+									else {
+										throw std::exception("invalid type");
+									}
+								}
+							}
+
+							object->setName(objectValue["name"]);
+							object->setHeight(objectValue["height"]);
+							object->setWidth(objectValue["width"]);
+							object->setRotation(objectValue["rotation"]);
+							object->setPositionX(objectValue["x"]);
+							object->setPositionY(objectValue["y"]);
+							object->setStatic(false);
+							// TODO sprites
+
+							for (auto& [objectPropertyKey, objectPropertyValue] : objectValue["properties"].items())
+							{
+								if (objectPropertyValue["name"] == "density") {
+									object->setDensity(stringToFloat(objectPropertyKey));
+								}
+								if (objectPropertyValue["name"] == "friction") {
+									object->setFriction(stringToFloat(objectPropertyKey));
+								}
+								if (objectPropertyValue["name"] == "jump_height") {
+									object->setJumpHeight(stringToFloat(objectPropertyKey));
+								}
+								if (objectPropertyValue["name"] == "restitution") {
+									object->setRestitution(stringToFloat(objectPropertyKey));
+								}
+								if (objectPropertyValue["name"] == "speed") {
+									object->setSpeed(stringToFloat(objectPropertyKey));
+								}
+								// TODO Health
+								if (objectPropertyValue["name"] == "health") {
+									object->setHealth(objectValue["name"]);
+								}
+							}
+
+							// TODO fix based on Tiled
+							bLevel->addNewObjectToLayer(3, object);
+						}
+					}
+
 					
 				}
 			}

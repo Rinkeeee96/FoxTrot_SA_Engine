@@ -8,6 +8,15 @@ Level::Level(const int id, map<string, string> _sounds = map<string, string>()) 
 
 }
 
+Level::Level(const int id) : Scene::Scene(id)
+{
+}
+
+void Level::setSound(map<string, string> _sounds)
+{
+	sounds = _sounds;
+}
+
 /// @brief
 /// OnAttach is executed when a scene is "attached" to the current running context
 /// usually this is can be used to prime a level with relevant data before starting it.
