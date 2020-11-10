@@ -4,13 +4,13 @@
 #include "Events/Mouse/MousePressed.h"
 #include "SceneManager/Objects/Drawable.h"
 #include "Structs/HelperStructs.h"
+#include <any>
 
 class API Button : public Drawable
 {
 public:
-	Button(int id, string _text, Color _color, const function<void(void)> _onClick) :
+	Button(int id, ColoredString _text, const function<void(void)> _onClick) :
 		Drawable(id), 
-		color(_color), 
 		text(_text),
 		onClick(_onClick)
 	{
@@ -20,10 +20,7 @@ public:
 		EventSingleton::get_instance().setEventCallback<MouseMovedEvent>(BIND_EVENT_FN(Button::mouseOver));
 	}
 
-	const string& getText() { return text; }
-	const Color& getColor() { return color; }
-
-	void updateText(string updatedText) { text = updatedText; }
+	const ColoredString& getText() { return text; }
 
 	void disable() { isEnabled = false; }
 	void enable() { isEnabled = true; }
@@ -36,6 +33,14 @@ public:
 	void mouseOver(Event& event);
 	void isClicked(Event& event);
 
+	// TODO	 https://stackoverflow.com/questions/26208918/vector-that-can-have-3-different-data-types-c
+	vector<std::any> draw() override {
+		return {
+			text,
+			currentSprite
+		};
+	}
+
 private:
 	bool isEnabled = true;
 	bool isMouseOver = false;
@@ -43,7 +48,6 @@ private:
 
 	const function<void(void)> onClick;
 
-	Color color;
-	string text;
+	ColoredString text;
 };
 

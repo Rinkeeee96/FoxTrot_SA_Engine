@@ -2,6 +2,8 @@
 #include "SceneManager/Objects/Object.h"
 #include <Events\EventSingleton.h>
 #include <Events\Video\VideoLoadSpriteEvent.h>
+#include <any>
+#include <any>
 class API Drawable : public Object
 {
 public:
@@ -28,8 +30,9 @@ public:
 		this->currentSprite = spriteObject;
 	}
 
-	bool getIsParticle() { return isParticle; }
+	virtual vector<any> draw() = 0;
 
+	bool getIsParticle() { return isParticle; }
 protected:
 	// TODO	particle related things
 	const bool isParticle = false;
