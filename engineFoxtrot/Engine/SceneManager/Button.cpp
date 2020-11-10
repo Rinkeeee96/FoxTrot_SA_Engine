@@ -9,8 +9,8 @@ void Button::mouseOver(Event& event) {
 
 	isMouseOver = (mousePositionX >= positionX &&
 				mousePositionX <= (positionX + width) &&
-				mousePositionY >= positionY &&
-				mousePositionY <= (positionY + height));
+				mousePositionY >= (positionY - height) &&
+				mousePositionY <= positionY);
 
 	if (isMouseOver)
 	{
