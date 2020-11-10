@@ -14,8 +14,6 @@ public:
 	void API setName(const string val);
 	string API getName() const;
 
-	int API getSpriteID() const;
-
 	void API setPositionX(const float);
 	float API getPositionX() const;
 	
@@ -77,6 +75,8 @@ public:
 	API void setChanged(const bool c);
 
 	API bool getIsParticle();
+
+	virtual void onUpdate() = 0;
 	
 protected:
 

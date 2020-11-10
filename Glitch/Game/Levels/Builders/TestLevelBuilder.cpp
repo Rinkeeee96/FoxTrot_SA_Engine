@@ -30,7 +30,7 @@ void TestLevelBuilder::create()
 
 	Level* testScene = new Level(100, soundL1);
 
-	Object* object = new Object(1);
+	Object* object = new Slime(1);
 	object->setName("person1");
 	object->setHeight(100);
 	object->setWidth(100);
@@ -47,7 +47,7 @@ void TestLevelBuilder::create()
 	object->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, object);
 
-	Object* object2 = new Player();
+	Object* object2 = new Player(2);
 	object2->setStatic(false);
 	object2->registerSprite(SpriteState::DEFAULT, so1);
 	object2->registerSprite(SpriteState::AIR_ATTACK, so2);
@@ -62,7 +62,7 @@ void TestLevelBuilder::create()
 	testScene->addNewObjectToLayer(1, object2);
 
 
-	Object* staticGround = new Object(101);
+	Object* staticGround = new BaseGround(101);
 	staticGround->setScalable(true);
 	staticGround->setWidth(500); // width
 	staticGround->setHeight(10);// height
@@ -100,7 +100,7 @@ void TestLevelBuilder::create()
 
 	testScene->addNewObjectToLayer(2, particle2);
 
-	Object* staticGround2 = new Object(102);
+	Object* staticGround2 = new BaseGround(102);
 	staticGround2->setWidth(100); // width
 	staticGround2->setHeight(80);// height
 	staticGround2->setPositionX(220); // x 20 left down
@@ -111,7 +111,7 @@ void TestLevelBuilder::create()
 	staticGround2->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, staticGround2);
 
-	Object* staticGround3 = new Object(119);
+	Object* staticGround3 = new BaseGround(119);
 	staticGround3->setScalable(true);
 	staticGround3->setWidth(30); // width
 	staticGround3->setHeight(80);// height
@@ -122,7 +122,7 @@ void TestLevelBuilder::create()
 	staticGround3->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, staticGround3);
 
-	Object* staticGround4 = new Object(120);
+	Object* staticGround4 = new BaseGround(120);
 	staticGround4->setScalable(true);
 	staticGround4->setWidth(30); // width
 	staticGround4->setHeight(140);// height

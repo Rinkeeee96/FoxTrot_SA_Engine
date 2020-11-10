@@ -1,18 +1,12 @@
 #include "Game.h"
-#include "Levels/Builders/ILevelBuilder.h"
-#include "Levels/Builders/LevelBuilderDirector.h"
-#include "Levels/Builders/TestLevelBuilder.h"
-#include "Levels/Builders/LevelBuilder.h"
 
 void Game::run() {
 	LevelBuilderDirector builderDirector;
 	TestLevelBuilder testLevelBuilder = TestLevelBuilder(engine);
 	builderDirector.construct(&testLevelBuilder);
 	auto testLevel = testLevelBuilder.getLevel();
-
 	engine.setCurrentScene(100);
 	testLevel->start();
-
 
 	LevelBuilder levelOneBuilder = LevelBuilder(engine);
 	builderDirector.construct(&levelOneBuilder);
@@ -27,6 +21,11 @@ void Game::run() {
 		engine.pollEvents();
 		EventSingleton::get_instance().dispatchEvent<AppTickEvent60>(appTick);
 		EventSingleton::get_instance().dispatchEvent<AppTickEvent30>(appTick30);
+
+		for (Object* obj : engine.getCurrentScene()->getAllObjectsInScene())
+		{
+			obj->onUpdate();
+		}
 
 		this_thread::sleep_for(chrono::milliseconds(10));
 	}

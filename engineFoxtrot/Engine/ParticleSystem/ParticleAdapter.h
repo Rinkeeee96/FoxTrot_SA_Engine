@@ -10,6 +10,7 @@ public:
 	API ParticleAdapter(const int id) : Object(id, true) {};
 	API ~ParticleAdapter() {};
 
+	API void onUpdate() override {};
 private:
 
 };

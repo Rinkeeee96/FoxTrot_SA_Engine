@@ -1,7 +1,6 @@
 #include "Player.h"
-#include <Engine\Events\Action\ObjectStopEvent.h>
 
-Player::Player() : Object(2) {
+Player::Player(const int id) : ICharacter(id) {
 	this->setName("person");
 	this->setHeight(80);
 	this->setWidth(80);

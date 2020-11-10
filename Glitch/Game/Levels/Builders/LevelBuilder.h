@@ -1,5 +1,5 @@
 #pragma once
-#include "./AbstractLevelBuilder.h"
+#include "Game/Levels/Builders/AbstractLevelBuilder.h"
 #include <Engine\FileParser\FileLoader.h>
 #include <nlohmann\json.hpp>
 
@@ -74,7 +74,7 @@ public:
 					for (auto& [objectKey, objectValue] : layerValue["objects"].items())
 					{
 						// TODO player or enemy?
-						Object* object = new Object(id++);
+						Object* object = new Slime(id++);
 						object->setName(objectValue["name"]);
 						object->setHeight(objectValue["height"]);
 						object->setWidth(objectValue["width"]);
@@ -115,7 +115,7 @@ public:
 			}
 			// Tiles
 			if (key == "tilesets") {
-				Object* tile = new Object(id++);
+				Object* tile = new BaseGround(id++);
 				tile->setScalable(true);
 				tile->setWidth(json["tilewidth"]);
 				tile->setHeight(json["tileheight"]);

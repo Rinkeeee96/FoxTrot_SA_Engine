@@ -1,10 +1,12 @@
 #pragma once
 #include <api.h>
-#include "../SpriteState.h"
+#include <Engine\Events\Action\ObjectStopEvent.h>
+#include "Game/Characters/ICharacter.h"
+#include "Game/SpriteState.h"
 
-class Player : public Object {
+class Player : public ICharacter {
 public:
-	Player();
+	Player(const int id);
 	/// @brief 
 	/// Handles when an collision event begins, when the direction of the collision happend on the bottom side of the player object,
 	/// set can jump true
@@ -19,6 +21,8 @@ public:
 	void onKeyPressed(Event& event);
 
 	void onKeyReleased(Event& event);
+
+	void onUpdate() override {};
 
 	bool getCanJump() const;
 	void setCanJump(bool val);

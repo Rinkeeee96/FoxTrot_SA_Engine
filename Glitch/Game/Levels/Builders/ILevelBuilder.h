@@ -1,7 +1,9 @@
 #pragma once
-#include "../Level.h"
-#include "../../SpriteState.h"
-#include "../../Player/Player.h"
+#include "Game/Levels/Level.h"
+#include "Game/SpriteState.h"
+#include "Game/Characters/Player/Player.h"
+#include "Game/Characters/Enemies/Slime.h"
+#include "Game/Ground/BaseGround.h"
 
 class ILevelBuilder
 {

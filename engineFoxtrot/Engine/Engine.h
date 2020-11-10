@@ -27,8 +27,8 @@ public:
 	API ~Engine();
 
 //private:
-	API void engineTick60();
-	API void engineTick30();
+	/*API void engineTick60();
+	API void engineTick30();*/
 	API void startTickThreads();
 	API void stopTickThreads();
 
@@ -40,6 +40,7 @@ public:
 
 	//SceneManager calls
 	API void setCurrentScene(const int sceneID);
+	API Scene* getCurrentScene();
 	API void insertScene(Scene * scene);
 
 	// Video calls

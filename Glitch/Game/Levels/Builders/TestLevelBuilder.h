@@ -1,5 +1,5 @@
 #pragma once
-#include "./AbstractLevelBuilder.h"
+#include "Game/Levels/Builders/AbstractLevelBuilder.h"
 
 class TestLevelBuilder : public AbstractLevelBuilder {
 public:

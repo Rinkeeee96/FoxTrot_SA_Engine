@@ -1,5 +1,5 @@
 #pragma once
-#include "./ILevelBuilder.h"
+#include "Game/Levels/Builders/ILevelBuilder.h"
 
 class AbstractLevelBuilder : public ILevelBuilder {
 protected:

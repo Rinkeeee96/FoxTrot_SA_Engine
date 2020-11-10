@@ -35,6 +35,11 @@ void Engine::setCurrentScene(const int sceneID)
 	}
 }
 
+Scene* Engine::getCurrentScene()
+{
+	return sceneManager.currentScene;
+}
+
 /// @brief 
 void Engine::pollEvents() 
 {
