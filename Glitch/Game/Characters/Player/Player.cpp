@@ -133,6 +133,3 @@ void Player::onKeyReleased(Event& event)
 			EventSingleton::get_instance().dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->objectId));
 	}
 }
-
-bool Player::getCanJump() const { return this->canJump; };
-void Player::setCanJump(bool val) { this->canJump = val; }

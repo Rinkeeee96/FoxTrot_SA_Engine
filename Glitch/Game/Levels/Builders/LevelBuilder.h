@@ -11,6 +11,7 @@ class LevelBuilder : public AbstractLevelBuilder {
 private:
 
 	map<int, string> textureMap;
+	
 
 	float stringToFloat(string stringToParse) {
 		try {
@@ -69,23 +70,54 @@ public:
 		int id = 0;
 		int zMin = 0;
 		int zMax = 100;
+		for (auto& [key, value] : json.items()) {
+			// Tiles
+			if (key == "tilesets") {
+				for (auto& [tileKey, tileValue] : value.items()) {
+					int currentGid = tileValue["firstgid"];
+					const string& source = tileValue["source"];
+					const string& filename = std::filesystem::path(source).filename().string();
+					const string& tilesetPath = TILESET_PATH + filename;
+
+					auto tilesetFileStream = fileLoader.readFile(tilesetPath);
+					nlohmann::json tilesetJson;
+					tilesetFileStream >> tilesetJson;
+					tilesetFileStream.close();
+
+					for (auto& [tilesetKey, tilesetValue] : tilesetJson.items()) {
+						if (tilesetKey == "tiles") {
+							for (auto& [spriteKey, spriteValue] : tilesetValue.items()) {
+
+								const string& spriteSource = spriteValue["image"];
+								const string& spriteFilename = std::filesystem::path(spriteSource).filename().string();
+								const string& spritePath = TILE_IMAGE_PATH + spriteFilename;
+
+								textureMap.insert(pair<int, string>(currentGid, spritePath));
+								currentGid++;
+							}
+						}
+					}
+				}
+			}
+		}
 
 		for (auto& [key, value] : json.items()) {
 			// Layers
 			if (key == "layers") {
 				for (auto& [layerKey, layerValue] : value.items()) 
 				{
-					if (layerKey == "Background")
+					if (layerValue["name"] == "Background")
 					{
 						// TODO
 					}
-					if (layerKey == "Properties") {
+					if (layerValue["name"] == "Properties") {
 						// TODO
 					}
-					if (layerKey == "Ground") {
+					if (layerValue["name"] == "Ground") {
 						// TODO
+						int o = 0;
 					}
-					if (layerKey == "Entities")
+					if (layerValue["name"] == "Entities")
 					{
 						for (auto& [objectKey, objectValue] : layerValue["objects"].items())
 						{
@@ -140,34 +172,6 @@ public:
 					}
 
 					
-				}
-			}
-			// Tiles
-			if (key == "tilesets") {
-				for (auto& [tileKey, tileValue] : value.items()) {
-					int currentGid = tileValue["firstgid"];
-					const string& source = tileValue["source"];
-					const string& filename = std::filesystem::path(source).filename().string();
-					const string& tilesetPath = TILESET_PATH + filename;
-
-					auto tilesetFileStream = fileLoader.readFile(tilesetPath);
-					nlohmann::json tilesetJson;
-					tilesetFileStream >> tilesetJson;
-					tilesetFileStream.close();
-
-					for (auto& [tilesetKey, tilesetValue] : tilesetJson.items()) {
-						if (tilesetKey == "tiles") {
-							for (auto& [spriteKey, spriteValue] : tilesetValue.items()) {
-
-								const string& spriteSource = spriteValue["image"];
-								const string& spriteFilename = std::filesystem::path(spriteSource).filename().string();
-								const string& spritePath = TILE_IMAGE_PATH + spriteFilename;
-
-								textureMap.insert(pair<int, string>(currentGid, spritePath));
-								currentGid++;
-							}
-						}
-					}
 				}
 			}
 		}
