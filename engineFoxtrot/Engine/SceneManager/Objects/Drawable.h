@@ -12,12 +12,11 @@ public:
 	SpriteObject& GetCurrentSprite() const { return *currentSprite; }
 
 	/// @brief
-	/// register a new state or overwrite a existing state
+	/// register a new state or overwrite a existing state and dispatch an event that signals to load the sprite in memory
 	/// register the spriteID
 	/// link a state with a sprite
 	void registerSprite(int state, SpriteObject* spriteObject) {
 		textures.insert(pair<int, SpriteObject*>(state, spriteObject));
-
 		EventSingleton::get_instance().dispatchEvent<VideoLoadSpriteEvent>((Event&)VideoLoadSpriteEvent(*spriteObject));
 	}
 	/// @brief
@@ -28,7 +27,6 @@ public:
 		if (spriteObject == nullptr) throw ERROR_CODE_SPRITE_DOESNT_EXIST;
 		this->currentSprite = spriteObject;
 	}
-
 
 	bool getIsParticle() { return isParticle; }
 
