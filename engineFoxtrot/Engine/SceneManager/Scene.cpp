@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Scene.h"
+#include <SceneManager\Objects\Drawable.h>
 
 /// @brief 
 /// @param sceneID 
@@ -48,6 +49,25 @@ const bool Scene::toggleLayer(const int zIndex, bool render)
 		return render;
 	}
 	return false;
+}
+
+/// @brief 
+/// Returns a filtered collection of all the drawables in the current scene TEMPORARY
+/// @return 
+vector <Drawable*> Scene::getAllDrawablesInScene()
+{
+	vector <Drawable*> returnVector;
+	for (auto layer = layers.begin(); layer != layers.end(); layer++)
+	{
+		for (size_t i = 0; i < (*layer).second->objects.size(); i++)
+		{
+			Object* object = (*layer).second->objects[i];
+
+			if (typeid(object) == typeid(Drawable))
+				returnVector.push_back((Drawable*)object);
+		}
+	}
+	return returnVector;
 }
 
 /// @brief 

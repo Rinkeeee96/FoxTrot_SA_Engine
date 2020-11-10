@@ -1,10 +1,10 @@
 #pragma once
-#include "./VideoFacade.h"
-#include "../Fps/FrameData.h"
-#include "./Structs/fpsStructs.h"
+#include "VideoFacade.h"
+#include "Fps/FrameData.h"
+#include "Structs/HelperStructs.h"
 #include "Events/Action/FpsToggleEvent.h"
-#include "../SceneManager/Scene.h"
-#include "../ParticleSystem/ParticleAdapter.h"
+#include "SceneManager/Scene.h"
+#include "ParticleSystem/ParticleAdapter.h"
 
 
 #define NO_RED 0
@@ -36,7 +36,7 @@ public:
 	void drawScreen();
 	void loadImage(const SpriteObject& spriteObject);
 
-	void renderCopy(Object& object);
+	void renderCopy(Drawable& drawable);
 
 	void updateScreen();
 
@@ -44,7 +44,6 @@ public:
 	void drawFps(double fps, int xPos, int yPos, const string& prefix);
 	void toggleFps(Event& fpsEvent);
 
-	void update(Object* object);
 	void receiveTick(Event& tickEvent);
 
 	void drawParticle(ParticleAdapter* part);

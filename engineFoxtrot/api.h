@@ -16,8 +16,10 @@
 
 // ----- scene manager --------------------
 #include "Engine/SceneManager/Layer.h"
-#include "Engine/SceneManager/Object.h"
 #include "Engine/SceneManager/Scene.h"
 #include "Engine/SceneManager/SceneManager.h"
+// ----- Objects / behavior --------------------
+#include "Engine/SceneManager/Objects/Object.h"
+#include "SceneManager/Objects/Drawable.h"
 // ----- main engine --------------------
 #include "Engine/Engine.h"

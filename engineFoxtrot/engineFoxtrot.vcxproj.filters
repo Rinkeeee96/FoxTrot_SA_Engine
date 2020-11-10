@@ -9,7 +9,6 @@
     <ClCompile Include="Engine\Input\InputEngine.cpp" />
     <ClCompile Include="Engine\stdafx.cpp" />
     <ClCompile Include="Engine\Events\EventSingleton.cpp" />
-    <ClCompile Include="Engine\SceneManager\Object.cpp" />
     <ClCompile Include="Engine\Physics\PhysicsBody.cpp" />
     <ClCompile Include="Engine\Physics\PhysicsEngine.cpp" />
     <ClCompile Include="Engine\Physics\PhysicsFacade.cpp" />
@@ -21,14 +20,15 @@
     <ClCompile Include="Engine\Sound\SoundEngine.cpp" />
     <ClCompile Include="Engine\Fps\FrameData.cpp" />
     <ClCompile Include="Engine\Physics\ContactListenerAdapter.cpp" />
-    <ClCompile Include="Engine\SceneManager\SpriteObject.cpp" />
-    <ClCompile Include="Engine\Structs\fpsStructs.cpp" />
     <ClCompile Include="Engine\Structs\fpsStructs.cpp" />
     <ClCompile Include="Engine\ParticleSystem\ParticleLib\Particle.cpp" />
     <ClCompile Include="Engine\ParticleSystem\ParticleAdapter.cpp" />
     <ClCompile Include="Engine\ParticleSystem\ParticleEngine.cpp" />
     <ClCompile Include="Engine\ParticleSystem\ParticleLib\ParticleInit.cpp" />
     <ClCompile Include="Engine\SceneManager\Button.cpp" />
+    <ClCompile Include="Engine\SceneManager\Objects\Object.cpp" />
+    <ClCompile Include="Engine\SceneManager\Objects\SpriteObject.cpp" />
+    <ClCompile Include="Engine\SceneManager\Objects\Drawable.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Engine.cpp">
@@ -112,7 +112,6 @@
     <ClInclude Include="Engine\Physics\IPhysicsFacade.h" />
     <ClInclude Include="Engine\stdafx.h" />
     <ClInclude Include="Engine\FileParser\JsonFacade.h" />
-    <ClInclude Include="Engine\SceneManager\Object.h" />
     <ClInclude Include="Engine\Physics\PhysicsBody.h" />
     <ClInclude Include="Engine\Physics\PhysicsEngine.h" />
     <ClInclude Include="Engine\Physics\PhysicsFacade.h" />
@@ -159,7 +158,6 @@
     <ClInclude Include="Engine\Fps\FrameData.h" />
     <ClInclude Include="Engine\Events\Action\OnCollisionEvent.h" />
     <ClInclude Include="Engine\Physics\ContactListenerAdapter.h" />
-    <ClInclude Include="Engine\SceneManager\SpriteObject.h" />
     <ClInclude Include="Engine\Events\Action\FpsToggleEvent.h" />
     <ClInclude Include="Engine\SceneManager\Layer.h" />
     <ClInclude Include="Main\Level.h" />
@@ -167,7 +165,6 @@
     <ClInclude Include="Engine\Events\Sound\BaseSoundEvent.h" />
     <ClInclude Include="Engine\Events\Sound\OnMusicStopEvent.h" />
     <ClInclude Include="Engine\Events\Sound\SoundAttachEvent.h" />
-    <ClInclude Include="Engine\Structs\fpsStructs.h" />
     <ClInclude Include="Main\SpriteState.h" />
     <ClInclude Include="Engine\Events\Action\FpsToggleEvent.h" />
     <ClInclude Include="Engine\Structs\fpsStructs.h" />
@@ -180,6 +177,10 @@
     <ClInclude Include="Engine\ParticleSystem\ParticleLib\ParticleInit.h" />
     <ClInclude Include="Engine\SceneManager\Button.h" />
     <ClInclude Include="Engine\Events\Video\VideoLoadSpriteEvent.h" />
+    <ClInclude Include="Engine\Structs\HelperStructs.h" />
+    <ClInclude Include="Engine\SceneManager\Objects\Object.h" />
+    <ClInclude Include="Engine\SceneManager\Objects\SpriteObject.h" />
+    <ClInclude Include="Engine\SceneManager\Objects\Drawable.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Engine\Documentation\PointerUsage.md" />

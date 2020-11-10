@@ -13,11 +13,13 @@ void Button::mouseOver(Event& event) {
 				mousePositionY <= (positionY + height));
 
 	if (isMouseOver)
-		cout << "hovering over button" << endl;
-	if (!isMouseOver)
 	{
-		cout << "not over buttons" << endl;
+		onMouseOver();
 	}
+}
+
+void Button::onMouseOver() {
+
 }
 
 void Button::isClicked(Event& event) {

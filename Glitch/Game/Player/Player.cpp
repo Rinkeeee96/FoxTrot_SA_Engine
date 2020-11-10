@@ -1,7 +1,6 @@
 #include "Player.h"
 
-Player::Player() : Object(2) {
-	this->setName("person");
+Player::Player(int _id): Drawable(_id) {
 	this->setHeight(80);
 	this->setWidth(80);
 	this->setPositionX(100);
@@ -15,6 +14,7 @@ Player::Player() : Object(2) {
 	this->setStatic(false);
 	this->setRotatable(false);
 
+	// TODO Place collision related event registration in Collidable base class and register virtual methods 
 	EventSingleton::get_instance().setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Player::onCollisionBeginEvent));
 	EventSingleton::get_instance().setEventCallback<OnCollisionEndEvent>(BIND_EVENT_FN(Player::onCollisionEndEvent));
 	EventSingleton::get_instance().setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Player::onKeyPressed));
@@ -58,6 +58,7 @@ void Player::onCollisionEndEvent(Event& event) {
 void Player::setYAxisVelocity(const float val) {
 
 	if (!canJump) {
+		// TODO do we need this after refactor?
 		if (val > 0 && !changed) {
 			if (this->getXAxisVelocity() > 0)
 				this->changeToState(SpriteState::AIR_FALL_RIGHT);

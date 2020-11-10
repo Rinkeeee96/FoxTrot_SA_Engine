@@ -18,8 +18,7 @@ ParticleEngine::~ParticleEngine()
 /// @param tickEvent tick event listening to
 void ParticleEngine::onUpdate(Event& tickEvent)
 {
-	if ((*pointerToCurrentScene)->getAllObjectsInScene().size() == 0) return;
-	for (Object * particle : (*pointerToCurrentScene)->getAllObjectsInScene()) {
+	for (Drawable * particle : (*pointerToCurrentScene)->getAllDrawablesInScene()) {
 		if (particle != nullptr && particle->getIsParticle()) {
 			((ParticleAdapter*)particle)->update();
 		}

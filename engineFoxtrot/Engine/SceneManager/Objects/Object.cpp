@@ -16,9 +16,6 @@ Object::~Object()
 
 int Object::getObjectId() const { return objectId; }
 
-void Object::setName(const string _name) { this->name = _name; }
-string Object::getName() const {return name;}
-
 void Object::setPositionX(const float x) { this->positionX = x; }
 float Object::getPositionX() const { return positionX; }
 
@@ -30,9 +27,6 @@ float Object::getRotation() const { return rotation; }
 
 void Object::setScale(const float s) { this->scale = s; }
 float Object::getScale() const { return scale; }
-
-void Object::setDirection(const float d) { this->direction = d; }
-float Object::getDirection() const { return direction; }
 
 void Object::setHeight(const float h) { this->height = h; }
 float Object::getHeight() const { return height; }
@@ -58,35 +52,8 @@ void Object::setSpeed(const float val) { this->speed = val; }
 float Object::getJumpHeight() const {return this->jumpHeight;}
 void Object::setJumpHeight(const float val) {	this->jumpHeight = val;}
 
-bool Object::getChanged() const { return changed; }
-
-bool Object::getIsParticle() { return isParticle; }
-
-void Object::setChanged(const bool c) { this->changed = c; }
-
 bool Object::getScalable() const { return this->scalable; }
 void Object::setScalable(const bool val) { this->scalable = val; }
-
-SpriteObject& Object::GetCurrentSprite() const { return *currentSprite; }
-
-/// @brief
-/// register a new state or overwrite a existing state
-/// register the spriteID
-/// link a state with a sprite
-void Object::registerSprite(int state, SpriteObject* spriteObject) {
-	textures.insert(pair<int, SpriteObject*>(state, spriteObject));
-
-	EventSingleton::get_instance().dispatchEvent<VideoLoadSpriteEvent>((Event&)VideoLoadSpriteEvent(*spriteObject));
-}
-
-/// @brief
-/// change the state
-/// change the textureID to the current state
-void Object::changeToState(const int state) {
-	SpriteObject* spriteObject = textures[state];
-	if (spriteObject == nullptr) throw ERROR_CODE_SPRITE_DOESNT_EXIST;
-	this->currentSprite = spriteObject;
-}
 
 float Object::getYAxisVelocity() const { return this->yAxisVelocity; }
 void Object::setYAxisVelocity(const float val) { this->yAxisVelocity = val; }

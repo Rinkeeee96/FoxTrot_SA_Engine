@@ -1,5 +1,5 @@
 #pragma once
-#include "SceneManager/Object.h"
+#include "SceneManager/Objects/Object.h"
 
 struct Pointf
 {

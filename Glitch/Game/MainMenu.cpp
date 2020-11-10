@@ -34,7 +34,7 @@ void MainMenu::LoadBackground() {
 	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(1001, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png");
 	SpriteObject* BG_LAYER_2 = new SpriteObject(1002, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_2.png");
 
-	Object* layer0 = new Object(1);
+	auto* layer0 = new Drawable(1);
 	layer0->setStatic(true);
 	layer0->setPositionX(1);
 	layer0->setPositionY(1080);
@@ -43,7 +43,7 @@ void MainMenu::LoadBackground() {
 	layer0->registerSprite(SpriteState::DEFAULT, BG_LAYER_0);
 	layer0->changeToState(SpriteState::DEFAULT);
 
-	Object* animation = new Object(2);
+	auto* animation = new Drawable(2);
 	animation->setStatic(true);
 	animation->setPositionX(175);
 	animation->setPositionY(875);
@@ -52,7 +52,7 @@ void MainMenu::LoadBackground() {
 	animation->registerSprite(SpriteState::DEFAULT, BG_LAYER_ADVENTRUE);
 	animation->changeToState(SpriteState::DEFAULT);
 
-	Object* layer2 = new Object(3);
+	auto* layer2 = new Drawable(3);
 	layer2->setStatic(true);
 	layer2->setPositionX(1);
 	layer2->setPositionY(1080);

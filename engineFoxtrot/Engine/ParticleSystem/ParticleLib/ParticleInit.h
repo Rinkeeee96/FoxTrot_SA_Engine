@@ -1,6 +1,6 @@
 #pragma once
 #include "Particle.h"
-#include "./SceneManager/Object.h"
+#include "SceneManager/Objects/Object.h"
 
 class ParticleInit : public Particle
 {

@@ -1,6 +1,7 @@
 #pragma once
 
-#include "Object.h"
+#include "Objects/Object.h"
+#include "Objects/Drawable.h"
 #include "Layer.h"
 #include "ParticleSystem/ParticleLib/ParticleInit.h"
 
@@ -18,6 +19,7 @@ public:
 	const bool API toggleLayer(const int zIndex, bool render);
 	const void API addNewObjectToLayer(const int zIndex,Object* object);
 
+	vector<Drawable*> API getAllDrawablesInScene();
 	vector <Object*> API getAllObjectsInScene();
 
 	Object API *getObject(const int objectID);
@@ -41,6 +43,4 @@ public:
 private:
 	const int sceneID = 0;
 	map<int, Layer*> layers;
-
-
 };

@@ -102,7 +102,7 @@ void VideoFacade::loadImage(const SpriteObject& spriteObject) {
 /// @brief 
 /// Takes the sprites from the Textuture map animated and copys them to the screen
 /// @param object 
-void VideoFacade::renderCopy(Object& object)
+void VideoFacade::renderCopy(Drawable& object)
 {	
 	SpriteObject& sprite = object.GetCurrentSprite();
 
@@ -168,13 +168,13 @@ void VideoFacade::drawParticle(ParticleData data, int spriteID)
 /// A Message struct containing the message and the color of the message
 /// @param pos
 /// A Position struct containing the position to draw the message at
-void VideoFacade::drawMessageAt(const FpsMessage message, const TextPosition pos)
+void VideoFacade::drawMessageAt(const ColoredString message, const Position pos)
 {
 	bool exists = std::filesystem::exists(FONT_PATH); // TODO dynamic fonts
 
 	if (exists) {
 
-		SDL_Color Color = { message.red, message.green, message.blue };
+		SDL_Color Color = { message.color.red, message.color.green, message.color.blue };
 		SDL_Surface* surfaceMessage = TTF_RenderText_Solid(Sans, message.text.c_str(), Color);
 		SDL_Texture* Message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 

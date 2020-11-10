@@ -59,7 +59,7 @@ void VideoEngine::loadImage(const SpriteObject& spriteObject)
 
 /// @brief Sets the sprite on the screen
 /// @param Object 
-void VideoEngine::renderCopy(Object& object) {
+void VideoEngine::renderCopy(Drawable& object) {
 	try
 	{
 		videoFacade->renderCopy(object);
@@ -79,7 +79,7 @@ void VideoEngine::updateScreen()
 		if (pointerToCurrentScene == nullptr) return;
 		//if (pointerToObjectVector->capacity() <= 0) return;
 		if ((*pointerToCurrentScene)->getAllObjectsInScene().size() <= 0) return;
-		for (Object* obj : (*pointerToCurrentScene)->getAllObjectsInScene()) {
+		for (Drawable* obj : (*pointerToCurrentScene)->getAllDrawablesInScene()) {
 			if (obj != nullptr) {
 				if (obj->getIsParticle())
 				{
@@ -120,8 +120,8 @@ void VideoEngine::drawFps(double fps, int xPos, int yPos, const string& prefix =
 	stre << prefix << fps;
 	string str = stre.str();
 	if (shouldDrawFps) {
-		FpsMessage m(str, NO_RED, NO_BLUE, NO_GREEN);
-		TextPosition p(xPos, yPos);
+		ColoredString m(str, Color(NO_RED, NO_BLUE, NO_GREEN));
+		Position p(xPos, yPos);
 		videoFacade->drawMessageAt(m, p);
 	}
 }
@@ -130,15 +130,6 @@ void VideoEngine::drawFps(double fps, int xPos, int yPos, const string& prefix =
 /// Toggles fps visibility
 void VideoEngine::toggleFps(Event& fpsEvent) {
 	shouldDrawFps = !shouldDrawFps;
-}
-
-/// @brief 
-/// Update function
-void VideoEngine::update(Object* object)
-{
-	clearScreen();
-	updateScreen();
-	drawScreen();
 }
 
 /// @brief Handle the tick update from the thread

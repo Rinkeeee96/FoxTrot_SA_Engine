@@ -2,14 +2,14 @@
 #include "Events/EventSingleton.h"
 #include "Events\Mouse\MouseMoved.h"
 #include "Events/Mouse/MousePressed.h"
-#include "SceneManager/Object.h"
-#include "Structs/Color.h"
+#include "SceneManager/Objects/Drawable.h"
+#include "Structs/HelperStructs.h"
 
-class API Button : public Object
+class API Button : public Drawable
 {
 public:
 	Button(int id, string _text, Color _color, const function<void(void)> _onClick) :
-		Object(id), 
+		Drawable(id), 
 		color(_color), 
 		text(_text),
 		onClick(_onClick)
@@ -39,6 +39,7 @@ public:
 private:
 	bool isEnabled = true;
 	bool isMouseOver = false;
+	void onMouseOver();
 
 	const function<void(void)> onClick;
 
