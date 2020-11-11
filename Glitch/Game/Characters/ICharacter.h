@@ -13,5 +13,4 @@ public:
 protected:
 	int health = 0;
 	bool canJump = false;
-	bool isDead = false;
 };
