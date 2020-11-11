@@ -30,7 +30,7 @@ public:
 		// TODO make dynamic from json
 		Level* bLevel = new Level(1);
 
-		auto filestream = fileLoader.readFile("C:\\Users\\Max van Nistelrooij\\Documents\\Tiled\\SWA Foxtrot Game\\Maps\\Level 1 - Simple.json");
+		auto filestream = fileLoader.readFile("C:\\Users\\thijs\\Downloads\\Level 1 - Simple - Large.json");
 		nlohmann::json json;
 		filestream >> json;
 		filestream.close();
@@ -96,28 +96,25 @@ public:
 
 		for (auto& [key, value] : json.items()) {
 			// Layers
+			if (value["name"] == "properties") {
+				for (auto& [objectPropertyKey, objectPropertyValue] : value["properties"].items())
+				{
+					if (objectPropertyValue["name"] == "music") {
+						string music = objectPropertyValue["value"];
+						map<string, string> sound = {
+							{"Leve_Sound", "Assets/Sound/" + music},
+						};
+						bLevel->setSound(sound);
+					}
+				}
+			}
+
 			if (key == "layers") {
 				for (auto& [layerKey, layerValue] : value.items()) 
 				{
 					if (layerValue["name"] == "Background")
 					{
 						// TODO
-					}
-					if (layerValue["name"] == "Properties") {
-						// TODO
-						for (auto& [objectKey, objectValue] : layerValue["objects"].items())
-						{
-							for (auto& [objectPropertyKey, objectPropertyValue] : objectValue["properties"].items())
-							{
-								if (objectPropertyValue["name"] == "music") {
-									string music = objectPropertyValue["value"];
-									map<string, string> sound = {
-										{"Leve_Sound", "Assets/Sound/" + music},
-									};
-									bLevel->setSound(sound);
-								}
-							}
-						}
 					}
 					if (layerValue["name"] == "Ground") {
 						// TODO
@@ -198,8 +195,6 @@ public:
 							object->setPositionX(objectValue["x"]);
 							object->setPositionY(objectValue["y"]);
 							object->setStatic(false);
-
-
 
 							// TODO sprites
 
