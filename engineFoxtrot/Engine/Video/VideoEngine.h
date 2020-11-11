@@ -11,6 +11,8 @@
 #define NO_BLUE 0
 #define NO_GREEN 0
 
+#define OFFSETFIX 275
+
 #define FPS_X_POSITION 999
 #define Y_POSITION_TOP_OF_SCREEN 0
 #define FPS_Y_POSITION_OFFSET 36

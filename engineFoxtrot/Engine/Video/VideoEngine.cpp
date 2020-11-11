@@ -96,17 +96,16 @@ void VideoEngine::calculateOffset(Object& obj, int sceneWidth, int sceneHeight)
 	if (obj.getPositionX() + obj.getWidth() >= (cameraCenterX + (CAMERA_BOX_WIDTH / 2)) && (localCameraCenterX < obj.getWidth() + sceneWidth - (WINDOW_WIDTH / 2))) {
 		videoFacade->setXCameraOffset(obj.getPositionX() + obj.getWidth() - (CAMERA_BOX_CENTER_X + (CAMERA_BOX_WIDTH / 2)));
 	}
-	else if (obj.getPositionX() <= (cameraCenterX - (CAMERA_BOX_WIDTH / 2)) && (localCameraCenterX > ((WINDOW_WIDTH / 2) - (CAMERA_BOX_WIDTH/4*3)))) {
+	else if (obj.getPositionX() <= (cameraCenterX - (CAMERA_BOX_WIDTH / 2)) && (localCameraCenterX > ((WINDOW_WIDTH / 2) - OFFSETFIX))) {
 		videoFacade->setXCameraOffset(obj.getPositionX() - (CAMERA_BOX_CENTER_X - (CAMERA_BOX_WIDTH / 2)));
 	}
 
-	if (obj.getPositionY() >= (cameraCenterY + (CAMERA_BOX_HEIGHT / 2))) {
+	if (obj.getPositionY() >= (cameraCenterY + (CAMERA_BOX_HEIGHT / 2)) && (localCameraCenterY < obj.getHeight() + sceneHeight - (WINDOW_HEIGHT / 2))) {
 		videoFacade->setYCameraOffset(obj.getPositionY()- (CAMERA_BOX_CENTER_Y + (CAMERA_BOX_HEIGHT / 2)));
 	}
-	else if (obj.getPositionY() - obj.getHeight() <= (cameraCenterY - (CAMERA_BOX_HEIGHT / 2))) {
+	else if (obj.getPositionY() - obj.getHeight() <= (cameraCenterY - (CAMERA_BOX_HEIGHT / 2)) && (localCameraCenterY > ((WINDOW_HEIGHT / 2) - OFFSETFIX))) {
 		videoFacade->setYCameraOffset(obj.getPositionY() - obj.getHeight() - (CAMERA_BOX_CENTER_Y - (CAMERA_BOX_HEIGHT / 2)));
 	}
-
 }
 
 /// @brief 

@@ -47,6 +47,6 @@ private:
 	const int sceneID = 0;
 	map<int, Layer*> layers;
 
-	const int sceneWidth = WINDOW_WIDTH;
-	const int sceneHeight = WINDOW_HEIGHT;
+	int sceneWidth = WINDOW_WIDTH;
+	int sceneHeight = WINDOW_HEIGHT;
 };

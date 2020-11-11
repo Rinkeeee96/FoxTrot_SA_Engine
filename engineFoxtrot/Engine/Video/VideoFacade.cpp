@@ -74,14 +74,6 @@ void VideoFacade::clearScreen()
 void VideoFacade::drawScreen()
 {
 	try {
-		// Todo remove
-		SDL_Rect r;
-		r.x = 785;
-		r.y = 365;
-		r.w = 350;
-		r.h = 350;
-		SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
-		SDL_RenderDrawRect(renderer, &r);
 		SDL_RenderPresent(renderer);
 	}
 	catch (...) {
