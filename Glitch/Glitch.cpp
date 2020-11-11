@@ -81,7 +81,7 @@ void sceneTestSetup()
 	staticGround->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, staticGround);
 
-	staticGround = new Object(101);
+	staticGround = new Object(102);
 	staticGround->setScalable(true);
 	staticGround->setWidth(500); // width
 	staticGround->setHeight(10);// height
@@ -92,7 +92,7 @@ void sceneTestSetup()
 	staticGround->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, staticGround);
 
-	staticGround = new Object(101);
+	staticGround = new Object(103);
 	staticGround->setScalable(true);
 	staticGround->setWidth(500); // width
 	staticGround->setHeight(10);// height
@@ -103,7 +103,7 @@ void sceneTestSetup()
 	staticGround->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, staticGround);
 
-	staticGround = new Object(101);
+	staticGround = new Object(104);
 	staticGround->setScalable(true);
 	staticGround->setWidth(5000); // width
 	staticGround->setHeight(10);// height
@@ -114,7 +114,7 @@ void sceneTestSetup()
 	staticGround->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, staticGround);
 
-	staticGround = new Object(101);
+	staticGround = new Object(105);
 	staticGround->setScalable(true);
 	staticGround->setWidth(250); // width
 	staticGround->setHeight(10);// height
@@ -136,12 +136,12 @@ void sceneTestSetup()
 	particle1->setStyle(ParticleInit::ParticleStyle::FIRE);    // set the example effects
 	testScene->addNewObjectToLayer(4, particle1);
 
-	ParticleAdapter* particle2 = new ParticleAdapter(11);        // create a new particle system pointer
+	ParticleAdapter* particle2 = new ParticleAdapter(12);        // create a new particle system pointer
 	particle2->registerSprite(SpriteState::DEFAULT, particle1Sprite);
 	particle2->changeToState(SpriteState::DEFAULT);
 	particle2->setPositionX(100);
 	particle2->setPositionY(384);
-	particle2->setStyle(ParticleInit::ParticleStyle::EXPLOSION);    // set the example effects
+	particle2->setStyle(ParticleInit::ParticleStyle::FIRE);    // set the example effects
 	testScene->addNewObjectToLayer(2, particle2);
 
 	Object* staticGround2 = new Object(119);
@@ -156,7 +156,7 @@ void sceneTestSetup()
 	staticGround2->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, staticGround2);
 
-	Object* staticGround3 = new Object(119);
+	Object* staticGround3 = new Object(120);
 	staticGround3->setScalable(true);
 	staticGround3->setWidth(30); // width
 	staticGround3->setHeight(80);// height
@@ -167,7 +167,7 @@ void sceneTestSetup()
 	staticGround3->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, staticGround3);
 
-	Object* staticGround4 = new Object(120);
+	Object* staticGround4 = new Object(121);
 	staticGround4->setScalable(true);
 	staticGround4->setWidth(30); // width
 	staticGround4->setHeight(140);// height
@@ -178,7 +178,7 @@ void sceneTestSetup()
 	staticGround4->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, staticGround4);
 
-	staticGround4 = new Object(120);
+	staticGround4 = new Object(122);
 	staticGround4->setScalable(true);
 	staticGround4->setWidth(30); // width
 	staticGround4->setHeight(140);// height
