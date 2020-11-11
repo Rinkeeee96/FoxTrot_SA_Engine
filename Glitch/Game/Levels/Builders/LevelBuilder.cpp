@@ -34,7 +34,7 @@ void LevelBuilder::createLevel(nlohmann::json json) {
 	}
 }
 
-void LevelBuilder::createEntities(nlohmann::json layerValue, int id) {
+void LevelBuilder::createEntities(nlohmann::json layerValue) {
 	for (auto& [objectKey, objectValue] : layerValue["objects"].items())
 	{
 		ICharacter* object = nullptr;
@@ -105,11 +105,11 @@ void LevelBuilder::createEntities(nlohmann::json layerValue, int id) {
 	}
 }
 
-void LevelBuilder::createBackground(nlohmann::json layerValue, int id) {
+void LevelBuilder::createBackground(nlohmann::json layerValue) {
 	// TODO
 }
 
-void LevelBuilder::createDecoration(nlohmann::json layerValue, int id)
+void LevelBuilder::createDecoration(nlohmann::json layerValue)
 {
 	int currentX = 0;
 	int currentY = 0;
@@ -153,7 +153,7 @@ void LevelBuilder::createDecoration(nlohmann::json layerValue, int id)
 	}
 }
 
-void LevelBuilder::createTiles(nlohmann::json layerValue, int id) {
+void LevelBuilder::createTiles(nlohmann::json layerValue) {
 	// TODO
 	int currentX = 0;
 	int currentY = 0;

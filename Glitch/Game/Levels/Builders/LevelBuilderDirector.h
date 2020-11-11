@@ -22,7 +22,6 @@ public:
 		builder->loadTileSets(json);
 		builder->createLevel(json);
 
-		int id = 0;
 		for (auto& [key, value] : json.items()) {
 			if (key == "layers") {
 				for (auto& [layerKey, layerValue] : value.items())
@@ -37,17 +36,17 @@ public:
 						// TODO fix physics (oncollision with diffrent layer)
 					if (layerValue["name"] == "Background")
 					{
-						builder->createBackground(layerValue, id);
+						builder->createBackground(layerValue);
 					}
 					if (layerValue["name"] == "Ground") {
-						builder->createTiles(layerValue, id);
+						builder->createTiles(layerValue);
 					}
 					if (layerValue["name"] == "Decoration") {
-						builder->createDecoration(layerValue, id);
+						builder->createDecoration(layerValue);
 					}
 					if (layerValue["name"] == "Entities")
 					{
-						builder->createEntities(layerValue, id);
+						builder->createEntities(layerValue);
 					}
 				}
 			}
