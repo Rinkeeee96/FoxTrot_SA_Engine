@@ -13,6 +13,10 @@ public:
 
 	void onUpdate(Event& tickEvent);
 	Scene** pointerToCurrentScene = nullptr;
+
+private:
+	void checkIfObjectValueAndParticleValueMatch(ParticleAdapter& particle);
+
 };
 
 
