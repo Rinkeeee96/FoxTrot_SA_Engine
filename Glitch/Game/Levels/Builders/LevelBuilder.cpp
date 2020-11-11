@@ -137,6 +137,7 @@ void LevelBuilder::createTiles(nlohmann::json layerValue, int id) {
 			tile->registerSprite(SpriteState::DEFAULT, tileSprite);
 			tile->changeToState(SpriteState::DEFAULT);
 
+			// TODO layer index as define
 			bLevel->addNewObjectToLayer(1, tile);
 		}
 
