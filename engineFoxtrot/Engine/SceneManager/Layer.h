@@ -4,5 +4,5 @@
 struct Layer
 {
 	bool render = false;
-	vector<Object*> objects;
+	map<int, Object*> objects;
 };

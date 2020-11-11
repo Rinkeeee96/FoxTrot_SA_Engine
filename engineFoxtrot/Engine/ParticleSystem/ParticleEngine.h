@@ -19,7 +19,7 @@ public:
 	Scene** pointerToCurrentScene = nullptr;
 
 private:
-
+	void checkIfObjectValueAndParticleValueMatch(ParticleAdapter& particle);
 
 };
 
