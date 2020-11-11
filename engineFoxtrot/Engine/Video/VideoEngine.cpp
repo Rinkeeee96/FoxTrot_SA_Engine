@@ -120,7 +120,7 @@ void VideoEngine::updateScreen()
 		if ((*pointerToCurrentScene)->getAllObjectsInScene().size() <= 0) return;
 
 		// Todo fix hardcoded player id
-		calculateOffset(*(*pointerToCurrentScene)->getObjectWithID(2), (*pointerToCurrentScene)->getSceneWidth(), (*pointerToCurrentScene)->getSceneHeight());
+		calculateOffset(*(*pointerToCurrentScene)->getObject(2), (*pointerToCurrentScene)->getSceneWidth(), (*pointerToCurrentScene)->getSceneHeight());
 
 		for (Object* obj : (*pointerToCurrentScene)->getAllObjectsInScene()) {
 			if (obj != nullptr) {
