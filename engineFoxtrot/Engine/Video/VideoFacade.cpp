@@ -84,7 +84,7 @@ void VideoFacade::drawScreen()
 /// @param spriteObject 
 /// @param filename
 void VideoFacade::loadImage(const SpriteObject& spriteObject) {
-	if (spriteObject.getFileName() == NULL) throw std::exception();
+	if (spriteObject.getFileName() == NULL) throw std::exception(ERRORCODES[ERROR_CODE_SVIFACADE_FILENAME_IS_NULL]);
 		
 	SDL_Surface* surface = IMG_Load(spriteObject.getFileName());
 	SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
@@ -103,11 +103,11 @@ void VideoFacade::renderCopy(Object& object)
 
 	float test;
 
-	if (textureMap[sprite.getTextureID()] == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_SPRITE_ID_IS_NULL;
+	if (textureMap[sprite.getTextureID()] == NULL) throw std::exception(ERRORCODES[ERROR_CODE_SVIFACADE_RENDERCOPY_SPRITE_ID_IS_NULL]);
 	//if (object.getPositionX() == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_XPOS_IS_NULL;
 	//if (object.getPositionY() == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_YPOS_IS_NULL;
-	if (object.getHeight() == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_HEIGHT_IS_NULL;
-	if (object.getWidth() == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_WIDTH_IS_NULL;
+	if (object.getHeight() == NULL) throw std::exception(ERRORCODES[ERROR_CODE_SVIFACADE_RENDERCOPY_HEIGHT_IS_NULL]);
+	if (object.getWidth() == NULL) throw std::exception(ERRORCODES[ERROR_CODE_SVIFACADE_RENDERCOPY_WIDTH_IS_NULL]);
 
 	//generate image 
 	Uint32 ticks = SDL_GetTicks();

@@ -291,6 +291,7 @@ void LevelBuilder::loadTileSets(nlohmann::json json) {
 }
 
 void LevelBuilder::loadSprites() {
+	// TODO do it once
 	this->tileTop = new SpriteObject(1, 16, 16, 1, 150, "Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png");
 	this->playerDefault = new SpriteObject(100, 37, 50, 1, 150, "Assets/Sprites/Character/adventure.png");
 	this->playerAirAttack = new SpriteObject(101, 37, 50, 4, 300, "Assets/Sprites/Character/adventure_air_attack1.png");
