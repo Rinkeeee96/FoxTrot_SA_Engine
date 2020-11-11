@@ -8,6 +8,7 @@ class LevelBuilderDirector
 private:
 	FileLoader fileLoader;
 public:
+	// TODO move cpp
 	void construct(ILevelBuilder* builder) 
 	{
 		// TODO make dynamic from json
@@ -26,6 +27,11 @@ public:
 			if (key == "layers") {
 				for (auto& [layerKey, layerValue] : value.items())
 				{
+					// TODO fix static draw objects
+
+
+					// TODO decorations
+						// TODO fix physics (oncollision with diffrent layer)
 					if (layerValue["name"] == "Background")
 					{
 						builder->createBackground(layerValue, id);

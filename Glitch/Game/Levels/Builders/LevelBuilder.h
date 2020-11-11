@@ -11,7 +11,10 @@ private:
 	FileLoader fileLoader;
 	map<int, TileSprite*> textureMap;
 	map<int, SpriteObject*> spriteMap;
+	// TODO Dynamic
 	Level* bLevel = new Level(1);
+
+	// TODO cleanup
 	SpriteObject* tileTop;
 	SpriteObject* playerDefault;
 	SpriteObject* playerAirAttack;
@@ -24,8 +27,10 @@ private:
 	SpriteObject* playerJumpRight;
 	SpriteObject* slimeDefault;
 
+	// TODO
 	int currentTileId = 300;
 
+	// TODO remove?
 	float stringToFloat(string stringToParse) {
 		try {
 			return std::stod(stringToParse);
@@ -35,6 +40,7 @@ private:
 		}
 	}
 public:
+	// TODO fix warning
 	LevelBuilder(Engine& _engine) : AbstractLevelBuilder(_engine) { }
 
 	void createLevel(nlohmann::json json) override;
