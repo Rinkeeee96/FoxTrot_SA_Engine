@@ -1,0 +1,24 @@
+{ "columns":0,
+ "grid":
+    {
+     "height":1,
+     "orientation":"orthogonal",
+     "width":1
+    },
+ "margin":0,
+ "name":"Backgrounds",
+ "spacing":0,
+ "tilecount":1,
+ "tiledversion":"1.4.2",
+ "tileheight":1080,
+ "tiles":[
+        {
+         "id":0,
+         "image":"..\/..\/..\/..\/Downloads\/pixelart-1605115961504-814.jpg",
+         "imageheight":1080,
+         "imagewidth":1920
+        }],
+ "tilewidth":1920,
+ "type":"tileset",
+ "version":1.4
+}
