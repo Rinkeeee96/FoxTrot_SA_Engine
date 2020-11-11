@@ -210,7 +210,7 @@ void VideoEngine::drawParticle(ParticleAdapter* part)
 		{
 			continue;
 		}
-		videoFacade->drawParticle(partData, part->getObjectId());
+		videoFacade->drawParticle(partData, part->GetCurrentSprite().getTextureID());
 	}
 
 }

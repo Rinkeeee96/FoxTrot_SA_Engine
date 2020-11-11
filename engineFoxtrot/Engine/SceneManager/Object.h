@@ -14,8 +14,6 @@ public:
 	void API setName(const string val);
 	string API getName() const;
 
-	int API getSpriteID() const;
-
 	void API setPositionX(const float);
 	float API getPositionX() const;
 	
