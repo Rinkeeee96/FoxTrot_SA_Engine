@@ -79,32 +79,61 @@ void VideoEngine::renderCopy(Object& object) {
 void VideoEngine::calculateOffset(Object& obj, int sceneWidth, int sceneHeight)
 {
 	
-	int cameraCenterX		= CAMERA_BOX_CENTER_X + videoFacade->getXCameraOffset();
-	int cameraCenterY		= CAMERA_BOX_CENTER_Y + videoFacade->getYCameraOffset();
-	int localCameraCenterX	= CAMERA_BOX_CENTER_X + (obj.getPositionX() + obj.getWidth() - (CAMERA_BOX_CENTER_X + (CAMERA_BOX_WIDTH / 2)));
-	int localCameraCenterY	= CAMERA_BOX_CENTER_Y + (obj.getPositionY() - obj.getHeight() - (CAMERA_BOX_CENTER_Y + (CAMERA_BOX_HEIGHT / 2)));
+	// Place obj variables in temporary variables for easy use. 
+	// Object Y pos needs to be subtracted with the height due to the position conversion from Object to SDL2.
+	int objectPosY = obj.getPositionY() - obj.getHeight();
+	int objectPosX = obj.getPositionX();
+	int objectWidth = obj.getWidth();
+	int objectHeight = obj.getHeight();
 
-	if (obj.getPositionX() + obj.getWidth()  < (cameraCenterX + (CAMERA_BOX_WIDTH / 2))  &&
-		obj.getPositionX()					 > (cameraCenterX - (CAMERA_BOX_WIDTH / 2))  &&
-		obj.getPositionY()					 < (cameraCenterY + (CAMERA_BOX_HEIGHT / 2)) &&
-		obj.getPositionY() - obj.getHeight() > (cameraCenterY - (CAMERA_BOX_HEIGHT / 2)))
+	int cameraOffsetX = videoFacade->getXCameraOffset();
+	int cameraOffsetY = videoFacade->getYCameraOffset();
+
+	// Check if the player is located inside the camera view. If not continue and calculate the offsets
+	if (objectPosX 					 <= cameraOffsetX + CAMERA_BOX_X &&
+		objectPosX + objectWidth     >= cameraOffsetX + (CAMERA_BOX_X + CAMERA_BOX_WIDTH)  &&
+		objectPosY					 <= cameraOffsetY + CAMERA_BOX_Y &&
+		objectPosY + objectHeight    >= cameraOffsetY + (CAMERA_BOX_Y + CAMERA_BOX_HEIGHT))
 	{
 		return;
 	}
 
+	int newXOffset = 0;
+	int newYOffset = 0;
+	bool changedX = false;
+	bool changedY = false;
 
-	if (obj.getPositionX() + obj.getWidth() >= (cameraCenterX + (CAMERA_BOX_WIDTH / 2)) && (localCameraCenterX < obj.getWidth() + sceneWidth - (WINDOW_WIDTH / 2))) {
-		videoFacade->setXCameraOffset(obj.getPositionX() + obj.getWidth() - (CAMERA_BOX_CENTER_X + (CAMERA_BOX_WIDTH / 2)));
+	if (objectPosX + objectWidth >= cameraOffsetX + CAMERA_BOX_X + CAMERA_BOX_WIDTH)
+	{
+		newXOffset = objectPosX + objectWidth - (CAMERA_BOX_X + CAMERA_BOX_WIDTH);
+		changedX = true;
 	}
-	else if (obj.getPositionX() <= (cameraCenterX - (CAMERA_BOX_WIDTH / 2)) && (localCameraCenterX > ((WINDOW_WIDTH / 2) - OFFSETFIX))) {
-		videoFacade->setXCameraOffset(obj.getPositionX() - (CAMERA_BOX_CENTER_X - (CAMERA_BOX_WIDTH / 2)));
+	else if (objectPosX <= cameraOffsetX + CAMERA_BOX_X)
+	{
+		newXOffset = objectPosX - CAMERA_BOX_X;
+		changedX = true;
 	}
 
-	if (obj.getPositionY() >= (cameraCenterY + (CAMERA_BOX_HEIGHT / 2)) && (localCameraCenterY < obj.getHeight() + sceneHeight - (WINDOW_HEIGHT / 2))) {
-		videoFacade->setYCameraOffset(obj.getPositionY()- (CAMERA_BOX_CENTER_Y + (CAMERA_BOX_HEIGHT / 2)));
+	if (objectPosY + objectHeight >= cameraOffsetY + CAMERA_BOX_Y + CAMERA_BOX_HEIGHT)
+	{
+		newYOffset = objectPosY + objectHeight - (CAMERA_BOX_Y + CAMERA_BOX_HEIGHT);
+		changedY = true;
 	}
-	else if (obj.getPositionY() - obj.getHeight() <= (cameraCenterY - (CAMERA_BOX_HEIGHT / 2)) && (localCameraCenterY > ((WINDOW_HEIGHT / 2) - OFFSETFIX))) {
-		videoFacade->setYCameraOffset(obj.getPositionY() - obj.getHeight() - (CAMERA_BOX_CENTER_Y - (CAMERA_BOX_HEIGHT / 2)));
+	else if (objectPosY <= cameraOffsetY + CAMERA_BOX_Y)
+	{
+		newYOffset = objectPosY - CAMERA_BOX_Y;
+		changedY = true;
+	}
+
+
+	//// Check if we can actually move the camera due to the level sizes
+	if (newYOffset > 0 && newYOffset + (CAMERA_BOX_Y *2) + CAMERA_BOX_HEIGHT < sceneHeight && changedY)
+	{
+		videoFacade->setYCameraOffset(newYOffset);
+	}
+	if (newXOffset > 0 && newXOffset + (CAMERA_BOX_X * 2) + CAMERA_BOX_WIDTH < sceneWidth && changedX)
+	{
+		videoFacade->setXCameraOffset(newXOffset);
 	}
 }
 

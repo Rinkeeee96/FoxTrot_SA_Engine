@@ -19,8 +19,8 @@
 
 #define CAMERA_BOX_HEIGHT		350
 #define CAMERA_BOX_WIDTH		350
-#define CAMERA_BOX_CENTER_X		960
-#define CAMERA_BOX_CENTER_Y		540
+#define CAMERA_BOX_X			785
+#define CAMERA_BOX_Y			365
 
 struct API Sprite
 {

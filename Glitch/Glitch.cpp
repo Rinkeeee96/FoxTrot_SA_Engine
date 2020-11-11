@@ -96,7 +96,7 @@ void sceneTestSetup()
 	staticGround->setScalable(true);
 	staticGround->setWidth(500); // width
 	staticGround->setHeight(10);// height
-	staticGround->setPositionX(1002); // x 20 left down
+	staticGround->setPositionX(1100); // x 20 left down
 	staticGround->setPositionY(500);// y 300 left down
 	staticGround->setStatic(true);
 	staticGround->registerSprite(SpriteState::DEFAULT, so0);
