@@ -43,6 +43,7 @@ public:
 	// TODO fix warning
 	LevelBuilder(Engine& _engine) : AbstractLevelBuilder(_engine) { }
 
+	// TODO less json reference
 	void createLevel(nlohmann::json json) override;
 	void createEntities(nlohmann::json layerValue, int id) override;
 	void createBackground(nlohmann::json layerValue, int id) override;
