@@ -34,6 +34,8 @@ private:
 
 	// TODO
 	int currentTileId = 300;
+	int mapTileWidth = 16;
+	int mapTileHeight = 16;
 
 	// TODO remove?
 	float stringToFloat(string stringToParse) {
@@ -52,6 +54,8 @@ public:
 	void createLevel(nlohmann::json json) override;
 	void createEntities(nlohmann::json layerValue, int id) override;
 	void createBackground(nlohmann::json layerValue, int id) override;
+	// TODO Split to function with same functionality with layer as param
+	void createDecoration(nlohmann::json layerValue, int id) override;
 	void createTiles(nlohmann::json layerValue, int id) override;
 	void loadTileSets(nlohmann::json json) override;
 	void loadSprites() override;

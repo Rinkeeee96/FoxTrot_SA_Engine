@@ -19,11 +19,17 @@ void LevelBuilder::createLevel(nlohmann::json json) {
 				}
 			}
 		}
-		if (key == "width") {
+		else if (key == "width") {
 			bLevel->setWidth(value);
 		}
-		if (key == "height") {
+		else if (key == "height") {
 			bLevel->setHeight(value);
+		}
+		else if (key == "tilewidth") {
+			this->mapTileWidth = value;
+		}
+		else if (key == "tileheight") {
+			this->mapTileHeight = value;
 		}
 	}
 }
@@ -103,8 +109,8 @@ void LevelBuilder::createBackground(nlohmann::json layerValue, int id) {
 	// TODO
 }
 
-void LevelBuilder::createTiles(nlohmann::json layerValue, int id) {
-	// TODO
+void LevelBuilder::createDecoration(nlohmann::json layerValue, int id)
+{
 	int currentX = 0;
 	int currentY = 0;
 	int tileAmount = layerValue["data"].size();
@@ -112,8 +118,6 @@ void LevelBuilder::createTiles(nlohmann::json layerValue, int id) {
 
 		if (tileId != 0) {
 			IGround* tile = new BaseGround(id++);
-
-			// TODO get width and height from json
 
 			SpriteObject* tileSprite = nullptr;
 			TileSprite* sprite = nullptr;
@@ -128,11 +132,55 @@ void LevelBuilder::createTiles(nlohmann::json layerValue, int id) {
 				tileSprite = spriteMap[tileId];
 			}
 
-			tile->setWidth(16);
-			tile->setHeight(16);
+			tile->setWidth(sprite->width);
+			tile->setHeight(sprite->height);
 			tile->setStatic(true);
-			tile->setPositionX(currentX * sprite->width);
-			tile->setPositionY(currentY * sprite->height);
+			tile->setPositionX(currentX * mapTileWidth);
+			tile->setPositionY(currentY * mapTileHeight);
+
+			tile->registerSprite(SpriteState::DEFAULT, tileSprite);
+			tile->changeToState(SpriteState::DEFAULT);
+
+			bLevel->addNewObjectToLayer(DECORATION_LAYER_INDEX, tile);
+		}
+
+		if (currentX == (layerValue["width"] - 1)) {
+			currentY++;
+			currentX = 0;
+			continue;
+		}
+		currentX++;
+	}
+}
+
+void LevelBuilder::createTiles(nlohmann::json layerValue, int id) {
+	// TODO
+	int currentX = 0;
+	int currentY = 0;
+	int tileAmount = layerValue["data"].size();
+	for (int tileId : layerValue["data"]) {
+
+		if (tileId != 0) {
+			IGround* tile = new BaseGround(id++);
+
+			SpriteObject* tileSprite = nullptr;
+			TileSprite* sprite = nullptr;
+
+			if (spriteMap.find(tileId) == spriteMap.end()) {
+				sprite = textureMap[tileId];
+				tileSprite = new SpriteObject(currentTileId, sprite->height, sprite->width, 1, 300, sprite->path.c_str());
+				currentTileId++;
+				engine.loadSprite(*tileSprite);
+			}
+			else {
+				tileSprite = spriteMap[tileId];
+			}
+
+			tile->setWidth(sprite->width);
+			tile->setHeight(sprite->height);
+			tile->setStatic(true);
+			tile->setPositionX(currentX * mapTileWidth);
+			tile->setPositionY(currentY * mapTileHeight);
 
 			tile->registerSprite(SpriteState::DEFAULT, tileSprite);
 			tile->changeToState(SpriteState::DEFAULT);

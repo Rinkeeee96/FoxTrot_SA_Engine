@@ -27,8 +27,9 @@ public:
 			if (key == "layers") {
 				for (auto& [layerKey, layerValue] : value.items())
 				{
-					// TODO fix static draw objects
+					// TODO Triggers?
 
+					// TODO fix static draw objects
 
 					// TODO decorations
 						// TODO fix physics (oncollision with diffrent layer)
@@ -38,6 +39,9 @@ public:
 					}
 					if (layerValue["name"] == "Ground") {
 						builder->createTiles(layerValue, id);
+					}
+					if (layerValue["name"] == "Decoration") {
+						builder->createDecoration(layerValue, id);
 					}
 					if (layerValue["name"] == "Entities")
 					{
