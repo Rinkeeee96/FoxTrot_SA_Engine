@@ -15,7 +15,6 @@ void LevelBuilder::createLevel(nlohmann::json json) {
 					map<string, string> sound = {
 						{"Level_Sound", "Assets/Sound/" + music},
 					};
-					engine.loadSound(sound);
 					bLevel->setSound(sound);
 				}
 			}
@@ -44,6 +43,7 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 		ICharacter* object = nullptr;
 		for (auto& [objectPropertyKey, objectPropertyValue] : objectValue["properties"].items())
 		{
+			// TODO Factory
 			if (objectPropertyValue["name"] == "type") {
 				if (objectPropertyValue["value"] == "player") {
 					object = new Player(id++);
@@ -111,6 +111,7 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 
 void LevelBuilder::createBackground(nlohmann::json layerValue) {
 	// TODO
+	bLevel->addNewObjectToLayer(BACKGROUND_LAYER_INDEX, tile, false);
 }
 
 void LevelBuilder::createDecoration(nlohmann::json layerValue)
