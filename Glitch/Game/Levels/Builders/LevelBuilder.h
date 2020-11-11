@@ -11,7 +11,7 @@ class LevelBuilder : public AbstractLevelBuilder {
 private:
 
 	map<int, string> textureMap;
-	
+	map<int, SpriteObject*> spriteMap;
 
 	float stringToFloat(string stringToParse) {
 		try {
@@ -30,7 +30,7 @@ public:
 		// TODO make dynamic from json
 		Level* bLevel = new Level(1);
 
-		auto filestream = fileLoader.readFile("C:\\Users\\Max van Nistelrooij\\Documents\\Tiled\\SWA Foxtrot Game\\Maps\\Level 1 - Simple.json");
+		auto filestream = fileLoader.readFile("C:\\Users\\Max van Nistelrooij\\Documents\\Tiled\\SWA Foxtrot Game\\Maps\\Level 1 - Simple - Large.json");
 		nlohmann::json json;
 		filestream >> json;
 		filestream.close();
@@ -121,12 +121,12 @@ public:
 					}
 					if (layerValue["name"] == "Ground") {
 						// TODO
-						cout << "Tiles: " << layerValue["data"].size() << endl;
 						int tileNum = 1;
 						int currentX = 0;
 						int currentY = 0;
+						int tileAmount = layerValue["data"].size();
 						for (int tileId : layerValue["data"]) {
-							cout << "#" << tileNum << " / x: " << currentX << " / y: " << currentY << endl;
+							//cout << tileNum << "/" << tileAmount << " (" << ((float)tileNum/(float)tileAmount * 100) << "%)" << endl;
 							tileNum++;
 
 							if (tileId != 0) {
@@ -139,8 +139,15 @@ public:
 								tile->setPositionX(currentX * 16);
 								tile->setPositionY(currentY * 16);
 
-								SpriteObject* tileSprite = new SpriteObject(tileNum + 300, 16, 16, 1, 300, textureMap[tileId].c_str());
-								engine.loadSprite(*tileSprite);
+								SpriteObject* tileSprite = nullptr;
+
+								if (spriteMap.find(tileId) == spriteMap.end()) {
+									tileSprite = new SpriteObject(tileNum + 300, 16, 16, 1, 300, textureMap[tileId].c_str());
+									engine.loadSprite(*tileSprite);
+								}
+								else {
+									tileSprite = spriteMap[tileId];
+								}
 
 								tile->registerSprite(SpriteState::DEFAULT, tileSprite);
 								tile->changeToState(SpriteState::DEFAULT);
