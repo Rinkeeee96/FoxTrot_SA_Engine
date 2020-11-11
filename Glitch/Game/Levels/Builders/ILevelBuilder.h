@@ -18,6 +18,7 @@ public:
 	virtual void createEntities(nlohmann::json layerValue) = 0;
 	virtual void createBackground(nlohmann::json layerValue) = 0;
 	virtual void createDecoration(nlohmann::json layerValue) = 0;
+	virtual void createParticle(nlohmann::json layerValue) = 0;
 	virtual void createTiles(nlohmann::json layerValue) = 0;
 	virtual void loadTileSets(nlohmann::json json) = 0;
 	virtual void loadSprites() = 0;

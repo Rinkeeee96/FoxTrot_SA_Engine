@@ -153,6 +153,36 @@ void LevelBuilder::createDecoration(nlohmann::json layerValue)
 	}
 }
 
+// TODO fix particles
+void LevelBuilder::createParticle(nlohmann::json layerValue)
+{
+	for (auto& [objectKey, objectValue] : layerValue["objects"].items())
+	{
+		ICharacter* object = nullptr;
+		for (auto& [objectPropertyKey, objectPropertyValue] : objectValue["properties"].items())
+		{
+			if (objectPropertyValue["name"] == "type") {
+				if (objectPropertyValue["value"] == "fire") {
+
+					SpriteObject* particle1Sprite = new SpriteObject(id++, 20, 20, 20, 300, "Assets/Particles/fire.png");
+					engine.loadSprite(*particle1Sprite);
+
+					ParticleAdapter* part = new ParticleAdapter(id++);
+					part->registerSprite(SpriteState::DEFAULT, particle1Sprite);
+					part->changeToState(SpriteState::DEFAULT);
+					part->setPositionX(20);
+					part->setPositionY(20);
+					part->setStyle(ParticleInit::ParticleStyle::FIRE);
+					bLevel->addNewObjectToLayer(PARTICLE_LAYER_INDEX, part);
+				}
+				else {
+					throw std::exception("invalid type");
+				}
+			}
+		}
+	}
+}
+
 void LevelBuilder::createTiles(nlohmann::json layerValue) {
 	// TODO
 	int currentX = 0;

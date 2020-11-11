@@ -7,7 +7,8 @@ class LevelBuilder : public AbstractLevelBuilder {
 #define GROUND_LAYER_INDEX 1
 #define ENTITY_LAYER_INDEX 3
 #define DECORATION_LAYER_INDEX 4
-#define BACKGROUND_LAYER_INDEX 5
+#define PARTICLE_LAYER_INDEX 5
+#define BACKGROUND_LAYER_INDEX 6
 
 #define TILESET_PATH "Assets/Levels/Tilesets/"
 #define TILE_IMAGE_PATH "Assets/Levels/Tiles/"
@@ -57,6 +58,7 @@ public:
 	void createBackground(nlohmann::json layerValue) override;
 	// TODO Split to function with same functionality with layer as param
 	void createDecoration(nlohmann::json layerValue) override;
+	void createParticle(nlohmann::json layerValue) override;
 	void createTiles(nlohmann::json layerValue) override;
 	void loadTileSets(nlohmann::json json) override;
 	void loadSprites() override;

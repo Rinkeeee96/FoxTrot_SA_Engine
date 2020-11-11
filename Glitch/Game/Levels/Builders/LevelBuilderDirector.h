@@ -44,6 +44,9 @@ public:
 					if (layerValue["name"] == "Decoration") {
 						builder->createDecoration(layerValue);
 					}
+					if (layerValue["name"] == "Particles") {
+						builder->createParticle(layerValue);
+					}
 					if (layerValue["name"] == "Entities")
 					{
 						builder->createEntities(layerValue);
