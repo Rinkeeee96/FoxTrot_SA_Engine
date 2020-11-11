@@ -63,13 +63,25 @@ vector <Object*> Scene::getAllObjectsInScene()
 	return returnVector;
 }
 
+vector <Object*> Scene::getAllObjectsInSceneWithPhysics()
+{
+	vector <Object*> returnVector;
+	for (auto layer = layers.begin(); layer != layers.end(); layer++)
+	{
+		if (layer->second->renderPhysics) {
+			returnVector.insert(returnVector.end(), (*layer).second->objects.begin(), (*layer).second->objects.end());
+		}
+	}
+	return returnVector;
+}
+
 /// @brief 
 /// Adds a new object to the given Z index. 
 /// @param zIndex 
 /// Zindex of the layer that the object should be added to
 /// @param object 
 /// Pointer to the object
-const void Scene::addNewObjectToLayer(const int zIndex, Object* object)
+const void Scene::addNewObjectToLayer(const int zIndex, Object* object, bool renderPhysics)
 {
 	if (object == nullptr) throw ERROR_CODE_SCENE_NO_OBJECT_FOUND;
 
@@ -80,6 +92,7 @@ const void Scene::addNewObjectToLayer(const int zIndex, Object* object)
 	else 
 	{
 		layers[zIndex] = new Layer();
+		layers[zIndex]->renderPhysics = renderPhysics;
 		layers[zIndex]->objects.push_back(object);
 	}
 }

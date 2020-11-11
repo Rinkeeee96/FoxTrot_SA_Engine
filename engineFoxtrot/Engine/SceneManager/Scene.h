@@ -16,9 +16,10 @@ public:
 
 	bool API checkIfObjectExists(const int objectID);
 	const bool API toggleLayer(const int zIndex, bool render);
-	const void API addNewObjectToLayer(const int zIndex,Object* object);
+	const void API addNewObjectToLayer(const int zIndex, Object* object, bool renderPhysics);
 
 	vector <Object*> API getAllObjectsInScene();
+	vector <Object*> API getAllObjectsInSceneWithPhysics();
 
 	Object API *getObject(const int objectID);
 
@@ -41,6 +42,4 @@ public:
 private:
 	const int sceneID = 0;
 	map<int, Layer*> layers;
-
-
 };
