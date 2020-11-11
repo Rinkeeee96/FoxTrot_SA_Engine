@@ -2,6 +2,7 @@
 #include "Game/Levels/Builders/AbstractLevelBuilder.h"
 #include <Engine\FileParser\FileLoader.h>
 #include <nlohmann\json.hpp>
+#include <Game\Levels\Builders\Tiles\TileSprite.h>
 
 class LevelBuilder : public AbstractLevelBuilder {
 
@@ -10,7 +11,7 @@ class LevelBuilder : public AbstractLevelBuilder {
 
 private:
 
-	map<int, string> textureMap;
+	map<int, TileSprite*> textureMap;
 	map<int, SpriteObject*> spriteMap;
 
 	float stringToFloat(string stringToParse) {
@@ -63,6 +64,7 @@ public:
 		int id = 0;
 		int zMin = 0;
 		int zMax = 100;
+		int currentTileId = 300;
 		for (auto& [key, value] : json.items()) {
 			// Tiles
 			if (key == "tilesets") {
@@ -81,11 +83,15 @@ public:
 						if (tilesetKey == "tiles") {
 							for (auto& [spriteKey, spriteValue] : tilesetValue.items()) {
 
-								const string& spriteSource = spriteValue["image"];
-								const string& spriteFilename = std::filesystem::path(spriteSource).filename().string();
-								const string& spritePath = TILE_IMAGE_PATH + spriteFilename;
+								const string spriteSource = spriteValue["image"];
+								const int spriteWidth = spriteValue["imagewidth"];
+								const int spriteHeight = spriteValue["imageheight"];
+								const string spriteFilename = std::filesystem::path(spriteSource).filename().string();
+								const string spritePath = TILE_IMAGE_PATH + spriteFilename;
 
-								textureMap.insert(pair<int, string>(currentGid, spritePath));
+								TileSprite* currentTile = new TileSprite(spritePath, spriteWidth, spriteHeight);
+
+								textureMap.insert(pair<int, TileSprite*>(currentGid, currentTile));
 								currentGid++;
 							}
 						}
@@ -120,34 +126,34 @@ public:
 						}
 					}
 					if (layerValue["name"] == "Ground") {
-						// TODO
-						int tileNum = 1;
 						int currentX = 0;
 						int currentY = 0;
 						int tileAmount = layerValue["data"].size();
 						for (int tileId : layerValue["data"]) {
-							//cout << tileNum << "/" << tileAmount << " (" << ((float)tileNum/(float)tileAmount * 100) << "%)" << endl;
-							tileNum++;
 
 							if (tileId != 0) {
 								IGround* tile = new BaseGround(id++);
 
 								// TODO get width and height from json
-								tile->setWidth(16);
-								tile->setHeight(16);
-								tile->setStatic(true);
-								tile->setPositionX(currentX * 16);
-								tile->setPositionY(currentY * 16);
 
 								SpriteObject* tileSprite = nullptr;
+								TileSprite* sprite = nullptr;
 
 								if (spriteMap.find(tileId) == spriteMap.end()) {
-									tileSprite = new SpriteObject(tileNum + 300, 16, 16, 1, 300, textureMap[tileId].c_str());
+									sprite = textureMap[tileId];
+									tileSprite = new SpriteObject(currentTileId, sprite->height, sprite->width, 1, 300, sprite->path.c_str());
+									currentTileId++;
 									engine.loadSprite(*tileSprite);
 								}
 								else {
 									tileSprite = spriteMap[tileId];
 								}
+
+								tile->setWidth(16);
+								tile->setHeight(16);
+								tile->setStatic(true);
+								tile->setPositionX(currentX * sprite->width);
+								tile->setPositionY(currentY * sprite->height);
 
 								tile->registerSprite(SpriteState::DEFAULT, tileSprite);
 								tile->changeToState(SpriteState::DEFAULT);
@@ -206,10 +212,6 @@ public:
 							object->setPositionY(objectValue["y"]);
 							object->setStatic(false);
 
-
-
-							// TODO sprites
-
 							for (auto& [objectPropertyKey, objectPropertyValue] : objectValue["properties"].items())
 							{
 								if (objectPropertyValue["name"] == "density") {
@@ -221,20 +223,20 @@ public:
 									object->setFriction(frictionString);
 								}
 								if (objectPropertyValue["name"] == "jump_height") {
-									string jump_heightString = objectPropertyValue["value"];
-									object->setJumpHeight(stringToFloat(jump_heightString));
+									int jump_heightString = objectPropertyValue["value"];
+									object->setJumpHeight(jump_heightString);
 								}
 								if (objectPropertyValue["name"] == "restitution") {
 									int restitutionString = objectPropertyValue["value"];
 									object->setRestitution(restitutionString);
 								}
 								if (objectPropertyValue["name"] == "speed") {
-									string speedString = objectPropertyValue["value"];
-									object->setSpeed(stringToFloat(speedString));
+									int speedString = objectPropertyValue["value"];
+									object->setSpeed(speedString);
 								}
 								if (objectPropertyValue["name"] == "health") {
-									string healthString = objectPropertyValue["value"];
-									object->setHealth(std::stoi(healthString));
+									int healthString = objectPropertyValue["value"];
+									object->setHealth(healthString);
 								}
 							}
 							bLevel->addNewObjectToLayer(3, object);

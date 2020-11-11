@@ -60,6 +60,9 @@
     <ClInclude Include="Game\Ground\IGround.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Levels\Builders\Tiles\TileSprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Glitch.cpp">
