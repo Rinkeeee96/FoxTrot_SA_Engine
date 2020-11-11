@@ -29,6 +29,8 @@ public:
 				{
 					// TODO Triggers?
 
+					// TODO Fix character not moving
+
 					// TODO fix static draw objects
 
 					// TODO decorations

@@ -5,9 +5,9 @@
 class LevelBuilder : public AbstractLevelBuilder {
 
 #define GROUND_LAYER_INDEX 1
-#define ENTITY_LAYER_INDEX 2
-#define DECORATION_LAYER_INDEX 3
-#define BACKGROUND_LAYER_INDEX 4
+#define ENTITY_LAYER_INDEX 3
+#define DECORATION_LAYER_INDEX 4
+#define BACKGROUND_LAYER_INDEX 5
 
 #define TILESET_PATH "Assets/Levels/Tilesets/"
 #define TILE_IMAGE_PATH "Assets/Levels/Tiles/"
