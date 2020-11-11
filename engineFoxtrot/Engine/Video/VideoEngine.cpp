@@ -53,7 +53,7 @@ void VideoEngine::loadImage(const SpriteObject& spriteObject)
 	}
 	catch (int e)
 	{
-		cout << "An exception occurred. Exception Nr. " << ERRORCODES[e] << '\n';
+		throw std::exception();
 	}
 }
 

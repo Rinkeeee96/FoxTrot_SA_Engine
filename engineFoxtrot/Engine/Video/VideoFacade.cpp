@@ -84,8 +84,8 @@ void VideoFacade::drawScreen()
 /// @param spriteObject 
 /// @param filename
 void VideoFacade::loadImage(const SpriteObject& spriteObject) {
-	if (spriteObject.getFileName() == NULL) throw ERROR_CODE_SVIFACADE_FILENAME_IS_NULL;
-
+	if (spriteObject.getFileName() == NULL) throw std::exception();
+		
 	SDL_Surface* surface = IMG_Load(spriteObject.getFileName());
 	SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
 

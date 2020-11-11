@@ -23,35 +23,24 @@ private:
 	Level* bLevel = new Level(1);
 
 	// TODO cleanup
-	SpriteObject* tileTop;
-	SpriteObject* playerDefault;
-	SpriteObject* playerAirAttack;
-	SpriteObject* playerRunRight;
-	SpriteObject* playerSlide;
-	SpriteObject* playerFallLeft;
-	SpriteObject* playerFallRight;
-	SpriteObject* playerJumpLeft;
-	SpriteObject* playerRunLeft;
-	SpriteObject* playerJumpRight;
-	SpriteObject* slimeDefault;
+	SpriteObject* tileTop = nullptr;
+	SpriteObject* playerDefault = nullptr;
+	SpriteObject* playerAirAttack = nullptr;
+	SpriteObject* playerRunRight = nullptr;
+	SpriteObject* playerSlide = nullptr;
+	SpriteObject* playerFallLeft = nullptr;
+	SpriteObject* playerFallRight = nullptr;
+	SpriteObject* playerJumpLeft = nullptr;
+	SpriteObject* playerRunLeft = nullptr;
+	SpriteObject* playerJumpRight = nullptr;
+	SpriteObject* slimeDefault = nullptr;
 
 	// TODO
 	int currentTileId = 300;
 	int mapTileWidth = 16;
 	int mapTileHeight = 16;
 	int id = 0;
-
-	// TODO remove?
-	float stringToFloat(string stringToParse) {
-		try {
-			return std::stod(stringToParse);
-		}
-		catch (int e) {
-			throw std::exception("invalid string to float");
-		}
-	}
 public:
-	// TODO fix warning
 	LevelBuilder(Engine& _engine) : AbstractLevelBuilder(_engine) { }
 
 	// TODO less json reference

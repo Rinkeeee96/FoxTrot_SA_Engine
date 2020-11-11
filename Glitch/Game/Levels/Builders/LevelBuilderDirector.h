@@ -36,7 +36,7 @@ public:
 	{
 		// TODO Seperate loading from building
 		// TODO make dynamic from json
-		auto filestream = fileLoader.readFile("C:\\Users\\Max van Nistelrooij\\Documents\\Tiled\\SWA Foxtrot Game\\Maps\\Level 1 - Simple - Large.json");
+		auto filestream = fileLoader.readFile("Assets/Levels/Maps/Level1.json");
 
 		nlohmann::json json;
 		filestream >> json;
