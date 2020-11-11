@@ -81,10 +81,10 @@ void VideoEngine::calculateOffset(Object& obj, int sceneWidth, int sceneHeight)
 	
 	// Place obj variables in temporary variables for easy use. 
 	// Object Y pos needs to be subtracted with the height due to the position conversion from Object to SDL2.
-	int objectPosY = obj.getPositionY() - obj.getHeight();
-	int objectPosX = obj.getPositionX();
-	int objectWidth = obj.getWidth();
-	int objectHeight = obj.getHeight();
+	int objectPosY = (int)obj.getPositionY() - (int)obj.getHeight();
+	int objectPosX = (int)obj.getPositionX();
+	int objectWidth = (int)obj.getWidth();
+	int objectHeight = (int)obj.getHeight();
 
 	int cameraOffsetX = videoFacade->getXCameraOffset();
 	int cameraOffsetY = videoFacade->getYCameraOffset();
