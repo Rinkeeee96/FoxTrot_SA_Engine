@@ -110,7 +110,6 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 }
 
 void LevelBuilder::createBackground(nlohmann::json layerValue) {
-	// TODO add background
 	for (auto& [objectKey, objectValue] : layerValue["objects"].items())
 	{
 		IGround* tile = new BaseGround(id++);
@@ -118,7 +117,9 @@ void LevelBuilder::createBackground(nlohmann::json layerValue) {
 		int gid = objectValue["gid"];
 		int width = objectValue["width"];
 		int height = objectValue["height"];
-		TileSprite* sprite = textureMap[gid];
+		// TODO add background
+		//  - image does not load correctly
+		/*TileSprite* sprite = textureMap[gid];
 		SpriteObject* tileSprite = new SpriteObject(90000000, height, width, 1, 300, sprite->path.c_str());
 		engine.loadSprite(*tileSprite);
 
@@ -129,7 +130,7 @@ void LevelBuilder::createBackground(nlohmann::json layerValue) {
 		tile->setPositionY(height);
 
 		tile->registerSprite(SpriteState::DEFAULT, tileSprite);
-		tile->changeToState(SpriteState::DEFAULT);
+		tile->changeToState(SpriteState::DEFAULT);*/
 
 		//bLevel->addNewObjectToLayer(BACKGROUND_LAYER_INDEX, tile, false);
 	}
