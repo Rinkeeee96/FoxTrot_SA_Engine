@@ -46,6 +46,10 @@ public:
 	// Video calls
 	API void loadSprite(const SpriteObject& spriteObject);
 
+	// Sound calls
+	API void loadSound(const string& identifier, const string& path);
+	API void loadSound(map<string, string> sounds);
+
 	// Input calls
 	API void pollEvents();
 private:

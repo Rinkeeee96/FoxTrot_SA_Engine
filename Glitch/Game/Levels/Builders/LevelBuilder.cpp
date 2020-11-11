@@ -15,6 +15,7 @@ void LevelBuilder::createLevel(nlohmann::json json) {
 					map<string, string> sound = {
 						{"Leve_Sound", "Assets/Sound/" + music},
 					};
+					engine.loadSound(sound);
 					bLevel->setSound(sound);
 				}
 			}

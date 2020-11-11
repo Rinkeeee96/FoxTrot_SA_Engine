@@ -6,7 +6,7 @@ void Game::run() {
 	LevelBuilder levelOneBuilder = LevelBuilder(engine);
 	builderDirector.construct(&levelOneBuilder);
 	auto levelOne = levelOneBuilder.getLevel();
-	//levelOne->start();
+	levelOne->start();
 	engine.setCurrentScene(levelOne->getSceneID());
 
 	engine.startTickThreads();

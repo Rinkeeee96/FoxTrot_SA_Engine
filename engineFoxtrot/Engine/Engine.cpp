@@ -120,3 +120,13 @@ void Engine::loadSprite(const SpriteObject& spriteObject) {
 		throw ERROR_CODE_IMAGE_FILE_NOT_FOUND;
 	videoEngine.loadImage(spriteObject);
 }
+
+void Engine::loadSound(const string& identifier, const string& path)
+{
+	this->soundEngine.AddFile(identifier, path);
+}
+
+void Engine::loadSound(map<string, string> sounds)
+{
+	this->soundEngine.SetFiles(sounds);
+}
