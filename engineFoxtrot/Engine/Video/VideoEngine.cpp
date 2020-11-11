@@ -72,15 +72,15 @@ void VideoEngine::renderCopy(Object& object) {
 
 void VideoEngine::calculateOffset(Object& obj, int sceneWidth, int sceneHeight)
 {
+	// Todo fix Player ID
+	if (obj.getObjectId() != 2) return;
+	
 	int cameraCenterX		= CAMERA_BOX_CENTER_X + videoFacade->getXCameraOffset();
 	int cameraCenterY		= CAMERA_BOX_CENTER_Y + videoFacade->getYCameraOffset();
 	int localCameraCenterX	= CAMERA_BOX_CENTER_X + (obj.getPositionX() + obj.getWidth() - (CAMERA_BOX_CENTER_X + (CAMERA_BOX_WIDTH / 2)));
 	int localCameraCenterY	= CAMERA_BOX_CENTER_Y + (obj.getPositionX() + obj.getWidth() - (CAMERA_BOX_CENTER_X + (CAMERA_BOX_WIDTH / 2)));
 
-	if (obj.getObjectId() != 2)
-	{
-		return;
-	}
+
 
 	if (obj.getPositionX() + obj.getWidth()  < (cameraCenterX + (CAMERA_BOX_WIDTH / 2))  &&
 		obj.getPositionX()					 > (cameraCenterX - (CAMERA_BOX_WIDTH / 2))  &&

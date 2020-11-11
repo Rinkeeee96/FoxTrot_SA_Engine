@@ -21,7 +21,7 @@ Level::Level(const int id, int _sceneHeight, int _sceneWidth, map<string, string
 void Level::OnAttach() {
 	for (const auto& s : sounds) {
 		if(DEBUG_MAIN)std::cout << s.first << " has value " << s.second << std::endl;
-		//EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent(s.first, s.second));
+		EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent(s.first, s.second));
 	}
 }
 /// @brief
@@ -29,7 +29,7 @@ void Level::OnAttach() {
 /// Must be implemented by a concrete implementation of a scene
 void Level::Start() {
 	for (const auto& s : sounds) {
-		//EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent(s.first));
+		EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent(s.first));
 	}
 }
 /// @brief
@@ -37,7 +37,7 @@ void Level::Start() {
 /// Must be implemented by a concrete implementation of a scene
 void Level::Pause() {
 	for (const auto& s : sounds) {
-		//gEventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent(s.first));
+		EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent(s.first));
 	}
 }
 
