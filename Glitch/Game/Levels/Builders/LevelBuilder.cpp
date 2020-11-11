@@ -28,11 +28,14 @@ void LevelBuilder::createLevel(nlohmann::json json) {
 		}
 		else if (key == "tilewidth") {
 			this->mapTileWidth = value;
+			
 		}
 		else if (key == "tileheight") {
 			this->mapTileHeight = value;
 		}
 	}
+	bLevel->setWidth(bLevel->getWidth() * this->mapTileWidth);
+	bLevel->setHeight(bLevel->getHeight() * this->mapTileHeight);
 }
 
 void LevelBuilder::createEntities(nlohmann::json layerValue) {
