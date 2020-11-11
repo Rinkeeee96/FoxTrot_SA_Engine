@@ -14,6 +14,7 @@ public:
 	API Scene(const int, int, int);
 	API~Scene();
 
+	Object API * getObjectWithID(const int ObjectID);
 	bool API checkIfObjectExists(const int objectID);
 	const bool API toggleLayer(const int zIndex, bool render);
 	const void API addNewObjectToLayer(const int zIndex,Object* object);

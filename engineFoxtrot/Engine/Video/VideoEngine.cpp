@@ -70,17 +70,19 @@ void VideoEngine::renderCopy(Object& object) {
 	}
 }
 
+/// @brief 
+/// Calculates the camera offset based on the player position.
+/// @param obj 
+/// This is the Object marked as a player
+/// @param sceneWidth 
+/// @param sceneHeight 
 void VideoEngine::calculateOffset(Object& obj, int sceneWidth, int sceneHeight)
 {
-	// Todo fix Player ID
-	if (obj.getObjectId() != 2) return;
 	
 	int cameraCenterX		= CAMERA_BOX_CENTER_X + videoFacade->getXCameraOffset();
 	int cameraCenterY		= CAMERA_BOX_CENTER_Y + videoFacade->getYCameraOffset();
 	int localCameraCenterX	= CAMERA_BOX_CENTER_X + (obj.getPositionX() + obj.getWidth() - (CAMERA_BOX_CENTER_X + (CAMERA_BOX_WIDTH / 2)));
 	int localCameraCenterY	= CAMERA_BOX_CENTER_Y + (obj.getPositionX() + obj.getWidth() - (CAMERA_BOX_CENTER_X + (CAMERA_BOX_WIDTH / 2)));
-
-
 
 	if (obj.getPositionX() + obj.getWidth()  < (cameraCenterX + (CAMERA_BOX_WIDTH / 2))  &&
 		obj.getPositionX()					 > (cameraCenterX - (CAMERA_BOX_WIDTH / 2))  &&
@@ -116,9 +118,12 @@ void VideoEngine::updateScreen()
 		if (pointerToCurrentScene == nullptr) return;
 		//if (pointerToObjectVector->capacity() <= 0) return;
 		if ((*pointerToCurrentScene)->getAllObjectsInScene().size() <= 0) return;
+
+		// Todo fix hardcoded player id
+		calculateOffset(*(*pointerToCurrentScene)->getObjectWithID(2), (*pointerToCurrentScene)->getSceneWidth(), (*pointerToCurrentScene)->getSceneHeight());
+
 		for (Object* obj : (*pointerToCurrentScene)->getAllObjectsInScene()) {
 			if (obj != nullptr) {
-				calculateOffset(*obj, (*pointerToCurrentScene)->getSceneWidth(), (*pointerToCurrentScene)->getSceneHeight());
 				if (obj->getIsParticle())
 				{
 					drawParticle((ParticleAdapter*)obj);
@@ -128,7 +133,7 @@ void VideoEngine::updateScreen()
 					renderCopy(*obj);
 				}
 			}
-		}
+		}	
 	}
 	catch (int e)
 	{

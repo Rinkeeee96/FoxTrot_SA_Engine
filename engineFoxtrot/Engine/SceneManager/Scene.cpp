@@ -14,6 +14,22 @@ Scene::~Scene()
 }
 
 /// @brief 
+/// @param ObjectID 
+/// @return 
+Object* Scene::getObjectWithID(const int ObjectID)
+{
+	for (Object* obj : getAllObjectsInScene())
+	{
+		if (obj->getObjectId() == ObjectID)
+		{
+			return obj;
+		}
+	}
+	// Todo throw error
+	return nullptr;
+}
+
+/// @brief 
 /// Function for checking if an object with ObjectID exists in a Scene.
 /// @param objectID 
 /// Identifier for a ObjectID

@@ -131,7 +131,7 @@ void sceneTestSetup()
 	ParticleAdapter* particle1 = new ParticleAdapter(11);        // create a new particle system pointer
 	particle1->registerSprite(SpriteState::DEFAULT, particle1Sprite);
 	particle1->changeToState(SpriteState::DEFAULT);
-	particle1->setPositionX(800);
+	particle1->setPositionX(1700);
 	particle1->setPositionY(384);
 	particle1->setStyle(ParticleInit::ParticleStyle::FIRE);    // set the example effects
 	testScene->addNewObjectToLayer(4, particle1);
