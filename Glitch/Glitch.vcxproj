@@ -166,7 +166,6 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Levels\Level.h" />
     <ClInclude Include="Game\SpriteState.h" />
     <ClInclude Include="Game\Levels\Builders\ILevelBuilder.h" />
-    <ClInclude Include="Game\Levels\Builders\TestLevelBuilder.h" />
     <ClInclude Include="Game\Levels\Builders\LevelBuilderDirector.h" />
     <ClInclude Include="Game\Levels\Builders\LevelBuilder.h" />
   </ItemGroup>
@@ -176,7 +175,6 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClCompile Include="Game\Characters\Player\Player.cpp" />
     <ClCompile Include="Glitch.cpp" />
     <ClCompile Include="Game\Levels\Level.cpp" />
-    <ClCompile Include="Game\Levels\Builders\TestLevelBuilder.cpp" />
     <ClCompile Include="Game\Levels\Builders\LevelBuilderDirector.cpp" />
     <ClCompile Include="Game\Levels\Builders\LevelBuilder.cpp" />
   </ItemGroup>

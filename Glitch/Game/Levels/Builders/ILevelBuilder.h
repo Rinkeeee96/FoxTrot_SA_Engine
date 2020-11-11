@@ -4,6 +4,8 @@
 #include "Game/Characters/Player/Player.h"
 #include "Game/Characters/Enemies/Slime.h"
 #include "Game/Ground/BaseGround.h"
+#include <Engine\FileParser\FileLoader.h>
+#include <nlohmann\json.hpp>
 
 class ILevelBuilder
 {
@@ -12,5 +14,11 @@ protected:
 public:
 	virtual Level* getLevel() = 0;
 	virtual void create() = 0;
+	virtual void createLevel(nlohmann::json json) = 0;
+	virtual void createEntities(nlohmann::json layerValue, int id) = 0;
+	virtual void createBackground(nlohmann::json layerValue, int id) = 0;
+	virtual void createTiles(nlohmann::json layerValue, int id) = 0;
+	virtual void loadTileSets(nlohmann::json json) = 0;
+	virtual void loadSprites() = 0;
 };
 

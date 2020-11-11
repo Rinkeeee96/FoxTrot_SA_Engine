@@ -49,4 +49,10 @@ void Level::pause() {
 	}
 }
 
+
+int Level::getHeight() { return this->height; }
+int Level::getWidth() { return this->width; }
+void Level::setHeight(int height) { this->height = height; }
+void Level::setWidth(int width) { this->width= width; }
+
 void Level::onDetach() {}//cleaup buffer

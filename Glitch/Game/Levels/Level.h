@@ -25,6 +25,13 @@ public:
 	virtual void pause();
 	virtual void onDetach() override;
 	virtual void onUpdate() override;
+
+	virtual int getHeight();
+	virtual int getWidth();
+	virtual void setHeight(int height);
+	virtual void setWidth(int width);
 private:
 	map<string, string> sounds;
+	int height = 0;
+	int width = 0;
 };
