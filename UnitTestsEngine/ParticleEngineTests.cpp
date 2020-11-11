@@ -18,7 +18,8 @@ namespace UnitTestsEngine
 			// arrange
 			ParticleAdapter particle(1);
 			// act
-			particle.setPosition(0, 1);
+			particle.setPositionX(0);
+			particle.setPositionY(1);
 			// assert
 			Assert::AreEqual(particle.getParticlePositionX(), 0);
 			Assert::AreEqual(particle.getParticlePositionY(), 1);
@@ -30,7 +31,8 @@ namespace UnitTestsEngine
 			// arrange
 			ParticleAdapter particle(1);
 			// particle position
-			particle.setPosition(2, 4);
+			particle.setPositionX(2);
+			particle.setPositionY(4);
 			// object base class position
 			particle.setPositionX(0);
 			particle.setPositionY(1);
