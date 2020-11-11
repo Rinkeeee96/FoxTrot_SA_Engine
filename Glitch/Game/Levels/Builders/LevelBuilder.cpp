@@ -191,15 +191,15 @@ void LevelBuilder::createParticle(nlohmann::json layerValue)
 			if (objectPropertyValue["name"] == "type") {
 				if (objectPropertyValue["value"] == "fire") {
 
-					SpriteObject* particle1Sprite = new SpriteObject(id++, 20, 20, 20, 300, "Assets/Particles/fire.png");
+					SpriteObject* particle1Sprite = new SpriteObject(id++, 20, 20, 5, 300, "Assets/Particles/fire.png");
 					engine.loadSprite(*particle1Sprite);
 
 					ParticleAdapter* part = new ParticleAdapter(id++);
 					part->registerSprite(SpriteState::DEFAULT, particle1Sprite);
 					part->changeToState(SpriteState::DEFAULT);
-					part->setPositionX(20);
-					part->setPositionY(20);
-					part->setStyle(ParticleInit::ParticleStyle::FIRE);
+					part->setPositionX(objectValue["x"]);
+					part->setPositionY(objectValue["y"]);
+					part->setStyle(ParticleInit::ParticleStyle::GALAXY);
 					bLevel->addNewObjectToLayer(PARTICLE_LAYER_INDEX, part);
 				}
 				else {
