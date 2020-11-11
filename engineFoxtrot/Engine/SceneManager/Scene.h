@@ -10,7 +10,7 @@
 class Scene 
 {
 public:
-	API Scene(const int, int, int);
+	API Scene(const int, const int, const int);
 	API~Scene();
 
 	bool API checkIfObjectExists(const int objectID);
@@ -37,16 +37,16 @@ public:
 	/// Must be implemented by a concrete implementation of a scene
 	virtual void OnDetach() = 0;
 
-	void setSceneWidth(int width);
+	void setSceneWidth(const int width);
 	int getSceneWidth() const;
 
-	void setSceneHeight(int height);
+	void setSceneHeight(const int height);
 	int getSceneHeight() const;
 
 private:
 	const int sceneID = 0;
 	map<int, Layer*> layers;
 
-	int sceneWidth = WINDOW_WIDTH;
-	int sceneHeight = WINDOW_HEIGHT;
+	const int sceneWidth = WINDOW_WIDTH;
+	const int sceneHeight = WINDOW_HEIGHT;
 };
