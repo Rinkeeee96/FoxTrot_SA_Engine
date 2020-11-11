@@ -55,7 +55,7 @@ PhysicsEngine::~PhysicsEngine()
 /// Identifier for ObjectID
 Object* PhysicsEngine::getObject(const int objectId)
 {
-	for (Object * obj : (*pointerToCurrentScene)->getAllObjectsInScene())
+	for (Object * obj : (*pointerToCurrentScene)->getAllObjectsInSceneRenderPhysics())
 	{
 		if (obj->getObjectId() == objectId)
 		{
@@ -69,8 +69,8 @@ Object* PhysicsEngine::getObject(const int objectId)
 /// A function to create all objects in the facade
 void PhysicsEngine::registerObjectInCurrentVectorWithPhysicsEngine()
 {
-	if(DEBUG_PHYSICS_ENGINE)cout << "Size pointertoObj: " << (*pointerToCurrentScene)->getAllObjectsInScene().size() << endl;
-	for (Object* object : (*pointerToCurrentScene)->getAllObjectsInScene())
+	if(DEBUG_PHYSICS_ENGINE)cout << "Size pointertoObj: " << (*pointerToCurrentScene)->getAllObjectsInSceneRenderPhysics().size() << endl;
+	for (Object* object : (*pointerToCurrentScene)->getAllObjectsInSceneRenderPhysics())
 	{
 		PhysicsBody * phyObj = new PhysicsBody(object);
 		if (DEBUG_PHYSICS_ENGINE)cout << "Registering object : " << phyObj->getObjectId() << endl;

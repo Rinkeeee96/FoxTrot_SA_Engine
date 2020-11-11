@@ -145,7 +145,7 @@ void LevelBuilder::createDecoration(nlohmann::json layerValue)
 			tile->registerSprite(SpriteState::DEFAULT, tileSprite);
 			tile->changeToState(SpriteState::DEFAULT);
 
-			bLevel->addNewObjectToLayer(DECORATION_LAYER_INDEX, tile);
+			bLevel->addNewObjectToLayer(DECORATION_LAYER_INDEX, tile, false);
 		}
 
 		if (currentX == (layerValue["width"] - 1)) {

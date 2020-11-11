@@ -4,11 +4,13 @@
 
 class LevelBuilder : public AbstractLevelBuilder {
 
-#define GROUND_LAYER_INDEX 1
-#define ENTITY_LAYER_INDEX 3
-#define DECORATION_LAYER_INDEX 4
+// DO NOT TOUCH
+#define GROUND_LAYER_INDEX 2
+
+#define ENTITY_LAYER_INDEX 4
+#define DECORATION_LAYER_INDEX 3
 #define PARTICLE_LAYER_INDEX 5
-#define BACKGROUND_LAYER_INDEX 6
+#define BACKGROUND_LAYER_INDEX 1
 
 #define TILESET_PATH "Assets/Levels/Tilesets/"
 #define TILE_IMAGE_PATH "Assets/Levels/Tiles/"
