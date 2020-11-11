@@ -128,7 +128,7 @@ void sceneTestSetup()
 	SpriteObject* particle1Sprite = new SpriteObject(11, 20, 20, 20, 300, "Assets/Particles/fire.png");
 	engine.loadSprite(*particle1Sprite);
 
-	ParticleAdapter* particle1 = new ParticleAdapter(11);        // create a new particle system pointer
+	ParticleAdapter* particle1 = new ParticleAdapter(12);        // create a new particle system pointer
 	particle1->registerSprite(SpriteState::DEFAULT, particle1Sprite);
 	particle1->changeToState(SpriteState::DEFAULT);
 	particle1->setPositionX(1700);
@@ -136,7 +136,7 @@ void sceneTestSetup()
 	particle1->setStyle(ParticleInit::ParticleStyle::FIRE);    // set the example effects
 	testScene->addNewObjectToLayer(4, particle1);
 
-	ParticleAdapter* particle2 = new ParticleAdapter(12);        // create a new particle system pointer
+	ParticleAdapter* particle2 = new ParticleAdapter(13);        // create a new particle system pointer
 	particle2->registerSprite(SpriteState::DEFAULT, particle1Sprite);
 	particle2->changeToState(SpriteState::DEFAULT);
 	particle2->setPositionX(100);
