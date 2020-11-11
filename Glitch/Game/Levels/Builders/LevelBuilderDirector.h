@@ -12,7 +12,7 @@ public:
 	void construct(ILevelBuilder* builder) 
 	{
 		// TODO make dynamic from json
-		auto filestream = fileLoader.readFile("C:\\Users\\thijs\\Downloads\\Level 1 - Simple - Large.json");
+		auto filestream = fileLoader.readFile("C:\\Users\\Max van Nistelrooij\\Documents\\Tiled\\SWA Foxtrot Game\\Maps\\Level 1 - Simple - Large.json");
 
 		nlohmann::json json;
 		filestream >> json;
@@ -28,12 +28,7 @@ public:
 				{
 					// TODO Triggers?
 
-					// TODO Fix character not moving
-
 					// TODO fix static draw objects
-
-					// TODO decorations
-						// TODO fix physics (oncollision with diffrent layer)
 					if (layerValue["name"] == "Background")
 					{
 						builder->createBackground(layerValue);
