@@ -95,7 +95,7 @@ void LevelBuilder::createEntities(nlohmann::json layerValue, int id) {
 				object->setHealth(healthString);
 			}
 		}
-		bLevel->addNewObjectToLayer(3, object);
+		bLevel->addNewObjectToLayer(ENTITY_LAYER_INDEX, object);
 	}
 }
 
@@ -137,8 +137,7 @@ void LevelBuilder::createTiles(nlohmann::json layerValue, int id) {
 			tile->registerSprite(SpriteState::DEFAULT, tileSprite);
 			tile->changeToState(SpriteState::DEFAULT);
 
-			// TODO layer index as define
-			bLevel->addNewObjectToLayer(1, tile);
+			bLevel->addNewObjectToLayer(GROUND_LAYER_INDEX, tile);
 		}
 
 		if (currentX == (layerValue["width"] - 1)) {
