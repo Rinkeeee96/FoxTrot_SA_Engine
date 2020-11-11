@@ -13,7 +13,7 @@ void LevelBuilder::createLevel(nlohmann::json json) {
 				if (propertyValue["name"] == "music") {
 					string music = propertyValue["value"];
 					map<string, string> sound = {
-						{"Leve_Sound", "Assets/Sound/" + music},
+						{"Level_Sound", "Assets/Sound/" + music},
 					};
 					engine.loadSound(sound);
 					bLevel->setSound(sound);
