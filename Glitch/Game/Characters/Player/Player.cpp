@@ -133,3 +133,5 @@ void Player::onKeyReleased(Event& event)
 			EventSingleton::get_instance().dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->objectId));
 	}
 }
+
+ICharacter* Player::clone(int id) { return new Player(id); }

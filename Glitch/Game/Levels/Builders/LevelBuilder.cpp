@@ -186,7 +186,7 @@ void LevelBuilder::createParticle(nlohmann::json layerValue)
 					bLevel->addNewObjectToLayer(PARTICLE_LAYER_INDEX, part);
 				}
 				else {
-					throw std::exception("invalid type");
+					throw std::exception(GAME_ERRORCODES[INVALID_TYPE]);
 				}
 			}
 		}
@@ -274,17 +274,17 @@ void LevelBuilder::loadTileSets(nlohmann::json json) {
 }
 
 void LevelBuilder::initFactory() {
-	auto tileTop = new SpriteObject(1, 16, 16, 1, 150, "Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png");
-	auto playerDefault = new SpriteObject(100, 37, 50, 1, 150, "Assets/Sprites/Character/adventure.png");
-	auto playerAirAttack = new SpriteObject(101, 37, 50, 4, 300, "Assets/Sprites/Character/adventure_air_attack1.png");
-	auto playerRunRight = new SpriteObject(102, 37, 50, 6, 150, "Assets/Sprites/Character/adventure_run_right.png");
-	auto playerSlide = new SpriteObject(103, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_slide.png");
-	auto playerFallLeft = new SpriteObject(104, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_fall_left.png");
-	auto playerFallRight = new SpriteObject(107, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_fall_right.png");
-	auto playerJumpLeft = new SpriteObject(105, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_jump_left.png");
-	auto playerRunLeft = new SpriteObject(106, 37, 50, 6, 150, "Assets/Sprites/Character/adventure_run_left.png");
-	auto playerJumpRight = new SpriteObject(108, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_jump_right.png");
-	auto slimeDefault = new SpriteObject(109, 37, 50, 1, 150, "Assets/Levels/Tiles/slime_blue.png");
+	auto tileTop = new SpriteObject(textureId++, 16, 16, 1, 300, "Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png");
+	auto playerDefault = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 1, 150, "Assets/Sprites/Character/adventure.png");
+	auto playerAirAttack = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 4, 300, "Assets/Sprites/Character/adventure_air_attack1.png");
+	auto playerRunRight = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 6, 150, "Assets/Sprites/Character/adventure_run_right.png");
+	auto playerSlide = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_slide.png");
+	auto playerFallLeft = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_fall_left.png");
+	auto playerFallRight = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_fall_right.png");
+	auto playerJumpLeft = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_jump_left.png");
+	auto playerRunLeft = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 6, 150, "Assets/Sprites/Character/adventure_run_left.png");
+	auto playerJumpRight = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_jump_right.png");
+	auto slimeDefault = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 1, 150, "Assets/Levels/Tiles/slime_blue.png");
 
 	engine.loadSprite(*tileTop);
 	engine.loadSprite(*playerDefault);

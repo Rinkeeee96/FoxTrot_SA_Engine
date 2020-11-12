@@ -8,12 +8,8 @@
 
 /// @brief 
 /// Level class. Level has all the information. 
-
-#if(EXPORT)
-class DLLEXPORT Level : public Scene
-#else
+/// 
 class Level : public Scene
-#endif
 {
 public:
 	Level(const int id, map<string, string> sounds);

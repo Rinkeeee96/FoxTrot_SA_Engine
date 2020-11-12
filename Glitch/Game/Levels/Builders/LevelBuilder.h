@@ -5,14 +5,17 @@
 
 class LevelBuilder : public AbstractLevelBuilder {
 
-// DO NOT TOUCH
+// DO NOT TOUCH GROUND LAYER INDEX
 #define GROUND_LAYER_INDEX 2
-
 #define ENTITY_LAYER_INDEX 4
 #define DECORATION_LAYER_INDEX 3
 #define PARTICLE_LAYER_INDEX 5
 #define BACKGROUND_LAYER_INDEX 1
 
+#define ICHARACTER_HEIGHT 37
+#define ICHARACTER_WIDTH 50
+
+#define CHARACTER_PATH "Assets/Sprites/Character/"
 #define TILESET_PATH "Assets/Levels/Tilesets/"
 #define TILE_IMAGE_PATH "Assets/Levels/Tiles/"
 
@@ -27,6 +30,7 @@ private:
 	int currentTileId = 300;
 	int mapTileWidth = 16;
 	int mapTileHeight = 16;
+	int textureId = 0;
 	int id = 0;
 public:
 	LevelBuilder(Engine& _engine);

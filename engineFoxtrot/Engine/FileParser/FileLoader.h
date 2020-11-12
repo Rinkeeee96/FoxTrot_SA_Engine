@@ -1,16 +1,12 @@
 #pragma once
 #include <fstream> 
+#include <string>
+#include <map>
 
 class API FileLoader
 {
-public:
-	std::ifstream readFile(string path) {
-		bool exists = std::filesystem::exists(path); // TODO dynamic fonts
+private:
 
-		if (exists) {
-			std::ifstream ifstream(path);
-			return ifstream;
-		}
-		throw std::exception("file not found exception");
-	}
+public:
+	std::ifstream readFile(string path);
 };

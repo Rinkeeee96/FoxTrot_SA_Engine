@@ -3,7 +3,9 @@
 
 class ICharacter : public IGameObject  {
 public:
+	ICharacter() : IGameObject() {}
 	ICharacter(const int id) : IGameObject(id) {}
+	virtual ~ICharacter() {}
 
 	virtual void onUpdate() = 0;
 
