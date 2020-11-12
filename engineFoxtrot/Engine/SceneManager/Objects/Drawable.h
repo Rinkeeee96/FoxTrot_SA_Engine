@@ -2,8 +2,7 @@
 #include "SceneManager/Objects/Object.h"
 #include <Events\EventSingleton.h>
 #include <Events\Video\VideoLoadSpriteEvent.h>
-#include <any>
-#include <any>
+#include "Structs/HelperStructs.h"
 class API Drawable : public Object
 {
 public:
@@ -29,8 +28,7 @@ public:
 		if (spriteObject == nullptr) throw ERROR_CODE_SPRITE_DOESNT_EXIST;
 		this->currentSprite = spriteObject;
 	}
-
-	virtual vector<any> draw() = 0;
+	virtual const ColoredString* toString() { return nullptr; }
 
 	bool getIsParticle() { return isParticle; }
 protected:

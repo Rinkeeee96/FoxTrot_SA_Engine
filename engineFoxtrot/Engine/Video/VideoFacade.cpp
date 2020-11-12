@@ -137,6 +137,13 @@ void VideoFacade::renderCopy(Drawable& object)
 	destination.y = (int)object.getPositionY() - (int)object.getHeight();
 	destination.w = (int)object.getWidth();
 	destination.h = (int)object.getHeight();
+
+	// crude fix to draw text on top of a drawable, maybe fix with a callback function in the future, or a visitor?
+	if (object.toString() != nullptr)
+	{
+		drawMessageAt(*object.toString(), Position(destination.x, destination.y));
+	}
+
 	SDL_RenderCopyEx(renderer, textureMap[sprite.getTextureID()], &rect, &destination, object.getRotation(), NULL, SDL_FLIP_NONE);
 }
 
@@ -168,7 +175,7 @@ void VideoFacade::drawParticle(ParticleData data, int spriteID)
 /// A Message struct containing the message and the color of the message
 /// @param pos
 /// A Position struct containing the position to draw the message at
-void VideoFacade::drawMessageAt(const ColoredString message, const Position pos)
+void VideoFacade::drawMessageAt(const ColoredString& message, const Position& pos)
 {
 	bool exists = std::filesystem::exists(FONT_PATH); // TODO dynamic fonts
 

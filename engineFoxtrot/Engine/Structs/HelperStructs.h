@@ -12,10 +12,10 @@ struct Color
 
 struct ColoredString
 {
-	ColoredString(const string& _text, const Color& _color)
+	ColoredString(const string _text, const Color _color)
 		: text{ _text }, color(_color){}
-	const string& text;
-	const Color& color;
+	const string text;
+	const Color color;
 };
 
 struct Position

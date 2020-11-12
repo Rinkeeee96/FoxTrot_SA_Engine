@@ -25,7 +25,7 @@ void ParticleEngine::onUpdate(Event& tickEvent)
 		{
 			((ParticleAdapter *)particle)->update();
 
-			checkIfObjectValueAndParticleValueMatch((ParticleAdapter &)object);
+			checkIfObjectValueAndParticleValueMatch((ParticleAdapter &)particle);
 		}
 	}
 }
