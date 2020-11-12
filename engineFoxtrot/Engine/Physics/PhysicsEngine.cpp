@@ -74,7 +74,7 @@ void PhysicsEngine::registerObjectInCurrentVectorWithPhysicsEngine()
 	{
 		PhysicsBody * phyObj = new PhysicsBody(object);
 		if (DEBUG_PHYSICS_ENGINE)cout << "Registering object : " << phyObj->getObjectId() << endl;
-		if (object->getIsParticle()) continue;
+
 		if (object->getStatic())
 		{
 			physicsFacade->addStaticObject(phyObj);

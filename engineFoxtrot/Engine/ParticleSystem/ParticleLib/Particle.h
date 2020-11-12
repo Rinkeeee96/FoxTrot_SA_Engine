@@ -743,6 +743,5 @@ protected:
 
     int x_ = 0, y_ = 0;
 public:
-    void setXPosition(int x) { x_ = x; }
-    void setYPosition(int y) { y_ = y; }
+    void setPosition(int x, int y) { x_ = x; y_ = y; }
 };

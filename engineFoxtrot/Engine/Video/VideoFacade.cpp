@@ -26,11 +26,10 @@ VideoFacade::~VideoFacade()
 /// Inits SDL2
 void VideoFacade::initSDL()
 {
-	Uint32 flags = SDL_WINDOW_SHOWN | SDL_WINDOW_FULLSCREEN;
 	SDL_Init(SDL_INIT_EVERYTHING);
 	TTF_Init();
 	Sans = TTF_OpenFont(FONT_PATH, FONT_POINT_SIZE);
-	window = SDL_CreateWindow("Foxtrot Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT, flags);
+	window = SDL_CreateWindow("Foxtrot Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
 	if (window == NULL)
 	{
 		printf("Window could not be created! SDL Error: %s\n", SDL_GetError());
@@ -103,7 +102,6 @@ void VideoFacade::renderCopy(Object& object)
 	SpriteObject& sprite = object.GetCurrentSprite();
 
 	float test;
-	if (textureMap[sprite.getTextureID()] == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_SPRITE_ID_IS_NULL;
 
 	if (textureMap[sprite.getTextureID()] == NULL) throw std::exception(ERRORCODES[ERROR_CODE_SVIFACADE_RENDERCOPY_SPRITE_ID_IS_NULL]);
 	//if (object.getPositionX() == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_XPOS_IS_NULL;
@@ -132,8 +130,8 @@ void VideoFacade::renderCopy(Object& object)
 
 	//generate stratch of image
 	SDL_Rect destination;
-	destination.x = (int)object.getPositionX() - xCameraOffset;
-	destination.y = (int)object.getPositionY() - (int)object.getHeight() - yCameraOffset;
+	destination.x = (int)object.getPositionX();
+	destination.y = (int)object.getPositionY() - (int)object.getHeight();
 	destination.w = (int)object.getWidth();
 	destination.h = (int)object.getHeight();
 	SDL_RenderCopyEx(renderer, textureMap[sprite.getTextureID()], &rect, &destination, object.getRotation(), NULL, SDL_FLIP_NONE);
@@ -153,7 +151,7 @@ void VideoFacade::renderCopy(Object& object)
 /// @param rotation 
 void VideoFacade::drawParticle(ParticleData data, int spriteID)
 {
-	SDL_Rect r = { int(data.posx + data.startPosX - data.size / 2) - xCameraOffset, int(data.posy + data.startPosY - data.size / 2) - yCameraOffset, int(data.size), int(data.size) };
+	SDL_Rect r = { int(data.posx + data.startPosX - data.size / 2), int(data.posy + data.startPosY - data.size / 2), int(data.size), int(data.size) };
 	SDL_Color c = { Uint8(data.colorR * 255), Uint8(data.colorG * 255), Uint8(data.colorB * 255), Uint8(data.colorA * 255) };
 	SDL_SetTextureColorMod(textureMap[spriteID], c.r, c.g, c.b);
 	SDL_SetTextureAlphaMod(textureMap[spriteID], c.a);

@@ -19,25 +19,10 @@ ParticleEngine::~ParticleEngine()
 void ParticleEngine::onUpdate(Event& tickEvent)
 {
 	if ((*pointerToCurrentScene)->getAllObjectsInScene().size() == 0) return;
-	for (Object * object : (*pointerToCurrentScene)->getAllObjectsInScene()) {
-		if (object != nullptr && object->getIsParticle()) {
-			((ParticleAdapter*)object)->update();
-
-			checkIfObjectValueAndParticleValueMatch((ParticleAdapter&)object);
+	for (Object * particle : (*pointerToCurrentScene)->getAllObjectsInScene()) {
+		if (particle != nullptr && particle->getIsParticle()) {
+			((ParticleAdapter*)particle)->update();
 		}
-	}
-}
-
-void ParticleEngine::checkIfObjectValueAndParticleValueMatch(ParticleAdapter& particle)
-{
-	if (particle.getPositionX() != particle.getPositionX())
-	{
-		particle.setPositionX(particle.getPositionX());
-	}
-
-	if (particle.getPositionY() != particle.getPositionY())
-	{
-		particle.setPositionY(particle.getPositionY());
 	}
 }
 
