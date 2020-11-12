@@ -211,24 +211,8 @@
                  "width":22,
                  "x":32.6666666666666,
                  "y":505.666666666666
-                }, 
-                {
-                 "height":23,
-                 "id":28,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"type",
-                         "type":"string",
-                         "value":"player"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":22,
-                 "x":141.666666666667,
-                 "y":506.5
-                }],
+                }
+				],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,

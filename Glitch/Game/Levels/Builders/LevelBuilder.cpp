@@ -1,5 +1,9 @@
 #include "LevelBuilder.h"
 
+LevelBuilder::LevelBuilder(Engine& _engine) : AbstractLevelBuilder(_engine) {
+	this->initFactory();
+}
+
 void LevelBuilder::create() {
 	engine.insertScene(bLevel);
 	level = unique_ptr<Level>(bLevel);
@@ -43,30 +47,8 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 		ICharacter* object = nullptr;
 		for (auto& [objectPropertyKey, objectPropertyValue] : objectValue["properties"].items())
 		{
-			// TODO Factory
 			if (objectPropertyValue["name"] == "type") {
-				if (objectPropertyValue["value"] == "player") {
-					object = new Player(id++);
-
-					object->registerSprite(SpriteState::DEFAULT, this->playerDefault);
-					object->registerSprite(SpriteState::AIR_ATTACK, this->playerAirAttack);
-					object->registerSprite(SpriteState::RUN_RIGHT, this->playerRunRight);
-					object->registerSprite(SpriteState::SLIDE, this->playerSlide);
-					object->registerSprite(SpriteState::AIR_FALL_LEFT, this->playerFallLeft);
-					object->registerSprite(SpriteState::AIR_JUMP_LEFT, this->playerJumpLeft);
-					object->registerSprite(SpriteState::AIR_FALL_RIGHT, this->playerFallRight);
-					object->registerSprite(SpriteState::AIR_JUMP_RIGHT, this->playerJumpRight);
-					object->registerSprite(SpriteState::RUN_LEFT, this->playerRunLeft);
-					object->changeToState(SpriteState::DEFAULT);
-				}
-				else if (objectPropertyValue["value"] == "slime") {
-					object = new Slime(id++);
-					object->registerSprite(SpriteState::DEFAULT, this->slimeDefault);
-					object->changeToState(SpriteState::DEFAULT);
-				}
-				else {
-					throw std::exception("invalid type");
-				}
+				object = characterFactory.create(objectPropertyValue["value"], id++);
 			}
 		}
 
@@ -291,19 +273,18 @@ void LevelBuilder::loadTileSets(nlohmann::json json) {
 	}
 }
 
-void LevelBuilder::loadSprites() {
-	// TODO do it once
-	this->tileTop = new SpriteObject(1, 16, 16, 1, 150, "Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png");
-	this->playerDefault = new SpriteObject(100, 37, 50, 1, 150, "Assets/Sprites/Character/adventure.png");
-	this->playerAirAttack = new SpriteObject(101, 37, 50, 4, 300, "Assets/Sprites/Character/adventure_air_attack1.png");
-	this->playerRunRight = new SpriteObject(102, 37, 50, 6, 150, "Assets/Sprites/Character/adventure_run_right.png");
-	this->playerSlide = new SpriteObject(103, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_slide.png");
-	this->playerFallLeft = new SpriteObject(104, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_fall_left.png");
-	this->playerFallRight = new SpriteObject(107, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_fall_right.png");
-	this->playerJumpLeft = new SpriteObject(105, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_jump_left.png");
-	this->playerRunLeft = new SpriteObject(106, 37, 50, 6, 150, "Assets/Sprites/Character/adventure_run_left.png");
-	this->playerJumpRight = new SpriteObject(108, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_jump_right.png");
-	this->slimeDefault = new SpriteObject(109, 37, 50, 1, 150, "Assets/Levels/Tiles/slime_blue.png");
+void LevelBuilder::initFactory() {
+	auto tileTop = new SpriteObject(1, 16, 16, 1, 150, "Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png");
+	auto playerDefault = new SpriteObject(100, 37, 50, 1, 150, "Assets/Sprites/Character/adventure.png");
+	auto playerAirAttack = new SpriteObject(101, 37, 50, 4, 300, "Assets/Sprites/Character/adventure_air_attack1.png");
+	auto playerRunRight = new SpriteObject(102, 37, 50, 6, 150, "Assets/Sprites/Character/adventure_run_right.png");
+	auto playerSlide = new SpriteObject(103, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_slide.png");
+	auto playerFallLeft = new SpriteObject(104, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_fall_left.png");
+	auto playerFallRight = new SpriteObject(107, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_fall_right.png");
+	auto playerJumpLeft = new SpriteObject(105, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_jump_left.png");
+	auto playerRunLeft = new SpriteObject(106, 37, 50, 6, 150, "Assets/Sprites/Character/adventure_run_left.png");
+	auto playerJumpRight = new SpriteObject(108, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_jump_right.png");
+	auto slimeDefault = new SpriteObject(109, 37, 50, 1, 150, "Assets/Levels/Tiles/slime_blue.png");
 
 	engine.loadSprite(*tileTop);
 	engine.loadSprite(*playerDefault);
@@ -316,4 +297,22 @@ void LevelBuilder::loadSprites() {
 	engine.loadSprite(*playerRunLeft);
 	engine.loadSprite(*playerJumpRight);
 	engine.loadSprite(*slimeDefault);
+
+	std::map<SpriteState, SpriteObject*> playerMap;
+	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, playerDefault));
+	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::AIR_ATTACK, playerAirAttack));
+	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::RUN_RIGHT, playerRunRight));
+	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::SLIDE, playerSlide));
+	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::AIR_FALL_LEFT, playerFallLeft));
+	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::AIR_JUMP_LEFT, playerJumpLeft));
+	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::AIR_FALL_RIGHT, playerFallRight));
+	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::AIR_JUMP_RIGHT, playerJumpRight));
+	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::RUN_LEFT, playerRunLeft));
+	characterFactory.registerCharacter("player", new Player(), playerMap);
+
+	std::map<SpriteState, SpriteObject*> slimeMap;
+	slimeMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, slimeDefault));
+	characterFactory.registerCharacter("slime", new Slime(), slimeMap);
+
+	std::map<std::string, std::map<SpriteState, SpriteObject*>> spriteObjectMap;
 }

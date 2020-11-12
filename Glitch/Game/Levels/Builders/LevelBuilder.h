@@ -1,6 +1,7 @@
 #pragma once
 #include "Game/Levels/Builders/AbstractLevelBuilder.h"
-#include <Game\Levels\Builders\Tiles\TileSprite.h>
+#include <Game\Levels\Builders\ParsedEntities\TileSprite.h>
+#include <Game\Factories\CharacterFactory.h>
 
 class LevelBuilder : public AbstractLevelBuilder {
 
@@ -16,32 +17,19 @@ class LevelBuilder : public AbstractLevelBuilder {
 #define TILE_IMAGE_PATH "Assets/Levels/Tiles/"
 
 private:
+	CharacterFactory characterFactory;
 	FileLoader fileLoader;
 	map<int, TileSprite*> textureMap;
 	map<int, SpriteObject*> spriteMap;
 	// TODO Dynamic
 	Level* bLevel = new Level(1);
 
-	// TODO cleanup
-	SpriteObject* tileTop = nullptr;
-	SpriteObject* playerDefault = nullptr;
-	SpriteObject* playerAirAttack = nullptr;
-	SpriteObject* playerRunRight = nullptr;
-	SpriteObject* playerSlide = nullptr;
-	SpriteObject* playerFallLeft = nullptr;
-	SpriteObject* playerFallRight = nullptr;
-	SpriteObject* playerJumpLeft = nullptr;
-	SpriteObject* playerRunLeft = nullptr;
-	SpriteObject* playerJumpRight = nullptr;
-	SpriteObject* slimeDefault = nullptr;
-
-	// TODO
 	int currentTileId = 300;
 	int mapTileWidth = 16;
 	int mapTileHeight = 16;
 	int id = 0;
 public:
-	LevelBuilder(Engine& _engine) : AbstractLevelBuilder(_engine) { }
+	LevelBuilder(Engine& _engine);
 
 	// TODO less json reference
 	void createLevel(nlohmann::json json) override;
@@ -52,6 +40,6 @@ public:
 	void createParticle(nlohmann::json layerValue) override;
 	void createTiles(nlohmann::json layerValue) override;
 	void loadTileSets(nlohmann::json json) override;
-	void loadSprites() override;
+	void initFactory() override;
 	virtual void create() override;
 };

@@ -21,6 +21,6 @@ public:
 	virtual void createParticle(nlohmann::json layerValue) = 0;
 	virtual void createTiles(nlohmann::json layerValue) = 0;
 	virtual void loadTileSets(nlohmann::json json) = 0;
-	virtual void loadSprites() = 0;
+	virtual void initFactory() = 0;
 };
 

@@ -6,6 +6,7 @@
 
 class Player : public ICharacter {
 public:
+	Player() : ICharacter(-1) {};
 	Player(const int id);
 	/// @brief 
 	/// Handles when an collision event begins, when the direction of the collision happend on the bottom side of the player object,
@@ -23,6 +24,10 @@ public:
 	void onKeyReleased(Event& event);
 
 	void onUpdate() override {};
+
+	virtual ICharacter* clone(int id) override {
+		return new Player(id);
+	}
 private:
 	bool canJump = false;
 };

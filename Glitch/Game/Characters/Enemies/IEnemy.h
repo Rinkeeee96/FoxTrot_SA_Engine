@@ -6,4 +6,5 @@ public:
 	IEnemy(const int id) : ICharacter(id) {}
 
 	virtual void onUpdate() = 0;
+	virtual ICharacter* clone(int id) = 0;
 };

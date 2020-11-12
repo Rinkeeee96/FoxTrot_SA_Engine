@@ -57,7 +57,13 @@
     <ClInclude Include="Game\Ground\IGround.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Levels\Builders\Tiles\TileSprite.h">
+    <ClInclude Include="Game\Levels\Builders\ParsedEntities\TileSprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\General\GameErrorCodes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Factories\CharacterFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
