@@ -21,7 +21,7 @@
  "tileheight":1080,
  "tiles":[
         {
-         "id":1,
+         "id":0,
          "image":"..\/..\/..\/GitHub\/FoxTrot_SA_Engine_New\/Glitch\/Assets\/Levels\/Backgrounds\/Grassland_Background.jpg",
          "imageheight":1080,
          "imagewidth":1920
