@@ -3,7 +3,7 @@
 
 /// @brief 
 /// @param sceneID 
-Scene::Scene(const int id) : sceneID(id)
+Scene::Scene(const int id, const int _sceneHeight, const int _sceneWidth) : sceneID(id), sceneHeight(_sceneHeight), sceneWidth(_sceneWidth)
 {
 
 }
@@ -21,9 +21,9 @@ Scene::~Scene()
 /// Returns true if Object is found in current scene else false.
 bool Scene::checkIfObjectExists(const int objectID)
 {
-	for (Object* obj : getAllObjectsInScene())
+	for (auto layer : layers)
 	{
-		if (obj->getObjectId() == objectID)
+		if (layer.second->objects.find(objectID) != layer.second->objects.end())
 		{
 			return true;
 		}
@@ -56,9 +56,12 @@ const bool Scene::toggleLayer(const int zIndex, bool render)
 vector <Object*> Scene::getAllObjectsInScene()
 {
 	vector <Object*> returnVector;
-	for (auto layer = layers.begin(); layer != layers.end(); layer++)
+	for (auto layer : layers)
 	{
-		returnVector.insert(returnVector.end(), (*layer).second->objects.begin(), (*layer).second->objects.end());
+		for (auto obj : layer.second->objects)
+		{
+			returnVector.push_back(obj.second);
+		}
 	}
 	return returnVector;
 }
@@ -86,13 +89,13 @@ const void Scene::addNewObjectToLayer(const int zIndex, Object* object, bool ren
 
 	if (layers.find(zIndex) != layers.end())
 	{
-		layers[zIndex]->objects.push_back(object);
+		layers[zIndex]->objects[object->getObjectId()] = object;
 	}
 	else
 	{
 		layers[zIndex] = new Layer();
 		layers[zIndex]->renderPhysics = renderPhysics;
-		layers[zIndex]->objects.push_back(object);
+		layers[zIndex]->objects[object->getObjectId()] = object;
 	}
 }
 
@@ -104,12 +107,32 @@ const void Scene::addNewObjectToLayer(const int zIndex, Object* object, bool ren
 /// Returns pointer to the found Object
 Object * Scene::getObject(const int objectID)
 {
-	for (Object * obj : getAllObjectsInScene())
+	for (auto layer : layers)
 	{
-		if (obj->getObjectId() == objectID)
+		if (layer.second->objects.find(objectID) != layer.second->objects.end())
 		{
-			return obj;
+			return layer.second->objects[objectID];
 		}
 	}
 	throw ERROR_CODE_SCENE_NO_OBJECT_FOUND;
+}
+
+void Scene::setSceneWidth(const int width)
+{
+	sceneWidth = width;
+}
+
+int Scene::getSceneWidth() const
+{
+	return sceneWidth;
+}
+
+void Scene::setSceneHeight(const int height)
+{
+	sceneHeight = height;
+}
+
+int Scene::getSceneHeight() const
+{
+	return sceneHeight;
 }

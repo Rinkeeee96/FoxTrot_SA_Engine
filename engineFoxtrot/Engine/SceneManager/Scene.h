@@ -2,7 +2,6 @@
 
 #include "Object.h"
 #include "Layer.h"
-#include "ParticleSystem/ParticleLib/ParticleInit.h"
 
 /// @brief 
 /// Scene Class
@@ -11,7 +10,7 @@
 class Scene 
 {
 public:
-	API Scene(const int);
+	API Scene(const int, const int, const int);
 	API~Scene();
 
 	bool API checkIfObjectExists(const int objectID);
@@ -37,9 +36,19 @@ public:
 	/// @brief
 	/// OnDetach is called when a scene is destroyed/closed and is responsible for cleanup
 	/// Must be implemented by a concrete implementation of a scene
-	virtual void onDetach() = 0;
+	virtual void OnDetach() = 0;
+
+	void setSceneWidth(const int width);
+	int getSceneWidth() const;
+
+	void setSceneHeight(const int height);
+	int getSceneHeight() const;
+
 	virtual void onUpdate() = 0;
 private:
 	const int sceneID = 0;
 	map<int, Layer*> layers;
+
+	int sceneWidth = WINDOW_WIDTH;
+	int sceneHeight = WINDOW_HEIGHT;
 };
