@@ -1,6 +1,6 @@
 #pragma once
 
-//#define RUN_UNIT_TESTS		true
+#define RUN_UNIT_TESTS		true
 
 #define ZERO				0
 #define ONE					1
