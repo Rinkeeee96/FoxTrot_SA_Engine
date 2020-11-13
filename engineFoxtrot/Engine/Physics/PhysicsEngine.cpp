@@ -49,23 +49,6 @@ PhysicsEngine::~PhysicsEngine()
 }
 
 /// @brief 
-/// A function to search a object with the ObjectId
-/// If a object is not found throw PHYSICS_ENGINE_OBJECT_DOESNT_EXIST
-/// @param objectId 
-/// Identifier for ObjectID
-Object* PhysicsEngine::getObject(const int objectId)
-{
-	for (Object * obj : (*pointerToCurrentScene)->getAllObjectsInSceneRenderPhysics())
-	{
-		if (obj->getObjectId() == objectId)
-		{
-			return obj;
-		}
-	}
-	throw PHYSICS_ENGINE_OBJECT_DOESNT_EXIST;
-}
-
-/// @brief 
 /// A function to create all objects in the facade
 void PhysicsEngine::registerObjectInCurrentVectorWithPhysicsEngine()
 {
