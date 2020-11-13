@@ -43,9 +43,14 @@ public:
 	void setSceneHeight(const int height) { sceneHeight = height; }
 	int getSceneHeight() const { return sceneHeight; }
 
+	void setPlayerObjectID(const int _playerObjectID) { playerObjectID = _playerObjectID; }
+	int getPlayerObjectID() const { return playerObjectID; }
+
 private:
 	const int sceneID = 0;
 	map<int, Layer*> layers;
+
+	int playerObjectID = 0;
 
 	int sceneWidth = WINDOW_WIDTH;
 	int sceneHeight = WINDOW_HEIGHT;

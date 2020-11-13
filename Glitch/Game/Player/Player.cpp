@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Player.h"
 
-Player::Player() : Object(2) {
+Player::Player(int playerObjectID) : Object(playerObjectID) {
 	this->setName("person");
 	this->setHeight(80);
 	this->setWidth(80);

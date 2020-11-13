@@ -51,7 +51,8 @@ void sceneTestSetup()
 
 	Level* testScene = new Level(100, 1080, 5000, soundL1);
 
-	Object* object2 = new Player();
+	Object* object2 = new Player(2);
+	testScene->setPlayerObjectID(2);
 	object2->setDensity(1);
 	object2->setJumpHeight(100);
 	object2->setStatic(false);
