@@ -180,18 +180,18 @@ void VideoFacade::drawMessageAt(const ColoredString& message, const Position& po
 	// TODO check if message is in bounds
 	if (exists) {
 
-		SDL_Color Color = { message.color.red, message.color.green, message.color.blue };
-		SDL_Surface* surfaceMessage = TTF_RenderText_Solid(Sans, message.text.c_str(), Color);
-		SDL_Texture* Message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+		SDL_Color color = { message.color.red, message.color.green, message.color.blue };
+		SDL_Surface* surfaceMessage = TTF_RenderText_Solid(Sans, message.text.c_str(), color);
+		SDL_Texture* messageTexture = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 
 		int xPos, yPos;
 
-		SDL_Rect Message_rect;
+		SDL_Rect message_rect;
 		if (message.centered)
 		{
 			// TODO check width and height positioning relative to set x/y position	
-			xPos = pos.xPos - (bounds.height / 2);
-			yPos = pos.yPos - (bounds.width / 2);
+			xPos = pos.xPos - (bounds.width / 2);
+			yPos = pos.yPos - (bounds.height / 2);
 		}
 		else {
 			// If the message doesn't fit the screen, make it fit the screen
@@ -200,14 +200,14 @@ void VideoFacade::drawMessageAt(const ColoredString& message, const Position& po
 		}
 
 
-		Message_rect.x = xPos;
-		Message_rect.y = yPos;
-		Message_rect.w = MESSAGE_WIDTH;
-		Message_rect.h = MESSAGE_HEIGHT;
+		message_rect.x = xPos;
+		message_rect.y = yPos;
+		message_rect.w = MESSAGE_WIDTH;
+		message_rect.h = MESSAGE_HEIGHT;
 
-		SDL_RenderCopy(renderer, Message, NULL, &Message_rect);
+		SDL_RenderCopy(renderer, messageTexture, NULL, &message_rect);
 
 		SDL_FreeSurface(surfaceMessage);
-		SDL_DestroyTexture(Message);
+		SDL_DestroyTexture(messageTexture);
 	}
 }
