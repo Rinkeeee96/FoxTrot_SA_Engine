@@ -3,7 +3,6 @@
 #include "Objects/Object.h"
 #include "Objects/Drawable.h"
 #include "Layer.h"
-#include "ParticleSystem/ParticleLib/ParticleInit.h"
 
 /// @brief 
 /// Scene Class

@@ -22,9 +22,9 @@ Scene::~Scene()
 /// Returns true if Object is found in current scene else false.
 bool Scene::checkIfObjectExists(const int objectID)
 {
-	for (Object* obj : getAllObjectsInScene())
+	for (auto layer : layers)
 	{
-		if (obj->getObjectId() == objectID)
+		if (layer.second->objects.find(objectID) != layer.second->objects.end())
 		{
 			return true;
 		}
@@ -76,9 +76,12 @@ vector <Drawable*> Scene::getAllDrawablesInScene()
 vector <Object*> Scene::getAllObjectsInScene()
 {
 	vector <Object*> returnVector;
-	for (auto layer = layers.begin(); layer != layers.end(); layer++)
+	for (auto layer : layers)
 	{
-		returnVector.insert(returnVector.end(), (*layer).second->objects.begin(), (*layer).second->objects.end());
+		for (auto obj : layer.second->objects)
+		{
+			returnVector.push_back(obj.second);
+		}
 	}
 	return returnVector;
 }
@@ -95,12 +98,12 @@ const void Scene::addNewObjectToLayer(const int zIndex, Object* object)
 
 	if (layers.find(zIndex) != layers.end()) 
 	{
-		layers[zIndex]->objects.push_back(object);
+		layers[zIndex]->objects[object->getObjectId()] = object;
 	}
 	else 
 	{
 		layers[zIndex] = new Layer();
-		layers[zIndex]->objects.push_back(object);
+		layers[zIndex]->objects[object->getObjectId()] = object;
 	}
 }
 
@@ -112,11 +115,11 @@ const void Scene::addNewObjectToLayer(const int zIndex, Object* object)
 /// Returns pointer to the found Object
 Object * Scene::getObject(const int objectID)
 {
-	for (Object * obj : getAllObjectsInScene())
+	for (auto layer : layers)
 	{
-		if (obj->getObjectId() == objectID)
+		if (layer.second->objects.find(objectID) != layer.second->objects.end())
 		{
-			return obj;
+			return layer.second->objects[objectID];
 		}
 	}
 	throw ERROR_CODE_SCENE_NO_OBJECT_FOUND;
