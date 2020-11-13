@@ -4,6 +4,10 @@
 #include "Events/AppTickEvent30.h"
 #include "Events/AppTickEvent60.h"
 #include "Events/Action/OnCollisionEvent.h"
+#include "Events/EventSingleton.h"
+#include "Events/Sound/OnMusicStartEvent.h"
+#include "Events/Sound/SoundAttachEvent.h"
+#include "Events/Sound/OnMusicStopEvent.h"
 // ----- engine core ----------------------
 #include "Engine/General/ErrorCodes.h"
 // ----- individual engines ----------------

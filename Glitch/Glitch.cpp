@@ -1,9 +1,10 @@
 #pragma once
-#include "stdafx.h"
+#include "pch.h"
 #include "Glitch.h"
-#include "./Game/Level.h"
-#include "./Game/SpriteState.h"
-#include "./Game/Player/Player.h"
+
+#include "Game/Level.h"
+#include "Game/SpriteState.h"
+#include "Game/Player/Player.h"
 
 // TODO engine.h & engine.cpp
 
