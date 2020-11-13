@@ -190,15 +190,14 @@ void VideoFacade::drawMessageAt(const ColoredString& message, const Position& po
 		if (message.centered)
 		{
 			// TODO check width and height positioning relative to set x/y position	
-			xPos = pos.xPos - (bounds.width / 2);
-			yPos = pos.yPos - (bounds.height / 2);
+			xPos = pos.xPos + (bounds.width / 2) - MESSAGE_WIDTH / 2;
+			yPos = pos.yPos + (bounds.height / 2) - MESSAGE_HEIGHT / 2;
 		}
 		else {
 			// If the message doesn't fit the screen, make it fit the screen
 			xPos = pos.xPos + MESSAGE_WIDTH > WINDOW_WIDTH ? WINDOW_WIDTH - MESSAGE_WIDTH : pos.xPos < 0 ? 0 : pos.xPos;
 			yPos = pos.yPos + MESSAGE_HEIGHT > WINDOW_HEIGHT ? WINDOW_HEIGHT - MESSAGE_HEIGHT : pos.yPos < 0 ? 0 : pos.yPos;
 		}
-
 
 		message_rect.x = xPos;
 		message_rect.y = yPos;
