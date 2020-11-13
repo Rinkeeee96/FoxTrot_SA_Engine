@@ -74,8 +74,8 @@ $(document).ready(function(){initNavTree('class_scene.html',''); initResizable()
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a04a74ef75f937fe87381dc373e37adbc"><td class="memItemLeft" align="right" valign="top">API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a04a74ef75f937fe87381dc373e37adbc">Scene</a> (const int)</td></tr>
-<tr class="separator:a04a74ef75f937fe87381dc373e37adbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57d8bdc424d2e54929fb1a50134bd1b9"><td class="memItemLeft" align="right" valign="top">API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a57d8bdc424d2e54929fb1a50134bd1b9">Scene</a> (const int _sceneID, const int _sceneHeight, const int _sceneWidth)</td></tr>
+<tr class="separator:a57d8bdc424d2e54929fb1a50134bd1b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac71c7f4b71ed38cc8b6a794c7799fd6"><td class="memItemLeft" align="right" valign="top">bool API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#aac71c7f4b71ed38cc8b6a794c7799fd6">checkIfObjectExists</a> (const int objectID)</td></tr>
 <tr class="memdesc:aac71c7f4b71ed38cc8b6a794c7799fd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for checking if an object with ObjectID exists in a <a class="el" href="class_scene.html" title="Scene Class Contains all the objects that should be drawn in this scene.">Scene</a>.  <a href="class_scene.html#aac71c7f4b71ed38cc8b6a794c7799fd6">More...</a><br /></td></tr>
 <tr class="separator:aac71c7f4b71ed38cc8b6a794c7799fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -94,21 +94,30 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae3e629e67c6dc2e4dab696f63fd7fa9e"><td class="memItemLeft" align="right" valign="top"><a id="ae3e629e67c6dc2e4dab696f63fd7fa9e"></a>
 int API&#160;</td><td class="memItemRight" valign="bottom"><b>getSceneID</b> ()</td></tr>
 <tr class="separator:ae3e629e67c6dc2e4dab696f63fd7fa9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acaeb7fdb1cb8a44852a2fe593d912ccd"><td class="memItemLeft" align="right" valign="top"><a id="acaeb7fdb1cb8a44852a2fe593d912ccd"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#acaeb7fdb1cb8a44852a2fe593d912ccd">onAttach</a> ()=0</td></tr>
-<tr class="memdesc:acaeb7fdb1cb8a44852a2fe593d912ccd"><td class="mdescLeft">&#160;</td><td class="mdescRight">OnAttach is executed when a scene is "attached" to the current running context usually this is can be used to prime a level with relevant data before starting it. Must be implemented by a concrete implementation of a scene. <br /></td></tr>
-<tr class="separator:acaeb7fdb1cb8a44852a2fe593d912ccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ec5c2aa1fe770f3f72e1ce71138ae94"><td class="memItemLeft" align="right" valign="top"><a id="a2ec5c2aa1fe770f3f72e1ce71138ae94"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a2ec5c2aa1fe770f3f72e1ce71138ae94">start</a> ()=0</td></tr>
-<tr class="memdesc:a2ec5c2aa1fe770f3f72e1ce71138ae94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene Must be implemented by a concrete implementation of a scene. <br /></td></tr>
-<tr class="separator:a2ec5c2aa1fe770f3f72e1ce71138ae94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f91ee31f74510c0fae49984768e128f"><td class="memItemLeft" align="right" valign="top"><a id="a3f91ee31f74510c0fae49984768e128f"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a3f91ee31f74510c0fae49984768e128f">onDetach</a> ()=0</td></tr>
-<tr class="memdesc:a3f91ee31f74510c0fae49984768e128f"><td class="mdescLeft">&#160;</td><td class="mdescRight">OnDetach is called when a scene is destroyed/closed and is responsible for cleanup Must be implemented by a concrete implementation of a scene. <br /></td></tr>
-<tr class="separator:a3f91ee31f74510c0fae49984768e128f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28ea04044a289e5f781811a41206b0c9"><td class="memItemLeft" align="right" valign="top"><a id="a28ea04044a289e5f781811a41206b0c9"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>onUpdate</b> ()=0</td></tr>
-<tr class="separator:a28ea04044a289e5f781811a41206b0c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ac0c9429528fd2a5b845a4b5c702f0c"><td class="memItemLeft" align="right" valign="top"><a id="a0ac0c9429528fd2a5b845a4b5c702f0c"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a0ac0c9429528fd2a5b845a4b5c702f0c">OnAttach</a> ()=0</td></tr>
+<tr class="memdesc:a0ac0c9429528fd2a5b845a4b5c702f0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">OnAttach is executed when a scene is "attached" to the current running context usually this is can be used to prime a level with relevant data before starting it. Must be implemented by a concrete implementation of a scene. <br /></td></tr>
+<tr class="separator:a0ac0c9429528fd2a5b845a4b5c702f0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6ddc7631708f3599e6d6a62520d9c7f"><td class="memItemLeft" align="right" valign="top"><a id="aa6ddc7631708f3599e6d6a62520d9c7f"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#aa6ddc7631708f3599e6d6a62520d9c7f">Start</a> ()=0</td></tr>
+<tr class="memdesc:aa6ddc7631708f3599e6d6a62520d9c7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene Must be implemented by a concrete implementation of a scene. <br /></td></tr>
+<tr class="separator:aa6ddc7631708f3599e6d6a62520d9c7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f9207ca0a3ceaa66f2af557ea306465"><td class="memItemLeft" align="right" valign="top"><a id="a1f9207ca0a3ceaa66f2af557ea306465"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a1f9207ca0a3ceaa66f2af557ea306465">OnDetach</a> ()=0</td></tr>
+<tr class="memdesc:a1f9207ca0a3ceaa66f2af557ea306465"><td class="mdescLeft">&#160;</td><td class="mdescRight">OnDetach is called when a scene is destroyed/closed and is responsible for cleanup Must be implemented by a concrete implementation of a scene. <br /></td></tr>
+<tr class="separator:a1f9207ca0a3ceaa66f2af557ea306465"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad28c2fd6c05278c2fbb6c3c2a5d8fb5a"><td class="memItemLeft" align="right" valign="top"><a id="ad28c2fd6c05278c2fbb6c3c2a5d8fb5a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setSceneWidth</b> (const int width)</td></tr>
+<tr class="separator:ad28c2fd6c05278c2fbb6c3c2a5d8fb5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9d05cb17a04f7754e8f38db29f157dc"><td class="memItemLeft" align="right" valign="top"><a id="ad9d05cb17a04f7754e8f38db29f157dc"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getSceneWidth</b> () const</td></tr>
+<tr class="separator:ad9d05cb17a04f7754e8f38db29f157dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6f9812abb8aacf92a884cc6320597d7"><td class="memItemLeft" align="right" valign="top"><a id="ac6f9812abb8aacf92a884cc6320597d7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setSceneHeight</b> (const int height)</td></tr>
+<tr class="separator:ac6f9812abb8aacf92a884cc6320597d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a626d3a4fcb21b2c1ac406d94bbe8c4ff"><td class="memItemLeft" align="right" valign="top"><a id="a626d3a4fcb21b2c1ac406d94bbe8c4ff"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getSceneHeight</b> () const</td></tr>
+<tr class="separator:a626d3a4fcb21b2c1ac406d94bbe8c4ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -118,12 +127,18 @@ const int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneID</b> = 0<
 <tr class="memitem:a87df5d77f7ce2557bb00ab7846a67209"><td class="memItemLeft" align="right" valign="top"><a id="a87df5d77f7ce2557bb00ab7846a67209"></a>
 map&lt; int, <a class="el" href="struct_layer.html">Layer</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>layers</b></td></tr>
 <tr class="separator:a87df5d77f7ce2557bb00ab7846a67209"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1430f4764639b7e1da1fbf276a8e7f7"><td class="memItemLeft" align="right" valign="top"><a id="ad1430f4764639b7e1da1fbf276a8e7f7"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneWidth</b> = WINDOW_WIDTH</td></tr>
+<tr class="separator:ad1430f4764639b7e1da1fbf276a8e7f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b2e7958dde96155ee77d6bb1f2f3d04"><td class="memItemLeft" align="right" valign="top"><a id="a2b2e7958dde96155ee77d6bb1f2f3d04"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneHeight</b> = WINDOW_HEIGHT</td></tr>
+<tr class="separator:a2b2e7958dde96155ee77d6bb1f2f3d04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_scene.html" title="Scene Class Contains all the objects that should be drawn in this scene.">Scene</a> Class Contains all the objects that should be drawn in this scene. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a04a74ef75f937fe87381dc373e37adbc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04a74ef75f937fe87381dc373e37adbc">&#9670;&nbsp;</a></span>Scene()</h2>
+<a id="a57d8bdc424d2e54929fb1a50134bd1b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57d8bdc424d2e54929fb1a50134bd1b9">&#9670;&nbsp;</a></span>Scene()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -132,8 +147,24 @@ map&lt; int, <a class="el" href="struct_layer.html">Layer</a> * &gt;&#160;</td><
           <td class="memname">Scene::Scene </td>
           <td>(</td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
+          <td class="paramname"><em>_sceneID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>_sceneHeight</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>_sceneWidth</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">

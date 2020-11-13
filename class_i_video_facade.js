@@ -6,7 +6,11 @@ var class_i_video_facade =
     [ "drawMessageAt", "class_i_video_facade.html#a05f46bcd1f8dbd5e28d962a725ce90a7", null ],
     [ "drawParticle", "class_i_video_facade.html#a54386c1a4d6d61602cdf53303c7ad2ca", null ],
     [ "drawScreen", "class_i_video_facade.html#a171a10c375ae89473aa7d446c79f8d74", null ],
+    [ "getXCameraOffset", "class_i_video_facade.html#a86b298a14250840bd9dafa5c6b80f43d", null ],
+    [ "getYCameraOffset", "class_i_video_facade.html#ad925d7ce0ea624481bfe70822ae28db1", null ],
     [ "initSDL", "class_i_video_facade.html#a1c96743f151db9cb60e503d18602762e", null ],
     [ "loadImage", "class_i_video_facade.html#a9d190b7aa09598ae96d52e23fa52f664", null ],
-    [ "renderCopy", "class_i_video_facade.html#afb134b2b878d6f7d5d687fd16b06b934", null ]
+    [ "renderCopy", "class_i_video_facade.html#afb134b2b878d6f7d5d687fd16b06b934", null ],
+    [ "setXCameraOffset", "class_i_video_facade.html#aa2ac0be37f28fa1051ec424391bd7809", null ],
+    [ "setYCameraOffset", "class_i_video_facade.html#a56583081ab176d04f84b37e50bbcb667", null ]
 ];

@@ -115,6 +115,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a9e9e7abbd486c9183255406ab0ce078d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_engine.html#a9e9e7abbd486c9183255406ab0ce078d">drawParticle</a> (<a class="el" href="class_particle_adapter.html">ParticleAdapter</a> *part)</td></tr>
 <tr class="memdesc:a9e9e7abbd486c9183255406ab0ce078d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the Particles.  <a href="class_video_engine.html#a9e9e7abbd486c9183255406ab0ce078d">More...</a><br /></td></tr>
 <tr class="separator:a9e9e7abbd486c9183255406ab0ce078d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cef84176474de6348509531f6276652"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_engine.html#a0cef84176474de6348509531f6276652">calculateOffset</a> (<a class="el" href="class_object.html">Object</a> &amp;obj, int sceneWidth, int sceneHeight)</td></tr>
+<tr class="memdesc:a0cef84176474de6348509531f6276652"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the camera offset based on the player position.  <a href="class_video_engine.html#a0cef84176474de6348509531f6276652">More...</a><br /></td></tr>
+<tr class="separator:a0cef84176474de6348509531f6276652"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -137,6 +140,51 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>shouldDrawFps</b> = f
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Video is the SDL2 wrapper. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a0cef84176474de6348509531f6276652"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cef84176474de6348509531f6276652">&#9670;&nbsp;</a></span>calculateOffset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VideoEngine::calculateOffset </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_object.html">Object</a> &amp;&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sceneWidth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sceneHeight</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the camera offset based on the player position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>This is the <a class="el" href="class_object.html" title="Object class. Object is linked with a sprite id in SVI.">Object</a> marked as a player </td></tr>
+    <tr><td class="paramname">sceneWidth</td><td></td></tr>
+    <tr><td class="paramname">sceneHeight</td><td><br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ad4de84f7e2801cda58af13aaa969b940"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad4de84f7e2801cda58af13aaa969b940">&#9670;&nbsp;</a></span>drawFps()</h2>
 

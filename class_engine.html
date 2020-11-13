@@ -60,6 +60,7 @@ $(document).ready(function(){initNavTree('class_engine.html',''); initResizable(
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_engine-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -69,14 +70,18 @@ $(document).ready(function(){initNavTree('class_engine.html',''); initResizable(
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a19112fb5629c3868c11bd839c8be7d0e"><td class="memItemLeft" align="right" valign="top"><a id="a19112fb5629c3868c11bd839c8be7d0e"></a>
-API void&#160;</td><td class="memItemRight" valign="bottom"><b>engineTick60</b> ()</td></tr>
-<tr class="separator:a19112fb5629c3868c11bd839c8be7d0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9887a042568ee90db087d4535694abc6"><td class="memItemLeft" align="right" valign="top"><a id="a9887a042568ee90db087d4535694abc6"></a>
-API void&#160;</td><td class="memItemRight" valign="bottom"><b>engineTick30</b> ()</td></tr>
-<tr class="separator:a9887a042568ee90db087d4535694abc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32cfa84cab0fa0ed5e09b0f8ce3db41c"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a32cfa84cab0fa0ed5e09b0f8ce3db41c">startTickThreads</a> ()</td></tr>
-<tr class="memdesc:a32cfa84cab0fa0ed5e09b0f8ce3db41c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thread that gives a tick 60 times per second.  <a href="class_engine.html#a32cfa84cab0fa0ed5e09b0f8ce3db41c">More...</a><br /></td></tr>
+<tr class="memitem:a4d2f80b56adcec8d2044f5c6ea3798aa"><td class="memItemLeft" align="right" valign="top"><a id="a4d2f80b56adcec8d2044f5c6ea3798aa"></a>
+API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a4d2f80b56adcec8d2044f5c6ea3798aa">engineTick60</a> ()</td></tr>
+<tr class="memdesc:a4d2f80b56adcec8d2044f5c6ea3798aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thread that gives a tick 60 times per second. <br /></td></tr>
+<tr class="separator:a4d2f80b56adcec8d2044f5c6ea3798aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3db3800cb4d022a4ea03ec2b2729320d"><td class="memItemLeft" align="right" valign="top"><a id="a3db3800cb4d022a4ea03ec2b2729320d"></a>
+API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a3db3800cb4d022a4ea03ec2b2729320d">engineTick30</a> ()</td></tr>
+<tr class="memdesc:a3db3800cb4d022a4ea03ec2b2729320d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thread that gives a tick 30 times per second. <br /></td></tr>
+<tr class="separator:a3db3800cb4d022a4ea03ec2b2729320d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32cfa84cab0fa0ed5e09b0f8ce3db41c"><td class="memItemLeft" align="right" valign="top"><a id="a32cfa84cab0fa0ed5e09b0f8ce3db41c"></a>
+API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a32cfa84cab0fa0ed5e09b0f8ce3db41c">startTickThreads</a> ()</td></tr>
+<tr class="memdesc:a32cfa84cab0fa0ed5e09b0f8ce3db41c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the 2 threads. <br  />
+ <br /></td></tr>
 <tr class="separator:a32cfa84cab0fa0ed5e09b0f8ce3db41c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c4b8e69dcf1537e433053790733e143"><td class="memItemLeft" align="right" valign="top"><a id="a8c4b8e69dcf1537e433053790733e143"></a>
 API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a8c4b8e69dcf1537e433053790733e143">stopTickThreads</a> ()</td></tr>
@@ -94,6 +99,21 @@ API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 API void&#160;</td><td class="memItemRight" valign="bottom"><b>pollEvents</b> ()</td></tr>
 <tr class="separator:aa2ecb7debf3913287a29e3b2de4fd67a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a1632553ca52ddaf2e7303c0c33f96ad5"><td class="memItemLeft" align="right" valign="top"><a id="a1632553ca52ddaf2e7303c0c33f96ad5"></a>
+atomic_bool&#160;</td><td class="memItemRight" valign="bottom"><b>stopThreadTick60</b> = false</td></tr>
+<tr class="separator:a1632553ca52ddaf2e7303c0c33f96ad5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18c2961416a93a6b2684d4d7cde146b4"><td class="memItemLeft" align="right" valign="top"><a id="a18c2961416a93a6b2684d4d7cde146b4"></a>
+atomic_bool&#160;</td><td class="memItemRight" valign="bottom"><b>stopThreadTick30</b> = false</td></tr>
+<tr class="separator:a18c2961416a93a6b2684d4d7cde146b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e71514a14ac02aa42021ab3e9bb4bc1"><td class="memItemLeft" align="right" valign="top"><a id="a1e71514a14ac02aa42021ab3e9bb4bc1"></a>
+thread *&#160;</td><td class="memItemRight" valign="bottom"><b>engineTick60Thread</b> = nullptr</td></tr>
+<tr class="separator:a1e71514a14ac02aa42021ab3e9bb4bc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24be7a8ec0e5e0dee543ebc571cff21d"><td class="memItemLeft" align="right" valign="top"><a id="a24be7a8ec0e5e0dee543ebc571cff21d"></a>
+thread *&#160;</td><td class="memItemRight" valign="bottom"><b>engineTick30Thread</b> = nullptr</td></tr>
+<tr class="separator:a24be7a8ec0e5e0dee543ebc571cff21d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:ac52b19aa960d18ddd73492979754467a"><td class="memItemLeft" align="right" valign="top"><a id="ac52b19aa960d18ddd73492979754467a"></a>
@@ -108,6 +128,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a69edf25f489a43c1658aa93db5d2ca73"><td class="memItemLeft" align="right" valign="top"><a id="a69edf25f489a43c1658aa93db5d2ca73"></a>
 <a class="el" href="class_input_engine.html">InputEngine</a>&#160;</td><td class="memItemRight" valign="bottom"><b>inputEngine</b></td></tr>
 <tr class="separator:a69edf25f489a43c1658aa93db5d2ca73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a035976177f6d76dcc6548db1812870"><td class="memItemLeft" align="right" valign="top"><a id="a7a035976177f6d76dcc6548db1812870"></a>
+<a class="el" href="class_file_parser.html">FileParser</a>&#160;</td><td class="memItemRight" valign="bottom"><b>fileParser</b></td></tr>
+<tr class="separator:a7a035976177f6d76dcc6548db1812870"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae998ed00ca0d7cb439f7cdc0d4084ccf"><td class="memItemLeft" align="right" valign="top"><a id="ae998ed00ca0d7cb439f7cdc0d4084ccf"></a>
 <a class="el" href="class_scene_manager.html">SceneManager</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sceneManager</b></td></tr>
 <tr class="separator:ae998ed00ca0d7cb439f7cdc0d4084ccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -193,28 +216,6 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="a32cfa84cab0fa0ed5e09b0f8ce3db41c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32cfa84cab0fa0ed5e09b0f8ce3db41c">&#9670;&nbsp;</a></span>startTickThreads()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Engine::startTickThreads </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Thread that gives a tick 60 times per second. </p>
-<p>Thread that gives a tick 30 times per second</p>
-<p>Start the 2 threads. <br  />
- </p>
 
 </div>
 </div>

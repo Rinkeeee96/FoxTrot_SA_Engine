@@ -9,6 +9,5 @@ var class_i_physics_facade =
     [ "Jump", "class_i_physics_facade.html#a52d20260e881a11ced0bdb8a32cf7537", null ],
     [ "MoveLeft", "class_i_physics_facade.html#afc14b862a6baa4a84385099591f338d0", null ],
     [ "MoveRight", "class_i_physics_facade.html#a0623480a7788de95e3727a0102f1a35a", null ],
-    [ "stopObject", "class_i_physics_facade.html#a219fc07bfd74848911d8187e45bc9cb1", null ],
     [ "update", "class_i_physics_facade.html#a7042b06e70573e0023382e4735de38fb", null ]
 ];
