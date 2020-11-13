@@ -32,7 +32,7 @@ public:
 
 	void drawParticle(const ParticleData& data, int spriteID);
 
-	void drawMessageAt(const ColoredString& message, const Position& pos, const Position& target);
+	void drawMessageAt(const ColoredString& message, const Position& pos, const ObjectSize& target);
 
 	unordered_map<int, SDL_Texture*> textureMap;
 

@@ -141,7 +141,7 @@ void VideoFacade::renderCopy(Drawable& object)
 	SDL_RenderCopyEx(renderer, textureMap[sprite.getTextureID()], &rect, &destination, object.getRotation(), NULL, SDL_FLIP_NONE);
 	// crude fix to draw text on top of a drawable, maybe fix with a callback function in the future, or a visitor?
 	if (object.toString() != nullptr)
-		drawMessageAt(*object.toString(), Position(destination.x, destination.y), Position(destination.x, destination.y));
+		drawMessageAt(*object.toString(), Position(destination.x, destination.y), ObjectSize(destination.w, destination.h));
 }
 
 /// @brief Function to draw Particles
@@ -174,7 +174,7 @@ void VideoFacade::drawParticle(const ParticleData& data, int spriteID)
 /// @param target
 /// the boundaries of the target that the text needs to be draw on top of
 /// A Position struct containing the position to draw the message at
-void VideoFacade::drawMessageAt(const ColoredString& message, const Position& pos, const Position& target)
+void VideoFacade::drawMessageAt(const ColoredString& message, const Position& pos, const ObjectSize& bounds)
 {
 	bool exists = std::filesystem::exists(FONT_PATH); // TODO dynamic fonts
 	// TODO check if message is in bounds
@@ -189,9 +189,9 @@ void VideoFacade::drawMessageAt(const ColoredString& message, const Position& po
 		SDL_Rect Message_rect;
 		if (message.centered)
 		{
-			// TODO check width and height positioning relative to set x/y position
-			xPos = target.xPos / 2;
-			yPos = target.yPos / 2;
+			// TODO check width and height positioning relative to set x/y position	
+			xPos = pos.xPos - (bounds.height / 2);
+			yPos = pos.yPos - (bounds.width / 2);
 		}
 		else {
 			// If the message doesn't fit the screen, make it fit the screen
