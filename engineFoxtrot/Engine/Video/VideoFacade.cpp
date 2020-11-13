@@ -138,11 +138,10 @@ void VideoFacade::renderCopy(Drawable& object)
 	destination.w = (int)object.getWidth();
 	destination.h = (int)object.getHeight();
 
-
 	SDL_RenderCopyEx(renderer, textureMap[sprite.getTextureID()], &rect, &destination, object.getRotation(), NULL, SDL_FLIP_NONE);
 	// crude fix to draw text on top of a drawable, maybe fix with a callback function in the future, or a visitor?
 	if (object.toString() != nullptr)
-		drawMessageAt(*object.toString(), Position(destination.x, destination.y));
+		drawMessageAt(*object.toString(), Position(destination.x, destination.y), Position(destination.x, destination.y));
 }
 
 /// @brief Function to draw Particles
@@ -172,22 +171,34 @@ void VideoFacade::drawParticle(const ParticleData& data, int spriteID)
 /// @param message
 /// A Message struct containing the message and the color of the message
 /// @param pos
+/// @param target
+/// the boundaries of the target that the text needs to be draw on top of
 /// A Position struct containing the position to draw the message at
-void VideoFacade::drawMessageAt(const ColoredString& message, const Position& pos)
+void VideoFacade::drawMessageAt(const ColoredString& message, const Position& pos, const Position& target)
 {
 	bool exists = std::filesystem::exists(FONT_PATH); // TODO dynamic fonts
-
+	// TODO check if message is in bounds
 	if (exists) {
 
 		SDL_Color Color = { message.color.red, message.color.green, message.color.blue };
 		SDL_Surface* surfaceMessage = TTF_RenderText_Solid(Sans, message.text.c_str(), Color);
 		SDL_Texture* Message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 
-		SDL_Rect Message_rect;
+		int xPos, yPos;
 
-		// If the message doesn't fit the screen, make it fit the screen
-		int xPos = pos.xPos + MESSAGE_WIDTH > WINDOW_WIDTH ? WINDOW_WIDTH - MESSAGE_WIDTH : pos.xPos < 0 ? 0 : pos.xPos;
-		int yPos = pos.yPos + MESSAGE_HEIGHT > WINDOW_HEIGHT ? WINDOW_HEIGHT - MESSAGE_HEIGHT : pos.yPos < 0 ? 0 : pos.yPos;
+		SDL_Rect Message_rect;
+		if (message.centered)
+		{
+			// TODO check width and height positioning relative to set x/y position
+			xPos = target.xPos / 2;
+			yPos = target.yPos / 2;
+		}
+		else {
+			// If the message doesn't fit the screen, make it fit the screen
+			xPos = pos.xPos + MESSAGE_WIDTH > WINDOW_WIDTH ? WINDOW_WIDTH - MESSAGE_WIDTH : pos.xPos < 0 ? 0 : pos.xPos;
+			yPos = pos.yPos + MESSAGE_HEIGHT > WINDOW_HEIGHT ? WINDOW_HEIGHT - MESSAGE_HEIGHT : pos.yPos < 0 ? 0 : pos.yPos;
+		}
+
 
 		Message_rect.x = xPos;
 		Message_rect.y = yPos;
