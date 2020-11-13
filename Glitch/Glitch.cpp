@@ -6,6 +6,7 @@
 #include "./Game/Player/Player.h"
 #include "Game/MainMenu.h"
 #include <Engine\Events\Window\WindowCloseEvent.h>
+#include "SceneSwitcher/SceneSwitcher.h"
 
 // TODO engine.h & engine.cpp
 
@@ -17,6 +18,7 @@
 
 Engine engine;
 bool gameRunning = true;
+SceneSwitcher sceneSwitcher(engine);
 
 void sceneTestSetup()
 {
@@ -149,18 +151,7 @@ void sceneTestSetup()
 	staticGround4->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, staticGround4);
 
-	engine.insertScene(testScene);
-	engine.setCurrentScene(100);
-
-	testScene->Start();
-}
-
-void TestMainMenu() {
-
-	MainMenu* mainMenu = new MainMenu(1);
-	engine.insertScene(mainMenu);
-	engine.setCurrentScene(1);
-	mainMenu->Start();
+	sceneSwitcher.RegisterScene("GAME", testScene);
 }
 
 void StopLoop(Event& event) {
@@ -168,8 +159,11 @@ void StopLoop(Event& event) {
 }
 
 int main() {
-	//sceneTestSetup();
-	TestMainMenu();
+	sceneTestSetup();
+	MainMenu* mainMenu = new MainMenu(1, sceneSwitcher);
+	sceneSwitcher.RegisterScene("MAIN_MENU", mainMenu);
+	sceneSwitcher.SwitchToScene("MAIN_MENU");
+
 	EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(StopLoop);
 
 	engine.startTickThreads();

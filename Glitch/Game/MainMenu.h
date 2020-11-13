@@ -1,11 +1,12 @@
 #pragma once
 #include "api.h"
 #include "SceneManager/Button.h"
+#include "../SceneSwitcher/SceneSwitcher.h"
 
 class MainMenu : public Scene
 {
 public:
-	MainMenu(const int id) : Scene(id) {};
+	MainMenu(const int id, SceneSwitcher _sceneSwitcher) : Scene(id), sceneSwitcher(_sceneSwitcher) {};
 	~MainMenu();
 	// Inherited via Scene
 	virtual void OnAttach() override;
@@ -21,6 +22,7 @@ private:
 	void OnStopBtnClick();
 	void OnCreditsBtnClick();
 	void OnLoadBtnClick();
+	SceneSwitcher sceneSwitcher;
 };
 
 inline MainMenu::~MainMenu()
