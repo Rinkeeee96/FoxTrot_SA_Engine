@@ -71,6 +71,73 @@ void VideoEngine::renderCopy(Drawable& object) {
 }
 
 /// @brief 
+/// Calculates the camera offset based on the player position.
+/// @param obj 
+/// This is the Object marked as a player
+/// @param sceneWidth 
+/// @param sceneHeight 
+void VideoEngine::calculateOffset(Object& obj, int sceneWidth, int sceneHeight)
+{
+	
+	// Place obj variables in temporary variables for easy use. 
+	// Object Y pos needs to be subtracted with the height due to the position conversion from Object to SDL2.
+	int objectPosY = (int)obj.getPositionY() - (int)obj.getHeight();
+	int objectPosX = (int)obj.getPositionX();
+	int objectWidth = (int)obj.getWidth();
+	int objectHeight = (int)obj.getHeight();
+
+	int cameraOffsetX = videoFacade->getXCameraOffset();
+	int cameraOffsetY = videoFacade->getYCameraOffset();
+
+	// Check if the player is located inside the camera view. If not continue and calculate the offsets
+	if (objectPosX 					 <= cameraOffsetX + CAMERA_BOX_X &&
+		objectPosX + objectWidth     >= cameraOffsetX + (CAMERA_BOX_X + CAMERA_BOX_WIDTH)  &&
+		objectPosY					 <= cameraOffsetY + CAMERA_BOX_Y &&
+		objectPosY + objectHeight    >= cameraOffsetY + (CAMERA_BOX_Y + CAMERA_BOX_HEIGHT))
+	{
+		return;
+	}
+
+	int newXOffset = 0;
+	int newYOffset = 0;
+	bool changedX = false;
+	bool changedY = false;
+
+	if (objectPosX + objectWidth >= cameraOffsetX + CAMERA_BOX_X + CAMERA_BOX_WIDTH)
+	{
+		newXOffset = objectPosX + objectWidth - (CAMERA_BOX_X + CAMERA_BOX_WIDTH);
+		changedX = true;
+	}
+	else if (objectPosX <= cameraOffsetX + CAMERA_BOX_X)
+	{
+		newXOffset = objectPosX - CAMERA_BOX_X;
+		changedX = true;
+	}
+
+	if (objectPosY + objectHeight >= cameraOffsetY + CAMERA_BOX_Y + CAMERA_BOX_HEIGHT)
+	{
+		newYOffset = objectPosY + objectHeight - (CAMERA_BOX_Y + CAMERA_BOX_HEIGHT);
+		changedY = true;
+	}
+	else if (objectPosY <= cameraOffsetY + CAMERA_BOX_Y)
+	{
+		newYOffset = objectPosY - CAMERA_BOX_Y;
+		changedY = true;
+	}
+
+
+	//// Check if we can actually move the camera due to the level sizes
+	if (newYOffset > 0 && newYOffset + (CAMERA_BOX_Y *2) + CAMERA_BOX_HEIGHT < sceneHeight && changedY)
+	{
+		videoFacade->setYCameraOffset(newYOffset);
+	}
+	if (newXOffset > 0 && newXOffset + (CAMERA_BOX_X * 2) + CAMERA_BOX_WIDTH < sceneWidth && changedX)
+	{
+		videoFacade->setXCameraOffset(newXOffset);
+	}
+}
+
+/// @brief 
 /// Update all the sprites on the screen
 void VideoEngine::updateScreen()
 {
@@ -79,7 +146,11 @@ void VideoEngine::updateScreen()
 		if (pointerToCurrentScene == nullptr) return;
 		//if (pointerToObjectVector->capacity() <= 0) return;
 		if ((*pointerToCurrentScene)->getAllObjectsInScene().size() <= 0) return;
-		for (Drawable* obj : (*pointerToCurrentScene)->getAllDrawablesInScene()) {
+
+		// Todo fix hardcoded player id
+		calculateOffset(*(*pointerToCurrentScene)->getObject(2), (*pointerToCurrentScene)->getSceneWidth(), (*pointerToCurrentScene)->getSceneHeight());
+
+		for (Object* obj : (*pointerToCurrentScene)->getAllObjectsInScene()) {
 			if (obj != nullptr) {
 				if (obj->getIsParticle())
 				{
@@ -90,7 +161,7 @@ void VideoEngine::updateScreen()
 					renderCopy(*obj);
 				}
 			}
-		}
+		}	
 	}
 	catch (int e)
 	{
@@ -158,7 +229,7 @@ void VideoEngine::drawParticle(ParticleAdapter* part)
 		{
 			continue;
 		}
-		videoFacade->drawParticle(partData, part->getObjectId());
+		videoFacade->drawParticle(partData, part->GetCurrentSprite().getTextureID());
 	}
 
 }

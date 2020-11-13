@@ -11,7 +11,7 @@ class Level : public Scene
 #endif
 {
 public:
-	Level(const int id, map<string, string> sounds);
+	Level(const int id,const int _sceneHeight, const int _sceneWidth, map<string, string> sounds);
 	virtual void OnAttach() override;
 	virtual void Start() override;
 	virtual void Pause();

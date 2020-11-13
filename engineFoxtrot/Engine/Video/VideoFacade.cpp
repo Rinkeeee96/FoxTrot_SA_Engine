@@ -107,10 +107,6 @@ void VideoFacade::renderCopy(Drawable& object)
 	SpriteObject& sprite = object.GetCurrentSprite();
 
 	if (textureMap[sprite.getTextureID()] == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_SPRITE_ID_IS_NULL;
-	if (object.getPositionX() == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_XPOS_IS_NULL;
-	if (object.getPositionY() == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_YPOS_IS_NULL;
-	if (object.getHeight() == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_HEIGHT_IS_NULL;
-	if (object.getWidth() == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_WIDTH_IS_NULL;
 
 	//generate image 
 	Uint32 ticks = SDL_GetTicks();
@@ -133,8 +129,8 @@ void VideoFacade::renderCopy(Drawable& object)
 
 	//generate stratch of image
 	SDL_Rect destination;
-	destination.x = (int)object.getPositionX();
-	destination.y = (int)object.getPositionY() - (int)object.getHeight();
+	destination.x = (int)object.getPositionX() - xCameraOffset;
+	destination.y = (int)object.getPositionY() - (int)object.getHeight() - yCameraOffset;
 	destination.w = (int)object.getWidth();
 	destination.h = (int)object.getHeight();
 
@@ -158,7 +154,7 @@ void VideoFacade::renderCopy(Drawable& object)
 /// @param rotation 
 void VideoFacade::drawParticle(const ParticleData& data, int spriteID)
 {
-	SDL_Rect r = { int(data.posx + data.startPosX - data.size / 2), int(data.posy + data.startPosY - data.size / 2), int(data.size), int(data.size) };
+	SDL_Rect r = { int(data.posx + data.startPosX - data.size / 2) - xCameraOffset, int(data.posy + data.startPosY - data.size / 2) - yCameraOffset, int(data.size), int(data.size) };
 	SDL_Color c = { Uint8(data.colorR * 255), Uint8(data.colorG * 255), Uint8(data.colorB * 255), Uint8(data.colorA * 255) };
 	SDL_SetTextureColorMod(textureMap[spriteID], c.r, c.g, c.b);
 	SDL_SetTextureAlphaMod(textureMap[spriteID], c.a);

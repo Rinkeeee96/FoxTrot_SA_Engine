@@ -20,6 +20,10 @@ public:
 	virtual void drawParticle(const ParticleData& data, int spriteID) = 0;
 
 
+	virtual void setXCameraOffset(int) =0;
+	virtual void setYCameraOffset(int) = 0;
+	virtual int getXCameraOffset() const = 0;
+	virtual int getYCameraOffset() const = 0;
 private:
 
 };
