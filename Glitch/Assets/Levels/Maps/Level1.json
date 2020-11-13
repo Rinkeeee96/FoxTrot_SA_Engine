@@ -18,15 +18,15 @@
          "objects":[
                 {
                  "gid":71,
-                 "height":1080,
+                 "height":1270,
                  "id":30,
                  "name":"",
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":2938,
-                 "x":-26,
-                 "y":1006
+                 "width":2886,
+                 "x":0,
+                 "y":962
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -209,25 +209,8 @@
                  "type":"",
                  "visible":true,
                  "width":22,
-                 "x":32.6666666666666,
-                 "y":505.666666666666
-                }, 
-                {
-                 "height":23,
-                 "id":28,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"type",
-                         "type":"string",
-                         "value":"player"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":22,
-                 "x":141.666666666667,
-                 "y":506.5
+                 "x":98.6666666666666,
+                 "y":552.416666666666
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -253,7 +236,7 @@
          "name":"Particles",
          "objects":[
                 {
-                 "height":0,
+                 "height":28,
                  "id":26,
                  "name":"",
                  "properties":[
@@ -265,9 +248,9 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":0,
+                 "width":28,
                  "x":320.333333333333,
-                 "y":656.5
+                 "y":628.5
                 }],
          "opacity":1,
          "type":"objectgroup",

@@ -31,7 +31,7 @@ void LevelBuilder::createLevel(nlohmann::json json) {
 		}
 		else if (key == "tilewidth") {
 			this->mapTileWidth = value;
-			
+
 		}
 		else if (key == "tileheight") {
 			this->mapTileHeight = value;
@@ -99,24 +99,25 @@ void LevelBuilder::createBackground(nlohmann::json layerValue) {
 		int gid = objectValue["gid"];
 		int width = objectValue["width"];
 		int height = objectValue["height"];
+		int x = objectValue["x"];
+		int y = objectValue["y"];
 		// TODO add background
 		//  - image does not load correctly
-		/*TileSprite* sprite = textureMap[gid];
-		SpriteObject* tileSprite = new SpriteObject(90000000, height, width, 1, 300, sprite->path.c_str());
+		TileSprite* sprite = textureMap[gid];
+		SpriteObject* tileSprite = new SpriteObject(currentTileId++, sprite->height, sprite->width, 1, 300, "Assets/Levels/Tiles/Grassland_Background.png");
 		engine.loadSprite(*tileSprite);
 
-		tile->setWidth(sprite->width);
-		tile->setHeight(sprite->height);
+		tile->setWidth(width);
+		tile->setHeight(height);
 		tile->setStatic(true);
-		tile->setPositionX(0);
-		tile->setPositionY(height);
+		tile->setPositionX(x);
+		tile->setPositionY(y);
 
 		tile->registerSprite(SpriteState::DEFAULT, tileSprite);
-		tile->changeToState(SpriteState::DEFAULT);*/
+		tile->changeToState(SpriteState::DEFAULT);
 
-		//bLevel->addNewObjectToLayer(BACKGROUND_LAYER_INDEX, tile, false);
+		bLevel->addNewObjectToLayer(BACKGROUND_LAYER_INDEX, tile, false);
 	}
-	//bLevel->addNewObjectToLayer(BACKGROUND_LAYER_INDEX , tile, false);
 }
 
 void LevelBuilder::createDecoration(nlohmann::json layerValue)

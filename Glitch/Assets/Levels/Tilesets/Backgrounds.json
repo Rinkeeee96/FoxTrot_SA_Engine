@@ -18,15 +18,15 @@
  "spacing":0,
  "tilecount":1,
  "tiledversion":"1.4.2",
- "tileheight":1080,
+ "tileheight":2160,
  "tiles":[
         {
          "id":0,
-         "image":"..\/..\/..\/GitHub\/FoxTrot_SA_Engine_New\/Glitch\/Assets\/Levels\/Backgrounds\/Grassland_Background.jpg",
-         "imageheight":1080,
-         "imagewidth":1920
+         "image":"..\/..\/..\/GitHub\/FoxTrot_SA_Engine_New\/Glitch\/Assets\/Levels\/Tiles\/Grassland_Background.png",
+         "imageheight":2160,
+         "imagewidth":3840
         }],
- "tilewidth":1920,
+ "tilewidth":3840,
  "type":"tileset",
  "version":1.4
 }
