@@ -138,11 +138,10 @@ void VideoFacade::renderCopy(Drawable& object)
 	destination.w = (int)object.getWidth();
 	destination.h = (int)object.getHeight();
 
-
 	SDL_RenderCopyEx(renderer, textureMap[sprite.getTextureID()], &rect, &destination, object.getRotation(), NULL, SDL_FLIP_NONE);
 	// crude fix to draw text on top of a drawable, maybe fix with a callback function in the future, or a visitor?
 	if (object.toString() != nullptr)
-		drawMessageAt(*object.toString(), Position(destination.x, destination.y));
+		drawMessageAt(*object.toString(), Position(destination.x, destination.y), Position(destination.x, destination.y));
 }
 
 /// @brief Function to draw Particles
