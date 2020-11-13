@@ -14,7 +14,7 @@ Object::~Object()
 
 int Object::getObjectId() const { return objectId; }
 
-void Object::setName(const string _name) { this->name = _name; }
+void Object::setName(const string& _name) { this->name = _name; }
 string Object::getName() const {return name;}
 
 void Object::setPositionX(const float x) { this->positionX = x; }
