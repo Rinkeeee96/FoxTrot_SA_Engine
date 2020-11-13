@@ -52,7 +52,7 @@ void sceneTestSetup()
 		{"Level_1_Sound", "Assets/Sound/file_example_WAV_1MG.wav"},
 	};
 
-	Level* testScene = new Level(100, soundL1);
+	Level* testScene = new Level(100, WINDOW_HEIGHT, WINDOW_WIDTH, soundL1);
 
 	// TODO why this many heap allocations?
 
@@ -72,7 +72,7 @@ void sceneTestSetup()
 	object->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, object);
 
-	auto* object2 = new Player(12);
+	auto* object2 = new Player(156165165165);
 	object2->setStatic(false);
 	object2->setPositionX(800);
 	object2->setPositionY(100);
@@ -103,7 +103,7 @@ void sceneTestSetup()
 	staticGround->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, staticGround);
 
-	staticGround = new Object(102);
+	staticGround = new Drawable(102);
 	staticGround->setScalable(true);
 	staticGround->setWidth(500); // width
 	staticGround->setHeight(10);// height
@@ -114,7 +114,7 @@ void sceneTestSetup()
 	staticGround->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, staticGround);
 
-	staticGround = new Object(103);
+	staticGround = new Drawable(103);
 	staticGround->setScalable(true);
 	staticGround->setWidth(500); // width
 	staticGround->setHeight(10);// height
@@ -125,7 +125,7 @@ void sceneTestSetup()
 	staticGround->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, staticGround);
 
-	staticGround = new Object(104);
+	staticGround = new Drawable(104);
 	staticGround->setScalable(true);
 	staticGround->setWidth(5000); // width
 	staticGround->setHeight(10);// height
@@ -136,7 +136,7 @@ void sceneTestSetup()
 	staticGround->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, staticGround);
 
-	staticGround = new Object(105);
+	staticGround = new Drawable(105);
 	staticGround->setScalable(true);
 	staticGround->setWidth(250); // width
 	staticGround->setHeight(10);// height

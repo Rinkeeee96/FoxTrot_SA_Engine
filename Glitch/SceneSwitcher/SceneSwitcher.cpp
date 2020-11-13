@@ -13,5 +13,4 @@ void SceneSwitcher::SwitchToScene(string const identifier) {
 	if (scene == scenes.end())return;
 	//TODO start transitiescreen
 	engine->setCurrentScene(scene->second->getSceneID());
-	scene->second->Start();
 }

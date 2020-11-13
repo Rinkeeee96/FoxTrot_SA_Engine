@@ -4,7 +4,7 @@
 #include <Events\EventSingleton.h>
 
 /// @brief 
-Object::Object(const int _objectId) : objectId(_objectId)
+Object::Object(const int _objectId, const bool _isParticle = false) : objectId(_objectId), isParticle(_isParticle)
 {
 }
 /// @brief 
@@ -62,3 +62,5 @@ void Object::setXAxisVelocity(const float val) { this->xAxisVelocity = val; }
 
 bool Object::getRotatable() const { return this->rotatable; }
 void Object::setRotatable(const bool val) { this->rotatable = val; }
+
+bool Object::getIsParticle() { return isParticle; }

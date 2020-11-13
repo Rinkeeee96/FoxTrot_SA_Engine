@@ -145,12 +145,12 @@ void VideoEngine::updateScreen()
 	{
 		if (pointerToCurrentScene == nullptr) return;
 		//if (pointerToObjectVector->capacity() <= 0) return;
-		if ((*pointerToCurrentScene)->getAllObjectsInScene().size() <= 0) return;
+		if ((*pointerToCurrentScene)->getAllDrawablesInScene().size() <= 0) return;
 
 		// Todo fix hardcoded player id
 		calculateOffset(*(*pointerToCurrentScene)->getObject(2), (*pointerToCurrentScene)->getSceneWidth(), (*pointerToCurrentScene)->getSceneHeight());
 
-		for (Object* obj : (*pointerToCurrentScene)->getAllObjectsInScene()) {
+		for (Drawable* obj : (*pointerToCurrentScene)->getAllDrawablesInScene()) {
 			if (obj != nullptr) {
 				if (obj->getIsParticle())
 				{

@@ -8,7 +8,7 @@
 class Object
 {
 public:
-	API Object(const int id);
+	API Object(const int id, const bool isParticle);
 	API ~Object();
 
 	void API setPositionX(const float);
@@ -89,4 +89,5 @@ protected:
 	// ----------------
 	// unknown
 	bool changed = false;
+	const bool isParticle = false;
 };

@@ -6,7 +6,7 @@
 class API Drawable : public Object
 {
 public:
-	Drawable(const int _id, const bool _isParticle = false) : Object(_id), isParticle(_isParticle) {};
+	Drawable(const int _id, const bool _isParticle = false) : Object(_id, _isParticle) {};
 
 	/// @brief
 	/// get the current active sprite reference of the drawable
@@ -30,10 +30,8 @@ public:
 	}
 	virtual const ColoredString* toString() { return nullptr; }
 
-	bool getIsParticle() { return isParticle; }
 protected:
 	// TODO	particle related things
-	const bool isParticle = false;
 
 	SpriteObject* currentSprite = nullptr;
 	map<const int, SpriteObject*> textures;
