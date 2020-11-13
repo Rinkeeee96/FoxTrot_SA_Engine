@@ -109,7 +109,7 @@ void MainMenu::OnDetach()
 
 void MainMenu::OnStartBtnClick()
 {
-	sceneSwitcher.SwitchToScene("GAME");
+	SceneSwitcher::get_instance().SwitchToScene("GAME");
 	cout << "Start BTN" << endl;
 }
 

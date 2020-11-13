@@ -6,7 +6,7 @@
 class MainMenu : public Scene
 {
 public:
-	MainMenu(const int id, SceneSwitcher _sceneSwitcher) : Scene(id), sceneSwitcher(_sceneSwitcher) {};
+	MainMenu(const int id) : Scene(id){};
 	~MainMenu();
 	// Inherited via Scene
 	virtual void OnAttach() override;
@@ -22,7 +22,6 @@ private:
 	void OnStopBtnClick();
 	void OnCreditsBtnClick();
 	void OnLoadBtnClick();
-	SceneSwitcher sceneSwitcher;
 };
 
 inline MainMenu::~MainMenu()

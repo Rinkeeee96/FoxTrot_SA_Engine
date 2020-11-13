@@ -1,16 +1,24 @@
 #pragma once
-
-#include "api.h"
+#include "api.h";
 
 class SceneSwitcher
 {
 public:
-	SceneSwitcher(Engine& _engine) : engine(_engine) {};
-	~SceneSwitcher() {};
+    static SceneSwitcher& get_instance() { return instance; }
 
-	void RegisterScene(string const identifier, Scene* scene);
-	void SwitchToScene(string const identifier);
+    // prohibit copy & move
+    SceneSwitcher(const SceneSwitcher&) = delete;
+    SceneSwitcher(SceneSwitcher&&) = delete;
+    SceneSwitcher& operator=(const SceneSwitcher&) = delete;
+    SceneSwitcher& operator=(SceneSwitcher&&) = delete;
+
+    void RegisterScene(string const identifier, Scene* scene);
+    void SwitchToScene(string const identifier);
+    void SetEngine(Engine* _engine) { engine = _engine; }
+
 private:
-	map<string, Scene*> scenes;
-	Engine& engine;
+    map<string, Scene*> scenes;
+    Engine* engine;
+    static SceneSwitcher instance;
+    SceneSwitcher(){}
 };

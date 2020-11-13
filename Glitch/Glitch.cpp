@@ -18,7 +18,6 @@
 
 Engine engine;
 bool gameRunning = true;
-SceneSwitcher sceneSwitcher(engine);
 
 void sceneTestSetup()
 {
@@ -151,7 +150,7 @@ void sceneTestSetup()
 	staticGround4->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, staticGround4);
 
-	sceneSwitcher.RegisterScene("GAME", testScene);
+	SceneSwitcher::get_instance().RegisterScene("GAME", testScene);
 }
 
 void StopLoop(Event& event) {
@@ -159,10 +158,11 @@ void StopLoop(Event& event) {
 }
 
 int main() {
+	SceneSwitcher::get_instance().SetEngine(&engine);
 	sceneTestSetup();
-	MainMenu* mainMenu = new MainMenu(1, sceneSwitcher);
-	sceneSwitcher.RegisterScene("MAIN_MENU", mainMenu);
-	sceneSwitcher.SwitchToScene("MAIN_MENU");
+	MainMenu* mainMenu = new MainMenu(1);
+	SceneSwitcher::get_instance().RegisterScene("MAIN_MENU", mainMenu);
+	SceneSwitcher::get_instance().SwitchToScene("MAIN_MENU");
 
 	EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(StopLoop);
 
