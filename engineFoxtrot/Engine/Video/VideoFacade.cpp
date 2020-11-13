@@ -138,13 +138,11 @@ void VideoFacade::renderCopy(Drawable& object)
 	destination.w = (int)object.getWidth();
 	destination.h = (int)object.getHeight();
 
-	// crude fix to draw text on top of a drawable, maybe fix with a callback function in the future, or a visitor?
-	if (object.toString() != nullptr)
-	{
-		drawMessageAt(*object.toString(), Position(destination.x, destination.y));
-	}
 
 	SDL_RenderCopyEx(renderer, textureMap[sprite.getTextureID()], &rect, &destination, object.getRotation(), NULL, SDL_FLIP_NONE);
+	// crude fix to draw text on top of a drawable, maybe fix with a callback function in the future, or a visitor?
+	if (object.toString() != nullptr)
+		drawMessageAt(*object.toString(), Position(destination.x, destination.y));
 }
 
 /// @brief Function to draw Particles
@@ -159,7 +157,7 @@ void VideoFacade::renderCopy(Drawable& object)
 /// @param colorB 
 /// @param colorA 
 /// @param rotation 
-void VideoFacade::drawParticle(ParticleData data, int spriteID)
+void VideoFacade::drawParticle(const ParticleData& data, int spriteID)
 {
 	SDL_Rect r = { int(data.posx + data.startPosX - data.size / 2), int(data.posy + data.startPosY - data.size / 2), int(data.size), int(data.size) };
 	SDL_Color c = { Uint8(data.colorR * 255), Uint8(data.colorG * 255), Uint8(data.colorB * 255), Uint8(data.colorA * 255) };

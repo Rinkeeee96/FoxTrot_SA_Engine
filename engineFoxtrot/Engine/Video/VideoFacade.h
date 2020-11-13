@@ -30,7 +30,7 @@ public:
 	void loadImage(const SpriteObject& spriteObject);
 	void renderCopy(Drawable& object);
 
-	void drawParticle(ParticleData data, int spriteID);
+	void drawParticle(const ParticleData& data, int spriteID);
 
 	void drawMessageAt(const ColoredString& message, const Position& pos);
 

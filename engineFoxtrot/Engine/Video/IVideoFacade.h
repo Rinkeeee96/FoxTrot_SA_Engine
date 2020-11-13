@@ -17,7 +17,7 @@ public:
 	virtual void loadImage(const SpriteObject& spriteObject) = 0;
 	virtual void renderCopy(Drawable& object) = 0;
 	virtual void drawMessageAt(const ColoredString& message, const Position& pos) = 0;
-	virtual void drawParticle(ParticleData data, int spriteID) = 0;
+	virtual void drawParticle(const ParticleData& data, int spriteID) = 0;
 
 
 private:
