@@ -207,15 +207,6 @@ void VideoEngine::toggleFps(Event& fpsEvent) {
 	shouldDrawFps = !shouldDrawFps;
 }
 
-/// @brief 
-/// Update function
-void VideoEngine::update(Object* object)
-{
-	clearScreen();
-	updateScreen();
-	drawScreen();
-}
-
 /// @brief Handle the tick update from the thread
 void VideoEngine::receiveTick(Event& tickEvent)
 {
