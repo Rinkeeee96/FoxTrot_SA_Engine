@@ -121,6 +121,11 @@ void Engine::loadSprite(const SpriteObject& spriteObject) {
 	videoEngine.loadImage(spriteObject);
 }
 
+void Engine::attachCamera(const int objectId)
+{
+	this->videoEngine.attachCamera(objectId);
+}
+
 void Engine::loadSound(const string& identifier, const string& path)
 {
 	this->soundEngine.AddFile(identifier, path);

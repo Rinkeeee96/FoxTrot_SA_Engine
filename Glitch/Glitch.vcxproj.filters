@@ -89,5 +89,8 @@
     <ClCompile Include="Game\Characters\Enemies\IEnemy.h">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Factories\CharacterFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

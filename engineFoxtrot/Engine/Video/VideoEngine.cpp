@@ -137,6 +137,11 @@ void VideoEngine::calculateOffset(Object& obj, int sceneWidth, int sceneHeight)
 	}
 }
 
+void VideoEngine::attachCamera(const int objectId)
+{
+	this->cameraObjectId = objectId;
+}
+
 /// @brief 
 /// Update all the sprites on the screen
 void VideoEngine::updateScreen()
@@ -147,8 +152,7 @@ void VideoEngine::updateScreen()
 		//if (pointerToObjectVector->capacity() <= 0) return;
 		if ((*pointerToCurrentScene)->getAllObjectsInScene().size() <= 0) return;
 
-		// Todo fix hardcoded player id
-		calculateOffset(*(*pointerToCurrentScene)->getObject(2), (*pointerToCurrentScene)->getSceneWidth(), (*pointerToCurrentScene)->getSceneHeight());
+		calculateOffset(*(*pointerToCurrentScene)->getObject(cameraObjectId), (*pointerToCurrentScene)->getSceneWidth(), (*pointerToCurrentScene)->getSceneHeight());
 
 		for (Object* obj : (*pointerToCurrentScene)->getAllObjectsInScene()) {
 			if (obj != nullptr) {

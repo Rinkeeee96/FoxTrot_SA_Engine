@@ -4,12 +4,16 @@
 #include <exception>
 #include <Game\General\GameErrorCodes.h>
 #include <Game\Characters\ICharacter.h>
+#include "../SpriteState.h"
+#include <Engine.h>
 
 class CharacterFactory {
 private:
 	std::map<std::string, ICharacter*> keyValues;
 	std::map<std::string, std::map<SpriteState, SpriteObject*>> spriteObjectMap;
+	Engine& engine;
 public:
+	CharacterFactory(Engine& _engine) : engine{_engine} {}
 	void registerCharacter(std::string name, ICharacter* character, std::map<SpriteState, SpriteObject*> _spriteObjectMap) {
 		if (keyValues.count(name) == 0) {
 			keyValues.insert(std::pair<std::string, ICharacter*>(name, character));
@@ -20,6 +24,10 @@ public:
 	ICharacter* create(std::string name, int id) {
 		if (keyValues.count(name) > 0) {
 			auto clone = keyValues[name]->clone(id);
+
+			if (name == "player") {
+				engine.attachCamera(id);
+			}
 
 			auto sprites = spriteObjectMap[name];
 

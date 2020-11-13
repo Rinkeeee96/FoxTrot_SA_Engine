@@ -26,7 +26,7 @@ private:
 	map<int, SpriteObject*> spriteMap;
 	// TODO Dynamic
 	// TODO Fix tileId in tilesets
-	Level* bLevel = new Level(1);
+	Level* bLevel = new Level(1, 0, 0);
 
 	int currentTileId = 300;
 	int mapTileWidth = 16;

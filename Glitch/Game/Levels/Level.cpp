@@ -8,8 +8,9 @@ Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, map<st
 
 }
 
-Level::Level(const int id) : Scene::Scene(id)
+Level::Level(const int id, const int _sceneHeight, const int _sceneWidth) : Scene::Scene(id, _sceneHeight, _sceneWidth)
 {
+
 }
 
 void Level::setSound(map<string, string> _sounds)
@@ -49,10 +50,4 @@ void Level::pause() {
 	}
 }
 
-
-int Level::getHeight() { return this->height; }
-int Level::getWidth() { return this->width; }
-void Level::setHeight(int height) { this->height = height; }
-void Level::setWidth(int width) { this->width= width; }
-
-void Level::onDetach() {}//cleaup buffer
+void Level::OnDetach() {}//cleaup buffer

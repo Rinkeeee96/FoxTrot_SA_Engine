@@ -1,6 +1,6 @@
 #include "LevelBuilder.h"
 
-LevelBuilder::LevelBuilder(Engine& _engine) : AbstractLevelBuilder(_engine) {
+LevelBuilder::LevelBuilder(Engine& _engine) : AbstractLevelBuilder(_engine), characterFactory{ engine } {
 	this->initFactory();
 }
 
@@ -24,10 +24,10 @@ void LevelBuilder::createLevel(nlohmann::json json) {
 			}
 		}
 		else if (key == "width") {
-			bLevel->setWidth(value);
+			bLevel->setSceneWidth(value);
 		}
 		else if (key == "height") {
-			bLevel->setHeight(value);
+			bLevel->setSceneHeight(value);
 		}
 		else if (key == "tilewidth") {
 			this->mapTileWidth = value;
@@ -37,8 +37,8 @@ void LevelBuilder::createLevel(nlohmann::json json) {
 			this->mapTileHeight = value;
 		}
 	}
-	bLevel->setWidth(bLevel->getWidth() * this->mapTileWidth);
-	bLevel->setHeight(bLevel->getHeight() * this->mapTileHeight);
+	bLevel->setSceneWidth(bLevel->getSceneWidth() * this->mapTileWidth);
+	bLevel->setSceneHeight(bLevel->getSceneHeight() * this->mapTileHeight);
 }
 
 void LevelBuilder::createEntities(nlohmann::json layerValue) {

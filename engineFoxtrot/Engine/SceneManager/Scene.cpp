@@ -68,10 +68,12 @@ vector <Object*> Scene::getAllObjectsInScene()
 vector <Object*> Scene::getAllObjectsInSceneRenderPhysics()
 {
 	vector <Object*> returnVector;
-	for (auto layer = layers.begin(); layer != layers.end(); layer++)
+	for (auto layer : layers)
 	{
-		if (layer->second->renderPhysics) {
-			returnVector.insert(returnVector.end(), (*layer).second->objects.begin(), (*layer).second->objects.end());
+		if (layer.second->renderPhysics) {
+			for (auto obj : layer.second->objects) {
+				returnVector.push_back(obj.second);
+			}
 		}
 	}
 	return returnVector;
@@ -95,7 +97,7 @@ const void Scene::addNewObjectToLayer(const int zIndex, Object* object, bool ren
 	{
 		layers[zIndex] = new Layer();
 		layers[zIndex]->renderPhysics = renderPhysics;
-		layers[zIndex]->objects.push_back(object);
+		layers[zIndex]->objects[object->getObjectId()] = object;
 	}
 }
 
