@@ -50,7 +50,7 @@ public:
 	API void pollEvents();
 
 	//Events
-	API void EventListners();
+	API void EventListeners();
 	API void Event_LoadSprite(Event& event);
 private:
 	PhysicsEngine physicsEngine;

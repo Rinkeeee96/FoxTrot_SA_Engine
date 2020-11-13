@@ -10,11 +10,9 @@
 #include <Engine\Events\Window\WindowCloseEvent.h>
 
 #define BIND_FN(function) std::bind(&MainMenu::function, *this)
-#define MAX_X 1920
-#define MAX_Y 1080
 
-#define CENTER_X  (MAX_X / 2)
-#define CENTER_Y (MAX_Y / 2)
+#define CENTER_X  (WINDOW_WIDTH / 2)
+#define CENTER_Y (WINDOW_HEIGHT / 2)
 
 void MainMenu::OnAttach()
 {
@@ -37,8 +35,8 @@ void MainMenu::LoadButtons() {
 	Button* stopBtn = new Button(2, ColoredString("Stop", black), BIND_FN(OnStopBtnClick));
 	stopBtn->registerSprite(SpriteState::DEFAULT, new SpriteObject(2, 40, 116, 1, 300, "Assets/Buttons/btn_red_round.png"));
 	stopBtn->changeToState(SpriteState::DEFAULT);
-	stopBtn->setPositionX(MAX_X - 40 - stopBtn->getWidth());
-	stopBtn->setPositionY(MAX_Y - 10 - stopBtn->getHeight());
+	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
+	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
 	Button* loadBtn = new Button(3, ColoredString("Load", black), BIND_FN(OnLoadBtnClick));
 	loadBtn->registerSprite(SpriteState::DEFAULT, mainSprite);

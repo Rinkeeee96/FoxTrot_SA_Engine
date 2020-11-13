@@ -5,7 +5,7 @@
 class MainMenu : public Scene
 {
 public:
-	MainMenu() : Scene(1) {};
+	MainMenu(const int id) : Scene(id) {};
 	~MainMenu();
 	// Inherited via Scene
 	virtual void OnAttach() override;

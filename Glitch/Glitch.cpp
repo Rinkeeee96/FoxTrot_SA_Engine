@@ -157,7 +157,7 @@ void sceneTestSetup()
 
 void TestMainMenu() {
 
-	MainMenu* mainMenu = new MainMenu();
+	MainMenu* mainMenu = new MainMenu(1);
 	engine.insertScene(mainMenu);
 	engine.setCurrentScene(1);
 	mainMenu->Start();

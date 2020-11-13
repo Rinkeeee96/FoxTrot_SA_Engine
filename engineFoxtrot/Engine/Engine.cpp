@@ -12,7 +12,7 @@ Engine::Engine()
 	particleEngine.pointerToCurrentScene = &sceneManager.currentScene;
 	frameData = new FrameData;
 
-	EventListners();
+	EventListeners();
 	//this->startTickThreads();
 }
 
@@ -119,7 +119,7 @@ void Engine::loadSprite(const SpriteObject& spriteObject) {
 }
 
 
-void Engine::EventListners() {
+void Engine::EventListeners() {
 	EventSingleton::get_instance().setEventCallback<VideoLoadSpriteEvent>(BIND_EVENT_FN(Engine::Event_LoadSprite));
 }
 
