@@ -80,7 +80,10 @@ vector <Object*> Scene::getAllObjectsInScene()
 	{
 		for (auto obj : layer.second->objects)
 		{
-			returnVector.push_back(obj.second);
+			if (obj.second != nullptr)
+			{
+				returnVector.push_back(obj.second);
+			}
 		}
 	}
 	return returnVector;
