@@ -26,10 +26,11 @@ VideoFacade::~VideoFacade()
 /// Inits SDL2
 void VideoFacade::initSDL()
 {
+	Uint32 flags = SDL_WINDOW_SHOWN | SDL_WINDOW_FULLSCREEN;
 	SDL_Init(SDL_INIT_EVERYTHING);
 	TTF_Init();
 	Sans = TTF_OpenFont(FONT_PATH, FONT_POINT_SIZE);
-	window = SDL_CreateWindow("Foxtrot Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
+	window = SDL_CreateWindow("Foxtrot Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT, flags);
 	if (window == NULL)
 	{
 		printf("Window could not be created! SDL Error: %s\n", SDL_GetError());
@@ -110,7 +111,7 @@ void VideoFacade::renderCopy(Object& object)
 	//generate image 
 	Uint32 ticks = SDL_GetTicks();
 	Uint32 seconds = ticks / sprite.getAnimationDelay();
-	int leftpos = sprite.getLeftPos(seconds);
+	float leftpos = sprite.getLeftPos(seconds);
 	int top = 0;
 
 	//generate rectangele for selecting 1 image of a full sprite
@@ -118,7 +119,7 @@ void VideoFacade::renderCopy(Object& object)
 	//top = amount of pixels of the top (sprites are renderd of the top to bottom
 	//width = amount of pixels of the with of 1 image
 	//height = amount of pixels of the height of 1 image
-	SDL_Rect rect{ leftpos, top, sprite.getWidth(), sprite.getHeight() };
+	SDL_Rect rect{ (int)leftpos, top, (int)sprite.getWidth(), (int)sprite.getHeight() };
 
 	//update collision box 
 	if (!object.getScalable()) {
@@ -128,10 +129,10 @@ void VideoFacade::renderCopy(Object& object)
 
 	//generate stratch of image
 	SDL_Rect destination;
-	destination.x = object.getPositionX();
-	destination.y = object.getPositionY() - object.getHeight();
-	destination.w = object.getWidth();
-	destination.h = object.getHeight();
+	destination.x = (int)object.getPositionX();
+	destination.y = (int)object.getPositionY() - (int)object.getHeight();
+	destination.w = (int)object.getWidth();
+	destination.h = (int)object.getHeight();
 	SDL_RenderCopyEx(renderer, textureMap[sprite.getTextureID()], &rect, &destination, object.getRotation(), NULL, SDL_FLIP_NONE);
 }
 

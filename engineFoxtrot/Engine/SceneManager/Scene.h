@@ -2,7 +2,6 @@
 
 #include "Object.h"
 #include "Layer.h"
-#include "ParticleSystem/ParticleLib/ParticleInit.h"
 
 /// @brief 
 /// Scene Class

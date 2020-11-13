@@ -1,8 +1,9 @@
 #pragma once
 #include "stdafx.h"
 #include "Glitch.h"
-#include "Level.h"
-#include "SpriteState.h"
+#include "./Game/Level.h"
+#include "./Game/SpriteState.h"
+#include "./Game/Player/Player.h"
 
 // TODO engine.h & engine.cpp
 
@@ -14,115 +15,23 @@
 
 Engine engine;
 
-class Player : public Object {
-private:
-	bool canJump = false;
-public:
-	Player() : Object(2) {
-		this->setName("person");
-		this->setHeight(80);
-		this->setWidth(80);
-		this->setPositionX(100);
-		this->setPositionY(80);
-
-		this->setSpeed(50);
-		this->setJumpHeight(400);
-		this->setDensity(100);
-		this->setFriction(0);
-		this->setRestitution(0);
-		this->setStatic(false);
-		this->setRotatable(false);
-
-		EventSingleton::get_instance().setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Player::onCollisionBeginEvent));
-		EventSingleton::get_instance().setEventCallback<OnCollisionEndEvent>(BIND_EVENT_FN(Player::onCollisionEndEvent));
-		EventSingleton::get_instance().setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Player::onKeyPressed));
-	}
-
-	/// @brief 
-	/// Handles when an collision event begins, when the direction of the collision happend on the bottom side of the player object, 
-	/// set can jump true
-	void onCollisionBeginEvent(Event& event) {
-		auto collisionEvent = static_cast<OnCollisionBeginEvent&>(event);
-		if (collisionEvent.GetObjectOneId() != this->getObjectId() && collisionEvent.GetObjectTwoId() != this->getObjectId()) return;
-
-		auto map = collisionEvent.getDirectionMap();
-		auto collidedDirection = map[this->getObjectId()];
-
-		if (std::find(collidedDirection.begin(), collidedDirection.end(), Direction::DOWN) != collidedDirection.end()) {
-			this->canJump = true;
-			this->changeToState(SpriteState::DEFAULT);
-		}
-	}
-
-	/// @brief 
-	/// Handles when an collision event ends, when the direction of the collision happend on the bottom side of the player object, set can jump false
-	void onCollisionEndEvent(Event& event) {
-		auto collisionEvent = static_cast<OnCollisionEndEvent&>(event);
-		if (collisionEvent.GetObjectOneId() != this->getObjectId() && collisionEvent.GetObjectTwoId() != this->getObjectId()) return;
-
-		auto map = collisionEvent.getDirectionMap();
-		auto collidedDirection = map[this->getObjectId()];
-
-		if (std::find(collidedDirection.begin(), collidedDirection.end(), Direction::DOWN) != collidedDirection.end()) {
-			this->canJump = false;
-		}
-	}
-
-	void setYAxisVelocity(const float val) override {
-
-		if (!canJump) {
-			if (val > 0 && !changed) {
-				this->changeToState(SpriteState::AIR_FALL);
-			}
-		}
-
-		if (val == 0) {
-			changed = false;
-		}
-
-
-		Object::setYAxisVelocity(val);
-	}
-
-	/// @brief 
-	/// Handles when an key pressed event happend, Player can move right, left and jump
-	void onKeyPressed(Event& event) {
-		auto keyPressedEvent = static_cast<KeyPressedEvent&>(event);
-
-		switch (keyPressedEvent.GetKeyCode())
-		{
-		case KeyCode::KEY_A:
-			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::LEFT, this->getObjectId()));
-			if (canJump)
-				this->changeToState(SpriteState::RUN_LEFT);
-			break;
-		case KeyCode::KEY_D:
-			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::RIGHT, this->getObjectId()));
-			if (canJump)
-				this->changeToState(SpriteState::RUN_RIGHT);
-			break;
-		case KeyCode::KEY_SPACE:
-			if (canJump) {
-				this->changeToState(SpriteState::AIR_JUMP);
-				EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
-			}
-			break;
-		default:
-			break;
-		}
-	}
-};
-
 void sceneTestSetup()
 {
 	SpriteObject* so0 = new SpriteObject(1, 16, 16, 1, 300, "Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png");
-	SpriteObject* so1 = new SpriteObject(100, 37, 50, 1, 100, "Assets/Sprites/Character/adventure.png");
-	SpriteObject* so2 = new SpriteObject(101, 37, 50, 4, 100, "Assets/Sprites/Character/adventure_air_attack1.png");
-	SpriteObject* so3 = new SpriteObject(102, 37, 50, 6, 100, "Assets/Sprites/Character/adventure_run_right.png");
-	SpriteObject* so4 = new SpriteObject(103, 37, 50, 2, 100, "Assets/Sprites/Character/adventure_slide.png");
-	SpriteObject* so5 = new SpriteObject(104, 37, 50, 2, 100, "Assets/Sprites/Character/adventure_fall.png");
-	SpriteObject* so6 = new SpriteObject(105, 37, 50, 2, 100, "Assets/Sprites/Character/adventure_jump.png");
-	SpriteObject* so7 = new SpriteObject(106, 37, 50, 6, 100, "Assets/Sprites/Character/adventure_run_left.png");
+
+	SpriteObject* so1 = new SpriteObject(100, 37, 50, 1, 300, "Assets/Sprites/Character/adventure.png");
+	SpriteObject* so2 = new SpriteObject(101, 37, 50, 4, 300, "Assets/Sprites/Character/adventure_air_attack1.png");
+
+	SpriteObject* so7 = new SpriteObject(106, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_left.png");
+	SpriteObject* so3 = new SpriteObject(102, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png");
+
+	SpriteObject* so4 = new SpriteObject(103, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_slide.png");
+
+	SpriteObject* so5 = new SpriteObject(104, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_fall_left.png");
+	SpriteObject* so8 = new SpriteObject(107, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_fall_right.png");
+
+	SpriteObject* so6 = new SpriteObject(105, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_jump_left.png");
+	SpriteObject* so9 = new SpriteObject(108, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_jump_right.png");
 
 	engine.loadSprite(*so0);
 	engine.loadSprite(*so1);
@@ -132,6 +41,8 @@ void sceneTestSetup()
 	engine.loadSprite(*so5);
 	engine.loadSprite(*so6);
 	engine.loadSprite(*so7);
+	engine.loadSprite(*so8);
+	engine.loadSprite(*so9);
 
 	map<string, string> soundL1 = {
 		{"Level_1_Sound", "Assets/Sound/file_example_WAV_1MG.wav"},
@@ -162,8 +73,10 @@ void sceneTestSetup()
 	object2->registerSprite(SpriteState::AIR_ATTACK, so2);
 	object2->registerSprite(SpriteState::RUN_RIGHT, so3);
 	object2->registerSprite(SpriteState::SLIDE, so4);
-	object2->registerSprite(SpriteState::AIR_FALL, so5);
-	object2->registerSprite(SpriteState::AIR_JUMP, so6);
+	object2->registerSprite(SpriteState::AIR_FALL_LEFT, so5);
+	object2->registerSprite(SpriteState::AIR_JUMP_LEFT, so6);
+	object2->registerSprite(SpriteState::AIR_FALL_RIGHT, so8);
+	object2->registerSprite(SpriteState::AIR_JUMP_RIGHT, so9);
 	object2->registerSprite(SpriteState::RUN_LEFT, so7);
 	object2->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, object2);
@@ -186,25 +99,17 @@ void sceneTestSetup()
 	ParticleAdapter* particle1 = new ParticleAdapter(11);        // create a new particle system pointer
 	particle1->registerSprite(SpriteState::DEFAULT, particle1Sprite);
 	particle1->changeToState(SpriteState::DEFAULT);
-	particle1->setPosition(800, 384);              // set the position
-	particle1->setStyle(ParticleInit::FIRE);    // set the example effects
-	particle1->setStartSpin(0);
-	particle1->setStartSpinVar(90);
-	particle1->setEndSpin(90);
-	particle1->setStartSpinVar(90);
-
+	particle1->setPositionX(800);
+	particle1->setPositionY(384);
+	particle1->setStyle(ParticleInit::ParticleStyle::FIRE);    // set the example effects
 	testScene->addNewObjectToLayer(4, particle1);
 
 	ParticleAdapter* particle2 = new ParticleAdapter(11);        // create a new particle system pointer
 	particle2->registerSprite(SpriteState::DEFAULT, particle1Sprite);
 	particle2->changeToState(SpriteState::DEFAULT);
-	particle2->setPosition(100, 384);              // set the position
-	particle2->setStyle(ParticleInit::EXPLOSION);    // set the example effects
-	particle2->setStartSpin(0);
-	particle2->setStartSpinVar(90);
-	particle2->setEndSpin(90);
-	particle2->setStartSpinVar(90);
-
+	particle2->setPositionX(100);
+	particle2->setPositionY(384);
+	particle2->setStyle(ParticleInit::ParticleStyle::EXPLOSION);    // set the example effects
 	testScene->addNewObjectToLayer(2, particle2);
 
 	Object* staticGround2 = new Object(102);
@@ -240,17 +145,10 @@ void sceneTestSetup()
 	staticGround4->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, staticGround4);
 
-	engine.configureInput(KeyCode::KEY_A, engine.makeCommand<MoveLeft>());
-	engine.configureInput(KeyCode::KEY_D, engine.makeCommand<MoveRight>());
-	engine.configureInput(KeyCode::KEY_SPACE, engine.makeCommand<Jump>());
-	engine.configureInput(KeyCode::KEY_F1, engine.makeCommand<ToggleFps>(), true);
-	//Engine* command = engine.makeCommand<Engine>();
-
 	engine.insertScene(testScene);
 	engine.setCurrentScene(100);
-	testScene->Start();
 
-	engine.startTickThreads();
+	testScene->Start();
 }
 
 
@@ -259,6 +157,7 @@ int main() {
 
 	bool gameRunning = true;
 
+	engine.startTickThreads();
 	while (gameRunning)
 	{
 		AppTickEvent60 appTick;
