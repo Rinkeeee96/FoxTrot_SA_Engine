@@ -33,7 +33,7 @@ var class_object =
     [ "setFriction", "class_object.html#aa1ef52b289dc2203654e0af50145f030", null ],
     [ "setHeight", "class_object.html#a2713ff1d83a1bcd9d5271423e47f120f", null ],
     [ "setJumpHeight", "class_object.html#a7a134043cd65617759d40e3654e3b656", null ],
-    [ "setName", "class_object.html#a69efdc71353e351ec1fa258a91e7a6bb", null ],
+    [ "setName", "class_object.html#a830b8dbc262e89b7820b39512e933ab5", null ],
     [ "setPositionX", "class_object.html#aee7c600682bbe25a21e518296d72e5ab", null ],
     [ "setPositionY", "class_object.html#a227f665f922490ddec574aabb7045126", null ],
     [ "setRestitution", "class_object.html#a66e7c194cb3c29903834bacb816dd5ea", null ],
