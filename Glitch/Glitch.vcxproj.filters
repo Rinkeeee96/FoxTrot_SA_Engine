@@ -33,6 +33,12 @@
     <ClInclude Include="SceneSwitcher\SceneSwitcher.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Buttons\PrimaryButton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Buttons\SecondaryButton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Glitch.cpp">

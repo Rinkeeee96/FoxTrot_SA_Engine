@@ -8,6 +8,8 @@
 #include <Engine\Events\Sound\OnMusicStartEvent.h>
 #include <Engine\Events\Sound\OnMusicStopEvent.h>
 #include <Engine\Events\Window\WindowCloseEvent.h>
+#include "Buttons/PrimaryButton.h"
+#include "Buttons/SecondaryButton.h"
 
 #define BIND_FN(function) std::bind(&MainMenu::function, *this)
 
@@ -22,35 +24,24 @@ void MainMenu::OnAttach()
 }
 
 void MainMenu::LoadButtons() {
-	auto mainSprite = new SpriteObject(101010, 40, 116, 1, 300, "Assets/Buttons/btn_green_round.png");
-	Color black = Color(0, 0, 0);
 
-	Button* startBtn = new Button(1, ColoredString("Start", black), BIND_FN(OnStartBtnClick));
-	startBtn->setSize(200, 50);
-	startBtn->registerSprite(SpriteState::DEFAULT, mainSprite);
-	startBtn->changeToState(SpriteState::DEFAULT);
+	Button* startBtn = new PrimaryButton(1, "Start", BIND_FN(OnStartBtnClick));
 	startBtn->setPositionX(CENTER_X - startBtn->getWidth() / 2);
 	startBtn->setPositionY(CENTER_Y - startBtn->getHeight() / 2);
 
-	Button* stopBtn = new Button(2, ColoredString("Stop", Color(255, 255, 255)), BIND_FN(OnStopBtnClick));
-	stopBtn->registerSprite(SpriteState::DEFAULT, new SpriteObject(101011, 40, 116, 1, 300, "Assets/Buttons/btn_red_round.png"));
-	stopBtn->changeToState(SpriteState::DEFAULT);
-	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
-	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
-
-	Button* loadBtn = new Button(3, ColoredString("Load", black), BIND_FN(OnLoadBtnClick));
-	loadBtn->registerSprite(SpriteState::DEFAULT, mainSprite);
-	loadBtn->changeToState(SpriteState::DEFAULT);
+	Button* loadBtn = new PrimaryButton(3, "Load", BIND_FN(OnLoadBtnClick));
 	loadBtn->setPositionX(CENTER_X - loadBtn->getWidth() / 2);
 	loadBtn->setPositionY(CENTER_Y - loadBtn->getHeight() / 2 + 100);
 	loadBtn->disable();
 
-	Button* creditsBtn = new Button(4, ColoredString("Credits", black), BIND_FN(OnCreditsBtnClick));
-	creditsBtn->registerSprite(SpriteState::DEFAULT, mainSprite);
-	creditsBtn->changeToState(SpriteState::DEFAULT);
+	Button* creditsBtn = new PrimaryButton(4, "Credits", BIND_FN(OnCreditsBtnClick));
 	creditsBtn->setPositionX(CENTER_X - creditsBtn->getWidth() / 2);
 	creditsBtn->setPositionY(CENTER_Y - creditsBtn->getHeight() / 2 + 200);
 	creditsBtn->disable();
+
+	Button* stopBtn = new SecondaryButton(2, "Stop", BIND_FN(OnStopBtnClick));
+	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
+	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
 	addNewObjectToLayer(3, startBtn);
 	addNewObjectToLayer(3, stopBtn);

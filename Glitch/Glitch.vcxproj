@@ -152,6 +152,8 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Game\Buttons\PrimaryButton.h" />
+    <ClInclude Include="Game\Buttons\SecondaryButton.h" />
     <ClInclude Include="Game\MainMenu.h" />
     <ClInclude Include="Game\Player\Player.h" />
     <ClInclude Include="Glitch.h" />
