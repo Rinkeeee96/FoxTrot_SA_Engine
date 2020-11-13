@@ -22,7 +22,7 @@ void MainMenu::OnAttach()
 }
 
 void MainMenu::LoadButtons() {
-	auto mainSprite = new SpriteObject(1, 40, 116, 1, 300, "Assets/Buttons/btn_green_round.png");
+	auto mainSprite = new SpriteObject(101010, 40, 116, 1, 300, "Assets/Buttons/btn_green_round.png");
 	Color black = Color(0, 0, 0);
 
 	Button* startBtn = new Button(1, ColoredString("Start", black), BIND_FN(OnStartBtnClick));
@@ -33,7 +33,7 @@ void MainMenu::LoadButtons() {
 	startBtn->setPositionY(CENTER_Y - startBtn->getHeight() / 2);
 
 	Button* stopBtn = new Button(2, ColoredString("Stop", black), BIND_FN(OnStopBtnClick));
-	stopBtn->registerSprite(SpriteState::DEFAULT, new SpriteObject(2, 40, 116, 1, 300, "Assets/Buttons/btn_red_round.png"));
+	stopBtn->registerSprite(SpriteState::DEFAULT, new SpriteObject(101011, 40, 116, 1, 300, "Assets/Buttons/btn_red_round.png"));
 	stopBtn->changeToState(SpriteState::DEFAULT);
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());

@@ -9,6 +9,6 @@ void SceneSwitcher::SwitchToScene(string const identifier) {
 	auto scene = scenes.find(identifier);
 	if (scene == scenes.end())return;
 	//TODO start transitiescreen
-	scene->second->Start();
 	engine.setCurrentScene(scene->second->getSceneID());
+	scene->second->Start();
 }
