@@ -4,10 +4,9 @@
 #include "./Game/Level.h"
 #include "./Game/SpriteState.h"
 #include "./Game/Player/Player.h"
-#include "Game/MainMenu.h"
 #include <Engine\Events\Window\WindowCloseEvent.h>
 #include "SceneSwitcher/SceneSwitcher.h"
-#include "Game/Scenes/Transitions/MainMenuTransitionToGame.h"
+#include "Game/Scenes/Transitions/Transitions.h"
 
 // TODO engine.h & engine.cpp
 

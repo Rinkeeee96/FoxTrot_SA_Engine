@@ -1,15 +1,15 @@
 #pragma once
 #include "api.h"
-#include "../../../SceneSwitcher/SceneSwitcher.h"
+#include "../../../../SceneSwitcher/SceneSwitcher.h"
 
 #define TRANSITION_SCENE_DURATION_S		3
 
 
-class MainMenuTransitionToGame : public Scene
+class GeneralTransition : public Scene
 {
 public:
-	MainMenuTransitionToGame(const int id) : Scene(id, WINDOW_HEIGHT, WINDOW_WIDTH) {};
-	~MainMenuTransitionToGame() {};
+	GeneralTransition(const int id) : Scene(id, WINDOW_HEIGHT, WINDOW_WIDTH) {};
+	~GeneralTransition() {};
 
 	// Inherited via Scene
 	virtual void OnAttach() override;
@@ -23,6 +23,5 @@ private:
 	chrono::high_resolution_clock::time_point startTime;
 	chrono::high_resolution_clock::time_point previousCallTime;
 };
-
 
 
