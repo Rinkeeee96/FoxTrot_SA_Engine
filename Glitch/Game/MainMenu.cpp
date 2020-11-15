@@ -28,24 +28,20 @@ void MainMenu::LoadButtons() {
 	Button* startBtn = new PrimaryButton(1, "Start", BIND_FN(OnStartBtnClick));
 	startBtn->setPositionX(CENTER_X - startBtn->getWidth() / 2);
 	startBtn->setPositionY(CENTER_Y - startBtn->getHeight() / 2);
-	startBtn->setScalable(true);
 
 	Button* loadBtn = new PrimaryButton(3, "Load", BIND_FN(OnLoadBtnClick));
 	loadBtn->setPositionX(CENTER_X - loadBtn->getWidth() / 2);
 	loadBtn->setPositionY(CENTER_Y - loadBtn->getHeight() / 2 + 100);
 	loadBtn->disable();
-	loadBtn->setScalable(true);
 
 	Button* creditsBtn = new PrimaryButton(4, "Credits", BIND_FN(OnCreditsBtnClick));
 	creditsBtn->setPositionX(CENTER_X - creditsBtn->getWidth() / 2);
 	creditsBtn->setPositionY(CENTER_Y - creditsBtn->getHeight() / 2 + 200);
 	creditsBtn->disable();
-	creditsBtn->setScalable(true);
 
 	Button* stopBtn = new SecondaryButton(2, "Stop", BIND_FN(OnStopBtnClick));
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
-	stopBtn->setScalable(true);
 
 	addNewObjectToLayer(3, startBtn);
 	addNewObjectToLayer(3, stopBtn);
