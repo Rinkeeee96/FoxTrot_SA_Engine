@@ -16,9 +16,10 @@ public:
 	virtual void OnDetach() override;
 	virtual void Start() override;
 	virtual void run() override;
+
 private:
 	void LoadBackground();
-	Drawable* animation = nullptr;
+	Drawable* progressBarFiller = nullptr;
 
 	chrono::high_resolution_clock::time_point startTime;
 	chrono::high_resolution_clock::time_point previousCallTime;

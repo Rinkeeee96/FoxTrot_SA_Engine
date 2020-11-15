@@ -5,8 +5,21 @@ void MainMenuTransitionToGame::OnAttach()
 {
 	LoadBackground();
 	startTime = chrono::high_resolution_clock::now();
-	previousCallTime = chrono::high_resolution_clock::now();
+	previousCallTime = chrono::high_resolution_clock::now();	
+}
 
+void MainMenuTransitionToGame::OnDetach()
+{
+
+}
+
+void MainMenuTransitionToGame::Start()
+{
+	
+}
+
+void MainMenuTransitionToGame::LoadBackground()
+{
 	SpriteObject* BG_LAYER_0 = new SpriteObject(1000, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_0.png");
 	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(1001, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png");
 	SpriteObject* BG_LAYER_2 = new SpriteObject(1002, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_2.png");
@@ -42,38 +55,22 @@ void MainMenuTransitionToGame::OnAttach()
 	addNewObjectToLayer(0, layer0);
 	addNewObjectToLayer(1, animation);
 	addNewObjectToLayer(2, layer2);
-	
-}
-
-void MainMenuTransitionToGame::OnDetach()
-{
-
-}
-
-void MainMenuTransitionToGame::Start()
-{
-	
-}
-
-void MainMenuTransitionToGame::LoadBackground()
-{
-
 }
 
 void MainMenuTransitionToGame::run()
 {
 	
 	chrono::duration<double> diff = chrono::duration_cast<chrono::duration<double>>(previousCallTime - startTime);
-	chrono::duration<double> diffFromPreviousCall = chrono::duration_cast<chrono::duration<double>>(previousCallTime - chrono::high_resolution_clock::now());
+	chrono::duration<double> diffFromPreviousCall = chrono::duration_cast<chrono::duration<double>>(chrono::high_resolution_clock::now() - previousCallTime);
 
-	if (diffFromPreviousCall.count() < 0.2)
+	if (diffFromPreviousCall.count() > 0.05)
 	{
-		animation->setPositionX(animation->getPositionX() + 5);
+		animation->setPositionX(animation->getPositionX() + 20);
 		if (animation->getPositionX() > WINDOW_WIDTH)
 		{
 			SceneSwitcher::get_instance().SwitchToScene("GAME");
 		}
-	}
+		previousCallTime = chrono::high_resolution_clock::now();
 
-	previousCallTime = chrono::high_resolution_clock::now();	
+	}
 }

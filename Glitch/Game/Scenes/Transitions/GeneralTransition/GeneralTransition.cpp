@@ -6,10 +6,25 @@ void GeneralTransition::OnAttach()
 	LoadBackground();
 	startTime = chrono::high_resolution_clock::now();
 	previousCallTime = chrono::high_resolution_clock::now();
+}
 
+void GeneralTransition::OnDetach()
+{
+
+}
+
+void GeneralTransition::Start()
+{
+
+}
+
+void GeneralTransition::LoadBackground()
+{
 	SpriteObject* BG_LAYER_0 = new SpriteObject(1000, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_0.png");
 	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(1001, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png");
 	SpriteObject* BG_LAYER_2 = new SpriteObject(1002, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_2.png");
+	SpriteObject* PROGRESSBAR_EMPTY = new SpriteObject(1003, 24, 192, 1, 1, "Assets/LoadingBar/progress-bar-empty.png");
+	SpriteObject* PROGRESSBAR_FULL = new SpriteObject(1004, 24, 192, 1, 1, "Assets/LoadingBar/progress-bar-full.png");
 
 	auto* layer0 = new Drawable(1);
 	layer0->setStatic(true);
@@ -20,7 +35,25 @@ void GeneralTransition::OnAttach()
 	layer0->registerSprite(SpriteState::DEFAULT, BG_LAYER_0);
 	layer0->changeToState(SpriteState::DEFAULT);
 
-	animation = new Drawable(2);
+	auto* progressBar = new Drawable(6);
+	progressBar->setStatic(true);
+	progressBar->setPositionX(585);
+	progressBar->setPositionY(950);
+	progressBar->setWidth(750);
+	progressBar->setHeight(100);
+	progressBar->registerSprite(SpriteState::DEFAULT, PROGRESSBAR_EMPTY);
+	progressBar->changeToState(SpriteState::DEFAULT);
+
+	progressBarFiller = new Drawable(7);
+	progressBarFiller->setStatic(true);
+	progressBarFiller->setPositionX(616);
+	progressBarFiller->setPositionY(921);
+	progressBarFiller->setWidth(10);
+	progressBarFiller->setHeight(42);
+	progressBarFiller->registerSprite(SpriteState::DEFAULT, PROGRESSBAR_FULL);
+	progressBarFiller->changeToState(SpriteState::DEFAULT);
+
+	auto * animation = new Drawable(2);
 	animation->setStatic(true);
 	animation->setPositionX(175);
 	animation->setPositionY(875);
@@ -42,38 +75,36 @@ void GeneralTransition::OnAttach()
 	addNewObjectToLayer(0, layer0);
 	addNewObjectToLayer(1, animation);
 	addNewObjectToLayer(2, layer2);
-
-}
-
-void GeneralTransition::OnDetach()
-{
-
-}
-
-void GeneralTransition::Start()
-{
-
-}
-
-void GeneralTransition::LoadBackground()
-{
-
+	addNewObjectToLayer(3, progressBar);
+	addNewObjectToLayer(3, progressBarFiller);
 }
 
 void GeneralTransition::run()
 {
 
 	chrono::duration<double> diff = chrono::duration_cast<chrono::duration<double>>(previousCallTime - startTime);
-	chrono::duration<double> diffFromPreviousCall = chrono::duration_cast<chrono::duration<double>>(previousCallTime - chrono::high_resolution_clock::now());
+	chrono::duration<double> diffFromPreviousCall = chrono::duration_cast<chrono::duration<double>>(chrono::high_resolution_clock::now() - previousCallTime);
 
-	if (diffFromPreviousCall.count() < 0.2)
+	if (diffFromPreviousCall.count() > 0.5)
 	{
-		animation->setPositionX(animation->getPositionX() + 5);
-		if (animation->getPositionX() > WINDOW_WIDTH)
+		if (progressBarFiller->getWidth() >= 685)
 		{
 			SceneSwitcher::get_instance().SwitchToScene("GAME");
+			return;
 		}
+
+
+		int generated = rand() % 150 + 1;
+		if (progressBarFiller->getWidth() + generated > 685)
+		{
+			progressBarFiller->setWidth(685);
+			return;
+		}
+		else
+		{
+			progressBarFiller->setWidth(progressBarFiller->getWidth() + generated);
+		}
+		previousCallTime = chrono::high_resolution_clock::now();
 	}
 
-	previousCallTime = chrono::high_resolution_clock::now();
 }
