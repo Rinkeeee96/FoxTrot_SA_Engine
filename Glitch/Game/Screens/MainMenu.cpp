@@ -3,13 +3,13 @@
 #include "Events/Mouse/MousePressed.h"
 #include "Events/EventSingleton.h"
 #include "Events/Video/VideoLoadSpriteEvent.h"
-#include "SpriteState.h"
+#include "../SpriteState.h"
 #include <Engine\Events\Sound\SoundAttachEvent.h>
 #include <Engine\Events\Sound\OnMusicStartEvent.h>
 #include <Engine\Events\Sound\OnMusicStopEvent.h>
 #include <Engine\Events\Window\WindowCloseEvent.h>
-#include "Buttons/PrimaryButton.h"
-#include "Buttons/SecondaryButton.h"
+#include "../Buttons/PrimaryButton.h"
+#include "../Buttons/SecondaryButton.h"
 
 #define BIND_FN(function) std::bind(&MainMenu::function, *this)
 
