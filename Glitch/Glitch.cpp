@@ -7,6 +7,7 @@
 #include "Game/MainMenu.h"
 #include <Engine\Events\Window\WindowCloseEvent.h>
 #include "SceneSwitcher/SceneSwitcher.h"
+#include "Game/Scenes/TransitionScene.h"
 
 // TODO engine.h & engine.cpp
 
@@ -188,6 +189,10 @@ int main() {
 	MainMenu* mainMenu = new MainMenu(1);
 	SceneSwitcher::get_instance().RegisterScene("MAIN_MENU", mainMenu);
 	SceneSwitcher::get_instance().SwitchToScene("MAIN_MENU");
+
+	TransitionScene* transitionScene = new TransitionScene(150);
+	SceneSwitcher::get_instance().RegisterScene("TRANSITION_SCENE", transitionScene);
+
 
 	EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(StopLoop);
 
