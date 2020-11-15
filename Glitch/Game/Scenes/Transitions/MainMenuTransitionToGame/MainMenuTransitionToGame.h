@@ -4,7 +4,7 @@
 
 #define TRANSITION_SCENE_DURATION_S		3
 
-
+/// @brief 
 class MainMenuTransitionToGame : public Scene
 {
 public:

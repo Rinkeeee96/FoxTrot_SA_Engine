@@ -1,6 +1,7 @@
 #include "MainMenuTransitionToGame.h"
 #include "../../../SpriteState.h"
 
+/// @brief 
 void MainMenuTransitionToGame::OnAttach()
 {
 	LoadBackground();
@@ -8,16 +9,20 @@ void MainMenuTransitionToGame::OnAttach()
 	previousCallTime = chrono::high_resolution_clock::now();	
 }
 
+/// @brief 
 void MainMenuTransitionToGame::OnDetach()
 {
 
 }
 
+/// @brief 
 void MainMenuTransitionToGame::Start()
 {
 	
 }
 
+/// @brief 
+/// Loads the background of the loading screen
 void MainMenuTransitionToGame::LoadBackground()
 {
 	SpriteObject* BG_LAYER_0 = new SpriteObject(1000, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_0.png");
@@ -57,6 +62,8 @@ void MainMenuTransitionToGame::LoadBackground()
 	addNewObjectToLayer(2, layer2);
 }
 
+/// @brief 
+/// Every 0.05s the new position of the character is calculated and set
 void MainMenuTransitionToGame::run()
 {
 	

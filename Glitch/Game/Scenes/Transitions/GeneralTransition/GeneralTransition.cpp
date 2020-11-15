@@ -1,6 +1,8 @@
 #include "GeneralTransition.h"
 #include "../../../SpriteState.h"
 
+/// @brief 
+/// Loads the background and sets the starttime of this scene;
 void GeneralTransition::OnAttach()
 {
 	LoadBackground();
@@ -8,16 +10,20 @@ void GeneralTransition::OnAttach()
 	previousCallTime = chrono::high_resolution_clock::now();
 }
 
+/// @brief 
 void GeneralTransition::OnDetach()
 {
 
 }
 
+/// @brief 
 void GeneralTransition::Start()
 {
 
 }
 
+/// @brief 
+/// Loads all the sprites 
 void GeneralTransition::LoadBackground()
 {
 	SpriteObject* BG_LAYER_0 = new SpriteObject(1000, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_0.png");
@@ -79,9 +85,14 @@ void GeneralTransition::LoadBackground()
 	addNewObjectToLayer(3, progressBarFiller);
 }
 
+/// @brief 
+/// Runs the scene.
+/// Calculates every 0.5s and random nr between 1 and 150 to increase the loading bar with. 
+/// Also sets the loading bar. 
 void GeneralTransition::run()
 {
-
+	// Todo
+	// Define
 	chrono::duration<double> diff = chrono::duration_cast<chrono::duration<double>>(previousCallTime - startTime);
 	chrono::duration<double> diffFromPreviousCall = chrono::duration_cast<chrono::duration<double>>(chrono::high_resolution_clock::now() - previousCallTime);
 
