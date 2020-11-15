@@ -56,23 +56,7 @@ void sceneTestSetup()
 
 	// TODO why this many heap allocations?
 
-	auto* object = new Drawable(1);
-	object->setHeight(100);
-	object->setWidth(100);
-	object->setPositionX(30);
-	object->setPositionY(300);
-	object->setSpeed(100);
-	object->setJumpHeight(400);
-	object->setDensity(1000000);
-	object->setFriction(0);
-	object->setRestitution(0);
-	object->setStatic(false);
-
-	object->registerSprite(SpriteState::DEFAULT, so1);
-	object->changeToState(SpriteState::DEFAULT);
-	testScene->addNewObjectToLayer(1, object);
-
-	auto* object2 = new Player(156165165165);
+	auto* object2 = new Player(PLAYER_ID);
 	object2->setStatic(false);
 	object2->setPositionX(800);
 	object2->setPositionY(100);

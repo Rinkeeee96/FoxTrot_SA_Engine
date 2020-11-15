@@ -148,7 +148,7 @@ void VideoEngine::updateScreen()
 		if ((*pointerToCurrentScene)->getAllDrawablesInScene().size() <= 0) return;
 
 		// Todo fix hardcoded player id
-		calculateOffset(*(*pointerToCurrentScene)->getObject(2), (*pointerToCurrentScene)->getSceneWidth(), (*pointerToCurrentScene)->getSceneHeight());
+		calculateOffset(*(*pointerToCurrentScene)->getObject(PLAYER_ID), (*pointerToCurrentScene)->getSceneWidth(), (*pointerToCurrentScene)->getSceneHeight());
 
 		for (Drawable* obj : (*pointerToCurrentScene)->getAllDrawablesInScene()) {
 			if (obj != nullptr) {
