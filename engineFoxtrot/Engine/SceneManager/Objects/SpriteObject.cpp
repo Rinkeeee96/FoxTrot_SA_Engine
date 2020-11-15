@@ -52,9 +52,5 @@ float SpriteObject::getLeftPos(uint32_t tick){
 
 	uint32_t pos = tick % lengthOfTextures;
 	currentAnimation = pos;
-	if (getTextureID() == 1001) {
-		
-	cout << currentAnimation << endl;
-	}
 	return pos * width;
 }
