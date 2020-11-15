@@ -6,7 +6,7 @@
 #include "./Game/Player/Player.h"
 #include <Engine\Events\Window\WindowCloseEvent.h>
 #include "SceneSwitcher/SceneSwitcher.h"
-#include "Game/Scenes/Transitions/Transitions.h"
+#include "Game/Scenes/Scenes.h"
 
 // TODO engine.h & engine.cpp
 
