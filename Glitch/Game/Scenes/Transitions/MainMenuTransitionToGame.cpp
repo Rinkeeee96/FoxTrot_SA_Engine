@@ -68,7 +68,7 @@ void MainMenuTransitionToGame::run()
 
 	if (diffFromPreviousCall.count() < 0.2)
 	{
-		animation->setPositionX(animation->getPositionX() + 2);
+		animation->setPositionX(animation->getPositionX() + 5);
 		if (animation->getPositionX() > WINDOW_WIDTH)
 		{
 			SceneSwitcher::get_instance().SwitchToScene("GAME");
