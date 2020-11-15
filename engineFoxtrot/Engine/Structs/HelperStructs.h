@@ -10,9 +10,9 @@ struct Color
 		blue(_blue), red(_red), green(_green) {}
 };
 
-struct ColoredString
+struct ColoredText
 {
-	ColoredString(const string _text, const Color _color, bool _centered = true)
+	ColoredText(const string _text, const Color _color, bool _centered = true)
 		: text{ _text }, color(_color), centered(_centered) {}
 	const string text;
 	const Color color;

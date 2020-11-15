@@ -1,6 +1,6 @@
 #pragma once
 #include "api.h"
-#include "SceneManager/Button.h"
+#include "SceneManager/Objects/Button.h"
 #include "../SceneSwitcher/SceneSwitcher.h"
 
 class MainMenu : public Scene

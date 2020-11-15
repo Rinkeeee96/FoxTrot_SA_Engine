@@ -2,6 +2,11 @@
 
 #include "Button.h"
 
+/// @brief 
+/// A function to check if a mouse is over a button 
+/// @param event
+/// The mouse moved event for the mouse position. 
+/// @return 
 void Button::mouseOver(Event& event) {
 	auto& mouseOverEvent = static_cast<MouseMovedEvent&>(event);
 	int mousePositionX = mouseOverEvent.GetX();
@@ -11,17 +16,13 @@ void Button::mouseOver(Event& event) {
 				mousePositionX <= (positionX + width) &&
 				mousePositionY >= (positionY - height) &&
 				mousePositionY <= positionY);
-
-	if (isMouseOver)
-	{
-		onMouseOver();
-	}
 }
 
-void Button::onMouseOver() {
-
-}
-
+/// @brief 
+/// A function to handle a mouse click on a button
+/// @param event
+/// The mouse pressed event for the mouse type. 
+/// @return 
 void Button::isClicked(Event& event) {
 	auto& mousePressedEvent = static_cast<MouseButtonPressed&>(event);
 	MouseCode pressedBtn = mousePressedEvent.GetButton();

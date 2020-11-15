@@ -28,7 +28,7 @@ public:
 		if (spriteObject == nullptr) throw ERROR_CODE_SPRITE_DOESNT_EXIST;
 		this->currentSprite = spriteObject;
 	}
-	virtual const ColoredString* toString() { return nullptr; }
+	virtual const ColoredText* toString() { return nullptr; }
 
 protected:
 	// TODO	particle related things

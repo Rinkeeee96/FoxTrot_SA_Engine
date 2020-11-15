@@ -170,7 +170,7 @@
     <ClCompile Include="Engine\ParticleSystem\ParticleEngine.cpp" />
     <ClCompile Include="Engine\ParticleSystem\ParticleLib\ParticleInit.cpp" />
     <ClCompile Include="Engine\Physics\ContactListenerAdapter.cpp" />
-    <ClCompile Include="Engine\SceneManager\Button.cpp" />
+    <ClCompile Include="Engine\SceneManager\Objects\Button.cpp" />
     <ClCompile Include="Engine\SceneManager\Objects\SpriteObject.cpp" />
     <ClCompile Include="Engine\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -236,7 +236,7 @@
     <ClInclude Include="Engine\Particles\IParticleFacade.h" />
     <ClInclude Include="Engine\Physics\ContactListenerAdapter.h" />
     <ClInclude Include="Engine\Physics\IPhysicsFacade.h" />
-    <ClInclude Include="Engine\SceneManager\Button.h" />
+    <ClInclude Include="Engine\SceneManager\Objects\Button.h" />
     <ClInclude Include="Engine\SceneManager\Layer.h" />
     <ClInclude Include="Engine\SceneManager\Objects\SpriteObject.h" />
     <ClInclude Include="Engine\stdafx.h" />
