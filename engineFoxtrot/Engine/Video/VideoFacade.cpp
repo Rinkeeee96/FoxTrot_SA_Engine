@@ -170,7 +170,7 @@ void VideoFacade::drawParticle(const ParticleData& data, int spriteID)
 /// @param target
 /// the boundaries of the target that the text needs to be draw on top of
 /// A Position struct containing the position to draw the message at
-void VideoFacade::drawMessageAt(const ColoredString& message, const Position& pos, const ObjectSize& bounds)
+void VideoFacade::drawMessageAt(const ColoredText& message, const Position& pos, const ObjectSize& bounds)
 {
 	bool exists = std::filesystem::exists(FONT_PATH); // TODO dynamic fonts
 	// TODO check if message is in bounds

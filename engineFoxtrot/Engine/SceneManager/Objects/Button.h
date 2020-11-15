@@ -7,7 +7,7 @@
 class API Button : public Drawable
 {
 public:
-	Button(int id, ColoredString _text, const function<void(void)> _onClick) :
+	Button(int id, ColoredText _text, const function<void(void)> _onClick) :
 		Drawable(id), 
 		text(_text),
 		onClick(_onClick)
@@ -19,7 +19,7 @@ public:
 		EventSingleton::get_instance().setEventCallback<MouseMovedEvent>(BIND_EVENT_FN(Button::mouseOver));
 	}
 
-	const ColoredString* toString() { return &text; }
+	const ColoredText* toString() { return &text; }
 
 	void disable() { isEnabled = false; }
 	void enable() { isEnabled = true; }
@@ -39,6 +39,6 @@ private:
 
 	const function<void(void)> onClick;
 
-	ColoredString text;
+	ColoredText text;
 };
 
