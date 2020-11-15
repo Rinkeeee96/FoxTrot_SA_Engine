@@ -122,7 +122,7 @@ void VideoFacade::renderCopy(Drawable& object)
 	SDL_Rect rect{ (int)leftpos, top, (int)sprite.getWidth(), (int)sprite.getHeight() };
 
 	//update collision box 
-	if (object.getScalable()) {
+	if (!object.getScalable()) {
 		object.setWidth(sprite.getWidth());
 		object.setHeight(sprite.getHeight());
 	}

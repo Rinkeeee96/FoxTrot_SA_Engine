@@ -52,7 +52,7 @@ void sceneTestSetup()
 		{"Level_1_Sound", "Assets/Sound/file_example_WAV_1MG.wav"},
 	};
 
-	Level* testScene = new Level(100, WINDOW_HEIGHT, WINDOW_WIDTH, soundL1);
+	Level* testScene = new Level(100, WINDOW_HEIGHT, WINDOW_WIDTH*3, soundL1);
 
 	// TODO why this many heap allocations?
 
