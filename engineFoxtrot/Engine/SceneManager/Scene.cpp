@@ -57,12 +57,11 @@ const bool Scene::toggleLayer(const int zIndex, bool render)
 vector <Drawable*> Scene::getAllDrawablesInScene()
 {
 	vector <Drawable*> returnVector;
-	for (auto layer = layers.begin(); layer != layers.end(); layer++)
+	for (auto layer : layers)
 	{
-		for (size_t i = 0; i < (*layer).second->objects.size(); i++)
+		for (auto obj : layer.second->objects)
 		{
-
-			Drawable* drawable = dynamic_cast<Drawable*> ((*layer).second->objects[i]);
+			Drawable* drawable = dynamic_cast<Drawable*>(obj.second);
 			if (drawable != nullptr)
 				returnVector.push_back(drawable);
 		}
