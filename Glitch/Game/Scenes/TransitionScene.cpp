@@ -20,3 +20,8 @@ void TransitionScene::LoadBackground()
 {
 
 }
+
+void TransitionScene::run()
+{
+
+}

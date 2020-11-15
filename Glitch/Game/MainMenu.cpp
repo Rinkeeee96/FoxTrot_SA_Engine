@@ -117,3 +117,8 @@ void MainMenu::OnCreditsBtnClick() {
 void MainMenu::OnLoadBtnClick() {
 	cout << "Start Load game BTN" << endl;
 }
+
+void MainMenu::run()
+{
+
+}

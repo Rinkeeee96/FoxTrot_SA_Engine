@@ -41,4 +41,9 @@ void Level::Pause() {
 	}
 }
 
+/// @brief 
+void Level::run() {
+
+}
+
 void Level::OnDetach() {}//cleaup buffer

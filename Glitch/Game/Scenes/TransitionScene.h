@@ -13,6 +13,7 @@ public:
 	virtual void OnAttach() override;
 	virtual void OnDetach() override;
 	virtual void Start() override;
+	virtual void run() override;
 private:
 	void LoadBackground();
 };

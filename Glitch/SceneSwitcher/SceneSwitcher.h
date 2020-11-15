@@ -15,10 +15,13 @@ public:
     void RegisterScene(string const identifier, Scene* scene);
     void SwitchToScene(string const identifier);
     void SetEngine(Engine* _engine) { engine = _engine; }
+    void runCurrentScene();
 
 private:
     map<string, Scene*> scenes;
     Engine* engine;
     static SceneSwitcher instance;
     SceneSwitcher(){}
+
+    Scene* currentScene = nullptr;
 };
