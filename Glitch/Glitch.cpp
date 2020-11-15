@@ -72,12 +72,10 @@ void sceneTestSetup()
 	object2->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, object2);
 
-	object2->setScalable(true);
 	object2->setScale(7);
 
 
 	auto* staticGround = new Drawable(101);
-	staticGround->setScalable(true);
 	staticGround->setWidth(500); // width
 	staticGround->setHeight(10);// height
 	staticGround->setPositionX(1); // x 20 left down
@@ -88,7 +86,6 @@ void sceneTestSetup()
 	testScene->addNewObjectToLayer(1, staticGround);
 
 	staticGround = new Drawable(102);
-	staticGround->setScalable(true);
 	staticGround->setWidth(500); // width
 	staticGround->setHeight(10);// height
 	staticGround->setPositionX(501); // x 20 left down
@@ -99,7 +96,6 @@ void sceneTestSetup()
 	testScene->addNewObjectToLayer(1, staticGround);
 
 	staticGround = new Drawable(103);
-	staticGround->setScalable(true);
 	staticGround->setWidth(500); // width
 	staticGround->setHeight(10);// height
 	staticGround->setPositionX(1100); // x 20 left down
@@ -110,7 +106,6 @@ void sceneTestSetup()
 	testScene->addNewObjectToLayer(1, staticGround);
 
 	staticGround = new Drawable(104);
-	staticGround->setScalable(true);
 	staticGround->setWidth(5000); // width
 	staticGround->setHeight(10);// height
 	staticGround->setPositionX(1200); // x 20 left down
@@ -121,7 +116,6 @@ void sceneTestSetup()
 	testScene->addNewObjectToLayer(1, staticGround);
 
 	staticGround = new Drawable(105);
-	staticGround->setScalable(true);
 	staticGround->setWidth(250); // width
 	staticGround->setHeight(10);// height
 	staticGround->setPositionX(1); // x 20 left down
@@ -151,9 +145,9 @@ void sceneTestSetup()
 	testScene->addNewObjectToLayer(2, particle2);
 
 	auto* staticGround2 = new Drawable(119);
-	staticGround2->setWidth(100); // width
+	staticGround2->setWidth(20); // width
 	staticGround2->setHeight(80);// height
-	staticGround2->setPositionX(220); // x 20 left down
+	staticGround2->setPositionX(250); // x 20 left down
 	staticGround2->setPositionY(540);// y 300 left down
 	staticGround2->setStatic(true);
 	staticGround2->setFriction(0);
@@ -162,7 +156,6 @@ void sceneTestSetup()
 	testScene->addNewObjectToLayer(1, staticGround2);
 
 	auto* staticGround3 = new Drawable(120);
-	staticGround3->setScalable(true);
 	staticGround3->setWidth(30); // width
 	staticGround3->setHeight(80);// height
 	staticGround3->setPositionX(480); // x 20 left down
@@ -173,7 +166,6 @@ void sceneTestSetup()
 	testScene->addNewObjectToLayer(1, staticGround3);
 
 	auto* staticGround4 = new Drawable(121);
-	staticGround4->setScalable(true);
 	staticGround4->setWidth(30); // width
 	staticGround4->setHeight(140);// height
 	staticGround4->setPositionX(320); // x 20 left down

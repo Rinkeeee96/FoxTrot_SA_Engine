@@ -71,7 +71,7 @@ void MainMenu::LoadBackground() {
 	animation->setHeight(500);
 	animation->registerSprite(SpriteState::DEFAULT, BG_LAYER_ADVENTRUE);
 	animation->changeToState(SpriteState::DEFAULT);
-	animation->setScalable(true);
+	animation->setScalable(false);
 
 	auto* layer2 = new Drawable(3);
 	layer2->setStatic(true);
