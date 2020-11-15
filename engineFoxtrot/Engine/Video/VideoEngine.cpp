@@ -18,28 +18,14 @@ VideoEngine::~VideoEngine()
 /// Clears the SDL screen
 void VideoEngine::clearScreen()
 {
-	try
-	{
-		videoFacade->clearScreen();
-	}
-	catch (int e)
-	{
-		cout << "An exception occurred. Exception Nr. " << ERRORCODES[e] << '\n';
-	}
+	videoFacade->clearScreen();
 }
 
 /// @brief 
 /// Draws the SDL screen
 void VideoEngine::drawScreen()
 {
-	try
-	{
-		videoFacade->drawScreen();
-	}
-	catch (int e)
-	{
-		cout << "An exception occurred. Exception Nr. " << ERRORCODES[e] << '\n';
-	}
+	videoFacade->drawScreen();
 }
 
 /// @brief Loads the PNG files AKA sprites
@@ -47,27 +33,13 @@ void VideoEngine::drawScreen()
 /// @param filename
 void VideoEngine::loadImage(const SpriteObject& spriteObject)
 {
-	try
-	{
-		videoFacade->loadImage(spriteObject);
-	}
-	catch (int e)
-	{
-		cout << "An exception occurred. Exception Nr. " << ERRORCODES[e] << '\n';
-	}
+	videoFacade->loadImage(spriteObject);
 }
 
 /// @brief Sets the sprite on the screen
 /// @param Object 
 void VideoEngine::renderCopy(Object& object) {
-	try
-	{
-		videoFacade->renderCopy(object);
-	}
-	catch (int e)
-	{
-		cout << "An exception occurred. Exception Nr. " << ERRORCODES[e] << '\n';
-	}
+	videoFacade->renderCopy(object);
 }
 
 /// @brief 
@@ -141,31 +113,24 @@ void VideoEngine::calculateOffset(Object& obj, int sceneWidth, int sceneHeight)
 /// Update all the sprites on the screen
 void VideoEngine::updateScreen()
 {
-	try
-	{
-		if (pointerToCurrentScene == nullptr) return;
-		//if (pointerToObjectVector->capacity() <= 0) return;
-		if ((*pointerToCurrentScene)->getAllObjectsInScene().size() <= 0) return;
+	if (pointerToCurrentScene == nullptr) return;
+	//if (pointerToObjectVector->capacity() <= 0) return;
+	if ((*pointerToCurrentScene)->getAllObjectsInScene().size() <= 0) return;
 
-		// Todo fix hardcoded player id
-		calculateOffset(*(*pointerToCurrentScene)->getObject((*pointerToCurrentScene)->getPlayerObjectID()), (*pointerToCurrentScene)->getSceneWidth(), (*pointerToCurrentScene)->getSceneHeight());
+	// Todo fix hardcoded player id
+	calculateOffset(*(*pointerToCurrentScene)->getObject((*pointerToCurrentScene)->getObjectToFollowID()), (*pointerToCurrentScene)->getSceneWidth(), (*pointerToCurrentScene)->getSceneHeight());
 
-		for (Object* obj : (*pointerToCurrentScene)->getAllObjectsInScene()) {
-			if (obj != nullptr) {
-				if (obj->getIsParticle())
-				{
-					drawParticle((ParticleAdapter*)obj);
-				}
-				else
-				{
-					renderCopy(*obj);
-				}
+	for (Object* obj : (*pointerToCurrentScene)->getAllObjectsInScene()) {
+		if (obj != nullptr) {
+			if (obj->getIsParticle())
+			{
+				drawParticle((ParticleAdapter*)obj);
 			}
-		}	
-	}
-	catch (int e)
-	{
-		cout << "An exception occurred. Exception Nr. " << ERRORCODES[e] << '\n';
+			else
+			{
+				renderCopy(*obj);
+			}
+		}
 	}
 }
 
