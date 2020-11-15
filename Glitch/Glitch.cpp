@@ -4,9 +4,10 @@
 #include "./Game/Level.h"
 #include "./Game/SpriteState.h"
 #include "./Game/Player/Player.h"
-#include "Game/MainMenu.h"
 #include <Engine\Events\Window\WindowCloseEvent.h>
 #include "SceneSwitcher/SceneSwitcher.h"
+#include "Game/Screens/MainMenu.h"
+#include "Game/Screens/DeadScreen.h"
 
 // TODO engine.h & engine.cpp
 
@@ -186,8 +187,10 @@ int main() {
 	SceneSwitcher::get_instance().SetEngine(&engine);
 	sceneTestSetup();
 	MainMenu* mainMenu = new MainMenu(1);
+	DeadScreen* deadScreen = new DeadScreen(2);
 	SceneSwitcher::get_instance().RegisterScene("MAIN_MENU", mainMenu);
-	SceneSwitcher::get_instance().SwitchToScene("MAIN_MENU");
+	SceneSwitcher::get_instance().RegisterScene("DEAD_SCREEN", deadScreen);
+	SceneSwitcher::get_instance().SwitchToScene("DEAD_SCREEN");
 
 	EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(StopLoop);
 
