@@ -7,6 +7,10 @@ class API Drawable : public Object
 {
 public:
 	Drawable(const int _id, const bool _isParticle = false) : Object(_id, _isParticle) {};
+	~Drawable() {
+		delete currentSprite;
+		textures.clear();
+	}
 
 	/// @brief
 	/// get the current active sprite reference of the drawable
