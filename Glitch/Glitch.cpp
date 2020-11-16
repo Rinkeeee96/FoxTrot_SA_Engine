@@ -196,6 +196,9 @@ int main() {
 			AppTickEvent30 appTick30;
 
 			engine.pollEvents();
+
+			SceneSwitcher::get_instance().runCurrentScene();
+
 			EventSingleton::get_instance().dispatchEvent<AppTickEvent60>(appTick);
 			EventSingleton::get_instance().dispatchEvent<AppTickEvent30>(appTick30);
 			// TODO when removed the game speeds up and animations are wrong, find a fix 

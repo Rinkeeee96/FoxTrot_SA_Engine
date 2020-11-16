@@ -24,8 +24,8 @@ void SceneSwitcher::SwitchToScene(string const identifier) {
 
 void SceneSwitcher::runCurrentScene()
 {
-	if (!currentScene) return;
+	if (activeScene == nullptr) return;
 
-	currentScene->update();
+	activeScene->update();
 
 }

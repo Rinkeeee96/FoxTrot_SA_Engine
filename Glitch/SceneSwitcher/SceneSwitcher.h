@@ -24,5 +24,4 @@ private:
     static SceneSwitcher instance;
     SceneSwitcher(){}
 
-    Scene* currentScene = nullptr;
 };
