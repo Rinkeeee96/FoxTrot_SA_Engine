@@ -7,7 +7,7 @@ class API Drawable : public Object
 {
 public:
 	Drawable(const int _id, const bool _isParticle = false) : Object(_id, _isParticle) {};
-	~Drawable() {
+	virtual ~Drawable() {
 		delete currentSprite;
 		textures.clear();
 	}
