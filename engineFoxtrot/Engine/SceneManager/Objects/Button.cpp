@@ -16,7 +16,7 @@ bool Button::mouseOver(Event& event) {
 				mousePositionX <= (positionX + width) &&
 				mousePositionY >= (positionY - height) &&
 				mousePositionY <= positionY);
-	return true;
+	return isMouseOver;
 }
 
 /// @brief 
@@ -28,7 +28,9 @@ bool Button::isClicked(Event& event) {
 	auto& mousePressedEvent = static_cast<MouseButtonPressed&>(event);
 	MouseCode pressedBtn = mousePressedEvent.GetButton();
 	// TODO expand functionallity, buttons only handle a primary "left click" for now
-	if (isMouseOver && isEnabled && pressedBtn == MouseCode::MOUSE_BTN_LEFT)
+	if (isMouseOver && isEnabled && pressedBtn == MouseCode::MOUSE_BTN_LEFT) {
 		onClick();
-	return true;
+		return true;
+	}
+	return false;
 }
