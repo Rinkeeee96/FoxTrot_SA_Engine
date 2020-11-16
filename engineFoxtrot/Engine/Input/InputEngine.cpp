@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "InputEngine.h"
+#include "Events/Window/WindowCloseEvent.h"
 
 /// @brief 
 InputEngine::InputEngine()
@@ -20,6 +21,11 @@ bool InputEngine::onKeyPressed(Event& event) {
 		case KeyCode::KEY_F12:
 			EventSingleton::get_instance().dispatchEvent<FpsToggleEvent>((Event&)FpsToggleEvent());
 			return true;
+		case KeyCode::KEY_F4: {
+			WindowCloseEvent event;
+			EventSingleton::get_instance().dispatchEvent<WindowCloseEvent>(event);
+			return true;
+		}
 		default:
 			return false;
 	}
