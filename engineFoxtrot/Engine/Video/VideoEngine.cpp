@@ -122,30 +122,29 @@ void VideoEngine::updateScreen()
 	int objectIDToFollow = (*pointerToCurrentScene)->getObjectToFollowID();
 	if (objectIDToFollow != -1)
 	{
-		if (pointerToCurrentScene == nullptr) return;
-		//if (pointerToObjectVector->capacity() <= 0) return;
-		if ((*pointerToCurrentScene)->getAllDrawablesInScene().size() <= 0) return;
-
-		// Todo fix hardcoded player id
-		calculateOffset(*(*pointerToCurrentScene)->getObject(PLAYER_ID), (*pointerToCurrentScene)->getSceneWidth(), (*pointerToCurrentScene)->getSceneHeight());
-
-		for (Drawable* obj : (*pointerToCurrentScene)->getAllDrawablesInScene()) {
-			if (obj != nullptr) {
-				if (obj->getIsParticle())
-				{
-					drawParticle((ParticleAdapter*)obj);
-				}
-				else
-				{
-					renderCopy(*obj);
-				}
-			}
-		}	
+		calculateOffset(*(*pointerToCurrentScene)->getObject(objectIDToFollow), (*pointerToCurrentScene)->getSceneWidth(), (*pointerToCurrentScene)->getSceneHeight());
 	}
 	else
 	{
 		videoFacade->setXCameraOffset(0);
 		videoFacade->setYCameraOffset(0);
+	}
+
+	if (pointerToCurrentScene == nullptr) return;
+	//if (pointerToObjectVector->capacity() <= 0) return;
+	if ((*pointerToCurrentScene)->getAllDrawablesInScene().size() <= 0) return;
+
+	for (Drawable* obj : (*pointerToCurrentScene)->getAllDrawablesInScene()) {
+		if (obj != nullptr) {
+			if (obj->getIsParticle())
+			{
+				drawParticle((ParticleAdapter*)obj);
+			}
+			else
+			{
+				renderCopy(*obj);
+			}
+		}
 	}
 }
 
