@@ -22,6 +22,8 @@ void SceneSwitcher::SwitchToScene(string const identifier) {
 	activeScene = scene->second;
 }
 
+/// @brief 
+/// Runs the current scene
 void SceneSwitcher::runCurrentScene()
 {
 	if (activeScene == nullptr) return;
