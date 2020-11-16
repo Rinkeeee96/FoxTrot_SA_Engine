@@ -5,7 +5,6 @@ LevelBuilder::LevelBuilder(Engine& _engine, int levelId) : AbstractLevelBuilder(
 }
 
 void LevelBuilder::create() {
-	engine.insertScene(bLevel);
 	level = unique_ptr<Level>(bLevel);
 }
 

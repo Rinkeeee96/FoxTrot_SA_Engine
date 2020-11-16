@@ -6,7 +6,7 @@ void Game::run() {
 
 	levelLoader.load("Assets/Levels/Maps/Level1.json", &levelOneBuilder);
 	auto level = levelOneBuilder.getLevel();
-
+	engine.insertScene(level);
 	level->onAttach();
 	level->start();
 	engine.setCurrentScene(level->getSceneID());
