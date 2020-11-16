@@ -16,7 +16,7 @@ void Overworld::LoadButtons() {
 }
 
 void Overworld::LoadBackground() {
-	SpriteObject* BG_LAYER_0 = new SpriteObject(1010, 1080, 1920, 1, 1, "Assets/Overworld/World.png");
+	SpriteObject* BG_LAYER_0 = new SpriteObject(1010, 1440, 1344, 1, 1, "Assets/Overworld/World.png");
 
 	auto* layer0 = new Drawable(1);
 	layer0->setStatic(true);
