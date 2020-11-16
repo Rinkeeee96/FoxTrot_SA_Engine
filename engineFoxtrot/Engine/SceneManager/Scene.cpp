@@ -136,4 +136,5 @@ void Scene::OnDetach()
 			delete object;
 		delete layer;
 	}
+	layers.clear();
 }

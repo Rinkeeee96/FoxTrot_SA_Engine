@@ -107,6 +107,7 @@ void WinScreen::OnDetach()
 {
 	EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent("APPLAUSE_SOUND"));
 	EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent("WIN_SOUND"));
+	Scene::OnDetach();
 }
 
 void WinScreen::OnStartBtnClick()

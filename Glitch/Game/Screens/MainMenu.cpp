@@ -38,7 +38,6 @@ void MainMenu::LoadButtons() {
 	Button* creditsBtn = new PrimaryButton(12, "Credits", BIND_FN(OnCreditsBtnClick));
 	creditsBtn->setPositionX(CENTER_X - creditsBtn->getWidth() / 2);
 	creditsBtn->setPositionY(CENTER_Y - creditsBtn->getHeight() / 2 + 200);
-	creditsBtn->disable();
 
 	Button* stopBtn = new SecondaryButton(13, "Stop", BIND_FN(OnStopBtnClick));
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
@@ -113,6 +112,7 @@ void MainMenu::OnStopBtnClick() {
 }
 
 void MainMenu::OnCreditsBtnClick() {
+	SceneSwitcher::get_instance().SwitchToScene("DEAD_SCREEN");
 	cout << "Start Credit" << endl;
 }
 
