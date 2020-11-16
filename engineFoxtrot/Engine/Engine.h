@@ -45,7 +45,6 @@ public:
 
 	// Video calls
 	API void loadSprite(const SpriteObject& spriteObject);
-	API void attachCamera(const int objectId);
 
 	// Sound calls
 	API void loadSound(const string& identifier, const string& path);
