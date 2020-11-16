@@ -94,7 +94,7 @@ void MainMenu::OnDetach()
 
 void MainMenu::OnStartBtnClick()
 {
-	SceneSwitcher::get_instance().SwitchToScene("GAME");
+	SceneSwitcher::get_instance().SwitchToScene("OVERWORLD");
 	cout << "Start BTN" << endl;
 }
 
