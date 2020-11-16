@@ -117,8 +117,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;BUILD_WINDOWS;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)engineFoxtrot;$(SolutionDir)engineFoxtrot\Engine;$(SolutionDir)engineFoxtrot\Engine\SceneManager;$(SolutionDir)engineFoxtrot\Engine\Input;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <AdditionalIncludeDirectories>$(SolutionDir)engineFoxtrot;$(SolutionDir)engineFoxtrot\Engine;$(SolutionDir)engineFoxtrot\Engine\SceneManager;$(SolutionDir)engineFoxtrot\Engine\Input;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Create</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
