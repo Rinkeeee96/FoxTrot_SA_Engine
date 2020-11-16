@@ -11,7 +11,7 @@ public:
 	ParticleEngine();
 	~ParticleEngine();
 
-	void onUpdate(Event& tickEvent);
+	bool onUpdate(Event& tickEvent);
 	Scene** pointerToCurrentScene = nullptr;
 
 private:

@@ -34,8 +34,8 @@ public:
 		setHeight(height);
 	}
 
-	void mouseOver(Event& event);
-	void isClicked(Event& event);
+	bool mouseOver(Event& event);
+	bool isClicked(Event& event);
 
 private:
 	bool isEnabled = true;

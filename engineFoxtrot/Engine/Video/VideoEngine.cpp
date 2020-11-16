@@ -198,12 +198,13 @@ void VideoEngine::drawFps(double fps, int xPos, int yPos, const string& prefix =
 
 /// @brief
 /// Toggles fps visibility
-void VideoEngine::toggleFps(Event& fpsEvent) {
+bool VideoEngine::toggleFps(Event& fpsEvent) {
 	shouldDrawFps = !shouldDrawFps;
+	return true;
 }
 
 /// @brief Handle the tick update from the thread
-void VideoEngine::receiveTick(Event& tickEvent)
+bool VideoEngine::receiveTick(Event& tickEvent)
 {
 	//tickEvent = static_cast<AppTickEvent&>(tickEvent);
 	frameData->startTimer();
@@ -213,11 +214,14 @@ void VideoEngine::receiveTick(Event& tickEvent)
 	drawFps();
 	drawScreen();
 	FrameData::renderFps = frameData->calculateAverageFps();
+
+	// do not handle on update events, they are continues
+	return false;
 }
 
 /// @brief Draws the Particles
 /// @param part pointer to the particle
-void VideoEngine::drawParticle(ParticleAdapter* part)
+bool VideoEngine::drawParticle(ParticleAdapter* part)
 {
 	vector<ParticleData> particleData = part->getParticleDataVector();
 	for (unsigned int index = 0; index < part->getParticleCount(); index++)
@@ -230,5 +234,6 @@ void VideoEngine::drawParticle(ParticleAdapter* part)
 		}
 		videoFacade->drawParticle(partData, part->GetCurrentSprite().getTextureID());
 	}
-
+	// do not handle on update events, they are continues
+	return false;
 }

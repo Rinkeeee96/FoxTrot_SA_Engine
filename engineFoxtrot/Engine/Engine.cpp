@@ -123,7 +123,9 @@ void Engine::EventListeners() {
 	EventSingleton::get_instance().setEventCallback<VideoLoadSpriteEvent>(BIND_EVENT_FN(Engine::Event_LoadSprite));
 }
 
-void Engine::Event_LoadSprite(Event& event) {
+bool Engine::Event_LoadSprite(Event& event) {
 	auto loadEvent = static_cast<VideoLoadSpriteEvent&>(event);
 	this->loadSprite(loadEvent.GetSpriteObject());
+	// TODO is this called in a single loop or once per sprite?
+	return false;
 }

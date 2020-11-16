@@ -51,7 +51,7 @@ public:
 
 	//Events
 	API void EventListeners();
-	API void Event_LoadSprite(Event& event);
+	API bool Event_LoadSprite(Event& event);
 private:
 	PhysicsEngine physicsEngine;
 	ParticleEngine particleEngine;

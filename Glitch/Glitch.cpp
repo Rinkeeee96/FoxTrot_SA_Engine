@@ -178,8 +178,9 @@ void sceneTestSetup()
 	SceneSwitcher::get_instance().RegisterScene("GAME", testScene);
 }
 
-void StopLoop(Event& event) {
+bool StopLoop(Event& event) {
 	gameRunning = false;
+	return true;
 }
 
 int main() {
