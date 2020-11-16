@@ -40,7 +40,7 @@ void Level::Pause() {
 }
 
 /// @brief 
-void Level::run() {
+void Level::update() {
 
 }
 
