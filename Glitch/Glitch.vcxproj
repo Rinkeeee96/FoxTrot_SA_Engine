@@ -167,6 +167,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Screens\MainMenu.h" />
     <ClInclude Include="Game\Screens\DeadScreen.h" />
     <ClInclude Include="Game\Player\Player.h" />
+    <ClInclude Include="Game\Screens\WinScreen.h" />
     <ClInclude Include="Glitch.h" />
     <ClInclude Include="Game\Level.h" />
     <ClInclude Include="Game\SpriteState.h" />
@@ -177,6 +178,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClCompile Include="Game\Screens\MainMenu.cpp" />
     <ClCompile Include="Game\Screens\DeadScreen.cpp" />
     <ClCompile Include="Game\Player\Player.cpp" />
+    <ClCompile Include="Game\Screens\WinScreen.cpp" />
     <ClCompile Include="Glitch.cpp" />
     <ClCompile Include="Game\Level.cpp" />
     <ClCompile Include="SceneSwitcher\SceneSwitcher.cpp" />

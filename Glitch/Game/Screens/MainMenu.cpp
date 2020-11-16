@@ -26,21 +26,21 @@ void MainMenu::OnAttach()
 
 void MainMenu::LoadButtons() {
 
-	Button* startBtn = new PrimaryButton(1, "Start", BIND_FN(OnStartBtnClick));
+	Button* startBtn = new PrimaryButton(10, "Start", BIND_FN(OnStartBtnClick));
 	startBtn->setPositionX(CENTER_X - startBtn->getWidth() / 2);
 	startBtn->setPositionY(CENTER_Y - startBtn->getHeight() / 2);
 
-	Button* loadBtn = new PrimaryButton(3, "Load", BIND_FN(OnLoadBtnClick));
+	Button* loadBtn = new PrimaryButton(11, "Load", BIND_FN(OnLoadBtnClick));
 	loadBtn->setPositionX(CENTER_X - loadBtn->getWidth() / 2);
 	loadBtn->setPositionY(CENTER_Y - loadBtn->getHeight() / 2 + 100);
 	loadBtn->disable();
 
-	Button* creditsBtn = new PrimaryButton(4, "Credits", BIND_FN(OnCreditsBtnClick));
+	Button* creditsBtn = new PrimaryButton(12, "Credits", BIND_FN(OnCreditsBtnClick));
 	creditsBtn->setPositionX(CENTER_X - creditsBtn->getWidth() / 2);
 	creditsBtn->setPositionY(CENTER_Y - creditsBtn->getHeight() / 2 + 200);
 	creditsBtn->disable();
 
-	Button* stopBtn = new SecondaryButton(2, "Stop", BIND_FN(OnStopBtnClick));
+	Button* stopBtn = new SecondaryButton(13, "Stop", BIND_FN(OnStopBtnClick));
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
@@ -51,11 +51,11 @@ void MainMenu::LoadButtons() {
 }
 
 void MainMenu::LoadBackground() {
-	SpriteObject* BG_LAYER_0 = new SpriteObject(1000, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_0.png");
-	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(1001, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png");
-	SpriteObject* BG_LAYER_2 = new SpriteObject(1002, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_2.png");
+	SpriteObject* BG_LAYER_0 = new SpriteObject(1010, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_0.png");
+	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(1011, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png");
+	SpriteObject* BG_LAYER_2 = new SpriteObject(1012, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_2.png");
 
-	auto* layer0 = new Drawable(1);
+	auto* layer0 = new Drawable(14);
 	layer0->setStatic(true);
 	layer0->setPositionX(1);
 	layer0->setPositionY(1080);
@@ -64,7 +64,7 @@ void MainMenu::LoadBackground() {
 	layer0->registerSprite(SpriteState::DEFAULT, BG_LAYER_0);
 	layer0->changeToState(SpriteState::DEFAULT);
 
-	auto* animation = new Drawable(2);
+	auto* animation = new Drawable(15);
 	animation->setStatic(true);
 	animation->setPositionX(175);
 	animation->setPositionY(875);
@@ -74,7 +74,7 @@ void MainMenu::LoadBackground() {
 	animation->changeToState(SpriteState::DEFAULT);
 	animation->setScalable(false);
 
-	auto* layer2 = new Drawable(3);
+	auto* layer2 = new Drawable(16);
 	layer2->setStatic(true);
 	layer2->setPositionX(1);
 	layer2->setPositionY(1080);

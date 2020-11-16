@@ -8,6 +8,7 @@
 #include "SceneSwitcher/SceneSwitcher.h"
 #include "Game/Screens/MainMenu.h"
 #include "Game/Screens/DeadScreen.h"
+#include <Game\Screens\WinScreen.h>
 
 // TODO engine.h & engine.cpp
 
@@ -179,8 +180,10 @@ int main() {
 	sceneTestSetup();
 	MainMenu* mainMenu = new MainMenu(1);
 	DeadScreen* deadScreen = new DeadScreen(2);
+	WinScreen* winScreen = new WinScreen(3);
 	SceneSwitcher::get_instance().RegisterScene("MAIN_MENU", mainMenu);
 	SceneSwitcher::get_instance().RegisterScene("DEAD_SCREEN", deadScreen);
+	SceneSwitcher::get_instance().RegisterScene("WIN_SCREEN", winScreen);
 	SceneSwitcher::get_instance().SwitchToScene("DEAD_SCREEN");
 
 	EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(StopLoop);
