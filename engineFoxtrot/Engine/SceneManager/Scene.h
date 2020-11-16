@@ -44,7 +44,23 @@ public:
 	int getSceneHeight() const { return sceneHeight; }
 
 	void setObjectToFollow(Object* obj) { objectToFollow = obj; }
-	int getObjectToFollowID() const { return objectToFollow->getObjectId(); }
+
+	/// @brief 
+	/// Returns the id of the object to follow
+	/// @return 
+	/// If no ObjectToFollow will return -1
+	int getObjectToFollowID() const 
+	{ 
+		if (objectToFollow != nullptr)
+		{
+			return objectToFollow->getObjectId();
+		}
+		else
+		{
+			return -1;
+		}
+		
+	}
 	Object getObjectToFollow() { return *objectToFollow; }
 
 

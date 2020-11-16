@@ -111,14 +111,24 @@ void VideoEngine::calculateOffset(Object& obj, int sceneWidth, int sceneHeight)
 
 /// @brief 
 /// Update all the sprites on the screen
+/// Updates the camera offset
 void VideoEngine::updateScreen()
 {
 	if (pointerToCurrentScene == nullptr) return;
 	//if (pointerToObjectVector->capacity() <= 0) return;
 	if ((*pointerToCurrentScene)->getAllObjectsInScene().size() <= 0) return;
 
-	// Todo fix hardcoded player id
-	calculateOffset(*(*pointerToCurrentScene)->getObject((*pointerToCurrentScene)->getObjectToFollowID()), (*pointerToCurrentScene)->getSceneWidth(), (*pointerToCurrentScene)->getSceneHeight());
+	// Gets the object to follow with the camera. If no object is selected the camera will not move.
+	int objectIDToFollow = (*pointerToCurrentScene)->getObjectToFollowID();
+	if (objectIDToFollow != -1)
+	{
+		calculateOffset(*(*pointerToCurrentScene)->getObject(objectIDToFollow), (*pointerToCurrentScene)->getSceneWidth(), (*pointerToCurrentScene)->getSceneHeight());
+	}
+	else
+	{
+		videoFacade->setXCameraOffset(0);
+		videoFacade->setYCameraOffset(0);
+	}
 
 	for (Object* obj : (*pointerToCurrentScene)->getAllObjectsInScene()) {
 		if (obj != nullptr) {
