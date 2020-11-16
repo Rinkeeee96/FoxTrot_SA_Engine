@@ -4,6 +4,11 @@
 #include "../Buttons/PrimaryButton.h"
 #include "../Buttons/SecondaryButton.h"
 
+#define BIND_FN(function) std::bind(&Overworld::function, *this)
+
+#define CENTER_X  (WINDOW_WIDTH / 2)
+#define CENTER_Y (WINDOW_HEIGHT / 2)
+
 void Overworld::OnAttach()
 {
 	LoadButtons();
@@ -13,6 +18,11 @@ void Overworld::OnAttach()
 
 void Overworld::LoadButtons() {
 
+	Button* stopBtn = new SecondaryButton(2, "Stop", BIND_FN(OnStopBtnClick));
+	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
+	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
+
+	addNewObjectToLayer(3, stopBtn);
 }
 
 void Overworld::LoadBackground() {
