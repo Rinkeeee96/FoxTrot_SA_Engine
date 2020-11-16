@@ -43,9 +43,32 @@ public:
 	void setSceneHeight(const int height) { sceneHeight = height; }
 	int getSceneHeight() const { return sceneHeight; }
 
+	void setObjectToFollow(Object* obj) { objectToFollow = obj; }
+
+	/// @brief 
+	/// Returns the id of the object to follow
+	/// @return 
+	/// If no ObjectToFollow will return -1
+	int getObjectToFollowID() const 
+	{ 
+		if (objectToFollow != nullptr)
+		{
+			return objectToFollow->getObjectId();
+		}
+		else
+		{
+			return -1;
+		}
+		
+	}
+	Object getObjectToFollow() { return *objectToFollow; }
+
+
 private:
 	const int sceneID = 0;
 	map<int, Layer*> layers;
+
+	Object *objectToFollow = nullptr;
 
 	int sceneWidth = WINDOW_WIDTH;
 	int sceneHeight = WINDOW_HEIGHT;

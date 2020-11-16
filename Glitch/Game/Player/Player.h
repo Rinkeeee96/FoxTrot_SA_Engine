@@ -1,10 +1,9 @@
 #pragma once
-#include <api.h>
 #include "../SpriteState.h"
 
 class Player : public Object {
 public:
-	Player();
+	Player(int objectID);
 	/// @brief 
 	/// Handles when an collision event begins, when the direction of the collision happend on the bottom side of the player object, 
 	/// set can jump true

@@ -25,14 +25,7 @@ Engine::~Engine()
 /// SceneID to set the currentSceneID to
 void Engine::setCurrentScene(const int sceneID)
 {
-	try
-	{
-		sceneManager.setCurrentScene(sceneID);
-	}
-	catch (int e)
-	{
-		cout << "An exception occurred. Exception Nr. " << ERRORCODES[e] << '\n';
-	}
+	sceneManager.setCurrentScene(sceneID);
 }
 
 /// @brief 
@@ -45,14 +38,7 @@ void Engine::pollEvents()
 /// @param scene
 void Engine::insertScene(Scene* scene)
 {
-	try
-	{
-		sceneManager.insertScene(scene);
-	}
-	catch (int e)
-	{
-		cout << "An exception occurred. Exception Nr. " << ERRORCODES[e] << '\n';
-	}
+	sceneManager.insertScene(scene);
 }
 
 /// @brief 

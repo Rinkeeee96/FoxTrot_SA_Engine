@@ -1,9 +1,10 @@
 #pragma once
-#include "stdafx.h"
+#include "pch.h"
 #include "Glitch.h"
-#include "./Game/Level.h"
-#include "./Game/SpriteState.h"
-#include "./Game/Player/Player.h"
+
+#include "Game/Level.h"
+#include "Game/SpriteState.h"
+#include "Game/Player/Player.h"
 
 // TODO engine.h & engine.cpp
 
@@ -50,7 +51,10 @@ void sceneTestSetup()
 
 	Level* testScene = new Level(100, 1080, 5000, soundL1);
 
-	Object* object2 = new Player();
+	Object* object2 = new Player(2);
+	testScene->setObjectToFollow(object2);
+	object2->setDensity(1);
+	object2->setJumpHeight(100);
 	object2->setStatic(false);
 	object2->setPositionX(800);
 	object2->setPositionY(100);
@@ -197,23 +201,28 @@ void sceneTestSetup()
 
 
 int main() {
-	sceneTestSetup();
+	try {
+		sceneTestSetup();
 
-	bool gameRunning = true;
+		bool gameRunning = true;
 
-	engine.startTickThreads();
-	while (gameRunning)
-	{
-		AppTickEvent60 appTick;
-		AppTickEvent30 appTick30;
+		engine.startTickThreads();
+		while (gameRunning)
+		{
+			AppTickEvent60 appTick;
+			AppTickEvent30 appTick30;
 
-		engine.pollEvents();
-		EventSingleton::get_instance().dispatchEvent<AppTickEvent60>(appTick);
-		EventSingleton::get_instance().dispatchEvent<AppTickEvent30>(appTick30);
+			engine.pollEvents();
+			EventSingleton::get_instance().dispatchEvent<AppTickEvent60>(appTick);
+			EventSingleton::get_instance().dispatchEvent<AppTickEvent30>(appTick30);
 
-		this_thread::sleep_for(chrono::milliseconds(10));
+			this_thread::sleep_for(chrono::milliseconds(10));
+		}
+		engine.stopTickThreads();
+
+		return 0;
+	} catch(int error) {
+		cout << ERRORCODES[error] << endl;
 	}
-	engine.stopTickThreads();
-
-	return 0;
+	
 }

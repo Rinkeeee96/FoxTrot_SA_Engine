@@ -11,7 +11,7 @@ public:
 	API Object(const int id);
 	API ~Object();
 
-	void API setName(const string val);
+	void API setName(const string& val);
 	string API getName() const;
 
 	void API setPositionX(const float);
