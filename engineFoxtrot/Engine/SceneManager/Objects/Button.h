@@ -19,6 +19,11 @@ public:
 		EventSingleton::get_instance().setEventCallback<MouseMovedEvent>(BIND_EVENT_FN(Button::mouseOver));
 	}
 
+	~Button() {
+		EventSingleton::get_instance().unSubscribe<MouseMovedEvent>(BIND_EVENT_FN(Button::isClicked));
+		EventSingleton::get_instance().unSubscribe<MouseButtonPressed>(BIND_EVENT_FN(Button::mouseOver));
+	}
+
 	const ColoredText* toString() { return &text; }
 
 	void disable() { isEnabled = false; }
