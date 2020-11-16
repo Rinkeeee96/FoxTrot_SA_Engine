@@ -1,5 +1,5 @@
 #pragma once
-#include "stdafx.h"
+#include "pch.h"
 #include "Glitch.h"
 #include "./Game/Level.h"
 #include "./Game/SpriteState.h"
@@ -38,26 +38,16 @@ void sceneTestSetup()
 	SpriteObject* so6 = new SpriteObject(105, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_jump_left.png");
 	SpriteObject* so9 = new SpriteObject(108, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_jump_right.png");
 
-	engine.loadSprite(*so0);
-	engine.loadSprite(*so1);
-	engine.loadSprite(*so2);
-	engine.loadSprite(*so3);
-	engine.loadSprite(*so4);
-	engine.loadSprite(*so5);
-	engine.loadSprite(*so6);
-	engine.loadSprite(*so7);
-	engine.loadSprite(*so8);
-	engine.loadSprite(*so9);
-
 	map<string, string> soundL1 = {
 		{"Level_1_Sound", "Assets/Sound/file_example_WAV_1MG.wav"},
 	};
 
 	Level* testScene = new Level(100, WINDOW_HEIGHT, WINDOW_WIDTH*3, soundL1);
 
-	// TODO why this many heap allocations?
-
-	auto* object2 = new Player(PLAYER_ID);
+	Drawable* object2 = new Player(2);
+	testScene->setObjectToFollow(object2);
+	object2->setDensity(1);
+	object2->setJumpHeight(100);
 	object2->setStatic(false);
 	object2->setPositionX(800);
 	object2->setPositionY(100);
@@ -179,8 +169,9 @@ void sceneTestSetup()
 	SceneSwitcher::get_instance().RegisterScene("GAME", testScene);
 }
 
-void StopLoop(Event& event) {
+bool StopLoop(Event& event) {
 	gameRunning = false;
+	return true;
 }
 
 int main() {
@@ -206,7 +197,5 @@ int main() {
 
 		this_thread::sleep_for(chrono::milliseconds(10));
 	}
-	engine.stopTickThreads();
-
-	return 0;
+	
 }
