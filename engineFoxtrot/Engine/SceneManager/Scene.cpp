@@ -133,18 +133,11 @@ void Scene::OnDetach()
 	for (auto& layerContainer : layers)
 	{
 		Layer* layer = layerContainer.second;
-		for (const auto& [id, object] : layer->objects) {
-			Button* button = dynamic_cast<Button*>(object);
-			if (button != nullptr)
-			{
-				delete button;
-			}
-			else {
-				delete object;
-			}
-
-		}
+		for (const auto& [id, object] : layer->objects) 
+			delete object;
+		
+		layer->objects.erase(layer->objects.begin(), layer->objects.end());
 		delete layer;
 	}
-	layers.clear();
+	layers.erase(layers.begin(), layers.end());
 }
