@@ -130,10 +130,6 @@ void VideoEngine::updateScreen()
 		videoFacade->setYCameraOffset(0);
 	}
 
-	if (pointerToCurrentScene == nullptr) return;
-	//if (pointerToObjectVector->capacity() <= 0) return;
-	if ((*pointerToCurrentScene)->getAllDrawablesInScene().size() <= 0) return;
-
 	for (Drawable* obj : (*pointerToCurrentScene)->getAllDrawablesInScene()) {
 		if (obj != nullptr) {
 			if (obj->getIsParticle())
