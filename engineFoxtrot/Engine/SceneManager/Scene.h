@@ -66,7 +66,7 @@ public:
 		}
 		
 	}
-	Object getObjectToFollow() { return *objectToFollow; }
+	Object* getObjectToFollow() { return objectToFollow; }
 
 private:
 	const int sceneID = 0;

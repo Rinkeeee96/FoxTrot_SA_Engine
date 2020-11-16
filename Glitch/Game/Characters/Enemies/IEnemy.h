@@ -1,4 +1,5 @@
 #pragma once
+#include "pch.h"
 #include "Game/Characters/ICharacter.h"
 
 class IEnemy : public ICharacter {

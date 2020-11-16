@@ -11,17 +11,17 @@ public:
 	/// @brief 
 	/// Handles when an collision event begins, when the direction of the collision happend on the bottom side of the player object,
 	/// set can jump true
-	void onCollisionBeginEvent(Event& event);
+	bool onCollisionBeginEvent(Event& event);
 	/// @brief 
 	/// Handles when an collision event ends, when the direction of the collision happend on the bottom side of the player object, set can jump false
-	void onCollisionEndEvent(Event& event);
+	bool onCollisionEndEvent(Event& event);
 	void setYAxisVelocity(const float val) override;
 	void setXAxisVelocity(const float val) override;
 	/// @brief 
 	/// Handles when an key pressed event happend, Player can move right, left and jump
-	void onKeyPressed(Event& event);
+	bool onKeyPressed(Event& event);
 
-	void onKeyReleased(Event& event);
+	bool onKeyReleased(Event& event);
 
 	void onUpdate() override {};
 

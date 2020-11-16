@@ -1,7 +1,7 @@
+#include "pch.h"
 #include "Player.h"
 
 Player::Player(const int id) : ICharacter(id) {
-	this->setName("person");
 	this->setHeight(80);
 	this->setWidth(80);
 	this->setPositionX(100);
@@ -26,9 +26,9 @@ Player::Player(const int id) : ICharacter(id) {
 /// @brief 
 /// Handles when an collision event begins, when the direction of the collision happend on the bottom side of the player object, 
 /// set can jump true
-void Player::onCollisionBeginEvent(Event& event) {
+bool Player::onCollisionBeginEvent(Event& event) {
 	auto collisionEvent = static_cast<OnCollisionBeginEvent&>(event);
-	if (collisionEvent.GetObjectOneId() != this->getObjectId() && collisionEvent.GetObjectTwoId() != this->getObjectId()) return;
+	if (collisionEvent.GetObjectOneId() != this->getObjectId() && collisionEvent.GetObjectTwoId() != this->getObjectId()) return false;
 
 	auto map = collisionEvent.getDirectionMap();
 	auto collidedDirection = map[this->getObjectId()];
@@ -42,13 +42,14 @@ void Player::onCollisionBeginEvent(Event& event) {
 		else
 			this->changeToState(SpriteState::RUN_LEFT);
 	}
+	return false;
 }
 
 /// @brief 
 /// Handles when an collision event ends, when the direction of the collision happend on the bottom side of the player object, set can jump false
-void Player::onCollisionEndEvent(Event& event) {
+bool Player::onCollisionEndEvent(Event& event) {
 	auto collisionEvent = static_cast<OnCollisionEndEvent&>(event);
-	if (collisionEvent.GetObjectOneId() != this->getObjectId() && collisionEvent.GetObjectTwoId() != this->getObjectId()) return;
+	if (collisionEvent.GetObjectOneId() != this->getObjectId() && collisionEvent.GetObjectTwoId() != this->getObjectId()) return false;
 
 	auto map = collisionEvent.getDirectionMap();
 	auto collidedDirection = map[this->getObjectId()];
@@ -56,6 +57,8 @@ void Player::onCollisionEndEvent(Event& event) {
 	if (std::find(collidedDirection.begin(), collidedDirection.end(), Direction::DOWN) != collidedDirection.end()) {
 		this->canJump = false;
 	}
+
+	return false;
 }
 
 void Player::setXAxisVelocity(const float val) {
@@ -87,7 +90,7 @@ void Player::setYAxisVelocity(const float val) {
 
 /// @brief 
 /// Handles when an key pressed event happend, Player can move right, left and jump
-void Player::onKeyPressed(Event& event) {
+bool Player::onKeyPressed(Event& event) {
 	auto keyPressedEvent = static_cast<KeyPressedEvent&>(event);
 	// TODO command pattern
 	switch (keyPressedEvent.GetKeyCode())
@@ -121,11 +124,12 @@ void Player::onKeyPressed(Event& event) {
 		}
 		break;
 	default:
-		break;
+		return false;
 	}
+	return true;
 }
 
-void Player::onKeyReleased(Event& event)
+bool Player::onKeyReleased(Event& event)
 {
 	auto keyReleasedEvent = static_cast<KeyReleasedEvent&>(event);
 	
@@ -134,6 +138,8 @@ void Player::onKeyReleased(Event& event)
 		case KeyCode::KEY_D:
 			EventSingleton::get_instance().dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->objectId));
 	}
+
+	return false;
 }
 
 ICharacter* Player::clone(int id) { return new Player(id); }

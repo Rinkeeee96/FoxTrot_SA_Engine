@@ -14,9 +14,9 @@ public:
 
 	void registerObjectInCurrentVectorWithPhysicsEngine();
 
-	void handleAction(Event& event);
-	void stopObject(Event& event);
-	void update30(Event& tick30Event);
+	bool handleAction(Event& event);
+	bool stopObject(Event& event);
+	bool update30(Event& tick30Event);
 
 	//Set to private after testing!!!
 	IPhysicsFacade* physicsFacade;

@@ -38,9 +38,10 @@ bool PhysicsEngine::handleAction(Event& event) {
 	}
 }
 
-void PhysicsEngine::stopObject(Event& event) {
+bool PhysicsEngine::stopObject(Event& event) {
 	ObjectStopEvent e = static_cast<ObjectStopEvent&>(event);
 	physicsFacade->stopObject(e.GetObjectId());
+	return true;
 }
 
 /// @brief Destructor

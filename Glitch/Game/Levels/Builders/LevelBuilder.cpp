@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "LevelBuilder.h"
 
 LevelBuilder::LevelBuilder(Engine& _engine, int levelId) : AbstractLevelBuilder(_engine), characterFactory{ engine }, bLevel(new Level(levelId, 0, 0)) {
@@ -51,7 +52,6 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 			}
 		}
 
-		object->setName(objectValue["name"]);
 		object->setHeight(objectValue["height"]);
 		object->setWidth(objectValue["width"]);
 		object->setRotation(objectValue["rotation"]);

@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "CharacterFactory.h"
 
 CharacterFactory::CharacterFactory(Engine& _engine) : engine{ _engine } {}

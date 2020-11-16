@@ -12,7 +12,6 @@
     <ClCompile Include="Engine\ParticleSystem\ParticleEngine.cpp" />
     <ClCompile Include="Engine\ParticleSystem\ParticleLib\ParticleInit.cpp" />
     <ClCompile Include="Engine\Physics\ContactListenerAdapter.cpp" />
-    <ClCompile Include="Engine\SceneManager\SpriteObject.cpp" />
     <ClCompile Include="Engine\stdafx.cpp" />
     <ClCompile Include="Engine\Events\EventSingleton.cpp" />
     <ClCompile Include="Engine\Physics\PhysicsBody.cpp" />
@@ -56,12 +55,6 @@
     </ClCompile>
     <ClCompile Include="Engine\General\GeneralHelperFunctions.cpp">
       <Filter>Header Files\General</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\FileParser\FileParser.cpp">
-      <Filter>Header Files\FileIO</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\FileParser\JsonFacade.cpp">
-      <Filter>Header Files\FileIO</Filter>
     </ClCompile>
     <ClCompile Include="Engine\stdafx.cpp">
       <Filter>Source Files</Filter>
@@ -123,7 +116,6 @@
     <ClInclude Include="Engine\Physics\ContactListenerAdapter.h" />
     <ClInclude Include="Engine\Physics\IPhysicsFacade.h" />
     <ClInclude Include="Engine\SceneManager\Layer.h" />
-    <ClInclude Include="Engine\SceneManager\SpriteObject.h" />
     <ClInclude Include="Engine\stdafx.h" />
     <ClInclude Include="Engine\FileParser\JsonFacade.h" />
     <ClInclude Include="Engine\Physics\PhysicsBody.h" />
@@ -133,7 +125,6 @@
     <ClInclude Include="Engine\SceneManager\SceneManager.h" />
     <ClInclude Include="Engine\General\Version.h" />
     <ClInclude Include="Engine\Events\EventSingleton.h" />
-    <ClInclude Include="Engine\Structs\fpsStructs.h" />
     <ClInclude Include="Engine\Video\IVideoFacade.h" />
     <ClInclude Include="Engine\Video\VideoEngine.h" />
     <ClInclude Include="Engine\Video\VideoFacade.h" />
@@ -146,9 +137,7 @@
     <ClInclude Include="Engine\General\Debug.h" />
     <ClInclude Include="Engine\Engine.h" />
     <ClInclude Include="Engine\General\ErrorCodes.h" />
-    <ClInclude Include="Engine\FileParser\FileParser.h" />
     <ClInclude Include="Engine\General\GeneralDefines.h" />
-    <ClInclude Include="Engine\FileParser\IJsonFacade.h" />
     <ClInclude Include="Engine\Input\IInputFacade.h" />
     <ClInclude Include="Engine\Input\InputFacade.h" />
     <ClInclude Include="Engine\Input\InputEngine.h" />
@@ -193,6 +182,7 @@
     <ClInclude Include="Engine\SceneManager\Objects\SpriteObject.h" />
     <ClInclude Include="Engine\SceneManager\Objects\Drawable.h" />
     <ClInclude Include="Engine\SceneManager\Objects\Button.h" />
+    <ClInclude Include="Engine\Events\Action\ObjectStopEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

@@ -245,7 +245,6 @@
     <ClInclude Include="Engine\SceneManager\Layer.h" />
     <ClInclude Include="Engine\SceneManager\Objects\SpriteObject.h" />
     <ClInclude Include="Engine\stdafx.h" />
-    <ClInclude Include="Engine\SceneManager\Object.h" />
     <ClInclude Include="Engine\FileParser\JsonFacade.h" />
     <ClInclude Include="Engine\SceneManager\Objects\Object.h" />
     <ClInclude Include="Engine\Physics\PhysicsBody.h" />

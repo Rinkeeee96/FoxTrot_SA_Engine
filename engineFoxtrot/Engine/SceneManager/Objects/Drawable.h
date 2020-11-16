@@ -24,15 +24,21 @@ public:
 	/// change the state
 	/// change the textureID to the current state
 	void changeToState(const int state) {
+		currentSpriteState = state;
 		SpriteObject* spriteObject = textures[state];
 		if (spriteObject == nullptr) throw ERROR_CODE_SPRITE_DOESNT_EXIST;
 		this->currentSprite = spriteObject;
 	}
 	virtual const ColoredText* toString() { return nullptr; }
 
+	virtual void onUpdate() override {
+
+	}
+
 protected:
 	// TODO	particle related things
 
+	int currentSpriteState = 0;
 	SpriteObject* currentSprite = nullptr;
 	map<const int, SpriteObject*> textures;
 };

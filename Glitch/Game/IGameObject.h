@@ -1,10 +1,10 @@
 #pragma once
-#include "Engine/SceneManager/Object.h"
+#include "Engine/SceneManager/Objects/Drawable.h"
 
-class IGameObject : public Object {
+class IGameObject : public Drawable {
 public:
-	IGameObject() : Object(-1) {}
-	IGameObject(const int id) : Object(id) {}
+	IGameObject() : Drawable(-1) {}
+	IGameObject(const int id) : Drawable(id) {}
 	virtual ~IGameObject() {}
 
 	virtual void onUpdate() = 0;
