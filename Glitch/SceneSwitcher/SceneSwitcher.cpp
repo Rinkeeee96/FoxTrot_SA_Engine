@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "SceneSwitcher.h"
 SceneSwitcher SceneSwitcher::instance;
 

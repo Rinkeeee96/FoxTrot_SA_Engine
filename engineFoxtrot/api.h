@@ -8,6 +8,7 @@
 #include "Events/Sound/OnMusicStartEvent.h"
 #include "Events/Sound/SoundAttachEvent.h"
 #include "Events/Sound/OnMusicStopEvent.h"
+#include "Events/Window/WindowCloseEvent.h"
 // ----- engine core ----------------------
 #include "Engine/General/ErrorCodes.h"
 // ----- individual engines ----------------
