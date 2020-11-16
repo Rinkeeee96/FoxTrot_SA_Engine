@@ -20,6 +20,9 @@ public:
 private:
 	void LoadBackground();
 	Drawable* progressBarFiller = nullptr;
+	Drawable* animation = nullptr;
+
+	bool moveCharacter = false;
 
 	chrono::high_resolution_clock::time_point startTime;
 	chrono::high_resolution_clock::time_point previousCallTime;

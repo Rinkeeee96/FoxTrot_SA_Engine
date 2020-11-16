@@ -60,7 +60,7 @@ void GeneralTransition::LoadBackground()
 	progressBarFiller->registerSprite(SpriteState::DEFAULT, PROGRESSBAR_FULL);
 	progressBarFiller->changeToState(SpriteState::DEFAULT);
 
-	auto * animation = new Drawable(2);
+	animation = new Drawable(2);
 	animation->setStatic(true);
 	animation->setPositionX(175);
 	animation->setPositionY(875);
@@ -97,11 +97,11 @@ void GeneralTransition::update()
 	chrono::duration<double> diff = chrono::duration_cast<chrono::duration<double>>(previousCallTime - startTime);
 	chrono::duration<double> diffFromPreviousCall = chrono::duration_cast<chrono::duration<double>>(chrono::high_resolution_clock::now() - previousCallTime);
 
-	if (diffFromPreviousCall.count() > 0.5)
+	if (diffFromPreviousCall.count() > 0.5 && !moveCharacter)
 	{
 		if (progressBarFiller->getWidth() >= 685)
 		{
-			SceneSwitcher::get_instance().SwitchToScene("GAME");
+			moveCharacter = true;
 			return;
 		}
 
@@ -117,6 +117,17 @@ void GeneralTransition::update()
 			progressBarFiller->setWidth(progressBarFiller->getWidth() + generated);
 		}
 		previousCallTime = chrono::high_resolution_clock::now();
+	}
+
+	if (diffFromPreviousCall.count() > 0.05 && moveCharacter)
+	{
+		animation->setPositionX(animation->getPositionX() + 20);
+		if (animation->getPositionX() > WINDOW_WIDTH)
+		{
+			SceneSwitcher::get_instance().SwitchToScene("GAME");
+		}
+		previousCallTime = chrono::high_resolution_clock::now();
+
 	}
 
 }

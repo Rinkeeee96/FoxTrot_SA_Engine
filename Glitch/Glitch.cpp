@@ -181,9 +181,6 @@ int main() {
 		SceneSwitcher::get_instance().RegisterScene("MAIN_MENU", mainMenu);
 		SceneSwitcher::get_instance().SwitchToScene("MAIN_MENU");
 
-		MainMenuTransitionToGame* transitionScene = new MainMenuTransitionToGame(150);
-		SceneSwitcher::get_instance().RegisterScene("TRANSITION_SCENE", transitionScene);
-
 		GeneralTransition* generalTransitionScene = new GeneralTransition(160);
 		SceneSwitcher::get_instance().RegisterScene("GENERAL_TRANSITION_SCENE", generalTransitionScene);
 

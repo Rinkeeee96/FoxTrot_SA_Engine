@@ -166,7 +166,6 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\SpriteState.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="SceneSwitcher\SceneSwitcher.h" />
-    <ClInclude Include="Game\Scenes\Transitions\MainMenuTransitionToGame\MainMenuTransitionToGame.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Scenes\MainMenu\MainMenu.cpp" />
@@ -176,7 +175,6 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClCompile Include="Game\Level.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="SceneSwitcher\SceneSwitcher.cpp" />
-    <ClCompile Include="Game\Scenes\Transitions\MainMenuTransitionToGame\MainMenuTransitionToGame.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\engineFoxtrot\engineFoxtrot.vcxproj">

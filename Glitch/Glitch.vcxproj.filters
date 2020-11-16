@@ -42,9 +42,6 @@
     <ClInclude Include="Game\Scenes\Transitions\GeneralTransition\GeneralTransition.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scenes\Transitions\MainMenuTransitionToGame\MainMenuTransitionToGame.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Scenes\MainMenu\MainMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -69,9 +66,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scenes\Transitions\GeneralTransition\GeneralTransition.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Scenes\Transitions\MainMenuTransitionToGame\MainMenuTransitionToGame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scenes\MainMenu\MainMenu.cpp">

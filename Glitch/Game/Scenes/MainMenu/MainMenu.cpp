@@ -102,7 +102,7 @@ void MainMenu::OnDetach()
 
 void MainMenu::OnStartBtnClick()
 {
-	SceneSwitcher::get_instance().SwitchToScene("TRANSITION_SCENE");
+	SceneSwitcher::get_instance().SwitchToScene("GENERAL_TRANSITION_SCENE");
 	cout << "Start BTN" << endl;
 }
 
