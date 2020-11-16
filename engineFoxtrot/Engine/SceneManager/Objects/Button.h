@@ -14,9 +14,13 @@ public:
 	{
 		setSize(200, 50);
 		setStatic(true);
-		isMouseOver = true;
 		EventSingleton::get_instance().setEventCallback<MouseButtonPressed>(BIND_EVENT_FN(Button::isClicked));
 		EventSingleton::get_instance().setEventCallback<MouseMovedEvent>(BIND_EVENT_FN(Button::mouseOver));
+	}
+
+	~Button() {
+		EventSingleton::get_instance().unSubscribe<MouseMovedEvent>(BIND_EVENT_FN(Button::isClicked));
+		EventSingleton::get_instance().unSubscribe<MouseButtonPressed>(BIND_EVENT_FN(Button::mouseOver));
 	}
 
 	const ColoredText* toString() { return &text; }
@@ -29,9 +33,8 @@ public:
 		setHeight(height);
 	}
 
-	void mouseOver(Event& event);
-	void isClicked(Event& event);
-
+	bool mouseOver(Event& event);
+	bool isClicked(Event& event);
 private:
 	bool isEnabled = true;
 	bool isMouseOver = false;

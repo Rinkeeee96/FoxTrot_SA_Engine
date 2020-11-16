@@ -37,12 +37,10 @@ void InputFacade::pollEvents() {
 				int keycode = sdl_event.button.button; 
 				MouseButtonPressed event((MouseCode)keycode);
 				EventSingleton::get_instance().dispatchEvent<MouseButtonPressed>(event);
+				break;
 			}
-			case SDL_KEYDOWN: {
-				if (sdl_event.key.keysym.sym == SDLK_F4) {
-					auto event = WindowCloseEvent();
-					EventSingleton::get_instance().dispatchEvent<WindowCloseEvent>(event);
-				}
+			case SDL_KEYDOWN: 
+			{
 				// Command queue with events to fire
 				KeyPressedEvent event((KeyCode)sdl_event.key.keysym.scancode, 1);
 				EventSingleton::get_instance().dispatchEvent<KeyPressedEvent>(event);

@@ -45,11 +45,11 @@ public:
 
 	void drawFps();
 	void drawFps(double fps, int xPos, int yPos, const string& prefix);
-	void toggleFps(Event& fpsEvent);
+	bool toggleFps(Event& fpsEvent);
 
-	void receiveTick(Event& tickEvent);
+	bool receiveTick(Event& tickEvent);
 
-	void drawParticle(ParticleAdapter* part);
+	bool drawParticle(ParticleAdapter* part);
 
 	void calculateOffset(Object& obj, int sceneWidth, int sceneHeight);
 

@@ -64,7 +64,7 @@ void MainMenuTransitionToGame::LoadBackground()
 
 /// @brief 
 /// Every 0.05s the new position of the character is calculated and set
-void MainMenuTransitionToGame::run()
+void MainMenuTransitionToGame::update()
 {
 	
 	chrono::duration<double> diff = chrono::duration_cast<chrono::duration<double>>(previousCallTime - startTime);

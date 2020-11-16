@@ -36,13 +36,14 @@ public:
 	virtual void Start() = 0;
 	/// @brief
 	/// OnDetach is called when a scene is destroyed/closed and is responsible for cleanup
-	/// Must be implemented by a concrete implementation of a scene
-	virtual void OnDetach() = 0;
+	/// Must be implemented by a concrete implementation of a scene when creating custom pointers.
+	/// Contains default object / layer destruction
+	API virtual void OnDetach();
 
 	/// @brief
 	/// run is called in the main loop on the currentScene
 	/// If any work needs to be done during a scene this is were to place it
-	virtual void run() = 0;
+	virtual void update() = 0;
 
 	void setSceneWidth(const int width) { sceneWidth = width; }
 	int getSceneWidth() const { return sceneWidth; }
@@ -50,9 +51,32 @@ public:
 	void setSceneHeight(const int height) { sceneHeight = height; }
 	int getSceneHeight() const { return sceneHeight; }
 
+	void setObjectToFollow(Object* obj) { objectToFollow = obj; }
+
+	/// @brief 
+	/// Returns the id of the object to follow
+	/// @return 
+	/// If no ObjectToFollow will return -1
+	int getObjectToFollowID() const 
+	{ 
+		if (objectToFollow != nullptr)
+		{
+			return objectToFollow->getObjectId();
+		}
+		else
+		{
+			return -1;
+		}
+		
+	}
+	Object getObjectToFollow() { return *objectToFollow; }
+
+
 private:
 	const int sceneID = 0;
 	map<int, Layer*> layers;
+
+	Object *objectToFollow = nullptr;
 
 	int sceneWidth = WINDOW_WIDTH;
 	int sceneHeight = WINDOW_HEIGHT;

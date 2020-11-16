@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "GeneralTransition.h"
 #include "../../../SpriteState.h"
 
@@ -89,7 +90,7 @@ void GeneralTransition::LoadBackground()
 /// Runs the scene.
 /// Calculates every 0.5s and random nr between 1 and 150 to increase the loading bar with. 
 /// Also sets the loading bar. 
-void GeneralTransition::run()
+void GeneralTransition::update()
 {
 	// Todo
 	// Define

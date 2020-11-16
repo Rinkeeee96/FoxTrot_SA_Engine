@@ -40,8 +40,8 @@ public:
 	bool IdentifierIsLoaded(const string& identifier);
 
 	void EventListners(); 
-	void Event_StartEvent(Event& event);
-	void Event_AttachEvent(Event& event);
+	bool Event_StartEvent(Event& event);
+	bool Event_AttachEvent(Event& event);
 
 private:
 	ISoundFacade* soundFacade = new SoundFacade;

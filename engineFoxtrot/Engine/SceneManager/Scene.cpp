@@ -126,3 +126,14 @@ Object * Scene::getObject(const int objectID)
 	}
 	throw ERROR_CODE_SCENE_NO_OBJECT_FOUND;
 }
+
+void Scene::OnDetach()
+{
+	for (auto& layerContainer : layers)
+	{
+		Layer* layer = layerContainer.second;
+		for (const auto& [id, object] : layer->objects)
+			delete object;
+		delete layer;
+	}
+}

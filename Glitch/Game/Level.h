@@ -1,5 +1,4 @@
 #pragma once
-#include "SceneManager/Scene.h"
 
 /// @brief 
 /// Level class. Level has all the information. 

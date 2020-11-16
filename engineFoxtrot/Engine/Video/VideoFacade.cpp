@@ -73,12 +73,7 @@ void VideoFacade::clearScreen()
 /// Draws SDL screen
 void VideoFacade::drawScreen()
 {
-	try {
-		SDL_RenderPresent(renderer);
-	}
-	catch (...) {
-		std::cout << "ERR" << std::endl;
-	}
+	SDL_RenderPresent(renderer);
 }
 /// @brief 
 /// Load a animated sprite into the texturemap map
