@@ -6,7 +6,7 @@
 /// Loads the background and sets the starttime of this scene;
 void GeneralTransition::OnAttach()
 {
-	LoadBackground();
+	loadBackground();
 	startTime = chrono::high_resolution_clock::now();
 	previousCallTime = chrono::high_resolution_clock::now();
 }
@@ -25,7 +25,7 @@ void GeneralTransition::Start()
 
 /// @brief 
 /// Loads all the sprites 
-void GeneralTransition::LoadBackground()
+void GeneralTransition::loadBackground()
 {
 	SpriteObject* BG_LAYER_0 = new SpriteObject(1000, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_0.png");
 	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(1001, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png");

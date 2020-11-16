@@ -16,7 +16,7 @@ public:
 	virtual void update() override;
 
 private:
-	void LoadBackground();
+	void loadBackground();
 	Drawable* progressBarFiller = nullptr;
 	Drawable* animation = nullptr;
 
