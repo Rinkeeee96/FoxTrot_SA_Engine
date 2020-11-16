@@ -17,7 +17,10 @@ void SceneSwitcher::SwitchToScene(string const identifier) {
 	engine->setCurrentScene(scene->second->getSceneID());
 	// Detach the old now inactive scene
 	if (activeScene != nullptr)
+	{
 		activeScene->OnDetach();
+	}
+		
 	// Set the new scene active
 	activeScene = scene->second;
 }
