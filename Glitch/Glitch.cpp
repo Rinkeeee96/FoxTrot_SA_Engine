@@ -1,10 +1,12 @@
 #pragma once
 #include "pch.h"
 #include "Glitch.h"
-
-#include "Game/Level.h"
-#include "Game/SpriteState.h"
-#include "Game/Player/Player.h"
+#include "./Game/Level.h"
+#include "./Game/SpriteState.h"
+#include "./Game/Player/Player.h"
+#include "Game/MainMenu.h"
+#include <Engine\Events\Window\WindowCloseEvent.h>
+#include "SceneSwitcher/SceneSwitcher.h"
 
 // TODO engine.h & engine.cpp
 
@@ -15,6 +17,7 @@
 // https://computingonplains.wordpress.com/doxygen-and-visual-studio/
 
 Engine engine;
+bool gameRunning = true;
 
 void sceneTestSetup()
 {
@@ -34,24 +37,13 @@ void sceneTestSetup()
 	SpriteObject* so6 = new SpriteObject(105, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_jump_left.png");
 	SpriteObject* so9 = new SpriteObject(108, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_jump_right.png");
 
-	engine.loadSprite(*so0);
-	engine.loadSprite(*so1);
-	engine.loadSprite(*so2);
-	engine.loadSprite(*so3);
-	engine.loadSprite(*so4);
-	engine.loadSprite(*so5);
-	engine.loadSprite(*so6);
-	engine.loadSprite(*so7);
-	engine.loadSprite(*so8);
-	engine.loadSprite(*so9);
-
 	map<string, string> soundL1 = {
 		{"Level_1_Sound", "Assets/Sound/file_example_WAV_1MG.wav"},
 	};
 
-	Level* testScene = new Level(100, 1080, 5000, soundL1);
+	Level* testScene = new Level(100, WINDOW_HEIGHT, WINDOW_WIDTH*3, soundL1);
 
-	Object* object2 = new Player(2);
+	Drawable* object2 = new Player(2);
 	testScene->setObjectToFollow(object2);
 	object2->setDensity(1);
 	object2->setJumpHeight(100);
@@ -70,12 +62,10 @@ void sceneTestSetup()
 	object2->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, object2);
 
-	object2->setScalable(true);
 	object2->setScale(7);
 
 
-	Object* staticGround = new Object(101);
-	staticGround->setScalable(true);
+	auto* staticGround = new Drawable(101);
 	staticGround->setWidth(500); // width
 	staticGround->setHeight(10);// height
 	staticGround->setPositionX(1); // x 20 left down
@@ -85,8 +75,7 @@ void sceneTestSetup()
 	staticGround->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, staticGround);
 
-	staticGround = new Object(102);
-	staticGround->setScalable(true);
+	staticGround = new Drawable(102);
 	staticGround->setWidth(500); // width
 	staticGround->setHeight(10);// height
 	staticGround->setPositionX(501); // x 20 left down
@@ -96,8 +85,7 @@ void sceneTestSetup()
 	staticGround->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, staticGround);
 
-	staticGround = new Object(103);
-	staticGround->setScalable(true);
+	staticGround = new Drawable(103);
 	staticGround->setWidth(500); // width
 	staticGround->setHeight(10);// height
 	staticGround->setPositionX(1100); // x 20 left down
@@ -107,8 +95,7 @@ void sceneTestSetup()
 	staticGround->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, staticGround);
 
-	staticGround = new Object(104);
-	staticGround->setScalable(true);
+	staticGround = new Drawable(104);
 	staticGround->setWidth(5000); // width
 	staticGround->setHeight(10);// height
 	staticGround->setPositionX(1200); // x 20 left down
@@ -118,8 +105,7 @@ void sceneTestSetup()
 	staticGround->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, staticGround);
 
-	staticGround = new Object(105);
-	staticGround->setScalable(true);
+	staticGround = new Drawable(105);
 	staticGround->setWidth(250); // width
 	staticGround->setHeight(10);// height
 	staticGround->setPositionX(1); // x 20 left down
@@ -148,11 +134,10 @@ void sceneTestSetup()
 	particle2->setStyle(ParticleInit::ParticleStyle::FIRE);    // set the example effects
 	testScene->addNewObjectToLayer(2, particle2);
 
-	Object* staticGround2 = new Object(119);
-	staticGround2->setScalable(true);
-	staticGround2->setWidth(30); // width
+	auto* staticGround2 = new Drawable(119);
+	staticGround2->setWidth(20); // width
 	staticGround2->setHeight(80);// height
-	staticGround2->setPositionX(220); // x 20 left down
+	staticGround2->setPositionX(250); // x 20 left down
 	staticGround2->setPositionY(540);// y 300 left down
 	staticGround2->setStatic(true);
 	staticGround2->setFriction(0);
@@ -160,8 +145,7 @@ void sceneTestSetup()
 	staticGround2->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, staticGround2);
 
-	Object* staticGround3 = new Object(120);
-	staticGround3->setScalable(true);
+	auto* staticGround3 = new Drawable(120);
 	staticGround3->setWidth(30); // width
 	staticGround3->setHeight(80);// height
 	staticGround3->setPositionX(480); // x 20 left down
@@ -171,19 +155,7 @@ void sceneTestSetup()
 	staticGround3->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, staticGround3);
 
-	Object* staticGround4 = new Object(121);
-	staticGround4->setScalable(true);
-	staticGround4->setWidth(30); // width
-	staticGround4->setHeight(140);// height
-	staticGround4->setPositionX(360); // x 20 left down
-	staticGround4->setPositionY(540);// y 300 left down
-	staticGround4->setStatic(true);
-	staticGround4->registerSprite(SpriteState::DEFAULT, so0);
-	staticGround4->changeToState(SpriteState::DEFAULT);
-	testScene->addNewObjectToLayer(1, staticGround4);
-
-	staticGround4 = new Object(122);
-	staticGround4->setScalable(true);
+	auto* staticGround4 = new Drawable(121);
 	staticGround4->setWidth(30); // width
 	staticGround4->setHeight(140);// height
 	staticGround4->setPositionX(320); // x 20 left down
@@ -193,18 +165,23 @@ void sceneTestSetup()
 	staticGround4->changeToState(SpriteState::DEFAULT);
 	testScene->addNewObjectToLayer(1, staticGround4);
 
-	engine.insertScene(testScene);
-	engine.setCurrentScene(100);
-
-	testScene->Start();
+	SceneSwitcher::get_instance().RegisterScene("GAME", testScene);
 }
 
+bool StopLoop(Event& event) {
+	gameRunning = false;
+	return true;
+}
 
 int main() {
 	try {
+		SceneSwitcher::get_instance().SetEngine(&engine);
 		sceneTestSetup();
+		MainMenu *mainMenu = new MainMenu(1);
+		SceneSwitcher::get_instance().RegisterScene("MAIN_MENU", mainMenu);
+		SceneSwitcher::get_instance().SwitchToScene("MAIN_MENU");
 
-		bool gameRunning = true;
+		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(StopLoop);
 
 		engine.startTickThreads();
 		while (gameRunning)
@@ -215,13 +192,14 @@ int main() {
 			engine.pollEvents();
 			EventSingleton::get_instance().dispatchEvent<AppTickEvent60>(appTick);
 			EventSingleton::get_instance().dispatchEvent<AppTickEvent30>(appTick30);
-
+			// TODO when removed the game speeds up and animations are wrong, find a fix 
 			this_thread::sleep_for(chrono::milliseconds(10));
 		}
 		engine.stopTickThreads();
 
 		return 0;
 	} catch(int error) {
+		cout << "ERROR OUT" << endl;
 		cout << ERRORCODES[error] << endl;
 	}
 	

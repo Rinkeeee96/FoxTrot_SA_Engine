@@ -185,11 +185,15 @@ void SoundEngine::EventListners() {
 	EventSingleton::get_instance().setEventCallback<OnMusicStartEvent>(BIND_EVENT_FN(SoundEngine::Event_StartEvent));
 	EventSingleton::get_instance().setEventCallback<SoundAttachEvent>(BIND_EVENT_FN(SoundEngine::Event_AttachEvent));
 }
-void SoundEngine::Event_StartEvent(Event& event) {
+bool SoundEngine::Event_StartEvent(Event& event) {
 	auto startEvent = static_cast<OnMusicStartEvent&>(event);
 	this->PlayMusic(startEvent.Getidentifier(), 15);
+
+	return true;
 }
-void SoundEngine::Event_AttachEvent(Event& event) {
+bool SoundEngine::Event_AttachEvent(Event& event) {
 	auto attachEvent = static_cast<SoundAttachEvent&>(event);
 	this->AddFile(attachEvent.Getidentifier(), attachEvent.GetFileName());
+
+	return true;
 }

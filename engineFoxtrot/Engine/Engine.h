@@ -48,6 +48,10 @@ public:
 
 	// Input calls
 	API void pollEvents();
+
+	//Events
+	API void EventListeners();
+	API bool Event_LoadSprite(Event& event);
 private:
 	PhysicsEngine physicsEngine;
 	ParticleEngine particleEngine;

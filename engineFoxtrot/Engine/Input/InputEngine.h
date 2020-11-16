@@ -17,5 +17,5 @@ public:
 private:
 	IInputFacade *inputFacade = new InputFacade();
 
-	void onKeyPressed(Event& event);
+	bool onKeyPressed(Event& event);
 };

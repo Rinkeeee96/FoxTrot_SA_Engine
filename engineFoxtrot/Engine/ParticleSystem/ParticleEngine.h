@@ -5,20 +5,13 @@
 #include "ParticleAdapter.h"
 
 /// @brief Class to update Particle
-#if(EXPORT)
-class DLLEXPORT ParticleEngine
-#else
-class ParticleEngine
-#endif
+class API ParticleEngine
 {
 public:
 	ParticleEngine();
 	~ParticleEngine();
 
-
-	void onUpdate(Event& tickEvent);
-
-
+	bool onUpdate(Event& tickEvent);
 	Scene** pointerToCurrentScene = nullptr;
 
 private:

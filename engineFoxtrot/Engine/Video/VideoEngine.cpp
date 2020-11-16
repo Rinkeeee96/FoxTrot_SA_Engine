@@ -38,7 +38,7 @@ void VideoEngine::loadImage(const SpriteObject& spriteObject)
 
 /// @brief Sets the sprite on the screen
 /// @param Object 
-void VideoEngine::renderCopy(Object& object) {
+void VideoEngine::renderCopy(Drawable& object) {
 	videoFacade->renderCopy(object);
 }
 
@@ -130,7 +130,7 @@ void VideoEngine::updateScreen()
 		videoFacade->setYCameraOffset(0);
 	}
 
-	for (Object* obj : (*pointerToCurrentScene)->getAllObjectsInScene()) {
+	for (Drawable* obj : (*pointerToCurrentScene)->getAllDrawablesInScene()) {
 		if (obj != nullptr) {
 			if (obj->getIsParticle())
 			{
@@ -147,8 +147,7 @@ void VideoEngine::updateScreen()
 /// @brief
 /// Calls the drawFps method with parameters for all calculated Fps types
 void VideoEngine::drawFps() {
-	//drawFps(FrameData::gameFps, FPS_X_POSITION, Y_POSITION_TOP_OF_SCREEN, "Game Fps: ");
-	drawFps(FrameData::renderFps, FPS_X_POSITION, FPS_Y_POSITION_OFFSET, "Fps: ");
+	drawFps(FrameData::renderFps, WINDOW_WIDTH, FPS_Y_POSITION_OFFSET, "Fps: ");
 }
 
 /// @brief
@@ -166,29 +165,21 @@ void VideoEngine::drawFps(double fps, int xPos, int yPos, const string& prefix =
 	stre << prefix << fps;
 	string str = stre.str();
 	if (shouldDrawFps) {
-		FpsMessage m(str, NO_RED, NO_BLUE, NO_GREEN);
-		TextPosition p(xPos, yPos);
-		videoFacade->drawMessageAt(m, p);
+		ColoredText m(str, Color(NO_RED, NO_BLUE, NO_GREEN), false);
+		Position p(xPos, yPos);
+		videoFacade->drawMessageAt(m, p, ObjectSize(WINDOW_WIDTH, WINDOW_HEIGHT));
 	}
 }
 
 /// @brief
 /// Toggles fps visibility
-void VideoEngine::toggleFps(Event& fpsEvent) {
+bool VideoEngine::toggleFps(Event& fpsEvent) {
 	shouldDrawFps = !shouldDrawFps;
-}
-
-/// @brief 
-/// Update function
-void VideoEngine::update(Object* object)
-{
-	clearScreen();
-	updateScreen();
-	drawScreen();
+	return true;
 }
 
 /// @brief Handle the tick update from the thread
-void VideoEngine::receiveTick(Event& tickEvent)
+bool VideoEngine::receiveTick(Event& tickEvent)
 {
 	//tickEvent = static_cast<AppTickEvent&>(tickEvent);
 	frameData->startTimer();
@@ -198,11 +189,14 @@ void VideoEngine::receiveTick(Event& tickEvent)
 	drawFps();
 	drawScreen();
 	FrameData::renderFps = frameData->calculateAverageFps();
+
+	// do not handle on update events, they are continues
+	return false;
 }
 
 /// @brief Draws the Particles
 /// @param part pointer to the particle
-void VideoEngine::drawParticle(ParticleAdapter* part)
+bool VideoEngine::drawParticle(ParticleAdapter* part)
 {
 	vector<ParticleData> particleData = part->getParticleDataVector();
 	for (unsigned int index = 0; index < part->getParticleCount(); index++)
@@ -215,5 +209,6 @@ void VideoEngine::drawParticle(ParticleAdapter* part)
 		}
 		videoFacade->drawParticle(partData, part->GetCurrentSprite().getTextureID());
 	}
-
+	// do not handle on update events, they are continues
+	return false;
 }

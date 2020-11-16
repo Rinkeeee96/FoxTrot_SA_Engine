@@ -2,6 +2,7 @@
 
 #include "InputFacade.h"
 #include <SDL.h>
+#include "Events/Window/WindowCloseEvent.h"
 
 #undef main
 
@@ -23,9 +24,23 @@ void InputFacade::pollEvents() {
 		{
 			switch (sdl_event.type)
 			{
-			case SDL_KEYDOWN: {
-				if(sdl_event.key.keysym.sym == SDLK_F4)
-					exit(100);
+			case SDL_MOUSEMOTION: {
+				int x, y;
+				SDL_GetMouseState(&x, &y);
+
+				MouseMovedEvent event(x, y);
+				EventSingleton::get_instance().dispatchEvent<MouseMovedEvent>(event);
+				break;
+			}
+			case SDL_MOUSEBUTTONDOWN:
+			{
+				int keycode = sdl_event.button.button; 
+				MouseButtonPressed event((MouseCode)keycode);
+				EventSingleton::get_instance().dispatchEvent<MouseButtonPressed>(event);
+				break;
+			}
+			case SDL_KEYDOWN: 
+			{
 				// Command queue with events to fire
 				KeyPressedEvent event((KeyCode)sdl_event.key.keysym.scancode, 1);
 				EventSingleton::get_instance().dispatchEvent<KeyPressedEvent>(event);

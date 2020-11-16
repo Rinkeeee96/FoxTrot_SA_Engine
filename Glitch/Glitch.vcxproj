@@ -162,16 +162,22 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Game\Buttons\PrimaryButton.h" />
+    <ClInclude Include="Game\Buttons\SecondaryButton.h" />
+    <ClInclude Include="Game\MainMenu.h" />
     <ClInclude Include="Game\Player\Player.h" />
     <ClInclude Include="Glitch.h" />
     <ClInclude Include="Game\Level.h" />
     <ClInclude Include="Game\SpriteState.h" />
+    <ClInclude Include="SceneSwitcher\SceneSwitcher.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Game\MainMenu.cpp" />
     <ClCompile Include="Game\Player\Player.cpp" />
     <ClCompile Include="Glitch.cpp" />
     <ClCompile Include="Game\Level.cpp" />
+    <ClCompile Include="SceneSwitcher\SceneSwitcher.cpp" />
     <ClCompile Include="pch.cpp" />
   </ItemGroup>
   <ItemGroup>
