@@ -1,13 +1,6 @@
+#include "pch.h"
 #include "DeadScreen.h"
-#include "stdafx.h"
-#include "Events/Mouse/MousePressed.h"
-#include "Events/EventSingleton.h"
-#include "Events/Video/VideoLoadSpriteEvent.h"
 #include "../SpriteState.h"
-#include <Engine\Events\Sound\SoundAttachEvent.h>
-#include <Engine\Events\Sound\OnMusicStartEvent.h>
-#include <Engine\Events\Sound\OnMusicStopEvent.h>
-#include <Engine\Events\Window\WindowCloseEvent.h>
 #include "../Buttons/PrimaryButton.h"
 #include "../Buttons/SecondaryButton.h"
 
@@ -93,6 +86,7 @@ void DeadScreen::Start()
 void DeadScreen::OnDetach()
 {
 	EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent("DEAD_SOUND"));
+	Scene::OnDetach();
 }
 
 void DeadScreen::OnStartBtnClick()
