@@ -54,7 +54,7 @@ void sceneTestSetup()
 
 	Level* testScene = new Level(100, WINDOW_HEIGHT, WINDOW_WIDTH*3, soundL1);
 
-	Object* object2 = new Player(2);
+	Drawable* object2 = new Player(2);
 	testScene->setObjectToFollow(object2);
 	object2->setDensity(1);
 	object2->setJumpHeight(100);
