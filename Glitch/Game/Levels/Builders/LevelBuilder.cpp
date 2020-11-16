@@ -1,6 +1,6 @@
 #include "LevelBuilder.h"
 
-LevelBuilder::LevelBuilder(Engine& _engine) : AbstractLevelBuilder(_engine), characterFactory{ engine } {
+LevelBuilder::LevelBuilder(Engine& _engine, int levelId) : AbstractLevelBuilder(_engine), characterFactory{ engine }, bLevel(new Level(levelId, 0, 0)) {
 	this->initFactory();
 }
 
@@ -66,23 +66,23 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 				int densityString = objectPropertyValue["value"];
 				object->setDensity(densityString);
 			}
-			if (objectPropertyValue["name"] == "friction") {
+			else if (objectPropertyValue["name"] == "friction") {
 				int frictionString = objectPropertyValue["value"];
 				object->setFriction(frictionString);
 			}
-			if (objectPropertyValue["name"] == "jump_height") {
+			else if (objectPropertyValue["name"] == "jump_height") {
 				int jump_heightString = objectPropertyValue["value"];
 				object->setJumpHeight(jump_heightString);
 			}
-			if (objectPropertyValue["name"] == "restitution") {
+			else if (objectPropertyValue["name"] == "restitution") {
 				int restitutionString = objectPropertyValue["value"];
 				object->setRestitution(restitutionString);
 			}
-			if (objectPropertyValue["name"] == "speed") {
+			else if (objectPropertyValue["name"] == "speed") {
 				int speedString = objectPropertyValue["value"];
 				object->setSpeed(speedString);
 			}
-			if (objectPropertyValue["name"] == "health") {
+			else if (objectPropertyValue["name"] == "health") {
 				int healthString = objectPropertyValue["value"];
 				object->setHealth(healthString);
 			}
@@ -101,8 +101,7 @@ void LevelBuilder::createBackground(nlohmann::json layerValue) {
 		int height = objectValue["height"];
 		int x = objectValue["x"];
 		int y = objectValue["y"];
-		// TODO add background
-		//  - image does not load correctly
+
 		TileSprite* sprite = textureMap[gid];
 		SpriteObject* tileSprite = new SpriteObject(currentTileId++, sprite->height, sprite->width, 1, 300, "Assets/Levels/Tiles/Grassland_Background.png");
 		engine.loadSprite(*tileSprite);
@@ -238,7 +237,6 @@ void LevelBuilder::createTiles(nlohmann::json layerValue) {
 
 void LevelBuilder::loadTileSets(nlohmann::json json) {
 	for (auto& [key, value] : json.items()) {
-		// Tiles
 		if (key == "tilesets") {
 			for (auto& [tileKey, tileValue] : value.items()) {
 				int currentGid = tileValue["firstgid"];

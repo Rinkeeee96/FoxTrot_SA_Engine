@@ -50,4 +50,4 @@ void Level::pause() {
 	}
 }
 
-void Level::OnDetach() {}//cleaup buffer
+void Level::onDetach() {}//cleaup buffer

@@ -19,7 +19,7 @@ public:
 	virtual void onAttach() override;
 	virtual void start() override;
 	virtual void pause();
-	virtual void OnDetach() override;
+	virtual void onDetach() override;
 	virtual void onUpdate() override;
 private:
 	map<string, string> sounds;

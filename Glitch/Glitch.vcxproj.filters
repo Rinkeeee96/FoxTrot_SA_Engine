@@ -66,6 +66,9 @@
     <ClInclude Include="Game\Factories\CharacterFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Levels\LoadLevelFacade.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Glitch.cpp">

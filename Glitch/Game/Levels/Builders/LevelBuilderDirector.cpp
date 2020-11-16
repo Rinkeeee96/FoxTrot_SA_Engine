@@ -1,17 +1,9 @@
 #include "LevelBuilderDirector.h"
 
-void LevelBuilderDirector::construct(ILevelBuilder* builder) {
-	nlohmann::json json;
+LevelBuilderDirector::LevelBuilderDirector(Engine& engine) {
+}
 
-	try {
-		auto filestream = fileLoader.readFile("Assets/Levels/Maps/Level1.json");
-		filestream >> json;
-		filestream.close();
-	}
-	catch (std::exception e) {
-		std::cout << e.what() << "\n";
-	}
-
+void LevelBuilderDirector::construct(nlohmann::json json, ILevelBuilder* builder) {
 	builder->loadTileSets(json);
 	builder->createLevel(json);
 

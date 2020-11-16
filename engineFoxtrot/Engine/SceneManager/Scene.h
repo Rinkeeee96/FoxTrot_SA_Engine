@@ -11,7 +11,7 @@ class Scene
 {
 public:
 	API Scene(const int _sceneID, const int _sceneHeight, const int _sceneWidth);
-	API~Scene();
+	API ~Scene();
 
 	bool API checkIfObjectExists(const int objectID);
 	const bool API toggleLayer(const int zIndex, bool render);
@@ -36,7 +36,7 @@ public:
 	/// @brief
 	/// OnDetach is called when a scene is destroyed/closed and is responsible for cleanup
 	/// Must be implemented by a concrete implementation of a scene
-	virtual void OnDetach() = 0;
+	virtual void onDetach() = 0;
 
 	void setSceneWidth(const int width) { sceneWidth = width; }
 	int getSceneWidth() const { return sceneWidth; }

@@ -34,13 +34,11 @@ private:
 	int textureId = 0;
 	int id = 0;
 public:
-	LevelBuilder(Engine& _engine);
+	LevelBuilder(Engine& _engine, int levelId);
 
-	// TODO less json reference
 	void createLevel(nlohmann::json json) override;
 	void createEntities(nlohmann::json layerValue) override;
 	void createBackground(nlohmann::json layerValue) override;
-	// TODO Split to function with same functionality with layer as param
 	void createDecoration(nlohmann::json layerValue) override;
 	void createParticle(nlohmann::json layerValue) override;
 	void createTiles(nlohmann::json layerValue) override;

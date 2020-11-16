@@ -1,14 +1,16 @@
 #include "Game.h"
 
 void Game::run() {
-	LevelBuilderDirector builderDirector = LevelBuilderDirector(engine);
+	LoadLevelFacade levelLoader{ engine };
+	LevelBuilder levelOneBuilder = LevelBuilder(engine, 1);
 
-	LevelBuilder levelOneBuilder = LevelBuilder(engine);
-	builderDirector.construct(&levelOneBuilder);
-	auto levelOne = levelOneBuilder.getLevel();
-	levelOne->onAttach();
-	levelOne->start();
-	engine.setCurrentScene(levelOne->getSceneID());
+	levelLoader.load("Assets/Levels/Maps/Level1.json", &levelOneBuilder);
+	auto level = levelOneBuilder.getLevel();
+
+	level->onAttach();
+	level->start();
+	engine.setCurrentScene(level->getSceneID());
+
 
 	engine.startTickThreads();
 	while (gameRunning)

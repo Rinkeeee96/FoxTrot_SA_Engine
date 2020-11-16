@@ -2,7 +2,7 @@
 #include "FileLoader.h"
 
 std::ifstream FileLoader::readFile(string path) {
-	bool exists = std::filesystem::exists(path); // TODO dynamic fonts
+	bool exists = std::filesystem::exists(path);
 
 	if (exists) {
 		std::ifstream ifstream(path);
