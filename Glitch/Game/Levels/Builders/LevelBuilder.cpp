@@ -173,22 +173,21 @@ void LevelBuilder::createParticle(nlohmann::json layerValue)
 		for (auto& [objectPropertyKey, objectPropertyValue] : objectValue["properties"].items())
 		{
 			if (objectPropertyValue["name"] == "type") {
-				if (objectPropertyValue["value"] == "fire") {
-
 					SpriteObject* particle1Sprite = new SpriteObject(id++, 20, 20, 5, 300, "Assets/Particles/fire.png");
 					engine.loadSprite(*particle1Sprite);
+
+					int type = objectPropertyValue["value"];
 
 					ParticleAdapter* part = new ParticleAdapter(id++);
 					part->registerSprite(SpriteState::DEFAULT, particle1Sprite);
 					part->changeToState(SpriteState::DEFAULT);
 					part->setPositionX(objectValue["x"]);
 					part->setPositionY(objectValue["y"]);
-					part->setStyle(ParticleInit::ParticleStyle::GALAXY);
+					part->setStyle((ParticleInit::ParticleStyle)type);
 					bLevel->addNewObjectToLayer(PARTICLE_LAYER_INDEX, part);
 				}
-				else {
-					throw std::exception(GAME_ERRORCODES[INVALID_TYPE]);
-				}
+			else {
+				throw std::exception(GAME_ERRORCODES[INVALID_TYPE]);
 			}
 		}
 	}

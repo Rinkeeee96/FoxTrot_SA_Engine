@@ -26,5 +26,4 @@ private:
 
 	// CurrentScene is stored because if this changes then the objects need to be reset.
 	int currentSceneID = 0;
-	Object* getObject(const int objectId);
 };

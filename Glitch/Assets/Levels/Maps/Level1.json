@@ -234,7 +234,24 @@
          "draworder":"topdown",
          "id":16,
          "name":"Particles",
-         "objects":[],
+         "objects":[
+                {
+                 "height":0,
+                 "id":31,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"int",
+                         "value":4
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1293.08333333333,
+                 "y":834.833333333333
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -242,7 +259,7 @@
          "y":0
         }],
  "nextlayerid":19,
- "nextobjectid":31,
+ "nextobjectid":32,
  "orientation":"orthogonal",
  "properties":[
         {
