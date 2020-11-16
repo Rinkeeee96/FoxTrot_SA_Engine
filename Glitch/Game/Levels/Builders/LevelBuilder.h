@@ -20,7 +20,7 @@ class LevelBuilder : public AbstractLevelBuilder {
 #define TILE_IMAGE_PATH "Assets/Levels/Tiles/"
 
 private:
-	CharacterFactory characterFactory;
+	std::unique_ptr<CharacterFactory> characterFactory;
 	FileLoader fileLoader;
 	map<int, TileSprite*> textureMap;
 	map<int, SpriteObject*> spriteMap;
@@ -28,7 +28,7 @@ private:
 	// TODO Fix tileId in tilesets
 	Level* bLevel = new Level(1, 0, 0);
 
-	int currentTileId = 300;
+	int currentTileId = 999;
 	int mapTileWidth = 16;
 	int mapTileHeight = 16;
 	int textureId = 0;

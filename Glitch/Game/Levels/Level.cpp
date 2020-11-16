@@ -33,6 +33,7 @@ void Level::onAttach() {
 /// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
 /// Must be implemented by a concrete implementation of a scene
 void Level::start() {
+	this->setObjectToFollow(this->follow);
 	for (const auto& s : sounds) {
 		EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent(s.first));
 	}

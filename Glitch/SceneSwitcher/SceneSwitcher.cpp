@@ -3,13 +3,13 @@
 SceneSwitcher SceneSwitcher::instance;
 
 
-void SceneSwitcher::RegisterScene(string identifier, Scene* scene) {
+void SceneSwitcher::registerScene(string identifier, Scene* scene) {
 	if (scene == nullptr)return;
 	engine->insertScene(scene);
 	scenes.insert(pair<string, Scene*>(identifier, scene));
 }
 
-void SceneSwitcher::SwitchToScene(string const identifier) {
+void SceneSwitcher::switchToScene(string const identifier) {
 	auto scene = scenes.find(identifier);
 	if (scene == scenes.end()) 
 		return;

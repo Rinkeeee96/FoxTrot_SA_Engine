@@ -124,7 +124,7 @@ void VideoEngine::updateScreen()
 	if ((*pointerToCurrentScene)->getAllObjectsInScene().size() <= 0) return;
 
 	// Gets the object to follow with the camera. If no object is selected the camera will not move.
-	int objectIDToFollow = this->cameraObjectId;
+	int objectIDToFollow = (*pointerToCurrentScene)->getObjectToFollowID();
 	if (objectIDToFollow != -1)
 	{
 		calculateOffset(*(*pointerToCurrentScene)->getObject(objectIDToFollow), (*pointerToCurrentScene)->getSceneWidth(), (*pointerToCurrentScene)->getSceneHeight());

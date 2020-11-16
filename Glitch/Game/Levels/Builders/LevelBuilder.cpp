@@ -1,8 +1,8 @@
 #include "pch.h"
 #include "LevelBuilder.h"
 
-LevelBuilder::LevelBuilder(Engine& _engine, int levelId) : AbstractLevelBuilder(_engine), characterFactory{ engine }, bLevel(new Level(levelId, 0, 0)) {
-	this->initFactory();
+LevelBuilder::LevelBuilder(Engine& _engine, int levelId) : AbstractLevelBuilder(_engine), bLevel(new Level(levelId, 0, 0)) {
+	
 }
 
 void LevelBuilder::create() {
@@ -39,6 +39,9 @@ void LevelBuilder::createLevel(nlohmann::json json) {
 	}
 	bLevel->setSceneWidth(bLevel->getSceneWidth() * this->mapTileWidth);
 	bLevel->setSceneHeight(bLevel->getSceneHeight() * this->mapTileHeight);
+
+	characterFactory = std::make_unique<CharacterFactory>(engine, *bLevel);
+	this->initFactory();
 }
 
 void LevelBuilder::createEntities(nlohmann::json layerValue) {
@@ -48,7 +51,7 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 		for (auto& [objectPropertyKey, objectPropertyValue] : objectValue["properties"].items())
 		{
 			if (objectPropertyValue["name"] == "type") {
-				object = characterFactory.create(objectPropertyValue["value"], id++);
+				object = characterFactory->create(objectPropertyValue["value"], id++);
 			}
 		}
 
@@ -133,8 +136,7 @@ void LevelBuilder::createDecoration(nlohmann::json layerValue)
 
 			if (spriteMap.find(tileId) == spriteMap.end()) {
 				sprite = textureMap[tileId];
-				tileSprite = new SpriteObject(currentTileId, sprite->height, sprite->width, 1, 300, sprite->path.c_str());
-				currentTileId++;
+				tileSprite = new SpriteObject(currentTileId++, sprite->height, sprite->width, 1, 300, sprite->path.c_str());
 				engine.loadSprite(*tileSprite);
 			}
 			else {
@@ -171,7 +173,7 @@ void LevelBuilder::createParticle(nlohmann::json layerValue)
 		for (auto& [objectPropertyKey, objectPropertyValue] : objectValue["properties"].items())
 		{
 			if (objectPropertyValue["name"] == "type") {
-					SpriteObject* particle1Sprite = new SpriteObject(id++, 20, 20, 5, 300, "Assets/Particles/fire.png");
+					SpriteObject* particle1Sprite = new SpriteObject(currentTileId++, 20, 20, 5, 300, "Assets/Particles/fire.png");
 					engine.loadSprite(*particle1Sprite);
 
 					int type = objectPropertyValue["value"];
@@ -305,11 +307,11 @@ void LevelBuilder::initFactory() {
 	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::AIR_FALL_RIGHT, playerFallRight));
 	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::AIR_JUMP_RIGHT, playerJumpRight));
 	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::RUN_LEFT, playerRunLeft));
-	characterFactory.registerCharacter("player", new Player(), playerMap);
+	characterFactory->registerCharacter("player", new Player(), playerMap);
 
 	std::map<SpriteState, SpriteObject*> slimeMap;
 	slimeMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, slimeDefault));
-	characterFactory.registerCharacter("slime", new Slime(), slimeMap);
+	characterFactory->registerCharacter("slime", new Slime(), slimeMap);
 
 	std::map<std::string, std::map<SpriteState, SpriteObject*>> spriteObjectMap;
 }

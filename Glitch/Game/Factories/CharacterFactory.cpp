@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "CharacterFactory.h"
 
-CharacterFactory::CharacterFactory(Engine& _engine) : engine{ _engine } {}
+CharacterFactory::CharacterFactory(Engine& _engine, Level& _level) : engine{ _engine }, level{_level} {}
 
 void CharacterFactory::registerCharacter(std::string name, ICharacter* character, std::map<SpriteState, SpriteObject*> _spriteObjectMap) {
 	if (characterMap.count(name) == 0) {
@@ -15,7 +15,7 @@ ICharacter* CharacterFactory::create(std::string name, int id) {
 		auto clone = characterMap[name]->clone(id);
 
 		if (name == "player") {
-			engine.attachCamera(id);
+			level.setPlayer(clone);
 		}
 
 		auto sprites = spriteObjectMap[name];
