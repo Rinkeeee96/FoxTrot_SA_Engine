@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "Player.h"
 
 Player::Player(int _id): Drawable(_id) {

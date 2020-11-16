@@ -1,5 +1,5 @@
 #pragma once
-#include "stdafx.h"
+#include "pch.h"
 #include "Glitch.h"
 #include "./Game/Level.h"
 #include "./Game/SpriteState.h"
@@ -54,9 +54,10 @@ void sceneTestSetup()
 
 	Level* testScene = new Level(100, WINDOW_HEIGHT, WINDOW_WIDTH*3, soundL1);
 
-	// TODO why this many heap allocations?
-
-	auto* object2 = new Player(PLAYER_ID);
+	Object* object2 = new Player(2);
+	testScene->setObjectToFollow(object2);
+	object2->setDensity(1);
+	object2->setJumpHeight(100);
 	object2->setStatic(false);
 	object2->setPositionX(800);
 	object2->setPositionY(100);
@@ -184,27 +185,34 @@ bool StopLoop(Event& event) {
 }
 
 int main() {
-	SceneSwitcher::get_instance().SetEngine(&engine);
-	sceneTestSetup();
-	MainMenu* mainMenu = new MainMenu(1);
-	SceneSwitcher::get_instance().RegisterScene("MAIN_MENU", mainMenu);
-	SceneSwitcher::get_instance().SwitchToScene("MAIN_MENU");
+	try {
+		SceneSwitcher::get_instance().SetEngine(&engine);
+		sceneTestSetup();
+		MainMenu *mainMenu = new MainMenu(1);
+		SceneSwitcher::get_instance().RegisterScene("MAIN_MENU", mainMenu);
+		SceneSwitcher::get_instance().SwitchToScene("MAIN_MENU");
 
-	EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(StopLoop);
+		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(StopLoop);
+		
+		bool gameRunning = true;
 
-	engine.startTickThreads();
-	while (gameRunning)
-	{
-		AppTickEvent60 appTick;
-		AppTickEvent30 appTick30;
+		engine.startTickThreads();
+		while (gameRunning)
+		{
+			AppTickEvent60 appTick;
+			AppTickEvent30 appTick30;
 
-		engine.pollEvents();
-		EventSingleton::get_instance().dispatchEvent<AppTickEvent60>(appTick);
-		EventSingleton::get_instance().dispatchEvent<AppTickEvent30>(appTick30);
+			engine.pollEvents();
+			EventSingleton::get_instance().dispatchEvent<AppTickEvent60>(appTick);
+			EventSingleton::get_instance().dispatchEvent<AppTickEvent30>(appTick30);
 
-		this_thread::sleep_for(chrono::milliseconds(10));
+			this_thread::sleep_for(chrono::milliseconds(10));
+		}
+		engine.stopTickThreads();
+
+		return 0;
+	} catch(int error) {
+		cout << ERRORCODES[error] << endl;
 	}
-	engine.stopTickThreads();
-
-	return 0;
+	
 }
