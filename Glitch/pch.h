@@ -19,6 +19,8 @@
 
 #include "api.h"
 
+#include "SceneSwitcher/SceneSwitcher.h"
+
 
 
 using namespace std;

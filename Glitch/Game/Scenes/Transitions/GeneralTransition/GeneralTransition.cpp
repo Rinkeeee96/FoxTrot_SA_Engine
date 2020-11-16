@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "GeneralTransition.h"
-#include "../../../SpriteState.h"
+#include "Game/SpriteState.h"
 
 /// @brief 
 /// Loads the background and sets the starttime of this scene;

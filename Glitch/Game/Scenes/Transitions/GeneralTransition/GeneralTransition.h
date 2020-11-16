@@ -1,6 +1,5 @@
 #pragma once
 #include "api.h"
-#include "../../../../SceneSwitcher/SceneSwitcher.h"
 
 #define TRANSITION_SCENE_DURATION_S		3
 
