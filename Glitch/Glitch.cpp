@@ -192,7 +192,7 @@ int main() {
 			engine.pollEvents();
 			EventSingleton::get_instance().dispatchEvent<AppTickEvent60>(appTick);
 			EventSingleton::get_instance().dispatchEvent<AppTickEvent30>(appTick30);
-
+			// TODO when removed the game speeds up and animations are wrong, find a fix 
 			this_thread::sleep_for(chrono::milliseconds(10));
 		}
 		engine.stopTickThreads();

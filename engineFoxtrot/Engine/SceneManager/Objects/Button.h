@@ -14,7 +14,6 @@ public:
 	{
 		setSize(200, 50);
 		setStatic(true);
-		isMouseOver = true;
 		EventSingleton::get_instance().setEventCallback<MouseButtonPressed>(BIND_EVENT_FN(Button::isClicked));
 		EventSingleton::get_instance().setEventCallback<MouseMovedEvent>(BIND_EVENT_FN(Button::mouseOver));
 	}
@@ -36,7 +35,6 @@ public:
 
 	bool mouseOver(Event& event);
 	bool isClicked(Event& event);
-
 private:
 	bool isEnabled = true;
 	bool isMouseOver = false;
