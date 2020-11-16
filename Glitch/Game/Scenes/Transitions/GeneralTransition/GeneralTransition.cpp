@@ -51,7 +51,7 @@ void GeneralTransition::LoadBackground()
 	progressBar->registerSprite(SpriteState::DEFAULT, PROGRESSBAR_EMPTY);
 	progressBar->changeToState(SpriteState::DEFAULT);
 
-	progressBarFiller = new Drawable(7);
+	auto* progressBarFiller = new Drawable(7);
 	progressBarFiller->setStatic(true);
 	progressBarFiller->setPositionX(616);
 	progressBarFiller->setPositionY(921);
@@ -60,7 +60,7 @@ void GeneralTransition::LoadBackground()
 	progressBarFiller->registerSprite(SpriteState::DEFAULT, PROGRESSBAR_FULL);
 	progressBarFiller->changeToState(SpriteState::DEFAULT);
 
-	animation = new Drawable(2);
+	auto* animation = new Drawable(2);
 	animation->setStatic(true);
 	animation->setPositionX(175);
 	animation->setPositionY(875);
