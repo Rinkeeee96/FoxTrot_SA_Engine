@@ -183,8 +183,6 @@ int main() {
 
 		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(StopLoop);
 		
-		bool gameRunning = true;
-
 		engine.startTickThreads();
 		while (gameRunning)
 		{
