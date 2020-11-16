@@ -97,6 +97,7 @@ void MainMenu::Start()
 void MainMenu::OnDetach()
 {
 	EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent("MENU_SOUND"));
+	Scene::OnDetach();
 }
 
 void MainMenu::OnStartBtnClick()
@@ -106,7 +107,7 @@ void MainMenu::OnStartBtnClick()
 }
 
 void MainMenu::OnStopBtnClick() {
-	auto event = WindowCloseEvent();
+	WindowCloseEvent event;
 	EventSingleton::get_instance().dispatchEvent<WindowCloseEvent>(event);
 }
 
