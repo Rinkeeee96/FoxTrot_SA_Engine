@@ -17,7 +17,6 @@ public:
 			}
 		}
 	}
-	// TODO move cpp
 	void construct(ILevelBuilder* builder);
 };
 

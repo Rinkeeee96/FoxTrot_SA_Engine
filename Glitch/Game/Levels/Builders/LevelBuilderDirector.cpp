@@ -14,7 +14,7 @@ void LevelBuilderDirector::construct(ILevelBuilder* builder) {
 
 	builder->loadTileSets(json);
 	builder->createLevel(json);
-	// TODO Use flatEntity
+
 	for (auto& [key, value] : json.items()) {
 		if (key == "layers") {
 			for (auto& [layerKey, layerValue] : value.items())
