@@ -77,7 +77,7 @@ void DeadScreen::LoadBackground() {
 }
 
 void DeadScreen::LoadMusic() {
-	EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent("DEAD_SOUND", "Assets/Sound/TremLoadingloopl.wav"));
+	EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent("DEAD_SOUND", "Assets/Sound/game_over_looped.wav"));
 }
 
 void DeadScreen::Start()
