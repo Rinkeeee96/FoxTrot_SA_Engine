@@ -1,9 +1,5 @@
-#include "MainMenu.h"
 #include "pch.h"
-#include "Events/Mouse/MousePressed.h"
-#include "Events/EventSingleton.h"
-#include "Events/Video/VideoLoadSpriteEvent.h"
-#include "SpriteState.h"
+#include "MainMenu.h"
 #include "Buttons/PrimaryButton.h"
 #include "Buttons/SecondaryButton.h"
 
