@@ -7,8 +7,16 @@ public:
 	Slime(const int id) : IEnemy(id) {}
 
 	virtual void onUpdate() override {
-		// TODO AI Logic
+		
 	};
+
+	void setYAxisVelocity(const float val) override {
+		if (this->getYAxisVelocity() == 0) {
+			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
+		}
+
+		Object::setYAxisVelocity(val);
+	}
 
 	virtual ICharacter* clone(int id) override { return new Slime(id); }
 };

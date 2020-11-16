@@ -56,7 +56,7 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 		object->setWidth(objectValue["width"]);
 		object->setRotation(objectValue["rotation"]);
 		object->setPositionX(objectValue["x"]);
-		object->setPositionY(objectValue["y"]);
+		object->setPositionY(objectValue["y"] + object->getHeight());
 		object->setStatic(false);
 
 		for (auto& [objectPropertyKey, objectPropertyValue] : objectValue["properties"].items())
@@ -102,7 +102,7 @@ void LevelBuilder::createBackground(nlohmann::json layerValue) {
 		int y = objectValue["y"];
 
 		TileSprite* sprite = textureMap[gid];
-		SpriteObject* tileSprite = new SpriteObject(currentTileId++, sprite->height, sprite->width, 1, 300, "Assets/Levels/Tiles/Grassland_Background.png");
+		SpriteObject* tileSprite = new SpriteObject(currentTileId++, sprite->height, sprite->width, 1, 300, sprite->path.c_str());
 		engine.loadSprite(*tileSprite);
 
 		tile->setWidth(width);
@@ -145,7 +145,7 @@ void LevelBuilder::createDecoration(nlohmann::json layerValue)
 			tile->setHeight(sprite->height);
 			tile->setStatic(true);
 			tile->setPositionX(currentX * mapTileWidth);
-			tile->setPositionY(currentY * mapTileHeight);
+			tile->setPositionY((currentY * mapTileHeight) + mapTileHeight);
 
 			tile->registerSprite(SpriteState::DEFAULT, tileSprite);
 			tile->changeToState(SpriteState::DEFAULT);
@@ -180,7 +180,7 @@ void LevelBuilder::createParticle(nlohmann::json layerValue)
 					part->registerSprite(SpriteState::DEFAULT, particle1Sprite);
 					part->changeToState(SpriteState::DEFAULT);
 					part->setPositionX(objectValue["x"]);
-					part->setPositionY(objectValue["y"]);
+					part->setPositionY(objectValue["y"] + particle1Sprite->getHeight());
 					part->setStyle((ParticleInit::ParticleStyle)type);
 					bLevel->addNewObjectToLayer(PARTICLE_LAYER_INDEX, part);
 				}
@@ -217,7 +217,7 @@ void LevelBuilder::createTiles(nlohmann::json layerValue) {
 			tile->setHeight(sprite->height);
 			tile->setStatic(true);
 			tile->setPositionX(currentX * mapTileWidth);
-			tile->setPositionY(currentY * mapTileHeight);
+			tile->setPositionY((currentY * mapTileHeight) + sprite->height);
 
 			tile->registerSprite(SpriteState::DEFAULT, tileSprite);
 			tile->changeToState(SpriteState::DEFAULT);
