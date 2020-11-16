@@ -37,6 +37,8 @@ public:
         }
     }
 
+
+    // TODO DOXY
     template<typename T>
     void unSubscribe(const EventCallbackFn& callbackToRemove) {
         static_assert(is_base_of<Event, T>::value, "unSubscribe Assert fail: Make sure the event that is fired and the Template Type is the same");
