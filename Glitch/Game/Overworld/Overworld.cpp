@@ -16,9 +16,9 @@ void Overworld::LoadButtons() {
 }
 
 void Overworld::LoadBackground() {
-	SpriteObject* BG_LAYER_0 = new SpriteObject(1000, 1080, 1920, 1, 1, "Assets/Overworld/World.png");
+	SpriteObject* BG_LAYER_0 = new SpriteObject(1010, 1080, 1920, 1, 1, "Assets/Overworld/World.png");
 
-	auto* layer0 = new Drawable(100);
+	auto* layer0 = new Drawable(1);
 	layer0->setStatic(true);
 	layer0->setPositionX(1);
 	layer0->setPositionY(1080);
@@ -26,6 +26,7 @@ void Overworld::LoadBackground() {
 	layer0->setHeight(1080);
 	layer0->registerSprite(SpriteState::DEFAULT, BG_LAYER_0);
 	layer0->changeToState(SpriteState::DEFAULT);
+	layer0->setScalable(false);
 
 	addNewObjectToLayer(0, layer0);
 }
