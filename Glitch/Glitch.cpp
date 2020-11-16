@@ -37,17 +37,6 @@ void sceneTestSetup()
 	SpriteObject* so6 = new SpriteObject(105, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_jump_left.png");
 	SpriteObject* so9 = new SpriteObject(108, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_jump_right.png");
 
-	engine.loadSprite(*so0);
-	engine.loadSprite(*so1);
-	engine.loadSprite(*so2);
-	engine.loadSprite(*so3);
-	engine.loadSprite(*so4);
-	engine.loadSprite(*so5);
-	engine.loadSprite(*so6);
-	engine.loadSprite(*so7);
-	engine.loadSprite(*so8);
-	engine.loadSprite(*so9);
-
 	map<string, string> soundL1 = {
 		{"Level_1_Sound", "Assets/Sound/file_example_WAV_1MG.wav"},
 	};
@@ -212,6 +201,7 @@ int main() {
 
 		return 0;
 	} catch(int error) {
+		cout << "ERROR OUT" << endl;
 		cout << ERRORCODES[error] << endl;
 	}
 	
