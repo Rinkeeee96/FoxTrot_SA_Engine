@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Scene.h"
 #include <SceneManager\Objects\Drawable.h>
+#include "../../../Glitch/Game/Buttons/PrimaryButton.h"
 
 /// @brief 
 /// @param sceneID 
@@ -132,8 +133,17 @@ void Scene::OnDetach()
 	for (auto& layerContainer : layers)
 	{
 		Layer* layer = layerContainer.second;
-		for (const auto& [id, object] : layer->objects)
-			delete object;
+		for (const auto& [id, object] : layer->objects) {
+			Button* button = dynamic_cast<Button*>(object);
+			if (button != nullptr)
+			{
+				delete button;
+			}
+			else {
+				delete object;
+			}
+
+		}
 		delete layer;
 	}
 	layers.clear();

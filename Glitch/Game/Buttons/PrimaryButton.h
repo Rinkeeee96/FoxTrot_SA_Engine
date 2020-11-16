@@ -10,11 +10,6 @@ public:
 		registerSprite(SpriteState::DEFAULT, mainSprite);
 		changeToState(SpriteState::DEFAULT);
 	}
-	~PrimaryButton() {
-		// TODO refactor sprite pointer to enforce ownership
-		delete currentSprite;
-	};
-
 private:
 
 };

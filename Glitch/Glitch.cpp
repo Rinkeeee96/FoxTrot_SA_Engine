@@ -181,6 +181,7 @@ int main() {
 	MainMenu* mainMenu = new MainMenu(1);
 	DeadScreen* deadScreen = new DeadScreen(2);
 	WinScreen* winScreen = new WinScreen(3);
+
 	SceneSwitcher::get_instance().RegisterScene("MAIN_MENU", mainMenu);
 	SceneSwitcher::get_instance().RegisterScene("DEAD_SCREEN", deadScreen);
 	SceneSwitcher::get_instance().RegisterScene("WIN_SCREEN", winScreen);
@@ -200,5 +201,8 @@ int main() {
 
 		this_thread::sleep_for(chrono::milliseconds(10));
 	}
-	
+
+	delete mainMenu;
+	delete deadScreen;
+	delete winScreen;	
 }
