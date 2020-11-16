@@ -182,7 +182,7 @@ int main() {
 		SceneSwitcher::get_instance().SwitchToScene("MAIN_MENU");
 
 		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(StopLoop);
-		
+
 		engine.startTickThreads();
 		while (gameRunning)
 		{
