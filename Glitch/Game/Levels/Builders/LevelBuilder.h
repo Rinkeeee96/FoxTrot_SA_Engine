@@ -2,6 +2,7 @@
 #include "Game/Levels/Builders/AbstractLevelBuilder.h"
 #include <Game\Levels\Builders\ParsedEntities\TileSprite.h>
 #include <Game\Factories\CharacterFactory.h>
+#include <Game\Factories\TriggerFactory.h>
 
 class LevelBuilder : public AbstractLevelBuilder {
 
@@ -21,6 +22,7 @@ class LevelBuilder : public AbstractLevelBuilder {
 
 private:
 	std::unique_ptr<CharacterFactory> characterFactory;
+	TriggerFactory triggerFactory;
 	FileLoader fileLoader;
 	map<int, TileSprite*> textureMap;
 	map<int, SpriteObject*> spriteMap;
@@ -43,6 +45,7 @@ public:
 	void createParticle(nlohmann::json layerValue) override;
 	void createTiles(nlohmann::json layerValue) override;
 	void loadTileSets(nlohmann::json json) override;
+	void createTriggers(nlohmann::json json) override;
 	void initFactory() override;
 	virtual void create() override;
 };

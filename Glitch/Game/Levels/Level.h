@@ -5,6 +5,7 @@
 #include "Events/Sound/OnMusicStartEvent.h"
 #include "Events\Sound\SoundAttachEvent.h"
 #include "Events\Sound\OnMusicStopEvent.h"
+#include "Game/Characters/ICharacter.h"
 
 /// @brief 
 /// Level class. Level has all the information. 

@@ -46,6 +46,8 @@ public:
 
 	void setRotatable(const bool val);
 	bool getRotatable() const;
+
+	Object& getObject() const { return *this->object; };
 protected:
 	int objectID = 0;
 	float height = 0;

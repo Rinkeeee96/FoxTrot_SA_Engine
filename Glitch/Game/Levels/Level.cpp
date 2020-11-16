@@ -40,7 +40,21 @@ void Level::start() {
 }
 
 void Level::onUpdate() {
+	for (auto obj : this->getAllObjectsInScene())
+	{
+		if (!obj->getStatic()) {
+			obj->onUpdate();
 
+			// TODO Refactor
+			if (ICharacter* d = dynamic_cast<ICharacter*>(obj)) {
+				if (d->getObjectId() == this->follow->getObjectId()) {
+					if (d->getIsDead()) {
+						throw std::exception("level done");
+					}
+				}
+			}
+		}
+	}
 }
 
 /// @brief

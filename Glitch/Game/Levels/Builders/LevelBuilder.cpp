@@ -2,7 +2,8 @@
 #include "LevelBuilder.h"
 
 LevelBuilder::LevelBuilder(Engine& _engine, int levelId) : AbstractLevelBuilder(_engine), bLevel(new Level(levelId, 0, 0)) {
-	
+	this->triggerFactory.registerTrigger("death", new DeathTrigger());
+	this->triggerFactory.registerTrigger("win", new WinTrigger());
 }
 
 void LevelBuilder::create() {
@@ -42,6 +43,28 @@ void LevelBuilder::createLevel(nlohmann::json json) {
 
 	characterFactory = std::make_unique<CharacterFactory>(engine, *bLevel);
 	this->initFactory();
+}
+
+void LevelBuilder::createTriggers(nlohmann::json layerValue) {
+	for (auto& [objectKey, objectValue] : layerValue["objects"].items())
+	{
+		TriggerBase* object = nullptr;
+		for (auto& [objectPropertyKey, objectPropertyValue] : objectValue["properties"].items())
+		{
+			if (objectPropertyValue["name"] == "type") {
+				string type = objectPropertyValue["value"];
+				object = triggerFactory.create(type, id++);
+			}
+		}
+
+		object->setHeight(objectValue["height"]);
+		object->setWidth(objectValue["width"]);
+		object->setPositionX(objectValue["x"]);
+		object->setPositionY(objectValue["y"] + object->getHeight());
+		object->setStatic(false);
+
+		bLevel->addNewObjectToLayer(ENTITY_LAYER_INDEX, object);
+	}
 }
 
 void LevelBuilder::createEntities(nlohmann::json layerValue) {

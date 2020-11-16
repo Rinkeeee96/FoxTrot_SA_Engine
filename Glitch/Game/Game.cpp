@@ -39,11 +39,8 @@ void Game::run() {
 		EventSingleton::get_instance().dispatchEvent<AppTickEvent30>(appTick30);
 
 		// TODO get only the non static objects, without looping thru them again and again
-		for (Object* obj : engine.getCurrentScene()->getAllObjectsInScene())
-		{
-			if(!obj->getStatic())
-				obj->onUpdate();
-		}
+		auto scene = engine.getCurrentScene();
+		scene->onUpdate();
 
 		this_thread::sleep_for(chrono::milliseconds(10));
 	}

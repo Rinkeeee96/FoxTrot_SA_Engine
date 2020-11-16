@@ -8,17 +8,17 @@
 class OnCollisionEvent : public Event
 {
 public:
-	API OnCollisionEvent(int _objectOneId, int _objectTwoId, const map<int, vector<Direction>> _directionMap) : 
-		objectOneId{ _objectOneId }, 
-		objectTwoId{ _objectTwoId }, 
+	API OnCollisionEvent(Object& _objectOne, Object& _objectTwo, const map<int, vector<Direction>> _directionMap) :
+		objectOne{ _objectOne },
+		objectTwo{ _objectTwo },
 		directionMap{ _directionMap }{};
 
 	/// @brief
 	/// The id of one of the objects where collision happend
-	API int GetObjectOneId() const { return objectOneId; }
+	API Object& GetObjectOne() const { return objectOne; }
 	/// @brief
 	/// The id of one of the objects where collision happend
-	API int GetObjectTwoId() const { return objectTwoId; }
+	API Object& GetObjectTwo() const { return objectTwo; }
 	/// @brief
 	/// Returns the eventType of a specific event
 	/// @return EventType
@@ -29,8 +29,8 @@ public:
 
 	API map<int, vector<Direction>> getDirectionMap() { return directionMap; };
 protected:
-	int objectOneId;
-	int objectTwoId;
+	Object& objectOne;
+	Object& objectTwo;
 	map<int, vector<Direction>> directionMap;
 };
 
@@ -38,8 +38,8 @@ protected:
 /// OnCollisionEvent is fired when a a collision ended
 class OnCollisionEndEvent : public OnCollisionEvent {
 public:
-	API OnCollisionEndEvent(int _objectOneId, int _objectTwoId, const map<int, vector<Direction>> _directionMap)
-		: OnCollisionEvent(_objectOneId, _objectTwoId, _directionMap) {};
+	API OnCollisionEndEvent(Object& _objectOne, Object& _objectTwo, const map<int, vector<Direction>> _directionMap)
+		: OnCollisionEvent(_objectOne, _objectTwo, _directionMap) {};
 
 	API virtual const char* GetName() const override { return "Collision end Event"; }
 	API EventType GetEventType() const override { return EventType::CollisionEnd; }
@@ -49,8 +49,8 @@ public:
 /// OnCollisionEvent is fired when a a collision started
 class OnCollisionBeginEvent : public OnCollisionEvent {
 public:
-	API OnCollisionBeginEvent(int _objectOneId, int _objectTwoId, const map<int, vector<Direction>> _directionMap)
-		: OnCollisionEvent(_objectOneId, _objectTwoId, _directionMap) {};
+	API OnCollisionBeginEvent(Object& _objectOne, Object& _objectTwo, const map<int, vector<Direction>> _directionMap)
+		: OnCollisionEvent(_objectOne, _objectTwo, _directionMap) {};
 
 	API virtual const char* GetName() const override { return "Collision begin Event"; }
 	API virtual EventType GetEventType() const override { return EventType::CollisionBegin; }
