@@ -8,15 +8,17 @@
 #include <Engine.h>
 #include <Game\Levels\Level.h>
 
+/// @brief 
+/// Factory for creating entities
 class CharacterFactory {
 private:
-	std::map<std::string, ICharacter*> characterMap;
-	std::map<std::string, std::map<SpriteState, SpriteObject*>> spriteObjectMap;
+	map<string, ICharacter*> characterMap;
+	map<string, map<SpriteState, SpriteObject*>> spriteObjectMap;
 	Engine& engine;
 	Level& level;
 public:
 	CharacterFactory(Engine& _engine, Level& _level);
 
-	void registerCharacter(std::string name, ICharacter* character, std::map<SpriteState, SpriteObject*> _spriteObjectMap);
-	ICharacter* create(std::string name, int id);
+	void registerCharacter(string name, ICharacter* character, map<SpriteState, SpriteObject*> _spriteObjectMap);
+	ICharacter* create(string name, int id);
 };

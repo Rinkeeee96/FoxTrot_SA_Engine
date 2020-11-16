@@ -7,6 +7,8 @@
 #include <Engine\FileParser\FileLoader.h>
 #include <nlohmann\json.hpp>
 
+/// @brief 
+/// Interface for a levelbuilder
 class ILevelBuilder
 {
 protected:

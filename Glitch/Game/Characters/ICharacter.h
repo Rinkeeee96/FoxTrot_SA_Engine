@@ -1,6 +1,8 @@
 #pragma once
 #include "Game/IGameObject.h"
 
+/// @brief 
+/// Character base class
 class ICharacter : public IGameObject  {
 public:
 	ICharacter() : IGameObject() {}

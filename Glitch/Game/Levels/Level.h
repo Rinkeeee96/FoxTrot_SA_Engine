@@ -8,7 +8,6 @@
 
 /// @brief 
 /// Level class. Level has all the information. 
-/// 
 class Level : public Scene
 {
 public:

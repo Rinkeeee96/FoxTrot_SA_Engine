@@ -2,6 +2,8 @@
 #include "Game/Levels/Builders/ILevelBuilder.h"
 #include <nlohmann\json.hpp>
 
+/// @brief 
+/// Builder director, creates a level using a builder
 class LevelBuilderDirector
 {
 private:

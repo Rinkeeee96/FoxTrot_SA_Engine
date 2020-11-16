@@ -13,7 +13,9 @@ Level::Level(const int id, const int _sceneHeight, const int _sceneWidth) : Scen
 {
 
 }
-
+// @brief 
+/// Register sounds by the level
+/// @param sound map 
 void Level::setSound(map<string, string> _sounds)
 {
 	sounds = _sounds;

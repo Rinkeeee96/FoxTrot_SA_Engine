@@ -1,9 +1,12 @@
 #include "pch.h"
 #include "LevelBuilderDirector.h"
 
-LevelBuilderDirector::LevelBuilderDirector(Engine& engine) {
-}
+LevelBuilderDirector::LevelBuilderDirector(Engine& engine) { }
 
+// @brief 
+/// Construcs a level using a jsonFile and the builder that should be used
+/// @param json 
+/// @param ILevelBuilder 
 void LevelBuilderDirector::construct(nlohmann::json json, ILevelBuilder* builder) {
 	builder->loadTileSets(json);
 	builder->createLevel(json);

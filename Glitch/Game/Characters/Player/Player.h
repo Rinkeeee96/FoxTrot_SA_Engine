@@ -20,7 +20,8 @@ public:
 	/// @brief 
 	/// Handles when an key pressed event happend, Player can move right, left and jump
 	bool onKeyPressed(Event& event);
-
+	// @brief 
+	/// Handles when an key released event happend, stop moving
 	bool onKeyReleased(Event& event);
 
 	void onUpdate() override {};

@@ -9,6 +9,9 @@ void LevelBuilder::create() {
 	level = unique_ptr<Level>(bLevel);
 }
 
+// @brief 
+/// Creates level scene
+/// @param json 
 void LevelBuilder::createLevel(nlohmann::json json) {
 	for (auto& [key, value] : json.items()) {
 		if (key == "properties") {
@@ -44,6 +47,9 @@ void LevelBuilder::createLevel(nlohmann::json json) {
 	this->initFactory();
 }
 
+// @brief 
+/// Creates entities objects and adds the entities to the level
+/// @param json 
 void LevelBuilder::createEntities(nlohmann::json layerValue) {
 	for (auto& [objectKey, objectValue] : layerValue["objects"].items())
 	{
@@ -93,6 +99,9 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 	}
 }
 
+// @brief 
+/// Creates background objects and background the tiles to the level
+/// @param json 
 void LevelBuilder::createBackground(nlohmann::json layerValue) {
 	for (auto& [objectKey, objectValue] : layerValue["objects"].items())
 	{
@@ -121,6 +130,9 @@ void LevelBuilder::createBackground(nlohmann::json layerValue) {
 	}
 }
 
+// @brief 
+/// Creates decoration objects and adds the decoration to the level
+/// @param json 
 void LevelBuilder::createDecoration(nlohmann::json layerValue)
 {
 	int currentX = 0;
@@ -164,7 +176,9 @@ void LevelBuilder::createDecoration(nlohmann::json layerValue)
 	}
 }
 
-// TODO fix particles
+// @brief 
+/// Creates particle objects and adds the particle to the level
+/// @param json 
 void LevelBuilder::createParticle(nlohmann::json layerValue)
 {
 	for (auto& [objectKey, objectValue] : layerValue["objects"].items())
@@ -193,6 +207,9 @@ void LevelBuilder::createParticle(nlohmann::json layerValue)
 	}
 }
 
+// @brief 
+/// Creates tile objects and adds the tiles to the level
+/// @param json 
 void LevelBuilder::createTiles(nlohmann::json layerValue) {
 	int currentX = 0;
 	int currentY = 0;
@@ -236,6 +253,9 @@ void LevelBuilder::createTiles(nlohmann::json layerValue) {
 	}
 }
 
+// @brief 
+/// Loads the tile set
+/// @param json 
 void LevelBuilder::loadTileSets(nlohmann::json json) {
 	for (auto& [key, value] : json.items()) {
 		if (key == "tilesets") {
@@ -272,6 +292,8 @@ void LevelBuilder::loadTileSets(nlohmann::json json) {
 	}
 }
 
+// @brief 
+/// Creates the characterfactory and registers sprites by the object, cant be done within Tiled
 void LevelBuilder::initFactory() {
 	auto tileTop = new SpriteObject(textureId++, 16, 16, 1, 300, "Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png");
 	auto playerDefault = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 1, 150, "Assets/Sprites/Character/adventure.png");

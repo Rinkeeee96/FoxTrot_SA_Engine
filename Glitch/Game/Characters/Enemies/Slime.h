@@ -1,6 +1,8 @@
 #pragma once
 #include "Game/Characters/Enemies/IEnemy.h"
 
+/// @brief 
+/// Slime class with correspondending AI logic
 class Slime : public IEnemy {
 public:
 	Slime() : IEnemy() {}

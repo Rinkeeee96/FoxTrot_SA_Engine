@@ -1,9 +1,11 @@
 #pragma once
 #include "Engine/SceneManager/Objects/Drawable.h"
 
+/// @brief 
+/// Gameobject base class
 class IGameObject : public Drawable {
 public:
-	IGameObject() : Drawable(-1) {}
+	IGameObject() : Drawable() {}
 	IGameObject(const int id) : Drawable(id) {}
 	virtual ~IGameObject() {}
 
