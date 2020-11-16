@@ -38,7 +38,7 @@ void VideoEngine::loadImage(const SpriteObject& spriteObject)
 
 /// @brief Sets the sprite on the screen
 /// @param Object 
-void VideoEngine::renderCopy(Object& object) {
+void VideoEngine::renderCopy(Drawable& object) {
 	videoFacade->renderCopy(object);
 }
 
@@ -146,19 +146,6 @@ void VideoEngine::updateScreen()
 	{
 		videoFacade->setXCameraOffset(0);
 		videoFacade->setYCameraOffset(0);
-	}
-
-	for (Object* obj : (*pointerToCurrentScene)->getAllObjectsInScene()) {
-		if (obj != nullptr) {
-			if (obj->getIsParticle())
-			{
-				drawParticle((ParticleAdapter*)obj);
-			}
-			else
-			{
-				renderCopy(*obj);
-			}
-		}
 	}
 }
 

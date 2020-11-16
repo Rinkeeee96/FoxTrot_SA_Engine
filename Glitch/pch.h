@@ -19,4 +19,9 @@
 
 #include "api.h"
 
+#include <Engine\Events\Sound\SoundAttachEvent.h>
+#include <Engine\Events\Sound\OnMusicStartEvent.h>
+#include <Engine\Events\Sound\OnMusicStopEvent.h>
+#include <Engine\Events\Window\WindowCloseEvent.h>
+
 using namespace std;
