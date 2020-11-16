@@ -48,6 +48,7 @@ void SceneManager::setCurrentScene(const int sceneID)
 
 	currentScene = getSceneWithID(sceneID);
 	currentScene->onAttach();
+	currentScene->start();
 	if (DEBUG_SCENE_MANAGER)cout << "Setting current scene to " << sceneID << " with amount of obj: " << currentScene->getAllObjectsInScene().size() << endl;
 }
 

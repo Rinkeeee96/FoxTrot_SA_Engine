@@ -1,6 +1,7 @@
 #pragma once
 
-#include "Object.h"
+#include "Objects/Object.h"
+#include "Objects/Drawable.h"
 #include "Layer.h"
 
 /// @brief 
@@ -17,6 +18,7 @@ public:
 	const bool API toggleLayer(const int zIndex, bool render);
 	const void API addNewObjectToLayer(const int zIndex, Object* object, bool renderPhysics = true);
 
+	vector<Drawable*> API getAllDrawablesInScene();
 	vector <Object*> API getAllObjectsInScene();
 	vector <Object*> getAllObjectsInSceneRenderPhysics();
 
@@ -36,7 +38,7 @@ public:
 	/// @brief
 	/// OnDetach is called when a scene is destroyed/closed and is responsible for cleanup
 	/// Must be implemented by a concrete implementation of a scene
-	virtual void onDetach() = 0;
+	API virtual void onDetach() = 0;
 
 	void setSceneWidth(const int width) { sceneWidth = width; }
 	int getSceneWidth() const { return sceneWidth; }
@@ -45,9 +47,32 @@ public:
 	int getSceneHeight() const { return sceneHeight; }
 
 	virtual void onUpdate() = 0;
+    
+	void setObjectToFollow(Object* obj) { objectToFollow = obj; }
+
+	/// @brief 
+	/// Returns the id of the object to follow
+	/// @return 
+	/// If no ObjectToFollow will return -1
+	int getObjectToFollowID() const 
+	{ 
+		if (objectToFollow != nullptr)
+		{
+			return objectToFollow->getObjectId();
+		}
+		else
+		{
+			return -1;
+		}
+		
+	}
+	Object getObjectToFollow() { return *objectToFollow; }
+
 private:
 	const int sceneID = 0;
 	map<int, Layer*> layers;
+
+	Object *objectToFollow = nullptr;
 
 	int sceneWidth = WINDOW_WIDTH;
 	int sceneHeight = WINDOW_HEIGHT;

@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Scene.h"
+#include <SceneManager\Objects\Drawable.h>
 
 /// @brief 
 /// @param sceneID 
@@ -51,6 +52,24 @@ const bool Scene::toggleLayer(const int zIndex, bool render)
 }
 
 /// @brief 
+/// Returns a filtered collection of all the drawables in the current scene TEMPORARY
+/// @return 
+vector <Drawable*> Scene::getAllDrawablesInScene()
+{
+	vector <Drawable*> returnVector;
+	for (auto layer : layers)
+	{
+		for (auto obj : layer.second->objects)
+		{
+			Drawable* drawable = dynamic_cast<Drawable*>(obj.second);
+			if (drawable != nullptr)
+				returnVector.push_back(drawable);
+		}
+	}
+	return returnVector;
+}
+
+/// @brief 
 /// Returns pointers to all available objects in the whole scene. 
 /// @return 
 vector <Object*> Scene::getAllObjectsInScene()
@@ -60,7 +79,10 @@ vector <Object*> Scene::getAllObjectsInScene()
 	{
 		for (auto obj : layer.second->objects)
 		{
-			returnVector.push_back(obj.second);
+			if (obj.second != nullptr)
+			{
+				returnVector.push_back(obj.second);
+			}
 		}
 	}
 	return returnVector;
@@ -117,4 +139,15 @@ Object * Scene::getObject(const int objectID)
 		}
 	}
 	throw ERROR_CODE_SCENE_NO_OBJECT_FOUND;
+}
+
+void Scene::OnDetach()
+{
+	for (auto& layerContainer : layers)
+	{
+		Layer* layer = layerContainer.second;
+		for (const auto& [id, object] : layer->objects)
+			delete object;
+		delete layer;
+	}
 }

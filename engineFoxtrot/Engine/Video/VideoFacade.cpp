@@ -73,12 +73,7 @@ void VideoFacade::clearScreen()
 /// Draws SDL screen
 void VideoFacade::drawScreen()
 {
-	try {
-		SDL_RenderPresent(renderer);
-	}
-	catch (...) {
-		std::cout << "ERR" << std::endl;
-	}
+	SDL_RenderPresent(renderer);
 }
 /// @brief 
 /// Load a animated sprite into the texturemap map
@@ -86,19 +81,23 @@ void VideoFacade::drawScreen()
 /// @param filename
 void VideoFacade::loadImage(const SpriteObject& spriteObject) {
 	if (spriteObject.getFileName() == NULL) throw std::exception(ERRORCODES[ERROR_CODE_SVIFACADE_FILENAME_IS_NULL]);
-		
+
+	int textureId = spriteObject.getTextureID();
+
+	if (textureMap[textureId] != nullptr)
+		return;
+
 	SDL_Surface* surface = IMG_Load(spriteObject.getFileName());
 	SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
 
-	int temp = spriteObject.getTextureID();
-	textureMap[temp] = texture;
+	textureMap[textureId] = texture;
 	SDL_FreeSurface(surface);
 }
 
 /// @brief 
 /// Takes the sprites from the Textuture map animated and copys them to the screen
 /// @param object 
-void VideoFacade::renderCopy(Object& object)
+void VideoFacade::renderCopy(Drawable& object)
 {	
 	SpriteObject& sprite = object.GetCurrentSprite();
 
@@ -129,7 +128,11 @@ void VideoFacade::renderCopy(Object& object)
 	destination.y = (int)object.getPositionY() - (int)object.getHeight() - yCameraOffset;
 	destination.w = (int)object.getWidth();
 	destination.h = (int)object.getHeight();
+
 	SDL_RenderCopyEx(renderer, textureMap[sprite.getTextureID()], &rect, &destination, object.getRotation(), NULL, SDL_FLIP_NONE);
+	// crude fix to draw text on top of a drawable, maybe fix with a callback function in the future, or a visitor?
+	if (object.toString() != nullptr)
+		drawMessageAt(*object.toString(), Position(destination.x, destination.y), ObjectSize(destination.w, destination.h));
 }
 
 /// @brief Function to draw Particles
@@ -144,7 +147,7 @@ void VideoFacade::renderCopy(Object& object)
 /// @param colorB 
 /// @param colorA 
 /// @param rotation 
-void VideoFacade::drawParticle(ParticleData data, int spriteID)
+void VideoFacade::drawParticle(const ParticleData& data, int spriteID)
 {
 	SDL_Rect r = { int(data.posx + data.startPosX - data.size / 2) - xCameraOffset, int(data.posy + data.startPosY - data.size / 2) - yCameraOffset, int(data.size), int(data.size) };
 	SDL_Color c = { Uint8(data.colorR * 255), Uint8(data.colorG * 255), Uint8(data.colorB * 255), Uint8(data.colorA * 255) };
@@ -159,31 +162,42 @@ void VideoFacade::drawParticle(ParticleData data, int spriteID)
 /// @param message
 /// A Message struct containing the message and the color of the message
 /// @param pos
+/// @param target
+/// the boundaries of the target that the text needs to be draw on top of
 /// A Position struct containing the position to draw the message at
-void VideoFacade::drawMessageAt(const FpsMessage message, const TextPosition pos)
+void VideoFacade::drawMessageAt(const ColoredText& message, const Position& pos, const ObjectSize& bounds)
 {
 	bool exists = std::filesystem::exists(FONT_PATH); // TODO dynamic fonts
-
+	// TODO check if message is in bounds
 	if (exists) {
 
-		SDL_Color Color = { message.red, message.green, message.blue };
-		SDL_Surface* surfaceMessage = TTF_RenderText_Solid(Sans, message.text.c_str(), Color);
-		SDL_Texture* Message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+		SDL_Color color = { message.color.red, message.color.green, message.color.blue };
+		SDL_Surface* surfaceMessage = TTF_RenderText_Solid(Sans, message.text.c_str(), color);
+		SDL_Texture* messageTexture = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 
-		SDL_Rect Message_rect;
+		int xPos, yPos;
 
-		// If the message doesn't fit the screen, make it fit the screen
-		int xPos = pos.xPos + MESSAGE_WIDTH > WINDOW_WIDTH ? WINDOW_WIDTH - MESSAGE_WIDTH : pos.xPos < 0 ? 0 : pos.xPos;
-		int yPos = pos.yPos + MESSAGE_HEIGHT > WINDOW_HEIGHT ? WINDOW_HEIGHT - MESSAGE_HEIGHT : pos.yPos < 0 ? 0 : pos.yPos;
+		SDL_Rect message_rect;
+		if (message.centered)
+		{
+			// TODO check width and height positioning relative to set x/y position	
+			xPos = pos.xPos + (bounds.width / 2) - MESSAGE_WIDTH / 2;
+			yPos = pos.yPos + (bounds.height / 2) - MESSAGE_HEIGHT / 2;
+		}
+		else {
+			// If the message doesn't fit the screen, make it fit the screen
+			xPos = pos.xPos + MESSAGE_WIDTH > WINDOW_WIDTH ? WINDOW_WIDTH - MESSAGE_WIDTH : pos.xPos < 0 ? 0 : pos.xPos;
+			yPos = pos.yPos + MESSAGE_HEIGHT > WINDOW_HEIGHT ? WINDOW_HEIGHT - MESSAGE_HEIGHT : pos.yPos < 0 ? 0 : pos.yPos;
+		}
 
-		Message_rect.x = xPos;
-		Message_rect.y = yPos;
-		Message_rect.w = MESSAGE_WIDTH;
-		Message_rect.h = MESSAGE_HEIGHT;
+		message_rect.x = xPos;
+		message_rect.y = yPos;
+		message_rect.w = MESSAGE_WIDTH;
+		message_rect.h = MESSAGE_HEIGHT;
 
-		SDL_RenderCopy(renderer, Message, NULL, &Message_rect);
+		SDL_RenderCopy(renderer, messageTexture, NULL, &message_rect);
 
 		SDL_FreeSurface(surfaceMessage);
-		SDL_DestroyTexture(Message);
+		SDL_DestroyTexture(messageTexture);
 	}
 }

@@ -14,7 +14,7 @@
 #define TIMESTEP_FRAMES 60.0f
 
 #define INCREASE_JUMP_SPEED 10
-#define GRAVITY_FALL 80.0f // So when I said gravity is (0,80) that means gravity is applied at a rate of 80 pixels along the y axis per second.
+#define GRAVITY_FALL 60.0f // So when I said gravity is (0,80) that means gravity is applied at a rate of 80 pixels along the y axis per second.
 #define GRAVITY_SCALE 0.0f
 
 #define X_AXIS_STATIC 0

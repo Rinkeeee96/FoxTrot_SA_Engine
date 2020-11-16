@@ -1,7 +1,7 @@
 #pragma once
 #include "Events/Event.h"
 #include "Events/Action/ActionEvent.h"
-#include "SceneManager/Object.h"
+#include "SceneManager/Objects/Object.h"
 
 /// @brief
 /// OnCollisionEvent base class of CollisionEnd and CollisionStart

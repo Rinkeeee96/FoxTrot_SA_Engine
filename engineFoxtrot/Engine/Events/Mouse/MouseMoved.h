@@ -27,6 +27,17 @@ public:
 		stream << "MouseMovedEvent: " << xPosition << ", " << yPosition;
 		return stream.str();
 	}
+
+
+
 private:
 	const float xPosition, yPosition;
+
+	/// @brief
+	/// Returns the eventType of a specific event
+	/// @return EventType
+	EventType GetEventType() const override { return EventType::MouseMoved; }
+	/// @brief
+	/// Returns the name of the event
+	const char* GetName() const override { return "MouseMovedEvent"; }
 };

@@ -28,11 +28,11 @@ public:
 	void clearScreen();
 	void drawScreen();
 	void loadImage(const SpriteObject& spriteObject);
-	void renderCopy(Object& object);
+	void renderCopy(Drawable& object);
 
-	void drawParticle(ParticleData data, int spriteID);
+	void drawParticle(const ParticleData& data, int spriteID);
 
-	void drawMessageAt(const FpsMessage message, const TextPosition pos);
+	void drawMessageAt(const ColoredText& message, const Position& pos, const ObjectSize& target);
 
 	unordered_map<int, SDL_Texture*> textureMap;
 

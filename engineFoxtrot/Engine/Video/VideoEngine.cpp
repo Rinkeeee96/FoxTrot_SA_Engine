@@ -18,28 +18,14 @@ VideoEngine::~VideoEngine()
 /// Clears the SDL screen
 void VideoEngine::clearScreen()
 {
-	try
-	{
-		videoFacade->clearScreen();
-	}
-	catch (int e)
-	{
-		cout << "An exception occurred. Exception Nr. " << ERRORCODES[e] << '\n';
-	}
+	videoFacade->clearScreen();
 }
 
 /// @brief 
 /// Draws the SDL screen
 void VideoEngine::drawScreen()
 {
-	try
-	{
-		videoFacade->drawScreen();
-	}
-	catch (int e)
-	{
-		cout << "An exception occurred. Exception Nr. " << ERRORCODES[e] << '\n';
-	}
+	videoFacade->drawScreen();
 }
 
 /// @brief Loads the PNG files AKA sprites
@@ -47,27 +33,13 @@ void VideoEngine::drawScreen()
 /// @param filename
 void VideoEngine::loadImage(const SpriteObject& spriteObject)
 {
-	try
-	{
-		videoFacade->loadImage(spriteObject);
-	}
-	catch (int e)
-	{
-		cout << "An exception occurred. Exception Nr. " << ERRORCODES[e] << '\n';
-	}
+	videoFacade->loadImage(spriteObject);
 }
 
 /// @brief Sets the sprite on the screen
 /// @param Object 
-void VideoEngine::renderCopy(Object& object) {
-	try
-	{
-		videoFacade->renderCopy(object);
-	}
-	catch (int e)
-	{
-		cout << "An exception occurred. Exception Nr. " << ERRORCODES[e] << '\n';
-	}
+void VideoEngine::renderCopy(Drawable& object) {
+	videoFacade->renderCopy(object);
 }
 
 /// @brief 
@@ -144,40 +116,43 @@ void VideoEngine::attachCamera(const int objectId)
 
 /// @brief 
 /// Update all the sprites on the screen
+/// Updates the camera offset
 void VideoEngine::updateScreen()
 {
-	try
+	if (pointerToCurrentScene == nullptr) return;
+	//if (pointerToObjectVector->capacity() <= 0) return;
+	if ((*pointerToCurrentScene)->getAllObjectsInScene().size() <= 0) return;
+
+	// Gets the object to follow with the camera. If no object is selected the camera will not move.
+	int objectIDToFollow = (*pointerToCurrentScene)->getObjectToFollowID();
+	if (objectIDToFollow != -1)
 	{
-		if (pointerToCurrentScene == nullptr) return;
-		//if (pointerToObjectVector->capacity() <= 0) return;
-		if ((*pointerToCurrentScene)->getAllObjectsInScene().size() <= 0) return;
-
-		calculateOffset(*(*pointerToCurrentScene)->getObject(cameraObjectId), (*pointerToCurrentScene)->getSceneWidth(), (*pointerToCurrentScene)->getSceneHeight());
-
-		for (Object* obj : (*pointerToCurrentScene)->getAllObjectsInScene()) {
-			if (obj != nullptr) {
-				if (obj->getIsParticle())
-				{
-					drawParticle((ParticleAdapter*)obj);
-				}
-				else
-				{
-					renderCopy(*obj);
-				}
-			}
-		}	
+		calculateOffset(*(*pointerToCurrentScene)->getObject(objectIDToFollow), (*pointerToCurrentScene)->getSceneWidth(), (*pointerToCurrentScene)->getSceneHeight());
 	}
-	catch (int e)
+	else
 	{
-		cout << "An exception occurred. Exception Nr. " << ERRORCODES[e] << '\n';
+		videoFacade->setXCameraOffset(0);
+		videoFacade->setYCameraOffset(0);
+	}
+
+	for (Drawable* obj : (*pointerToCurrentScene)->getAllDrawablesInScene()) {
+		if (obj != nullptr) {
+			if (obj->getIsParticle())
+			{
+				drawParticle((ParticleAdapter*)obj);
+			}
+			else
+			{
+				renderCopy(*obj);
+			}
+		}
 	}
 }
 
 /// @brief
 /// Calls the drawFps method with parameters for all calculated Fps types
 void VideoEngine::drawFps() {
-	//drawFps(FrameData::gameFps, FPS_X_POSITION, Y_POSITION_TOP_OF_SCREEN, "Game Fps: ");
-	drawFps(FrameData::renderFps, FPS_X_POSITION, FPS_Y_POSITION_OFFSET, "Fps: ");
+	drawFps(FrameData::renderFps, WINDOW_WIDTH, FPS_Y_POSITION_OFFSET, "Fps: ");
 }
 
 /// @brief
@@ -195,20 +170,21 @@ void VideoEngine::drawFps(double fps, int xPos, int yPos, const string& prefix =
 	stre << prefix << fps;
 	string str = stre.str();
 	if (shouldDrawFps) {
-		FpsMessage m(str, NO_RED, NO_BLUE, NO_GREEN);
-		TextPosition p(xPos, yPos);
-		videoFacade->drawMessageAt(m, p);
+		ColoredText m(str, Color(NO_RED, NO_BLUE, NO_GREEN), false);
+		Position p(xPos, yPos);
+		videoFacade->drawMessageAt(m, p, ObjectSize(WINDOW_WIDTH, WINDOW_HEIGHT));
 	}
 }
 
 /// @brief
 /// Toggles fps visibility
-void VideoEngine::toggleFps(Event& fpsEvent) {
+bool VideoEngine::toggleFps(Event& fpsEvent) {
 	shouldDrawFps = !shouldDrawFps;
+	return true;
 }
 
 /// @brief Handle the tick update from the thread
-void VideoEngine::receiveTick(Event& tickEvent)
+bool VideoEngine::receiveTick(Event& tickEvent)
 {
 	//tickEvent = static_cast<AppTickEvent&>(tickEvent);
 	frameData->startTimer();
@@ -218,11 +194,14 @@ void VideoEngine::receiveTick(Event& tickEvent)
 	drawFps();
 	drawScreen();
 	FrameData::renderFps = frameData->calculateAverageFps();
+
+	// do not handle on update events, they are continues
+	return false;
 }
 
 /// @brief Draws the Particles
 /// @param part pointer to the particle
-void VideoEngine::drawParticle(ParticleAdapter* part)
+bool VideoEngine::drawParticle(ParticleAdapter* part)
 {
 	vector<ParticleData> particleData = part->getParticleDataVector();
 	for (unsigned int index = 0; index < part->getParticleCount(); index++)
@@ -235,5 +214,6 @@ void VideoEngine::drawParticle(ParticleAdapter* part)
 		}
 		videoFacade->drawParticle(partData, part->GetCurrentSprite().getTextureID());
 	}
-
+	// do not handle on update events, they are continues
+	return false;
 }

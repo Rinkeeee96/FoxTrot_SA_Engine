@@ -16,7 +16,7 @@ PhysicsEngine::PhysicsEngine()
 
 /// @brief 
 /// Handles a ActionEvent and according to the given direction moves the object
-void PhysicsEngine::handleAction(Event& event) {
+bool PhysicsEngine::handleAction(Event& event) {
 	auto actionEvent = static_cast<ActionEvent&>(event);
 
 	auto direction = actionEvent.GetDirection();
@@ -25,15 +25,16 @@ void PhysicsEngine::handleAction(Event& event) {
 	{
 		case Direction::UP:
 			this->physicsFacade->Jump(objectId);
-		break;
+			return true;
 		case Direction::LEFT:
 			this->physicsFacade->MoveLeft(objectId);
-			break;
+			return true;
 		case Direction::RIGHT:
 			this->physicsFacade->MoveRight(objectId);
-			break;
+			return true;
 		default:
-			break;
+			// TODO what should handle action do when it fails? does the eventhandler need to continue?
+			return false;
 	}
 }
 
@@ -71,7 +72,7 @@ void PhysicsEngine::registerObjectInCurrentVectorWithPhysicsEngine()
 
 /// @brief 
 /// Handle the tick given from the thread. 
-void PhysicsEngine::update30(Event& tick30Event)
+bool PhysicsEngine::update30(Event& tick30Event)
 {
 	if (currentSceneID != (*pointerToCurrentScene)->getSceneID())
 	{
@@ -82,6 +83,9 @@ void PhysicsEngine::update30(Event& tick30Event)
 	}
 	//tick30Event = (AppTickEvent30&)tick30Event;
 	physicsFacade->update();
+
+	// do not handle the onupdate events, they are continuous
+	return false;
 }
 
 

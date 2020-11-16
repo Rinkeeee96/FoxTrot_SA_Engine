@@ -24,3 +24,6 @@
 #define FULL_RED 255
 #define FULL_BLUE 255
 #define FULL_GREEN 255
+
+
+#define PLAYER_ID			2
