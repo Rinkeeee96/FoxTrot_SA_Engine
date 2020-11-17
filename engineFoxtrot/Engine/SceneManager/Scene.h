@@ -45,11 +45,6 @@ public:
 	/// If any work needs to be done during a scene this is were to place it
 	virtual void update() = 0;
 
-	/// @brief
-	/// run is called in the main loop on the currentScene
-	/// If any work needs to be done during a scene this is were to place it
-	virtual void update() = 0;
-
 	void setSceneWidth(const int width) { sceneWidth = width; }
 	int getSceneWidth() const { return sceneWidth; }
 
