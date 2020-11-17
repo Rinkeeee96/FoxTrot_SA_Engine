@@ -46,6 +46,12 @@ public:
     template<typename T>
     void unSubscribe(const EventCallbackFn& callbackToRemove) {
         static_assert(is_base_of<Event, T>::value, "unSubscribe Assert fail: Make sure the event that is fired and the Template Type is the same");
+        string name;
+        if (handlerExists<T>(name)) {
+            for (const EventCallbackFn& registeredCallback : handlers.at(name))
+                if (addressof(callbackToRemove) == addressof(registeredCallback))
+                    handlers.erase(name);
+        }
     }
 
     /// @brief
