@@ -185,7 +185,6 @@ int main() {
 		Overworld* overWorld = new Overworld(7);
 		SceneSwitcher::get_instance().RegisterScene("OVERWORLD", overWorld);
 
-
 		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(StopLoop);
 
 		engine.startTickThreads();
