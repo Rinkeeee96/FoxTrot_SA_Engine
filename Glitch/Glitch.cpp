@@ -178,14 +178,17 @@ bool StopLoop(Event& event) {
 int main() {
 	SceneSwitcher::get_instance().SetEngine(&engine);
 	sceneTestSetup();
-	MainMenu* mainMenu = new MainMenu(1);
-	DeadScreen* deadScreen = new DeadScreen(2);
-	WinScreen* winScreen = new WinScreen(3);
 
+	MainMenu* mainMenu = new MainMenu(1);
 	SceneSwitcher::get_instance().RegisterScene("MAIN_MENU", mainMenu);
+	SceneSwitcher::get_instance().SwitchToScene("MAIN_MENU");
+
+	DeadScreen* deadScreen = new DeadScreen(7);
 	SceneSwitcher::get_instance().RegisterScene("DEAD_SCREEN", deadScreen);
-	SceneSwitcher::get_instance().RegisterScene("WIN_SCREEN", winScreen);
-	SceneSwitcher::get_instance().SwitchToScene("DEAD_SCREEN");
+
+	/*WinScreen* winScreen = new WinScreen(3);
+
+	SceneSwitcher::get_instance().RegisterScene("WIN_SCREEN", winScreen);*/
 
 	EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(StopLoop);
 
@@ -204,5 +207,5 @@ int main() {
 
 	delete mainMenu;
 	delete deadScreen;
-	delete winScreen;	
+	//delete winScreen;	
 }

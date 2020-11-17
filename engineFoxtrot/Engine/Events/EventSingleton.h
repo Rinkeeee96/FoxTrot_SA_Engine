@@ -1,6 +1,6 @@
 #pragma once
 #include "Event.h"
-
+#include <memory>
 using EventCallbackFn = function<bool(Event&)>;
 
 #define BIND_EVENT_FN(x) bind(&x, this, placeholders::_1)
@@ -23,16 +23,19 @@ public:
     /// @assert check wheter the type T and the Event fired is the same
     template<typename T>
     void dispatchEvent(Event& event) {
-        static_assert(is_base_of<Event, T>::value, "dispatchEvent Assert fail: Make sure the event that is fired and the Template Type is the same"); 
+        static_assert(is_base_of<Event, T>::value, "dispatchEvent Assert fail: Make sure the event that is fired and the Template Type is the same");
         string name;
         bool handled = false;
         if (handlerExists<T>(name)) {
             for (auto handler : handlers.at(name)) {
                 // TODO how should keypressed events be handled,
                 // e.g a key is pressed but 
-                if (!handled)
+                if (!handled) 
                     handled = handler(event);
-                else return;
+   
+                if (handled) 
+                    return;
+                    
             }
         }
     }
@@ -42,9 +45,18 @@ public:
         static_assert(is_base_of<Event, T>::value, "unSubscribe Assert fail: Make sure the event that is fired and the Template Type is the same");
         string name;
         if (handlerExists<T>(name)) {
-            for (const EventCallbackFn& registeredCallback : handlers.at(name))
-                if (addressof(callbackToRemove) == addressof(registeredCallback))  
-                    handlers.erase(name);
+            for (vector<EventCallbackFn>::iterator it = handlers[name].begin(); it < handlers[name].end();)
+            {
+                if (addressof(callbackToRemove) == addressof(*it))
+                    it = handlers[name].erase(it);
+                else
+                    it++;
+            }
+   
+            if (handlers[name].size() == 0)
+            {
+                handlers.erase(name);
+            }
         }
     }
 
