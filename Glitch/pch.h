@@ -25,10 +25,3 @@
 
 
 using namespace std;
-using namespace std;
-#include "SceneSwitcher/SceneSwitcher.h"
-
-
-#include "./Game/Overworld/Overworld.h"
-
-using namespace std;
