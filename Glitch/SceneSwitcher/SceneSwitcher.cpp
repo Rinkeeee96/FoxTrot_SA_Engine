@@ -28,6 +28,5 @@ void SceneSwitcher::runCurrentScene()
 {
 	if (activeScene == nullptr) return;
 
-	activeScene->update();
-
+	activeScene->onUpdate();
 }

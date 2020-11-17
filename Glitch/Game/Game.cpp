@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "Game.h"
-#include "SceneSwitcher/SceneSwitcher.h"
-#include "MainMenu.h"
+
 
 bool Game::stopRun(Event& event) {
 	gameRunning = false;
@@ -21,6 +20,9 @@ void Game::run() {
 	MainMenu* mainMenu = new MainMenu(sceneId++);
 	SceneSwitcher::get_instance().registerScene("MAIN_MENU", mainMenu);
 
+	GeneralTransition* generalTransitionScene = new GeneralTransition(160);
+	SceneSwitcher::get_instance().registerScene("GENERAL_TRANSITION_SCENE", generalTransitionScene);
+
 	levelLoader.load("Assets/Levels/Maps/Level1.json", &levelOneBuilder);
 	auto level = levelOneBuilder.getLevel();
 	SceneSwitcher::get_instance().registerScene("LEVEL_1", level);
@@ -39,11 +41,8 @@ void Game::run() {
 		EventSingleton::get_instance().dispatchEvent<AppTickEvent30>(appTick30);
 
 		// TODO get only the non static objects, without looping thru them again and again
-		for (Object* obj : engine.getCurrentScene()->getAllObjectsInScene())
-		{
-			if(!obj->getStatic())
-				obj->onUpdate();
-		}
+		auto scene = engine.getCurrentScene();
+		scene->onUpdate();
 
 		this_thread::sleep_for(chrono::milliseconds(10));
 	}

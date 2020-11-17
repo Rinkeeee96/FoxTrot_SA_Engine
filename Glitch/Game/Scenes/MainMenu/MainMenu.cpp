@@ -99,7 +99,7 @@ void MainMenu::onDetach()
 
 void MainMenu::onStartBtnClick()
 {
-	SceneSwitcher::get_instance().switchToScene("LEVEL_1");
+	//SceneSwitcher::get_instance().switchToScene("LEVEL_1");
 
 	SceneSwitcher::get_instance().switchToScene("GENERAL_TRANSITION_SCENE");
 
@@ -117,9 +117,4 @@ void MainMenu::onCreditsBtnClick() {
 
 void MainMenu::onLoadBtnClick() {
 	cout << "Start Load game BTN" << endl;
-}
-
-void MainMenu::update()
-{
-
 }

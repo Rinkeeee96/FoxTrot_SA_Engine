@@ -4,7 +4,7 @@
 
 /// @brief 
 /// Loads the background and sets the starttime of this scene;
-void GeneralTransition::OnAttach()
+void GeneralTransition::onAttach()
 {
 	loadBackground();
 	startTime = chrono::high_resolution_clock::now();
@@ -12,13 +12,13 @@ void GeneralTransition::OnAttach()
 }
 
 /// @brief 
-void GeneralTransition::OnDetach()
+void GeneralTransition::onDetach()
 {
 
 }
 
 /// @brief 
-void GeneralTransition::Start()
+void GeneralTransition::start()
 {
 
 }
@@ -27,13 +27,13 @@ void GeneralTransition::Start()
 /// Loads all the sprites 
 void GeneralTransition::loadBackground()
 {
-	SpriteObject* BG_LAYER_0 = new SpriteObject(1000, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_0.png");
-	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(1001, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png");
-	SpriteObject* BG_LAYER_2 = new SpriteObject(1002, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_2.png");
-	SpriteObject* PROGRESSBAR_EMPTY = new SpriteObject(1003, 24, 192, 1, 1, "Assets/LoadingBar/progress-bar-empty.png");
-	SpriteObject* PROGRESSBAR_FULL = new SpriteObject(1004, 24, 192, 1, 1, "Assets/LoadingBar/progress-bar-full.png");
+	SpriteObject* BG_LAYER_0 = new SpriteObject(-500, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_0.png");
+	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(-501, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png");
+	SpriteObject* BG_LAYER_2 = new SpriteObject(-502, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_2.png");
+	SpriteObject* PROGRESSBAR_EMPTY = new SpriteObject(-503, 24, 192, 1, 1, "Assets/LoadingBar/progress-bar-empty.png");
+	SpriteObject* PROGRESSBAR_FULL = new SpriteObject(-504, 24, 192, 1, 1, "Assets/LoadingBar/progress-bar-full.png");
 
-	auto* layer0 = new Drawable(1);
+	auto* layer0 = new Drawable(-505);
 	layer0->setStatic(true);
 	layer0->setPositionX(1);
 	layer0->setPositionY(1080);
@@ -42,7 +42,7 @@ void GeneralTransition::loadBackground()
 	layer0->registerSprite(SpriteState::DEFAULT, BG_LAYER_0);
 	layer0->changeToState(SpriteState::DEFAULT);
 
-	auto* progressBar = new Drawable(6);
+	auto* progressBar = new Drawable(-506);
 	progressBar->setStatic(true);
 	progressBar->setPositionX(585);
 	progressBar->setPositionY(950);
@@ -51,7 +51,7 @@ void GeneralTransition::loadBackground()
 	progressBar->registerSprite(SpriteState::DEFAULT, PROGRESSBAR_EMPTY);
 	progressBar->changeToState(SpriteState::DEFAULT);
 
-	progressBarFiller = new Drawable(7);
+	progressBarFiller = new Drawable(-507);
 	progressBarFiller->setStatic(true);
 	progressBarFiller->setPositionX(616);
 	progressBarFiller->setPositionY(921);
@@ -60,7 +60,7 @@ void GeneralTransition::loadBackground()
 	progressBarFiller->registerSprite(SpriteState::DEFAULT, PROGRESSBAR_FULL);
 	progressBarFiller->changeToState(SpriteState::DEFAULT);
 
-	animation = new Drawable(2);
+	animation = new Drawable(-508);
 	animation->setStatic(true);
 	animation->setPositionX(175);
 	animation->setPositionY(875);
@@ -70,7 +70,7 @@ void GeneralTransition::loadBackground()
 	animation->changeToState(SpriteState::DEFAULT);
 	animation->setScalable(false);
 
-	auto* layer2 = new Drawable(3);
+	auto* layer2 = new Drawable(-509);
 	layer2->setStatic(true);
 	layer2->setPositionX(1);
 	layer2->setPositionY(1080);
@@ -90,7 +90,7 @@ void GeneralTransition::loadBackground()
 /// Runs the scene.
 /// Calculates every 0.5s and random nr between 1 and 150 to increase the loading bar with. 
 /// Also sets the loading bar. 
-void GeneralTransition::update()
+void GeneralTransition::onUpdate()
 {
 	// Todo
 	// Define
@@ -124,10 +124,8 @@ void GeneralTransition::update()
 		animation->setPositionX(animation->getPositionX() + 20);
 		if (animation->getPositionX() > WINDOW_WIDTH)
 		{
-			SceneSwitcher::get_instance().SwitchToScene("GAME");
+			SceneSwitcher::get_instance().switchToScene("LEVEL_1");
 		}
 		previousCallTime = chrono::high_resolution_clock::now();
-
 	}
-
 }
