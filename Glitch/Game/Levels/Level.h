@@ -23,7 +23,11 @@ public:
 	virtual void pause();
 	virtual void onDetach() override;
 	virtual void onUpdate() override;
+
+	void setWin(const bool val) { this->win = val; }
 private:
 	map<string, string> sounds;
 	Object* follow;
+
+	bool win = false;
 };

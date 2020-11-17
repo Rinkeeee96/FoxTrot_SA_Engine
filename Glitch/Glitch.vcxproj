@@ -178,7 +178,9 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Buttons\PrimaryButton.h" />
     <ClInclude Include="Game\Buttons\SecondaryButton.h" />
     <ClInclude Include="Game\MainMenu.h" />
+    <ClInclude Include="Game\Triggers\DeathTrigger.h" />
     <ClInclude Include="Game\Triggers\TriggerBase.h" />
+    <ClInclude Include="Game\Triggers\WinTrigger.h" />
     <ClInclude Include="Glitch.h" />
     <ClInclude Include="Game\Levels\Level.h" />
     <ClInclude Include="Game\SpriteState.h" />

@@ -3,6 +3,8 @@
 #include <Game\Levels\Builders\ParsedEntities\TileSprite.h>
 #include <Game\Factories\CharacterFactory.h>
 #include <Game\Factories\TriggerFactory.h>
+#include "Game/Triggers/WinTrigger.h"
+#include "Game/Triggers/DeathTrigger.h"
 
 class LevelBuilder : public AbstractLevelBuilder {
 

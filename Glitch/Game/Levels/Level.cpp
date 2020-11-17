@@ -40,6 +40,11 @@ void Level::start() {
 }
 
 void Level::onUpdate() {
+	if (this->win) {
+		// TODO Win screen
+		throw std::exception("win");
+	}
+
 	for (auto obj : this->getAllObjectsInScene())
 	{
 		if (!obj->getStatic()) {
@@ -49,6 +54,7 @@ void Level::onUpdate() {
 			if (ICharacter* d = dynamic_cast<ICharacter*>(obj)) {
 				if (d->getObjectId() == this->follow->getObjectId()) {
 					if (d->getIsDead()) {
+						// TODO Death screen
 						throw std::exception("level done");
 					}
 				}

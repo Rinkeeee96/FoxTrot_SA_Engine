@@ -90,6 +90,12 @@
     <ClInclude Include="Game\Factories\TriggerFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Triggers\WinTrigger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Triggers\DeathTrigger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Glitch.cpp">

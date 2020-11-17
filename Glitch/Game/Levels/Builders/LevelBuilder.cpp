@@ -2,8 +2,6 @@
 #include "LevelBuilder.h"
 
 LevelBuilder::LevelBuilder(Engine& _engine, int levelId) : AbstractLevelBuilder(_engine), bLevel(new Level(levelId, 0, 0)) {
-	this->triggerFactory.registerTrigger("death", new DeathTrigger());
-	this->triggerFactory.registerTrigger("win", new WinTrigger());
 }
 
 void LevelBuilder::create() {
@@ -41,6 +39,8 @@ void LevelBuilder::createLevel(nlohmann::json json) {
 	bLevel->setSceneWidth(bLevel->getSceneWidth() * this->mapTileWidth);
 	bLevel->setSceneHeight(bLevel->getSceneHeight() * this->mapTileHeight);
 
+	this->triggerFactory.registerTrigger("death", new DeathTrigger());
+	this->triggerFactory.registerTrigger("win", new WinTrigger(*bLevel));
 	characterFactory = std::make_unique<CharacterFactory>(engine, *bLevel);
 	this->initFactory();
 }
@@ -208,7 +208,7 @@ void LevelBuilder::createParticle(nlohmann::json layerValue)
 					part->setPositionY(objectValue["y"] + particle1Sprite->getHeight());
 					part->setStyle((ParticleInit::ParticleStyle)type);
 					bLevel->addNewObjectToLayer(PARTICLE_LAYER_INDEX, part);
-				}
+			}
 			else {
 				throw std::exception(GAME_ERRORCODES[INVALID_TYPE]);
 			}
