@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "MainMenu.h"
-#include "Buttons/PrimaryButton.h"
-#include "Buttons/SecondaryButton.h"
+#include "Game/Buttons/PrimaryButton.h"
+#include "Game/Buttons/SecondaryButton.h"
 
 #define BIND_FN(function) std::bind(&MainMenu::function, *this)
 
@@ -94,7 +94,7 @@ void MainMenu::OnDetach()
 
 void MainMenu::OnStartBtnClick()
 {
-	SceneSwitcher::get_instance().SwitchToScene("GAME");
+	SceneSwitcher::get_instance().SwitchToScene("GENERAL_TRANSITION_SCENE");
 	cout << "Start BTN" << endl;
 }
 
@@ -109,4 +109,9 @@ void MainMenu::OnCreditsBtnClick() {
 
 void MainMenu::OnLoadBtnClick() {
 	cout << "Start Load game BTN" << endl;
+}
+
+void MainMenu::update()
+{
+
 }
