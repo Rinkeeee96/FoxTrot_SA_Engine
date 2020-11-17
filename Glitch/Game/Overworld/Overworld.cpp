@@ -59,6 +59,10 @@ void Overworld::Start()
 
 }
 
+void Overworld::update()
+{
+}
+
 void Overworld::OnDetach()
 {
 	Scene::OnDetach();

@@ -14,6 +14,7 @@ public:
 	void OnLevel1BtnClick();
 	void OnLevel2BtnClick();
 	void Start() override;
+	virtual void update() override;
 
 private:
 	void LoadBackground();

@@ -4,9 +4,9 @@
 #include "./Game/Level.h"
 #include "./Game/SpriteState.h"
 #include "./Game/Player/Player.h"
-#include "Game/MainMenu.h"
 #include <Engine\Events\Window\WindowCloseEvent.h>
 #include "SceneSwitcher/SceneSwitcher.h"
+#include "Game/Scenes/Scenes.h"
 
 // TODO engine.h & engine.cpp
 
@@ -195,6 +195,9 @@ int main() {
 			AppTickEvent30 appTick30;
 
 			engine.pollEvents();
+
+			SceneSwitcher::get_instance().runCurrentScene();
+
 			EventSingleton::get_instance().dispatchEvent<AppTickEvent60>(appTick);
 			EventSingleton::get_instance().dispatchEvent<AppTickEvent30>(appTick30);
 			// TODO when removed the game speeds up and animations are wrong, find a fix 

@@ -15,6 +15,7 @@ public:
 	virtual void Start() override;
 	virtual void Pause();
 	virtual void OnDetach() override;
+	virtual void update() override;
 private:
 	map<string, string> sounds;
 };
