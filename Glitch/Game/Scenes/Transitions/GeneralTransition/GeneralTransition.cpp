@@ -83,7 +83,7 @@ void GeneralTransition::loadBackground()
 	addNewObjectToLayer(1, animation);
 	addNewObjectToLayer(2, layer2);
 	addNewObjectToLayer(3, progressBar);
-	addNewObjectToLayer(3, progressBarFiller);
+	addNewObjectToLayer(4, progressBarFiller);
 }
 
 /// @brief 
