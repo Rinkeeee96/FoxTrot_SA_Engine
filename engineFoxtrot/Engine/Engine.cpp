@@ -30,6 +30,11 @@ void Engine::setCurrentScene(const int sceneID)
 	sceneManager.setCurrentScene(sceneID);
 }
 
+Scene* Engine::getCurrentScene()
+{
+	return sceneManager.currentScene;
+}
+
 /// @brief 
 void Engine::pollEvents() 
 {
@@ -45,32 +50,32 @@ void Engine::insertScene(Scene* scene)
 
 /// @brief 
 /// Thread that gives a tick 60 times per second
-void Engine::engineTick60()
-{
-	cout << "Thread started" << endl;
-	while (!stopThreadTick60){
-		frameData->startTimer();
-		this_thread::sleep_for(chrono::milliseconds(ENGINE_TICK60));		
-		AppTickEvent60 appTick;
-		EventSingleton::get_instance().dispatchEvent<AppTickEvent60>(appTick);
-		FrameData::gameFps = frameData->calculateAverageFps();
-	}
-
-	cout << "Thread killed 60" << endl;
-}
+//void Engine::engineTick60()
+//{
+//	cout << "Thread started" << endl;
+//	while (!stopThreadTick60){
+//		frameData->startTimer();
+//		this_thread::sleep_for(chrono::milliseconds(ENGINE_TICK60));		
+//		AppTickEvent60 appTick;
+//		EventSingleton::get_instance().dispatchEvent<AppTickEvent60>(appTick);
+//		FrameData::gameFps = frameData->calculateAverageFps();
+//	}
+//
+//	cout << "Thread killed 60" << endl;
+//}
 
 /// @brief 
 /// Thread that gives a tick 30 times per second
-void Engine::engineTick30()
-{
-	cout << "Thread started" << endl;
-	while (!stopThreadTick30) {
-		this_thread::sleep_for(chrono::milliseconds(ENGINE_TICK30));
-		AppTickEvent30 appTick;
-		EventSingleton::get_instance().dispatchEvent<AppTickEvent30>(appTick);
-	}
-	cout << "Thread killed 30" << endl;
-}
+//void Engine::engineTick30()
+//{
+//	cout << "Thread started" << endl;
+//	while (!stopThreadTick30) {
+//		this_thread::sleep_for(chrono::milliseconds(ENGINE_TICK30));
+//		AppTickEvent30 appTick;
+//		EventSingleton::get_instance().dispatchEvent<AppTickEvent30>(appTick);
+//	}
+//	cout << "Thread killed 30" << endl;
+//}
 
 /// @brief 
 /// Start the 2 threads. 
@@ -102,6 +107,17 @@ void Engine::loadSprite(const SpriteObject& spriteObject) {
 	if (!exists)
 		throw ERROR_CODE_IMAGE_FILE_NOT_FOUND;
 	videoEngine.loadImage(spriteObject);
+}
+
+
+void Engine::loadSound(const string& identifier, const string& path)
+{
+	this->soundEngine.AddFile(identifier, path);
+}
+
+void Engine::loadSound(map<string, string> sounds)
+{
+	this->soundEngine.SetFiles(sounds);
 }
 
 

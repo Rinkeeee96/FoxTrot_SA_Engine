@@ -18,17 +18,17 @@ bool InputEngine::onKeyPressed(Event& event) {
 
 	switch (keyPressedEvent.GetKeyCode())
 	{
-		case KeyCode::KEY_F12:
-			EventSingleton::get_instance().dispatchEvent<FpsToggleEvent>((Event&)FpsToggleEvent());
-			return true;
+	case KeyCode::KEY_F1:
+		EventSingleton::get_instance().dispatchEvent<FpsToggleEvent>((Event&)FpsToggleEvent());
+        return true;
 		case KeyCode::KEY_F4: {
 			WindowCloseEvent event;
 			EventSingleton::get_instance().dispatchEvent<WindowCloseEvent>(event);
-			return true;
-		}
-		default:
-			return false;
-	}
+        return true;
+	    }
+    default:
+        return false;
+    }
 }
 
 void InputEngine::pollEvents() {

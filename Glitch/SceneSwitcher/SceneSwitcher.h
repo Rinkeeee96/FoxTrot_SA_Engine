@@ -12,9 +12,9 @@ public:
     SceneSwitcher& operator=(const SceneSwitcher&) = delete;
     SceneSwitcher& operator=(SceneSwitcher&&) = delete;
 
-    void RegisterScene(string const identifier, Scene* scene);
-    void SwitchToScene(string const identifier);
-    void SetEngine(Engine* _engine) { engine = _engine; }
+    void registerScene(string const identifier, Scene* scene);
+    void switchToScene(string const identifier);
+    void setEngine(Engine* _engine) { engine = _engine; }
     void runCurrentScene();
 
 private:

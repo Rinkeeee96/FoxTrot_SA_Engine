@@ -3,13 +3,13 @@
 SceneSwitcher SceneSwitcher::instance;
 
 
-void SceneSwitcher::RegisterScene(string identifier, Scene* scene) {
+void SceneSwitcher::registerScene(string identifier, Scene* scene) {
 	if (scene == nullptr)return;
 	engine->insertScene(scene);
 	scenes.insert(pair<string, Scene*>(identifier, scene));
 }
 
-void SceneSwitcher::SwitchToScene(string const identifier) {
+void SceneSwitcher::switchToScene(string const identifier) {
 	auto scene = scenes.find(identifier);
 	if (scene == scenes.end()) 
 		return;
@@ -17,7 +17,7 @@ void SceneSwitcher::SwitchToScene(string const identifier) {
 	engine->setCurrentScene(scene->second->getSceneID());
 	// Detach the old now inactive scene
 	if (activeScene != nullptr)
-		activeScene->OnDetach();
+		activeScene->onDetach();
 	// Set the new scene active
 	activeScene = scene->second;
 }
@@ -28,6 +28,5 @@ void SceneSwitcher::runCurrentScene()
 {
 	if (activeScene == nullptr) return;
 
-	activeScene->update();
-
+	activeScene->onUpdate();
 }

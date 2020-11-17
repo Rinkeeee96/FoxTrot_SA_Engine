@@ -10,10 +10,10 @@ public:
 	~GeneralTransition() {};
 
 	// Inherited via Scene
-	virtual void OnAttach() override;
-	virtual void OnDetach() override;
-	virtual void Start() override;
-	virtual void update() override;
+	virtual void onAttach() override;
+	virtual void onDetach() override;
+	virtual void start() override;
+	virtual void onUpdate() override;
 
 private:
 	void loadBackground();

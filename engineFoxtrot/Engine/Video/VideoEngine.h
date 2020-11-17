@@ -53,6 +53,8 @@ public:
 
 	void calculateOffset(Object& obj, int sceneWidth, int sceneHeight);
 
+	void attachCamera(const int objectId);
+
 	Scene** pointerToCurrentScene = nullptr;
 
 private:
@@ -61,6 +63,5 @@ private:
 	FrameData* frameData = nullptr;
 	bool shouldDrawFps = false;
 
-
-
+	int cameraObjectId = -1;
 };
