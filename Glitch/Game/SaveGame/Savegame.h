@@ -1,4 +1,5 @@
 #pragma once
+#include <nlohmann\json.hpp>
 
 // Maybe also singleton class?
 class Inventory;
@@ -48,13 +49,15 @@ public:
 
 	bool saveGameDataToJsonFile();
 	bool readSaveGameDataFromJson(string& path);
+	map<int, SaveGameData*> saveGameDataMap;
 
 private:
 	static Savegame instance;
 	Savegame() {};
 
-	map<int, SaveGameData*> saveGameDataMap;
+	FileLoader fileLoader;
 
+	void parseJsonToMap(nlohmann::json json);
 
 
 

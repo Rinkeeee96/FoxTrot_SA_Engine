@@ -30,6 +30,16 @@ void Game::run() {
 	SceneSwitcher::get_instance().switchToScene("MAIN_MENU");
 	EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
 
+	SaveGameData *data = new SaveGameData;
+	data->achievements.push_back("Take inventory");
+	data->saveGameName = "name";
+	data->totalScore = 100;
+
+	Savegame::get_instance().saveGameDataMap[1] = data;
+
+
+	Savegame::get_instance().saveGameDataToJsonFile();
+
 	engine.startTickThreads();
 	while (gameRunning)
 	{

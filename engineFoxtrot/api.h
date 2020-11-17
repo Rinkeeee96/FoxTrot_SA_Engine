@@ -31,3 +31,5 @@
 #include "SceneManager/Objects/Drawable.h"
 // ----- main engine --------------------
 #include "Engine/Engine.h"
+// ----- File Loader -----------------------
+#include "FileParser\FileLoader.h"
