@@ -124,7 +124,7 @@ void GeneralTransition::update()
 		animation->setPositionX(animation->getPositionX() + 20);
 		if (animation->getPositionX() > WINDOW_WIDTH)
 		{
-			SceneSwitcher::get_instance().SwitchToScene("GAME");
+			SceneSwitcher::get_instance().SwitchToScene("OVERWORLD");
 		}
 		previousCallTime = chrono::high_resolution_clock::now();
 
