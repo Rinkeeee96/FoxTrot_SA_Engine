@@ -46,6 +46,9 @@ public:
 	Savegame& operator=(const Savegame&) = delete;
 	Savegame& operator=(Savegame&&) = delete;
 
+	bool saveGameDataToJsonFile();
+	bool readSaveGameDataFromJson(string& path);
+
 private:
 	static Savegame instance;
 	Savegame() {};

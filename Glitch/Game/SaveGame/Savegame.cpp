@@ -3,3 +3,13 @@
 
 
 Savegame Savegame::instance;
+
+bool Savegame::saveGameDataToJsonFile()
+{
+	return false;
+}
+
+bool Savegame::readSaveGameDataFromJson(string& path)
+{
+	return false;
+}
