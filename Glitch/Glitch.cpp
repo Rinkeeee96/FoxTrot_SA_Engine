@@ -177,12 +177,14 @@ int main() {
 	try {
 		SceneSwitcher::get_instance().SetEngine(&engine);
 		sceneTestSetup();
+
 		MainMenu *mainMenu = new MainMenu(1);
 		SceneSwitcher::get_instance().RegisterScene("MAIN_MENU", mainMenu);
 		SceneSwitcher::get_instance().SwitchToScene("MAIN_MENU");
 
 		Overworld* overWorld = new Overworld(7);
 		SceneSwitcher::get_instance().RegisterScene("OVERWORLD", overWorld);
+
 
 		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(StopLoop);
 

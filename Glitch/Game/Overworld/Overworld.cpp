@@ -43,6 +43,7 @@ void Overworld::LoadBackground() {
 void Overworld::LoadMusic() {
 
 }
+
 void Overworld::Start()
 {
 
@@ -59,7 +60,7 @@ void Overworld::OnStartBtnClick()
 }
 
 void Overworld::OnStopBtnClick() {
-
+	SceneSwitcher::get_instance().SwitchToScene("MAIN_MENU");
 }
 
 void Overworld::OnCreditsBtnClick() {
