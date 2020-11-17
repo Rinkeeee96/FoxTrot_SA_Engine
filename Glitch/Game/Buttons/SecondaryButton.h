@@ -10,7 +10,4 @@ public:
 		registerSprite(SpriteState::DEFAULT, mainSprite);
 		changeToState(SpriteState::DEFAULT);
 	}
-
-private:
-
 };
