@@ -19,6 +19,13 @@
 
 #include "api.h"
 
+
+#include "./Game/Overworld/Overworld.h"
+#include "SceneSwitcher/SceneSwitcher.h"
+
+
+using namespace std;
+using namespace std;
 #include "SceneSwitcher/SceneSwitcher.h"
 
 

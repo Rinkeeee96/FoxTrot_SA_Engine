@@ -177,6 +177,7 @@ int main() {
 	try {
 		SceneSwitcher::get_instance().SetEngine(&engine);
 		sceneTestSetup();
+
 		MainMenu *mainMenu = new MainMenu(1);
 		SceneSwitcher::get_instance().RegisterScene("MAIN_MENU", mainMenu);
 		SceneSwitcher::get_instance().SwitchToScene("MAIN_MENU");

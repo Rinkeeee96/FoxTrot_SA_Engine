@@ -31,12 +31,12 @@ void MainMenu::LoadButtons() {
 	creditsBtn->setPositionY(CENTER_Y - creditsBtn->getHeight() / 2 + 200);
 	creditsBtn->disable();
 
-	//Button* stopBtn = new SecondaryButton(2, "Stop", BIND_FN(OnStopBtnClick));
-	//stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
-	//stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
+	Button* stopBtn = new SecondaryButton(2, "Stop", BIND_FN(OnStopBtnClick));
+	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
+	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
 	addNewObjectToLayer(3, startBtn);
-	//addNewObjectToLayer(3, stopBtn);
+	addNewObjectToLayer(3, stopBtn);
 	addNewObjectToLayer(3, loadBtn);
 	addNewObjectToLayer(3, creditsBtn);
 }

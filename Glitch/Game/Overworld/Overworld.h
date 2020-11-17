@@ -9,9 +9,13 @@ public:
 	Overworld(const int id) : Scene(id, WINDOW_HEIGHT, WINDOW_WIDTH) {};
 	~Overworld();
 	// Inherited via Scene
-	virtual void OnAttach() override;
-	virtual void OnDetach() override;
-	virtual void Start() override;
+	void OnAttach() override;
+	void OnDetach() override;
+	void OnLevel1BtnClick();
+	void OnLevel2BtnClick();
+	void Start() override;
+	virtual void update() override;
+
 private:
 	void LoadBackground();
 	void LoadMusic();
