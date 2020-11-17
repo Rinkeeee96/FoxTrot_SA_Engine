@@ -27,7 +27,7 @@ void MainMenu::LoadButtons() {
 	creditsBtn->setPositionX(CENTER_X - creditsBtn->getWidth() / 2);
 	creditsBtn->setPositionY(CENTER_Y - creditsBtn->getHeight() / 2 + 200);
 
-	Button*  stopBtn = new PrimaryButton(2, "Stop", BIND_FN(OnStopBtnClick));
+	Button*  stopBtn = new SecondaryButton(2, "Stop", BIND_FN(OnStopBtnClick));
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
