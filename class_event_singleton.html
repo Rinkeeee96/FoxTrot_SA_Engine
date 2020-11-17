@@ -61,6 +61,7 @@ $(document).ready(function(){initNavTree('class_event_singleton.html',''); initR
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="class_event_singleton-members.html">List of all members</a>  </div>
@@ -87,6 +88,10 @@ API <a class="el" href="class_event_singleton.html">EventSingleton</a> &amp;&#16
 <tr class="memitem:a8ed64f214ac9b72c34fda92ce16df2a8"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_event_singleton.html#a8ed64f214ac9b72c34fda92ce16df2a8">dispatchEvent</a> (<a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
 <tr class="memdesc:a8ed64f214ac9b72c34fda92ce16df2a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">OnEvent is triggered when an event is fired, and send message to all registered listiners @template T is fired.  <a href="class_event_singleton.html#a8ed64f214ac9b72c34fda92ce16df2a8">More...</a><br /></td></tr>
 <tr class="separator:a8ed64f214ac9b72c34fda92ce16df2a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27bdc68254dbe1696b8aebaa3d413f79"><td class="memTemplParams" colspan="2"><a id="a27bdc68254dbe1696b8aebaa3d413f79"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a27bdc68254dbe1696b8aebaa3d413f79"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>unSubscribe</b> (const EventCallbackFn &amp;callbackToRemove)</td></tr>
+<tr class="separator:a27bdc68254dbe1696b8aebaa3d413f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f88719256a69d0e17a7a2767f431dc1"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a2f88719256a69d0e17a7a2767f431dc1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_event_singleton.html#a2f88719256a69d0e17a7a2767f431dc1">setEventCallback</a> (const EventCallbackFn &amp;callback)</td></tr>
 <tr class="memdesc:a2f88719256a69d0e17a7a2767f431dc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a callback for a specific <a class="el" href="class_event.html">Event</a>. @template T is fired.  <a href="class_event_singleton.html#a2f88719256a69d0e17a7a2767f431dc1">More...</a><br /></td></tr>
@@ -97,6 +102,13 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a1846123022826734e37f5ee5112284cf"><td class="memItemLeft" align="right" valign="top"><a id="a1846123022826734e37f5ee5112284cf"></a>
 static API <a class="el" href="class_event_singleton.html">EventSingleton</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_instance</b> ()</td></tr>
 <tr class="separator:a1846123022826734e37f5ee5112284cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ad12a9723447ad9ec435f76b7d31acba1"><td class="memTemplParams" colspan="2"><a id="ad12a9723447ad9ec435f76b7d31acba1"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ad12a9723447ad9ec435f76b7d31acba1"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>handlerExists</b> (string &amp;name)</td></tr>
+<tr class="separator:ad12a9723447ad9ec435f76b7d31acba1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>

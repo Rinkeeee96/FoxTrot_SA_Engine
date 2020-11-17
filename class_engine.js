@@ -4,6 +4,8 @@ var class_engine =
     [ "~Engine", "class_engine.html#a8ef7030a089ecb30bbfcb9e43094717a", null ],
     [ "engineTick30", "class_engine.html#a3db3800cb4d022a4ea03ec2b2729320d", null ],
     [ "engineTick60", "class_engine.html#a4d2f80b56adcec8d2044f5c6ea3798aa", null ],
+    [ "Event_LoadSprite", "class_engine.html#ae0c4914e7ce9d00b8f04e253a0db0ea8", null ],
+    [ "EventListeners", "class_engine.html#ac27d76aca08fd8f652099eb10424a59b", null ],
     [ "insertScene", "class_engine.html#ab12a03be719deab6073873235b87d2d5", null ],
     [ "loadSprite", "class_engine.html#ab893add93ac417edd6bc073ef99ba2cf", null ],
     [ "pollEvents", "class_engine.html#aa2ecb7debf3913287a29e3b2de4fd67a", null ],

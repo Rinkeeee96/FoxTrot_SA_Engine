@@ -80,15 +80,23 @@ $(document).ready(function(){initNavTree('_mouse_moved_8h_source.html',''); init
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        stream &lt;&lt; <span class="stringliteral">&quot;MouseMovedEvent: &quot;</span> &lt;&lt; xPosition &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; yPosition;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">return</span> stream.str();</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">float</span> xPosition, yPosition;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">float</span> xPosition, yPosition;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_mouse_moved_event.html#a3fd6d9270ecd8e5fbba3c51a9eedd2e0">   39</a></span>&#160;    EventType <a class="code" href="class_mouse_moved_event.html#a3fd6d9270ecd8e5fbba3c51a9eedd2e0">GetEventType</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> EventType::MouseMoved; }</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_mouse_moved_event.html#ada5fc214bbedd77c21e54981d61ec0c3">   42</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="class_mouse_moved_event.html#ada5fc214bbedd77c21e54981d61ec0c3">GetName</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;MouseMovedEvent&quot;</span>; }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_mouse_moved_event_html_ada5fc214bbedd77c21e54981d61ec0c3"><div class="ttname"><a href="class_mouse_moved_event.html#ada5fc214bbedd77c21e54981d61ec0c3">MouseMovedEvent::GetName</a></div><div class="ttdeci">const char * GetName() const override</div><div class="ttdoc">Returns the name of the event.</div><div class="ttdef"><b>Definition:</b> MouseMoved.h:42</div></div>
 <div class="ttc" id="aclass_mouse_moved_event_html"><div class="ttname"><a href="class_mouse_moved_event.html">MouseMovedEvent</a></div><div class="ttdoc">MouseMoved event is triggered when the mouse is moved. Derived class of Event.</div><div class="ttdef"><b>Definition:</b> MouseMoved.h:7</div></div>
 <div class="ttc" id="aclass_mouse_moved_event_html_a58856ff65ccb6287b20a752c05070b0c"><div class="ttname"><a href="class_mouse_moved_event.html#a58856ff65ccb6287b20a752c05070b0c">MouseMovedEvent::ToString</a></div><div class="ttdeci">string ToString() const override</div><div class="ttdoc">MouseButtonPressed to string.</div><div class="ttdef"><b>Definition:</b> MouseMoved.h:24</div></div>
 <div class="ttc" id="aclass_event_html"><div class="ttname"><a href="class_event.html">Event</a></div><div class="ttdef"><b>Definition:</b> Event.h:9</div></div>
 <div class="ttc" id="aclass_mouse_moved_event_html_a904ae0ed70597699abded29529fbde01"><div class="ttname"><a href="class_mouse_moved_event.html#a904ae0ed70597699abded29529fbde01">MouseMovedEvent::GetY</a></div><div class="ttdeci">const float GetY()</div><div class="ttdoc">Gets the new Y coords of the mouse relative to screen.</div><div class="ttdef"><b>Definition:</b> MouseMoved.h:19</div></div>
+<div class="ttc" id="aclass_mouse_moved_event_html_a3fd6d9270ecd8e5fbba3c51a9eedd2e0"><div class="ttname"><a href="class_mouse_moved_event.html#a3fd6d9270ecd8e5fbba3c51a9eedd2e0">MouseMovedEvent::GetEventType</a></div><div class="ttdeci">EventType GetEventType() const override</div><div class="ttdoc">Returns the eventType of a specific event.</div><div class="ttdef"><b>Definition:</b> MouseMoved.h:39</div></div>
 <div class="ttc" id="aclass_mouse_moved_event_html_a3baff56c6a5eedb4498b39e9d8fc626c"><div class="ttname"><a href="class_mouse_moved_event.html#a3baff56c6a5eedb4498b39e9d8fc626c">MouseMovedEvent::GetX</a></div><div class="ttdeci">const float GetX()</div><div class="ttdoc">Gets the new X coords of the mouse relative to screen.</div><div class="ttdef"><b>Definition:</b> MouseMoved.h:14</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

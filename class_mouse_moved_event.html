@@ -60,6 +60,7 @@ $(document).ready(function(){initNavTree('class_mouse_moved_event.html',''); ini
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_mouse_moved_event-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -95,14 +96,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a58856ff65ccb6287b20a752c05070b0c"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse_moved_event.html#a58856ff65ccb6287b20a752c05070b0c">ToString</a> () const override</td></tr>
 <tr class="memdesc:a58856ff65ccb6287b20a752c05070b0c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_mouse_button_pressed.html" title="MouseButtonPressedEvent is triggerd when a mouse button is pressed. Derived class of MouseButtonEvent...">MouseButtonPressed</a> to string.  <a href="class_mouse_moved_event.html#a58856ff65ccb6287b20a752c05070b0c">More...</a><br /></td></tr>
 <tr class="separator:a58856ff65ccb6287b20a752c05070b0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_class_event"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_event')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_event.html">Event</a></td></tr>
-<tr class="memitem:af14bbd8f69c2778def9462375a0e70f2 inherit pub_methods_class_event"><td class="memItemLeft" align="right" valign="top">virtual EventType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#af14bbd8f69c2778def9462375a0e70f2">GetEventType</a> () const =0</td></tr>
-<tr class="memdesc:af14bbd8f69c2778def9462375a0e70f2 inherit pub_methods_class_event"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the eventType of a specific event.  <a href="class_event.html#af14bbd8f69c2778def9462375a0e70f2">More...</a><br /></td></tr>
-<tr class="separator:af14bbd8f69c2778def9462375a0e70f2 inherit pub_methods_class_event"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad251ba19770b3e9c9ba20a6558ffe8b1 inherit pub_methods_class_event"><td class="memItemLeft" align="right" valign="top"><a id="ad251ba19770b3e9c9ba20a6558ffe8b1"></a>
-virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#ad251ba19770b3e9c9ba20a6558ffe8b1">GetName</a> () const =0</td></tr>
-<tr class="memdesc:ad251ba19770b3e9c9ba20a6558ffe8b1 inherit pub_methods_class_event"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of a specific event. <br /></td></tr>
-<tr class="separator:ad251ba19770b3e9c9ba20a6558ffe8b1 inherit pub_methods_class_event"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a3fd6d9270ecd8e5fbba3c51a9eedd2e0"><td class="memItemLeft" align="right" valign="top">EventType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse_moved_event.html#a3fd6d9270ecd8e5fbba3c51a9eedd2e0">GetEventType</a> () const override</td></tr>
+<tr class="memdesc:a3fd6d9270ecd8e5fbba3c51a9eedd2e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the eventType of a specific event.  <a href="class_mouse_moved_event.html#a3fd6d9270ecd8e5fbba3c51a9eedd2e0">More...</a><br /></td></tr>
+<tr class="separator:a3fd6d9270ecd8e5fbba3c51a9eedd2e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada5fc214bbedd77c21e54981d61ec0c3"><td class="memItemLeft" align="right" valign="top"><a id="ada5fc214bbedd77c21e54981d61ec0c3"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse_moved_event.html#ada5fc214bbedd77c21e54981d61ec0c3">GetName</a> () const override</td></tr>
+<tr class="memdesc:ada5fc214bbedd77c21e54981d61ec0c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of the event. <br /></td></tr>
+<tr class="separator:ada5fc214bbedd77c21e54981d61ec0c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -123,6 +126,36 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>Handled</b> = false</
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>MouseMoved event is triggered when the mouse is moved. Derived class of <a class="el" href="class_event.html">Event</a>. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3fd6d9270ecd8e5fbba3c51a9eedd2e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fd6d9270ecd8e5fbba3c51a9eedd2e0">&#9670;&nbsp;</a></span>GetEventType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EventType MouseMovedEvent::GetEventType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the eventType of a specific event. </p>
+<dl class="section return"><dt>Returns</dt><dd>EventType </dd></dl>
+
+<p>Implements <a class="el" href="class_event.html#af14bbd8f69c2778def9462375a0e70f2">Event</a>.</p>
+
+</div>
+</div>
 <a id="a3baff56c6a5eedb4498b39e9d8fc626c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3baff56c6a5eedb4498b39e9d8fc626c">&#9670;&nbsp;</a></span>GetX()</h2>
 

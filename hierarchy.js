@@ -4,7 +4,9 @@ var hierarchy =
       [ "ContactListenerAdapter", "class_contact_listener_adapter.html", null ]
     ] ],
     [ "CollisionStruct", "struct_collision_struct.html", null ],
+    [ "Color", "struct_color.html", null ],
     [ "Color4F", "struct_color4_f.html", null ],
+    [ "ColoredText", "struct_colored_text.html", null ],
     [ "Engine", "class_engine.html", null ],
     [ "Event", "class_event.html", [
       [ "ActionEvent", "class_action_event.html", null ],
@@ -31,12 +33,12 @@ var hierarchy =
         [ "OnCollisionBeginEvent", "class_on_collision_begin_event.html", null ],
         [ "OnCollisionEndEvent", "class_on_collision_end_event.html", null ]
       ] ],
+      [ "VideoLoadSpriteEvent", "class_video_load_sprite_event.html", null ],
       [ "WindowCloseEvent", "class_window_close_event.html", null ],
       [ "WindowResizeEvent", "class_window_resize_event.html", null ]
     ] ],
     [ "EventSingleton", "class_event_singleton.html", null ],
     [ "FileParser", "class_file_parser.html", null ],
-    [ "FpsMessage", "struct_fps_message.html", null ],
     [ "FrameData", "class_frame_data.html", null ],
     [ "IInputFacade", "class_i_input_facade.html", [
       [ "InputFacade", "class_input_facade.html", null ]
@@ -56,8 +58,12 @@ var hierarchy =
     ] ],
     [ "Layer", "struct_layer.html", null ],
     [ "Object", "class_object.html", [
-      [ "ParticleAdapter", "class_particle_adapter.html", null ]
+      [ "Drawable", "class_drawable.html", [
+        [ "Button", "class_button.html", null ],
+        [ "ParticleAdapter", "class_particle_adapter.html", null ]
+      ] ]
     ] ],
+    [ "ObjectSize", "struct_object_size.html", null ],
     [ "Particle", "class_particle.html", [
       [ "ParticleInit", "class_particle_init.html", [
         [ "ParticleAdapter", "class_particle_adapter.html", null ]
@@ -69,12 +75,11 @@ var hierarchy =
     [ "PhysicsBody", "class_physics_body.html", null ],
     [ "PhysicsEngine", "class_physics_engine.html", null ],
     [ "Pointf", "struct_pointf.html", null ],
+    [ "Position", "struct_position.html", null ],
     [ "Scene", "class_scene.html", null ],
     [ "SceneManager", "class_scene_manager.html", null ],
     [ "SoundEngine", "class_sound_engine.html", null ],
     [ "Sprite", "struct_sprite.html", null ],
     [ "SpriteObject", "class_sprite_object.html", null ],
-    [ "TextPosition", "struct_text_position.html", null ],
-    [ "TextSize", "struct_text_size.html", null ],
     [ "VideoEngine", "class_video_engine.html", null ]
 ];
