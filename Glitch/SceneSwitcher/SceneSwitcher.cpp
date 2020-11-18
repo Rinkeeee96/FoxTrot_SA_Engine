@@ -21,15 +21,15 @@ void SceneSwitcher::SwitchToScene(string const identifier, bool useTransitionScr
 		return;
 	//TODO start transitiescreen
 
-	if (!currentlyRunningTransition && useTransitionScreen)
+	auto transScene = scenes.find("GENERAL_TRANSITION_SCENE");
+	bool transitionSceneAvailable = true;
+	if (transScene == scenes.end())
 	{
-		auto transScene = scenes.find("GENERAL_TRANSITION_SCENE");
-		if (transScene == scenes.end())
-		{
-			// Todo find different way
-			goto noTransScene;
-		}
+		transitionSceneAvailable = false;
+	}
 
+	if (!currentlyRunningTransition && useTransitionScreen && transitionSceneAvailable)
+	{
 		currentlyRunningTransition = true;
 		engine->setCurrentScene(scenes["GENERAL_TRANSITION_SCENE"]->getSceneID());
 		scene = scenes.find("GENERAL_TRANSITION_SCENE");
@@ -37,7 +37,6 @@ void SceneSwitcher::SwitchToScene(string const identifier, bool useTransitionScr
 	}
 	else
 	{
-		noTransScene:
 		engine->setCurrentScene(scene->second->getSceneID());
 		currentlyRunningTransition = false;
 	}
