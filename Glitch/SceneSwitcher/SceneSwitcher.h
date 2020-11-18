@@ -13,9 +13,9 @@ public:
     SceneSwitcher& operator=(const SceneSwitcher&) = delete;
     SceneSwitcher& operator=(SceneSwitcher&&) = delete;
 
-    void RegisterScene(string const identifier, Scene* scene);
+    void RegisterScene(const string& identifier, Scene* scene);
     void RegisterTransitionScene(Scene* scene);
-    void SwitchToScene(string const identifier, bool useTransitionScreen);
+    void SwitchToScene(const string& identifier, bool useTransitionScreen);
     void SetEngine(Engine* _engine) { engine = _engine; }
     void runCurrentScene();
 
