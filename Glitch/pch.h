@@ -20,7 +20,6 @@
 #include "api.h"
 
 
-#include "./Game/Overworld/Overworld.h"
 #include "SceneSwitcher/SceneSwitcher.h"
 #include "SceneManager/Objects/Button.h"
 

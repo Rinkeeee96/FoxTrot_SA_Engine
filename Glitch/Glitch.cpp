@@ -7,6 +7,7 @@
 #include <Engine\Events\Window\WindowCloseEvent.h>
 #include "SceneSwitcher/SceneSwitcher.h"
 #include "Game/Scenes/Scenes.h"
+#include "Game/Overworld/Overworld.h"
 
 // TODO engine.h & engine.cpp
 
