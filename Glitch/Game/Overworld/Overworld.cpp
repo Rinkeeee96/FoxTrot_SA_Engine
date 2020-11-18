@@ -1,8 +1,8 @@
 #include "pch.h"
 #include "Overworld.h"
 
-#include "../Buttons/PrimaryButton.h"
-#include "../Buttons/SecondaryButton.h"
+#include "Game/Buttons/PrimaryButton.h"
+#include "Game/Buttons/SecondaryButton.h"
 
 #define BIND_FN(function) std::bind(&Overworld::function, *this)
 
