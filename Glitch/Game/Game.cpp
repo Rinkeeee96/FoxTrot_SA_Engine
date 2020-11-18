@@ -17,6 +17,9 @@ void Game::run() {
 	LoadLevelFacade levelLoader{ engine };
 	LevelBuilder levelOneBuilder{ engine, sceneId++ };
 
+	SaveScreen* saveScreen = new SaveScreen(sceneId++);
+	SceneSwitcher::get_instance().registerScene("SAVE_SCREEN", saveScreen);
+
 	MainMenu* mainMenu = new MainMenu(sceneId++);
 	SceneSwitcher::get_instance().registerScene("MAIN_MENU", mainMenu);
 

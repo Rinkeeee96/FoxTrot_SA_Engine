@@ -24,7 +24,6 @@ void MainMenu::loadButtons() {
 	Button* loadBtn = new PrimaryButton(-995, "Load", BIND_FN(onLoadBtnClick));
 	loadBtn->setPositionX(CENTER_X - loadBtn->getWidth() / 2);
 	loadBtn->setPositionY(CENTER_Y - loadBtn->getHeight() / 2 + 100);
-	loadBtn->disable();
 
 	Button* creditsBtn = new PrimaryButton(-994, "Credits", BIND_FN(onCreditsBtnClick));
 	creditsBtn->setPositionX(CENTER_X - creditsBtn->getWidth() / 2);
@@ -116,5 +115,5 @@ void MainMenu::onCreditsBtnClick() {
 }
 
 void MainMenu::onLoadBtnClick() {
-	cout << "Start Load game BTN" << endl;
+	SceneSwitcher::get_instance().switchToScene("SAVE_SCREEN");
 }
