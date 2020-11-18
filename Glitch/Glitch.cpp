@@ -7,6 +7,7 @@
 #include <Engine\Events\Window\WindowCloseEvent.h>
 #include "SceneSwitcher/SceneSwitcher.h"
 #include "Game/Scenes/Scenes.h"
+#include "Game/Overworld/Overworld.h"
 
 // TODO engine.h & engine.cpp
 
@@ -177,12 +178,16 @@ int main() {
 	try {
 		SceneSwitcher::get_instance().SetEngine(&engine);
 		sceneTestSetup();
-		MainMenu *mainMenu = new MainMenu(1);
-		SceneSwitcher::get_instance().RegisterScene("MAIN_MENU", mainMenu);
-		SceneSwitcher::get_instance().SwitchToScene("MAIN_MENU");
 
 		GeneralTransition* generalTransitionScene = new GeneralTransition(160);
-		SceneSwitcher::get_instance().RegisterScene("GENERAL_TRANSITION_SCENE", generalTransitionScene);
+		SceneSwitcher::get_instance().RegisterTransitionScene(generalTransitionScene);
+
+		MainMenu *mainMenu = new MainMenu(1);
+		SceneSwitcher::get_instance().RegisterScene("MAIN_MENU", mainMenu);
+		SceneSwitcher::get_instance().SwitchToScene("MAIN_MENU",false);
+
+		Overworld* overWorld = new Overworld(7);
+		SceneSwitcher::get_instance().RegisterScene("OVERWORLD", overWorld);
 
 		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(StopLoop);
 
