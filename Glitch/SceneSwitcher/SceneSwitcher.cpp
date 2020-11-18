@@ -25,7 +25,10 @@ void SceneSwitcher::SwitchToScene(string const identifier, bool useTransitionScr
 	{
 		auto transScene = scenes.find("GENERAL_TRANSITION_SCENE");
 		if (transScene == scenes.end())
-			return;
+		{
+			// Todo find different way
+			goto noTransScene;
+		}
 
 		currentlyRunningTransition = true;
 		engine->setCurrentScene(scenes["GENERAL_TRANSITION_SCENE"]->getSceneID());
@@ -34,6 +37,7 @@ void SceneSwitcher::SwitchToScene(string const identifier, bool useTransitionScr
 	}
 	else
 	{
+		noTransScene:
 		engine->setCurrentScene(scene->second->getSceneID());
 		currentlyRunningTransition = false;
 	}
