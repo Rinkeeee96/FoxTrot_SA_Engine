@@ -1,6 +1,6 @@
 #pragma once
-#include "SceneManager/Objects/Button.h"
-#include "../SceneSwitcher/SceneSwitcher.h"
+#include "api.h"
+#include "SceneSwitcher/SceneSwitcher.h"
 
 class MainMenu : public Scene
 {
@@ -12,6 +12,7 @@ public:
 	virtual void onDetach() override;
 	virtual void start() override;
 	virtual void onUpdate() override;
+
 private:
 	void loadBackground();
 	void loadMusic();

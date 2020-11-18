@@ -1,6 +1,8 @@
 #pragma once
 #include "Game/Levels/Builders/ILevelBuilder.h"
 
+/// @brief 
+/// Abstract builder class for creating a level
 class AbstractLevelBuilder : public ILevelBuilder {
 protected:
 	Engine& engine;

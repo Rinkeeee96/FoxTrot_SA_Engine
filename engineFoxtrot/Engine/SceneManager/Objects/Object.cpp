@@ -8,6 +8,10 @@ Object::Object(const int _objectId, const bool _isParticle) : objectId(_objectId
 {
 }
 /// @brief 
+Object::Object()
+{
+}
+/// @brief 
 Object::~Object()
 {
 }

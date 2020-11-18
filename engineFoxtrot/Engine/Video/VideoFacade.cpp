@@ -80,7 +80,7 @@ void VideoFacade::drawScreen()
 /// @param spriteObject 
 /// @param filename
 void VideoFacade::loadImage(const SpriteObject& spriteObject) {
-	if (spriteObject.getFileName() == NULL) throw std::exception(ERRORCODES[ERROR_CODE_SVIFACADE_FILENAME_IS_NULL]);
+	if (spriteObject.getFileName() == NULL) throw exception(ERRORCODES[ERROR_CODE_SVIFACADE_FILENAME_IS_NULL]);
 
 	int textureId = spriteObject.getTextureID();
 
@@ -101,7 +101,7 @@ void VideoFacade::renderCopy(Drawable& object)
 {	
 	SpriteObject& sprite = object.GetCurrentSprite();
 
-	if (textureMap[sprite.getTextureID()] == NULL) throw ERROR_CODE_SVIFACADE_RENDERCOPY_SPRITE_ID_IS_NULL;
+	if (textureMap[sprite.getTextureID()] == NULL) throw exception(ERRORCODES[ERROR_CODE_SVIFACADE_RENDERCOPY_SPRITE_ID_IS_NULL]);
 
 	//generate image 
 	Uint32 ticks = SDL_GetTicks();

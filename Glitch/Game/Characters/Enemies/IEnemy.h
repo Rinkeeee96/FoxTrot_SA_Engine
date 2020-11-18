@@ -2,6 +2,8 @@
 #include "pch.h"
 #include "Game/Characters/ICharacter.h"
 
+/// @brief 
+/// Enemy base class
 class IEnemy : public ICharacter {
 public:
 	IEnemy() : ICharacter() {}

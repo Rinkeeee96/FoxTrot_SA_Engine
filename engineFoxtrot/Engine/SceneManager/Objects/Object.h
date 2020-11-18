@@ -9,6 +9,7 @@ class Object
 {
 public:
 	API Object(const int id, const bool isParticle = false);
+	API Object();
 	API ~Object();
 
 	void API setPositionX(const float);

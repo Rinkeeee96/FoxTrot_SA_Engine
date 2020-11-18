@@ -22,15 +22,19 @@ class LevelBuilder : public AbstractLevelBuilder {
 #define TILESET_PATH "Assets/Levels/Tilesets/"
 #define TILE_IMAGE_PATH "Assets/Levels/Tiles/"
 
+/// @brief 
+/// Builder class for creating a level
+class LevelBuilder : public AbstractLevelBuilder {
+
 private:
 	std::unique_ptr<CharacterFactory> characterFactory;
 	TriggerFactory triggerFactory;
 	FileLoader fileLoader;
 	map<int, TileSprite*> textureMap;
 	map<int, SpriteObject*> spriteMap;
-	// TODO Dynamic
+
 	// TODO Fix tileId in tilesets
-	Level* bLevel = new Level(1, 0, 0);
+	Level* bLevel;
 
 	int currentTileId = 999;
 	int mapTileWidth = 16;

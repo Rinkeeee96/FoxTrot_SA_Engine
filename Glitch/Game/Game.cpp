@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "Game.h"
-#include "SceneSwitcher/SceneSwitcher.h"
-#include "MainMenu.h"
+
 
 bool Game::stopRun(Event& event) {
 	gameRunning = false;
@@ -20,6 +19,9 @@ void Game::run() {
 
 	MainMenu* mainMenu = new MainMenu(sceneId++);
 	SceneSwitcher::get_instance().registerScene("MAIN_MENU", mainMenu);
+
+	GeneralTransition* generalTransitionScene = new GeneralTransition(160);
+	SceneSwitcher::get_instance().registerScene("GENERAL_TRANSITION_SCENE", generalTransitionScene);
 
 	levelLoader.load("Assets/Levels/Maps/Level1.json", &levelOneBuilder);
 	auto level = levelOneBuilder.getLevel();

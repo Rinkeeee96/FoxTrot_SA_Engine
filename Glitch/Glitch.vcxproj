@@ -177,10 +177,13 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Levels\LoadLevelFacade.h" />
     <ClInclude Include="Game\Buttons\PrimaryButton.h" />
     <ClInclude Include="Game\Buttons\SecondaryButton.h" />
-    <ClInclude Include="Game\MainMenu.h" />
+    <ClInclude Include="Game\Scenes\MainMenu\MainMenu.h" />
     <ClInclude Include="Game\Triggers\DeathTrigger.h" />
     <ClInclude Include="Game\Triggers\TriggerBase.h" />
     <ClInclude Include="Game\Triggers\WinTrigger.h" />
+    <ClInclude Include="Game\Scenes\Scenes.h" />
+    <ClInclude Include="Game\Scenes\Transitions\GeneralTransition\GeneralTransition.h" />
+    <ClInclude Include="Game\Scenes\Transitions\Transitions.h" />
     <ClInclude Include="Glitch.h" />
     <ClInclude Include="Game\Levels\Level.h" />
     <ClInclude Include="Game\SpriteState.h" />
@@ -197,7 +200,9 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClCompile Include="Game\Factories\TriggerFactory.cpp" />
     <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="Game\Characters\Player\Player.cpp" />
-    <ClCompile Include="Game\MainMenu.cpp" />
+    <ClCompile Include="Game\Levels\LoadLevelFacade.cpp" />
+    <ClCompile Include="Game\Scenes\MainMenu\MainMenu.cpp" />
+    <ClCompile Include="Game\Scenes\Transitions\GeneralTransition\GeneralTransition.cpp" />
     <ClCompile Include="Glitch.cpp" />
     <ClCompile Include="SceneSwitcher\SceneSwitcher.cpp" />
     <ClCompile Include="pch.cpp" />

@@ -1,138 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+    <ClCompile Include="Game\Characters\Enemies\IEnemy.h" />
+    <ClCompile Include="Game\Factories\CharacterFactory.cpp" />
+    <ClCompile Include="Game\Game.cpp" />
+    <ClCompile Include="Game\Characters\Player\Player.cpp" />
+    <ClCompile Include="Glitch.cpp" />
+    <ClCompile Include="SceneSwitcher\SceneSwitcher.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="Game\Levels\Level.cpp" />
+    <ClCompile Include="Game\Levels\Builders\LevelBuilderDirector.cpp" />
+    <ClCompile Include="Game\Levels\Builders\LevelBuilder.cpp" />
+    <ClCompile Include="Game\Scenes\MainMenu\MainMenu.cpp" />
+    <ClCompile Include="Game\Scenes\Transitions\GeneralTransition\GeneralTransition.cpp" />
+    <ClCompile Include="Game\Levels\LoadLevelFacade.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Glitch.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\SpriteState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Levels\Level.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Levels\Builders\ILevelBuilder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Levels\Builders\LevelBuilderDirector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Levels\Builders\AbstractLevelBuilder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Levels\Builders\LevelBuilder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Characters\Player\Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Characters\ICharacter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\IGameObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Characters\Enemies\Slime.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Ground\BaseGround.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Ground\IGround.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Levels\Builders\ParsedEntities\TileSprite.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\General\GameErrorCodes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Factories\CharacterFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Levels\LoadLevelFacade.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Buttons\PrimaryButton.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Buttons\SecondaryButton.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\MainMenu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneSwitcher\SceneSwitcher.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="pch.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Triggers\TriggerBase.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Factories\TriggerFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Triggers\WinTrigger.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Triggers\DeathTrigger.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Glitch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Levels\Level.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Levels\Builders\LevelBuilderDirector.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Levels\Builders\LevelBuilder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Characters\Player\Player.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Characters\Enemies\IEnemy.h">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Factories\CharacterFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\MainMenu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneSwitcher\SceneSwitcher.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="pch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Factories\TriggerFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <ClInclude Include="Game\Characters\Enemies\Slime.h" />
+    <ClInclude Include="Game\Characters\ICharacter.h" />
+    <ClInclude Include="Game\Factories\CharacterFactory.h" />
+    <ClInclude Include="Game\Game.h" />
+    <ClInclude Include="Game\General\GameErrorCodes.h" />
+    <ClInclude Include="Game\IGameObject.h" />
+    <ClInclude Include="Game\Levels\Builders\AbstractLevelBuilder.h" />
+    <ClInclude Include="Game\Characters\Player\Player.h" />
+    <ClInclude Include="Game\Ground\BaseGround.h" />
+    <ClInclude Include="Game\Ground\IGround.h" />
+    <ClInclude Include="Game\Levels\LoadLevelFacade.h" />
+    <ClInclude Include="Game\Buttons\PrimaryButton.h" />
+    <ClInclude Include="Game\Buttons\SecondaryButton.h" />
+    <ClInclude Include="Glitch.h" />
+    <ClInclude Include="Game\Levels\Level.h" />
+    <ClInclude Include="Game\SpriteState.h" />
+    <ClInclude Include="SceneSwitcher\SceneSwitcher.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Game\Triggers\TriggerBase.h" />
+    <ClInclude Include="Game\Factories\TriggerFactory.h" />
+    <ClInclude Include="Game\Triggers\WinTrigger.h" />
+    <ClInclude Include="Game\Levels\Builders\ILevelBuilder.h" />
+    <ClInclude Include="Game\Levels\Builders\LevelBuilderDirector.h" />
+    <ClInclude Include="Game\Levels\Builders\LevelBuilder.h" />
+    <ClInclude Include="Game\Levels\Builders\ParsedEntities\TileSprite.h" />
+    <ClInclude Include="Game\Scenes\MainMenu\MainMenu.h" />
+    <ClInclude Include="Game\Scenes\Transitions\GeneralTransition\GeneralTransition.h" />
+    <ClInclude Include="Game\Scenes\Transitions\Transitions.h" />
+    <ClInclude Include="Game\Scenes\Scenes.h" />
   </ItemGroup>
 </Project>

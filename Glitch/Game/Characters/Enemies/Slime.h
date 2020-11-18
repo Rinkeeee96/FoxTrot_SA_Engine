@@ -1,12 +1,14 @@
 #pragma once
 #include "Game/Characters/Enemies/IEnemy.h"
 
+/// @brief 
+/// Slime class with correspondending AI logic
 class Slime : public IEnemy {
 public:
 	Slime() : IEnemy() {}
 	Slime(const int id) : IEnemy(id) {}
 
-	virtual void onUpdate() override {
+	void onUpdate() override {
 		
 	};
 
@@ -18,5 +20,5 @@ public:
 		Object::setYAxisVelocity(val);
 	}
 
-	virtual ICharacter* clone(int id) override { return new Slime(id); }
+	ICharacter* clone(int id) override { return new Slime(id); }
 };

@@ -40,13 +40,16 @@ public:
 	/// Must be implemented by a concrete implementation of a scene
 	API virtual void onDetach() = 0;
 
+	/// @brief
+	/// run is called in the main loop on the currentScene
+	/// If any work needs to be done during a scene this is were to place it
+	virtual void onUpdate() = 0;
+
 	void setSceneWidth(const int width) { sceneWidth = width; }
 	int getSceneWidth() const { return sceneWidth; }
 
 	void setSceneHeight(const int height) { sceneHeight = height; }
 	int getSceneHeight() const { return sceneHeight; }
-
-	virtual void onUpdate() = 0;
     
 	void setObjectToFollow(Object* obj) { objectToFollow = obj; }
 

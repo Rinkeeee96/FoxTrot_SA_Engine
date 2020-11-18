@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 
+/// @brief 
+/// Sprites coupled from other .json files
 class TileSprite
 {
 public:
