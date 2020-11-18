@@ -1,6 +1,4 @@
 #pragma once
-#include <api.h>
-#include <Engine\Events\Action\ObjectStopEvent.h>
 #include "Game/Characters/ICharacter.h"
 #include "Game/SpriteState.h"
 
@@ -26,7 +24,7 @@ public:
 
 	void onUpdate() override {};
 
-	virtual ICharacter* clone(int id) override;
+	ICharacter* clone(int id) override;
 private:
 	bool canJump = false;
 };

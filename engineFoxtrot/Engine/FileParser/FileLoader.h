@@ -1,12 +1,12 @@
 #pragma once
 #include <fstream> 
-#include <string>
-#include <map>
 
+/// @brief 
+/// Class responsible for opening files
 class API FileLoader
 {
 private:
 
 public:
-	std::ifstream readFile(string path);
+	ifstream readFile(string path);
 };

@@ -1,12 +1,16 @@
 #include "stdafx.h"
 #include "FileLoader.h"
 
-std::ifstream FileLoader::readFile(string path) {
-	bool exists = std::filesystem::exists(path);
+/// @brief 
+/// Reads a file and returns the stream, strem should be closed
+/// @param path to the file
+/// @throws file not found exception
+ifstream FileLoader::readFile(string path) {
+	bool exists = filesystem::exists(path);
 
 	if (exists) {
-		std::ifstream ifstream(path);
+		ifstream ifstream(path);
 		return ifstream;
 	}
-	throw std::exception("file not found exception");
+	throw exception("file not found exception");
 }
