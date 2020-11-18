@@ -101,9 +101,7 @@ void Savegame::loadSaveGameData(const int id)
 		//SaveGame is found in map. Use this one.
 		currentSaveGame = saveGameDataMap[id];
 	}
-	else {
-		// Try to load it from file. 
-	}
+
 }
 
 void Savegame::parseJsonToMap(nlohmann::json json)

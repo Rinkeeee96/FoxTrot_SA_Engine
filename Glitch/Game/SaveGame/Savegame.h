@@ -59,7 +59,9 @@ public:
 	Savegame& operator=(Savegame&&) = delete;
 
 	// Loading and parsing savegamedata etc
+	// Call at end of Game
 	bool saveGameDataToJsonFile();
+	// Call at beginning of game
 	bool readSaveGameDataFromJson(string& path);
 
 	// Loads the savegamedata with id to currentSaveGameData
