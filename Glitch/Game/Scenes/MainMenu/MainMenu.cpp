@@ -15,6 +15,8 @@ void MainMenu::OnAttach()
 	LoadMusic();
 }
 
+/// @brief 
+/// Create all buttons for this scene
 void MainMenu::LoadButtons() {
 
 	Button* startBtn = new PrimaryButton(1, "Start", BIND_FN(OnStartBtnClick));
@@ -41,6 +43,8 @@ void MainMenu::LoadButtons() {
 	addNewObjectToLayer(3, creditsBtn);
 }
 
+/// @brief 
+/// Create the background for this scene
 void MainMenu::LoadBackground() {
 	SpriteObject* BG_LAYER_0 = new SpriteObject(1000, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_0.png");
 	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(1001, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png");
@@ -78,35 +82,52 @@ void MainMenu::LoadBackground() {
 	addNewObjectToLayer(1, animation);
 	addNewObjectToLayer(2, layer2);
 }
+
+/// @brief 
+/// Load the sounds for this scene
 void MainMenu::LoadMusic() {
 	EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent("MENU_SOUND", "Assets/Sound/file_example_WAV_1MG.wav"));
 }
+
+/// @brief 
+/// Create the sounds for this scene
 void MainMenu::Start()
 {
 	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("MENU_SOUND"));
 }
 
+/// @brief 
+/// Remove the sounds of the soundengine
 void MainMenu::OnDetach()
 {
 	EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent("MENU_SOUND"));
 	Scene::OnDetach();
 }
 
+/// @brief 
+/// A callback function for startBTN
+/// Start transition scene to overworld
 void MainMenu::OnStartBtnClick()
 {
 	SceneSwitcher::get_instance().SwitchToScene("GENERAL_TRANSITION_SCENE");
 	cout << "Start BTN" << endl;
 }
 
+/// @brief 
+/// A callback function for stopBTN
 void MainMenu::OnStopBtnClick() {
 	WindowCloseEvent event;
 	EventSingleton::get_instance().dispatchEvent<WindowCloseEvent>(event);
 }
 
+/// @brief 
+/// A callback function for creditsBTN
 void MainMenu::OnCreditsBtnClick() {
 	cout << "Start Credit" << endl;
 }
 
+/// @brief 
+/// A callback function for loadBTN
 void MainMenu::OnLoadBtnClick() {
 	cout << "Start Load game BTN" << endl;
 }
