@@ -13,7 +13,7 @@ var class_scene =
     [ "getSceneID", "class_scene.html#ae3e629e67c6dc2e4dab696f63fd7fa9e", null ],
     [ "getSceneWidth", "class_scene.html#ad9d05cb17a04f7754e8f38db29f157dc", null ],
     [ "OnAttach", "class_scene.html#a0ac0c9429528fd2a5b845a4b5c702f0c", null ],
-    [ "OnDetach", "class_scene.html#aff9ed4fec1a22cf7a494a3514163c9e7", null ],
+    [ "OnDetach", "class_scene.html#a15ac26a80d4a4cc1664d892482e37ff9", null ],
     [ "setObjectToFollow", "class_scene.html#ac86043cea6ee1590cd16f3f090a1500b", null ],
     [ "setSceneHeight", "class_scene.html#ac6f9812abb8aacf92a884cc6320597d7", null ],
     [ "setSceneWidth", "class_scene.html#ad28c2fd6c05278c2fbb6c3c2a5d8fb5a", null ],

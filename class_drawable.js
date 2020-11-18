@@ -1,6 +1,7 @@
 var class_drawable =
 [
     [ "Drawable", "class_drawable.html#aa7b6bcfa57652ec3146f9941567dbc70", null ],
+    [ "~Drawable", "class_drawable.html#abdc2e2d82c51c1703656a2dfba0feabd", null ],
     [ "changeToState", "class_drawable.html#a5c7a5ed9163633d454d78f215b311ea0", null ],
     [ "GetCurrentSprite", "class_drawable.html#afa41177768eddef5a140505a549a2eaa", null ],
     [ "registerSprite", "class_drawable.html#ac6f39d1322218d74357a619c56a2d826", null ],

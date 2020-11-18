@@ -1,7 +1,7 @@
 var class_button =
 [
     [ "Button", "class_button.html#a20f48d2166ebb260ece1941ed40d474b", null ],
-    [ "~Button", "class_button.html#a2a001eb9c3cc8ae54768a850dd345002", null ],
+    [ "~Button", "class_button.html#a6d35cf666b119be6153a717427f9b5e2", null ],
     [ "disable", "class_button.html#abde3c72299314347169ef607ec7b7192", null ],
     [ "enable", "class_button.html#a2829d6ad3d25929c6755a6f17cee7cb3", null ],
     [ "isClicked", "class_button.html#a3533f03ddf1e648d7407d9d8f79c7059", null ],
