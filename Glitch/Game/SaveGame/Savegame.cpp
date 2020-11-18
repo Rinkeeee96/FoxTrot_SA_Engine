@@ -65,6 +65,47 @@ bool Savegame::readSaveGameDataFromJson(string& path)
 	
 }
 
+void Savegame::addAchievement(Achievement& achievement)
+{
+	if (!currentSaveGame) return;
+	currentSaveGame->achievements.push_back(achievement);
+}
+
+void Savegame::changeSaveGameName(string& name)
+{
+	if (!currentSaveGame) return;
+	currentSaveGame->saveGameName = name;
+}
+
+void Savegame::addLevelData(const int levelID, LevelData levelData)
+{
+	if (!currentSaveGame) return;
+	currentSaveGame->levelData[levelID] = levelData;
+}
+
+void Savegame::updateCharacterData(CharacterData characterData)
+{
+	if (!currentSaveGame) return;
+	currentSaveGame->characterData = characterData;
+}
+
+void Savegame::updateOverWorldProgress(const int progress)
+{
+	if (!currentSaveGame) return;
+	currentSaveGame->overWorldProgress = progress;
+}
+
+void Savegame::loadSaveGameData(const int id)
+{
+	if (saveGameDataMap.find(id) != saveGameDataMap.end()) {
+		//SaveGame is found in map. Use this one.
+		currentSaveGame = saveGameDataMap[id];
+	}
+	else {
+		// Try to load it from file. 
+	}
+}
+
 void Savegame::parseJsonToMap(nlohmann::json json)
 {
 

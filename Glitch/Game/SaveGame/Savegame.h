@@ -6,7 +6,6 @@ class Inventory;
 
 struct LevelData
 {
-	int levelID = 0;
 	int score = 0;
 	bool completed = false;
 };
@@ -28,7 +27,7 @@ struct SaveGameData
 
 	int totalScore = 0;
 
-	vector<LevelData> levelData;
+	map<int,LevelData> levelData;
 	vector<Achievement> achievements;
 
 	Inventory *inventory;
@@ -47,8 +46,25 @@ public:
 	Savegame& operator=(const Savegame&) = delete;
 	Savegame& operator=(Savegame&&) = delete;
 
+	// Loading and parsing savegamedata etc
 	bool saveGameDataToJsonFile();
 	bool readSaveGameDataFromJson(string& path);
+
+	// Loads the savegamedata with id to currentSaveGameData
+	void loadSaveGameData(const int id);
+
+	// Actions on current savegame data
+	void addAchievement(Achievement& achievement);
+	void changeSaveGameName(string& name);
+	void addLevelData(const int levelID, LevelData levelData);
+	void updateCharacterData(CharacterData characterData);
+	void updateOverWorldProgress(const int progress);
+
+	// Getters for currentSaveGameData
+
+
+	// Todo set private
+	// Just for testing purposes
 	map<int, SaveGameData*> saveGameDataMap;
 
 private:
@@ -56,6 +72,8 @@ private:
 	Savegame() {};
 
 	FileLoader fileLoader;
+
+	SaveGameData* currentSaveGame;
 
 	void parseJsonToMap(nlohmann::json json);
 
