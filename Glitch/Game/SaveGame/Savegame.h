@@ -13,7 +13,6 @@ struct Item
 struct Inventory
 {
 	vector<Item> items;
-
 };
 
 struct LevelData
@@ -24,9 +23,7 @@ struct LevelData
 
 struct CharacterData
 {
-	// Stub, to be completed
-	int health = 0;
-	int stamina = 0;
+	Inventory inventory;
 };
 
 #define Achievement string
@@ -41,11 +38,7 @@ struct SaveGameData
 
 	map<int,LevelData> levelData;
 	vector<Achievement> achievements;
-
-	Inventory inventory;
-
 	CharacterData characterData;
-
 };
 
 class Savegame
@@ -64,73 +57,15 @@ public:
 	// Call at beginning of game
 	bool readSaveGameDataFromJson(string& path);
 
-	// Loads the savegamedata with id to currentSaveGameData
-	void loadSaveGameData(const int id);
-
-	// Actions on current savegame data
-	void addAchievement(Achievement& achievement);
-	void changeSaveGameName(string& name);
-	void addLevelData(const int levelID, LevelData levelData);
-	void updateCharacterData(CharacterData characterData);
-	void updateOverWorldProgress(const int progress);
-
-	// Getters for currentSaveGameData
-
-
-	// Todo set private
-	// Just for testing purposes
-	map<int, SaveGameData*> saveGameDataMap;
+	void saveGameData(const int id, SaveGameData saveGame);
+	SaveGameData getGameData(const int id);
 
 private:
 	static Savegame instance;
 	Savegame() {};
 
 	FileLoader fileLoader;
-
-	SaveGameData* currentSaveGame;
+	map<int, SaveGameData> saveGameDataMap;
 
 	void parseJsonToMap(nlohmann::json json);
-
-
-
 };
-
-
-// Mockup of savegame data in Json:
-
-//{
-//	"saveGameTimestamp": 1605262284,
-//		"saveGameName" : "SaveGame1",
-//		"saveGameID" : 3,
-//		"levelCompletion" : [
-//	{
-//		"levelID": 1,
-//			"score" : 76,
-//			"completed" : true
-//	},
-//	{
-//	  "levelID": 2,
-//	  "score" : 76,
-//	  "completed" : false
-//	}
-//		],
-//		"totalScore": 69420,
-//			"achievements" : [
-//				"take inventory",
-//					"move player position"
-//			] ,
-//			"characterStats" : {
-//					"health": 10,
-//						"stamina" : 10
-//				},
-//					"inventory" : [
-//					{
-//						"itemid": 1,
-//							"itemCount" : 10
-//					},
-//	{
-//	  "itemid": 1,
-//	  "itemCount" : 10
-//	}
-//					]
-//}

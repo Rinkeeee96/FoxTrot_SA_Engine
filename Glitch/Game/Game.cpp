@@ -14,14 +14,17 @@ Game::Game()
 
 void Game::run() {
 
+	string file = "Assets/Savegame/saveGameData.json";
+	//Savegame::get_instance().readSaveGameDataFromJson(file);
+
 	LoadLevelFacade levelLoader{ engine };
 	LevelBuilder levelOneBuilder{ engine, sceneId++ };
 
-	SaveScreen* saveScreen = new SaveScreen(sceneId++);
-	SceneSwitcher::get_instance().registerScene("SAVE_SCREEN", saveScreen);
-
 	MainMenu* mainMenu = new MainMenu(sceneId++);
 	SceneSwitcher::get_instance().registerScene("MAIN_MENU", mainMenu);
+
+	SaveScreen* saveScreen = new SaveScreen(sceneId++);
+	SceneSwitcher::get_instance().registerScene("SAVE_SCREEN", saveScreen);
 
 	GeneralTransition* generalTransitionScene = new GeneralTransition(160);
 	SceneSwitcher::get_instance().registerScene("GENERAL_TRANSITION_SCENE", generalTransitionScene);
@@ -33,13 +36,17 @@ void Game::run() {
 	SceneSwitcher::get_instance().switchToScene("MAIN_MENU");
 	EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
 
-	SaveGameData *data = new SaveGameData;
-	data->achievements.push_back("Take inventory");
-	data->saveGameName = "name";
-	data->totalScore = 100;
+	SaveGameData data;
+	data.achievements.push_back("Take inventory");
+	data.saveGameName = "name";
+	data.totalScore = 100;
+	Item item;
+	item.itemCount = 10;
+	item.itemName = "Sword";
+	data.characterData.inventory.items.push_back(item);
+	data.characterData.inventory.items.push_back(item);
 
-	Savegame::get_instance().saveGameDataMap[1] = data;
-
+	Savegame::get_instance().saveGameData(1,data);
 
 	Savegame::get_instance().saveGameDataToJsonFile();
 
@@ -59,5 +66,8 @@ void Game::run() {
 
 		this_thread::sleep_for(chrono::milliseconds(10));
 	}
+
+	Savegame::get_instance().saveGameDataToJsonFile();
+
 	engine.stopTickThreads();
 }

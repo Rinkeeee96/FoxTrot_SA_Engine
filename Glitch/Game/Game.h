@@ -6,6 +6,7 @@
 #include "Game/Scenes/MainMenu/MainMenu.h"
 #include "Game/Scenes/SaveScreen/SaveScreen.h"
 #include <Game\Scenes\Transitions\GeneralTransition\GeneralTransition.h>
+#include "Game/SaveGame/Savegame.h"
 
 /// @brief 
 /// Game class runs the game

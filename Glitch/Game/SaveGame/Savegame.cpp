@@ -6,34 +6,47 @@ Savegame Savegame::instance;
 
 bool Savegame::saveGameDataToJsonFile()
 {
+	//saveGameData.json
+	nlohmann::json json;
 	for (auto saveGame : saveGameDataMap)
 	{
-		nlohmann::json json;
-
+		nlohmann::json saveGameJson;
 
 		// Get Timestamp
 		const auto p1 = std::chrono::system_clock::now();
-		json["timestamp"] = std::chrono::duration_cast<std::chrono::seconds>(p1.time_since_epoch()).count();
+		saveGameJson["timestamp"] = std::chrono::duration_cast<std::chrono::seconds>(p1.time_since_epoch()).count();
 
-		json["savegamename"] = saveGame.second->saveGameName;
-		json["savegameid"] = saveGame.first;
+		saveGameJson["savegamename"] = saveGame.second.saveGameName;
+		saveGameJson["savegameid"] = saveGame.first;
+		saveGameJson["totalscore"] = saveGame.second.totalScore;
 
-		for (auto achievement : saveGame.second->achievements)
+		for (auto achievement : saveGame.second.achievements)
 		{
-			json["achievements"].push_back(achievement);
+			saveGameJson["achievements"].push_back(achievement);
 		}
+		for (auto levelData : saveGame.second.levelData)
+		{
+			nlohmann::json levelDataJson;
+			levelDataJson["score"] = levelData.second.score;
+			levelDataJson["completed"] = levelData.second.completed;
+			saveGameJson["leveldata"].push_back(levelDataJson);
+		}
+		nlohmann::json characterData;
+		nlohmann::json items;
+		for (Item item : saveGame.second.characterData.inventory.items)
+		{
+			nlohmann::json itemJson;
+			itemJson["itemname"] = item.itemName;
+			itemJson["itemcount"] = item.itemCount;
 
-		json["totalscore"] = saveGame.second->totalScore;
-		
-
-		// Write Json data to file
-		std::stringstream sstm;
-		sstm << "saveGameData" << saveGame.first << ".json";
-		string saveFile = sstm.str();
-		std::ofstream file(saveFile);
-		file << json;
+			characterData["inventory"]["items"].push_back(itemJson);
+		}	
+		saveGameJson["characterdata"] = characterData;
+		json["saveGames"].push_back(saveGameJson);
 	}
-
+	// Write Json data to file
+	std::ofstream file("saveGameData.json");
+	file << json;
 
 
 	return true;
@@ -65,43 +78,15 @@ bool Savegame::readSaveGameDataFromJson(string& path)
 	
 }
 
-void Savegame::addAchievement(Achievement& achievement)
+void Savegame::saveGameData(const int id, SaveGameData saveGame)
 {
-	if (!currentSaveGame) return;
-	currentSaveGame->achievements.push_back(achievement);
+	saveGameDataMap[id] = saveGame;
 }
 
-void Savegame::changeSaveGameName(string& name)
+SaveGameData Savegame::getGameData(const int id)
 {
-	if (!currentSaveGame) return;
-	currentSaveGame->saveGameName = name;
-}
-
-void Savegame::addLevelData(const int levelID, LevelData levelData)
-{
-	if (!currentSaveGame) return;
-	currentSaveGame->levelData[levelID] = levelData;
-}
-
-void Savegame::updateCharacterData(CharacterData characterData)
-{
-	if (!currentSaveGame) return;
-	currentSaveGame->characterData = characterData;
-}
-
-void Savegame::updateOverWorldProgress(const int progress)
-{
-	if (!currentSaveGame) return;
-	currentSaveGame->overWorldProgress = progress;
-}
-
-void Savegame::loadSaveGameData(const int id)
-{
-	if (saveGameDataMap.find(id) != saveGameDataMap.end()) {
-		//SaveGame is found in map. Use this one.
-		currentSaveGame = saveGameDataMap[id];
-	}
-
+	SaveGameData data;
+	return data;
 }
 
 void Savegame::parseJsonToMap(nlohmann::json json)
