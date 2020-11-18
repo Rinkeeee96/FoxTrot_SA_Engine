@@ -2,7 +2,19 @@
 #include <nlohmann\json.hpp>
 
 // Maybe also singleton class?
-class Inventory;
+
+
+struct Item
+{
+	string itemName;
+	int itemCount = 0;
+};
+
+struct Inventory
+{
+	vector<Item> items;
+
+};
 
 struct LevelData
 {
@@ -30,7 +42,7 @@ struct SaveGameData
 	map<int,LevelData> levelData;
 	vector<Achievement> achievements;
 
-	Inventory *inventory;
+	Inventory inventory;
 
 	CharacterData characterData;
 
