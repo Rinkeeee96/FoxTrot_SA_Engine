@@ -53,10 +53,8 @@ void WinScreen::LoadButtons() {
 }
 
 void WinScreen::LoadBackground() {
-	SpriteObject* BG_LAYER_0 = new SpriteObject(1031, 1080, 1920, 1, 300, "Assets/Backgrounds/game_over_Layer_0.png");
-	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(1032, 37, 50, 7, 300, "Assets/Sprites/Character/adventure_die.png");
-	BG_LAYER_ADVENTRUE->freezeOn(7);
-	SpriteObject* BG_LAYER_2 = new SpriteObject(1032, 1080, 1920, 1, 300, "Assets/Backgrounds/game_over_Layer_1.png");
+	SpriteObject* BG_LAYER_0 = new SpriteObject(-992882, 1080, 1920, 1, 300, "Assets/Backgrounds/game_win_layer_0.png");
+	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(1032, 37, 50, 7, 300, "Assets/Sprites/Character/adventure_jump.png");
 
 	auto* layer0 = new Drawable(34);
 	layer0->setStatic(true);
@@ -76,15 +74,6 @@ void WinScreen::LoadBackground() {
 	animation->registerSprite(SpriteState::DEFAULT, BG_LAYER_ADVENTRUE);
 	animation->changeToState(SpriteState::DEFAULT);
 	animation->setScalable(false);
-
-	auto* layer2 = new Drawable(36);
-	layer2->setStatic(true);
-	layer2->setPositionX(1);
-	layer2->setPositionY(1080);
-	layer2->setWidth(1920);
-	layer2->setHeight(1080);
-	layer2->registerSprite(SpriteState::DEFAULT, BG_LAYER_2);
-	layer2->changeToState(SpriteState::DEFAULT);
 
 	addNewObjectToLayer(0, layer0);
 	addNewObjectToLayer(1, animation);

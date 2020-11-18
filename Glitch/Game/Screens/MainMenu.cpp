@@ -30,12 +30,11 @@ void MainMenu::LoadButtons() {
 	startBtn->setPositionX(CENTER_X - startBtn->getWidth() / 2);
 	startBtn->setPositionY(CENTER_Y - startBtn->getHeight() / 2);
 
-	Button* loadBtn = new PrimaryButton(11, "Load", BIND_FN(OnLoadBtnClick));
+	Button* loadBtn = new PrimaryButton(11, "Win screen", BIND_FN(OnLoadBtnClick));
 	loadBtn->setPositionX(CENTER_X - loadBtn->getWidth() / 2);
 	loadBtn->setPositionY(CENTER_Y - loadBtn->getHeight() / 2 + 100);
-	loadBtn->disable();
 
-	Button* creditsBtn = new PrimaryButton(12, "Credits", BIND_FN(OnCreditsBtnClick));
+	Button* creditsBtn = new PrimaryButton(12, "Game over screen", BIND_FN(OnCreditsBtnClick));
 	creditsBtn->setPositionX(CENTER_X - creditsBtn->getWidth() / 2);
 	creditsBtn->setPositionY(CENTER_Y - creditsBtn->getHeight() / 2 + 200);
 
@@ -103,7 +102,6 @@ void MainMenu::OnDetach()
 void MainMenu::OnStartBtnClick()
 {
 	SceneSwitcher::get_instance().SwitchToScene("GAME");
-	cout << "Start BTN" << endl;
 }
 
 void MainMenu::OnStopBtnClick() {
@@ -113,9 +111,8 @@ void MainMenu::OnStopBtnClick() {
 
 void MainMenu::OnCreditsBtnClick() {
 	SceneSwitcher::get_instance().SwitchToScene("DEAD_SCREEN");
-	cout << "Start Credit" << endl;
 }
 
 void MainMenu::OnLoadBtnClick() {
-	cout << "Start Load game BTN" << endl;
+	SceneSwitcher::get_instance().SwitchToScene("WIN_SCREEN");
 }
