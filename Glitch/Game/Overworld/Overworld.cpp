@@ -29,7 +29,7 @@ void Overworld::LoadButtons() {
 	level2Btn->setPositionX(710);
 	level2Btn->setPositionY(890);
 
-	Button* stopBtn = new SecondaryButton(3, "Stop", BIND_FN(OnStopBtnClick));
+	Button* stopBtn = new SecondaryButton(3, "To Main Menu", BIND_FN(OnStopBtnClick));
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
