@@ -1,13 +1,14 @@
 #pragma once
+#include <api.h>
 #include "Engine/SceneManager/Objects/Object.h"
 #include "Game/Characters/ICharacter.h"
-#include <api.h>
+#include "Game/Characters/Player/Player.h"
 
 class TriggerBase : public Object
 {
 public:
 	// TODO Fix when merged in develop
-	TriggerBase() : Object(-1) { }
+	TriggerBase() : Object() { }
 	TriggerBase(const int _id) : Object(_id) { 
 		EventSingleton::get_instance().setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(TriggerBase::onCollisionBegin));
 	}

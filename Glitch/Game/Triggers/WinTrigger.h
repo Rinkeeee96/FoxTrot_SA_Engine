@@ -17,15 +17,7 @@ public:
 		auto collisionEvent = static_cast<OnCollisionBeginEvent&>(event);
 		if (collisionEvent.GetObjectOne().getObjectId() != this->getObjectId() && collisionEvent.GetObjectTwo().getObjectId() != this->getObjectId()) return false;
 
-		Object& objectOne = collisionEvent.GetObjectOne();
-		Object& objectTwo = collisionEvent.GetObjectOne();
-
-		// TODO if player fire win event
-		if (ICharacter* d = dynamic_cast<ICharacter*>(&objectOne)) {
-			this->level.setWin(true);
-		}
-		else if (ICharacter* d = dynamic_cast<ICharacter*>(&objectTwo)) {
-			this->level.setWin(true);
-		}
+		if (Player* characterObject = dynamic_cast<Player*>(&collisionEvent.GetObjectOne())) this->level.setWin(true);
+		else if (Player* characterObject = dynamic_cast<Player*>(&collisionEvent.GetObjectTwo())) this->level.setWin(true);
 	}
 };

@@ -17,7 +17,15 @@ Level::Level(const int id, const int _sceneHeight, const int _sceneWidth) : Scen
 // @brief 
 /// Sets player in the level the camera will follow this object
 /// @param Object player
-void Level::setPlayer(Object* object) { this->follow = object; }
+void Level::setPlayer(Object* object) { 
+	this->follow = object; 
+	if (Player* _player = dynamic_cast<Player*>(object)) {
+		this->player = _player;
+	}
+	else {
+		throw exception("not a player object");
+	}
+}
 
 // @brief 
 /// Register sounds by the level
@@ -50,24 +58,18 @@ void Level::start() {
 void Level::onUpdate() {
 	if (this->win) {
 		// TODO Win screen
-		throw std::exception("win");
+		throw std::exception("Win");
+		return;
+	}
+	if (player->getIsDead()) {
+		// TODO Death screen
+		throw std::exception("Death");
+		return;
 	}
 
 	for (auto obj : this->getAllObjectsInScene())
 	{
-		if (!obj->getStatic()) {
-			obj->onUpdate();
-
-			// TODO Refactor
-			if (ICharacter* d = dynamic_cast<ICharacter*>(obj)) {
-				if (d->getObjectId() == this->follow->getObjectId()) {
-					if (d->getIsDead()) {
-						// TODO Death screen
-						throw std::exception("level done");
-					}
-				}
-			}
-		}
+		if (!obj->getStatic()) obj->onUpdate();
 	}
 }
 
@@ -81,5 +83,5 @@ void Level::pause() {
 }
 
 void Level::onDetach() {
-	
+	Scene::onDetach();
 }//cleaup buffer

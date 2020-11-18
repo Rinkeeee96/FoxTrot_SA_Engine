@@ -15,10 +15,7 @@ public:
 		auto collisionEvent = static_cast<OnCollisionBeginEvent&>(event);
 		if (collisionEvent.GetObjectOne().getObjectId() != this->getObjectId() && collisionEvent.GetObjectTwo().getObjectId() != this->getObjectId()) return false;
 
-		Object& objectOne = collisionEvent.GetObjectOne();
-		Object& objectTwo = collisionEvent.GetObjectOne();
-
-		if (ICharacter* d = dynamic_cast<ICharacter*>(&objectOne)) d->setIsDead(true);
-		else if (ICharacter* d = dynamic_cast<ICharacter*>(&objectTwo)) d->setIsDead(true);
+		if (ICharacter* character = dynamic_cast<ICharacter*>(&collisionEvent.GetObjectOne())) character->setIsDead(true);
+		else if (ICharacter* character = dynamic_cast<ICharacter*>(&collisionEvent.GetObjectTwo())) character->setIsDead(true);
 	}
 };
