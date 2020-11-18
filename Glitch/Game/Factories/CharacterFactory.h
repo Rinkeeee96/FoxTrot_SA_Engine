@@ -1,12 +1,8 @@
 #pragma once
-#include <string>
-#include <map>
-#include <exception>
 #include "Game\General\GameErrorCodes.h"
 #include "Game\Characters\ICharacter.h"
 #include "Game\SpriteState.h"
-#include <Engine.h>
-#include <Game\Levels\Level.h>
+#include "Game\Levels\Level.h"
 
 /// @brief 
 /// Factory for creating entities

@@ -24,6 +24,7 @@ void MainMenu::loadButtons() {
 	Button* loadBtn = new PrimaryButton(-995, "Load", BIND_FN(onLoadBtnClick));
 	loadBtn->setPositionX(CENTER_X - loadBtn->getWidth() / 2);
 	loadBtn->setPositionY(CENTER_Y - loadBtn->getHeight() / 2 + 100);
+	loadBtn->disable();
 
 	Button* creditsBtn = new PrimaryButton(-994, "Credits", BIND_FN(onCreditsBtnClick));
 	creditsBtn->setPositionX(CENTER_X - creditsBtn->getWidth() / 2);
@@ -98,11 +99,7 @@ void MainMenu::onDetach()
 
 void MainMenu::onStartBtnClick()
 {
-	//SceneSwitcher::get_instance().switchToScene("LEVEL_1");
-
-	SceneSwitcher::get_instance().switchToScene("GENERAL_TRANSITION_SCENE");
-
-	cout << "Start BTN" << endl;
+	SceneSwitcher::get_instance().switchToScene("OVERWORLD", true);
 }
 
 void MainMenu::onStopBtnClick() {
@@ -115,5 +112,5 @@ void MainMenu::onCreditsBtnClick() {
 }
 
 void MainMenu::onLoadBtnClick() {
-	SceneSwitcher::get_instance().switchToScene("SAVE_SCREEN");
+	cout << "Start Load game BTN" << endl;
 }

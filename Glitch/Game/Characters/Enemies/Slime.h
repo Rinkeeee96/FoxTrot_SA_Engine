@@ -8,7 +8,7 @@ public:
 	Slime() : IEnemy() {}
 	Slime(const int id) : IEnemy(id) {}
 
-	virtual void onUpdate() override {
+	void onUpdate() override {
 		
 	};
 
@@ -20,5 +20,5 @@ public:
 		Object::setYAxisVelocity(val);
 	}
 
-	virtual ICharacter* clone(int id) override { return new Slime(id); }
+	ICharacter* clone(int id) override { return new Slime(id); }
 };

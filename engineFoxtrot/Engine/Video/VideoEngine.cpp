@@ -109,11 +109,6 @@ void VideoEngine::calculateOffset(Object& obj, int sceneWidth, int sceneHeight)
 	}
 }
 
-void VideoEngine::attachCamera(const int objectId)
-{
-	this->cameraObjectId = objectId;
-}
-
 /// @brief 
 /// Update all the sprites on the screen
 /// Updates the camera offset

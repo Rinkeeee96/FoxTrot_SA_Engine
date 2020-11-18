@@ -9,7 +9,7 @@ class LevelBuilderDirector
 private:
 	FileLoader fileLoader;
 public:
-	LevelBuilderDirector(Engine& engine);
+	LevelBuilderDirector();
 	void construct(nlohmann::json json, ILevelBuilder* builder);
 };
 

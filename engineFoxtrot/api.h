@@ -12,6 +12,7 @@
 #include "Events/Mouse/MousePressed.h"
 #include "Events/EventSingleton.h"
 #include "Events/Video/VideoLoadSpriteEvent.h"
+#include "Engine/Events/Action/ObjectStopEvent.h"
 // ----- engine core ----------------------
 #include "Engine/General/ErrorCodes.h"
 // ----- individual engines ----------------
@@ -29,6 +30,8 @@
 // ----- Objects / behavior --------------------
 #include "Engine/SceneManager/Objects/Object.h"
 #include "SceneManager/Objects/Drawable.h"
+// ----- File loader --------------------
+#include "Engine/FileParser/FileLoader.h"
 // ----- main engine --------------------
 #include "Engine/Engine.h"
 // ----- File Loader -----------------------

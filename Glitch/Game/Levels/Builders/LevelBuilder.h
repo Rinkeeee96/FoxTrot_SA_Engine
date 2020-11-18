@@ -1,7 +1,7 @@
 #pragma once
 #include "Game\Levels\Builders\AbstractLevelBuilder.h"
-#include <Game\Levels\Builders\ParsedEntities\TileSprite.h>
-#include <Game\Factories\CharacterFactory.h>
+#include "Game\Levels\Builders\ParsedEntities\TileSprite.h"
+#include "Game\Factories\CharacterFactory.h"
 
 // DO NOT TOUCH GROUND LAYER INDEX
 #define GROUND_LAYER_INDEX 2
@@ -26,7 +26,7 @@ private:
 	FileLoader fileLoader;
 	map<int, TileSprite*> textureMap;
 	map<int, SpriteObject*> spriteMap;
-	// TODO Dynamic
+
 	// TODO Fix tileId in tilesets
 	Level* bLevel;
 

@@ -13,6 +13,12 @@ Level::Level(const int id, const int _sceneHeight, const int _sceneWidth) : Scen
 {
 
 }
+
+// @brief 
+/// Sets player in the level the camera will follow this object
+/// @param Object player
+void Level::setPlayer(Object* object) { this->follow = object; }
+
 // @brief 
 /// Register sounds by the level
 /// @param sound map 
