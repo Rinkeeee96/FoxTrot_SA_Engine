@@ -9,6 +9,10 @@
 #define CENTER_X  (WINDOW_WIDTH / 2)
 #define CENTER_Y (WINDOW_HEIGHT / 2)
 
+/// @brief 
+/// Loadbuttons
+/// LoadBackground
+/// LoadMusic
 void Overworld::OnAttach()
 {
 	LoadButtons();
@@ -16,6 +20,8 @@ void Overworld::OnAttach()
 	LoadMusic();
 }
 
+/// @brief 
+/// Loads all the buttons in the Overworld
 void Overworld::LoadButtons() {
 
 	Button* level1Btn = new PrimaryButton(1, "Level 1", BIND_FN(OnLevel1BtnClick));
@@ -35,6 +41,8 @@ void Overworld::LoadButtons() {
 	addNewObjectToLayer(3, stopBtn);
 }
 
+/// @brief 
+/// Loads the background
 void Overworld::LoadBackground() {
 	SpriteObject* BG_LAYER_0 = new SpriteObject(1010, 1440, 1344, 1, 1, "Assets/Overworld/World.png");
 
@@ -50,48 +58,59 @@ void Overworld::LoadBackground() {
 
 	addNewObjectToLayer(0, layer0);
 }
+
+/// @brief 
 void Overworld::LoadMusic() {
 
 }
 
+/// @brief 
 void Overworld::Start()
 {
 
 }
 
+/// @brief 
 void Overworld::update()
 {
 }
 
+/// @brief 
 void Overworld::OnDetach()
 {
 	Scene::OnDetach();
 }
 
+/// @brief 
 void Overworld::OnLevel1BtnClick()
 {
 	cout << "Level1 BTN" << endl;
 	SceneSwitcher::get_instance().SwitchToScene("GAME");
 }
 
+/// @brief 
 void Overworld::OnLevel2BtnClick()
 {
 	cout << "Level2 BTN" << endl;
 }
 
+/// @brief 
 void Overworld::OnStartBtnClick()
 {
 	cout << "Start BTN" << endl;
 }
 
+/// @brief 
 void Overworld::OnStopBtnClick() {
 	SceneSwitcher::get_instance().SwitchToScene("MAIN_MENU");
 }
 
+/// @brief 
 void Overworld::OnCreditsBtnClick() {
 	cout << "Start Credit" << endl;
 }
 
+/// @brief 
 void Overworld::OnLoadBtnClick() {
 	cout << "Start Load game BTN" << endl;
 }
