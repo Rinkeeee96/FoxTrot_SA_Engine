@@ -23,9 +23,16 @@ void Game::run() {
 	GeneralTransition* generalTransitionScene = new GeneralTransition(160);
 	SceneSwitcher::get_instance().registerScene("GENERAL_TRANSITION_SCENE", generalTransitionScene);
 
-	levelLoader.load("Assets/Levels/Maps/Level1.json", &levelOneBuilder);
-	auto level = levelOneBuilder.getLevel();
-	SceneSwitcher::get_instance().registerScene("LEVEL_1", level);
+	try {
+		levelLoader.load("Assets/Levels/Maps/Level1.json", &levelOneBuilder);
+		auto level = levelOneBuilder.getLevel();
+		SceneSwitcher::get_instance().registerScene("LEVEL_1", level);
+	}
+	catch (exception e) {
+		// TODO show message
+		return;
+	}
+	
 
 	SceneSwitcher::get_instance().switchToScene("MAIN_MENU");
 	EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));

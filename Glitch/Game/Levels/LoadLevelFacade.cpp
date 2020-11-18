@@ -20,13 +20,15 @@ void LoadLevelFacade::load(string path, ILevelBuilder* levelBuilder) {
 		try {
 			builderDirector.construct(json, levelBuilder);
 		}
-		catch (exception e) {
+		catch (exception exc) {
 			cout << "Something went wrong parsing the file, make sure the file is correctly structured" << "\n";
-			cout << e.what() << "\n";
+			cout << exc.what() << "\n";
+			throw exc;
 		}
 	}
-	catch (exception e) {
+	catch (exception exc) {
 		cout << "Something went wrong opening file, make sure the file exists" << "\n";
-		cout << e.what() << "\n";
+		cout << exc.what() << "\n";
+		throw exc;
 	}
 }
