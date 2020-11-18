@@ -6,8 +6,6 @@
 #include "Game/Triggers/WinTrigger.h"
 #include "Game/Triggers/DeathTrigger.h"
 
-class LevelBuilder : public AbstractLevelBuilder {
-
 // DO NOT TOUCH GROUND LAYER INDEX
 #define GROUND_LAYER_INDEX 2
 #define ENTITY_LAYER_INDEX 4
