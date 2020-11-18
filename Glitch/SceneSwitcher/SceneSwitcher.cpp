@@ -23,8 +23,8 @@ void SceneSwitcher::SwitchToScene(string const identifier, bool useTransitionScr
 
 	if (!currentlyRunningTransition && useTransitionScreen)
 	{
-		auto scene = scenes.find("GENERAL_TRANSITION_SCENE");
-		if (scene == scenes.end())
+		auto transScene = scenes.find("GENERAL_TRANSITION_SCENE");
+		if (transScene == scenes.end())
 			return;
 
 		currentlyRunningTransition = true;
