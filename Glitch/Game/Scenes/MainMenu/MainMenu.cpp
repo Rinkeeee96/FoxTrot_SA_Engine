@@ -21,6 +21,7 @@ void MainMenu::LoadButtons() {
 	startBtn->setPositionX(CENTER_X - startBtn->getWidth() / 2);
 	startBtn->setPositionY(CENTER_Y - startBtn->getHeight() / 2);
 
+	/*
 	Button* loadBtn = new PrimaryButton(3, "Load", BIND_FN(OnLoadBtnClick));
 	loadBtn->setPositionX(CENTER_X - loadBtn->getWidth() / 2);
 	loadBtn->setPositionY(CENTER_Y - loadBtn->getHeight() / 2 + 100);
@@ -29,7 +30,7 @@ void MainMenu::LoadButtons() {
 	Button* creditsBtn = new PrimaryButton(4, "Credits", BIND_FN(OnCreditsBtnClick));
 	creditsBtn->setPositionX(CENTER_X - creditsBtn->getWidth() / 2);
 	creditsBtn->setPositionY(CENTER_Y - creditsBtn->getHeight() / 2 + 200);
-	creditsBtn->disable();
+	creditsBtn->disable();*/
 
 	Button* stopBtn = new SecondaryButton(2, "Stop", BIND_FN(OnStopBtnClick));
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
@@ -37,8 +38,8 @@ void MainMenu::LoadButtons() {
 
 	addNewObjectToLayer(3, startBtn);
 	addNewObjectToLayer(3, stopBtn);
-	addNewObjectToLayer(3, loadBtn);
-	addNewObjectToLayer(3, creditsBtn);
+	/*addNewObjectToLayer(3, loadBtn);
+	addNewObjectToLayer(3, creditsBtn);*/
 }
 
 void MainMenu::LoadBackground() {
