@@ -6,6 +6,7 @@
 #include "Events\Sound\SoundAttachEvent.h"
 #include "Events\Sound\OnMusicStopEvent.h"
 #include "Game/Characters/ICharacter.h"
+#include <Game\Characters\Player\Player.h>
 
 /// @brief 
 /// Level class. Level has all the information. 
@@ -28,6 +29,7 @@ public:
 private:
 	map<string, string> sounds;
 	Object* follow;
+	Player* player;
 
 	bool win = false;
 };
