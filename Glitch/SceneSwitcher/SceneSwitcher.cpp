@@ -4,7 +4,7 @@
 SceneSwitcher SceneSwitcher::instance;
 
 
-void SceneSwitcher::RegisterScene(string identifier, Scene* scene) {
+void SceneSwitcher::RegisterScene(const string& identifier, Scene* scene) {
 	if (scene == nullptr)return;
 	engine->insertScene(scene);
 	scenes.insert(pair<string, Scene*>(identifier, scene));
@@ -15,7 +15,7 @@ void SceneSwitcher::RegisterTransitionScene(Scene* scene)
 	RegisterScene("GENERAL_TRANSITION_SCENE", scene);
 }
 
-void SceneSwitcher::SwitchToScene(string const identifier, bool useTransitionScreen) {
+void SceneSwitcher::SwitchToScene(const string& identifier, bool useTransitionScreen) {
 	auto scene = scenes.find(identifier);
 	if (scene == scenes.end()) 
 		return;
