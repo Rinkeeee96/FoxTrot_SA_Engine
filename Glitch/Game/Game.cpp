@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "Game.h"
 
-
 bool Game::stopRun(Event& event) {
 	gameRunning = false;
 	return true;
@@ -21,8 +20,11 @@ void Game::run() {
 		GeneralTransition* generalTransitionScene = new GeneralTransition(160);
 		SceneSwitcher::get_instance().registerScene("GENERAL_TRANSITION_SCENE", generalTransitionScene);
 
-		SceneSwitcher::get_instance().switchToScene("MAIN_MENU");
+		SceneSwitcher::get_instance().switchToScene("MAIN_MENU", false);
 		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
+
+		Overworld* overWorld = new Overworld(7);
+		SceneSwitcher::get_instance().registerScene("OVERWORLD", overWorld);
 	}
 	catch (exception e) {
 		// TODO show message

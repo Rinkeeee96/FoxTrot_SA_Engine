@@ -5,6 +5,7 @@
 #include "SceneSwitcher/SceneSwitcher.h"
 #include "Game/Scenes/MainMenu/MainMenu.h"
 #include "Game/Scenes/Transitions/GeneralTransition/GeneralTransition.h"
+#include <Game\Overworld\Overworld.h>
 
 /// @brief 
 /// Game class runs the game

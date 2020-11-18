@@ -99,11 +99,7 @@ void MainMenu::onDetach()
 
 void MainMenu::onStartBtnClick()
 {
-	//SceneSwitcher::get_instance().switchToScene("LEVEL_1");
-
-	SceneSwitcher::get_instance().switchToScene("GENERAL_TRANSITION_SCENE");
-
-	cout << "Start BTN" << endl;
+	SceneSwitcher::get_instance().switchToScene("OVERWORLD", true);
 }
 
 void MainMenu::onStopBtnClick() {

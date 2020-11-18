@@ -30,8 +30,14 @@ public:
             for (auto handler : handlers.at(name)) {
                 // TODO how should keypressed events be handled,
                 // e.g a key is pressed but 
-                if (!handled)
+                if (!handled) {
                     handled = handler(event);
+
+                    if (handled) {
+                        return;
+                    }
+                }
+                   
                 else return;
             }
         }
@@ -43,7 +49,7 @@ public:
         string name;
         if (handlerExists<T>(name)) {
             for (const EventCallbackFn& registeredCallback : handlers.at(name))
-                if (addressof(callbackToRemove) == addressof(registeredCallback))  
+                if (addressof(callbackToRemove) == addressof(registeredCallback))
                     handlers.erase(name);
         }
     }

@@ -1,5 +1,6 @@
 #pragma once
 #include "api.h";
+class GeneralTransition;
 
 class SceneSwitcher
 {
@@ -13,7 +14,8 @@ public:
     SceneSwitcher& operator=(SceneSwitcher&&) = delete;
 
     void registerScene(string const identifier, Scene* scene);
-    void switchToScene(string const identifier);
+    void registerTransitionScene(Scene* scene);
+    void switchToScene(string const identifier, bool useTransitionScreen);
     void setEngine(Engine* _engine) { engine = _engine; }
     void runCurrentScene();
 
@@ -22,6 +24,7 @@ private:
     Engine* engine;
     Scene* activeScene;
     static SceneSwitcher instance;
-    SceneSwitcher(){}
+    SceneSwitcher() {}
 
+    bool currentlyRunningTransition = false;
 };

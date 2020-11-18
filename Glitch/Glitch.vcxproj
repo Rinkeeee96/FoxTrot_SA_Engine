@@ -181,6 +181,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Scenes\Transitions\GeneralTransition\GeneralTransition.h" />
     <ClInclude Include="Game\Scenes\Transitions\Transitions.h" />
     <ClInclude Include="Glitch.h" />
+    <ClInclude Include="Game\Overworld\Overworld.h" />
     <ClInclude Include="Game\Levels\Level.h" />
     <ClInclude Include="Game\SpriteState.h" />
     <ClInclude Include="SceneSwitcher\SceneSwitcher.h" />
@@ -197,6 +198,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClCompile Include="Game\Characters\Player\Player.cpp" />
     <ClCompile Include="Game\Levels\LoadLevelFacade.cpp" />
     <ClCompile Include="Game\Scenes\MainMenu\MainMenu.cpp" />
+    <ClCompile Include="Game\Overworld\Overworld.cpp" />
     <ClCompile Include="Game\Scenes\Transitions\GeneralTransition\GeneralTransition.cpp" />
     <ClCompile Include="Glitch.cpp" />
     <ClCompile Include="SceneSwitcher\SceneSwitcher.cpp" />

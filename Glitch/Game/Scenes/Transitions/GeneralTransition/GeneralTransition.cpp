@@ -9,6 +9,7 @@ void GeneralTransition::onAttach()
 	loadBackground();
 	startTime = chrono::high_resolution_clock::now();
 	previousCallTime = chrono::high_resolution_clock::now();
+	moveCharacter = false;
 }
 
 /// @brief 
@@ -124,8 +125,13 @@ void GeneralTransition::onUpdate()
 		animation->setPositionX(animation->getPositionX() + 20);
 		if (animation->getPositionX() > WINDOW_WIDTH)
 		{
-			SceneSwitcher::get_instance().switchToScene("LEVEL_1");
+			SceneSwitcher::get_instance().switchToScene(nextScene,false);
 		}
 		previousCallTime = chrono::high_resolution_clock::now();
 	}
+}
+
+void GeneralTransition::setNextScene(string const identifier)
+{
+	nextScene = identifier;
 }
