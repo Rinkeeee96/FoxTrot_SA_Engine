@@ -179,12 +179,13 @@ int main() {
 		SceneSwitcher::get_instance().SetEngine(&engine);
 		sceneTestSetup();
 
+		GeneralTransition* generalTransitionScene = new GeneralTransition(160);
+		SceneSwitcher::get_instance().RegisterTransitionScene(generalTransitionScene);
+
 		MainMenu *mainMenu = new MainMenu(1);
 		SceneSwitcher::get_instance().RegisterScene("MAIN_MENU", mainMenu);
-		SceneSwitcher::get_instance().SwitchToScene("MAIN_MENU");
+		SceneSwitcher::get_instance().SwitchToScene("MAIN_MENU",false);
 
-		GeneralTransition* generalTransitionScene = new GeneralTransition(160);
-		SceneSwitcher::get_instance().RegisterScene("GENERAL_TRANSITION_SCENE", generalTransitionScene);
 		Overworld* overWorld = new Overworld(7);
 		SceneSwitcher::get_instance().RegisterScene("OVERWORLD", overWorld);
 

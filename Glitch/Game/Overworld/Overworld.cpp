@@ -82,7 +82,7 @@ void Overworld::OnDetach()
 void Overworld::OnLevel1BtnClick()
 {
 	cout << "Level1 BTN" << endl;
-	SceneSwitcher::get_instance().SwitchToScene("GAME");
+	SceneSwitcher::get_instance().SwitchToScene("GAME",true);
 }
 
 /// @brief 
@@ -99,7 +99,7 @@ void Overworld::OnStartBtnClick()
 
 /// @brief 
 void Overworld::OnStopBtnClick() {
-	SceneSwitcher::get_instance().SwitchToScene("MAIN_MENU");
+	SceneSwitcher::get_instance().SwitchToScene("MAIN_MENU",true);
 }
 
 /// @brief 
