@@ -38,7 +38,7 @@ public:
 	/// OnDetach is called when a scene is destroyed/closed and is responsible for cleanup
 	/// Must be implemented by a concrete implementation of a scene when creating custom pointers.
 	/// Contains default object / layer destruction
-	API virtual void OnDetach();
+	API virtual void OnDetach() = 0;
 
 	/// @brief
 	/// run is called in the main loop on the currentScene

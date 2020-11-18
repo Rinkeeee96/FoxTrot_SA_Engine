@@ -1,23 +1,51 @@
 #include "pch.h"
 #include "SceneSwitcher.h"
+#include "Game/Scenes/Transitions/GeneralTransition/GeneralTransition.h"
 SceneSwitcher SceneSwitcher::instance;
 
 
-void SceneSwitcher::RegisterScene(string identifier, Scene* scene) {
+void SceneSwitcher::RegisterScene(const string& identifier, Scene* scene) {
 	if (scene == nullptr)return;
 	engine->insertScene(scene);
 	scenes.insert(pair<string, Scene*>(identifier, scene));
 }
 
-void SceneSwitcher::SwitchToScene(string const identifier) {
+void SceneSwitcher::RegisterTransitionScene(Scene* scene)
+{
+	RegisterScene("GENERAL_TRANSITION_SCENE", scene);
+}
+
+void SceneSwitcher::SwitchToScene(const string& identifier, bool useTransitionScreen) {
 	auto scene = scenes.find(identifier);
 	if (scene == scenes.end()) 
 		return;
 	//TODO start transitiescreen
-	engine->setCurrentScene(scene->second->getSceneID());
+
+	auto transScene = scenes.find("GENERAL_TRANSITION_SCENE");
+	bool transitionSceneAvailable = true;
+	transScene == scenes.end() ? transitionSceneAvailable = false : transitionSceneAvailable = true;
+
+	if (!currentlyRunningTransition && useTransitionScreen && transitionSceneAvailable)
+	{
+		currentlyRunningTransition = true;
+		engine->setCurrentScene(scenes["GENERAL_TRANSITION_SCENE"]->getSceneID());
+		scene = scenes.find("GENERAL_TRANSITION_SCENE");
+		((GeneralTransition*)scene->second)->setNextScene(identifier);
+	}
+	else
+	{
+		engine->setCurrentScene(scene->second->getSceneID());
+		currentlyRunningTransition = false;
+	}
+	scene->second->OnAttach();
+	scene->second->Start();
+
 	// Detach the old now inactive scene
 	if (activeScene != nullptr)
+	{
 		activeScene->OnDetach();
+	}
+		
 	// Set the new scene active
 	activeScene = scene->second;
 }

@@ -7,7 +7,7 @@ class API Drawable : public Object
 {
 public:
 	Drawable(const int _id, const bool _isParticle = false) : Object(_id, _isParticle) {};
-
+	virtual ~Drawable() {};
 	/// @brief
 	/// get the current active sprite reference of the drawable
 	SpriteObject& GetCurrentSprite() const { return *currentSprite; }

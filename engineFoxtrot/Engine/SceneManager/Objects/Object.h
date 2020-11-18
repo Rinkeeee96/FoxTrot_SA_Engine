@@ -9,7 +9,7 @@ class Object
 {
 public:
 	API Object(const int id, const bool isParticle);
-	API ~Object();
+	virtual API ~Object();
 
 	void API setPositionX(const float);
 	float API getPositionX() const;

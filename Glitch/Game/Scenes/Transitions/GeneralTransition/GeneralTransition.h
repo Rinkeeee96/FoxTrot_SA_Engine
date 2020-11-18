@@ -15,12 +15,16 @@ public:
 	virtual void Start() override;
 	virtual void update() override;
 
+	void setNextScene(string const identifier);
+
 private:
 	void loadBackground();
 	Drawable* progressBarFiller = nullptr;
 	Drawable* animation = nullptr;
 
 	bool moveCharacter = false;
+
+	string nextScene = "";
 
 	chrono::high_resolution_clock::time_point startTime;
 	chrono::high_resolution_clock::time_point previousCallTime;

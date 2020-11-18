@@ -9,6 +9,7 @@ void GeneralTransition::OnAttach()
 	loadBackground();
 	startTime = chrono::high_resolution_clock::now();
 	previousCallTime = chrono::high_resolution_clock::now();
+	moveCharacter = false;
 }
 
 /// @brief 
@@ -124,10 +125,15 @@ void GeneralTransition::update()
 		animation->setPositionX(animation->getPositionX() + 20);
 		if (animation->getPositionX() > WINDOW_WIDTH)
 		{
-			SceneSwitcher::get_instance().SwitchToScene("GAME");
+			SceneSwitcher::get_instance().SwitchToScene(nextScene,false);
 		}
 		previousCallTime = chrono::high_resolution_clock::now();
 
 	}
 
+}
+
+void GeneralTransition::setNextScene(string const identifier)
+{
+	nextScene = identifier;
 }
