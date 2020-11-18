@@ -1,6 +1,7 @@
 var class_object =
 [
     [ "Object", "class_object.html#a7453266b335466bcb267ae816cb716b8", null ],
+    [ "Object", "class_object.html#a40860402e64d8008fb42329df7097cdb", null ],
     [ "~Object", "class_object.html#ae8f5483f459e46687bd01e6f9977afd3", null ],
     [ "getDensity", "class_object.html#ad21af4ef109d8c60f22e702419db8ada", null ],
     [ "getFriction", "class_object.html#af653187a71c850214040ce93935fb338", null ],
@@ -20,6 +21,7 @@ var class_object =
     [ "getWidth", "class_object.html#a6c1edada408d830ea9001d89daa898df", null ],
     [ "getXAxisVelocity", "class_object.html#acbe080fe787193c9342f28f23c2ddae2", null ],
     [ "getYAxisVelocity", "class_object.html#a91c888e69faceb416a3eef290ff40fde", null ],
+    [ "onUpdate", "class_object.html#a6ff0e2544342c327f262197014a89f15", null ],
     [ "setDensity", "class_object.html#a90bae92ec92ba0cafcdf0ab825ff487f", null ],
     [ "setFriction", "class_object.html#aa1ef52b289dc2203654e0af50145f030", null ],
     [ "setHeight", "class_object.html#a2713ff1d83a1bcd9d5271423e47f120f", null ],

@@ -29,6 +29,7 @@ var hierarchy =
       ] ],
       [ "MouseMovedEvent", "class_mouse_moved_event.html", null ],
       [ "MouseScrolledEvent", "class_mouse_scrolled_event.html", null ],
+      [ "ObjectStopEvent", "class_object_stop_event.html", null ],
       [ "OnCollisionEvent", "class_on_collision_event.html", [
         [ "OnCollisionBeginEvent", "class_on_collision_begin_event.html", null ],
         [ "OnCollisionEndEvent", "class_on_collision_end_event.html", null ]
@@ -38,13 +39,10 @@ var hierarchy =
       [ "WindowResizeEvent", "class_window_resize_event.html", null ]
     ] ],
     [ "EventSingleton", "class_event_singleton.html", null ],
-    [ "FileParser", "class_file_parser.html", null ],
+    [ "FileLoader", "class_file_loader.html", null ],
     [ "FrameData", "class_frame_data.html", null ],
     [ "IInputFacade", "class_i_input_facade.html", [
       [ "InputFacade", "class_input_facade.html", null ]
-    ] ],
-    [ "IJsonFacade", "class_i_json_facade.html", [
-      [ "JsonFacade", "class_json_facade.html", null ]
     ] ],
     [ "InputEngine", "class_input_engine.html", null ],
     [ "IPhysicsFacade", "class_i_physics_facade.html", [

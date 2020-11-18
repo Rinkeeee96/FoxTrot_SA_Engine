@@ -61,7 +61,6 @@ $(document).ready(function(){initNavTree('class_physics_engine.html',''); initRe
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_physics_engine-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -87,6 +86,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#ae403b95b6d1c0bc5ac7eb361c0058866">handleAction</a> (<a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
 <tr class="memdesc:ae403b95b6d1c0bc5ac7eb361c0058866"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles a <a class="el" href="class_action_event.html" title="AppTickEvent is fired when a tick happened in the engine. Derived class of event.">ActionEvent</a> and according to the given direction moves the object. <br /></td></tr>
 <tr class="separator:ae403b95b6d1c0bc5ac7eb361c0058866"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b5226f1d81015ae653baf1ebd5287fd"><td class="memItemLeft" align="right" valign="top"><a id="a6b5226f1d81015ae653baf1ebd5287fd"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>stopObject</b> (<a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
+<tr class="separator:a6b5226f1d81015ae653baf1ebd5287fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af14454d402142720dcfe78a8b16af517"><td class="memItemLeft" align="right" valign="top"><a id="af14454d402142720dcfe78a8b16af517"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#af14454d402142720dcfe78a8b16af517">update30</a> (<a class="el" href="class_event.html">Event</a> &amp;tick30Event)</td></tr>
 <tr class="memdesc:af14454d402142720dcfe78a8b16af517"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle the tick given from the thread. <br  />
@@ -102,53 +104,12 @@ Public Attributes</h2></td></tr>
 <a class="el" href="class_scene.html">Scene</a> **&#160;</td><td class="memItemRight" valign="bottom"><b>pointerToCurrentScene</b> = nullptr</td></tr>
 <tr class="separator:a7a87eef7b319b415385b63724195fb41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a7f57185a4e18281af53f71edd985d0b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a7f57185a4e18281af53f71edd985d0b5">getObject</a> (const int objectId)</td></tr>
-<tr class="memdesc:a7f57185a4e18281af53f71edd985d0b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to search a object with the ObjectId If a object is not found throw PHYSICS_ENGINE_OBJECT_DOESNT_EXIST.  <a href="class_physics_engine.html#a7f57185a4e18281af53f71edd985d0b5">More...</a><br /></td></tr>
-<tr class="separator:a7f57185a4e18281af53f71edd985d0b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a858c48efe8067f869a2512301e609edc"><td class="memItemLeft" align="right" valign="top"><a id="a858c48efe8067f869a2512301e609edc"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>currentSceneID</b> = 0</td></tr>
 <tr class="separator:a858c48efe8067f869a2512301e609edc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a7f57185a4e18281af53f71edd985d0b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f57185a4e18281af53f71edd985d0b5">&#9670;&nbsp;</a></span>getObject()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_object.html">Object</a> * PhysicsEngine::getObject </td>
-          <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>objectId</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>A function to search a object with the ObjectId If a object is not found throw PHYSICS_ENGINE_OBJECT_DOESNT_EXIST. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">objectId</td><td>Identifier for ObjectID </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>Engine/Physics/<a class="el" href="_physics_engine_8h_source.html">PhysicsEngine.h</a></li>
 <li>Engine/Physics/PhysicsEngine.cpp</li>
