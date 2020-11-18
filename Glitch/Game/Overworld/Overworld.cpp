@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "Overworld.h"
-
 #include "Game/Buttons/PrimaryButton.h"
 #include "Game/Buttons/SecondaryButton.h"
 
@@ -10,26 +9,26 @@
 /// Loadbuttons
 /// LoadBackground
 /// LoadMusic
-void Overworld::OnAttach()
+void Overworld::onAttach()
 {
-	LoadButtons();
-	LoadBackground();
-	LoadMusic();
+	loadButtons();
+	loadBackground();
+	loadMusic();
 }
 
 /// @brief 
 /// Loads all the buttons in the Overworld
-void Overworld::LoadButtons() {
+void Overworld::loadButtons() {
 
-	Button* level1Btn = new PrimaryButton(1, "Level 1", BIND_FN(OnLevel1BtnClick));
+	Button* level1Btn = new PrimaryButton(1, "Level 1", BIND_FN(onLevel1BtnClick));
 	level1Btn->setPositionX(280);
 	level1Btn->setPositionY(1060);
 
-	Button* level2Btn = new PrimaryButton(2, "Level 2", BIND_FN(OnLevel2BtnClick));
+	Button* level2Btn = new PrimaryButton(2, "Level 2", BIND_FN(onLevel2BtnClick));
 	level2Btn->setPositionX(710);
 	level2Btn->setPositionY(890);
 
-	Button* stopBtn = new SecondaryButton(3, "To Main Menu", BIND_FN(OnStopBtnClick));
+	Button* stopBtn = new SecondaryButton(3, "To Main Menu", BIND_FN(onStopBtnClick));
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
@@ -40,8 +39,8 @@ void Overworld::LoadButtons() {
 
 /// @brief 
 /// Loads the background
-void Overworld::LoadBackground() {
-	SpriteObject* BG_LAYER_0 = new SpriteObject(1010, 1440, 1344, 1, 1, "Assets/Overworld/World.png");
+void Overworld::loadBackground() {
+	SpriteObject* BG_LAYER_0 = new SpriteObject(-9123, 1440, 1344, 1, 1, "Assets/Overworld/World.png");
 
 	auto* layer0 = new Drawable(1);
 	layer0->setStatic(true);
@@ -53,61 +52,61 @@ void Overworld::LoadBackground() {
 	layer0->changeToState(SpriteState::DEFAULT);
 	layer0->setScalable(false);
 
-	addNewObjectToLayer(0, layer0);
+	addNewObjectToLayer(1, layer0);
 }
 
 /// @brief 
-void Overworld::LoadMusic() {
+void Overworld::loadMusic() {
 
 }
 
 /// @brief 
-void Overworld::Start()
+void Overworld::start()
 {
 
 }
 
 /// @brief 
-void Overworld::update()
+void Overworld::onUpdate()
 {
 }
 
 /// @brief 
-void Overworld::OnDetach()
+void Overworld::onDetach()
 {
-	Scene::OnDetach();
+	Scene::onDetach();
 }
 
 /// @brief 
-void Overworld::OnLevel1BtnClick()
+void Overworld::onLevel1BtnClick()
 {
 	cout << "Level1 BTN" << endl;
-	SceneSwitcher::get_instance().SwitchToScene("GAME",true);
+	SceneSwitcher::get_instance().switchToScene("LEVEL_1", true);
 }
 
 /// @brief 
-void Overworld::OnLevel2BtnClick()
+void Overworld::onLevel2BtnClick()
 {
 	cout << "Level2 BTN" << endl;
 }
 
 /// @brief 
-void Overworld::OnStartBtnClick()
+void Overworld::onStartBtnClick()
 {
 	cout << "Start BTN" << endl;
 }
 
 /// @brief 
-void Overworld::OnStopBtnClick() {
-	SceneSwitcher::get_instance().SwitchToScene("MAIN_MENU",true);
+void Overworld::onStopBtnClick() {
+	SceneSwitcher::get_instance().switchToScene("MAIN_MENU",true);
 }
 
 /// @brief 
-void Overworld::OnCreditsBtnClick() {
+void Overworld::onCreditsBtnClick() {
 	cout << "Start Credit" << endl;
 }
 
 /// @brief 
-void Overworld::OnLoadBtnClick() {
+void Overworld::onLoadBtnClick() {
 	cout << "Start Load game BTN" << endl;
 }
