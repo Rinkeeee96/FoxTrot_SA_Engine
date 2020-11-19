@@ -75,7 +75,8 @@ void Level::onUpdate() {
 			if (ICharacter* character = dynamic_cast<ICharacter*>(object)) {
 				if (character->getIsDead() && !character->getIsRemoved()) {
 					// TODO Death animation
-					removeObjectFromScene(object);
+					object->setIsRemoved(true);
+					//removeObjectFromScene(object);
 				}
 			}
 		}
@@ -91,4 +92,7 @@ void Level::pause() {
 	}
 }
 
-void Level::onDetach() {}//cleaup buffer
+void Level::onDetach() 
+{
+	Scene::onDetach();
+}//cleaup buffer

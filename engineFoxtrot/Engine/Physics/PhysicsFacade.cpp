@@ -129,15 +129,14 @@ b2Body* PhysicsFacade::findBody(const int objectId) {
 /// A function to update the position information of all objects
 /// The position is set to the bottom left
 void PhysicsFacade::update() {
+	if (!this->world) return;
 	this->world->Step(timeStep, VELOCITY_ITERATIONS, POSITION_ITERATIONS);
 
-	for (const auto& it : bodies)
+	for (auto& it : bodies)
 	{
-		if (it.first->getObject().getIsRemoved()) {
-			world->DestroyBody(it.second);
-			bodies.erase(it.first);
-			break;
-		}
+		//if (it.first->getObject().getIsRemoved()) {
+		//	continue;
+		//}
 		
 		b2Body* body = it.second;
 
@@ -145,6 +144,7 @@ void PhysicsFacade::update() {
 			continue;
 		}
 		PhysicsBody* object = it.first;
+		if (!object) return;
 		object->setPositionX(body->GetWorldCenter().x - object->getWidth() / 2);
 		object->setPositionY(body->GetWorldCenter().y + object->getHeight() / 2);
 
@@ -212,9 +212,7 @@ void PhysicsFacade::Jump(const int objectId)
 /// destroy all the bodies of the world
 void PhysicsFacade::cleanMap()
 {
-	for (auto b : bodies)
-	{
-		world->DestroyBody(b.second);
-	}
-	bodies.clear();
+	delete world;
+	world = new b2World(b2Vec2(GRAVITY_SCALE, GRAVITY_FALL));
+	world->SetContactListener(new ContactListenerAdapter(this));
 }

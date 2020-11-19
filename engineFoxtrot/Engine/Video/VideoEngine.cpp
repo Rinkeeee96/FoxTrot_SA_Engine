@@ -132,13 +132,16 @@ void VideoEngine::updateScreen()
 
 	for (Drawable* obj : (*pointerToCurrentScene)->getAllDrawablesInScene()) {
 		if (obj != nullptr) {
-			if (obj->getIsParticle())
+			if (!obj->getIsRemoved())
 			{
-				drawParticle((ParticleAdapter*)obj);
-			}
-			else
-			{
-				renderCopy(*obj);
+				if (obj->getIsParticle())
+				{
+					drawParticle((ParticleAdapter*)obj);
+				}
+				else
+				{
+					renderCopy(*obj);
+				}
 			}
 		}
 	}
