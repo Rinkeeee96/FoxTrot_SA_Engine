@@ -8,32 +8,30 @@
 #define CENTER_X  (WINDOW_WIDTH / 2)
 #define CENTER_Y (WINDOW_HEIGHT / 2)
 
-void MainMenu::OnAttach()
+void MainMenu::onAttach()
 {
-	LoadButtons();
-	LoadBackground();
-	LoadMusic();
+	loadButtons();
+	loadBackground();
+	loadMusic();
 }
 
-/// @brief 
-/// Create all buttons for this scene
-void MainMenu::LoadButtons() {
 
-	Button* startBtn = new PrimaryButton(1, "Start", BIND_FN(OnStartBtnClick));
+void MainMenu::LoadButtons() {
+	Button* startBtn = new PrimaryButton(-996, "Start", BIND_FN(onStartBtnClick));
 	startBtn->setPositionX(CENTER_X - startBtn->getWidth() / 2);
 	startBtn->setPositionY(CENTER_Y - startBtn->getHeight() / 2);
 
-	Button* loadBtn = new PrimaryButton(3, "Load", BIND_FN(OnLoadBtnClick));
+	Button* loadBtn = new PrimaryButton(-995, "Load", BIND_FN(onLoadBtnClick));
 	loadBtn->setPositionX(CENTER_X - loadBtn->getWidth() / 2);
 	loadBtn->setPositionY(CENTER_Y - loadBtn->getHeight() / 2 + 100);
 	loadBtn->disable();
 
-	Button* creditsBtn = new PrimaryButton(4, "Credits", BIND_FN(OnCreditsBtnClick));
+	Button* creditsBtn = new PrimaryButton(-994, "Credits", BIND_FN(onCreditsBtnClick));
 	creditsBtn->setPositionX(CENTER_X - creditsBtn->getWidth() / 2);
 	creditsBtn->setPositionY(CENTER_Y - creditsBtn->getHeight() / 2 + 200);
 	creditsBtn->disable();
 
-	Button* stopBtn = new SecondaryButton(2, "Stop", BIND_FN(OnStopBtnClick));
+	Button* stopBtn = new SecondaryButton(-993, "Stop", BIND_FN(onStopBtnClick));
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
@@ -50,7 +48,7 @@ void MainMenu::LoadBackground() {
 	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(1001, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png");
 	SpriteObject* BG_LAYER_2 = new SpriteObject(1002, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_2.png");
 
-	auto* layer0 = new Drawable(1);
+	auto* layer0 = new Drawable(-992);
 	layer0->setStatic(true);
 	layer0->setPositionX(1);
 	layer0->setPositionY(1080);
@@ -59,7 +57,7 @@ void MainMenu::LoadBackground() {
 	layer0->registerSprite(SpriteState::DEFAULT, BG_LAYER_0);
 	layer0->changeToState(SpriteState::DEFAULT);
 
-	auto* animation = new Drawable(2);
+	auto* animation = new Drawable(-991);
 	animation->setStatic(true);
 	animation->setPositionX(175);
 	animation->setPositionY(875);
@@ -69,7 +67,7 @@ void MainMenu::LoadBackground() {
 	animation->changeToState(SpriteState::DEFAULT);
 	animation->setScalable(false);
 
-	auto* layer2 = new Drawable(3);
+	auto* layer2 = new Drawable(-990);
 	layer2->setStatic(true);
 	layer2->setPositionX(1);
 	layer2->setPositionY(1080);
@@ -83,6 +81,7 @@ void MainMenu::LoadBackground() {
 	addNewObjectToLayer(2, layer2);
 }
 
+
 /// @brief 
 /// Load the sounds for this scene
 void MainMenu::LoadMusic() {
@@ -92,8 +91,14 @@ void MainMenu::LoadMusic() {
 /// @brief 
 /// Create the sounds for this scene
 void MainMenu::Start()
+
 {
 	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("MENU_SOUND"));
+}
+
+void MainMenu::onUpdate()
+{
+
 }
 
 /// @brief 
@@ -101,7 +106,7 @@ void MainMenu::Start()
 void MainMenu::OnDetach()
 {
 	EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent("MENU_SOUND"));
-	Scene::OnDetach();
+	Scene::onDetach();
 }
 
 /// @brief 
@@ -109,8 +114,7 @@ void MainMenu::OnDetach()
 /// Start transition scene to overworld
 void MainMenu::OnStartBtnClick()
 {
-	SceneSwitcher::get_instance().SwitchToScene("GENERAL_TRANSITION_SCENE");
-	cout << "Start BTN" << endl;
+	SceneSwitcher::get_instance().switchToScene("OVERWORLD", true);
 }
 
 /// @brief 
@@ -130,9 +134,4 @@ void MainMenu::OnCreditsBtnClick() {
 /// A callback function for loadBTN
 void MainMenu::OnLoadBtnClick() {
 	cout << "Start Load game BTN" << endl;
-}
-
-void MainMenu::update()
-{
-
 }

@@ -4,7 +4,11 @@
 #include <Events\EventSingleton.h>
 
 /// @brief 
-Object::Object(const int _objectId, const bool _isParticle = false) : objectId(_objectId), isParticle(_isParticle)
+Object::Object(const int _objectId, const bool _isParticle) : objectId(_objectId), isParticle(_isParticle)
+{
+}
+/// @brief 
+Object::Object()
 {
 }
 /// @brief 
