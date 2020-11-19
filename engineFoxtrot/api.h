@@ -3,11 +3,18 @@
 #include "Events/Event.h"
 #include "Events/AppTickEvent30.h"
 #include "Events/AppTickEvent60.h"
+
 #include "Events/Action/OnCollisionEvent.h"
 #include "Events/EventSingleton.h"
+
 #include "Events/Sound/OnMusicStartEvent.h"
 #include "Events/Sound/SoundAttachEvent.h"
 #include "Events/Sound/OnMusicStopEvent.h"
+
+#include "Events/Sound/PlaySoundEffectEvent.h"
+#include "Events/Sound/StopSoundEffectEvent.h"
+
+
 #include "Events/Window/WindowCloseEvent.h"
 #include "Events/Mouse/MousePressed.h"
 #include "Events/EventSingleton.h"

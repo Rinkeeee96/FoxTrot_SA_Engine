@@ -4,7 +4,9 @@
 /// @brief 
 /// @param sceneID 
 /// @param _sounds this contains the sounds for the level with identifier and filepath
-Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, map<string, string> _sounds = map<string, string>()) : Scene::Scene(id, _sceneHeight, _sceneWidth), sounds(_sounds)
+Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, map<string, string> _sounds = map<string, string>()) : 
+	Scene::Scene(id, _sceneHeight, _sceneWidth), 
+	sounds(_sounds)
 {
 
 }
@@ -57,13 +59,11 @@ void Level::start() {
 
 void Level::onUpdate() {
 	if (this->win) {
-		// TODO Win screen
-		throw std::exception("Win");
+		SceneSwitcher::get_instance().switchToScene("WIN_SCREEN", false);
 		return;
 	}
 	if (player->getIsDead()) {
-		// TODO Death screen
-		throw std::exception("Death");
+		SceneSwitcher::get_instance().switchToScene("DEAD_SCREEN", false);
 		return;
 	}
 
