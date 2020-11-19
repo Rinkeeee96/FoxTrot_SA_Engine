@@ -38,7 +38,6 @@ void Level::setSound(map<string, string> _sounds)
 /// @brief
 /// OnAttach is executed when a scene is "attached" to the current running context
 /// usually this is can be used to prime a level with relevant data before starting it.
-/// Must be implemented by a concrete implementation of a scene
 void Level::onAttach() {
 	for (const auto& s : sounds) {
 		if(DEBUG_MAIN)std::cout << s.first << " has value " << s.second << std::endl;
@@ -47,7 +46,6 @@ void Level::onAttach() {
 }
 /// @brief
 /// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
-/// Must be implemented by a concrete implementation of a scene
 void Level::start() {
 	this->setObjectToFollow(this->follow);
 	for (const auto& s : sounds) {
@@ -83,8 +81,7 @@ void Level::onUpdate() {
 }
 
 /// @brief
-/// OnDetach is called when a scene is destroyed/closed and is responsible for cleanup
-/// Must be implemented by a concrete implementation of a scene
+/// Execute pause logic
 void Level::pause() {
 	for (const auto& s : sounds) {
 		EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent(s.first));
