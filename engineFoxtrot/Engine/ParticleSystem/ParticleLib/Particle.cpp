@@ -236,7 +236,7 @@ void Particle::update()
             }
         }
 
-        int emitCount = (int)(std::min)(1.0f * (totalParticles - _particleCount), _emitCounter / rate);
+        int emitCount = (std::min)(1.0f * (totalParticles - _particleCount), _emitCounter / rate);
         addParticles(emitCount);
         _emitCounter -= rate * emitCount;
 
