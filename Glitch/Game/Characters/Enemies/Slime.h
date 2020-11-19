@@ -46,8 +46,8 @@ public:
 			player->getPositionX() <= this->getPositionX() + this->width;
 		bool isPlayerBelowMe = (player->getPositionY() + player->getHeight()) <= this->getPositionY();
 
-		bool amOnSolidGround = this->getYAxisVelocity() == 0;
-		if(amOnSolidGround) 
+		bool amInAir = this->getYAxisVelocity() > 0;
+		if(!amInAir)
 			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
 
 		if (isPlayerOverlapping && isPlayerBelowMe){
