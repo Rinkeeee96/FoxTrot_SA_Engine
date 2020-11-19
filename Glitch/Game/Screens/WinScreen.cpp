@@ -50,6 +50,7 @@ void WinScreen::LoadBackground() {
 	SpriteObject* BG_LAYER_ADVENTRUE_JUMP = new SpriteObject(1032, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_jump_right.png");
 	SpriteObject* BG_LAYER_ADVENTRUE_FALL = new SpriteObject(1033, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_fall_right.png");
 	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(1011, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png");
+	SpriteObject* particleSprite = new SpriteObject(11, 20, 20, 20, 300, "Assets/Particles/fire.png");
 
 
 	auto* layer0 = new Drawable(34);
@@ -73,8 +74,20 @@ void WinScreen::LoadBackground() {
 	animation->changeToState(SpriteState::DEFAULT);
 	animation->setScalable(false);
 
+	ParticleAdapter* confetti = new ParticleAdapter(11);        
+	confetti->registerSprite(SpriteState::DEFAULT, particleSprite);
+	confetti->changeToState(SpriteState::DEFAULT);
+	confetti->setPositionX(CENTER_X);
+	confetti->setPositionY(CENTER_Y);
+	confetti->setStyle(ParticleInit::ParticleStyle::EXPLOSION);
+	confetti->setStartSpin(0);
+	confetti->setStartSpinVar(90);
+	confetti->setEndSpin(90);
+	confetti->setStartSpinVar(90);
+
 	addNewObjectToLayer(0, layer0);
 	addNewObjectToLayer(1, animation);
+	addNewObjectToLayer(2, confetti);
 }
 
 void WinScreen::LoadMusic() {
