@@ -1,5 +1,4 @@
 #pragma once
-// TODO wrong way to include event, identify why it breaks
 #include "Events\EventSingleton.h"
 #include "Events/Action/ActionEvent.h"
 #include "IPhysicsFacade.h"

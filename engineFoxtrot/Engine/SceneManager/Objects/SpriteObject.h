@@ -2,7 +2,6 @@
 class SpriteObject
 {
 public:
-	API SpriteObject();
 	API SpriteObject(const int _textureID, const float _height, const float _width, const int _size, int _animationDelay, const char * _fileName );
 	API ~SpriteObject();
 	API int getTextureID() const;
@@ -20,5 +19,5 @@ private:
 	const int lengthOfTextures = 0;
 	const float height = 0;
 	const float width = 0;
-	const char * fileName = "";
+	const char * fileName = nullptr;
 };

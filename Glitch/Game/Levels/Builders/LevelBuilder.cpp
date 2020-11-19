@@ -60,6 +60,8 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 				object = characterFactory->create(objectPropertyValue["value"], id++);
 			}
 		}
+		
+		if (object == nullptr) throw OBJECT_IS_NULLPTR;
 
 		object->setHeight(objectValue["height"]);
 		object->setWidth(objectValue["width"]);

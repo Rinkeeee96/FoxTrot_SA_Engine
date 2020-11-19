@@ -22,8 +22,8 @@ public:
 
 private:
     map<string, Scene*> scenes;
-    Engine* engine;
-    Scene* activeScene;
+    Engine* engine = nullptr;
+    Scene* activeScene = nullptr;
     static SceneSwitcher instance;
     
 

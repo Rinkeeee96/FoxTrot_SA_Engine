@@ -1,6 +1,5 @@
 #pragma once
-// TODO find out why removing this breaks everything
-#include "stdafx.h"
+#include "core.h"
 #include "SpriteObject.h"
 
 /// @brief 
