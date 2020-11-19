@@ -146,7 +146,7 @@ void Scene::onDetach()
 	for (auto& layerContainer : layers)
 	{
 		Layer* layer = layerContainer.second;
-		for (const auto& [id, object] : layer->objects)
+		for (const auto& [id, object] : layer->objects) 
 			delete object;
 
 		layer->objects.clear();

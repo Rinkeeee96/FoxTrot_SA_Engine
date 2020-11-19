@@ -113,9 +113,10 @@ void SoundFacade::UnloadEffect(const string& identifier) {
 /// Indefinitely plays a loaded effect that belongs to the given identifier
 /// @param identifier 
 /// The sound identifier saved when the file has been added
-void SoundFacade::StartLoopedEffect(const string& identifier) {
+void SoundFacade::StartLoopedEffect(const string& identifier, const int volume) {
 	if (loadedSoundEffects.find(identifier) != loadedSoundEffects.end()) {
 		int channel = Mix_PlayChannel(FIRST_AVAILABLE_CHANNEL, loadedSoundEffects[identifier], LOOP_INDEFINITELY);
+		Mix_Volume(channel, volume);
 		loopChannels.insert(pair<string, int>(identifier, channel));
 	}
 	else {

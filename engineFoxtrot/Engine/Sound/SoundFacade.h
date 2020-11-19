@@ -32,7 +32,7 @@ public:
 	void PlayEffect(const string& identifier, const int volume);
 	void LoadEffect(const string& identifier);
 	void UnloadEffect(const string& identifier);
-	void StartLoopedEffect(const string& effect);
+	void StartLoopedEffect(const string& effect, const int volume);
 	void StopLoopedEffect(const string& identifier);
 	void LoadMusic(const string& identifier);
 	void PlayMusic(const int volume);

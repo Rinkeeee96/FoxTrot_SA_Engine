@@ -7,7 +7,10 @@
 class SoundAttachEvent : public BaseSoundEvent
 {
 public:
-	SoundAttachEvent(const std::string& identifier, const std::string& _file) : BaseSoundEvent(identifier), fileName(_file) {}
+	SoundAttachEvent(const std::string& identifier, const std::string& _file, int volume = MAX_VOLUME) : 
+		BaseSoundEvent(identifier, volume),
+		fileName(_file)
+	{}
 
 	/// @brief
 	/// KeyCode that is pressed
