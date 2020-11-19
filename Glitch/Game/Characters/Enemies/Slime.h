@@ -20,21 +20,21 @@ public:
 
 		if (std::find(collidedDirection.begin(), collidedDirection.end(), Direction::UP) != collidedDirection.end()) {
 			// TODO rename?
-			this->setIsDead(true);
+			this->kill();
 		}
 		else {
 			if (collisionEvent.getObjectOne().getObjectId() == this->getObjectId()) {
 				Object& otherE = collisionEvent.getObjectTwo();
 
 				if (this->player->getObjectId() == otherE.getObjectId()) {
-					this->player->setIsDead(true);
+					this->player->kill();
 				}
 			}
 			else if (collisionEvent.getObjectTwo().getObjectId() == this->getObjectId()) {
 				Object& otherEntity = collisionEvent.getObjectOne();
 
 				if (this->player->getObjectId() == otherEntity.getObjectId()) {
-					this->player->setIsDead(true);
+					this->player->kill();
 				}
 			}
 		}

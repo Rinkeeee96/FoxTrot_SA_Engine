@@ -15,8 +15,14 @@ public:
 	void setCanJump(bool val) { this->canJump = val; }
 	int getHealth() const { this->health; }
 	void setHealth(int val) { this->health = val; }
+	void removeHealth(int val) { 
+		this->health -= val;
+		if (this->health <= 0) {
+			this->kill();
+		}
+	}
 
-	void setIsDead(const bool val) { this->isDead = val; }
+	void kill() { this->isDead = true; this->health = 0; }
 	bool getIsDead() const { return this->isDead; }
 
 	virtual ICharacter* clone(int id) = 0;

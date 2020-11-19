@@ -56,14 +56,14 @@ void Level::start() {
 }
 
 void Level::onUpdate() {
-	if (this->win) {
-		// TODO Win screen
-		throw std::exception("Win");
-		return;
-	}
 	if (player->getIsDead()) {
 		// TODO Death screen
 		throw std::exception("Death");
+		return;
+	}
+	if (this->win) {
+		// TODO Win screen
+		throw std::exception("Win");
 		return;
 	}
 
