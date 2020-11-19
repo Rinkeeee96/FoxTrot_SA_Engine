@@ -13,10 +13,10 @@ public:
     SceneSwitcher& operator=(const SceneSwitcher&) = delete;
     SceneSwitcher& operator=(SceneSwitcher&&) = delete;
 
-    void RegisterScene(const string& identifier, Scene* scene);
-    void RegisterTransitionScene(Scene* scene);
-    void SwitchToScene(const string& identifier, bool useTransitionScreen);
-    void SetEngine(Engine* _engine) { engine = _engine; }
+    void registerScene(string const identifier, Scene* scene);
+    void registerTransitionScene(Scene* scene);
+    void switchToScene(string const identifier, bool useTransitionScreen);
+    void setEngine(Engine* _engine) { engine = _engine; }
     void runCurrentScene();
 
 private:
@@ -27,7 +27,4 @@ private:
     SceneSwitcher() {}
 
     bool currentlyRunningTransition = false;
-
-
-
 };

@@ -4,18 +4,18 @@
 SceneSwitcher SceneSwitcher::instance;
 
 
-void SceneSwitcher::RegisterScene(const string& identifier, Scene* scene) {
+void SceneSwitcher::registerScene(string const identifier, Scene* scene) { //registerScene(const string& identifier, Scene* scene) {
 	if (scene == nullptr)return;
 	engine->insertScene(scene);
 	scenes.insert(pair<string, Scene*>(identifier, scene));
 }
 
-void SceneSwitcher::RegisterTransitionScene(Scene* scene)
+void SceneSwitcher::registerTransitionScene(Scene* scene)
 {
-	RegisterScene("GENERAL_TRANSITION_SCENE", scene);
+	registerScene("GENERAL_TRANSITION_SCENE", scene);
 }
 
-void SceneSwitcher::SwitchToScene(const string& identifier, bool useTransitionScreen) {
+void SceneSwitcher::switchToScene(string const identifier, bool useTransitionScreen) { //switchToScene(const string& identifier, bool useTransitionScreen) {
 	auto scene = scenes.find(identifier);
 	if (scene == scenes.end()) 
 		return;
@@ -37,13 +37,13 @@ void SceneSwitcher::SwitchToScene(const string& identifier, bool useTransitionSc
 		engine->setCurrentScene(scene->second->getSceneID());
 		currentlyRunningTransition = false;
 	}
-	scene->second->OnAttach();
-	scene->second->Start();
+	scene->second->onAttach();
+	scene->second->start();
 
 	// Detach the old now inactive scene
 	if (activeScene != nullptr)
 	{
-		activeScene->OnDetach();
+		activeScene->onDetach();
 	}
 		
 	// Set the new scene active
@@ -56,6 +56,5 @@ void SceneSwitcher::runCurrentScene()
 {
 	if (activeScene == nullptr) return;
 
-	activeScene->update();
-
+	activeScene->onUpdate();
 }

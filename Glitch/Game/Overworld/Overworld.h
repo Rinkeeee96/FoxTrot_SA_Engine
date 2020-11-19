@@ -9,23 +9,23 @@ public:
 	Overworld(const int id) : Scene(id, WINDOW_HEIGHT, WINDOW_WIDTH) {};
 	~Overworld();
 	// Inherited via Scene
-	void OnAttach() override;
-	void OnDetach() override;
-	void OnLevel1BtnClick();
-	void OnLevel2BtnClick();
-	void Start() override;
-	virtual void update() override;
+	void onAttach() override;
+	void onDetach() override;
+	void onLevel1BtnClick();
+	void onLevel2BtnClick();
+	void start() override;
+	virtual void onUpdate() override;
 
 private:
-	void LoadBackground();
-	void LoadMusic();
-	void LoadButtons();
+	void loadBackground();
+	void loadMusic();
+	void loadButtons();
 
 	//button functions
-	void OnStartBtnClick();
-	void OnStopBtnClick();
-	void OnCreditsBtnClick();
-	void OnLoadBtnClick();
+	void onStartBtnClick();
+	void onStopBtnClick();
+	void onCreditsBtnClick();
+	void onLoadBtnClick();
 };
 
 inline Overworld::~Overworld()
