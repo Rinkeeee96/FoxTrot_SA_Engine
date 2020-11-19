@@ -186,7 +186,7 @@ int main() {
 	DeadScreen* deadScreen = new DeadScreen(7);
 	SceneSwitcher::get_instance().RegisterScene("DEAD_SCREEN", deadScreen);
 
-	WinScreen* winScreen = new WinScreen(3);
+	WinScreen* winScreen = new WinScreen(45);
 	SceneSwitcher::get_instance().RegisterScene("WIN_SCREEN", winScreen);
 
 	SceneSwitcher::get_instance().SwitchToScene("MAIN_MENU");

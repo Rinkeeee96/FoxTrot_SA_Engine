@@ -25,23 +25,23 @@ void WinScreen::OnAttach()
 }
 
 void WinScreen::LoadButtons() {
-	auto mainSprite = new SpriteObject(1031, 40, 116, 1, 300, "Assets/Buttons/btn_gray_round.png");
+	auto mainSprite = new SpriteObject(101031, 40, 116, 1, 300, "Assets/Buttons/btn_gray_round.png");
 
-	Button* overBtn = new Button(31, ColoredText("Overworld", Color(0, 0, 0)), BIND_FN(OnStartBtnClick));
+	Button* overBtn = new Button(-700, ColoredText("Overworld", Color(0, 0, 0)), BIND_FN(OnStartBtnClick));
 	overBtn->setPositionX(CENTER_X - overBtn->getWidth() / 2);
 	overBtn->setPositionY(CENTER_Y - overBtn->getHeight() / 2);
 	overBtn->setSize(200, 50);
 	overBtn->registerSprite(SpriteState::DEFAULT, mainSprite);
 	overBtn->changeToState(SpriteState::DEFAULT);
 
-	Button* saveBtn = new Button(32, ColoredText("Opslaan", Color(0, 0, 0)), BIND_FN(OnMainBtnClick));
+	Button* saveBtn = new Button(-701, ColoredText("Opslaan", Color(0, 0, 0)), BIND_FN(OnMainBtnClick));
 	saveBtn->setPositionX(CENTER_X - saveBtn->getWidth() / 2);
 	saveBtn->setPositionY(CENTER_Y - saveBtn->getHeight() / 2 + 100);
 	saveBtn->setSize(200, 50);
 	saveBtn->registerSprite(SpriteState::DEFAULT, mainSprite);
 	saveBtn->changeToState(SpriteState::DEFAULT);
 
-	Button* mainBtn = new Button(33, ColoredText("Hoofdmenu", Color(0, 0, 0)), BIND_FN(OnMainBtnClick));
+	Button* mainBtn = new Button(-702, ColoredText("Hoofdmenu", Color(0, 0, 0)), BIND_FN(OnMainBtnClick));
 	mainBtn->setPositionX(CENTER_X - mainBtn->getWidth() / 2);
 	mainBtn->setPositionY(CENTER_Y - mainBtn->getHeight() / 2 + 200);
 	mainBtn->setSize(200, 50);
@@ -53,10 +53,10 @@ void WinScreen::LoadButtons() {
 }
 
 void WinScreen::LoadBackground() {
-	SpriteObject* BG_LAYER_0 = new SpriteObject(-992882, 1080, 1920, 1, 300, "Assets/Backgrounds/game_win_layer_0.png");
-	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(1032, 37, 50, 7, 300, "Assets/Sprites/Character/adventure_jump.png");
+	SpriteObject* BG_LAYER_0 = new SpriteObject(1045, 1080, 1920, 1, 300, "Assets/Backgrounds/game_win_Layer_0.png");
+	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(1046, 37, 50, 7, 300, "Assets/Sprites/Character/adventure_jump.png");
 
-	auto* layer0 = new Drawable(34);
+	auto* layer0 = new Drawable(-704);
 	layer0->setStatic(true);
 	layer0->setPositionX(1);
 	layer0->setPositionY(1080);
@@ -65,7 +65,7 @@ void WinScreen::LoadBackground() {
 	layer0->registerSprite(SpriteState::DEFAULT, BG_LAYER_0);
 	layer0->changeToState(SpriteState::DEFAULT);
 
-	auto* animation = new Drawable(35);
+	auto* animation = new Drawable(-705);
 	animation->setStatic(true);
 	animation->setPositionX(175);
 	animation->setPositionY(875);
