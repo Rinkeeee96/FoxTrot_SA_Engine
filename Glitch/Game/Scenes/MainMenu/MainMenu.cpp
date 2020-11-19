@@ -47,9 +47,9 @@ void MainMenu::loadButtons() {
 /// @brief 
 /// Create the background for this scene
 void MainMenu::loadBackground() {
-	SpriteObject* BG_LAYER_0 = new SpriteObject(1010, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_0.png");
-	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(1011, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png");
-	SpriteObject* BG_LAYER_2 = new SpriteObject(1012, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_2.png");
+	SpriteObject* BG_LAYER_0 = new SpriteObject(-1010, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_0.png");
+	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(-1011, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png");
+	SpriteObject* BG_LAYER_2 = new SpriteObject(-1012, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_2.png");
 
 	auto* layer0 = new Drawable(14);
 	layer0->setStatic(true);
