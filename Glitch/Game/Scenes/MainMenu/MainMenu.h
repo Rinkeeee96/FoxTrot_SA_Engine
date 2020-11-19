@@ -1,5 +1,6 @@
 #pragma once
 #include "api.h"
+#include "SceneManager/Objects/Button.h"
 #include "SceneSwitcher/SceneSwitcher.h"
 
 class MainMenu : public Scene
@@ -8,11 +9,10 @@ public:
 	MainMenu(const int id) : Scene(id, WINDOW_HEIGHT, WINDOW_WIDTH){};
 	~MainMenu();
 	// Inherited via Scene
-	virtual void onAttach() override;
-	virtual void onDetach() override;
-	virtual void start() override;
-	virtual void onUpdate() override;
-
+	void onAttach() override;
+	void onDetach() override;
+	void start() override;
+	void onUpdate() override;
 private:
 	void loadBackground();
 	void loadMusic();

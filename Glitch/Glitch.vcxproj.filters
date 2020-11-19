@@ -11,9 +11,12 @@
     <ClCompile Include="Game\Levels\Level.cpp" />
     <ClCompile Include="Game\Levels\Builders\LevelBuilderDirector.cpp" />
     <ClCompile Include="Game\Levels\Builders\LevelBuilder.cpp" />
-    <ClCompile Include="Game\Scenes\MainMenu\MainMenu.cpp" />
     <ClCompile Include="Game\Scenes\Transitions\GeneralTransition\GeneralTransition.cpp" />
     <ClCompile Include="Game\Levels\LoadLevelFacade.cpp" />
+    <ClCompile Include="Game\Overworld\Overworld.cpp" />
+    <ClCompile Include="Game\Scenes\DeathScreen\DeadScreen.cpp" />
+    <ClCompile Include="Game\Scenes\WinScreen\WinScreen.cpp" />
+    <ClCompile Include="Game\Scenes\MainMenu\MainMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
@@ -38,9 +41,12 @@
     <ClInclude Include="Game\Levels\Builders\LevelBuilderDirector.h" />
     <ClInclude Include="Game\Levels\Builders\LevelBuilder.h" />
     <ClInclude Include="Game\Levels\Builders\ParsedEntities\TileSprite.h" />
-    <ClInclude Include="Game\Scenes\MainMenu\MainMenu.h" />
     <ClInclude Include="Game\Scenes\Transitions\GeneralTransition\GeneralTransition.h" />
     <ClInclude Include="Game\Scenes\Transitions\Transitions.h" />
     <ClInclude Include="Game\Scenes\Scenes.h" />
+    <ClInclude Include="Game\Overworld\Overworld.h" />
+    <ClInclude Include="Game\Scenes\DeathScreen\DeadScreen.h" />
+    <ClInclude Include="Game\Scenes\WinScreen\WinScreen.h" />
+    <ClInclude Include="Game\Scenes\MainMenu\MainMenu.h" />
   </ItemGroup>
 </Project>
