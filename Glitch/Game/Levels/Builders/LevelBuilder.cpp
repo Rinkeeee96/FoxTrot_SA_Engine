@@ -71,7 +71,6 @@ void LevelBuilder::createLevel(nlohmann::json json) {
 	this->triggerFactory.registerTrigger("death", new DeathTrigger());
 	this->triggerFactory.registerTrigger("win", new WinTrigger(*bLevel));
 	characterFactory = std::make_unique<CharacterFactory>(engine, *bLevel);
-	characterFactory = std::make_unique<CharacterFactory>(engine, *bLevel);
 	this->initFactory();
 }
 
@@ -127,17 +126,17 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 		bLevel->addNewObjectToLayer(ENTITY_LAYER_INDEX, object);
 		temp.push_back(object);
 	}
-	//for (size_t i = 0; i < temp.size(); i++)
-	//{
-	//	if (Player* _player = dynamic_cast<Player*>(temp[i])) {
-	//		for (size_t j = 0; j < temp.size(); j++)
-	//		{
-	//			if (IEnemy* _enemy = dynamic_cast<IEnemy*>(temp[j])) {
-	//				_enemy->setPlayer(_player);
-	//			}
-	//		}
-	//	}
-	//}
+	for (size_t i = 0; i < temp.size(); i++)
+	{
+		if (Player* _player = dynamic_cast<Player*>(temp[i])) {
+			for (size_t j = 0; j < temp.size(); j++)
+			{
+				if (IEnemy* _enemy = dynamic_cast<IEnemy*>(temp[j])) {
+					_enemy->setPlayer(_player);
+				}
+			}
+		}
+	}
 }
 
 // @brief 

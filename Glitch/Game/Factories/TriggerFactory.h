@@ -1,7 +1,4 @@
 #pragma once
-#include <string>
-#include <map>
-#include <exception>
 #include <Game\Triggers\BaseTrigger.h>
 #include <Game\General\GameErrorCodes.h>
 
