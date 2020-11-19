@@ -60,4 +60,7 @@ private:
 
 	FrameData* frameData = nullptr;
 	bool shouldDrawFps = false;
+
+
+
 };

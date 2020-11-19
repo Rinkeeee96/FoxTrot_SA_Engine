@@ -10,7 +10,6 @@ public:
 	API ParticleAdapter(const int id) : Drawable(id, true) {};
 	API ~ParticleAdapter() {};
 
-	API void onUpdate() override {};
 	void API setPositionX(const float pos) { this->positionX = pos; setXPosition((int)pos); };
 	float API getPositionX() const { return this->positionX; };
 

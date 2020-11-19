@@ -150,7 +150,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName)_$(PlatformTarget).pch</PrecompiledHeaderOutputFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\SDL2\include;$(projectDir)..\box2d-master\include;$(projectDir)Engine;%(AdditionalIncludeDirectories);$(SolutionDir)json\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\SDL2\include;$(projectDir)..\box2d-master\include;$(projectDir)Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
@@ -165,9 +165,10 @@
   <ItemGroup>
     <ClCompile Include="Engine\SceneManager\Objects\Drawable.cpp" />
     <ClCompile Include="Engine\Engine.cpp" />
-    <ClCompile Include="Engine\FileParser\FileLoader.cpp" />
+    <ClCompile Include="Engine\FileParser\FileParser.cpp" />
     <ClCompile Include="Engine\Fps\FrameData.cpp" />
     <ClCompile Include="Engine\General\GeneralHelperFunctions.cpp" />
+    <ClCompile Include="Engine\FileParser\JsonFacade.cpp" />
     <ClCompile Include="Engine\Input\InputFacade.cpp" />
     <ClCompile Include="Engine\Input\InputEngine.cpp" />
     <ClCompile Include="Engine\ParticleSystem\ParticleLib\Particle.cpp" />
@@ -200,7 +201,6 @@
     <ClInclude Include="Engine\SceneManager\Objects\Drawable.h" />
     <ClInclude Include="Engine\core.h" />
     <ClInclude Include="Engine\Events\Action\ActionEvent.h" />
-    <ClInclude Include="Engine\Events\Action\ObjectStopEvent.h" />
     <ClInclude Include="Engine\Events\Action\OnCollisionEvent.h" />
     <ClInclude Include="Engine\Events\AppTickEvent30.h" />
     <ClInclude Include="Engine\Events\AppTickEvent60.h" />
@@ -229,8 +229,9 @@
     <ClInclude Include="Engine\General\Debug.h" />
     <ClInclude Include="Engine\Engine.h" />
     <ClInclude Include="Engine\General\ErrorCodes.h" />
-    <ClInclude Include="Engine\FileParser\FileLoader.h" />
+    <ClInclude Include="Engine\FileParser\FileParser.h" />
     <ClInclude Include="Engine\General\GeneralDefines.h" />
+    <ClInclude Include="Engine\FileParser\IJsonFacade.h" />
     <ClInclude Include="Engine\Input\IInputFacade.h" />
     <ClInclude Include="Engine\Input\InputFacade.h" />
     <ClInclude Include="Engine\Input\InputEngine.h" />

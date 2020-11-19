@@ -9,8 +9,7 @@ class Object
 {
 public:
 	API Object(const int id, const bool isParticle);
-	API Object();
-	virtual API ~Object();
+	API ~Object();
 
 	void API setPositionX(const float);
 	float API getPositionX() const;
@@ -63,8 +62,6 @@ public:
 	API bool getRotatable() const;
 
 	API bool getIsParticle();
-
-	virtual void onUpdate() = 0;
 	
 protected:
 	// object base properties

@@ -1,7 +1,6 @@
 #pragma once
 #include "SceneManager/Objects/Button.h"
-#include "Game/SpriteState.h"
-
+#include "../SpriteState.h"
 class PrimaryButton : public Button
 {
 public:
@@ -11,6 +10,10 @@ public:
 		registerSprite(SpriteState::DEFAULT, mainSprite);
 		changeToState(SpriteState::DEFAULT);
 	}
+	~PrimaryButton() {
+		// TODO refactor sprite pointer to enforce ownership
+		delete currentSprite;
+	};
 
 private:
 

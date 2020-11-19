@@ -148,15 +148,6 @@ void PhysicsFacade::update() {
 	}	
 }
 
-void PhysicsFacade::stopObject(int objectId) {
-	b2Body* body = findBody(objectId);
-	const PhysicsBody* ob = getPhysicsObject(objectId);
-	b2Vec2 vel = body->GetLinearVelocity();
-	vel.y = ob->getYAxisVelocity();
-	vel.x = 0;
-	body->SetLinearVelocity(vel);
-}
-
 /// @brief 
 /// A function to add a linearImpulse to a object for moving to left
 /// @param objectId 

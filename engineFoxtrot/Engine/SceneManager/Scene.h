@@ -12,15 +12,14 @@ class Scene
 {
 public:
 	API Scene(const int _sceneID, const int _sceneHeight, const int _sceneWidth);
-	API ~Scene();
+	API~Scene();
 
 	bool API checkIfObjectExists(const int objectID);
 	const bool API toggleLayer(const int zIndex, bool render);
-	const void API addNewObjectToLayer(const int zIndex, Object* object, bool renderPhysics = true);
+	const void API addNewObjectToLayer(const int zIndex,Object* object);
 
 	vector<Drawable*> API getAllDrawablesInScene();
 	vector <Object*> API getAllObjectsInScene();
-	vector <Object*> getAllObjectsInSceneRenderPhysics();
 
 	Object API *getObject(const int objectID);
 
@@ -30,27 +29,28 @@ public:
 	/// OnAttach is executed when a scene is "attached" to the current running context
 	/// usually this is can be used to prime a level with relevant data before starting it.
 	/// Must be implemented by a concrete implementation of a scene
-	virtual void onAttach() = 0;
+	virtual void OnAttach() = 0;
 	/// @brief
 	/// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
 	/// Must be implemented by a concrete implementation of a scene
-	virtual void start() = 0;
+	virtual void Start() = 0;
 	/// @brief
 	/// OnDetach is called when a scene is destroyed/closed and is responsible for cleanup
-	/// Must be implemented by a concrete implementation of a scene
-	API virtual void onDetach() = 0;
+	/// Must be implemented by a concrete implementation of a scene when creating custom pointers.
+	/// Contains default object / layer destruction
+	API virtual void OnDetach();
 
 	/// @brief
 	/// run is called in the main loop on the currentScene
 	/// If any work needs to be done during a scene this is were to place it
-	virtual void onUpdate() = 0;
+	virtual void update() = 0;
 
 	void setSceneWidth(const int width) { sceneWidth = width; }
 	int getSceneWidth() const { return sceneWidth; }
 
 	void setSceneHeight(const int height) { sceneHeight = height; }
 	int getSceneHeight() const { return sceneHeight; }
-    
+
 	void setObjectToFollow(Object* obj) { objectToFollow = obj; }
 
 	/// @brief 
@@ -69,7 +69,8 @@ public:
 		}
 		
 	}
-	Object* getObjectToFollow() { return objectToFollow; }
+	Object getObjectToFollow() { return *objectToFollow; }
+
 
 private:
 	const int sceneID = 0;

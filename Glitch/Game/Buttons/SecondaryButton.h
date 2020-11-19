@@ -1,7 +1,6 @@
 #pragma once
 #include "SceneManager/Objects/Button.h"
-#include "Game/SpriteState.h"
-
+#include "../SpriteState.h"
 class SecondaryButton : public Button
 {
 public:

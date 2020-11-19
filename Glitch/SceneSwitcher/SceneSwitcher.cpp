@@ -1,51 +1,23 @@
 #include "pch.h"
 #include "SceneSwitcher.h"
-#include "Game/Scenes/Transitions/GeneralTransition/GeneralTransition.h"
 SceneSwitcher SceneSwitcher::instance;
 
 
-void SceneSwitcher::registerScene(string const identifier, Scene* scene) { //registerScene(const string& identifier, Scene* scene) {
+void SceneSwitcher::RegisterScene(string identifier, Scene* scene) {
 	if (scene == nullptr)return;
 	engine->insertScene(scene);
 	scenes.insert(pair<string, Scene*>(identifier, scene));
 }
 
-void SceneSwitcher::registerTransitionScene(Scene* scene)
-{
-	registerScene("GENERAL_TRANSITION_SCENE", scene);
-}
-
-void SceneSwitcher::switchToScene(string const identifier, bool useTransitionScreen) { //switchToScene(const string& identifier, bool useTransitionScreen) {
+void SceneSwitcher::SwitchToScene(string const identifier) {
 	auto scene = scenes.find(identifier);
 	if (scene == scenes.end()) 
 		return;
 	//TODO start transitiescreen
-
-	auto transScene = scenes.find("GENERAL_TRANSITION_SCENE");
-	bool transitionSceneAvailable = true;
-	transScene == scenes.end() ? transitionSceneAvailable = false : transitionSceneAvailable = true;
-
-	if (!currentlyRunningTransition && useTransitionScreen && transitionSceneAvailable)
-	{
-		currentlyRunningTransition = true;
-		engine->setCurrentScene(scenes["GENERAL_TRANSITION_SCENE"]->getSceneID());
-		scene = scenes.find("GENERAL_TRANSITION_SCENE");
-		((GeneralTransition*)scene->second)->setNextScene(identifier);
-	}
-	else
-	{
-		engine->setCurrentScene(scene->second->getSceneID());
-		currentlyRunningTransition = false;
-	}
-	scene->second->onAttach();
-	scene->second->start();
-
+	engine->setCurrentScene(scene->second->getSceneID());
 	// Detach the old now inactive scene
 	if (activeScene != nullptr)
-	{
-		activeScene->onDetach();
-	}
-		
+		activeScene->OnDetach();
 	// Set the new scene active
 	activeScene = scene->second;
 }
@@ -56,5 +28,6 @@ void SceneSwitcher::runCurrentScene()
 {
 	if (activeScene == nullptr) return;
 
-	activeScene->onUpdate();
+	activeScene->update();
+
 }

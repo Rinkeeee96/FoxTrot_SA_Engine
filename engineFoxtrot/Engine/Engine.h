@@ -4,6 +4,7 @@
 #define ENGINE__H
 
 #include "./SceneManager/SceneManager.h"
+#include "./FileParser/FileParser.h"
 #include "./Physics/PhysicsEngine.h"
 #include "./ParticleSystem/ParticleEngine.h"
 #include "./SceneManager/SceneManager.h"
@@ -26,17 +27,24 @@ public:
 	API Engine();
 	API ~Engine();
 
+//private:
+	API void engineTick60();
+	API void engineTick30();
+	API void startTickThreads();
+	API void stopTickThreads();
+
+	atomic_bool stopThreadTick60 = false;
+	atomic_bool stopThreadTick30 = false;
+
+	thread *engineTick60Thread = nullptr;
+	thread *engineTick30Thread = nullptr;
+
 	//SceneManager calls
 	API void setCurrentScene(const int sceneID);
-	API Scene* getCurrentScene();
 	API void insertScene(Scene * scene);
 
 	// Video calls
 	API void loadSprite(const SpriteObject& spriteObject);
-
-	// Sound calls
-	API void loadSound(const string& identifier, const string& path);
-	API void loadSound(map<string, string> sounds);
 
 	// Input calls
 	API void pollEvents();
@@ -49,6 +57,7 @@ private:
 	ParticleEngine particleEngine;
 	SoundEngine soundEngine;
 	InputEngine inputEngine;
+	FileParser fileParser;
 	SceneManager sceneManager;
 	VideoEngine videoEngine;
 

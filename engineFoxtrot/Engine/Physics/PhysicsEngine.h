@@ -15,7 +15,6 @@ public:
 	void registerObjectInCurrentVectorWithPhysicsEngine();
 
 	bool handleAction(Event& event);
-	bool stopObject(Event& event);
 	bool update30(Event& tick30Event);
 
 	//Set to private after testing!!!
@@ -26,4 +25,5 @@ private:
 
 	// CurrentScene is stored because if this changes then the objects need to be reset.
 	int currentSceneID = 0;
+	Object* getObject(const int objectId);
 };
