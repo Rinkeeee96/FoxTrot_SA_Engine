@@ -13,13 +13,8 @@ public:
 	IEnemy(const int id) : ICharacter(id) {}
 	virtual ~IEnemy() {}
 
-	void setPlayer(Object* object) {
-		if (Player* _player = dynamic_cast<Player*>(object)) {
-			this->player = _player;
-		}
-		else {
-			throw exception("not a player object");
-		}
+	void setPlayer(Player* player) {
+		this->player = player;
 	}
 
 	virtual void onUpdate() = 0;
