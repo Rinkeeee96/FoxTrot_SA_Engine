@@ -19,8 +19,8 @@ private:
 	void LoadButtons();
 
 	//button functions
-	void OnStartBtnClick();
 	void OnMainBtnClick();
+	void onOverworldBtnClick();
 
 	int animationTick = 0;
 	Drawable* animation = nullptr;

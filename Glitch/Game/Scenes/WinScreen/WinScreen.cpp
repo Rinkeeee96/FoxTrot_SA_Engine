@@ -20,19 +20,12 @@ void WinScreen::onAttach()
 void WinScreen::LoadButtons() {
 	auto mainSprite = new SpriteObject(-602, 40, 116, 1, 300, "Assets/Buttons/btn_gray_round.png");
 
-	Button* overBtn = new Button(31, ColoredText("Overworld", Color(0, 0, 0)), BIND_FN(OnStartBtnClick));
+	Button* overBtn = new Button(31, ColoredText("Overworld", Color(0, 0, 0)), BIND_FN(onOverworldBtnClick));
 	overBtn->setPositionX(CENTER_X - overBtn->getWidth() / 2);
 	overBtn->setPositionY(CENTER_Y - overBtn->getHeight() / 2);
 	overBtn->setSize(200, 50);
 	overBtn->registerSprite(SpriteState::DEFAULT, mainSprite);
 	overBtn->changeToState(SpriteState::DEFAULT);
-
-	Button* saveBtn = new Button(32, ColoredText("Opslaan", Color(0, 0, 0)), BIND_FN(OnMainBtnClick));
-	saveBtn->setPositionX(CENTER_X - saveBtn->getWidth() / 2);
-	saveBtn->setPositionY(CENTER_Y - saveBtn->getHeight() / 2 + 100);
-	saveBtn->setSize(200, 50);
-	saveBtn->registerSprite(SpriteState::DEFAULT, mainSprite);
-	saveBtn->changeToState(SpriteState::DEFAULT);
 
 	Button* mainBtn = new Button(33, ColoredText("Hoofdmenu", Color(0, 0, 0)), BIND_FN(OnMainBtnClick));
 	mainBtn->setPositionX(CENTER_X - mainBtn->getWidth() / 2);
@@ -92,30 +85,30 @@ void WinScreen::LoadBackground() {
 
 void WinScreen::LoadMusic() {
 
-	EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent("APPLAUSE_SOUND", "Assets/Sound/applause.wav"));
+	//EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent("APPLAUSE_SOUND", "Assets/Sound/applause.wav"));
 	EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent("WIN_SOUND", "Assets/Sound/TremLoadingloopl.wav"));
 }
 
 void WinScreen::start()
 {
-	EventSingleton::get_instance().dispatchEvent<PlaySoundEffectEvent>((Event&)PlaySoundEffectEvent("APPLAUSE_SOUND"));
-	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("APPLAUSE_SOUND"));
+	//EventSingleton::get_instance().dispatchEvent<PlaySoundEffectEvent>((Event&)PlaySoundEffectEvent("APPLAUSE_SOUND"));
+	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("WIN_SOUND"));
 }
 
 void WinScreen::onDetach()
 {
-	EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent("APPLAUSE_SOUND"));
+	//EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent("APPLAUSE_SOUND"));
 	EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent("WIN_SOUND"));
 	Scene::onDetach();
 }
 
-void WinScreen::OnStartBtnClick()
+void WinScreen::OnMainBtnClick()
 {
-	SceneSwitcher::get_instance().switchToScene("GAME", true);
+	SceneSwitcher::get_instance().switchToScene("MAIN_MENU", false);
 }
 
-void WinScreen::OnMainBtnClick() {
-	SceneSwitcher::get_instance().switchToScene("MAIN_MENU", false);
+void WinScreen::onOverworldBtnClick() {
+	SceneSwitcher::get_instance().switchToScene("OVERWORLD", false);
 }
 
 void WinScreen::onUpdate() {

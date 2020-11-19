@@ -19,8 +19,8 @@ private:
 	void loadButtons();
 
 	//button functions
-	void onStartBtnClick();
-	void onMainBtnClick();
+	void onReStartBtnClick();
+	void onOverworldBtnClick();
 };
 
 inline DeadScreen::~DeadScreen()

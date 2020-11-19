@@ -19,14 +19,14 @@ void DeadScreen::onAttach()
 void DeadScreen::loadButtons() {
 	auto mainSprite = new SpriteObject(-601, 40, 116, 1, 300, "Assets/Buttons/btn_gray_round.png");
 
-	Button* startBtn = new Button(-600, ColoredText("Restart", Color(0, 0, 0)), BIND_FN(onStartBtnClick));
+	Button* startBtn = new Button(-600, ColoredText("Restart", Color(0, 0, 0)), BIND_FN(onReStartBtnClick));
 	startBtn->setPositionX(CENTER_X - startBtn->getWidth() / 2);
 	startBtn->setPositionY(CENTER_Y - startBtn->getHeight() / 2);
 	startBtn->setSize(200, 50);
 	startBtn->registerSprite(SpriteState::DEFAULT, mainSprite);
 	startBtn->changeToState(SpriteState::DEFAULT);
 
-	Button* mainBtn = new Button(-601, ColoredText("Hoofdmenu", Color(0, 0, 0)), BIND_FN(onMainBtnClick));
+	Button* mainBtn = new Button(-601, ColoredText("Overworld", Color(0, 0, 0)), BIND_FN(onOverworldBtnClick));
 	mainBtn->setPositionX(CENTER_X - mainBtn->getWidth() / 2);
 	mainBtn->setPositionY(CENTER_Y - mainBtn->getHeight() / 2 + 100);
 	mainBtn->setSize(200, 50);
@@ -95,11 +95,11 @@ void DeadScreen::onDetach()
 	Scene::onDetach();
 }
 
-void DeadScreen::onStartBtnClick()
+void DeadScreen::onReStartBtnClick()
 {
-	SceneSwitcher::get_instance().switchToScene("GAME", true);
+	SceneSwitcher::get_instance().switchToScene("LEVEL_1", true);
 }
 
-void DeadScreen::onMainBtnClick() {
-	SceneSwitcher::get_instance().switchToScene("MAIN_MENU", false);
+void DeadScreen::onOverworldBtnClick() {
+	SceneSwitcher::get_instance().switchToScene("OVERWORLD", false);
 }
