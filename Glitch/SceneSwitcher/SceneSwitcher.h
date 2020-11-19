@@ -8,7 +8,6 @@ public:
     static SceneSwitcher& get_instance() { return instance; }
 
     // prohibit copy & move
-    SceneSwitcher() {};
     SceneSwitcher(const SceneSwitcher&) = delete;
     SceneSwitcher(SceneSwitcher&&) = delete;
     SceneSwitcher& operator=(const SceneSwitcher&) = delete;
@@ -25,7 +24,7 @@ private:
     Engine* engine = nullptr;
     Scene* activeScene = nullptr;
     static SceneSwitcher instance;
-    
+    SceneSwitcher() {};
 
     bool currentlyRunningTransition = false;
 };

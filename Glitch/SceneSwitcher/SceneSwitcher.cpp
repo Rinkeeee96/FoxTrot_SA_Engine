@@ -54,7 +54,7 @@ void SceneSwitcher::switchToScene(string const identifier, bool useTransitionScr
 /// Runs the current scene
 void SceneSwitcher::runCurrentScene()
 {
-	if (activeScene == nullptr) throw exception("Active Scene is nullptr");
+	if (activeScene == nullptr) return;
 
 	activeScene->onUpdate();
 }
