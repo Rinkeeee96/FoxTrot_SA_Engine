@@ -154,3 +154,14 @@ void Scene::onDetach()
 	}
 	layers.clear();
 }
+
+void Scene::removeObjectFromScene(Object* obj)
+{
+	for (auto lay : layers) {
+		map<int, Object*>::iterator it = lay.second->objects.find(obj->getObjectId());
+		if (it != lay.second->objects.end()) {
+			lay.second->objects.erase(it);
+			
+		}
+	}
+}

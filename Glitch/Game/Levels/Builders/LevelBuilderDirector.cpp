@@ -20,7 +20,6 @@ void LevelBuilderDirector::construct(nlohmann::json json, ILevelBuilder* builder
 				if (layerValue["name"] == "Triggers") {
 					builder->createTriggers(layerValue);
 				}
-				// TODO fix static draw objects
 				if (layerValue["name"] == "Background")
 				{
 					builder->createBackground(layerValue);

@@ -67,7 +67,7 @@ void Level::onUpdate() {
 		return;
 	}
 
-	for (auto object : this->getAllObjectsInScene())
+	for (auto object : this->getAllObjectsInScene()) // TODO get only the non static objects, without looping thru them again and again
 	{
 		if (!object->getStatic()) {
 			object->onUpdate();
@@ -75,7 +75,7 @@ void Level::onUpdate() {
 			if (ICharacter* character = dynamic_cast<ICharacter*>(object)) {
 				if (character->getIsDead()) {
 					// TODO Death animation
-					// TODO Remove object
+					removeObjectFromScene(object);
 				}
 			}
 		}

@@ -71,6 +71,8 @@ public:
 	}
 	Object* getObjectToFollow() { return objectToFollow; }
 
+	API void removeObjectFromScene(Object* obj);
+
 private:
 	const int sceneID = 0;
 	map<int, Layer*> layers;
