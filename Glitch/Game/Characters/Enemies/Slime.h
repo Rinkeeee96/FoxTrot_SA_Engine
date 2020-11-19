@@ -42,14 +42,16 @@ public:
 	}
 
 	void onUpdate() override {
-		if(this->getYAxisVelocity() == 0) EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));\
+		bool isPlayerOverlapping = player->getPositionX() >= this->getPositionX() &&
+			player->getPositionX() <= this->getPositionX() + this->width;
+		bool isPlayerBelowMe = (player->getPositionY() + player->getHeight()) <= this->getPositionY();
 
-		// TODO Fire down event when player under slime
-		else if (player->getPositionX() >= this->getPositionX() && player->getPositionX() + player->getWidth() <= this->getPositionX()) {
-			if (player->getPositionY() <= this->getPositionY() && player->getPositionY() + player->getHeight() >= this->getPositionY()) {
-				//player->getPositionY() < this->getPositionY()
-				EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::DOWN, this->getObjectId()));
-			}
+		bool amOnSolidGround = this->getYAxisVelocity() == 0;
+		if(amOnSolidGround) 
+			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
+
+		if (isPlayerOverlapping && isPlayerBelowMe){
+			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::DOWN, this->getObjectId()));
 		}
 	};
 
