@@ -17,7 +17,7 @@ public:
 	void PlayEffect(const string& identifier, const int volume);
 	void LoadEffect(const string& identifier);
 	void UnloadEffect(const string& identifier);
-	void StartLoopedEffect(const string& effect);
+	void StartLoopedEffect(const string& effect, const int volume);
 	void StopLoopedEffect(const string& identifier);
 	void LoadMusic(const string& identifier);
 	void PlayMusic(const int volume);
@@ -31,16 +31,16 @@ public:
 	void PauseMusic();
 	void ResumeMusic();
 	void Flush();
-	void onPlayEffect(const string& identifier, const int volume);
-	void onChangeBackgroundMusic(const string& identifier, const int volume);
 
 	bool IdentifierExists(const string& identifier);
 	bool IdentifierIsLoaded(const string& identifier);
-
-	bool Event_StartEvent(Event& event);
-	bool Event_AttachEvent(Event& event);
-
 private:
+	void onChangeBackgroundMusic(const string& identifier, const int volume);
+	bool onPlayEffect(Event& event);
+	bool onStopLoopedEffect(Event& event);
+
+	bool onStartBackgroundMusicEvent(Event& event);
+	bool onLoadBackgroundMusicEvent(Event& event);
 	ISoundFacade* soundFacade = new SoundFacade;
 
 };

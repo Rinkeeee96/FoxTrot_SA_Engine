@@ -18,6 +18,8 @@ public:
 		return stream.str();
 	}
 
+	const bool shouldLoop() { return loop; }
+
 	/// @brief
 	/// Returns the eventType of a specific event
 	/// @return EventType
