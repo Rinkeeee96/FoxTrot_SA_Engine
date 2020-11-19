@@ -24,15 +24,15 @@ void MainMenu::loadButtons() {
 	startBtn->setPositionX(CENTER_X - startBtn->getWidth() / 2);
 	startBtn->setPositionY(CENTER_Y - startBtn->getHeight() / 2);
 
-	/*
-	Button* loadBtn = new PrimaryButton(3, "Load", BIND_FN(OnLoadBtnClick));
+	
+	Button* loadBtn = new PrimaryButton(3, "Win screen", BIND_FN(onLoadBtnClick));
 	loadBtn->setPositionX(CENTER_X - loadBtn->getWidth() / 2);
 	loadBtn->setPositionY(CENTER_Y - loadBtn->getHeight() / 2 + 100);
 
 	Button* creditsBtn = new PrimaryButton(12, "Game over screen", BIND_FN(onCreditsBtnClick));
 	creditsBtn->setPositionX(CENTER_X - creditsBtn->getWidth() / 2);
 	creditsBtn->setPositionY(CENTER_Y - creditsBtn->getHeight() / 2 + 200);
-	creditsBtn->disable();*/
+	creditsBtn->disable();
 
 	Button* stopBtn = new SecondaryButton(13, "Stop", BIND_FN(onStopBtnClick));
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
@@ -40,8 +40,8 @@ void MainMenu::loadButtons() {
 
 	addNewObjectToLayer(3, startBtn);
 	addNewObjectToLayer(3, stopBtn);
-	/*addNewObjectToLayer(3, loadBtn);
-	addNewObjectToLayer(3, creditsBtn);*/
+	addNewObjectToLayer(3, loadBtn);
+	addNewObjectToLayer(3, creditsBtn);
 }
 
 /// @brief 
