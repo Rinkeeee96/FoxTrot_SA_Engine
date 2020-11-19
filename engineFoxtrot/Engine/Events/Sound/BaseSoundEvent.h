@@ -8,7 +8,7 @@ class BaseSoundEvent : public Event
 {
 public:
 	/// @brief
-	/// KeyCode that is pressed
+	/// sound identifier
 	/// @returns KeyCode
 	const std::string& Getidentifier() { return identifier; }
 
