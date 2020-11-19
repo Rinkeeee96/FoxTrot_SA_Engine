@@ -6,7 +6,7 @@
 class StopSoundEffectEvent : public BaseSoundEvent
 {
 public:
-	StopSoundEffectEvent(const std::string& _file) : BaseSoundEvent(_file) {}
+	StopSoundEffectEvent(const std::string& _file) : BaseSoundEvent(_file, 0) {}
 
 	/// @brief
 	/// StopSoundEffectEvent  to string
