@@ -1,5 +1,5 @@
 #pragma once
-#include "api.h";
+#include "api.h"
 class GeneralTransition;
 
 class SceneSwitcher
@@ -8,6 +8,7 @@ public:
     static SceneSwitcher& get_instance() { return instance; }
 
     // prohibit copy & move
+    SceneSwitcher() {};
     SceneSwitcher(const SceneSwitcher&) = delete;
     SceneSwitcher(SceneSwitcher&&) = delete;
     SceneSwitcher& operator=(const SceneSwitcher&) = delete;
@@ -24,7 +25,7 @@ private:
     Engine* engine;
     Scene* activeScene;
     static SceneSwitcher instance;
-    SceneSwitcher() {}
+    
 
     bool currentlyRunningTransition = false;
 };

@@ -1,10 +1,10 @@
 #pragma once
 // TODO wrong way to include event, identify why it breaks
-#include "Events/Event.h"
+#include "Events\EventSingleton.h"
 #include "Events/Action/ActionEvent.h"
 #include "IPhysicsFacade.h"
 
-#include "../SceneManager/Scene.h"
+#include "SceneManager/Scene.h"
 
 class API PhysicsEngine
 {

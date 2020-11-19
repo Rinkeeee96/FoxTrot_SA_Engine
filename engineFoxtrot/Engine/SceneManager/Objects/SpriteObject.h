@@ -1,7 +1,4 @@
 #pragma once
-
-
-
 class SpriteObject
 {
 public:
@@ -23,5 +20,5 @@ private:
 	const int lengthOfTextures = 0;
 	const float height = 0;
 	const float width = 0;
-	const char * fileName;
+	const char * fileName = "";
 };
