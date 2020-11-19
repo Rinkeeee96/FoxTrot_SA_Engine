@@ -54,7 +54,10 @@ void WinScreen::LoadButtons() {
 
 void WinScreen::LoadBackground() {
 	SpriteObject* BG_LAYER_0 = new SpriteObject(-992882, 1080, 1920, 1, 300, "Assets/Backgrounds/game_win_layer_0.png");
-	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(1032, 37, 50, 7, 300, "Assets/Sprites/Character/adventure_jump.png");
+	SpriteObject* BG_LAYER_ADVENTRUE_JUMP = new SpriteObject(1032, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_jump_right.png");
+	SpriteObject* BG_LAYER_ADVENTRUE_FALL = new SpriteObject(1033, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_fall_right.png");
+	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(1011, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png");
+
 
 	auto* layer0 = new Drawable(34);
 	layer0->setStatic(true);
@@ -65,19 +68,20 @@ void WinScreen::LoadBackground() {
 	layer0->registerSprite(SpriteState::DEFAULT, BG_LAYER_0);
 	layer0->changeToState(SpriteState::DEFAULT);
 
-	auto* animation = new Drawable(35);
+	animation = new Drawable(35);
 	animation->setStatic(true);
 	animation->setPositionX(175);
-	animation->setPositionY(875);
+	animation->setPositionY(1030);
 	animation->setWidth(370);
 	animation->setHeight(500);
 	animation->registerSprite(SpriteState::DEFAULT, BG_LAYER_ADVENTRUE);
+	animation->registerSprite(SpriteState::AIR_JUMP_RIGHT, BG_LAYER_ADVENTRUE_JUMP);
+	animation->registerSprite(SpriteState::AIR_FALL_RIGHT, BG_LAYER_ADVENTRUE_FALL);
 	animation->changeToState(SpriteState::DEFAULT);
 	animation->setScalable(false);
 
 	addNewObjectToLayer(0, layer0);
 	addNewObjectToLayer(1, animation);
-	//addNewObjectToLayer(2, layer2);
 }
 
 void WinScreen::LoadMusic() {
@@ -108,4 +112,22 @@ void WinScreen::OnStartBtnClick()
 void WinScreen::OnMainBtnClick() {
 	cout << "Start BTN" << endl;
 	SceneSwitcher::get_instance().SwitchToScene("MAIN_MENU");
+}
+
+void WinScreen::update() {
+	animationTick++;
+	if (animationTick < 10) {
+		animation->setPositionY(animation->getPositionY() + 1);
+	}
+	else if (animationTick == 10) {
+		animation->changeToState(SpriteState::AIR_FALL_RIGHT);
+		animation->setPositionY(animation->getPositionY() - 1);
+	}
+	else if (animationTick > 10 && animationTick < 20) {
+		animation->setPositionY(animation->getPositionY() - 1);
+	}
+	else {
+		animation->changeToState(SpriteState::AIR_JUMP_RIGHT);
+		animationTick = 0;
+	}
 }

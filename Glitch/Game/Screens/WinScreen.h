@@ -12,6 +12,7 @@ public:
 	virtual void OnAttach() override;
 	virtual void OnDetach() override;
 	virtual void Start() override;
+	void update();
 private:
 	void LoadBackground();
 	void LoadMusic();
@@ -20,6 +21,9 @@ private:
 	//button functions
 	void OnStartBtnClick();
 	void OnMainBtnClick();
+
+	int animationTick = 0;
+	Drawable* animation = nullptr;
 };
 
 inline WinScreen::~WinScreen()
