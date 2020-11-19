@@ -15,6 +15,7 @@ Player::Player(const int id) : ICharacter(id) {
 	this->setStatic(false);
 	this->setRotatable(false);
 
+	this->setHealth(3);
 	this->setScalable(true);
 
 	EventSingleton::get_instance().setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Player::onCollisionBeginEvent));
