@@ -118,8 +118,8 @@ void VideoFacade::renderCopy(Drawable& object)
 
 	//update collision box 
 	if (object.getScalable()) {
-		object.setWidth(sprite.getWidth());
-		object.setHeight(sprite.getHeight());
+		object.setWidth(sprite.getWidth() * object.getScale());
+		object.setHeight(sprite.getHeight() * object.getScale());
 	}
 
 	//generate stratch of image

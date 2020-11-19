@@ -79,6 +79,7 @@ protected:
 	bool rotatable = false;
 	float rotation = 0;
 	float scale = 0;
+
 	// -----------------
 	// movable / physics properties
 	float speed = 0;
