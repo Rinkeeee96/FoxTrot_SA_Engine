@@ -73,7 +73,7 @@ void Level::onUpdate() {
 			object->onUpdate();
 
 			if (ICharacter* character = dynamic_cast<ICharacter*>(object)) {
-				if (character->getIsDead()) {
+				if (character->getIsDead() && !character->getIsRemoved()) {
 					// TODO Death animation
 					removeObjectFromScene(object);
 				}

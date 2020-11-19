@@ -37,15 +37,16 @@ void SceneSwitcher::switchToScene(string const identifier, bool useTransitionScr
 		engine->setCurrentScene(scene->second->getSceneID());
 		currentlyRunningTransition = false;
 	}
-	scene->second->onAttach();
-	scene->second->start();
 
 	// Detach the old now inactive scene
 	if (activeScene != nullptr)
 	{
 		activeScene->onDetach();
 	}
-		
+
+	scene->second->onAttach();
+	scene->second->start();
+			
 	// Set the new scene active
 	activeScene = scene->second;
 }
