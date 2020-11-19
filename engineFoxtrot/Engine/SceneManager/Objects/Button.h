@@ -2,7 +2,6 @@
 #include "Events\Mouse\MouseMoved.h"
 #include "Events/Mouse/MousePressed.h"
 #include "SceneManager/Objects/Drawable.h"
-#include <any>
 
 class API Button : public Drawable
 {
@@ -18,7 +17,7 @@ public:
 		EventSingleton::get_instance().setEventCallback<MouseMovedEvent>(BIND_EVENT_FN(Button::mouseOver));
 	}
 
-	virtual ~Button() {	
+	virtual ~Button() {
 		EventSingleton::get_instance().unSubscribe<MouseMovedEvent>(BIND_EVENT_FN(Button::isClicked));
 		EventSingleton::get_instance().unSubscribe<MouseButtonPressed>(BIND_EVENT_FN(Button::mouseOver));
 	}

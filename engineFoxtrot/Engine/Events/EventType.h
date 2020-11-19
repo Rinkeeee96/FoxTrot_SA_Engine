@@ -33,6 +33,6 @@ enum class EventType
 	CollisionEnd,
 	CollisionBegin,
 
-	// -- sprites events ----
+	ObjectStop,
 	LoadSprite,
 };

@@ -2,11 +2,16 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Engine\Engine.cpp" />
-    <ClCompile Include="Engine\FileParser\FileParser.cpp" />
+    <ClCompile Include="Engine\FileParser\FileLoader.cpp" />
+    <ClCompile Include="Engine\Fps\FrameData.cpp" />
     <ClCompile Include="Engine\General\GeneralHelperFunctions.cpp" />
-    <ClCompile Include="Engine\FileParser\JsonFacade.cpp" />
     <ClCompile Include="Engine\Input\InputFacade.cpp" />
     <ClCompile Include="Engine\Input\InputEngine.cpp" />
+    <ClCompile Include="Engine\ParticleSystem\ParticleLib\Particle.cpp" />
+    <ClCompile Include="Engine\ParticleSystem\ParticleAdapter.cpp" />
+    <ClCompile Include="Engine\ParticleSystem\ParticleEngine.cpp" />
+    <ClCompile Include="Engine\ParticleSystem\ParticleLib\ParticleInit.cpp" />
+    <ClCompile Include="Engine\Physics\ContactListenerAdapter.cpp" />
     <ClCompile Include="Engine\stdafx.cpp" />
     <ClCompile Include="Engine\Events\EventSingleton.cpp" />
     <ClCompile Include="Engine\Physics\PhysicsBody.cpp" />
@@ -51,12 +56,6 @@
     <ClCompile Include="Engine\General\GeneralHelperFunctions.cpp">
       <Filter>Header Files\General</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\FileParser\FileParser.cpp">
-      <Filter>Header Files\FileIO</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\FileParser\JsonFacade.cpp">
-      <Filter>Header Files\FileIO</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -94,18 +93,29 @@
     <ClInclude Include="Engine\Events\mouse\MouseReleased.h" />
     <ClInclude Include="Engine\Events\Mouse\MouseScrolledEvent.h" />
     <ClInclude Include="Engine\Events\ObjectEventCodes.h" />
+    <ClInclude Include="Engine\Events\Sound\BaseSoundEvent.h" />
+    <ClInclude Include="Engine\Events\Sound\OnMusicStartEvent.h" />
+    <ClInclude Include="Engine\Events\Sound\OnMusicStopEvent.h" />
+    <ClInclude Include="Engine\Events\Sound\SoundAttachEvent.h" />
     <ClInclude Include="Engine\Events\Window\WindowCloseEvent.h" />
     <ClInclude Include="Engine\Events\Window\WindowResizeEvent.h" />
+    <ClInclude Include="Engine\Fps\FrameData.h" />
     <ClInclude Include="Engine\General\Debug.h" />
+    <ClInclude Include="Engine\Engine.h" />
     <ClInclude Include="Engine\General\ErrorCodes.h" />
-    <ClInclude Include="Engine\FileParser\FileParser.h" />
+    <ClInclude Include="Engine\FileParser\FileLoader.h" />
     <ClInclude Include="Engine\General\GeneralDefines.h" />
-    <ClInclude Include="Engine\FileParser\IJsonFacade.h" />
     <ClInclude Include="Engine\Input\IInputFacade.h" />
     <ClInclude Include="Engine\Input\InputFacade.h" />
     <ClInclude Include="Engine\Input\InputEngine.h" />
+    <ClInclude Include="Engine\ParticleSystem\ParticleLib\Particle.h" />
+    <ClInclude Include="Engine\ParticleSystem\ParticleAdapter.h" />
+    <ClInclude Include="Engine\ParticleSystem\ParticleEngine.h" />
+    <ClInclude Include="Engine\ParticleSystem\ParticleLib\ParticleInit.h" />
     <ClInclude Include="Engine\Particles\IParticleFacade.h" />
+    <ClInclude Include="Engine\Physics\ContactListenerAdapter.h" />
     <ClInclude Include="Engine\Physics\IPhysicsFacade.h" />
+    <ClInclude Include="Engine\SceneManager\Layer.h" />
     <ClInclude Include="Engine\stdafx.h" />
     <ClInclude Include="Engine\FileParser\JsonFacade.h" />
     <ClInclude Include="Engine\Physics\PhysicsBody.h" />
@@ -127,9 +137,7 @@
     <ClInclude Include="Engine\General\Debug.h" />
     <ClInclude Include="Engine\Engine.h" />
     <ClInclude Include="Engine\General\ErrorCodes.h" />
-    <ClInclude Include="Engine\FileParser\FileParser.h" />
     <ClInclude Include="Engine\General\GeneralDefines.h" />
-    <ClInclude Include="Engine\FileParser\IJsonFacade.h" />
     <ClInclude Include="Engine\Input\IInputFacade.h" />
     <ClInclude Include="Engine\Input\InputFacade.h" />
     <ClInclude Include="Engine\Input\InputEngine.h" />
@@ -154,7 +162,6 @@
     <ClInclude Include="Engine\Events\Action\OnCollisionEvent.h" />
     <ClInclude Include="Engine\Physics\ContactListenerAdapter.h" />
     <ClInclude Include="Engine\Events\Action\FpsToggleEvent.h" />
-    <ClInclude Include="Engine\SceneManager\Layer.h" />
     <ClInclude Include="Main\Level.h" />
     <ClInclude Include="Engine\Events\Sound\OnMusicStartEvent.h" />
     <ClInclude Include="Engine\Events\Sound\BaseSoundEvent.h" />
@@ -177,11 +184,12 @@
     <ClInclude Include="Engine\SceneManager\Objects\Button.h" />
     <ClInclude Include="Engine\Events\Sound\StopSoundEffectEvent.h" />
     <ClInclude Include="Engine\Events\Sound\PlaySoundEffectEvent.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="Engine\Documentation\PointerUsage.md" />
+    <ClInclude Include="Engine\Events\Action\ObjectStopEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Engine\Documentation\PointerUsage.md" />
   </ItemGroup>
 </Project>

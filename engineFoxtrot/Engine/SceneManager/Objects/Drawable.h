@@ -7,10 +7,9 @@ class API Drawable : public Object
 {
 public:
 	Drawable(const int _id, const bool _isParticle = false) : Object(_id, _isParticle) {};
-	virtual ~Drawable() {
-		textures.erase(textures.begin(), textures.end());
-	}
+	Drawable() : Object() {};
 
+	virtual ~Drawable() {};
 	/// @brief
 	/// get the current active sprite reference of the drawable
 	SpriteObject& GetCurrentSprite() const { return *currentSprite; }
@@ -27,15 +26,21 @@ public:
 	/// change the state
 	/// change the textureID to the current state
 	void changeToState(const int state) {
+		currentSpriteState = state;
 		SpriteObject* spriteObject = textures[state];
 		if (spriteObject == nullptr) throw ERROR_CODE_SPRITE_DOESNT_EXIST;
 		this->currentSprite = spriteObject;
 	}
 	virtual const ColoredText* toString() { return nullptr; }
 
+	virtual void onUpdate() override {
+
+	}
+
 protected:
 	// TODO	particle related things
 
+	int currentSpriteState = 0;
 	SpriteObject* currentSprite = nullptr;
 	map<const int, SpriteObject*> textures;
 };
