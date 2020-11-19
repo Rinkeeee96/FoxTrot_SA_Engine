@@ -50,7 +50,7 @@ public:
 		if(!amInAir)
 			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
 
-		if (isPlayerOverlapping && isPlayerBelowMe){
+		if (isPlayerOverlapping && isPlayerBelowMe && !amInAir){
 			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::DOWN, this->getObjectId()));
 		}
 	};
