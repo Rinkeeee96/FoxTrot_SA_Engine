@@ -133,15 +133,12 @@ void PhysicsFacade::update() {
 
 	for (const auto& it : bodies)
 	{
-		if (it.first->getObjectId() == 432) {
-			if (it.first->getObject().getIsRemoved()) {
-				world->DestroyBody(it.second);
-				bodies.erase(it.first);
-				break;
-			}
+		if (it.first->getObject().getIsRemoved()) {
+			world->DestroyBody(it.second);
+			bodies.erase(it.first);
+			break;
 		}
 		
-
 		b2Body* body = it.second;
 
 		if (body->GetType() == b2_staticBody) {
