@@ -62,6 +62,9 @@ public:
 	API void setRotatable(const bool val);
 	API bool getRotatable() const;
 
+	API void setIsRemoved(bool val);
+	API bool getIsRemoved() const;
+
 	API bool getIsParticle();
 
 	virtual void onUpdate() = 0;
@@ -69,6 +72,7 @@ public:
 protected:
 	// object base properties
 	const int objectId = 0;
+	bool isRemoved = false;
 
 	bool scalable = false;
 	float positionX = 0;

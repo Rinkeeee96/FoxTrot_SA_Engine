@@ -131,8 +131,17 @@ b2Body* PhysicsFacade::findBody(const int objectId) {
 void PhysicsFacade::update() {
 	this->world->Step(timeStep, VELOCITY_ITERATIONS, POSITION_ITERATIONS);
 
-	for (auto const& it : bodies)
+	for (const auto& it : bodies)
 	{
+		if (it.first->getObjectId() == 432) {
+			if (it.first->getObject().getIsRemoved()) {
+				world->DestroyBody(it.second);
+				bodies.erase(it.first);
+				break;
+			}
+		}
+		
+
 		b2Body* body = it.second;
 
 		if (body->GetType() == b2_staticBody) {

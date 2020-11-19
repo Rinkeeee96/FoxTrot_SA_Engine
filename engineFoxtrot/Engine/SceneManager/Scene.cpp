@@ -161,7 +161,8 @@ void Scene::removeObjectFromScene(Object* obj)
 		map<int, Object*>::iterator it = lay.second->objects.find(obj->getObjectId());
 		if (it != lay.second->objects.end()) {
 			lay.second->objects.erase(it);
-			
+			obj->setIsRemoved(true);
+			//delete obj;
 		}
 	}
 }
