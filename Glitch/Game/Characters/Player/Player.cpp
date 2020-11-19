@@ -28,7 +28,7 @@ Player::Player(const int id) : ICharacter(id) {
 /// set can jump true
 bool Player::onCollisionBeginEvent(Event& event) {
 	auto collisionEvent = static_cast<OnCollisionBeginEvent&>(event);
-	if (collisionEvent.GetObjectOneId() != this->getObjectId() && collisionEvent.GetObjectTwoId() != this->getObjectId()) return false;
+	if (collisionEvent.getObjectOne().getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo().getObjectId() != this->getObjectId()) return false;
 
 	auto map = collisionEvent.getDirectionMap();
 	auto collidedDirection = map[this->getObjectId()];
@@ -49,7 +49,7 @@ bool Player::onCollisionBeginEvent(Event& event) {
 /// Handles when an collision event ends, when the direction of the collision happend on the bottom side of the player object, set can jump false
 bool Player::onCollisionEndEvent(Event& event) {
 	auto collisionEvent = static_cast<OnCollisionEndEvent&>(event);
-	if (collisionEvent.GetObjectOneId() != this->getObjectId() && collisionEvent.GetObjectTwoId() != this->getObjectId()) return false;
+	if (collisionEvent.getObjectOne().getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo().getObjectId() != this->getObjectId()) return false;
 
 	auto map = collisionEvent.getDirectionMap();
 	auto collidedDirection = map[this->getObjectId()];

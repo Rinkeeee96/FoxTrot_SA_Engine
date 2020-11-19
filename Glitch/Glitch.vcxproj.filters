@@ -14,6 +14,8 @@
     <ClCompile Include="Game\Scenes\MainMenu\MainMenu.cpp" />
     <ClCompile Include="Game\Scenes\Transitions\GeneralTransition\GeneralTransition.cpp" />
     <ClCompile Include="Game\Levels\LoadLevelFacade.cpp" />
+    <ClCompile Include="Game\Overworld\Overworld.cpp" />
+    <ClCompile Include="Game\Factories\TriggerFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
@@ -42,5 +44,10 @@
     <ClInclude Include="Game\Scenes\Transitions\GeneralTransition\GeneralTransition.h" />
     <ClInclude Include="Game\Scenes\Transitions\Transitions.h" />
     <ClInclude Include="Game\Scenes\Scenes.h" />
+    <ClInclude Include="Game\Overworld\Overworld.h" />
+    <ClInclude Include="Game\Triggers\BaseTrigger.h" />
+    <ClInclude Include="Game\Triggers\DeathTrigger.h" />
+    <ClInclude Include="Game\Triggers\WinTrigger.h" />
+    <ClInclude Include="Game\Factories\TriggerFactory.h" />
   </ItemGroup>
 </Project>

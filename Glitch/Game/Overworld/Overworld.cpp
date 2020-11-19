@@ -81,7 +81,7 @@ void Overworld::onDetach()
 void Overworld::onLevel1BtnClick()
 {
 	cout << "Level1 BTN" << endl;
-	SceneSwitcher::get_instance().switchToScene("LEVEL_1", true);
+	SceneSwitcher::get_instance().switchToScene("LEVEL_1", false);
 }
 
 /// @brief 

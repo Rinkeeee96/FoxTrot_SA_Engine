@@ -17,8 +17,9 @@ void LevelBuilderDirector::construct(nlohmann::json json, ILevelBuilder* builder
 		if (key == "layers") {
 			for (auto& [layerKey, layerValue] : value.items())
 			{
-				// TODO Triggers?
-
+				if (layerValue["name"] == "Triggers") {
+					builder->createTriggers(layerValue);
+				}
 				// TODO fix static draw objects
 				if (layerValue["name"] == "Background")
 				{
@@ -31,7 +32,7 @@ void LevelBuilderDirector::construct(nlohmann::json json, ILevelBuilder* builder
 					builder->createDecoration(layerValue);
 				}
 				if (layerValue["name"] == "Particles") {
-					builder->createParticle(layerValue);
+					//builder->createParticle(layerValue);
 				}
 				if (layerValue["name"] == "Entities")
 				{

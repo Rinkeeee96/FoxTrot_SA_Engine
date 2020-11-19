@@ -10,6 +10,31 @@ void LevelBuilder::create() {
 }
 
 // @brief 
+/// Creates triggers objects and adds the triggers to the level
+/// @param json 
+void LevelBuilder::createTriggers(nlohmann::json layerValue) {
+	for (auto& [objectKey, objectValue] : layerValue["objects"].items())
+	{
+		BaseTrigger* object = nullptr;
+		for (auto& [objectPropertyKey, objectPropertyValue] : objectValue["properties"].items())
+		{
+			if (objectPropertyValue["name"] == "type") {
+				string type = objectPropertyValue["value"];
+				object = triggerFactory.create(type, id++);
+			}
+		}
+
+		object->setHeight(objectValue["height"]);
+		object->setWidth(objectValue["width"]);
+		object->setPositionX(objectValue["x"]);
+		object->setPositionY(objectValue["y"] + object->getHeight());
+		object->setStatic(false);
+
+		bLevel->addNewObjectToLayer(ENTITY_LAYER_INDEX, object);
+	}
+}
+
+// @brief 
 /// Creates level scene
 /// @param json 
 void LevelBuilder::createLevel(nlohmann::json json) {
@@ -43,6 +68,9 @@ void LevelBuilder::createLevel(nlohmann::json json) {
 	bLevel->setSceneWidth(bLevel->getSceneWidth() * this->mapTileWidth);
 	bLevel->setSceneHeight(bLevel->getSceneHeight() * this->mapTileHeight);
 
+	this->triggerFactory.registerTrigger("death", new DeathTrigger());
+	this->triggerFactory.registerTrigger("win", new WinTrigger(*bLevel));
+	characterFactory = std::make_unique<CharacterFactory>(engine, *bLevel);
 	characterFactory = std::make_unique<CharacterFactory>(engine, *bLevel);
 	this->initFactory();
 }
@@ -51,6 +79,7 @@ void LevelBuilder::createLevel(nlohmann::json json) {
 /// Creates entities objects and adds the entities to the level
 /// @param json 
 void LevelBuilder::createEntities(nlohmann::json layerValue) {
+	vector<ICharacter*> temp;
 	for (auto& [objectKey, objectValue] : layerValue["objects"].items())
 	{
 		ICharacter* object = nullptr;
@@ -96,7 +125,19 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 			}
 		}
 		bLevel->addNewObjectToLayer(ENTITY_LAYER_INDEX, object);
+		temp.push_back(object);
 	}
+	//for (size_t i = 0; i < temp.size(); i++)
+	//{
+	//	if (Player* _player = dynamic_cast<Player*>(temp[i])) {
+	//		for (size_t j = 0; j < temp.size(); j++)
+	//		{
+	//			if (IEnemy* _enemy = dynamic_cast<IEnemy*>(temp[j])) {
+	//				_enemy->setPlayer(_player);
+	//			}
+	//		}
+	//	}
+	//}
 }
 
 // @brief 

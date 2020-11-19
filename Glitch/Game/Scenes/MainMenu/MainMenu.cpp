@@ -99,7 +99,7 @@ void MainMenu::onDetach()
 
 void MainMenu::onStartBtnClick()
 {
-	SceneSwitcher::get_instance().switchToScene("OVERWORLD", true);
+	SceneSwitcher::get_instance().switchToScene("OVERWORLD", false);
 }
 
 void MainMenu::onStopBtnClick() {
