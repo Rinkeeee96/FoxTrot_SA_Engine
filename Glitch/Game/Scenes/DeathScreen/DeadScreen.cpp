@@ -38,10 +38,10 @@ void DeadScreen::loadButtons() {
 }
 
 void DeadScreen::loadBackground() {
-	SpriteObject* BG_LAYER_0 = new SpriteObject(1021, 1080, 1920, 1, 300, "Assets/Backgrounds/game_over_Layer_0.png");
-	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(1022, 37, 50, 7, 300, "Assets/Sprites/Character/adventure_die.png");
+	SpriteObject* BG_LAYER_0 = new SpriteObject(-605, 1080, 1920, 1, 300, "Assets/Backgrounds/game_over_Layer_0.png");
+	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(-606, 37, 50, 7, 300, "Assets/Sprites/Character/adventure_die.png");
 	BG_LAYER_ADVENTRUE->freezeOn(7);
-	SpriteObject* BG_LAYER_2 = new SpriteObject(1023, 1080, 1920, 1, 300, "Assets/Backgrounds/game_over_Layer_1.png");
+	SpriteObject* BG_LAYER_2 = new SpriteObject(-607, 1080, 1920, 1, 300, "Assets/Backgrounds/game_over_Layer_1.png");
 
 	auto* layer0 = new Drawable(-602);
 	layer0->setStatic(true);
@@ -91,7 +91,7 @@ void DeadScreen::onUpdate()
 
 void DeadScreen::onDetach()
 {
-	//EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent("DEAD_SOUND"));
+	EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent("DEAD_SOUND"));
 	Scene::onDetach();
 }
 
