@@ -19,7 +19,7 @@ void DeadScreen::onAttach()
 /// @brief 
 /// Create all buttons for this scene
 void DeadScreen::loadButtons() {
-	auto mainSprite = new SpriteObject(-601, 40, 116, 1, 300, "Assets/Buttons/btn_gray_round.png");
+	auto mainSprite = new SpriteObject(-9001, 40, 116, 1, 300, "Assets/Buttons/btn_gray_round.png");
 
 	Button* startBtn = new Button(-600, ColoredText("Restart", Color(0, 0, 0)), BIND_FN(onReStartBtnClick));
 	startBtn->setPositionX(CENTER_X - startBtn->getWidth() / 2);
@@ -42,10 +42,10 @@ void DeadScreen::loadButtons() {
 /// @brief 
 /// Create the background for this scene
 void DeadScreen::loadBackground() {
-	SpriteObject* BG_LAYER_0 = new SpriteObject(-605, 1080, 1920, 1, 300, "Assets/Backgrounds/game_over_Layer_0.png");
-	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(-606, 37, 50, 7, 300, "Assets/Sprites/Character/adventure_die.png");
+	SpriteObject* BG_LAYER_0 = new SpriteObject(-9002, 1080, 1920, 1, 300, "Assets/Backgrounds/game_over_Layer_0.png");
+	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(-9003, 37, 50, 7, 300, "Assets/Sprites/Character/adventure_die.png");
 	BG_LAYER_ADVENTRUE->freezeOn(7);
-	SpriteObject* BG_LAYER_2 = new SpriteObject(-607, 1080, 1920, 1, 300, "Assets/Backgrounds/game_over_Layer_1.png");
+	SpriteObject* BG_LAYER_2 = new SpriteObject(-9004, 1080, 1920, 1, 300, "Assets/Backgrounds/game_over_Layer_1.png");
 
 	auto* layer0 = new Drawable(-602);
 	layer0->setStatic(true);

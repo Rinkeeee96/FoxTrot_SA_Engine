@@ -20,7 +20,7 @@ void WinScreen::onAttach()
 /// @brief 
 /// Create all buttons for this scene
 void WinScreen::LoadButtons() {
-	auto mainSprite = new SpriteObject(-602, 40, 116, 1, 300, "Assets/Buttons/btn_gray_round.png");
+	auto mainSprite = new SpriteObject(-9007, 40, 116, 1, 300, "Assets/Buttons/btn_gray_round.png");
 
 	Button* overBtn = new Button(31, ColoredText("Overworld", Color(0, 0, 0)), BIND_FN(onOverworldBtnClick));
 	overBtn->setPositionX(CENTER_X - overBtn->getWidth() / 2);
@@ -43,11 +43,11 @@ void WinScreen::LoadButtons() {
 /// @brief 
 /// Create the background for this scene
 void WinScreen::LoadBackground() {
-	SpriteObject* BG_LAYER_0 = new SpriteObject(-992882, 1080, 1920, 1, 300, "Assets/Backgrounds/game_win_layer_0.png");
-	SpriteObject* BG_LAYER_ADVENTRUE_JUMP = new SpriteObject(992883, 37, 50, 2, 300, "Assets/Sprites/Character/adventurer_jump_straight.png");
-	SpriteObject* BG_LAYER_ADVENTRUE_FALL = new SpriteObject(992884, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_fall_right.png");
-	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(992885, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png");
-	SpriteObject* particleSprite = new SpriteObject(992886, 20, 20, 20, 300, "Assets/Particles/fire.png");
+	SpriteObject* BG_LAYER_0 = new SpriteObject(-9008, 1080, 1920, 1, 300, "Assets/Backgrounds/game_win_layer_0.png");
+	SpriteObject* BG_LAYER_ADVENTRUE_JUMP = new SpriteObject(-9009, 37, 50, 2, 300, "Assets/Sprites/Character/adventurer_jump_straight.png");
+	SpriteObject* BG_LAYER_ADVENTRUE_FALL = new SpriteObject(-9010, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_fall_right.png");
+	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(-9011, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png");
+	SpriteObject* particleSprite = new SpriteObject(-9012, 20, 20, 20, 300, "Assets/Particles/fire.png");
 
 
 	auto* layer0 = new Drawable(34);
