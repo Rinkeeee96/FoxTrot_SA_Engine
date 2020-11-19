@@ -16,6 +16,8 @@ void MainMenu::onAttach()
 	loadMusic();
 }
 
+/// @brief 
+/// Create all buttons for this scene
 void MainMenu::loadButtons() {
 
 	Button* startBtn = new PrimaryButton(10, "Start", BIND_FN(onStartBtnClick));
@@ -40,6 +42,8 @@ void MainMenu::loadButtons() {
 	addNewObjectToLayer(3, creditsBtn);
 }
 
+/// @brief 
+/// Create the background for this scene
 void MainMenu::loadBackground() {
 	SpriteObject* BG_LAYER_0 = new SpriteObject(1010, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_0.png");
 	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(1011, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png");
@@ -77,9 +81,15 @@ void MainMenu::loadBackground() {
 	addNewObjectToLayer(1, animation, false);
 	addNewObjectToLayer(2, layer2, false);
 }
+
+/// @brief 
+/// Load the sounds for this scene
 void MainMenu::loadMusic() {
 	EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent("MENU_SOUND", "Assets/Sound/file_example_WAV_1MG.wav"));
 }
+
+/// @brief 
+/// Create the sounds for this scene
 void MainMenu::start()
 {
 	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("MENU_SOUND"));
@@ -89,26 +99,44 @@ void MainMenu::onUpdate()
 {
 }
 
+/// @brief 
+/// Remove the sounds of the soundengine
 void MainMenu::onDetach()
 {
 	EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent("MENU_SOUND"));
 	Scene::onDetach();
 }
 
+
+/// @brief 
+/// A callback function for startBtn
+/// Start transition scene to OVERWORLD
 void MainMenu::onStartBtnClick()
 {
 	SceneSwitcher::get_instance().switchToScene("OVERWORLD", true);
 }
 
+
+/// @brief 
+/// A callback function for stopBTN
+/// Stop the application
 void MainMenu::onStopBtnClick() {
 	WindowCloseEvent event;
 	EventSingleton::get_instance().dispatchEvent<WindowCloseEvent>(event);
 }
 
+
+/// @brief 
+/// A callback function for creditsBTN
+/// Start transition scene to DEAD_SCREEN
 void MainMenu::onCreditsBtnClick() {
 	SceneSwitcher::get_instance().switchToScene("DEAD_SCREEN", false);
 }
 
+
+/// @brief 
+/// A callback function for loadBtn
+/// Start transition scene to WIN_SCREEN
 void MainMenu::onLoadBtnClick() {
 	SceneSwitcher::get_instance().switchToScene("WIN_SCREEN", false);
 }

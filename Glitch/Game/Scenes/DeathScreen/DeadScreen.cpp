@@ -16,6 +16,8 @@ void DeadScreen::onAttach()
 	loadMusic();
 }
 
+/// @brief 
+/// Create all buttons for this scene
 void DeadScreen::loadButtons() {
 	auto mainSprite = new SpriteObject(-601, 40, 116, 1, 300, "Assets/Buttons/btn_gray_round.png");
 
@@ -37,6 +39,8 @@ void DeadScreen::loadButtons() {
 	addNewObjectToLayer(3, mainBtn);
 }
 
+/// @brief 
+/// Create the background for this scene
 void DeadScreen::loadBackground() {
 	SpriteObject* BG_LAYER_0 = new SpriteObject(-605, 1080, 1920, 1, 300, "Assets/Backgrounds/game_over_Layer_0.png");
 	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(-606, 37, 50, 7, 300, "Assets/Sprites/Character/adventure_die.png");
@@ -76,10 +80,14 @@ void DeadScreen::loadBackground() {
 	addNewObjectToLayer(2, layer2);
 }
 
+/// @brief 
+/// Load the sounds for this scene
 void DeadScreen::loadMusic() {
 	EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent("DEAD_SOUND", "Assets/Sound/game_over_looped.wav"));
 }
 
+/// @brief 
+/// Create the sounds for this scene
 void DeadScreen::start()
 {
 	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("DEAD_SOUND"));
@@ -89,17 +97,26 @@ void DeadScreen::onUpdate()
 {
 }
 
+/// @brief 
+/// Remove the sounds of the soundengine
 void DeadScreen::onDetach()
 {
 	EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent("DEAD_SOUND"));
 	Scene::onDetach();
 }
 
+/// @brief 
+/// A callback function for restartBTN
+/// Start transition scene to level1
 void DeadScreen::onReStartBtnClick()
 {
 	SceneSwitcher::get_instance().switchToScene("LEVEL_1", true);
 }
 
+
+/// @brief 
+/// A callback function for overworldBTN
+/// Start transition scene to overworl
 void DeadScreen::onOverworldBtnClick() {
 	SceneSwitcher::get_instance().switchToScene("OVERWORLD", false);
 }

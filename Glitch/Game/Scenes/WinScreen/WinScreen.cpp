@@ -17,6 +17,8 @@ void WinScreen::onAttach()
 	LoadMusic();
 }
 
+/// @brief 
+/// Create all buttons for this scene
 void WinScreen::LoadButtons() {
 	auto mainSprite = new SpriteObject(-602, 40, 116, 1, 300, "Assets/Buttons/btn_gray_round.png");
 
@@ -38,6 +40,8 @@ void WinScreen::LoadButtons() {
 	addNewObjectToLayer(3, mainBtn);
 }
 
+/// @brief 
+/// Create the background for this scene
 void WinScreen::LoadBackground() {
 	SpriteObject* BG_LAYER_0 = new SpriteObject(-992882, 1080, 1920, 1, 300, "Assets/Backgrounds/game_win_layer_0.png");
 	SpriteObject* BG_LAYER_ADVENTRUE_JUMP = new SpriteObject(992883, 37, 50, 2, 300, "Assets/Sprites/Character/adventurer_jump_straight.png");
@@ -83,12 +87,17 @@ void WinScreen::LoadBackground() {
 	addNewObjectToLayer(2, confetti);
 }
 
+/// @brief 
+/// Load the sounds for this scene
 void WinScreen::LoadMusic() {
 
 	//EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent("APPLAUSE_SOUND", "Assets/Sound/applause.wav"));
 	EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent("WIN_SOUND", "Assets/Sound/TremLoadingloopl.wav"));
 }
 
+
+/// @brief 
+/// Create the sounds for this scene
 void WinScreen::start()
 {
 	//EventSingleton::get_instance().dispatchEvent<PlaySoundEffectEvent>((Event&)PlaySoundEffectEvent("APPLAUSE_SOUND"));
@@ -102,15 +111,22 @@ void WinScreen::onDetach()
 	Scene::onDetach();
 }
 
+/// @brief 
+/// Remove the sounds of the soundengine
 void WinScreen::OnMainBtnClick()
 {
 	SceneSwitcher::get_instance().switchToScene("MAIN_MENU", false);
 }
 
+/// @brief 
+/// A callback function for overworldBTN
+/// Start transition scene to overworld
 void WinScreen::onOverworldBtnClick() {
 	SceneSwitcher::get_instance().switchToScene("OVERWORLD", false);
 }
 
+/// @brief 
+/// A function for a jump/fall animation
 void WinScreen::onUpdate() {
 	animationTick++;
 	if (animationTick < 100) {
