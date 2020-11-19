@@ -5,10 +5,16 @@
 #include "Events/Sound/OnMusicStartEvent.h"
 #include "Events\Sound\SoundAttachEvent.h"
 #include "Events\Sound\OnMusicStopEvent.h"
+#include "Events\Sound\PlaySoundEffectEvent.h"
+#include "Events\Sound\StopSoundEffectEvent.h"
 
 SoundEngine::SoundEngine()
 {
-	EventListners();
+	EventSingleton::get_instance().setEventCallback<OnMusicStartEvent>(BIND_EVENT_FN(SoundEngine::onStartBackgroundMusicEvent));
+	EventSingleton::get_instance().setEventCallback<SoundAttachEvent>(BIND_EVENT_FN(SoundEngine::onLoadBackgroundMusicEvent));
+
+	EventSingleton::get_instance().setEventCallback<PlaySoundEffectEvent>(BIND_EVENT_FN(SoundEngine::onPlayEffect));
+	EventSingleton::get_instance().setEventCallback<StopSoundEffectEvent>(BIND_EVENT_FN(SoundEngine::onStopLoopedEffect));
 }
 
 SoundEngine::~SoundEngine()
@@ -49,9 +55,9 @@ void SoundEngine::UnloadEffect(const string& identifier)
 }
 /// @brief 
 /// @param effect 
-void SoundEngine::StartLoopedEffect(const string& effect)
+void SoundEngine::StartLoopedEffect(const string& effect, int volume = MAX_VOLUME)
 {
-	soundFacade->StartLoopedEffect(effect);
+	soundFacade->StartLoopedEffect(effect, volume);
 }
 /// @brief 
 /// @param identifier 
@@ -129,6 +135,8 @@ void SoundEngine::Flush()
 	soundFacade->Flush();
 }
 
+
+
 /// @brief
 /// Event listener for when the music has to be changed
 /// @param identifier
@@ -148,21 +156,32 @@ void SoundEngine::onChangeBackgroundMusic(const string& identifier, int volume =
 }
 
 /// @brief
+/// Event listener for stopping a looped effect
+/// @param event
+/// The event for the sound effect, contains everything for an effect to start
+bool SoundEngine::onStopLoopedEffect(Event& event) {
+	auto effectEvent = static_cast<PlaySoundEffectEvent&>(event);
+	StopLoopedEffect(effectEvent.Getidentifier());
+	return true;
+}
+
+/// @brief
 /// Event listener for when an effect has to be played
-/// @param identifier
-/// The identifier of the effect to play
-/// @param volume
-/// The volume to play the effect at. Ranges from 0 to 128
-void SoundEngine::onPlayEffect(const string& identifier, const int volume = MAX_VOLUME) {
-	if (IdentifierExists(identifier)) {
-		if (IdentifierIsLoaded(identifier)) {
-			PlayEffect(identifier, volume);
-		}
-		else {
-			LoadEffect(identifier);
-			PlayEffect(identifier, volume);
-		}
+/// @param event
+/// The event for the sound effect, contains everything for an effect to start
+bool SoundEngine::onPlayEffect(Event& event) {
+	auto effectEvent = static_cast<PlaySoundEffectEvent&>(event);
+	const string& identifier = effectEvent.Getidentifier();
+	int volume = effectEvent.getVolume();
+
+	if (IdentifierExists(effectEvent.Getidentifier())) {
+		if (! IdentifierIsLoaded(identifier)) LoadEffect(identifier);
+		
+		(effectEvent.shouldLoop()) ? StartLoopedEffect(identifier, volume) : PlayEffect(identifier, volume);
+
+		return true;
 	}
+	return false;
 }
 
 /// @brief 
@@ -181,17 +200,13 @@ bool SoundEngine::IdentifierIsLoaded(const string& identifier)
 	return soundFacade->IdentifierIsLoaded(identifier);
 }
 
-void SoundEngine::EventListners() {
-	EventSingleton::get_instance().setEventCallback<OnMusicStartEvent>(BIND_EVENT_FN(SoundEngine::Event_StartEvent));
-	EventSingleton::get_instance().setEventCallback<SoundAttachEvent>(BIND_EVENT_FN(SoundEngine::Event_AttachEvent));
-}
-bool SoundEngine::Event_StartEvent(Event& event) {
+bool SoundEngine::onStartBackgroundMusicEvent(Event& event) {
 	auto startEvent = static_cast<OnMusicStartEvent&>(event);
 	this->PlayMusic(startEvent.Getidentifier(), 15);
 
 	return true;
 }
-bool SoundEngine::Event_AttachEvent(Event& event) {
+bool SoundEngine::onLoadBackgroundMusicEvent(Event& event) {
 	auto attachEvent = static_cast<SoundAttachEvent&>(event);
 	this->AddFile(attachEvent.Getidentifier(), attachEvent.GetFileName());
 

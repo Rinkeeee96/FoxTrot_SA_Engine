@@ -198,6 +198,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="api.h" />
+    <ClInclude Include="Engine\Events\Sound\PlaySoundEffectEvent.h" />
+    <ClInclude Include="Engine\Events\Sound\StopSoundEffectEvent.h" />
     <ClInclude Include="Engine\SceneManager\Objects\Drawable.h" />
     <ClInclude Include="Engine\core.h" />
     <ClInclude Include="Engine\Events\Action\ActionEvent.h" />
