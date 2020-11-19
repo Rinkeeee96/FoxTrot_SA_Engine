@@ -60,9 +60,9 @@ void Game::run() {
 		}
 	}
 	catch (int e) {
-		// TODO show message
+		cout << ERRORCODES[e] << endl;
 	}
 	catch (exception e) {
-		// TODO show message
+		cout << e.what() << endl;
 	}
 }
