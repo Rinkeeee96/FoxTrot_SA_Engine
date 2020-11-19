@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "Scene.h"
 #include <SceneManager\Objects\Drawable.h>
-#include "../../../Glitch/Game/Buttons/PrimaryButton.h"
 
 /// @brief 
 /// @param sceneID 
@@ -108,7 +107,7 @@ vector <Object*> Scene::getAllObjectsInSceneRenderPhysics()
 /// Zindex of the layer that the object should be added to
 /// @param object 
 /// Pointer to the object
-const void Scene::addNewObjectToLayer(const int zIndex, Object* object, bool renderPhysics = false)
+const void Scene::addNewObjectToLayer(const int zIndex, Object* object, bool renderPhysics)
 {
 	if (object == nullptr) throw ERROR_CODE_SCENE_NO_OBJECT_FOUND;
 

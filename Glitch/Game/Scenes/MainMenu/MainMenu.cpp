@@ -18,19 +18,19 @@ void MainMenu::onAttach()
 
 void MainMenu::loadButtons() {
 
-	Button* startBtn = new PrimaryButton(10, "Start", BIND_FN(OnStartBtnClick));
+	Button* startBtn = new PrimaryButton(10, "Start", BIND_FN(onStartBtnClick));
 	startBtn->setPositionX(CENTER_X - startBtn->getWidth() / 2);
 	startBtn->setPositionY(CENTER_Y - startBtn->getHeight() / 2);
 
-	Button* loadBtn = new PrimaryButton(11, "Win screen", BIND_FN(OnLoadBtnClick));
+	Button* loadBtn = new PrimaryButton(11, "Win screen", BIND_FN(onLoadBtnClick));
 	loadBtn->setPositionX(CENTER_X - loadBtn->getWidth() / 2);
 	loadBtn->setPositionY(CENTER_Y - loadBtn->getHeight() / 2 + 100);
 
-	Button* creditsBtn = new PrimaryButton(12, "Game over screen", BIND_FN(OnCreditsBtnClick));
+	Button* creditsBtn = new PrimaryButton(12, "Game over screen", BIND_FN(onCreditsBtnClick));
 	creditsBtn->setPositionX(CENTER_X - creditsBtn->getWidth() / 2);
 	creditsBtn->setPositionY(CENTER_Y - creditsBtn->getHeight() / 2 + 200);
 
-	Button* stopBtn = new SecondaryButton(13, "Stop", BIND_FN(OnStopBtnClick));
+	Button* stopBtn = new SecondaryButton(13, "Stop", BIND_FN(onStopBtnClick));
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
@@ -97,7 +97,7 @@ void MainMenu::onDetach()
 
 void MainMenu::onStartBtnClick()
 {
-	SceneSwitcher::get_instance().switchToScene("GAME");
+	SceneSwitcher::get_instance().switchToScene("GAME", true);
 }
 
 void MainMenu::onStopBtnClick() {
@@ -106,9 +106,9 @@ void MainMenu::onStopBtnClick() {
 }
 
 void MainMenu::onCreditsBtnClick() {
-	SceneSwitcher::get_instance().switchToScene("DEAD_SCREEN");
+	SceneSwitcher::get_instance().switchToScene("DEAD_SCREEN", false);
 }
 
 void MainMenu::onLoadBtnClick() {
-	SceneSwitcher::get_instance().switchToScene("WIN_SCREEN");
+	SceneSwitcher::get_instance().switchToScene("WIN_SCREEN", false);
 }

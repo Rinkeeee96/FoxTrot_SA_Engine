@@ -17,7 +17,7 @@ void DeadScreen::onAttach()
 }
 
 void DeadScreen::loadButtons() {
-	auto mainSprite = new SpriteObject(101013, 40, 116, 1, 300, "Assets/Buttons/btn_gray_round.png");
+	auto mainSprite = new SpriteObject(-601, 40, 116, 1, 300, "Assets/Buttons/btn_gray_round.png");
 
 	Button* startBtn = new Button(-600, ColoredText("Restart", Color(0, 0, 0)), BIND_FN(onStartBtnClick));
 	startBtn->setPositionX(CENTER_X - startBtn->getWidth() / 2);

@@ -18,7 +18,7 @@ void WinScreen::onAttach()
 }
 
 void WinScreen::LoadButtons() {
-	auto mainSprite = new SpriteObject(1031, 40, 116, 1, 300, "Assets/Buttons/btn_gray_round.png");
+	auto mainSprite = new SpriteObject(-602, 40, 116, 1, 300, "Assets/Buttons/btn_gray_round.png");
 
 	Button* overBtn = new Button(31, ColoredText("Overworld", Color(0, 0, 0)), BIND_FN(OnStartBtnClick));
 	overBtn->setPositionX(CENTER_X - overBtn->getWidth() / 2);
@@ -47,10 +47,10 @@ void WinScreen::LoadButtons() {
 
 void WinScreen::LoadBackground() {
 	SpriteObject* BG_LAYER_0 = new SpriteObject(-992882, 1080, 1920, 1, 300, "Assets/Backgrounds/game_win_layer_0.png");
-	SpriteObject* BG_LAYER_ADVENTRUE_JUMP = new SpriteObject(1032, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_jump_right.png");
-	SpriteObject* BG_LAYER_ADVENTRUE_FALL = new SpriteObject(1033, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_fall_right.png");
-	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(1011, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png");
-	SpriteObject* particleSprite = new SpriteObject(11, 20, 20, 20, 300, "Assets/Particles/fire.png");
+	SpriteObject* BG_LAYER_ADVENTRUE_JUMP = new SpriteObject(992883, 37, 50, 2, 300, "Assets/Sprites/Character/adventurer_jump_straight.png");
+	SpriteObject* BG_LAYER_ADVENTRUE_FALL = new SpriteObject(992884, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_fall_right.png");
+	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(992885, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png");
+	SpriteObject* particleSprite = new SpriteObject(992886, 20, 20, 20, 300, "Assets/Particles/fire.png");
 
 
 	auto* layer0 = new Drawable(34);
@@ -68,7 +68,7 @@ void WinScreen::LoadBackground() {
 	animation->setPositionY(1030);
 	animation->setWidth(370);
 	animation->setHeight(500);
-	animation->registerSprite(SpriteState::DEFAULT, BG_LAYER_ADVENTRUE);
+	animation->registerSprite(SpriteState::DEFAULT, BG_LAYER_ADVENTRUE_JUMP);
 	animation->registerSprite(SpriteState::AIR_JUMP_RIGHT, BG_LAYER_ADVENTRUE_JUMP);
 	animation->registerSprite(SpriteState::AIR_FALL_RIGHT, BG_LAYER_ADVENTRUE_FALL);
 	animation->changeToState(SpriteState::DEFAULT);
@@ -120,15 +120,15 @@ void WinScreen::OnMainBtnClick() {
 
 void WinScreen::onUpdate() {
 	animationTick++;
-	if (animationTick < 10) {
+	if (animationTick < 100) {
+		animation->setPositionY(animation->getPositionY() - 1);
+	}
+	else if (animationTick == 100) {
+		animation->changeToState(SpriteState::AIR_FALL_RIGHT);
 		animation->setPositionY(animation->getPositionY() + 1);
 	}
-	else if (animationTick == 10) {
-		animation->changeToState(SpriteState::AIR_FALL_RIGHT);
-		animation->setPositionY(animation->getPositionY() - 1);
-	}
-	else if (animationTick > 10 && animationTick < 20) {
-		animation->setPositionY(animation->getPositionY() - 1);
+	else if (animationTick > 100 && animationTick < 200) {
+		animation->setPositionY(animation->getPositionY() + 1);
 	}
 	else {
 		animation->changeToState(SpriteState::AIR_JUMP_RIGHT);
