@@ -45,6 +45,7 @@ public:
 	void MoveLeft(const int objectId) override;
 	void MoveRight(const int objectId) override;
 	void Jump(const int objectId) override;
+	void Fall(const int objectId) override;
 
 	CollisionStruct getObjectsByFixture(b2Fixture* fixture1, b2Fixture* fixture2);
 	void update() override;

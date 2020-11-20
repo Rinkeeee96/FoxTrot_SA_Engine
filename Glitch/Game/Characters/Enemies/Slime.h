@@ -17,23 +17,22 @@ public:
 		auto map = collisionEvent.getDirectionMap();
 		auto collidedDirection = map[this->getObjectId()];
 
-
 		if (std::find(collidedDirection.begin(), collidedDirection.end(), Direction::UP) != collidedDirection.end()) {
-			this->setHealth(0);
+			this->kill();
 		}
 		else {
 			if (collisionEvent.getObjectOne().getObjectId() == this->getObjectId()) {
 				Object& otherE = collisionEvent.getObjectTwo();
 
 				if (this->player->getObjectId() == otherE.getObjectId()) {
-					this->player->setHealth(0);
+					this->player->kill();
 				}
 			}
 			else if (collisionEvent.getObjectTwo().getObjectId() == this->getObjectId()) {
 				Object& otherEntity = collisionEvent.getObjectOne();
 
 				if (this->player->getObjectId() == otherEntity.getObjectId()) {
-					this->player->setHealth(0);
+					this->player->kill();
 				}
 			}
 		}
@@ -41,7 +40,17 @@ public:
 	}
 
 	void onUpdate() override {
-		if(this->getYAxisVelocity() == 0) EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
+		bool playerIsInRange = player->getPositionX() >= this->getPositionX() - this->getWidth() &&
+			player->getPositionX() <= this->getPositionX() + this->width;
+		bool playerIsBelowMe = (player->getPositionY() + player->getHeight()) >= this->getPositionY();
+
+		bool positionedOnGround = this->getYAxisVelocity() == 0;
+		if(positionedOnGround)
+			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
+
+		if (playerIsInRange && playerIsBelowMe && !positionedOnGround){
+			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::DOWN, this->getObjectId()));
+		}
 	};
 
 	ICharacter* clone(int id) override { return new Slime(id); }
