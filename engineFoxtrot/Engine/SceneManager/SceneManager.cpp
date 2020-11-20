@@ -46,7 +46,7 @@ void SceneManager::insertScene(Scene* scene)
 /// returns int
 int SceneManager::getFirstFreeSceneID()
 {
-	return (scenes.end()->second->getSceneID()) + 1;
+	return (scenes.end()->first) + 1;
 }
 
 /// @brief 
