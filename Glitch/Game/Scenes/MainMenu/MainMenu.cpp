@@ -26,9 +26,9 @@ void MainMenu::loadButtons() {
 
 	
 	/*Button* loadBtn = new PrimaryButton(3, "Load save", BIND_FN(onLoadBtnClick));
+	/*Button* loadBtn = new PrimaryButton(3, "Load", BIND_FN(onLoadBtnClick));
 	loadBtn->setPositionX(CENTER_X - loadBtn->getWidth() / 2);
 	loadBtn->setPositionY(CENTER_Y - loadBtn->getHeight() / 2 + 100);
-	loadBtn->disable();
 
 	Button* creditsBtn = new PrimaryButton(12, "Credits", BIND_FN(onCreditsBtnClick));
 	creditsBtn->setPositionX(CENTER_X - creditsBtn->getWidth() / 2);
@@ -116,7 +116,7 @@ void MainMenu::onDetach()
 /// Start transition scene to OVERWORLD
 void MainMenu::onStartBtnClick()
 {
-	SceneSwitcher::get_instance().switchToScene("OVERWORLD", false);
+	SceneSwitcher::get_instance().switchToScene("LOADSCREEN", false);
 }
 
 
@@ -140,4 +140,5 @@ void MainMenu::onCreditsBtnClick() {
 /// A callback function for loadBtn
 /// Start transition scene to WIN_SCREEN
 void MainMenu::onLoadBtnClick() {
+	cout << "Load button click" << endl;
 }

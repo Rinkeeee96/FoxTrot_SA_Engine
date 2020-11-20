@@ -32,6 +32,9 @@ bool PhysicsEngine::handleAction(Event& event) {
 		case Direction::RIGHT:
 			this->physicsFacade->MoveRight(objectId);
 			return true;
+		case Direction::DOWN:
+			this->physicsFacade->Fall(objectId);
+			return true;
 		default:
 			// TODO what should handle action do when it fails? does the eventhandler need to continue?
 			return false;

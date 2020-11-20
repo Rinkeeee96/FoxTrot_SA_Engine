@@ -51,6 +51,8 @@ void Game::run() {
 		WinScreen* winScreen = new WinScreen(sceneId++);
 		SceneSwitcher::get_instance().registerScene("WIN_SCREEN", winScreen);
 
+		SaveScreen* saveScreen = new SaveScreen(sceneId++);
+		SceneSwitcher::get_instance().registerScene("LOADSCREEN", saveScreen);
 
 		SceneSwitcher::get_instance().switchToScene("MAIN_MENU", false);
 		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
@@ -70,11 +72,15 @@ void Game::run() {
 			EventSingleton::get_instance().dispatchEvent<AppTickEvent60>(appTick);
 			EventSingleton::get_instance().dispatchEvent<AppTickEvent30>(appTick30);
 
+			// TODO get only the non static objects, without looping thru them again and again
 			auto scene = engine.getCurrentScene();
 			scene->onUpdate();
 
 			this_thread::sleep_for(chrono::milliseconds(10));
 		}
+
+		Savegame::get_instance().saveGameDataToJsonFile();
+
 	}
 	catch (int e) {
 		cout << ERRORCODES[e] << endl;
