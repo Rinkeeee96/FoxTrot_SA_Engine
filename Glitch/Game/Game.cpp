@@ -9,10 +9,8 @@ bool Game::stopRun(Event& event) {
 bool Game::loadLevel(Event& event) {
 	auto loadEvent = static_cast<LevelLoadEvent&>(event);
 
-	LoadLevelFacade levelLoader{ engine };
-	LevelBuilder levelOneBuilder{ engine, sceneId++ };
-
 	try {
+		levelOneBuilder.newLevel(sceneId++);
 		levelLoader.load("Assets/Levels/Maps/" + loadEvent.GetLevel() + ".json", &levelOneBuilder);
 		Level* level = levelOneBuilder.getLevel();
 		string sceneID = "LEVEL_" + std::to_string(sceneId);

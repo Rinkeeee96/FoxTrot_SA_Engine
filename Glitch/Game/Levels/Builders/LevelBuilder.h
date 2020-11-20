@@ -52,4 +52,5 @@ public:
 	void createTriggers(nlohmann::json json) override;
 	void initFactory() override;
 	virtual void create() override;
+	void newLevel(const int sceneId) { bLevel = new Level(sceneId, 0, 0); }
 };
