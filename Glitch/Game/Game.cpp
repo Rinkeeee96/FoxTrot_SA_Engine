@@ -12,7 +12,6 @@ Game::Game()
 }
 
 void Game::run() {
-	// TODO throw error when something goes wrong in sceneSwitcher
 	try {
 		MainMenu* mainMenu = new MainMenu(sceneId++);
 		SceneSwitcher::get_instance().registerScene("MAIN_MENU", mainMenu);
