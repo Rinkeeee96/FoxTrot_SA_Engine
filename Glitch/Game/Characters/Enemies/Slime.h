@@ -44,7 +44,7 @@ public:
 	void onUpdate() override {
 		bool isPlayerOverlapping = player->getPositionX() >= this->getPositionX() - this->getWidth() &&
 			player->getPositionX() <= this->getPositionX() + this->width;
-		bool isPlayerBelowMe = (player->getPositionY() + player->getHeight()) <= this->getPositionY();
+		bool isPlayerBelowMe = (player->getPositionY() + player->getHeight()) >= this->getPositionY();
 
 		bool onGround = this->getYAxisVelocity() == 0;
 		if(onGround)
