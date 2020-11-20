@@ -19,7 +19,6 @@ public:
 
 
 		if (std::find(collidedDirection.begin(), collidedDirection.end(), Direction::UP) != collidedDirection.end()) {
-			// TODO rename?
 			this->kill();
 		}
 		else {
@@ -42,15 +41,15 @@ public:
 	}
 
 	void onUpdate() override {
-		bool isPlayerOverlapping = player->getPositionX() >= this->getPositionX() - this->getWidth() &&
+		bool playerIsInRange = player->getPositionX() >= this->getPositionX() - this->getWidth() &&
 			player->getPositionX() <= this->getPositionX() + this->width;
-		bool isPlayerBelowMe = (player->getPositionY() + player->getHeight()) >= this->getPositionY();
+		bool playerIsBelowMe = (player->getPositionY() + player->getHeight()) >= this->getPositionY();
 
-		bool onGround = this->getYAxisVelocity() == 0;
-		if(onGround)
+		bool positionedOnGround = this->getYAxisVelocity() == 0;
+		if(positionedOnGround)
 			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
 
-		if (isPlayerOverlapping && isPlayerBelowMe && !onGround){
+		if (playerIsInRange && playerIsBelowMe && !positionedOnGround){
 			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::DOWN, this->getObjectId()));
 		}
 	};
