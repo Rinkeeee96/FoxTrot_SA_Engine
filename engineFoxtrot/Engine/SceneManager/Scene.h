@@ -16,7 +16,7 @@ public:
 
 	bool API checkIfObjectExists(const int objectID);
 	const bool API toggleLayer(const int zIndex, bool render);
-	const void API addNewObjectToLayer(const int zIndex, Object* object, bool renderPhysics = true);
+	const void API addNewObjectToLayer(const int zIndex, Object* object, bool renderPhysics = false);
 
 	vector<Drawable*> API getAllDrawablesInScene();
 	vector <Object*> API getAllObjectsInScene();

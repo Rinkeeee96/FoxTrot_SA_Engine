@@ -30,7 +30,7 @@ void LevelBuilder::createTriggers(nlohmann::json layerValue) {
 		object->setPositionY(objectValue["y"] + object->getHeight());
 		object->setStatic(false);
 
-		bLevel->addNewObjectToLayer(ENTITY_LAYER_INDEX, object);
+		bLevel->addNewObjectToLayer(ENTITY_LAYER_INDEX, object, true);
 	}
 }
 
@@ -123,7 +123,7 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 				object->setHealth(healthString);
 			}
 		}
-		bLevel->addNewObjectToLayer(ENTITY_LAYER_INDEX, object);
+		bLevel->addNewObjectToLayer(ENTITY_LAYER_INDEX, object, true);
 		temp.push_back(object);
 	}
 	for (size_t i = 0; i < temp.size(); i++)
@@ -238,7 +238,7 @@ void LevelBuilder::createParticle(nlohmann::json layerValue)
 					part->setPositionX(objectValue["x"]);
 					part->setPositionY(objectValue["y"] + particle1Sprite->getHeight());
 					part->setStyle((ParticleInit::ParticleStyle)type);
-					bLevel->addNewObjectToLayer(PARTICLE_LAYER_INDEX, part);
+					bLevel->addNewObjectToLayer(PARTICLE_LAYER_INDEX, part, false);
 				}
 			else {
 				throw std::exception(GAME_ERRORCODES[INVALID_TYPE]);
@@ -281,7 +281,7 @@ void LevelBuilder::createTiles(nlohmann::json layerValue) {
 			tile->registerSprite(SpriteState::DEFAULT, tileSprite);
 			tile->changeToState(SpriteState::DEFAULT);
 
-			bLevel->addNewObjectToLayer(GROUND_LAYER_INDEX, tile);
+			bLevel->addNewObjectToLayer(GROUND_LAYER_INDEX, tile, true);
 		}
 
 		if (currentX == (layerValue["width"] - 1)) {

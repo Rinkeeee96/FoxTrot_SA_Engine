@@ -143,16 +143,16 @@ Object * Scene::getObject(const int objectID)
 
 void Scene::onDetach()
 {
-	//for (auto& layerContainer : layers)
-	//{
-	//	Layer* layer = layerContainer.second;
-	//	///for (const auto& [id, object] : layer->objects) 
-	//		//delete object;
+	for (auto& layerContainer : layers)
+	{
+		Layer* layer = layerContainer.second;
+		for (const auto& [id, object] : layer->objects)
+			delete object;
 
-	//	layer->objects.clear();
-	//	delete layer;
-	//}
-	//layers.clear();
+		layer->objects.clear();
+		delete layer;
+	}
+	layers.clear();
 }
 
 void Scene::removeObjectFromScene(Object* obj)

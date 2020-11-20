@@ -20,8 +20,8 @@ PhysicsFacade::~PhysicsFacade()
 
 CollisionStruct PhysicsFacade::getObjectsByFixture(b2Fixture* fixture1, b2Fixture* fixture2) {
 	CollisionStruct collisionStruct = CollisionStruct();
+
 	for (const auto& value : this->bodies) {
-		auto fixtures = value.second->GetFixtureList();
 		for (b2Fixture* f = value.second->GetFixtureList(); f; f = f->GetNext())
 		{
 			if (fixture1 == f)
@@ -212,6 +212,11 @@ void PhysicsFacade::Jump(const int objectId)
 /// destroy all the bodies of the world
 void PhysicsFacade::cleanMap()
 {
+	/*for (auto b : bodies)
+	{
+		world->DestroyBody(b.second);
+	}*/
+	bodies.clear();
 	delete world;
 	world = new b2World(b2Vec2(GRAVITY_SCALE, GRAVITY_FALL));
 	world->SetContactListener(new ContactListenerAdapter(this));

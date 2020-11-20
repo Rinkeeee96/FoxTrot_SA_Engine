@@ -1,7 +1,6 @@
 #pragma once
 #include "Game/SpriteState.h"
 #include "Game/Characters/Player/Player.h"
-#include "Game/Levels/LoadLevelFacade.h"
 #include "SceneSwitcher/SceneSwitcher.h"
 #include "Game/Scenes/MainMenu/MainMenu.h"
 #include "Game/Scenes/Transitions/GeneralTransition/GeneralTransition.h"
