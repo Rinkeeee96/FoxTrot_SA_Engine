@@ -64,14 +64,16 @@ bool Savegame::readSaveGameDataFromJson(string& path)
 		try {
 			parseJsonToMap(json);
 		}
-		catch (exception e) {
+		catch (exception exc) {
 			cout << "Something went wrong parsing the file, make sure the file is correctly structured" << "\n";
-			cout << e.what() << "\n";
+			cout << exc.what() << "\n";
+			throw exc;
 		}
 	}
-	catch (exception e) {
+	catch (exception exc) {
 		cout << "Something went wrong opening file, make sure the file exists" << "\n";
-		cout << e.what() << "\n";
+		cout << exc.what() << "\n";
+		throw exc;
 	}
 
 	return true;
