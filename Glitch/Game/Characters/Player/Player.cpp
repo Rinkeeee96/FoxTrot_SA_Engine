@@ -7,8 +7,8 @@ Player::Player(const int id) : ICharacter(id) {
 	this->setPositionX(100);
 	this->setPositionY(80);
 
-	this->setSpeed(75);
-	this->setJumpHeight(400);
+	this->setSpeed(100);
+	this->setJumpHeight(550);
 	this->setDensity(200);
 	this->setFriction(0);
 	this->setRestitution(0);
@@ -17,6 +17,7 @@ Player::Player(const int id) : ICharacter(id) {
 
 	this->setHealth(3);
 	this->setScalable(true);
+	this->setScale(2);
 
 	EventSingleton::get_instance().setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Player::onCollisionBeginEvent));
 	EventSingleton::get_instance().setEventCallback<OnCollisionEndEvent>(BIND_EVENT_FN(Player::onCollisionEndEvent));
