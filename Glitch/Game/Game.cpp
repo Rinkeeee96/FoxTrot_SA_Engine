@@ -32,7 +32,7 @@ void Game::run() {
 
 	}
 	catch (exception e) {
-		// TODO show message
+		cout << e.what() << endl;
 		return;
 	}
 
@@ -44,7 +44,7 @@ void Game::run() {
 		SceneSwitcher::get_instance().registerScene("LEVEL_1", level);
 	}
 	catch (exception e) {
-		// TODO show message
+		cout << e.what() << endl;
 		return;
 	}
 
@@ -69,9 +69,9 @@ void Game::run() {
 
 	}
 	catch (int e) {
-		// TODO show message
+		cout << ERRORCODES[e] << endl;
 	}
 	catch (exception e) {
-		// TODO show message
+		cout << e.what() << endl;
 	}
 }
