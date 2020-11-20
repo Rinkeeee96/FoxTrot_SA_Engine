@@ -41,3 +41,5 @@
 #include "Engine/FileParser/FileLoader.h"
 // ----- main engine --------------------
 #include "Engine/Engine.h"
+// ----- File Loader -----------------------
+#include "FileParser\FileLoader.h"

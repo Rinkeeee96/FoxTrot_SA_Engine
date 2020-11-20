@@ -1,5 +1,5 @@
 #pragma once
-#include <Game\Characters\Player\Player.h>
+#include "Game\Characters\Player\Player.h"
 
 /// @brief 
 /// Level class. Level has all the information. 
@@ -23,4 +23,7 @@ private:
 	Object* follow = nullptr;
 	Player* player = nullptr;
 	bool win = false;
+
+	int startPosPlayerX = 0;
+	int startPosPlayerY = 0;
 };

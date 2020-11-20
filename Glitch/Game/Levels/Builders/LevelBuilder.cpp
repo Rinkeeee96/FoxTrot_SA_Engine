@@ -28,7 +28,7 @@ void LevelBuilder::createTriggers(nlohmann::json layerValue) {
 		object->setWidth(objectValue["width"]);
 		object->setPositionX(objectValue["x"]);
 		object->setPositionY(objectValue["y"] + object->getHeight());
-		object->setStatic(false);
+		object->setStatic(true);
 
 		bLevel->addNewObjectToLayer(ENTITY_LAYER_INDEX, object, true);
 	}
@@ -137,6 +137,7 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 					_enemy->setPlayer(_player);
 				}
 			}
+			break;
 		}
 	}
 }

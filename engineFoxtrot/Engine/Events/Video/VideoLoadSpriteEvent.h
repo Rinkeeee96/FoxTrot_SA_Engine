@@ -1,6 +1,6 @@
 #pragma once
 #include "Events/Event.h"
-#include <SceneManager\Objects\SpriteObject.h>
+#include "SceneManager\Objects\SpriteObject.h"
 
 /// @brief
 /// Video load sprite event

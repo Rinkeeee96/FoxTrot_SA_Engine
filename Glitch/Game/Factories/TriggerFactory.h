@@ -1,6 +1,6 @@
 #pragma once
-#include <Game\Triggers\BaseTrigger.h>
-#include <Game\General\GameErrorCodes.h>
+#include "Game\Triggers\BaseTrigger.h"
+#include "Game\General\GameErrorCodes.h"
 
 class TriggerFactory {
 private:

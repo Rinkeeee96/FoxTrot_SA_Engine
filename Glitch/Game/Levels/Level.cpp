@@ -23,6 +23,8 @@ void Level::setPlayer(Object* object) {
 	this->follow = object;
 	if (Player* _player = dynamic_cast<Player*>(object)) {
 		this->player = _player;
+		startPosPlayerX = _player->getPositionX();
+		startPosPlayerY = _player->getPositionY();
 	}
 	else {
 		throw exception("not a player object");
@@ -49,6 +51,10 @@ void Level::onAttach() {
 /// @brief
 /// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
 void Level::start() {
+	player->setPositionX(98.8484848484848);
+	player->setPositionY(552.871212121211);
+	player->setHealth(100);
+
 	this->setObjectToFollow(this->follow);
 	for (const auto& s : sounds) {
 		EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent(s.first));
@@ -91,5 +97,5 @@ void Level::pause() {
 
 void Level::onDetach() 
 {
-	Scene::onDetach();
+	//Scene::onDetach();
 }//cleaup buffer

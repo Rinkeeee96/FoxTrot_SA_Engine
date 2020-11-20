@@ -13,6 +13,7 @@ public:
 	void API setCurrentScene(const int sceneID);
 	API Scene* getSceneWithID(const int sceneID);
 	void API insertScene(Scene* scene);
+	int getFirstFreeSceneID();
 
 	// Pointer
 	Scene* currentScene = nullptr;
@@ -25,6 +26,6 @@ private:
 	// Helper Functions
 	bool checkIfSceneExists(const int);
 
-	vector<Scene*> scenes;
+	map<int,Scene*> scenes;
 
 };

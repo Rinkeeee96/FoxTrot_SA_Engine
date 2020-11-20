@@ -1,7 +1,7 @@
 #pragma once
 #include "SceneManager/Objects/Object.h"
-#include <Events\EventSingleton.h>
-#include <Events\Video\VideoLoadSpriteEvent.h>
+#include "Events\EventSingleton.h"
+#include "Events\Video\VideoLoadSpriteEvent.h"
 #include "Structs/HelperStructs.h"
 class Drawable : public Object
 {
