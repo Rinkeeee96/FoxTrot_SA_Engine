@@ -2,7 +2,7 @@
 
 #include "InputFacade.h"
 #include "Events/Action/ActionEvent.h"
-#include "Events/Action/FpsToggleEvent.h" //TODO check this
+#include "Events/Action/FpsToggleEvent.h"
 #include "Events/EventSingleton.h"
 
 /// @brief 

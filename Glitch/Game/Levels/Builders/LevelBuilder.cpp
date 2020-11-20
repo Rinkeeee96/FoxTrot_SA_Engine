@@ -88,6 +88,8 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 				object = characterFactory->create(objectPropertyValue["value"], id++);
 			}
 		}
+		
+		if (object == nullptr) throw OBJECT_IS_NULLPTR;
 
 		object->setHeight(objectValue["height"]);
 		object->setWidth(objectValue["width"]);
@@ -99,23 +101,23 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 		for (auto& [objectPropertyKey, objectPropertyValue] : objectValue["properties"].items())
 		{
 			if (objectPropertyValue["name"] == "density") {
-				int densityString = objectPropertyValue["value"];
+				float densityString = objectPropertyValue["value"];
 				object->setDensity(densityString);
 			}
 			else if (objectPropertyValue["name"] == "friction") {
-				int frictionString = objectPropertyValue["value"];
+				float frictionString = objectPropertyValue["value"];
 				object->setFriction(frictionString);
 			}
 			else if (objectPropertyValue["name"] == "jump_height") {
-				int jump_heightString = objectPropertyValue["value"];
+				float jump_heightString = objectPropertyValue["value"];
 				object->setJumpHeight(jump_heightString);
 			}
 			else if (objectPropertyValue["name"] == "restitution") {
-				int restitutionString = objectPropertyValue["value"];
+				float restitutionString = objectPropertyValue["value"];
 				object->setRestitution(restitutionString);
 			}
 			else if (objectPropertyValue["name"] == "speed") {
-				int speedString = objectPropertyValue["value"];
+				float speedString = objectPropertyValue["value"];
 				object->setSpeed(speedString);
 			}
 			else if (objectPropertyValue["name"] == "health") {
@@ -148,10 +150,10 @@ void LevelBuilder::createBackground(nlohmann::json layerValue) {
 		IGround* tile = new BaseGround(id++);
 
 		int gid = objectValue["gid"];
-		int width = objectValue["width"];
-		int height = objectValue["height"];
-		int x = objectValue["x"];
-		int y = objectValue["y"];
+		float width = objectValue["width"];
+		float height = objectValue["height"];
+		float x = objectValue["x"];
+		float y = objectValue["y"];
 
 		TileSprite* sprite = textureMap[gid];
 		SpriteObject* tileSprite = new SpriteObject(currentTileId++, sprite->height, sprite->width, 1, 300, sprite->path.c_str());
@@ -175,9 +177,9 @@ void LevelBuilder::createBackground(nlohmann::json layerValue) {
 /// @param json 
 void LevelBuilder::createDecoration(nlohmann::json layerValue)
 {
-	int currentX = 0;
-	int currentY = 0;
-	int tileAmount = layerValue["data"].size();
+	float currentX = 0;
+	float currentY = 0;
+	size_t tileAmount = layerValue["data"].size();
 	for (int tileId : layerValue["data"]) {
 
 		if (tileId != 0) {
@@ -253,7 +255,7 @@ void LevelBuilder::createParticle(nlohmann::json layerValue)
 void LevelBuilder::createTiles(nlohmann::json layerValue) {
 	int currentX = 0;
 	int currentY = 0;
-	int tileAmount = layerValue["data"].size();
+	size_t tileAmount = layerValue["data"].size();
 	for (int tileId : layerValue["data"]) {
 
 		if (tileId != 0) {
@@ -275,8 +277,8 @@ void LevelBuilder::createTiles(nlohmann::json layerValue) {
 			tile->setWidth(sprite->width);
 			tile->setHeight(sprite->height);
 			tile->setStatic(true);
-			tile->setPositionX(currentX * mapTileWidth);
-			tile->setPositionY((currentY * mapTileHeight) + sprite->height);
+			tile->setPositionX(currentX * (float)mapTileWidth);
+			tile->setPositionY((currentY * (float)mapTileHeight) + sprite->height);
 
 			tile->registerSprite(SpriteState::DEFAULT, tileSprite);
 			tile->changeToState(SpriteState::DEFAULT);
@@ -315,8 +317,8 @@ void LevelBuilder::loadTileSets(nlohmann::json json) {
 						for (auto& [spriteKey, spriteValue] : tilesetValue.items()) {
 
 							const string spriteSource = spriteValue["image"];
-							const int spriteWidth = spriteValue["imagewidth"];
-							const int spriteHeight = spriteValue["imageheight"];
+							const float spriteWidth = spriteValue["imagewidth"];
+							const float spriteHeight = spriteValue["imageheight"];
 							const string spriteFilename = std::filesystem::path(spriteSource).filename().string();
 							const string spritePath = TILE_IMAGE_PATH + spriteFilename;
 

@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "SpriteObject.h"
 
-SpriteObject::SpriteObject() {}
 SpriteObject::SpriteObject(const int _textureID, const float _height, const float _width, const int _size, int _animationDelay, const char* _fileName) :
 							textureID(_textureID), height(_height), width(_width), lengthOfTextures(_size), animationDelay(_animationDelay), fileName(_fileName){};
 SpriteObject::~SpriteObject() {};

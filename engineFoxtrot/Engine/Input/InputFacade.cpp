@@ -28,7 +28,7 @@ void InputFacade::pollEvents() {
 				int x, y;
 				SDL_GetMouseState(&x, &y);
 
-				MouseMovedEvent event(x, y);
+				MouseMovedEvent event((float)x, (float)y);
 				EventSingleton::get_instance().dispatchEvent<MouseMovedEvent>(event);
 				break;
 			}
