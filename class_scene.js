@@ -2,7 +2,7 @@ var class_scene =
 [
     [ "Scene", "class_scene.html#a57d8bdc424d2e54929fb1a50134bd1b9", null ],
     [ "~Scene", "class_scene.html#a3b8cec2e32546713915f8c6303c951f1", null ],
-    [ "addNewObjectToLayer", "class_scene.html#a2213acb66f07ba097a6118fd86fedf36", null ],
+    [ "addNewObjectToLayer", "class_scene.html#a37541de6ba38b1905683bfe6cd88b2b4", null ],
     [ "checkIfObjectExists", "class_scene.html#aac71c7f4b71ed38cc8b6a794c7799fd6", null ],
     [ "getAllDrawablesInScene", "class_scene.html#abdd9e7feda2031b46c64f797dee51615", null ],
     [ "getAllObjectsInScene", "class_scene.html#a2d0bba022bb38ac9a0a5de5df6787c3d", null ],
@@ -16,6 +16,7 @@ var class_scene =
     [ "onAttach", "class_scene.html#acaeb7fdb1cb8a44852a2fe593d912ccd", null ],
     [ "onDetach", "class_scene.html#ac2f8580712a38a425315f99d9e5be2b9", null ],
     [ "onUpdate", "class_scene.html#a28ea04044a289e5f781811a41206b0c9", null ],
+    [ "removeObjectFromScene", "class_scene.html#a4f06a5e001feb04ed82d23a7574779c5", null ],
     [ "setObjectToFollow", "class_scene.html#ac86043cea6ee1590cd16f3f090a1500b", null ],
     [ "setSceneHeight", "class_scene.html#ac6f9812abb8aacf92a884cc6320597d7", null ],
     [ "setSceneWidth", "class_scene.html#ad28c2fd6c05278c2fbb6c3c2a5d8fb5a", null ],

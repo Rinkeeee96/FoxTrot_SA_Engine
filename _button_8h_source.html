@@ -66,60 +66,59 @@ $(document).ready(function(){initNavTree('_button_8h_source.html',''); initResiz
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;Events\Mouse\MouseMoved.h&quot;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Events/Mouse/MousePressed.h&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;SceneManager/Objects/Drawable.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;any&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_button.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_button.html">Button</a> : <span class="keyword">public</span> <a class="code" href="class_drawable.html">Drawable</a></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    API <a class="code" href="class_button.html">Button</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <a class="code" href="struct_colored_text.html">ColoredText</a> _text, <span class="keyword">const</span> <span class="keyword">function</span>&lt;<span class="keywordtype">void</span>(<span class="keywordtype">void</span>)&gt; _onClick) :</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <a class="code" href="class_drawable.html">Drawable</a>(<span class="keywordtype">id</span>), </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        text(_text),</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        onClick(_onClick)</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        setSize(200, 50);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        setStatic(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        EventSingleton::get_instance().<a class="code" href="class_event_singleton.html#a2f88719256a69d0e17a7a2767f431dc1">setEventCallback</a>&lt;<a class="code" href="class_mouse_button_pressed.html">MouseButtonPressed</a>&gt;(BIND_EVENT_FN(<a class="code" href="class_button.html#a3533f03ddf1e648d7407d9d8f79c7059">Button::isClicked</a>));</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        EventSingleton::get_instance().<a class="code" href="class_event_singleton.html#a2f88719256a69d0e17a7a2767f431dc1">setEventCallback</a>&lt;<a class="code" href="class_mouse_moved_event.html">MouseMovedEvent</a>&gt;(BIND_EVENT_FN(<a class="code" href="class_button.html#a9827fc2e266ef038e1bdf2d684741789">Button::mouseOver</a>));</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    }</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    API <span class="keyword">virtual</span> ~<a class="code" href="class_button.html">Button</a>() {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        EventSingleton::get_instance().unSubscribe&lt;<a class="code" href="class_mouse_moved_event.html">MouseMovedEvent</a>&gt;(BIND_EVENT_FN(<a class="code" href="class_button.html#a3533f03ddf1e648d7407d9d8f79c7059">Button::isClicked</a>));</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        EventSingleton::get_instance().unSubscribe&lt;<a class="code" href="class_mouse_button_pressed.html">MouseButtonPressed</a>&gt;(BIND_EVENT_FN(<a class="code" href="class_button.html#a9827fc2e266ef038e1bdf2d684741789">Button::mouseOver</a>));</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    }</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    API <span class="keyword">const</span> <a class="code" href="struct_colored_text.html">ColoredText</a>* toString() { <span class="keywordflow">return</span> &amp;text; }</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    API <span class="keywordtype">void</span> disable() { isEnabled = <span class="keyword">false</span>; }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    API <span class="keywordtype">void</span> enable() { isEnabled = <span class="keyword">true</span>; }</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    API <span class="keywordtype">void</span> setSize(<span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height) {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        setWidth(width);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        setHeight(height);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    API <span class="keywordtype">bool</span> <a class="code" href="class_button.html#a9827fc2e266ef038e1bdf2d684741789">mouseOver</a>(<a class="code" href="class_event.html">Event</a>&amp; event);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    API <span class="keywordtype">bool</span> <a class="code" href="class_button.html#a3533f03ddf1e648d7407d9d8f79c7059">isClicked</a>(<a class="code" href="class_event.html">Event</a>&amp; event);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">bool</span> isEnabled = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">bool</span> isMouseOver = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> onMouseOver();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">const</span> <span class="keyword">function</span>&lt;void(<span class="keywordtype">void</span>)&gt; onClick;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="struct_colored_text.html">ColoredText</a> text;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_button.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_button.html">Button</a> : <span class="keyword">public</span> <a class="code" href="class_drawable.html">Drawable</a></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    API <a class="code" href="class_button.html">Button</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <a class="code" href="struct_colored_text.html">ColoredText</a> _text, <span class="keyword">const</span> <span class="keyword">function</span>&lt;<span class="keywordtype">void</span>(<span class="keywordtype">void</span>)&gt; _onClick) :</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <a class="code" href="class_drawable.html">Drawable</a>(<span class="keywordtype">id</span>), </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        text(_text),</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        onClick(_onClick)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        setSize(200, 50);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        setStatic(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        EventSingleton::get_instance().<a class="code" href="class_event_singleton.html#a2f88719256a69d0e17a7a2767f431dc1">setEventCallback</a>&lt;<a class="code" href="class_mouse_button_pressed.html">MouseButtonPressed</a>&gt;(BIND_EVENT_FN(<a class="code" href="class_button.html#a3533f03ddf1e648d7407d9d8f79c7059">Button::isClicked</a>));</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        EventSingleton::get_instance().<a class="code" href="class_event_singleton.html#a2f88719256a69d0e17a7a2767f431dc1">setEventCallback</a>&lt;<a class="code" href="class_mouse_moved_event.html">MouseMovedEvent</a>&gt;(BIND_EVENT_FN(<a class="code" href="class_button.html#a9827fc2e266ef038e1bdf2d684741789">Button::mouseOver</a>));</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    }</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    API <span class="keyword">virtual</span> ~<a class="code" href="class_button.html">Button</a>() {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        EventSingleton::get_instance().unSubscribe&lt;<a class="code" href="class_mouse_moved_event.html">MouseMovedEvent</a>&gt;(BIND_EVENT_FN(<a class="code" href="class_button.html#a3533f03ddf1e648d7407d9d8f79c7059">Button::isClicked</a>));</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        EventSingleton::get_instance().unSubscribe&lt;<a class="code" href="class_mouse_button_pressed.html">MouseButtonPressed</a>&gt;(BIND_EVENT_FN(<a class="code" href="class_button.html#a9827fc2e266ef038e1bdf2d684741789">Button::mouseOver</a>));</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    }</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    API <span class="keyword">const</span> <a class="code" href="struct_colored_text.html">ColoredText</a>* toString() { <span class="keywordflow">return</span> &amp;text; }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    API <span class="keywordtype">void</span> disable() { isEnabled = <span class="keyword">false</span>; }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    API <span class="keywordtype">void</span> enable() { isEnabled = <span class="keyword">true</span>; }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    API <span class="keywordtype">void</span> setSize(<span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height) {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        setWidth(width);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        setHeight(height);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    API <span class="keywordtype">bool</span> <a class="code" href="class_button.html#a9827fc2e266ef038e1bdf2d684741789">mouseOver</a>(<a class="code" href="class_event.html">Event</a>&amp; event);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    API <span class="keywordtype">bool</span> <a class="code" href="class_button.html#a3533f03ddf1e648d7407d9d8f79c7059">isClicked</a>(<a class="code" href="class_event.html">Event</a>&amp; event);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">bool</span> isEnabled = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">bool</span> isMouseOver = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> onMouseOver();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">const</span> <span class="keyword">function</span>&lt;void(<span class="keywordtype">void</span>)&gt; onClick;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="struct_colored_text.html">ColoredText</a> text;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_button_html_a3533f03ddf1e648d7407d9d8f79c7059"><div class="ttname"><a href="class_button.html#a3533f03ddf1e648d7407d9d8f79c7059">Button::isClicked</a></div><div class="ttdeci">API bool isClicked(Event &amp;event)</div><div class="ttdoc">A function to handle a mouse click on a button.</div><div class="ttdef"><b>Definition:</b> Button.cpp:27</div></div>
 <div class="ttc" id="aclass_mouse_moved_event_html"><div class="ttname"><a href="class_mouse_moved_event.html">MouseMovedEvent</a></div><div class="ttdoc">MouseMoved event is triggered when the mouse is moved. Derived class of Event.</div><div class="ttdef"><b>Definition:</b> MouseMoved.h:7</div></div>
 <div class="ttc" id="aclass_mouse_button_pressed_html"><div class="ttname"><a href="class_mouse_button_pressed.html">MouseButtonPressed</a></div><div class="ttdoc">MouseButtonPressedEvent is triggerd when a mouse button is pressed. Derived class of MouseButtonEvent...</div><div class="ttdef"><b>Definition:</b> MousePressed.h:8</div></div>
 <div class="ttc" id="astruct_colored_text_html"><div class="ttname"><a href="struct_colored_text.html">ColoredText</a></div><div class="ttdef"><b>Definition:</b> HelperStructs.h:14</div></div>
-<div class="ttc" id="aclass_event_singleton_html_a2f88719256a69d0e17a7a2767f431dc1"><div class="ttname"><a href="class_event_singleton.html#a2f88719256a69d0e17a7a2767f431dc1">EventSingleton::setEventCallback</a></div><div class="ttdeci">void setEventCallback(const EventCallbackFn &amp;callback)</div><div class="ttdoc">Register a callback for a specific Event. @template T is fired.</div><div class="ttdef"><b>Definition:</b> EventSingleton.h:63</div></div>
-<div class="ttc" id="aclass_event_html"><div class="ttname"><a href="class_event.html">Event</a></div><div class="ttdef"><b>Definition:</b> Event.h:9</div></div>
+<div class="ttc" id="aclass_event_singleton_html_a2f88719256a69d0e17a7a2767f431dc1"><div class="ttname"><a href="class_event_singleton.html#a2f88719256a69d0e17a7a2767f431dc1">EventSingleton::setEventCallback</a></div><div class="ttdeci">void setEventCallback(const EventCallbackFn &amp;callback)</div><div class="ttdoc">Register a callback for a specific Event. @template T is fired.</div><div class="ttdef"><b>Definition:</b> EventSingleton.h:60</div></div>
+<div class="ttc" id="aclass_event_html"><div class="ttname"><a href="class_event.html">Event</a></div><div class="ttdef"><b>Definition:</b> Event.h:10</div></div>
 <div class="ttc" id="aclass_button_html_a9827fc2e266ef038e1bdf2d684741789"><div class="ttname"><a href="class_button.html#a9827fc2e266ef038e1bdf2d684741789">Button::mouseOver</a></div><div class="ttdeci">API bool mouseOver(Event &amp;event)</div><div class="ttdoc">A function to check if a mouse is over a button.</div><div class="ttdef"><b>Definition:</b> Button.cpp:10</div></div>
 <div class="ttc" id="aclass_drawable_html"><div class="ttname"><a href="class_drawable.html">Drawable</a></div><div class="ttdef"><b>Definition:</b> Drawable.h:7</div></div>
-<div class="ttc" id="aclass_button_html"><div class="ttname"><a href="class_button.html">Button</a></div><div class="ttdef"><b>Definition:</b> Button.h:8</div></div>
+<div class="ttc" id="aclass_button_html"><div class="ttname"><a href="class_button.html">Button</a></div><div class="ttdef"><b>Definition:</b> Button.h:7</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

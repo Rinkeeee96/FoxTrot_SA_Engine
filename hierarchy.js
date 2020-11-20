@@ -15,7 +15,9 @@ var hierarchy =
       [ "BaseSoundEvent", "class_base_sound_event.html", [
         [ "OnMusicStartEvent", "class_on_music_start_event.html", null ],
         [ "OnMusicStopEvent", "class_on_music_stop_event.html", null ],
-        [ "SoundAttachEvent", "class_sound_attach_event.html", null ]
+        [ "PlaySoundEffectEvent", "class_play_sound_effect_event.html", null ],
+        [ "SoundAttachEvent", "class_sound_attach_event.html", null ],
+        [ "StopSoundEffectEvent", "class_stop_sound_effect_event.html", null ]
       ] ],
       [ "FpsToggleEvent", "class_fps_toggle_event.html", null ],
       [ "KeyEvent", "class_key_event.html", [

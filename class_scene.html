@@ -82,9 +82,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aedaad4ca2d73ffdc2ebf0de2a31f4ca5"><td class="memItemLeft" align="right" valign="top">const bool API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#aedaad4ca2d73ffdc2ebf0de2a31f4ca5">toggleLayer</a> (const int zIndex, bool render)</td></tr>
 <tr class="memdesc:aedaad4ca2d73ffdc2ebf0de2a31f4ca5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns the layer on or off.  <a href="class_scene.html#aedaad4ca2d73ffdc2ebf0de2a31f4ca5">More...</a><br /></td></tr>
 <tr class="separator:aedaad4ca2d73ffdc2ebf0de2a31f4ca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2213acb66f07ba097a6118fd86fedf36"><td class="memItemLeft" align="right" valign="top">const void API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a2213acb66f07ba097a6118fd86fedf36">addNewObjectToLayer</a> (const int zIndex, <a class="el" href="class_object.html">Object</a> *object, bool renderPhysics=true)</td></tr>
-<tr class="memdesc:a2213acb66f07ba097a6118fd86fedf36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new object to the given Z index.  <a href="class_scene.html#a2213acb66f07ba097a6118fd86fedf36">More...</a><br /></td></tr>
-<tr class="separator:a2213acb66f07ba097a6118fd86fedf36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37541de6ba38b1905683bfe6cd88b2b4"><td class="memItemLeft" align="right" valign="top">const void API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a37541de6ba38b1905683bfe6cd88b2b4">addNewObjectToLayer</a> (const int zIndex, <a class="el" href="class_object.html">Object</a> *object, bool renderPhysics=false)</td></tr>
+<tr class="memdesc:a37541de6ba38b1905683bfe6cd88b2b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new object to the given Z index.  <a href="class_scene.html#a37541de6ba38b1905683bfe6cd88b2b4">More...</a><br /></td></tr>
+<tr class="separator:a37541de6ba38b1905683bfe6cd88b2b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abdd9e7feda2031b46c64f797dee51615"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_drawable.html">Drawable</a> * &gt; API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#abdd9e7feda2031b46c64f797dee51615">getAllDrawablesInScene</a> ()</td></tr>
 <tr class="memdesc:abdd9e7feda2031b46c64f797dee51615"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a filtered collection of all the drawables in the current scene TEMPORARY.  <a href="class_scene.html#abdd9e7feda2031b46c64f797dee51615">More...</a><br /></td></tr>
 <tr class="separator:abdd9e7feda2031b46c64f797dee51615"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,6 +137,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setObjectToFollow</b>
 <tr class="memitem:ad7db814286fcad83a1368d54cfc53a86"><td class="memItemLeft" align="right" valign="top"><a id="ad7db814286fcad83a1368d54cfc53a86"></a>
 <a class="el" href="class_object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getObjectToFollow</b> ()</td></tr>
 <tr class="separator:ad7db814286fcad83a1368d54cfc53a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f06a5e001feb04ed82d23a7574779c5"><td class="memItemLeft" align="right" valign="top"><a id="a4f06a5e001feb04ed82d23a7574779c5"></a>
+API void&#160;</td><td class="memItemRight" valign="bottom"><b>removeObjectFromScene</b> (<a class="el" href="class_object.html">Object</a> *obj)</td></tr>
+<tr class="separator:a4f06a5e001feb04ed82d23a7574779c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -201,8 +204,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneHeight</b> = WIND
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a2213acb66f07ba097a6118fd86fedf36"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2213acb66f07ba097a6118fd86fedf36">&#9670;&nbsp;</a></span>addNewObjectToLayer()</h2>
+<a id="a37541de6ba38b1905683bfe6cd88b2b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37541de6ba38b1905683bfe6cd88b2b4">&#9670;&nbsp;</a></span>addNewObjectToLayer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -223,7 +226,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneHeight</b> = WIND
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>renderPhysics</em> = <code>true</code>&#160;</td>
+          <td class="paramname"><em>renderPhysics</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>

@@ -90,6 +90,12 @@ API const char *&#160;</td><td class="memItemRight" valign="bottom"><b>getFileNa
 <tr class="memitem:a50e148851998b4aa021ec5018c4ea681"><td class="memItemLeft" align="right" valign="top">API float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_object.html#a50e148851998b4aa021ec5018c4ea681">getLeftPos</a> (uint32_t ticks)</td></tr>
 <tr class="memdesc:a50e148851998b4aa021ec5018c4ea681"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to give the left position of the sprite.  <a href="class_sprite_object.html#a50e148851998b4aa021ec5018c4ea681">More...</a><br /></td></tr>
 <tr class="separator:a50e148851998b4aa021ec5018c4ea681"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b5a69b5e908ef502a73eed038dfa08b"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_object.html#a0b5a69b5e908ef502a73eed038dfa08b">freeze</a> (int number)</td></tr>
+<tr class="memdesc:a0b5a69b5e908ef502a73eed038dfa08b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to freeze the animation on a specifick sprite for animation the freezenumber needs to be -1;.  <a href="class_sprite_object.html#a0b5a69b5e908ef502a73eed038dfa08b">More...</a><br /></td></tr>
+<tr class="separator:a0b5a69b5e908ef502a73eed038dfa08b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2629de6ba5a9f303fa93dce6bb4a9d5"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_object.html#af2629de6ba5a9f303fa93dce6bb4a9d5">freezeOn</a> (int number)</td></tr>
+<tr class="memdesc:af2629de6ba5a9f303fa93dce6bb4a9d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to freeze the animation when a sprite has reached a specifick sprite for animation the freezenumber needs to be -1;.  <a href="class_sprite_object.html#af2629de6ba5a9f303fa93dce6bb4a9d5">More...</a><br /></td></tr>
+<tr class="separator:af2629de6ba5a9f303fa93dce6bb4a9d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae25ec4319cbc25ddb27983770fbdf5e9"><td class="memItemLeft" align="right" valign="top"><a id="ae25ec4319cbc25ddb27983770fbdf5e9"></a>
 API int&#160;</td><td class="memItemRight" valign="bottom"><b>getAnimationDelay</b> ()</td></tr>
 <tr class="separator:ae25ec4319cbc25ddb27983770fbdf5e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,11 +120,74 @@ const float&#160;</td><td class="memItemRight" valign="bottom"><b>height</b> = 0
 <tr class="memitem:a85bfc16050991297d450ced9edebd729"><td class="memItemLeft" align="right" valign="top"><a id="a85bfc16050991297d450ced9edebd729"></a>
 const float&#160;</td><td class="memItemRight" valign="bottom"><b>width</b> = 0</td></tr>
 <tr class="separator:a85bfc16050991297d450ced9edebd729"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b29b5197a7623540654ebee3b84f7cf"><td class="memItemLeft" align="right" valign="top"><a id="a4b29b5197a7623540654ebee3b84f7cf"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>freezedAnimation</b> = -1</td></tr>
+<tr class="separator:a4b29b5197a7623540654ebee3b84f7cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7e59cdba0870740329f0a1a977e7828"><td class="memItemLeft" align="right" valign="top"><a id="ac7e59cdba0870740329f0a1a977e7828"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>freezeBy</b> = -1</td></tr>
+<tr class="separator:ac7e59cdba0870740329f0a1a977e7828"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbd6d4e1c36ae52f4ab0652f7788135b"><td class="memItemLeft" align="right" valign="top"><a id="acbd6d4e1c36ae52f4ab0652f7788135b"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>currentAnimation</b> = 0</td></tr>
+<tr class="separator:acbd6d4e1c36ae52f4ab0652f7788135b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a941e3b3d3f27f3d11e4261f5f4adb733"><td class="memItemLeft" align="right" valign="top"><a id="a941e3b3d3f27f3d11e4261f5f4adb733"></a>
 const char *&#160;</td><td class="memItemRight" valign="bottom"><b>fileName</b> = nullptr</td></tr>
 <tr class="separator:a941e3b3d3f27f3d11e4261f5f4adb733"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a0b5a69b5e908ef502a73eed038dfa08b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b5a69b5e908ef502a73eed038dfa08b">&#9670;&nbsp;</a></span>freeze()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SpriteObject::freeze </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>number</em> = <code>-1</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function to freeze the animation on a specifick sprite for animation the freezenumber needs to be -1;. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">number</td><td>Identifier of free frame <br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af2629de6ba5a9f303fa93dce6bb4a9d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2629de6ba5a9f303fa93dce6bb4a9d5">&#9670;&nbsp;</a></span>freezeOn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SpriteObject::freezeOn </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>number</em> = <code>-1</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function to freeze the animation when a sprite has reached a specifick sprite for animation the freezenumber needs to be -1;. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">number</td><td>Identifier of free frame <br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a50e148851998b4aa021ec5018c4ea681"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a50e148851998b4aa021ec5018c4ea681">&#9670;&nbsp;</a></span>getLeftPos()</h2>
 

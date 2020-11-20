@@ -93,6 +93,9 @@ API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <tr class="memitem:a7f390dbfd91c6f94cb9c8a0fbda72524"><td class="memItemLeft" align="right" valign="top">void API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_manager.html#a7f390dbfd91c6f94cb9c8a0fbda72524">insertScene</a> (<a class="el" href="class_scene.html">Scene</a> *scene)</td></tr>
 <tr class="memdesc:a7f390dbfd91c6f94cb9c8a0fbda72524"><td class="mdescLeft">&#160;</td><td class="mdescRight">Able to insert a <a class="el" href="class_scene.html" title="Scene Class Contains all the objects that should be drawn in this scene.">Scene</a> into the scenemanager.  <a href="class_scene_manager.html#a7f390dbfd91c6f94cb9c8a0fbda72524">More...</a><br /></td></tr>
 <tr class="separator:a7f390dbfd91c6f94cb9c8a0fbda72524"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecbb7c556a2389d802bd79c110506a7b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_manager.html#aecbb7c556a2389d802bd79c110506a7b">getFirstFreeSceneID</a> ()</td></tr>
+<tr class="memdesc:aecbb7c556a2389d802bd79c110506a7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last sceneID available in the map + 1.  <a href="class_scene_manager.html#aecbb7c556a2389d802bd79c110506a7b">More...</a><br /></td></tr>
+<tr class="separator:aecbb7c556a2389d802bd79c110506a7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -108,9 +111,9 @@ Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:aaa16f9d77dc186aed1cd02964ff9518f"><td class="memItemLeft" align="right" valign="top"><a id="aaa16f9d77dc186aed1cd02964ff9518f"></a>
-vector&lt; <a class="el" href="class_scene.html">Scene</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>scenes</b></td></tr>
-<tr class="separator:aaa16f9d77dc186aed1cd02964ff9518f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35236665097d81e0581bb9b630feb6d3"><td class="memItemLeft" align="right" valign="top"><a id="a35236665097d81e0581bb9b630feb6d3"></a>
+map&lt; int, <a class="el" href="class_scene.html">Scene</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>scenes</b></td></tr>
+<tr class="separator:a35236665097d81e0581bb9b630feb6d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains all scenes. Manages all scenes and objects. </p>
@@ -147,6 +150,26 @@ vector&lt; <a class="el" href="class_scene.html">Scene</a> * &gt;&#160;</td><td 
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>If SceneID has a valid scene returns true else false </dd></dl>
+
+</div>
+</div>
+<a id="aecbb7c556a2389d802bd79c110506a7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecbb7c556a2389d802bd79c110506a7b">&#9670;&nbsp;</a></span>getFirstFreeSceneID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SceneManager::getFirstFreeSceneID </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the last sceneID available in the map + 1. </p>
+<dl class="section return"><dt>Returns</dt><dd>returns int </dd></dl>
 
 </div>
 </div>

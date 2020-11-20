@@ -60,6 +60,7 @@ $(document).ready(function(){initNavTree('class_sound_engine.html',''); initResi
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_sound_engine-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -84,8 +85,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5a1afdec5f866cd7b17bca234eaeaeb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b01089764c4a8df912117c41e8fd36e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_engine.html#a2b01089764c4a8df912117c41e8fd36e">UnloadEffect</a> (const string &amp;identifier)</td></tr>
 <tr class="separator:a2b01089764c4a8df912117c41e8fd36e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8bb2936f4978692b0fa8f26cac9540a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_engine.html#a8bb2936f4978692b0fa8f26cac9540a8">StartLoopedEffect</a> (const string &amp;effect)</td></tr>
-<tr class="separator:a8bb2936f4978692b0fa8f26cac9540a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72dd8402c752838a541ded3468b252a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_engine.html#a72dd8402c752838a541ded3468b252a8">StartLoopedEffect</a> (const string &amp;effect, const int volume)</td></tr>
+<tr class="separator:a72dd8402c752838a541ded3468b252a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a159c13f0eb5d07005e11ca24a18fbdcd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_engine.html#a159c13f0eb5d07005e11ca24a18fbdcd">StopLoopedEffect</a> (const string &amp;identifier)</td></tr>
 <tr class="separator:a159c13f0eb5d07005e11ca24a18fbdcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb3454530194f2ab9b025fd4342a4de9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_engine.html#afb3454530194f2ab9b025fd4342a4de9">LoadMusic</a> (const string &amp;identifier)</td></tr>
@@ -117,25 +118,28 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ResumeMusic</b> ()</t
 <tr class="memitem:aad93b5d18b8544c98f9e9ef68897a81b"><td class="memItemLeft" align="right" valign="top"><a id="aad93b5d18b8544c98f9e9ef68897a81b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Flush</b> ()</td></tr>
 <tr class="separator:aad93b5d18b8544c98f9e9ef68897a81b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a928b0e2ab21092978ba9e030c2b10fd0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_engine.html#a928b0e2ab21092978ba9e030c2b10fd0">onPlayEffect</a> (const string &amp;identifier, const int volume)</td></tr>
-<tr class="memdesc:a928b0e2ab21092978ba9e030c2b10fd0"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_event.html">Event</a> listener for when an effect has to be played.  <a href="class_sound_engine.html#a928b0e2ab21092978ba9e030c2b10fd0">More...</a><br /></td></tr>
-<tr class="separator:a928b0e2ab21092978ba9e030c2b10fd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a959cde32fbd97eaae1d93f7e7bc90616"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_engine.html#a959cde32fbd97eaae1d93f7e7bc90616">onChangeBackgroundMusic</a> (const string &amp;identifier, const int volume)</td></tr>
-<tr class="memdesc:a959cde32fbd97eaae1d93f7e7bc90616"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_event.html">Event</a> listener for when the music has to be changed.  <a href="class_sound_engine.html#a959cde32fbd97eaae1d93f7e7bc90616">More...</a><br /></td></tr>
-<tr class="separator:a959cde32fbd97eaae1d93f7e7bc90616"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a584aa1c4a46c954f72b3775c10351655"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_engine.html#a584aa1c4a46c954f72b3775c10351655">IdentifierExists</a> (const string &amp;identifier)</td></tr>
 <tr class="separator:a584aa1c4a46c954f72b3775c10351655"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1cc645493ab28fd156d89373bbc596e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_engine.html#aa1cc645493ab28fd156d89373bbc596e">IdentifierIsLoaded</a> (const string &amp;identifier)</td></tr>
 <tr class="separator:aa1cc645493ab28fd156d89373bbc596e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32d98580b623585aba5a167cfeaa4768"><td class="memItemLeft" align="right" valign="top"><a id="a32d98580b623585aba5a167cfeaa4768"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>EventListners</b> ()</td></tr>
-<tr class="separator:a32d98580b623585aba5a167cfeaa4768"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ed8f67fb062e7931d5c5da8ccc07050"><td class="memItemLeft" align="right" valign="top"><a id="a9ed8f67fb062e7931d5c5da8ccc07050"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>Event_StartEvent</b> (<a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
-<tr class="separator:a9ed8f67fb062e7931d5c5da8ccc07050"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3d4f166091a1fb37917d597082bef9c"><td class="memItemLeft" align="right" valign="top"><a id="ac3d4f166091a1fb37917d597082bef9c"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>Event_AttachEvent</b> (<a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
-<tr class="separator:ac3d4f166091a1fb37917d597082bef9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a959cde32fbd97eaae1d93f7e7bc90616"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_engine.html#a959cde32fbd97eaae1d93f7e7bc90616">onChangeBackgroundMusic</a> (const string &amp;identifier, const int volume)</td></tr>
+<tr class="memdesc:a959cde32fbd97eaae1d93f7e7bc90616"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_event.html">Event</a> listener for when the music has to be changed.  <a href="class_sound_engine.html#a959cde32fbd97eaae1d93f7e7bc90616">More...</a><br /></td></tr>
+<tr class="separator:a959cde32fbd97eaae1d93f7e7bc90616"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc53698798e5541bc347d35d9845460c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_engine.html#abc53698798e5541bc347d35d9845460c">onPlayEffect</a> (<a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
+<tr class="memdesc:abc53698798e5541bc347d35d9845460c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_event.html">Event</a> listener for when an effect has to be played.  <a href="class_sound_engine.html#abc53698798e5541bc347d35d9845460c">More...</a><br /></td></tr>
+<tr class="separator:abc53698798e5541bc347d35d9845460c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21979d52406977f28458a9a28976a866"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_engine.html#a21979d52406977f28458a9a28976a866">onStopLoopedEffect</a> (<a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
+<tr class="memdesc:a21979d52406977f28458a9a28976a866"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_event.html">Event</a> listener for stopping a looped effect.  <a href="class_sound_engine.html#a21979d52406977f28458a9a28976a866">More...</a><br /></td></tr>
+<tr class="separator:a21979d52406977f28458a9a28976a866"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2d446fb1c4173c924cfff1d42b681e5"><td class="memItemLeft" align="right" valign="top"><a id="ae2d446fb1c4173c924cfff1d42b681e5"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>onStartBackgroundMusicEvent</b> (<a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
+<tr class="separator:ae2d446fb1c4173c924cfff1d42b681e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19fbdb426004160b548637b9126b7824"><td class="memItemLeft" align="right" valign="top"><a id="a19fbdb426004160b548637b9126b7824"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>onLoadBackgroundMusicEvent</b> (<a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
+<tr class="separator:a19fbdb426004160b548637b9126b7824"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -400,6 +404,9 @@ Private Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void SoundEngine::onChangeBackgroundMusic </td>
@@ -419,6 +426,11 @@ Private Attributes</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p><a class="el" href="class_event.html">Event</a> listener for when the music has to be changed. </p>
@@ -432,37 +444,68 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a928b0e2ab21092978ba9e030c2b10fd0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a928b0e2ab21092978ba9e030c2b10fd0">&#9670;&nbsp;</a></span>onPlayEffect()</h2>
+<a id="abc53698798e5541bc347d35d9845460c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc53698798e5541bc347d35d9845460c">&#9670;&nbsp;</a></span>onPlayEffect()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SoundEngine::onPlayEffect </td>
+          <td class="memname">bool SoundEngine::onPlayEffect </td>
           <td>(</td>
-          <td class="paramtype">const string &amp;&#160;</td>
-          <td class="paramname"><em>identifier</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="class_event.html">Event</a> &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>volume</em> = <code>MAX_VOLUME</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p><a class="el" href="class_event.html">Event</a> listener for when an effect has to be played. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">identifier</td><td>The identifier of the effect to play </td></tr>
-    <tr><td class="paramname">volume</td><td>The volume to play the effect at. Ranges from 0 to 128 </td></tr>
+    <tr><td class="paramname">event</td><td>The event for the sound effect, contains everything for an effect to start </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a21979d52406977f28458a9a28976a866"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21979d52406977f28458a9a28976a866">&#9670;&nbsp;</a></span>onStopLoopedEffect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SoundEngine::onStopLoopedEffect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_event.html">Event</a> &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_event.html">Event</a> listener for stopping a looped effect. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td>The event for the sound effect, contains everything for an effect to start </td></tr>
   </table>
   </dd>
 </dl>
@@ -591,8 +634,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a8bb2936f4978692b0fa8f26cac9540a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8bb2936f4978692b0fa8f26cac9540a8">&#9670;&nbsp;</a></span>StartLoopedEffect()</h2>
+<a id="a72dd8402c752838a541ded3468b252a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72dd8402c752838a541ded3468b252a8">&#9670;&nbsp;</a></span>StartLoopedEffect()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -601,8 +644,18 @@ Private Attributes</h2></td></tr>
           <td class="memname">void SoundEngine::StartLoopedEffect </td>
           <td>(</td>
           <td class="paramtype">const string &amp;&#160;</td>
-          <td class="paramname"><em>effect</em></td><td>)</td>
+          <td class="paramname"><em>effect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>volume</em> = <code>MAX_VOLUME</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">

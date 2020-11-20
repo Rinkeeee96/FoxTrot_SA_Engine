@@ -20,7 +20,7 @@ var class_sound_facade =
     [ "ResumeMusic", "class_sound_facade.html#a18975448a850d4d20a101db92c304066", null ],
     [ "RewindMusic", "class_sound_facade.html#a35743b20cdb7e2e54cec4993a4daed87", null ],
     [ "SetFiles", "class_sound_facade.html#a76da0902795296c1c3619ceb24818ded", null ],
-    [ "StartLoopedEffect", "class_sound_facade.html#a9bc77a0577436d3b8ad3e4042f9a7a0b", null ],
+    [ "StartLoopedEffect", "class_sound_facade.html#a5bf9c8d6084a7edd3e9e3e0085b77192", null ],
     [ "StopLoopedEffect", "class_sound_facade.html#a6b1e8cbd539c214b111e2a86cb3bbb4a", null ],
     [ "StopMusic", "class_sound_facade.html#a1d602a5ff9f64a8a8ccea97fddf81920", null ],
     [ "UnloadEffect", "class_sound_facade.html#a96f46b7372b27662ae4cd795c9b8db5d", null ],

@@ -78,18 +78,22 @@ Inheritance diagram for BaseSoundEvent:</div>
  <div class="center">
   <img src="class_base_sound_event.png" usemap="#BaseSoundEvent_map" alt=""/>
   <map id="BaseSoundEvent_map" name="BaseSoundEvent_map">
-<area href="class_event.html" alt="Event" shape="rect" coords="131,0,252,24"/>
-<area href="class_on_music_start_event.html" title="AppTickEvent is fired when a tick happened in the engine. Derived class of event." alt="OnMusicStartEvent" shape="rect" coords="0,112,121,136"/>
-<area href="class_on_music_stop_event.html" title="AppTickEvent is fired when a tick happened in the engine. Derived class of event." alt="OnMusicStopEvent" shape="rect" coords="131,112,252,136"/>
-<area href="class_sound_attach_event.html" title="AppTickEvent is fired when a tick happened in the engine. Derived class of event." alt="SoundAttachEvent" shape="rect" coords="262,112,383,136"/>
+<area href="class_event.html" alt="Event" shape="rect" coords="296,0,434,24"/>
+<area href="class_on_music_start_event.html" title="AppTickEvent is fired when a tick happened in the engine. Derived class of event." alt="OnMusicStartEvent" shape="rect" coords="0,112,138,136"/>
+<area href="class_on_music_stop_event.html" title="AppTickEvent is fired when a tick happened in the engine. Derived class of event." alt="OnMusicStopEvent" shape="rect" coords="148,112,286,136"/>
+<area href="class_play_sound_effect_event.html" title="AppTickEvent is fired when a tick happened in the engine. Derived class of event." alt="PlaySoundEffectEvent" shape="rect" coords="296,112,434,136"/>
+<area href="class_sound_attach_event.html" title="AppTickEvent is fired when a tick happened in the engine. Derived class of event." alt="SoundAttachEvent" shape="rect" coords="444,112,582,136"/>
+<area href="class_stop_sound_effect_event.html" title="AppTickEvent is fired when a tick happened in the engine. Derived class of event." alt="StopSoundEffectEvent" shape="rect" coords="592,112,730,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a04d116f8ec298b076c3f0a4b0186c6cc"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_sound_event.html#a04d116f8ec298b076c3f0a4b0186c6cc">Getidentifier</a> ()</td></tr>
-<tr class="memdesc:a04d116f8ec298b076c3f0a4b0186c6cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">KeyCode that is pressed.  <a href="class_base_sound_event.html#a04d116f8ec298b076c3f0a4b0186c6cc">More...</a><br /></td></tr>
+<tr class="memdesc:a04d116f8ec298b076c3f0a4b0186c6cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">sound identifier  <a href="class_base_sound_event.html#a04d116f8ec298b076c3f0a4b0186c6cc">More...</a><br /></td></tr>
 <tr class="separator:a04d116f8ec298b076c3f0a4b0186c6cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7647afdc45eb46bc6511f0690afe3c33"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_sound_event.html#a7647afdc45eb46bc6511f0690afe3c33">getVolume</a> ()</td></tr>
+<tr class="separator:a7647afdc45eb46bc6511f0690afe3c33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_event"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_event')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_event.html">Event</a></td></tr>
 <tr class="memitem:af14bbd8f69c2778def9462375a0e70f2 inherit pub_methods_class_event"><td class="memItemLeft" align="right" valign="top">virtual EventType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#af14bbd8f69c2778def9462375a0e70f2">GetEventType</a> () const =0</td></tr>
 <tr class="memdesc:af14bbd8f69c2778def9462375a0e70f2 inherit pub_methods_class_event"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the eventType of a specific event.  <a href="class_event.html#af14bbd8f69c2778def9462375a0e70f2">More...</a><br /></td></tr>
@@ -105,15 +109,18 @@ virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" 
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a5e73313797f21fb20b0f393329b0184f"><td class="memItemLeft" align="right" valign="top"><a id="a5e73313797f21fb20b0f393329b0184f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>BaseSoundEvent</b> (const std::string &amp;identifier)</td></tr>
-<tr class="separator:a5e73313797f21fb20b0f393329b0184f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a040e8c36f85ae97b053b163be4420fc6"><td class="memItemLeft" align="right" valign="top"><a id="a040e8c36f85ae97b053b163be4420fc6"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>BaseSoundEvent</b> (const std::string &amp;_identifier, int _volume)</td></tr>
+<tr class="separator:a040e8c36f85ae97b053b163be4420fc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:af01f26628bcb199d32df15ab9463dda1"><td class="memItemLeft" align="right" valign="top"><a id="af01f26628bcb199d32df15ab9463dda1"></a>
 const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>identifier</b></td></tr>
 <tr class="separator:af01f26628bcb199d32df15ab9463dda1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3d56fa40f7a3263c472fbcd51428fa0"><td class="memItemLeft" align="right" valign="top"><a id="ad3d56fa40f7a3263c472fbcd51428fa0"></a>
+const int&#160;</td><td class="memItemRight" valign="bottom"><b>volume</b></td></tr>
+<tr class="separator:ad3d56fa40f7a3263c472fbcd51428fa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -148,8 +155,34 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>Handled</b> = false</
 </table>
 </div><div class="memdoc">
 
-<p>KeyCode that is pressed. </p>
-<dl class="section return"><dt>Returns</dt><dd>KeyCode </dd></dl>
+<p>sound identifier </p>
+<dl class="section return"><dt>Returns</dt><dd>string&amp; </dd></dl>
+
+</div>
+</div>
+<a id="a7647afdc45eb46bc6511f0690afe3c33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7647afdc45eb46bc6511f0690afe3c33">&#9670;&nbsp;</a></span>getVolume()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int BaseSoundEvent::getVolume </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get the sound volume </p><dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
 
 </div>
 </div>

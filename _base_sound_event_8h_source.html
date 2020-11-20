@@ -65,21 +65,30 @@ $(document).ready(function(){initNavTree('_base_sound_event_8h_source.html','');
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;Events/Event.h&quot;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_base_sound_event.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_base_sound_event.html">BaseSoundEvent</a> : <span class="keyword">public</span> <a class="code" href="class_event.html">Event</a></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_base_sound_event.html#a04d116f8ec298b076c3f0a4b0186c6cc">   13</a></span>&#160;    <span class="keyword">const</span> std::string&amp; <a class="code" href="class_base_sound_event.html#a04d116f8ec298b076c3f0a4b0186c6cc">Getidentifier</a>() { <span class="keywordflow">return</span> identifier; }</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="class_base_sound_event.html">BaseSoundEvent</a>(<span class="keyword">const</span> std::string&amp; identifier) : identifier{ identifier } {};</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">const</span> std::string&amp; identifier;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define MAX_VOLUME 128</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_base_sound_event.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_base_sound_event.html">BaseSoundEvent</a> : <span class="keyword">public</span> <a class="code" href="class_event.html">Event</a></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_base_sound_event.html#a04d116f8ec298b076c3f0a4b0186c6cc">   15</a></span>&#160;    <span class="keyword">const</span> std::string&amp; <a class="code" href="class_base_sound_event.html#a04d116f8ec298b076c3f0a4b0186c6cc">Getidentifier</a>() { <span class="keywordflow">return</span> identifier; }</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="comment">// @brief</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_base_sound_event.html#a7647afdc45eb46bc6511f0690afe3c33">   20</a></span>&#160;<span class="comment"></span>    <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="class_base_sound_event.html#a7647afdc45eb46bc6511f0690afe3c33">getVolume</a>() { <span class="keywordflow">return</span> volume; }</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_base_sound_event.html">BaseSoundEvent</a>(<span class="keyword">const</span> std::string&amp; _identifier, <span class="keywordtype">int</span> _volume) : </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        identifier{ _identifier }, </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        volume{ _volume }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    {};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">const</span> std::string&amp; identifier;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> volume;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_event_html"><div class="ttname"><a href="class_event.html">Event</a></div><div class="ttdef"><b>Definition:</b> Event.h:9</div></div>
-<div class="ttc" id="aclass_base_sound_event_html_a04d116f8ec298b076c3f0a4b0186c6cc"><div class="ttname"><a href="class_base_sound_event.html#a04d116f8ec298b076c3f0a4b0186c6cc">BaseSoundEvent::Getidentifier</a></div><div class="ttdeci">const std::string &amp; Getidentifier()</div><div class="ttdoc">KeyCode that is pressed.</div><div class="ttdef"><b>Definition:</b> BaseSoundEvent.h:13</div></div>
-<div class="ttc" id="aclass_base_sound_event_html"><div class="ttname"><a href="class_base_sound_event.html">BaseSoundEvent</a></div><div class="ttdoc">KeyEvent base class for all key events: Keypressed, KeyReleased, KeyTyped.</div><div class="ttdef"><b>Definition:</b> BaseSoundEvent.h:8</div></div>
+<div class="ttc" id="aclass_base_sound_event_html_a7647afdc45eb46bc6511f0690afe3c33"><div class="ttname"><a href="class_base_sound_event.html#a7647afdc45eb46bc6511f0690afe3c33">BaseSoundEvent::getVolume</a></div><div class="ttdeci">const int getVolume()</div><div class="ttdef"><b>Definition:</b> BaseSoundEvent.h:20</div></div>
+<div class="ttc" id="aclass_event_html"><div class="ttname"><a href="class_event.html">Event</a></div><div class="ttdef"><b>Definition:</b> Event.h:10</div></div>
+<div class="ttc" id="aclass_base_sound_event_html_a04d116f8ec298b076c3f0a4b0186c6cc"><div class="ttname"><a href="class_base_sound_event.html#a04d116f8ec298b076c3f0a4b0186c6cc">BaseSoundEvent::Getidentifier</a></div><div class="ttdeci">const std::string &amp; Getidentifier()</div><div class="ttdoc">sound identifier</div><div class="ttdef"><b>Definition:</b> BaseSoundEvent.h:15</div></div>
+<div class="ttc" id="aclass_base_sound_event_html"><div class="ttname"><a href="class_base_sound_event.html">BaseSoundEvent</a></div><div class="ttdoc">KeyEvent base class for all key events: Keypressed, KeyReleased, KeyTyped.</div><div class="ttdef"><b>Definition:</b> BaseSoundEvent.h:10</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
