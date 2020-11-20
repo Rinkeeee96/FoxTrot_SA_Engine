@@ -8,7 +8,7 @@ Player::Player(const int id) : ICharacter(id) {
 	this->setPositionY(80);
 
 	this->setSpeed(100);
-	this->setJumpHeight(700);
+	this->setJumpHeight(550);
 	this->setDensity(200);
 	this->setFriction(0);
 	this->setRestitution(0);
