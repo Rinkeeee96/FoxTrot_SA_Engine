@@ -171,7 +171,7 @@ void VideoFacade::drawMessageAt(const ColoredText& message, const Position& pos,
 	// TODO check if message is in bounds
 	if (exists) {
 
-		SDL_Color color = { message.color.red, message.color.green, message.color.blue };
+		SDL_Color color = {(Uint8)message.color.red, (Uint8)message.color.green, (Uint8)message.color.blue };
 		SDL_Surface* surfaceMessage = TTF_RenderText_Solid(Sans, message.text.c_str(), color);
 		SDL_Texture* messageTexture = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
 
