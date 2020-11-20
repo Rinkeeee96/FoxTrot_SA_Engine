@@ -1,9 +1,6 @@
 #pragma once
 #include <nlohmann\json.hpp>
 
-// Maybe also singleton class?
-
-
 struct Item
 {
 	string itemName;
