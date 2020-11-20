@@ -91,8 +91,7 @@ void Overworld::onLevel1BtnClick()
 		SceneSwitcher::get_instance().switchToScene("LEVEL_1", false);
 	}
 	catch (exception e) {
-		// TODO show message
-		return;
+		cout << e.what() << endl;
 	}
 }
 
@@ -102,23 +101,8 @@ void Overworld::onLevel2BtnClick()
 	cout << "Level2 BTN" << endl;
 }
 
-/// @brief 
-void Overworld::onStartBtnClick()
-{
-	cout << "Start BTN" << endl;
-}
 
 /// @brief 
 void Overworld::onStopBtnClick() {
 	SceneSwitcher::get_instance().switchToScene("MAIN_MENU",true);
-}
-
-/// @brief 
-void Overworld::onCreditsBtnClick() {
-	cout << "Start Credit" << endl;
-}
-
-/// @brief 
-void Overworld::onLoadBtnClick() {
-	cout << "Start Load game BTN" << endl;
 }
