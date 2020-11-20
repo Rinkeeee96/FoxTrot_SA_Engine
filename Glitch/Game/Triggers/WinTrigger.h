@@ -19,5 +19,7 @@ public:
 
 		if (Player* characterObject = dynamic_cast<Player*>(&collisionEvent.getObjectOne())) this->level.setWin(true);
 		else if (Player* characterObject = dynamic_cast<Player*>(&collisionEvent.getObjectTwo())) this->level.setWin(true);
+
+		return true;
 	}
 };
