@@ -12,8 +12,6 @@ public:
 	// Inherited via Scene
 	void onAttach() override;
 	void onDetach() override;
-	void onLevel1BtnClick();
-	void onLevel2BtnClick();
 	void start() override;
 	virtual void onUpdate() override;
 
@@ -25,10 +23,9 @@ private:
 	void loadButtons();
 
 	//button functions
-	void onStartBtnClick();
 	void onStopBtnClick();
-	void onCreditsBtnClick();
-	void onLoadBtnClick();
+	void onLevel1BtnClick();
+	void onLevel2BtnClick();
 };
 
 inline Overworld::~Overworld()

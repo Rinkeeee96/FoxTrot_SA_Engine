@@ -48,13 +48,19 @@ int SceneManager::getFirstFreeSceneID()
 {
 	unsigned int i = 1; // or whatever your smallest admissable key value is
 
-	for (auto it = scenes.cbegin(), end = scenes.cend();
-		it != end && i == it->first; ++it, ++i)
+	/*for (auto it = scenes.cbegin(), end = scenes.cend(); it != end && i == it->first; ++it, ++i)
 	{
+	}*/
+
+	for (auto it = scenes.cbegin(); it != scenes.cend(); ++it) {
+		if (it->first > i) {
+			i = it->first;
+		}
 	}
 
+
 	// now i is the next free index
-	return i;
+	return i+1;
 }
 
 /// @brief 
