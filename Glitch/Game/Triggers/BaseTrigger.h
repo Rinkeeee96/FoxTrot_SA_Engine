@@ -3,11 +3,11 @@
 #include "Game/Characters/ICharacter.h"
 #include "Game/Characters/Player/Player.h"
 
-class BaseTrigger : public Drawable
+class BaseTrigger : public Object
 {
 public:
-	BaseTrigger() : Drawable() { }
-	BaseTrigger(const int _id) : Drawable(_id, false) {
+	BaseTrigger() : Object() { }
+	BaseTrigger(const int _id) : Object(_id, false) {
 		EventSingleton::get_instance().setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(BaseTrigger::onCollisionBegin));
 	}
 	virtual ~BaseTrigger() { }
