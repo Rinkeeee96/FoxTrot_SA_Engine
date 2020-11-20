@@ -82,7 +82,18 @@ void Overworld::onDetach()
 /// @brief 
 void Overworld::onLevel1BtnClick()
 {
-	cout << "Level1 BTN" << endl;
+	LoadLevelFacade levelLoader{ engine };
+	LevelBuilder levelOneBuilder{ engine, this->sceneID + 1 };
+	try {
+		levelLoader.load("Assets/Levels/Maps/Level1.json", &levelOneBuilder);
+		auto level = levelOneBuilder.getLevel();
+		SceneSwitcher::get_instance().registerScene("LEVEL_1", level);
+	}
+	catch (exception e) {
+		// TODO show message
+		return;
+	}
+
 	SceneSwitcher::get_instance().switchToScene("LEVEL_1", false);
 }
 

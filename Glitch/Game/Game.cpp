@@ -22,7 +22,7 @@ void Game::run() {
 		GeneralTransition* generalTransitionScene = new GeneralTransition(160);
 		SceneSwitcher::get_instance().registerScene("GENERAL_TRANSITION_SCENE", generalTransitionScene);
 		
-		Overworld* overWorld = new Overworld(sceneId++);
+		Overworld* overWorld = new Overworld(sceneId++, engine);
 		SceneSwitcher::get_instance().registerScene("OVERWORLD", overWorld);
 
 		DeadScreen* deadScreen = new DeadScreen(sceneId++);
@@ -34,18 +34,6 @@ void Game::run() {
 
 		SceneSwitcher::get_instance().switchToScene("MAIN_MENU", false);
 		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
-	}
-	catch (exception e) {
-		// TODO show message
-		return;
-	}
-
-	LoadLevelFacade levelLoader{ engine };
-	LevelBuilder levelOneBuilder{ engine, sceneId++ };
-	try {
-		levelLoader.load("Assets/Levels/Maps/Level1.json", &levelOneBuilder);
-		auto level = levelOneBuilder.getLevel();
-		SceneSwitcher::get_instance().registerScene("LEVEL_1", level);
 	}
 	catch (exception e) {
 		// TODO show message

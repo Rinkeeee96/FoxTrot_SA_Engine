@@ -16,7 +16,7 @@ public:
 
 	bool API checkIfObjectExists(const int objectID);
 	const bool API toggleLayer(const int zIndex, bool render);
-	const void API addNewObjectToLayer(const int zIndex, Object* object, bool renderPhysics = false);
+	const virtual void API addNewObjectToLayer(const int zIndex, Object* object, bool renderPhysics = false);
 
 	vector<Drawable*> API getAllDrawablesInScene();
 	vector <Object*> API getAllObjectsInScene();
@@ -67,13 +67,13 @@ public:
 		{
 			return -1;
 		}
-		
 	}
+
 	Object* getObjectToFollow() { return objectToFollow; }
 
 	API void removeObjectFromScene(Object* obj);
 
-private:
+protected:
 	const int sceneID = 0;
 	map<int, Layer*> layers;
 

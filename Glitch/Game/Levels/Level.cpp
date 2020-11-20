@@ -76,12 +76,13 @@ void Level::onUpdate() {
 				if (character->getIsDead() && !character->getIsRemoved()) {
 					// TODO Death animation
 					object->setIsRemoved(true);
-					//removeObjectFromScene(object);
 				}
 			}
 		}
 	}
 }
+
+
 
 /// @brief
 /// OnDetach is called when a scene is destroyed/closed and is responsible for cleanup
