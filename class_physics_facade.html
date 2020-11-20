@@ -110,6 +110,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ada17497182472bf05707ce261fa2cdad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_facade.html#ada17497182472bf05707ce261fa2cdad">Jump</a> (const int objectId) override</td></tr>
 <tr class="memdesc:ada17497182472bf05707ce261fa2cdad"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to add a linearImpulse to a object for jumping.  <a href="class_physics_facade.html#ada17497182472bf05707ce261fa2cdad">More...</a><br /></td></tr>
 <tr class="separator:ada17497182472bf05707ce261fa2cdad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab04597a56a75b0c1c856ae8da958bf2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_facade.html#ab04597a56a75b0c1c856ae8da958bf2a">Fall</a> (const int objectId) override</td></tr>
+<tr class="memdesc:ab04597a56a75b0c1c856ae8da958bf2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to add a linearImpulse to a object for falling.  <a href="class_physics_facade.html#ab04597a56a75b0c1c856ae8da958bf2a">More...</a><br /></td></tr>
+<tr class="separator:ab04597a56a75b0c1c856ae8da958bf2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74487413c93e481b2b000b68f431e808"><td class="memItemLeft" align="right" valign="top"><a id="a74487413c93e481b2b000b68f431e808"></a>
 <a class="el" href="struct_collision_struct.html">CollisionStruct</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getObjectsByFixture</b> (b2Fixture *fixture1, b2Fixture *fixture2)</td></tr>
 <tr class="separator:a74487413c93e481b2b000b68f431e808"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -210,6 +213,42 @@ map&lt; <a class="el" href="class_physics_body.html">PhysicsBody</a> *, b2Body *
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname"><a class="el" href="class_object.html" title="Object class. Object is linked with a sprite id in SVI.">Object</a></td><td>The object to register </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_i_physics_facade.html">IPhysicsFacade</a>.</p>
+
+</div>
+</div>
+<a id="ab04597a56a75b0c1c856ae8da958bf2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab04597a56a75b0c1c856ae8da958bf2a">&#9670;&nbsp;</a></span>Fall()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PhysicsFacade::Fall </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>objectId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A function to add a linearImpulse to a object for falling. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">objectId</td><td>Identifier for ObjectID </td></tr>
   </table>
   </dd>
 </dl>
