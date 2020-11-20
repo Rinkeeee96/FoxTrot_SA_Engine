@@ -83,7 +83,7 @@ void Overworld::onDetach()
 void Overworld::onLevel1BtnClick()
 {
 	LoadLevelFacade levelLoader{ engine };
-	LevelBuilder levelOneBuilder{ engine, this->sceneID + 1 };
+	LevelBuilder levelOneBuilder{ engine, SceneSwitcher::get_instance().getFreeSceneID()};
 	try {
 		levelLoader.load("Assets/Levels/Maps/Level1.json", &levelOneBuilder);
 		auto level = levelOneBuilder.getLevel();
