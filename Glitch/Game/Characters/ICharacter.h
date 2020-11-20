@@ -22,8 +22,8 @@ public:
 		}
 	}
 
-	void kill() { this->isDead = true; this->health = 0; }
-	bool getIsDead() const { return this->isDead; }
+	void kill() { this->health = 0; }
+	bool getIsDead() const { return this->health == 0; }
 
 	virtual ICharacter* clone(int id) = 0;
 protected:
