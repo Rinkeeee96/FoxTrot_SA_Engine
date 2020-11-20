@@ -46,7 +46,15 @@ void SceneManager::insertScene(Scene* scene)
 /// returns int
 int SceneManager::getFirstFreeSceneID()
 {
-	return (scenes.end()->first) + 1;
+	unsigned int i = 1; // or whatever your smallest admissable key value is
+
+	for (auto it = scenes.cbegin(), end = scenes.cend();
+		it != end && i == it->first; ++it, ++i)
+	{
+	}
+
+	// now i is the next free index
+	return i;
 }
 
 /// @brief 
