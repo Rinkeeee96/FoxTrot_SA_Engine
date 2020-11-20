@@ -1,9 +1,9 @@
 #include "stdafx.h"
-#include <Events\AppTickEvent30.h>
+#include "Events\AppTickEvent30.h"
 #include "Events/EventSingleton.h"
 #include "PhysicsFacade.h"
 #include "PhysicsEngine.h"
-#include <Events\Action\ObjectStopEvent.h>
+#include "Events\Action\ObjectStopEvent.h"
 
 /// @brief Constructor
 PhysicsEngine::PhysicsEngine()
@@ -58,6 +58,7 @@ void PhysicsEngine::registerObjectInCurrentVectorWithPhysicsEngine()
 	for (Object* object : (*pointerToCurrentScene)->getAllObjectsInSceneRenderPhysics())
 	{
 		PhysicsBody * phyObj = new PhysicsBody(object);
+
 		if (DEBUG_PHYSICS_ENGINE)cout << "Registering object : " << phyObj->getObjectId() << endl;
 		if (object->getIsParticle()) continue;
 		if (object->getStatic())
@@ -82,8 +83,10 @@ bool PhysicsEngine::update30(Event& tick30Event)
 		registerObjectInCurrentVectorWithPhysicsEngine();
 		currentSceneID = (*pointerToCurrentScene)->getSceneID();
 	}
-	//tick30Event = (AppTickEvent30&)tick30Event;
+
 	physicsFacade->update();
+
+	//tick30Event = (AppTickEvent30&)tick30Event;
 
 	// do not handle the onupdate events, they are continuous
 	return false;

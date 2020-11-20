@@ -4,7 +4,9 @@
 /// @brief 
 /// @param sceneID 
 /// @param _sounds this contains the sounds for the level with identifier and filepath
-Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, map<string, string> _sounds = map<string, string>()) : Scene::Scene(id, _sceneHeight, _sceneWidth), sounds(_sounds)
+Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, map<string, string> _sounds = map<string, string>()) : 
+	Scene::Scene(id, _sceneHeight, _sceneWidth), 
+	sounds(_sounds)
 {
 
 }
@@ -17,7 +19,17 @@ Level::Level(const int id, const int _sceneHeight, const int _sceneWidth) : Scen
 // @brief 
 /// Sets player in the level the camera will follow this object
 /// @param Object player
-void Level::setPlayer(Object* object) { this->follow = object; }
+void Level::setPlayer(Object* object) {
+	this->follow = object;
+	if (Player* _player = dynamic_cast<Player*>(object)) {
+		this->player = _player;
+		startPosPlayerX = _player->getPositionX();
+		startPosPlayerY = _player->getPositionY();
+	}
+	else {
+		throw exception("not a player object");
+	}
+}
 
 // @brief 
 /// Register sounds by the level
@@ -38,9 +50,13 @@ void Level::onAttach() {
 	}
 }
 /// @brief
-/// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
+/// Start is called when a scene is ready to execute its logic, this canaa be percieved as the "main loop" of a scene
 /// Must be implemented by a concrete implementation of a scene
 void Level::start() {
+	player->setPositionX(98.8484848484848);
+	player->setPositionY(552.871212121211);
+	player->setHealth(100);
+
 	this->setObjectToFollow(this->follow);
 	for (const auto& s : sounds) {
 		EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent(s.first));
@@ -48,7 +64,29 @@ void Level::start() {
 }
 
 void Level::onUpdate() {
+	if (this->win) {
+		SceneSwitcher::get_instance().switchToScene("WIN_SCREEN", false);
+		return;
+	}
+	if (player->getIsDead()) {
+		SceneSwitcher::get_instance().switchToScene("DEAD_SCREEN", false);
+		return;
+	}
 
+	for (auto object : this->getAllObjectsInScene()) // TODO get only the non static objects, without looping thru them again and again
+	{
+		if (!object->getStatic()) {
+			object->onUpdate();
+
+			if (ICharacter* character = dynamic_cast<ICharacter*>(object)) {
+				if (character->getIsDead() && !character->getIsRemoved()) {
+					// TODO Death animation
+					object->setIsRemoved(true);
+					//removeObjectFromScene(object);
+				}
+			}
+		}
+	}
 }
 
 /// @brief
@@ -60,4 +98,7 @@ void Level::pause() {
 	}
 }
 
-void Level::onDetach() {}//cleaup buffer
+void Level::onDetach() 
+{
+	//Scene::onDetach();
+}//cleaup buffer

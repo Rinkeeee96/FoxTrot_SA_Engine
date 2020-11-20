@@ -13,21 +13,28 @@ Game::Game()
 
 void Game::run() {
 	try {
+		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
+
 		MainMenu* mainMenu = new MainMenu(sceneId++);
 		SceneSwitcher::get_instance().registerScene("MAIN_MENU", mainMenu);
 
-		GeneralTransition* generalTransitionScene = new GeneralTransition(160);
+		GeneralTransition* generalTransitionScene = new GeneralTransition(sceneId++);
 		SceneSwitcher::get_instance().registerScene("GENERAL_TRANSITION_SCENE", generalTransitionScene);
+		
+		Overworld* overWorld = new Overworld(sceneId++);
+		SceneSwitcher::get_instance().registerScene("OVERWORLD", overWorld);
+
+		DeadScreen* deadScreen = new DeadScreen(sceneId++);
+		SceneSwitcher::get_instance().registerScene("DEAD_SCREEN", deadScreen);
+
+		WinScreen* winScreen = new WinScreen(sceneId++);
+		SceneSwitcher::get_instance().registerScene("WIN_SCREEN", winScreen);
+
+		SaveScreen* saveScreen = new SaveScreen(sceneId++);
+		SceneSwitcher::get_instance().registerScene("LOADSCREEN", saveScreen);
 
 		SceneSwitcher::get_instance().switchToScene("MAIN_MENU", false);
 		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
-
-		Overworld* overWorld = new Overworld(7);
-		SceneSwitcher::get_instance().registerScene("OVERWORLD", overWorld);
-
-		SaveScreen* saveScreen = new SaveScreen(8);
-		SceneSwitcher::get_instance().registerScene("LOADSCREEN", saveScreen);
-
 	}
 	catch (exception e) {
 		cout << e.what() << endl;

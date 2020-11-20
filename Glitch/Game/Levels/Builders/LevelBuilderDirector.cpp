@@ -17,7 +17,9 @@ void LevelBuilderDirector::construct(nlohmann::json json, ILevelBuilder* builder
 		if (key == "layers") {
 			for (auto& [layerKey, layerValue] : value.items())
 			{
-				// TODO Triggers?
+				if (layerValue["name"] == "Triggers") {
+					builder->createTriggers(layerValue);
+				}
 				if (layerValue["name"] == "Background")
 				{
 					builder->createBackground(layerValue);
