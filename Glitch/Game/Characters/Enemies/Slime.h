@@ -17,7 +17,6 @@ public:
 		auto map = collisionEvent.getDirectionMap();
 		auto collidedDirection = map[this->getObjectId()];
 
-
 		if (std::find(collidedDirection.begin(), collidedDirection.end(), Direction::UP) != collidedDirection.end()) {
 			this->kill();
 		}
