@@ -1,6 +1,5 @@
 #pragma once
-// TODO find out why removing this breaks everything
-#include "stdafx.h"
+#include "core.h"
 #include "SpriteObject.h"
 
 /// @brief 
@@ -10,45 +9,45 @@ class Object
 public:
 	API Object(const int id, const bool isParticle);
 	API Object();
-	virtual API ~Object();
+	API ~Object();
 
-	void API setPositionX(const float);
-	float API getPositionX() const;
+	API void setPositionX(const float);
+	API float getPositionX() const;
 	
 	API int getObjectId() const;
 
-	void API setPositionY(const float);
-	float API getPositionY() const;
+	API void setPositionY(const float);
+	API float getPositionY() const;
 
-	void API setRotation(const float);
-	float API getRotation() const;
+	API void setRotation(const float);
+	API float getRotation() const;
 
-	void API setScale(const float);
-	float API getScale() const;
-
-	void API setHeight(const float);
-	float API getHeight() const;
-
-	void API setWidth(const float);
-	float API getWidth() const;
-
-	void API setStatic(const bool);
-	bool API getStatic() const;
-
-	void API setRestitution(const float val);
-	float API getRestitution() const;
-
-	void API setFriction(const float val);
-	float API getFriction() const;
-
-	void API setDensity(const float val);
-	float API getDensity() const;
-
-	void API setSpeed(const float val);
-	float API getSpeed() const;
-
-	void API setJumpHeight(const float val);
-	float API getJumpHeight() const;
+	API void setScale(const float);
+	API float getScale() const;
+	
+	API void setHeight(const float);
+	API float getHeight() const;
+	
+	API void setWidth(const float);
+	API float getWidth() const;
+	
+	API void setStatic(const bool);
+	API bool getStatic() const;
+	
+	API void setRestitution(const float val);
+	API float getRestitution() const;
+	
+	API void setFriction(const float val);
+	API float getFriction() const;
+	
+	API void setDensity(const float val);
+	API float getDensity() const;
+	
+	API void setSpeed(const float val);
+	API float getSpeed() const;
+	
+	API void setJumpHeight(const float val);
+	API float getJumpHeight() const;
 
 	API virtual void setYAxisVelocity(const float val);
 	API float getYAxisVelocity() const;

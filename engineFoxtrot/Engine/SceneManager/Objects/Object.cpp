@@ -1,5 +1,7 @@
 #include "stdafx.h"
+
 #include "Object.h"
+
 #include <Events\Video\VideoLoadSpriteEvent.h>
 #include <Events\EventSingleton.h>
 
