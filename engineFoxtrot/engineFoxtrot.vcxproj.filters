@@ -182,9 +182,8 @@
     <ClInclude Include="Engine\SceneManager\Objects\SpriteObject.h" />
     <ClInclude Include="Engine\SceneManager\Objects\Drawable.h" />
     <ClInclude Include="Engine\SceneManager\Objects\Button.h" />
-    <ClInclude Include="Engine\Events\Sound\StopSoundEffectEvent.h" />
-    <ClInclude Include="Engine\Events\Sound\PlaySoundEffectEvent.h" />
     <ClInclude Include="Engine\Events\Action\ObjectStopEvent.h" />
+    <ClInclude Include="Engine\Events\Video\LevelLoadEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

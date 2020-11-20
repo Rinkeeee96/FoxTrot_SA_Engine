@@ -2,6 +2,7 @@
 #include "Overworld.h"
 #include "Game/Buttons/PrimaryButton.h"
 #include "Game/Buttons/SecondaryButton.h"
+#include <Engine\Events\Video\LevelLoadEvent.h>
 
 #define BIND_FN(function) std::bind(&Overworld::function, *this)
 
@@ -83,7 +84,9 @@ void Overworld::onDetach()
 void Overworld::onLevel1BtnClick()
 {
 	cout << "Level1 BTN" << endl;
-	SceneSwitcher::get_instance().switchToScene("LEVEL_1", true);
+
+	EventSingleton::get_instance().dispatchEvent<LevelLoadEvent>((Event&)LevelLoadEvent("Level1"));
+	//SceneSwitcher::get_instance().switchToScene("LEVEL_1", true);
 }
 
 /// @brief 
