@@ -17,6 +17,8 @@
     <ClCompile Include="Game\Scenes\DeathScreen\DeadScreen.cpp" />
     <ClCompile Include="Game\Scenes\WinScreen\WinScreen.cpp" />
     <ClCompile Include="Game\Scenes\MainMenu\MainMenu.cpp" />
+    <ClCompile Include="Game\Factories\TriggerFactory.cpp" />
+    <ClCompile Include="Game\SaveGame\Savegame.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
@@ -51,5 +53,7 @@
     <ClInclude Include="Game\Factories\TriggerFactory.h" />
     <ClInclude Include="Game\Scenes\DeathScreen\DeadScreen.h" />
     <ClInclude Include="Game\Scenes\WinScreen\WinScreen.h" />
+    <ClInclude Include="Game\Scenes\MainMenu\MainMenu.h" />
+    <ClInclude Include="Game\SaveGame\Savegame.h" />
   </ItemGroup>
 </Project>
