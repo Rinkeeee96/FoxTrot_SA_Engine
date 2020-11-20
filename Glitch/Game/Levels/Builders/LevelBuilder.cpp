@@ -137,6 +137,7 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 					_enemy->setPlayer(_player);
 				}
 			}
+			break;
 		}
 	}
 }

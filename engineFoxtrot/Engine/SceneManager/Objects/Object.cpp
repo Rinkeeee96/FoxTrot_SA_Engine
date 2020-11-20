@@ -2,8 +2,8 @@
 
 #include "Object.h"
 
-#include <Events\Video\VideoLoadSpriteEvent.h>
-#include <Events\EventSingleton.h>
+#include "Events\Video\VideoLoadSpriteEvent.h"
+#include "Events\EventSingleton.h"
 
 /// @brief 
 Object::Object(const int _objectId, const bool _isParticle) : objectId(_objectId), isParticle(_isParticle)

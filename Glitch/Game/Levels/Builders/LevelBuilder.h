@@ -2,9 +2,9 @@
 #include "Game\Levels\Builders\AbstractLevelBuilder.h"
 #include "Game\Levels\Builders\ParsedEntities\TileSprite.h"
 #include "Game\Factories\CharacterFactory.h"
-#include <Game\Factories\TriggerFactory.h>
-#include <Game\Triggers\DeathTrigger.h>
-#include <Game\Triggers\WinTrigger.h>
+#include "Game\Factories\TriggerFactory.h"
+#include "Game\Triggers\DeathTrigger.h"
+#include "Game\Triggers\WinTrigger.h"
 
 // DO NOT TOUCH GROUND LAYER INDEX
 #define GROUND_LAYER_INDEX 2

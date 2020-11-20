@@ -116,7 +116,7 @@ void MainMenu::onDetach()
 /// Start transition scene to OVERWORLD
 void MainMenu::onStartBtnClick()
 {
-	SceneSwitcher::get_instance().switchToScene("OVERWORLD", false);
+	SceneSwitcher::get_instance().switchToScene("OVERWORLD", true);
 }
 
 
