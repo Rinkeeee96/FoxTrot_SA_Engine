@@ -14,6 +14,9 @@ Game::Game()
 void Game::run() {
 	// TODO throw error when something goes wrong in sceneSwitcher
 	try {
+		string path = "Assets/SaveGame/saveGameData.json";
+		Savegame::get_instance().readSaveGameDataFromJson(path);
+
 		MainMenu* mainMenu = new MainMenu(sceneId++);
 		SceneSwitcher::get_instance().registerScene("MAIN_MENU", mainMenu);
 
@@ -26,19 +29,6 @@ void Game::run() {
 		Overworld* overWorld = new Overworld(7);
 		SceneSwitcher::get_instance().registerScene("OVERWORLD", overWorld);
 
-		SaveGameData data;
-		data.achievements.push_back("Take inventory");
-		data.saveGameName = "name";
-		data.totalScore = 100;
-		Item item;
-		item.itemCount = 10;
-		item.itemName = "Sword";
-		data.characterData.inventory.items.push_back(item);
-		data.characterData.inventory.items.push_back(item);
-
-		Savegame::get_instance().saveGameData(1, data);
-
-		Savegame::get_instance().saveGameDataToJsonFile();
 
 	}
 	catch (exception e) {
@@ -74,6 +64,9 @@ void Game::run() {
 
 			this_thread::sleep_for(chrono::milliseconds(10));
 		}
+
+		Savegame::get_instance().saveGameDataToJsonFile();
+
 	}
 	catch (int e) {
 		// TODO show message

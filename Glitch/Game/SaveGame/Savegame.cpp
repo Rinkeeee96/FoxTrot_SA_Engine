@@ -6,7 +6,6 @@ Savegame Savegame::instance;
 
 bool Savegame::saveGameDataToJsonFile()
 {
-	//saveGameData.json
 	nlohmann::json json;
 	for (auto saveGame : saveGameDataMap)
 	{
@@ -44,6 +43,7 @@ bool Savegame::saveGameDataToJsonFile()
 		saveGameJson["characterdata"] = characterData;
 		json["saveGames"].push_back(saveGameJson);
 	}
+	// Todo move to engine.
 	// Write Json data to file
 	std::ofstream file("saveGameData.json");
 	file << json;
@@ -91,5 +91,49 @@ SaveGameData Savegame::getGameData(const int id)
 
 void Savegame::parseJsonToMap(nlohmann::json json)
 {
+	for (auto jsonObject : json["saveGames"])
+	{
+		SaveGameData saveGameData;
+		if (!jsonObject.contains("timestamp")) throw exception("Timestamp unavailable in json file");
+		if (!jsonObject.contains("savegamename"))throw exception("savegamename unavailable in json file");
+		if (!jsonObject.contains("savegameid")) throw exception("savegameid unavailable in json file");
 
+		saveGameData.saveGameName = jsonObject["savegamename"];
+		saveGameData.saveGameTimeStamp = jsonObject["timestamp"];
+		int id = jsonObject["savegameid"];
+
+		if (jsonObject.contains("totalscore"))
+		{
+			saveGameData.totalScore = jsonObject["totalscore"];
+		}
+
+		if (jsonObject.contains("achievements"))
+		{
+			for (auto achievement : jsonObject["achievements"])
+			{
+				saveGameData.achievements.push_back(achievement);
+			}
+		}
+
+		if (jsonObject.contains("characterdata"))
+		{
+			if (jsonObject["characterdata"].contains("inventory"))
+			{
+				if (jsonObject["characterdata"]["inventory"].contains("items"))
+				{
+					for (auto itemJson : jsonObject["characterdata"]["inventory"]["items"])
+					{
+						Item item;
+						item.itemCount = itemJson["itemcount"];
+						item.itemName = itemJson["itemname"];
+						saveGameData.characterData.inventory.items.push_back(item);
+					}
+					// Parse other item things in future
+				}
+				// Parse other inventory things in future
+			}
+			// Parse other character data in future
+		}
+		saveGameDataMap[id] = saveGameData;
+	}
 }
