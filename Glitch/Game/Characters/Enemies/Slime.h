@@ -6,19 +6,43 @@
 class Slime : public IEnemy {
 public:
 	Slime() : IEnemy() {}
-	Slime(const int id) : IEnemy(id) {}
+	Slime(const int id) : IEnemy(id) {
+		EventSingleton::get_instance().setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Slime::onCollisionBeginEvent));
+	}
+
+	bool onCollisionBeginEvent(Event& event) {
+		auto collisionEvent = static_cast<OnCollisionBeginEvent&>(event);
+		if (collisionEvent.getObjectOne().getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo().getObjectId() != this->getObjectId()) return false;
+
+		auto map = collisionEvent.getDirectionMap();
+		auto collidedDirection = map[this->getObjectId()];
+
+
+		if (std::find(collidedDirection.begin(), collidedDirection.end(), Direction::UP) != collidedDirection.end()) {
+			this->setHealth(0);
+		}
+		else {
+			if (collisionEvent.getObjectOne().getObjectId() == this->getObjectId()) {
+				Object& otherE = collisionEvent.getObjectTwo();
+
+				if (this->player->getObjectId() == otherE.getObjectId()) {
+					this->player->setHealth(0);
+				}
+			}
+			else if (collisionEvent.getObjectTwo().getObjectId() == this->getObjectId()) {
+				Object& otherEntity = collisionEvent.getObjectOne();
+
+				if (this->player->getObjectId() == otherEntity.getObjectId()) {
+					this->player->setHealth(0);
+				}
+			}
+		}
+		return false;
+	}
 
 	void onUpdate() override {
-		
+		if(this->getYAxisVelocity() == 0) EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
 	};
-
-	void setYAxisVelocity(const float val) override {
-		if (this->getYAxisVelocity() == 0) {
-			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
-		}
-
-		Object::setYAxisVelocity(val);
-	}
 
 	ICharacter* clone(int id) override { return new Slime(id); }
 };

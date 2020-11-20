@@ -2,8 +2,8 @@
 
 #include "Object.h"
 
-#include <Events\Video\VideoLoadSpriteEvent.h>
-#include <Events\EventSingleton.h>
+#include "Events\Video\VideoLoadSpriteEvent.h"
+#include "Events\EventSingleton.h"
 
 /// @brief 
 Object::Object(const int _objectId, const bool _isParticle) : objectId(_objectId), isParticle(_isParticle)
@@ -68,5 +68,9 @@ void Object::setXAxisVelocity(const float val) { this->xAxisVelocity = val; }
 
 bool Object::getRotatable() const { return this->rotatable; }
 void Object::setRotatable(const bool val) { this->rotatable = val; }
+
+void Object::setIsRemoved(bool val) { isRemoved = val; }
+bool Object::getIsRemoved() const {	return isRemoved; }
+
 
 bool Object::getIsParticle() { return isParticle; }

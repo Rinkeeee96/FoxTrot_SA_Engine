@@ -7,7 +7,7 @@
 class OnMusicStartEvent : public BaseSoundEvent
 {
 public:
-	OnMusicStartEvent(const std::string& identifier) : BaseSoundEvent(identifier) {}
+	OnMusicStartEvent(const std::string& identifier, int volume = MAX_VOLUME) : BaseSoundEvent(identifier, volume) {}
 
 	/// @brief
 	/// KeyReleasedEvent to string

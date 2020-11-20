@@ -17,6 +17,7 @@ public:
 	virtual void create() = 0;
 	virtual void createLevel(nlohmann::json json) = 0;
 	virtual void createEntities(nlohmann::json layerValue) = 0;
+	virtual void createTriggers(nlohmann::json json) = 0;
 	virtual void createBackground(nlohmann::json layerValue) = 0;
 	virtual void createDecoration(nlohmann::json layerValue) = 0;
 	virtual void createParticle(nlohmann::json layerValue) = 0;

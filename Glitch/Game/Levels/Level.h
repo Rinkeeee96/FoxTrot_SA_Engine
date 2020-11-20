@@ -1,4 +1,5 @@
 #pragma once
+#include "Game\Characters\Player\Player.h"
 
 /// @brief 
 /// Level class. Level has all the information. 
@@ -15,7 +16,14 @@ public:
 	virtual void pause();
 	virtual void onDetach() override;
 	virtual void onUpdate() override;
+
+	void setWin(const bool val) { this->win = val; }
 private:
 	map<string, string> sounds;
 	Object* follow = nullptr;
+	Player* player = nullptr;
+	bool win = false;
+
+	int startPosPlayerX = 0;
+	int startPosPlayerY = 0;
 };

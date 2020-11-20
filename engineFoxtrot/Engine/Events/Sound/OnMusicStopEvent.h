@@ -7,7 +7,7 @@
 class OnMusicStopEvent : public BaseSoundEvent
 {
 public:
-	OnMusicStopEvent(const std::string& _file) : BaseSoundEvent(_file) {}
+	OnMusicStopEvent(const std::string& _file) : BaseSoundEvent(_file, 0) {}
 
 	/// @brief
 	/// KeyReleasedEvent to string

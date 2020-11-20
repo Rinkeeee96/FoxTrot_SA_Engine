@@ -2,6 +2,9 @@
 #include "Game\Levels\Builders\AbstractLevelBuilder.h"
 #include "Game\Levels\Builders\ParsedEntities\TileSprite.h"
 #include "Game\Factories\CharacterFactory.h"
+#include "Game\Factories\TriggerFactory.h"
+#include "Game\Triggers\DeathTrigger.h"
+#include "Game\Triggers\WinTrigger.h"
 
 // DO NOT TOUCH GROUND LAYER INDEX
 #define GROUND_LAYER_INDEX 2
@@ -22,6 +25,7 @@
 class LevelBuilder : public AbstractLevelBuilder {
 
 private:
+	TriggerFactory triggerFactory;
 	std::unique_ptr<CharacterFactory> characterFactory;
 	FileLoader fileLoader;
 	map<int, TileSprite*> textureMap;
@@ -45,6 +49,7 @@ public:
 	void createParticle(nlohmann::json layerValue) override;
 	void createTiles(nlohmann::json layerValue) override;
 	void loadTileSets(nlohmann::json json) override;
+	void createTriggers(nlohmann::json json) override;
 	void initFactory() override;
 	virtual void create() override;
 };
