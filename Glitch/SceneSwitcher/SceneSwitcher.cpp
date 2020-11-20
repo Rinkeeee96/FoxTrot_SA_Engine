@@ -59,3 +59,8 @@ void SceneSwitcher::runCurrentScene()
 
 	activeScene->onUpdate();
 }
+
+int SceneSwitcher::getFreeSceneID()
+{
+	return engine->getFreeSceneID();
+}

@@ -48,6 +48,11 @@ void Engine::insertScene(Scene* scene)
 	sceneManager.insertScene(scene);
 }
 
+int Engine::getFreeSceneID()
+{
+	return sceneManager.getFirstFreeSceneID();
+}
+
 /// @brief 
 /// Load a animated sprite (PNG) into the AnimatedTexture map
 /// @param spriteObject 

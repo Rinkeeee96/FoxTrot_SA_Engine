@@ -19,6 +19,8 @@ public:
     void setEngine(Engine* _engine) { engine = _engine; }
     void runCurrentScene();
 
+    int getFreeSceneID();
+
 private:
     map<string, Scene*> scenes;
     Engine* engine = nullptr;

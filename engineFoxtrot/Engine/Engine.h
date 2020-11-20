@@ -28,6 +28,7 @@ public:
 	API void setCurrentScene(const int sceneID);
 	API Scene* getCurrentScene();
 	API void insertScene(Scene * scene);
+	API int getFreeSceneID();
 
 	// Video calls
 	API void loadSprite(const SpriteObject& spriteObject);
