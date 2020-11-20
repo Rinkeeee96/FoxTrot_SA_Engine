@@ -57,8 +57,10 @@ public:
 	// Call at beginning of game
 	bool readSaveGameDataFromJson(string& path);
 
-	void saveGameData(const int id, SaveGameData saveGame);
-	SaveGameData getGameData(const int id);
+	void setCurrentGameData(const int id);
+	SaveGameData getCurrentGameData();
+	void saveCurrentGameData(SaveGameData saveGame);
+	
 
 private:
 	static Savegame instance;
@@ -66,6 +68,7 @@ private:
 
 	FileLoader fileLoader;
 	map<int, SaveGameData> saveGameDataMap;
+	int currentSaveGame = 0;
 
 	void parseJsonToMap(nlohmann::json json);
 };

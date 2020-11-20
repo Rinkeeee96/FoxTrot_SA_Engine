@@ -16,6 +16,7 @@
     <ClCompile Include="Game\Levels\LoadLevelFacade.cpp" />
     <ClCompile Include="Game\Overworld\Overworld.cpp" />
     <ClCompile Include="Game\SaveGame\Savegame.cpp" />
+    <ClCompile Include="Game\Scenes\SaveScreen\SaveScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
@@ -46,5 +47,6 @@
     <ClInclude Include="Game\Scenes\Scenes.h" />
     <ClInclude Include="Game\Overworld\Overworld.h" />
     <ClInclude Include="Game\SaveGame\Savegame.h" />
+    <ClInclude Include="Game\Scenes\SaveScreen\SaveScreen.h" />
   </ItemGroup>
 </Project>

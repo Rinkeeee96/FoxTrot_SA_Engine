@@ -78,15 +78,19 @@ bool Savegame::readSaveGameDataFromJson(string& path)
 	
 }
 
-void Savegame::saveGameData(const int id, SaveGameData saveGame)
+void Savegame::setCurrentGameData(const int id)
 {
-	saveGameDataMap[id] = saveGame;
+	currentSaveGame = id;
 }
 
-SaveGameData Savegame::getGameData(const int id)
+SaveGameData Savegame::getCurrentGameData()
 {
-	SaveGameData data;
-	return data;
+	return saveGameDataMap[currentSaveGame];
+}
+
+void Savegame::saveCurrentGameData(SaveGameData saveGame)
+{
+	saveGameDataMap[currentSaveGame] = saveGame;
 }
 
 void Savegame::parseJsonToMap(nlohmann::json json)

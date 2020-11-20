@@ -14,9 +14,6 @@ Game::Game()
 void Game::run() {
 	// TODO throw error when something goes wrong in sceneSwitcher
 	try {
-		string path = "Assets/SaveGame/saveGameData.json";
-		Savegame::get_instance().readSaveGameDataFromJson(path);
-
 		MainMenu* mainMenu = new MainMenu(sceneId++);
 		SceneSwitcher::get_instance().registerScene("MAIN_MENU", mainMenu);
 
@@ -29,6 +26,8 @@ void Game::run() {
 		Overworld* overWorld = new Overworld(7);
 		SceneSwitcher::get_instance().registerScene("OVERWORLD", overWorld);
 
+		SaveScreen* saveScreen = new SaveScreen(8);
+		SceneSwitcher::get_instance().registerScene("LOADSCREEN", saveScreen);
 
 	}
 	catch (exception e) {

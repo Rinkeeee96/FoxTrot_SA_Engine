@@ -11,6 +11,9 @@ void SaveScreen::onAttach()
 	loadButtons();
 	loadBackground();
 	loadMusic();
+
+	string path = "Assets/SaveGame/saveGameData.json";
+	Savegame::get_instance().readSaveGameDataFromJson(path);
 }
 
 void SaveScreen::onDetach()
@@ -43,6 +46,16 @@ void SaveScreen::loadBackground()
 	layer0->registerSprite(SpriteState::DEFAULT, BG_LAYER_0);
 	layer0->changeToState(SpriteState::DEFAULT);
 
+	auto* animation = new Drawable(-991);
+	animation->setStatic(true);
+	animation->setPositionX(175);
+	animation->setPositionY(875);
+	animation->setWidth(370);
+	animation->setHeight(500);
+	animation->registerSprite(SpriteState::DEFAULT, BG_LAYER_ADVENTRUE);
+	animation->changeToState(SpriteState::DEFAULT);
+	animation->setScalable(false);
+
 	auto* layer2 = new Drawable(-990);
 	layer2->setStatic(true);
 	layer2->setPositionX(1);
@@ -53,6 +66,7 @@ void SaveScreen::loadBackground()
 	layer2->changeToState(SpriteState::DEFAULT);
 
 	addNewObjectToLayer(0, layer0);
+	addNewObjectToLayer(1, animation);
 	addNewObjectToLayer(2, layer2);
 }
 
@@ -89,16 +103,22 @@ void SaveScreen::loadButtons()
 
 void SaveScreen::onSave1BtnClick()
 {
+	Savegame::get_instance().setCurrentGameData(1);
+	SceneSwitcher::get_instance().switchToScene("OVERWORLD", true);
 }
 
 void SaveScreen::onSave2BtnClick()
 {
+	Savegame::get_instance().setCurrentGameData(2);
+	SceneSwitcher::get_instance().switchToScene("OVERWORLD", true);
 }
 
 void SaveScreen::onSave3BtnClick()
 {
+	Savegame::get_instance().setCurrentGameData(3);
+	SceneSwitcher::get_instance().switchToScene("OVERWORLD", true);
 }
 
 void SaveScreen::onStopBtnClick() {
-	SceneSwitcher::get_instance().switchToScene("MAIN_MENU");
+	SceneSwitcher::get_instance().switchToScene("MAIN_MENU",false);
 }
