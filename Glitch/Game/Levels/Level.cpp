@@ -56,6 +56,7 @@ void Level::start() {
 	player->setPositionX(startPosPlayerX);
 	player->setPositionY(startPosPlayerY);
 	player->setHealth(100);
+
 	this->setObjectToFollow(this->follow);
 	for (const auto& s : sounds) {
 		EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent(s.first));
