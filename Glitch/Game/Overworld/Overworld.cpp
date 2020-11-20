@@ -88,13 +88,12 @@ void Overworld::onLevel1BtnClick()
 		levelLoader.load("Assets/Levels/Maps/Level1.json", &levelOneBuilder);
 		auto level = levelOneBuilder.getLevel();
 		SceneSwitcher::get_instance().registerScene("LEVEL_1", level);
+		SceneSwitcher::get_instance().switchToScene("LEVEL_1", false);
 	}
 	catch (exception e) {
 		// TODO show message
 		return;
 	}
-
-	SceneSwitcher::get_instance().switchToScene("LEVEL_1", false);
 }
 
 /// @brief 

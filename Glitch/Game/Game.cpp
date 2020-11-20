@@ -12,7 +12,6 @@ Game::Game()
 }
 
 void Game::run() {
-	// TODO throw error when something goes wrong in sceneSwitcher
 	try {
 		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
 
@@ -36,7 +35,7 @@ void Game::run() {
 		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
 	}
 	catch (exception e) {
-		// TODO show message
+		cout << e.what() << endl;
 		return;
 	}
 

@@ -1,6 +1,6 @@
 #include "stdafx.h"
-#include <Events\AppTickEvent60.h>
-#include <Events\EventSingleton.h>
+#include "Events\AppTickEvent60.h"
+#include "Events\EventSingleton.h"
 #include "VideoEngine.h"
 
 VideoEngine::VideoEngine()
