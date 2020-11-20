@@ -42,15 +42,15 @@ public:
 	}
 
 	void onUpdate() override {
-		bool isPlayerOverlapping = player->getPositionX() >= this->getPositionX() &&
+		bool isPlayerOverlapping = player->getPositionX() >= this->getPositionX() - this->getWidth() &&
 			player->getPositionX() <= this->getPositionX() + this->width;
 		bool isPlayerBelowMe = (player->getPositionY() + player->getHeight()) <= this->getPositionY();
 
-		bool amInAir = this->getYAxisVelocity() > 0;
-		if(!amInAir)
+		bool onGround = this->getYAxisVelocity() == 0;
+		if(onGround)
 			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
 
-		if (isPlayerOverlapping && isPlayerBelowMe && !amInAir){
+		if (isPlayerOverlapping && isPlayerBelowMe && !onGround){
 			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::DOWN, this->getObjectId()));
 		}
 	};
