@@ -12,7 +12,6 @@ Game::Game()
 }
 
 void Game::run() {
-	// TODO throw error when something goes wrong in sceneSwitcher
 	try {
 		MainMenu* mainMenu = new MainMenu(sceneId++);
 		SceneSwitcher::get_instance().registerScene("MAIN_MENU", mainMenu);
@@ -27,7 +26,7 @@ void Game::run() {
 		SceneSwitcher::get_instance().registerScene("OVERWORLD", overWorld);
 	}
 	catch (exception e) {
-		// TODO show message
+		cout << e.what() << endl;
 		return;
 	}
 
@@ -39,7 +38,7 @@ void Game::run() {
 		SceneSwitcher::get_instance().registerScene("LEVEL_1", level);
 	}
 	catch (exception e) {
-		// TODO show message
+		cout << e.what() << endl;
 		return;
 	}
 
@@ -53,7 +52,6 @@ void Game::run() {
 			EventSingleton::get_instance().dispatchEvent<AppTickEvent60>(appTick);
 			EventSingleton::get_instance().dispatchEvent<AppTickEvent30>(appTick30);
 
-			// TODO get only the non static objects, without looping thru them again and again
 			auto scene = engine.getCurrentScene();
 			scene->onUpdate();
 
@@ -61,9 +59,9 @@ void Game::run() {
 		}
 	}
 	catch (int e) {
-		// TODO show message
+		cout << ERRORCODES[e] << endl;
 	}
 	catch (exception e) {
-		// TODO show message
+		cout << e.what() << endl;
 	}
 }
