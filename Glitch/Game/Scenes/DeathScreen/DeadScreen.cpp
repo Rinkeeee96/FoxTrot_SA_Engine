@@ -3,6 +3,7 @@
 #include "Game/SpriteState.h"
 #include "Game/Buttons/PrimaryButton.h"
 #include "Game/Buttons/SecondaryButton.h"
+#include <Engine\Events\Video\LevelLoadEvent.h>
 
 #define BIND_FN(function) std::bind(&DeadScreen::function, *this)
 
@@ -110,7 +111,7 @@ void DeadScreen::onDetach()
 /// Start transition scene to level1
 void DeadScreen::onReStartBtnClick()
 {
-	SceneSwitcher::get_instance().switchToScene("LEVEL_1", true);
+	EventSingleton::get_instance().dispatchEvent<LevelLoadEvent>((Event&)LevelLoadEvent("Level1"));
 }
 
 

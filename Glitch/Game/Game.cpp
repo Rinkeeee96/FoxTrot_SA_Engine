@@ -1,8 +1,28 @@
 #include "pch.h"
 #include "Game.h"
+#include <Engine\Events\Video\LevelLoadEvent.h>
 
 bool Game::stopRun(Event& event) {
 	gameRunning = false;
+	return true;
+}
+bool Game::loadLevel(Event& event) {
+	auto loadEvent = static_cast<LevelLoadEvent&>(event);
+
+	LoadLevelFacade levelLoader{ engine };
+	LevelBuilder levelOneBuilder{ engine, sceneId++ };
+
+	try {
+		levelLoader.load("Assets/Levels/Maps/" + loadEvent.GetLevel() + ".json", &levelOneBuilder);
+		Level* level = levelOneBuilder.getLevel();
+		string sceneID = "LEVEL_" + std::to_string(sceneId);
+		SceneSwitcher::get_instance().registerScene(sceneID, level);
+		SceneSwitcher::get_instance().switchToScene(sceneID, false);
+	}
+	catch (exception e) {
+		cout << e.what() << endl;
+		return false;
+	}
 	return true;
 }
 
@@ -14,6 +34,7 @@ Game::Game()
 void Game::run() {
 	try {
 		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
+		EventSingleton::get_instance().setEventCallback<LevelLoadEvent>(BIND_EVENT_FN(Game::loadLevel));
 
 		MainMenu* mainMenu = new MainMenu(sceneId++);
 		SceneSwitcher::get_instance().registerScene("MAIN_MENU", mainMenu);
@@ -33,18 +54,6 @@ void Game::run() {
 
 		SceneSwitcher::get_instance().switchToScene("MAIN_MENU", false);
 		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
-	}
-	catch (exception e) {
-		cout << e.what() << endl;
-		return;
-	}
-
-	LoadLevelFacade levelLoader{ engine };
-	LevelBuilder levelOneBuilder{ engine, sceneId++ };
-	try {
-		levelLoader.load("Assets/Levels/Maps/Level1.json", &levelOneBuilder);
-		auto level = levelOneBuilder.getLevel();
-		SceneSwitcher::get_instance().registerScene("LEVEL_1", level);
 	}
 	catch (exception e) {
 		cout << e.what() << endl;

@@ -35,4 +35,5 @@ enum class EventType
 
 	ObjectStop,
 	LoadSprite,
+	LevelLoadEvent
 };

@@ -16,6 +16,7 @@ public:
 	Game();
 	void run();
 	bool stopRun(Event& event);
+	bool loadLevel(Event& event);
 
 private:
 	Engine engine;
