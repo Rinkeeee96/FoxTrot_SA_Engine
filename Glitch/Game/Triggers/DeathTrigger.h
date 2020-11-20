@@ -15,7 +15,8 @@ public:
 		auto collisionEvent = static_cast<OnCollisionBeginEvent&>(event);
 		if (collisionEvent.getObjectOne().getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo().getObjectId() != this->getObjectId()) return false;
 
-		if (ICharacter* character = dynamic_cast<ICharacter*>(&collisionEvent.getObjectOne())) character->setHealth(0);
-		else if (ICharacter* character = dynamic_cast<ICharacter*>(&collisionEvent.getObjectTwo())) character->setHealth(0);
+		if (ICharacter* character = dynamic_cast<ICharacter*>(&collisionEvent.getObjectOne())) character->kill();
+		else if (ICharacter* character = dynamic_cast<ICharacter*>(&collisionEvent.getObjectTwo())) character->kill();
+		return true;
 	}
 };

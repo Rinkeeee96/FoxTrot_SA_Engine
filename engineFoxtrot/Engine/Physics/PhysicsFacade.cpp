@@ -207,6 +207,20 @@ void PhysicsFacade::Jump(const int objectId)
 	body->SetLinearVelocity(vel);
 };
 
+/// @brief 
+/// A function to add a linearImpulse to a object for falling
+/// @param objectId 
+/// Identifier for ObjectID
+void PhysicsFacade::Fall(const int objectId)
+{
+	b2Body* body = findBody(objectId);
+	const PhysicsBody* ob = getPhysicsObject(objectId);
+
+	b2Vec2 vel = body->GetLinearVelocity();
+	vel.y = ob->getJumpHeight() * 1;
+	body->SetLinearVelocity(vel);
+};
+
 
 /// @brief
 /// destroy all the bodies of the world
