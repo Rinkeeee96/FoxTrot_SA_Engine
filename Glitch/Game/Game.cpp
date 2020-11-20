@@ -30,6 +30,8 @@ void Game::run() {
 		WinScreen* winScreen = new WinScreen(sceneId++);
 		SceneSwitcher::get_instance().registerScene("WIN_SCREEN", winScreen);
 
+		SaveScreen* saveScreen = new SaveScreen(sceneId++);
+		SceneSwitcher::get_instance().registerScene("LOADSCREEN", saveScreen);
 
 		SceneSwitcher::get_instance().switchToScene("MAIN_MENU", false);
 		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
