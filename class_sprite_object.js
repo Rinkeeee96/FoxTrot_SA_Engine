@@ -1,6 +1,5 @@
 var class_sprite_object =
 [
-    [ "SpriteObject", "class_sprite_object.html#a2f087f058dc5fcbee302a8f55c20e056", null ],
     [ "SpriteObject", "class_sprite_object.html#a085215e02c2ecba61846a986d8b7d21a", null ],
     [ "~SpriteObject", "class_sprite_object.html#adb22b5d9e20fe40fabb199f8454eb537", null ],
     [ "getAmountOfTextures", "class_sprite_object.html#afe48875650f847c5fd6341d2d62dc9ec", null ],
