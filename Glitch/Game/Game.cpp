@@ -18,7 +18,7 @@ void Game::run() {
 		MainMenu* mainMenu = new MainMenu(sceneId++);
 		SceneSwitcher::get_instance().registerScene("MAIN_MENU", mainMenu);
 
-		GeneralTransition* generalTransitionScene = new GeneralTransition(160);
+		GeneralTransition* generalTransitionScene = new GeneralTransition(sceneId++);
 		SceneSwitcher::get_instance().registerScene("GENERAL_TRANSITION_SCENE", generalTransitionScene);
 		
 		Overworld* overWorld = new Overworld(sceneId++);

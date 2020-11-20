@@ -23,4 +23,7 @@ private:
 	Object* follow = nullptr;
 	Player* player = nullptr;
 	bool win = false;
+
+	int startPosPlayerX = 0;
+	int startPosPlayerY = 0;
 };
