@@ -2,7 +2,6 @@
 #include "Events\Mouse\MouseMoved.h"
 #include "Events/Mouse/MousePressed.h"
 #include "SceneManager/Objects/Drawable.h"
-#include <any>
 
 class Button : public Drawable
 {

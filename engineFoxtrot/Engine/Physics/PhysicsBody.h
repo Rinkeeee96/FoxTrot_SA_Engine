@@ -48,6 +48,8 @@ public:
 	bool getRotatable() const;
 
 	Object& getObject() const { return *this->object; }
+	bool objectExists() const { return object != nullptr; }
+
 protected:
 	int objectID = 0;
 	float height = 0;

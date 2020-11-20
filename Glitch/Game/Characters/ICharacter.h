@@ -28,6 +28,5 @@ public:
 	virtual ICharacter* clone(int id) = 0;
 protected:
 	int health = 0;
-	bool isDead = false;
 	bool canJump = false;
 };

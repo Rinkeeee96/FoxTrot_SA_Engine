@@ -4,7 +4,9 @@
 /// @brief 
 /// @param sceneID 
 /// @param _sounds this contains the sounds for the level with identifier and filepath
-Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, map<string, string> _sounds = map<string, string>()) : Scene::Scene(id, _sceneHeight, _sceneWidth), sounds(_sounds)
+Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, map<string, string> _sounds = map<string, string>()) : 
+	Scene::Scene(id, _sceneHeight, _sceneWidth), 
+	sounds(_sounds)
 {
 
 }
@@ -54,26 +56,25 @@ void Level::start() {
 }
 
 void Level::onUpdate() {
-	if (player->getIsDead()) {
-		// TODO Death screen
-		throw std::exception("Death");
+	if (this->win) {
+		SceneSwitcher::get_instance().switchToScene("WIN_SCREEN", false);
 		return;
 	}
-	if (this->win) {
-		// TODO Win screen
-		throw std::exception("Win");
+	if (player->getIsDead()) {
+		SceneSwitcher::get_instance().switchToScene("DEAD_SCREEN", false);
 		return;
 	}
 
-	for (auto object : this->getAllObjectsInScene())
+	for (auto object : this->getAllObjectsInScene()) // TODO get only the non static objects, without looping thru them again and again
 	{
 		if (!object->getStatic()) {
 			object->onUpdate();
 
 			if (ICharacter* character = dynamic_cast<ICharacter*>(object)) {
-				if (character->getIsDead()) {
+				if (character->getIsDead() && !character->getIsRemoved()) {
 					// TODO Death animation
-					// TODO Remove object
+					object->setIsRemoved(true);
+					//removeObjectFromScene(object);
 				}
 			}
 		}
@@ -88,4 +89,7 @@ void Level::pause() {
 	}
 }
 
-void Level::onDetach() {}//cleaup buffer
+void Level::onDetach() 
+{
+	Scene::onDetach();
+}//cleaup buffer

@@ -86,8 +86,10 @@ bool PhysicsEngine::update30(Event& tick30Event)
 		registerObjectInCurrentVectorWithPhysicsEngine();
 		currentSceneID = (*pointerToCurrentScene)->getSceneID();
 	}
-	//tick30Event = (AppTickEvent30&)tick30Event;
+
 	physicsFacade->update();
+
+	//tick30Event = (AppTickEvent30&)tick30Event;
 
 	// do not handle the onupdate events, they are continuous
 	return false;
