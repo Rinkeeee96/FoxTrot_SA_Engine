@@ -50,11 +50,11 @@ void Level::onAttach() {
 	}
 }
 /// @brief
-/// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
+/// Start is called when a scene is ready to execute its logic, this canaa be percieved as the "main loop" of a scene
 /// Must be implemented by a concrete implementation of a scene
 void Level::start() {
-	player->setPositionX(startPosPlayerX);
-	player->setPositionY(startPosPlayerY);
+	player->setPositionX(98.8484848484848);
+	player->setPositionY(552.871212121211);
 	player->setHealth(100);
 
 	this->setObjectToFollow(this->follow);
@@ -100,5 +100,5 @@ void Level::pause() {
 
 void Level::onDetach() 
 {
-	Scene::onDetach();
+	//Scene::onDetach();
 }//cleaup buffer
