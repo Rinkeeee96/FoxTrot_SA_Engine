@@ -24,6 +24,10 @@ void Game::run() {
 
 		Overworld* overWorld = new Overworld(7);
 		SceneSwitcher::get_instance().registerScene("OVERWORLD", overWorld);
+
+		SaveScreen* saveScreen = new SaveScreen(8);
+		SceneSwitcher::get_instance().registerScene("LOADSCREEN", saveScreen);
+
 	}
 	catch (exception e) {
 		cout << e.what() << endl;
@@ -52,11 +56,15 @@ void Game::run() {
 			EventSingleton::get_instance().dispatchEvent<AppTickEvent60>(appTick);
 			EventSingleton::get_instance().dispatchEvent<AppTickEvent30>(appTick30);
 
+			// TODO get only the non static objects, without looping thru them again and again
 			auto scene = engine.getCurrentScene();
 			scene->onUpdate();
 
 			this_thread::sleep_for(chrono::milliseconds(10));
 		}
+
+		Savegame::get_instance().saveGameDataToJsonFile();
+
 	}
 	catch (int e) {
 		cout << ERRORCODES[e] << endl;
