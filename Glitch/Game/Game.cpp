@@ -5,6 +5,23 @@ bool Game::stopRun(Event& event) {
 	gameRunning = false;
 	return true;
 }
+bool Game::loadLevel(Event& event) {
+	auto loadEvent = static_cast<LevelLoadEvent&>(event);
+
+	try {
+		levelOneBuilder.newLevel(sceneId++);
+		levelLoader.load("Assets/Levels/Maps/" + loadEvent.GetLevel() + ".json", &levelOneBuilder);
+		Level* level = levelOneBuilder.getLevel();
+		string sceneID = "LEVEL_" + std::to_string(sceneId);
+		SceneSwitcher::get_instance().registerScene(sceneID, level);
+		SceneSwitcher::get_instance().switchToScene(sceneID, false);
+	}
+	catch (exception e) {
+		cout << e.what() << endl;
+		return false;
+	}
+	return true;
+}
 
 Game::Game()
 {

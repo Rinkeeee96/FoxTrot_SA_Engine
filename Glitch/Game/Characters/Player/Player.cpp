@@ -93,52 +93,58 @@ void Player::setYAxisVelocity(const float val) {
 /// @brief 
 /// Handles when an key pressed event happend, Player can move right, left and jump
 bool Player::onKeyPressed(Event& event) {
-	auto keyPressedEvent = static_cast<KeyPressedEvent&>(event);
-	// TODO command pattern
-	switch (keyPressedEvent.GetKeyCode())
-	{
-	case KeyCode::KEY_A:
+	if (!getIsDead()) {
+		auto keyPressedEvent = static_cast<KeyPressedEvent&>(event);
+		// TODO command pattern
+		switch (keyPressedEvent.GetKeyCode())
+		{
+		case KeyCode::KEY_A:
 			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::LEFT, this->getObjectId()));
 			if (canJump)
 				this->changeToState(SpriteState::RUN_LEFT);
-			else if (this->getYAxisVelocity() > 0) 
+			else if (this->getYAxisVelocity() > 0)
 				this->changeToState(SpriteState::AIR_FALL_LEFT);
 			else
 				this->changeToState(SpriteState::AIR_JUMP_LEFT);
-		break;
-	case KeyCode::KEY_D:
+			break;
+		case KeyCode::KEY_D:
 			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::RIGHT, this->getObjectId()));
 			if (canJump) {
 				this->changeToState(SpriteState::RUN_RIGHT);
 			}
 			else if (this->getYAxisVelocity() > 0)
 				this->changeToState(SpriteState::AIR_FALL_RIGHT);
-			else 
-				this->changeToState(SpriteState::AIR_JUMP_RIGHT);
-		break;
-	case KeyCode::KEY_SPACE:
-		if (canJump) {
-			if (this->getXAxisVelocity() > 0)
-				this->changeToState(SpriteState::AIR_JUMP_RIGHT);
 			else
-				this->changeToState(SpriteState::AIR_JUMP_LEFT);
-			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
+				this->changeToState(SpriteState::AIR_JUMP_RIGHT);
+			break;
+		case KeyCode::KEY_SPACE:
+			if (canJump) {
+				if (this->getXAxisVelocity() > 0)
+					this->changeToState(SpriteState::AIR_JUMP_RIGHT);
+				else
+					this->changeToState(SpriteState::AIR_JUMP_LEFT);
+				EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
+			}
+			break;
+		default:
+			return false;
 		}
-		break;
-	default:
-		return false;
+		return true;
 	}
-	return true;
+	return false;
 }
 
 bool Player::onKeyReleased(Event& event)
 {
-	auto keyReleasedEvent = static_cast<KeyReleasedEvent&>(event);
-	
-	switch (keyReleasedEvent.GetKeyCode()) {
+	if (!getIsDead()) {
+
+		auto keyReleasedEvent = static_cast<KeyReleasedEvent&>(event);
+
+		switch (keyReleasedEvent.GetKeyCode()) {
 		case KeyCode::KEY_A:
 		case KeyCode::KEY_D:
 			EventSingleton::get_instance().dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->objectId));
+		}
 	}
 
 	return false;

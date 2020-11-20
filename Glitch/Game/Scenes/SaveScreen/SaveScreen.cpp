@@ -104,7 +104,7 @@ void SaveScreen::loadButtons()
 void SaveScreen::onSave1BtnClick()
 {
 	Savegame::get_instance().setCurrentGameData(1);
-	SceneSwitcher::get_instance().switchToScene("OVERWORLD", true);
+	SceneSwitcher::get_instance().switchToScene("OVERWORLD", false);
 }
 
 void SaveScreen::onSave2BtnClick()

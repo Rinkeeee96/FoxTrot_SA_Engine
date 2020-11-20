@@ -19,6 +19,10 @@ public:
 	bool stopRun(Event& event);
 
 private:
+
+	LoadLevelFacade levelLoader{ engine };
+	LevelBuilder levelOneBuilder{ engine, sceneId++ };
+
 	Engine engine;
 	bool gameRunning = true;
 	int sceneId = 0;
