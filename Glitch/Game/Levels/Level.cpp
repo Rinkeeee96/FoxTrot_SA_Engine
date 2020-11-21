@@ -64,7 +64,6 @@ void Level::start() {
 void Level::onUpdate() {
 	if (this->win) {
 		SceneSwitcher::get_instance().switchToScene("WIN_SCREEN", false);
-		player->kill();
 		return;
 	}
 	if (player->getIsDead()) {
