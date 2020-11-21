@@ -35,4 +35,6 @@ enum class EventType
 
 	ObjectStop,
 	LoadSprite,
+
+	RemoveObject
 };

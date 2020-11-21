@@ -65,6 +65,7 @@ void Level::onUpdate() {
 	if (this->win) {
 		SceneSwitcher::get_instance().switchToScene("WIN_SCREEN", false);
 		player->kill();
+		this->win = false;
 		return;
 	}
 	if (player->getIsDead()) {
@@ -81,7 +82,8 @@ void Level::onUpdate() {
 				if (character->getIsDead() && !character->getIsRemoved()) {
 					// TODO Death animation
 					object->setIsRemoved(true);
-					//removeObjectFromScene(object);
+					removeObjectFromScene(object);
+					EventSingleton::get_instance().dispatchEvent<RemoveEvent>((Event&)RemoveEvent());
 				}
 			}
 		}
