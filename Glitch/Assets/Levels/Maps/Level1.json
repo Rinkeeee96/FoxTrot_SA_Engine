@@ -90,7 +90,7 @@
                         {
                          "name":"jump_height",
                          "type":"int",
-                         "value":250
+                         "value":16
                         }, 
                         {
                          "name":"restitution",
@@ -100,7 +100,7 @@
                         {
                          "name":"speed",
                          "type":"int",
-                         "value":50
+                         "value":4
                         }, 
                         {
                          "name":"type",
@@ -111,8 +111,104 @@
                  "type":"",
                  "visible":true,
                  "width":41.3333333333334,
-                 "x":325,
-                 "y":886.166666666667
+                 "x":827,
+                 "y":698.166666666667
+                }, 
+                {
+                 "gid":142,
+                 "height":40.3333,
+                 "id":14,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"density",
+                         "type":"int",
+                         "value":50
+                        }, 
+                        {
+                         "name":"friction",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"jump_height",
+                         "type":"int",
+                         "value":12
+                        }, 
+                        {
+                         "name":"restitution",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":4
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"slime"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":41.3333,
+                 "x":1713.33335,
+                 "y":597.83335
+                }, 
+                {
+                 "gid":142,
+                 "height":40.3333,
+                 "id":15,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"density",
+                         "type":"int",
+                         "value":50
+                        }, 
+                        {
+                         "name":"friction",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"jump_height",
+                         "type":"int",
+                         "value":14
+                        }, 
+                        {
+                         "name":"restitution",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":4
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"slime"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":41.3333,
+                 "x":3201.33335,
+                 "y":615.83335
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -206,8 +302,14 @@
          "y":0
         }],
  "nextlayerid":7,
- "nextobjectid":14,
+ "nextobjectid":16,
  "orientation":"orthogonal",
+ "properties":[
+        {
+         "name":"music",
+         "type":"string",
+         "value":"file_example_WAV_2MG.wav"
+        }],
  "renderorder":"right-down",
  "tiledversion":"1.4.3",
  "tileheight":32,
