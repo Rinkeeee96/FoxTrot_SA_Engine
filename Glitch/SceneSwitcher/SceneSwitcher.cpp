@@ -16,6 +16,7 @@ void SceneSwitcher::registerTransitionScene(Scene* scene)
 }
 
 void SceneSwitcher::switchToScene(string const identifier, bool useTransitionScreen) { //switchToScene(const string& identifier, bool useTransitionScreen) {
+	if (DEBUG_MAIN) { useTransitionScreen = false; }
 	auto scene = scenes.find(identifier);
 	if (scene == scenes.end()) 
 		throw exception("Scene is end()");
