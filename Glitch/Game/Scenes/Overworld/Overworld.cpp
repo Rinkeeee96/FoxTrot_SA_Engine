@@ -59,13 +59,13 @@ void Overworld::loadBackground() {
 
 /// @brief 
 void Overworld::loadMusic() {
-
+	EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent("OVER_WORLD", "Assets/Sound/file_example_WAV_1MG.wav"));
 }
 
 /// @brief 
 void Overworld::start()
 {
-
+	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("OVER_WORLD"));
 }
 
 /// @brief 
@@ -76,6 +76,7 @@ void Overworld::onUpdate()
 /// @brief 
 void Overworld::onDetach()
 {
+	EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent("OVER_WORLD"));
 	Scene::onDetach();
 }
 
