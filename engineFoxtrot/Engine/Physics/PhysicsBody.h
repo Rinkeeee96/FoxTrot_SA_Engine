@@ -1,6 +1,8 @@
 #pragma once
 #include "SceneManager/Objects/Object.h"
 
+#define DIVIDER 32.0f
+
 class PhysicsBody
 {
 public:
