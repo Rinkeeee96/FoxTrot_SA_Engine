@@ -81,7 +81,8 @@ void Level::onUpdate() {
 				if (character->getIsDead() && !character->getIsRemoved()) {
 					// TODO Death animation
 					object->setIsRemoved(true);
-					//removeObjectFromScene(object);
+					removeObjectFromScene(object);
+					EventSingleton::get_instance().dispatchEvent<RemoveEvent>((Event&)RemoveEvent());
 				}
 			}
 		}

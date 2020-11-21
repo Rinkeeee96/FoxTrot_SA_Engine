@@ -4,6 +4,7 @@
 #include "PhysicsFacade.h"
 #include "PhysicsEngine.h"
 #include "Events\Action\ObjectStopEvent.h"
+#include <Events\Action\RemoveEvent.h>
 
 /// @brief Constructor
 PhysicsEngine::PhysicsEngine()
@@ -12,6 +13,13 @@ PhysicsEngine::PhysicsEngine()
 	EventSingleton::get_instance().setEventCallback<AppTickEvent30>(BIND_EVENT_FN(PhysicsEngine::update30));
 	EventSingleton::get_instance().setEventCallback<ActionEvent>(BIND_EVENT_FN(PhysicsEngine::handleAction));
 	EventSingleton::get_instance().setEventCallback<ObjectStopEvent>(BIND_EVENT_FN(PhysicsEngine::stopObject));
+	EventSingleton::get_instance().setEventCallback<RemoveEvent>(BIND_EVENT_FN(PhysicsEngine::removeObject));
+}
+
+bool PhysicsEngine::removeObject(Event& event) {
+	physicsFacade->cleanMap();
+	registerObjectInCurrentVectorWithPhysicsEngine();
+	return true;
 }
 
 /// @brief 
@@ -64,6 +72,7 @@ void PhysicsEngine::registerObjectInCurrentVectorWithPhysicsEngine()
 
 		if (DEBUG_PHYSICS_ENGINE)cout << "Registering object : " << phyObj->getObjectId() << endl;
 		if (object->getIsParticle()) continue;
+		if (object->getIsRemoved()) continue;
 		if (object->getStatic())
 		{
 			physicsFacade->addStaticObject(phyObj);
