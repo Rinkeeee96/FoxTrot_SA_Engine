@@ -84,12 +84,10 @@ void SaveScreen::loadButtons()
 	Button* save2 = new PrimaryButton(-995, "Save 2", BIND_FN(onSave2BtnClick));
 	save2->setPositionX(CENTER_X - save2->getWidth() / 2);
 	save2->setPositionY(CENTER_Y - save2->getHeight() / 2 + 100);
-	save2->disable();
 
 	Button* save3 = new PrimaryButton(-994, "Save 3", BIND_FN(onSave3BtnClick));
 	save3->setPositionX(CENTER_X - save3->getWidth() / 2);
 	save3->setPositionY(CENTER_Y - save3->getHeight() / 2 + 200);
-	save3->disable();
 
 	Button* stopBtn = new SecondaryButton(-993, "To Main Menu", BIND_FN(onStopBtnClick));
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
