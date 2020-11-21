@@ -25,6 +25,9 @@ public:
 	void onUpdate() override {};
 
 	ICharacter* clone(int id) override;
+
+	void start();
+	void stop();
 private:
 	bool canJump = false;
 };

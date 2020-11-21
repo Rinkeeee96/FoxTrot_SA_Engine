@@ -18,11 +18,23 @@ Player::Player(const int id) : ICharacter(id) {
 	this->setHealth(3);
 	this->setScalable(true);
 	this->setScale(2);
+}
+
+void Player::start() {
 
 	EventSingleton::get_instance().setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Player::onCollisionBeginEvent));
 	EventSingleton::get_instance().setEventCallback<OnCollisionEndEvent>(BIND_EVENT_FN(Player::onCollisionEndEvent));
 	EventSingleton::get_instance().setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Player::onKeyPressed));
 	EventSingleton::get_instance().setEventCallback<KeyReleasedEvent>(BIND_EVENT_FN(Player::onKeyReleased));
+
+}
+
+void Player::stop() {
+
+	EventSingleton::get_instance().unSubscribe<OnCollisionBeginEvent>(BIND_EVENT_FN(Player::onCollisionBeginEvent));
+	EventSingleton::get_instance().unSubscribe<OnCollisionEndEvent>(BIND_EVENT_FN(Player::onCollisionEndEvent));
+	EventSingleton::get_instance().unSubscribe<KeyPressedEvent>(BIND_EVENT_FN(Player::onKeyPressed));
+	EventSingleton::get_instance().unSubscribe<KeyReleasedEvent>(BIND_EVENT_FN(Player::onKeyReleased));
 }
 
 /// @brief 

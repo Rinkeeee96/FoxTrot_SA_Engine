@@ -53,15 +53,18 @@ void Level::start() {
 	for (const auto& s : sounds) {
 		EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent(s.first));
 	}
+	this->player->start();
 }
 
 void Level::onUpdate() {
 	if (this->win) {
 		SceneSwitcher::get_instance().switchToScene("WIN_SCREEN", false);
+		this->player->stop();
 		return;
 	}
 	if (player->getIsDead()) {
 		SceneSwitcher::get_instance().switchToScene("DEAD_SCREEN", false);
+		this->player->stop();
 		return;
 	}
 
