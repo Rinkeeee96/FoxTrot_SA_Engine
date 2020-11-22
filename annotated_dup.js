@@ -53,6 +53,7 @@ var annotated_dup =
     [ "PlaySoundEffectEvent", "class_play_sound_effect_event.html", "class_play_sound_effect_event" ],
     [ "Pointf", "struct_pointf.html", "struct_pointf" ],
     [ "Position", "struct_position.html", "struct_position" ],
+    [ "RemoveEvent", "class_remove_event.html", "class_remove_event" ],
     [ "Scene", "class_scene.html", "class_scene" ],
     [ "SceneManager", "class_scene_manager.html", "class_scene_manager" ],
     [ "SoundAttachEvent", "class_sound_attach_event.html", "class_sound_attach_event" ],

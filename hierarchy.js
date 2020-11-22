@@ -36,6 +36,7 @@ var hierarchy =
         [ "OnCollisionBeginEvent", "class_on_collision_begin_event.html", null ],
         [ "OnCollisionEndEvent", "class_on_collision_end_event.html", null ]
       ] ],
+      [ "RemoveEvent", "class_remove_event.html", null ],
       [ "VideoLoadSpriteEvent", "class_video_load_sprite_event.html", null ],
       [ "WindowCloseEvent", "class_window_close_event.html", null ],
       [ "WindowResizeEvent", "class_window_resize_event.html", null ]

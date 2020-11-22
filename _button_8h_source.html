@@ -98,16 +98,19 @@ $(document).ready(function(){initNavTree('_button_8h_source.html',''); initResiz
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    API <span class="keywordtype">bool</span> <a class="code" href="class_button.html#a9827fc2e266ef038e1bdf2d684741789">mouseOver</a>(<a class="code" href="class_event.html">Event</a>&amp; event);</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    API <span class="keywordtype">bool</span> <a class="code" href="class_button.html#a3533f03ddf1e648d7407d9d8f79c7059">isClicked</a>(<a class="code" href="class_event.html">Event</a>&amp; event);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">bool</span> isEnabled = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">bool</span> isMouseOver = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> onMouseOver();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">const</span> <span class="keyword">function</span>&lt;void(<span class="keywordtype">void</span>)&gt; onClick;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    API <span class="keywordtype">void</span> reset() { buttonPressed = <span class="keyword">false</span>; }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">bool</span> isEnabled = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">bool</span> isMouseOver = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">bool</span> buttonPressed = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> onMouseOver();</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="struct_colored_text.html">ColoredText</a> text;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">const</span> <span class="keyword">function</span>&lt;void(<span class="keywordtype">void</span>)&gt; onClick;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="struct_colored_text.html">ColoredText</a> text;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;};</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_button_html_a3533f03ddf1e648d7407d9d8f79c7059"><div class="ttname"><a href="class_button.html#a3533f03ddf1e648d7407d9d8f79c7059">Button::isClicked</a></div><div class="ttdeci">API bool isClicked(Event &amp;event)</div><div class="ttdoc">A function to handle a mouse click on a button.</div><div class="ttdef"><b>Definition:</b> Button.cpp:27</div></div>
