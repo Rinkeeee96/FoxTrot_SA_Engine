@@ -22,14 +22,14 @@ void WinScreen::onAttach()
 void WinScreen::LoadButtons() {
 	auto mainSprite = new SpriteObject(-602, 40, 116, 1, 300, "Assets/Buttons/btn_gray_round.png");
 
-	Button* overBtn = new Button(-700, ColoredText("Overworld", Color(0, 0, 0)), BIND_FN(onOverworldBtnClick));
+	overBtn = new Button(-700, ColoredText("Overworld", Color(0, 0, 0)), BIND_FN(onOverworldBtnClick));
 	overBtn->setPositionX(CENTER_X - overBtn->getWidth() / 2);
 	overBtn->setPositionY(CENTER_Y - overBtn->getHeight() / 2);
 	overBtn->setSize(200, 50);
 	overBtn->registerSprite(SpriteState::DEFAULT, mainSprite);
 	overBtn->changeToState(SpriteState::DEFAULT);
 
-	Button* mainBtn = new Button(-701, ColoredText("Hoofdmenu", Color(0, 0, 0)), BIND_FN(OnMainBtnClick));
+	mainBtn = new Button(-701, ColoredText("Hoofdmenu", Color(0, 0, 0)), BIND_FN(OnMainBtnClick));
 	mainBtn->setPositionX(CENTER_X - mainBtn->getWidth() / 2);
 	mainBtn->setPositionY(CENTER_Y - mainBtn->getHeight() / 2 + 200);
 	mainBtn->setSize(200, 50);
@@ -100,6 +100,8 @@ void WinScreen::LoadMusic() {
 /// Create the sounds for this scene
 void WinScreen::start()
 {
+	overBtn->reset();
+	mainBtn->reset();
 	//EventSingleton::get_instance().dispatchEvent<PlaySoundEffectEvent>((Event&)PlaySoundEffectEvent("APPLAUSE_SOUND"));
 	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("WIN_SOUND"));
 }

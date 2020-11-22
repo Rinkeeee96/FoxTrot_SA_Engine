@@ -24,6 +24,6 @@ private:
 	Player* player = nullptr;
 	bool win = false;
 
-	int startPosPlayerX = 0;
-	int startPosPlayerY = 0;
+	float startPosPlayerX = 0;
+	float startPosPlayerY = 0;
 };

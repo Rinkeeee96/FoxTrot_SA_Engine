@@ -34,13 +34,16 @@ public:
 
 	API bool mouseOver(Event& event);
 	API bool isClicked(Event& event);
+	API void reset() { buttonPressed = false; }
 private:
 	bool isEnabled = true;
 	bool isMouseOver = false;
+	bool buttonPressed = false;
 	void onMouseOver();
 
 	const function<void(void)> onClick;
 
 	ColoredText text;
 };
+
 
