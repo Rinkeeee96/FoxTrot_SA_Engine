@@ -14,8 +14,6 @@ void DeadScreen::onAttach()
 	loadButtons();
 	loadBackground();
 	loadMusic();
-	startBtn->reset();
-	mainBtn->reset();
 }
 
 /// @brief 
@@ -92,6 +90,8 @@ void DeadScreen::loadMusic() {
 /// Create the sounds for this scene
 void DeadScreen::start()
 {
+	startBtn->reset();
+	mainBtn->reset();
 	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("DEAD_SOUND"));
 }
 

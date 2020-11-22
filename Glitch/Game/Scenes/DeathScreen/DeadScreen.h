@@ -22,8 +22,8 @@ private:
 	void onReStartBtnClick();
 	void onOverworldBtnClick();
 	
-	Button* startBtn;
-	Button* mainBtn;
+	Button* startBtn = nullptr;
+	Button* mainBtn = nullptr;
 };
 
 inline DeadScreen::~DeadScreen()
