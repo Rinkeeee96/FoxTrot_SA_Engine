@@ -1,7 +1,6 @@
 #pragma once
-#include <unordered_map>
 #include "ISoundFacade.h"
-#include "SceneManager/Object.h"
+#include "SceneManager/Objects/Object.h"
 
 #define EXAMPLE_SOUND	"Assets/Sound/b423b42.wav"
 #define EXAMPLE_SPRITE  "Assets/Sprites/simple.png"
@@ -33,7 +32,7 @@ public:
 	void PlayEffect(const string& identifier, const int volume);
 	void LoadEffect(const string& identifier);
 	void UnloadEffect(const string& identifier);
-	void StartLoopedEffect(const string& effect);
+	void StartLoopedEffect(const string& effect, const int volume);
 	void StopLoopedEffect(const string& identifier);
 	void LoadMusic(const string& identifier);
 	void PlayMusic(const int volume);

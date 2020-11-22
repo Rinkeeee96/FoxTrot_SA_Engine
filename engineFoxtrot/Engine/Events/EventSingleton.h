@@ -1,7 +1,7 @@
 #pragma once
 #include "Event.h"
-
-using EventCallbackFn = function<void(Event&)>;
+#include <memory>
+using EventCallbackFn = function<bool(Event&)>;
 
 #define BIND_EVENT_FN(x) bind(&x, this, placeholders::_1)
 
@@ -24,12 +24,30 @@ public:
     template<typename T>
     void dispatchEvent(Event& event) {
         static_assert(is_base_of<Event, T>::value, "dispatchEvent Assert fail: Make sure the event that is fired and the Template Type is the same");
-        // Contains element 
-        string typeName = typeid(T).name();
-        if (handlers.count(typeName) > 0) {
-            for (auto handler : handlers.at(typeName)) {
-                handler(event);
+        string name;
+        bool handled = false;
+        if (handlerExists<T>(name)) {
+            for (auto handler : handlers.at(name)) {
+                // TODO how should keypressed events be handled,
+                // e.g a key is pressed but 
+                if (!handled) 
+                    handled = handler(event);
+   
+                if (handled) 
+                    return;
+                    
             }
+        }
+    }
+
+    template<typename T>
+    void unSubscribe(const EventCallbackFn& callbackToRemove) {
+        static_assert(is_base_of<Event, T>::value, "unSubscribe Assert fail: Make sure the event that is fired and the Template Type is the same");
+        string name;
+        if (handlerExists<T>(name)) {
+            for (const EventCallbackFn& registeredCallback : handlers.at(name))
+                if (addressof(callbackToRemove) == addressof(registeredCallback))
+                    handlers.erase(name);
         }
     }
 
@@ -42,19 +60,25 @@ public:
     void setEventCallback(const EventCallbackFn& callback) {
         static_assert(std::is_base_of<Event, T>::value, "setEventCallback Assert fail: Make sure the event in the param of callback is the same as the Template Type");
         // Contains element 
-        string typeName = typeid(T).name();
-        if(handlers.count(typeName) > 0) { 
-            handlers[typeName].push_back(callback);
+        string name;
+        if(handlerExists<T>(name)) { 
+            handlers[name].push_back(callback);
         }
         // Create new vector
         else {
-            handlers[typeName].push_back({ callback });
+            handlers[name].push_back({ callback });
         }
     }
 
 private:
     map<string, vector<EventCallbackFn>> handlers = map<string, vector<EventCallbackFn>>();
     static EventSingleton instance;
+
+    template<typename T>
+    bool handlerExists(string& name) {
+        name = typeid(T).name();
+        return handlers.count(name) > 0;
+    }
 
     EventSingleton() {}
 };

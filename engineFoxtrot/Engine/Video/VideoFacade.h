@@ -28,15 +28,23 @@ public:
 	void clearScreen();
 	void drawScreen();
 	void loadImage(const SpriteObject& spriteObject);
-	void renderCopy(Object& object);
+	void renderCopy(Drawable& object);
 
-	void drawParticle(ParticleData data, int spriteID);
+	void drawParticle(const ParticleData& data, int spriteID);
 
-	void drawMessageAt(const FpsMessage message, const TextPosition pos);
+	void drawMessageAt(const ColoredText& message, const Position& pos, const ObjectSize& target);
 
 	unordered_map<int, SDL_Texture*> textureMap;
 
+	void setXCameraOffset(int x) override { xCameraOffset = x; }
+	void setYCameraOffset(int y) override { yCameraOffset = y; }
+	int getXCameraOffset() const { return xCameraOffset; };
+	int getYCameraOffset() const { return yCameraOffset; };
+
 private:
+	int xCameraOffset = 0;
+	int yCameraOffset = 0;
+
 	SDL_Renderer* renderer;
 	SDL_Window* window;
 	TTF_Font* Sans;

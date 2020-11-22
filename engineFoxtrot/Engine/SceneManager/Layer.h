@@ -1,8 +1,10 @@
 #pragma once
-#include "Object.h"
+#include "Objects/Object.h"
 
 struct Layer
 {
+	bool visible = true;
 	bool render = false;
-	vector<Object*> objects;
+	bool renderPhysics = false;
+	map<int, Object*> objects;
 };

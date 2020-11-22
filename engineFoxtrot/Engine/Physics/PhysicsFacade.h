@@ -14,7 +14,7 @@
 #define TIMESTEP_FRAMES 60.0f
 
 #define INCREASE_JUMP_SPEED 10
-#define GRAVITY_FALL 80.0f // So when I said gravity is (0,80) that means gravity is applied at a rate of 80 pixels along the y axis per second.
+#define GRAVITY_FALL 9.8f // So when I said gravity is (0,80) that means gravity is applied at a rate of 80 pixels along the y axis per second.
 #define GRAVITY_SCALE 0.0f
 
 #define X_AXIS_STATIC 0
@@ -45,9 +45,11 @@ public:
 	void MoveLeft(const int objectId) override;
 	void MoveRight(const int objectId) override;
 	void Jump(const int objectId) override;
+	void Fall(const int objectId) override;
 
 	CollisionStruct getObjectsByFixture(b2Fixture* fixture1, b2Fixture* fixture2);
 	void update() override;
+	void stopObject(int objectId);
 	void cleanMap();
 
 private:

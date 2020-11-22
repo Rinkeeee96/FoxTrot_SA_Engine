@@ -6,8 +6,8 @@
 /// MouseButtonPressedEvent is triggerd when a mouse button is pressed.  Derived class of MouseButtonEvent.
 class MouseButtonPressed : public MouseButtonEvent
 {
-	MouseButtonPressed(const MouseCode code) : MouseButtonEvent(code) {}
 public:
+	MouseButtonPressed(MouseCode code) : MouseButtonEvent(code) {}
 	/// @brief
 	/// MouseButtonPressed to string
 	/// @return string with the realesed button

@@ -1,0 +1,29 @@
+#pragma once
+
+#include <vector> 
+#include <iostream>
+#include <math.h>
+#include <thread>
+#include <assert.h>
+#include <chrono>
+#include <future>
+#include <string>
+#include <memory>
+#include <unordered_map>
+#include <map>
+#include <sstream>
+#include <functional>
+#include <type_traits>
+#include <filesystem>
+#include <algorithm>
+#include <ctime>
+#include "api.h"
+
+
+#include "SceneSwitcher/SceneSwitcher.h"
+#include "SceneManager/Objects/Button.h"
+#include "SceneSwitcher/SceneSwitcher.h"
+#include "Game/SaveGame/Savegame.h"
+
+
+using namespace std;

@@ -1,10 +1,9 @@
 #pragma once
-// TODO wrong way to include event, identify why it breaks
-#include "Events/Event.h"
+#include "Events\EventSingleton.h"
 #include "Events/Action/ActionEvent.h"
 #include "IPhysicsFacade.h"
 
-#include "../SceneManager/Scene.h"
+#include "SceneManager/Scene.h"
 
 class API PhysicsEngine
 {
@@ -14,8 +13,10 @@ public:
 
 	void registerObjectInCurrentVectorWithPhysicsEngine();
 
-	void handleAction(Event& event);
-	void update30(Event& tick30Event);
+	bool handleAction(Event& event);
+	bool stopObject(Event& event);
+	bool update30(Event& tick30Event);
+	bool removeObject(Event& event);
 
 	//Set to private after testing!!!
 	IPhysicsFacade* physicsFacade;
@@ -25,5 +26,4 @@ private:
 
 	// CurrentScene is stored because if this changes then the objects need to be reset.
 	int currentSceneID = 0;
-	Object* getObject(const int objectId);
 };
