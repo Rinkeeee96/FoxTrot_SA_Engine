@@ -27,6 +27,8 @@ private:
 	void onStopBtnClick();
 	void onCreditsBtnClick();
 	void onLoadBtnClick();
+	Button* level1Btn;
+	Button* stopBtn;
 };
 
 inline Overworld::~Overworld()

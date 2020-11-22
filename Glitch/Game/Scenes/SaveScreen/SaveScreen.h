@@ -29,5 +29,10 @@ private:
 	void onSave3BtnClick();
 	void onStopBtnClick();
 
+	Button* save1;
+	Button* save2;
+	Button* save3;
+	Button* stopBtn;
+
 };
 

@@ -24,6 +24,10 @@ void SaveScreen::onDetach()
 
 void SaveScreen::start()
 {
+	save1->reset();
+	save2->reset();
+	save3->reset();
+	stopBtn->reset();
 	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("MENU_SOUND"));
 }
 

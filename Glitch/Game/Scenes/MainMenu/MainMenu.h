@@ -23,6 +23,8 @@ private:
 	void onStopBtnClick();
 	void onCreditsBtnClick();
 	void onLoadBtnClick();
+	Button* startBtn;
+	Button* stopBtn;
 };
 
 inline MainMenu::~MainMenu()

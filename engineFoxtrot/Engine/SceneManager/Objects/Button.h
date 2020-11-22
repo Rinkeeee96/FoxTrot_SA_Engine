@@ -34,6 +34,7 @@ public:
 
 	API bool mouseOver(Event& event);
 	API bool isClicked(Event& event);
+	API void reset() { buttonPressed = false; }
 private:
 	bool isEnabled = true;
 	bool isMouseOver = false;

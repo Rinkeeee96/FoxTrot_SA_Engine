@@ -14,6 +14,8 @@ void DeadScreen::onAttach()
 	loadButtons();
 	loadBackground();
 	loadMusic();
+	startBtn->reset();
+	mainBtn->reset();
 }
 
 /// @brief 
@@ -21,14 +23,14 @@ void DeadScreen::onAttach()
 void DeadScreen::loadButtons() {
 	auto mainSprite = new SpriteObject(-601, 40, 116, 1, 300, "Assets/Buttons/btn_gray_round.png");
 
-	Button* startBtn = new Button(-600, ColoredText("Restart", Color(0, 0, 0)), BIND_FN(onReStartBtnClick));
+	startBtn = new Button(-600, ColoredText("Restart", Color(0, 0, 0)), BIND_FN(onReStartBtnClick));
 	startBtn->setPositionX(CENTER_X - startBtn->getWidth() / 2);
 	startBtn->setPositionY(CENTER_Y - startBtn->getHeight() / 2);
 	startBtn->setSize(200, 50);
 	startBtn->registerSprite(SpriteState::DEFAULT, mainSprite);
 	startBtn->changeToState(SpriteState::DEFAULT);
 
-	Button* mainBtn = new Button(-601, ColoredText("Overworld", Color(0, 0, 0)), BIND_FN(onOverworldBtnClick));
+	mainBtn = new Button(-601, ColoredText("Overworld", Color(0, 0, 0)), BIND_FN(onOverworldBtnClick));
 	mainBtn->setPositionX(CENTER_X - mainBtn->getWidth() / 2);
 	mainBtn->setPositionY(CENTER_Y - mainBtn->getHeight() / 2 + 100);
 	mainBtn->setSize(200, 50);
