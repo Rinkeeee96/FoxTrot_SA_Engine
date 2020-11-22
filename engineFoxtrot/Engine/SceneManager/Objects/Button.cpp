@@ -25,7 +25,7 @@ bool Button::mouseOver(Event& event) {
 /// The mouse pressed event for the mouse type. 
 /// @return 
 bool Button::isClicked(Event& event) {
-	if (!isClicked) {
+	if (!buttonPressed) {
 		auto& mousePressedEvent = static_cast<MouseButtonPressed&>(event);
 		MouseCode pressedBtn = mousePressedEvent.GetButton();
 		// TODO expand functionallity, buttons only handle a primary "left click" for now

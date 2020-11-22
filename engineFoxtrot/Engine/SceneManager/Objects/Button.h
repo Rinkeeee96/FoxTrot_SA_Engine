@@ -37,7 +37,7 @@ public:
 private:
 	bool isEnabled = true;
 	bool isMouseOver = false;
-	bool isPressed = false;
+	bool buttonPressed = false;
 	void onMouseOver();
 
 	const function<void(void)> onClick;
