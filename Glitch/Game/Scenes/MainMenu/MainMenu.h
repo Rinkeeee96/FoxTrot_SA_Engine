@@ -25,8 +25,6 @@ private:
 	void onLoadBtnClick();
 	Button* startBtn = nullptr;
 	Button* stopBtn = nullptr;
-
-	bool isPressed = false;
 };
 
 inline MainMenu::~MainMenu()
