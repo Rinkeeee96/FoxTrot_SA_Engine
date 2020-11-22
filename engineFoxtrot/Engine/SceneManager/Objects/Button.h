@@ -37,10 +37,12 @@ public:
 private:
 	bool isEnabled = true;
 	bool isMouseOver = false;
+	bool isPressed = false;
 	void onMouseOver();
 
 	const function<void(void)> onClick;
 
 	ColoredText text;
 };
+
 
