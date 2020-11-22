@@ -97,6 +97,7 @@ void MainMenu::start()
 {
 	startBtn->reset();
 	stopBtn->reset();
+	isPressed = false;
 	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("MENU_SOUND"));
 }
 
@@ -118,7 +119,11 @@ void MainMenu::onDetach()
 /// Start transition scene to OVERWORLD
 void MainMenu::onStartBtnClick()
 {
-	SceneSwitcher::get_instance().switchToScene("LOADSCREEN", false);
+	if (!isPressed)
+	{
+		SceneSwitcher::get_instance().switchToScene("LOADSCREEN", false);
+		isPressed = true;
+	}
 }
 
 
