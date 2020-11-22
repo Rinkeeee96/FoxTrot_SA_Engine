@@ -20,7 +20,7 @@ void Overworld::onAttach()
 /// Loads all the buttons in the Overworld
 void Overworld::loadButtons() {
 
-	Button* level1Btn = new PrimaryButton(1, "Level 1", BIND_FN(onLevel1BtnClick));
+	level1Btn = new PrimaryButton(1, "Level 1", BIND_FN(onLevel1BtnClick));
 	level1Btn->setPositionX(280);
 	level1Btn->setPositionY(1060);
 
@@ -29,8 +29,7 @@ void Overworld::loadButtons() {
 	level2Btn->setPositionX(710);
 	level2Btn->setPositionY(890);
 	*/
-	Button* stopBtn = new SecondaryButton(3, "To Main Menu", BIND_FN(onStopBtnClick));
-
+	stopBtn = new SecondaryButton(3, "To Main Menu", BIND_FN(onStopBtnClick));
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
@@ -59,13 +58,15 @@ void Overworld::loadBackground() {
 
 /// @brief 
 void Overworld::loadMusic() {
-
+	EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent("OVER_WORLD", "Assets/Sound/file_example_WAV_1MG.wav"));
 }
 
 /// @brief 
 void Overworld::start()
 {
-
+	level1Btn->reset();
+	stopBtn->reset();
+	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("OVER_WORLD"));
 }
 
 /// @brief 
@@ -76,6 +77,7 @@ void Overworld::onUpdate()
 /// @brief 
 void Overworld::onDetach()
 {
+	EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent("OVER_WORLD"));
 	Scene::onDetach();
 }
 

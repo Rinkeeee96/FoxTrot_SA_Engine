@@ -48,7 +48,7 @@ PhysicsBody* PhysicsFacade::getPhysicsObject(const int objectId)
 			return value.first;
 		}
 	}
-	throw PHYSICS_FACADE_OBJECT_DOESNT_EXIST;
+	return nullptr;
 }
 
 /// @brief 
@@ -122,7 +122,7 @@ b2Body* PhysicsFacade::findBody(const int objectId) {
 			return value.second;
 		}
 	}
-	throw PHYSICS_FACADE_BODY_DOESNT_EXIST;
+	return nullptr;
 }
 
 /// @brief 
@@ -157,6 +157,7 @@ void PhysicsFacade::update() {
 void PhysicsFacade::stopObject(int objectId) {
 	b2Body* body = findBody(objectId);
 	const PhysicsBody* ob = getPhysicsObject(objectId);
+	if (!body || !ob) return;
 	b2Vec2 vel = body->GetLinearVelocity();
 	vel.y = ob->getYAxisVelocity();
 	vel.x = 0;
@@ -171,6 +172,7 @@ void PhysicsFacade::MoveLeft(const int objectId)
 {
 	b2Body* body = findBody(objectId);
 	const PhysicsBody* ob = getPhysicsObject(objectId);
+	if (!body || !ob) return;
 
 	b2Vec2 vel = body->GetLinearVelocity();
 	vel.y = ob->getYAxisVelocity();
@@ -186,6 +188,7 @@ void PhysicsFacade::MoveRight(const int objectId)
 {
 	b2Body* body = findBody(objectId);
 	const PhysicsBody* ob = getPhysicsObject(objectId);
+	if (!body || !ob) return;
 
 	b2Vec2 vel = body->GetLinearVelocity();
 	vel.y = ob->getYAxisVelocity();
@@ -201,6 +204,7 @@ void PhysicsFacade::Jump(const int objectId)
 {
   	b2Body* body = findBody(objectId);
 	const PhysicsBody* ob = getPhysicsObject(objectId);
+	if (!body || !ob) return;
 
 	b2Vec2 vel = body->GetLinearVelocity();
 	vel.y = ob->getJumpHeight() * -1;
@@ -215,6 +219,7 @@ void PhysicsFacade::Fall(const int objectId)
 {
 	b2Body* body = findBody(objectId);
 	const PhysicsBody* ob = getPhysicsObject(objectId);
+	if (!body || !ob) return;
 
 	b2Vec2 vel = body->GetLinearVelocity();
 	vel.y = ob->getJumpHeight() * 1;

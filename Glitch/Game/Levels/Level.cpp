@@ -51,8 +51,8 @@ void Level::onAttach() {
 /// @brief
 /// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
 void Level::start() {
-	player->setPositionX(98.8484848484848);
-	player->setPositionY(552.871212121211);
+	player->setPositionX(50);
+	player->setPositionY(885);
 	player->setHealth(100);
 
 	this->setObjectToFollow(this->follow);
@@ -64,6 +64,8 @@ void Level::start() {
 void Level::onUpdate() {
 	if (this->win) {
 		SceneSwitcher::get_instance().switchToScene("WIN_SCREEN", false);
+		player->kill();
+		this->win = false;
 		return;
 	}
 	if (player->getIsDead()) {
@@ -80,7 +82,8 @@ void Level::onUpdate() {
 				if (character->getIsDead() && !character->getIsRemoved()) {
 					// TODO Death animation
 					object->setIsRemoved(true);
-					//removeObjectFromScene(object);
+					removeObjectFromScene(object);
+					EventSingleton::get_instance().dispatchEvent<RemoveEvent>((Event&)RemoveEvent());
 				}
 			}
 		}

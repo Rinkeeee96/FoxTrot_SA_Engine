@@ -24,6 +24,8 @@ private:
 
 	int animationTick = 0;
 	Drawable* animation = nullptr;
+	Button* overBtn = nullptr;
+	Button* mainBtn = nullptr;
 };
 
 inline WinScreen::~WinScreen()
