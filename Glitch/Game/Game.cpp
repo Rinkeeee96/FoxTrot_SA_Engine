@@ -33,7 +33,7 @@ void Game::run() {
 		SaveScreen* saveScreen = new SaveScreen(sceneId++);
 		SceneSwitcher::get_instance().registerScene("LOADSCREEN", saveScreen);
 
-		SceneSwitcher::get_instance().switchToScene("MAIN_MENU", false);
+		currentScene = unique_ptr<Scene>(mainMenu);
 		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
 	}
 	catch (exception e) {
@@ -64,8 +64,7 @@ void Game::run() {
 			EventSingleton::get_instance().dispatchEvent<AppTickEvent30>(appTick30);
 
 			// TODO get only the non static objects, without looping thru them again and again
-			auto scene = engine.getCurrentScene();
-			scene->onUpdate();
+			if(currentScene)currentScene->onUpdate();
 
 			this_thread::sleep_for(chrono::milliseconds(10));
 		}
