@@ -1,12 +1,12 @@
 #pragma once
 #include "api.h"
 #include "SceneManager/Objects/Button.h"
-#include "sceneSwitcher/SceneSwitcher.h"
+#include "Game/Scenes/GameScene.h"
 
-class DeadScreen : public Scene
+class DeadScreen : public GameScene
 {
 public:
-	DeadScreen(const int id) : Scene(id, WINDOW_HEIGHT, WINDOW_WIDTH){};
+	DeadScreen(const int id) : GameScene(id) {};
 	~DeadScreen();
 	// Inherited via Scene
 	void onAttach() override;

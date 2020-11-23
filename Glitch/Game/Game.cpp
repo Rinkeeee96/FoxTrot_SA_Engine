@@ -8,7 +8,48 @@ bool Game::stopRun(Event& event) {
 
 Game::Game()
 {
-	SceneSwitcher::get_instance().setEngine(&engine);
+}
+
+void Game::switchToScene(string const identifier, bool useTransitionScreen) {
+	if (DEBUG_MAIN) { useTransitionScreen = false; }
+
+	auto scene = scenes.find(identifier);
+	if (scene == scenes.end())
+		throw exception("Scene is end()");
+	//TODO start transitiescreen
+
+	auto transScene = scenes.find("GENERAL_TRANSITION_SCENE");
+	bool transitionSceneAvailable = true;
+	transScene == scenes.end() ? transitionSceneAvailable = false : transitionSceneAvailable = true;
+
+	if (!currentlyRunningTransition && useTransitionScreen && transitionSceneAvailable)
+	{
+		currentlyRunningTransition = true;
+		engine.setCurrentScene(scenes["GENERAL_TRANSITION_SCENE"]->getSceneID());
+		scene = scenes.find("GENERAL_TRANSITION_SCENE");
+		((GeneralTransition*)scene->second)->setNextScene(identifier);
+	}
+	else
+	{
+		engine.setCurrentScene(scene->second->getSceneID());
+		currentlyRunningTransition = false;
+	}
+
+	cout << "Setting current Scene to: " << engine.getCurrentScene()->getSceneID() << endl;
+
+	// Detach the old now inactive scene
+	if (currentScene != nullptr)
+	{
+		currentScene->onDetach();
+	}
+
+	scene->second->onAttach();
+	scene->second->start();
+
+	// Set the new scene active
+	currentScene = scene->second;
+
+	
 }
 
 void Game::run() {
@@ -16,24 +57,30 @@ void Game::run() {
 		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
 
 		MainMenu* mainMenu = new MainMenu(sceneId++);
-		SceneSwitcher::get_instance().registerScene("MAIN_MENU", mainMenu);
+		mainMenu->registerGame(this);
+		registerScene("MAIN_MENU", mainMenu);
 
 		GeneralTransition* generalTransitionScene = new GeneralTransition(sceneId++);
-		SceneSwitcher::get_instance().registerScene("GENERAL_TRANSITION_SCENE", generalTransitionScene);
+		registerScene("GENERAL_TRANSITION_SCENE", generalTransitionScene);
+		generalTransitionScene->registerGame(this);
 		
 		Overworld* overWorld = new Overworld(sceneId++);
-		SceneSwitcher::get_instance().registerScene("OVERWORLD", overWorld);
+		registerScene("OVERWORLD", overWorld);
+		overWorld->registerGame(this);
 
 		DeadScreen* deadScreen = new DeadScreen(sceneId++);
-		SceneSwitcher::get_instance().registerScene("DEAD_SCREEN", deadScreen);
+		registerScene("DEAD_SCREEN", deadScreen);
+		deadScreen->registerGame(this);
 
 		WinScreen* winScreen = new WinScreen(sceneId++);
-		SceneSwitcher::get_instance().registerScene("WIN_SCREEN", winScreen);
+		registerScene("WIN_SCREEN", winScreen);
+		winScreen->registerGame(this);
 
 		SaveScreen* saveScreen = new SaveScreen(sceneId++);
-		SceneSwitcher::get_instance().registerScene("LOADSCREEN", saveScreen);
+		registerScene("LOADSCREEN", saveScreen);
+		saveScreen->registerGame(this);
 
-		currentScene = unique_ptr<Scene>(mainMenu);
+		switchToScene("MAIN_MENU",false);
 		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
 	}
 	catch (exception e) {
@@ -46,7 +93,8 @@ void Game::run() {
 	try {
 		levelLoader.load("Assets/Levels/Maps/Level1.json", &levelOneBuilder);
 		auto level = levelOneBuilder.getLevel();
-		SceneSwitcher::get_instance().registerScene("LEVEL_1", level);
+		registerScene("LEVEL_1", level);
+		level->registerGame(this);
 	}
 	catch (exception e) {
 		cout << e.what() << endl;

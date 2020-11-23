@@ -3,6 +3,7 @@
 #include "Game/SpriteState.h"
 #include "Game/Buttons/PrimaryButton.h"
 #include "Game/Buttons/SecondaryButton.h"
+#include "Game/Game.h"
 
 #define BIND_FN(function) std::bind(&MainMenu::function, *this)
 
@@ -118,7 +119,7 @@ void MainMenu::onDetach()
 /// Start transition scene to OVERWORLD
 void MainMenu::onStartBtnClick()
 {
-	SceneSwitcher::get_instance().switchToScene("LOADSCREEN", false);
+	game->switchToScene("LOADSCREEN", false);
 }
 
 

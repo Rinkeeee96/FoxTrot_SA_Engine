@@ -1,13 +1,13 @@
 #pragma once
-#include "SceneSwitcher/SceneSwitcher.h"
+#include "Game/Scenes/GameScene.h"
 #include "Game/Levels/LoadLevelFacade.h"
 
 /// @brief 
 /// Overworld level
-class Overworld : public Scene
+class Overworld : public GameScene
 {
 public:
-	Overworld(const int id) : Scene(id, WINDOW_HEIGHT, WINDOW_WIDTH) {};
+	Overworld(const int id) : GameScene(id) {};
 	~Overworld();
 	// Inherited via Scene
 	void onAttach() override;

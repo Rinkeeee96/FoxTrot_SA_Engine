@@ -4,6 +4,7 @@
 #include "Game/SpriteState.h"
 #include "Game/Buttons/PrimaryButton.h"
 #include "Game/Buttons/SecondaryButton.h"
+#include "Game/Game.h"
 
 #define BIND_FN(function) std::bind(&WinScreen::function, *this)
 
@@ -117,14 +118,14 @@ void WinScreen::onDetach()
 /// Remove the sounds of the soundengine
 void WinScreen::OnMainBtnClick()
 {
-	SceneSwitcher::get_instance().switchToScene("MAIN_MENU", false);
+	game->switchToScene("MAIN_MENU", false);
 }
 
 /// @brief 
 /// A callback function for overworldBTN
 /// Start transition scene to overworld
 void WinScreen::onOverworldBtnClick() {
-	SceneSwitcher::get_instance().switchToScene("OVERWORLD", false);
+	game->switchToScene("OVERWORLD", false);
 }
 
 /// @brief 

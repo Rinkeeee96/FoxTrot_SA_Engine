@@ -1,15 +1,15 @@
 #pragma once
 
-#include "SceneSwitcher/SceneSwitcher.h"
+#include "Game/Scenes/GameScene.h"
 #include "Game/Buttons/PrimaryButton.h"
 #include "Game/Buttons/SecondaryButton.h"
 
 
 
-class SaveScreen : public Scene
+class SaveScreen : public GameScene
 {
 public:
-	SaveScreen(const int id) : Scene(id, WINDOW_HEIGHT, WINDOW_WIDTH) {};
+	SaveScreen(const int id) : GameScene(id) {};
 	~SaveScreen() {};
 
 	// Inherited via Scene

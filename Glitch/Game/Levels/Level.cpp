@@ -1,17 +1,18 @@
 #include "pch.h"
 #include "Level.h"
+#include "Game/Game.h"
 
 /// @brief 
 /// @param sceneID 
 /// @param _sounds this contains the sounds for the level with identifier and filepath
 Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, map<string, string> _sounds = map<string, string>()) : 
-	Scene::Scene(id, _sceneHeight, _sceneWidth), 
+	GameScene::GameScene(id, _sceneHeight, _sceneWidth),
 	sounds(_sounds)
 {
 
 }
 
-Level::Level(const int id, const int _sceneHeight, const int _sceneWidth) : Scene::Scene(id, _sceneHeight, _sceneWidth)
+Level::Level(const int id, const int _sceneHeight, const int _sceneWidth) : GameScene::GameScene(id, _sceneHeight, _sceneWidth)
 {
 
 }
@@ -63,13 +64,13 @@ void Level::start() {
 
 void Level::onUpdate() {
 	if (this->win) {
-		SceneSwitcher::get_instance().switchToScene("WIN_SCREEN", false);
+		game->switchToScene("WIN_SCREEN", false);
 		player->kill();
 		this->win = false;
 		return;
 	}
 	if (player->getIsDead()) {
-		SceneSwitcher::get_instance().switchToScene("DEAD_SCREEN", false);
+		game->switchToScene("DEAD_SCREEN", false);
 		return;
 	}
 

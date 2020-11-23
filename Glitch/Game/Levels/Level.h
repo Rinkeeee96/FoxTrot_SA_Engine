@@ -1,9 +1,9 @@
 #pragma once
 #include "Game\Characters\Player\Player.h"
-
+#include "Game/Scenes/GameScene.h"
 /// @brief 
 /// Level class. Level has all the information. 
-class Level : public Scene
+class Level : public GameScene
 {
 public:
 	Level(const int id, const int _sceneHeight, const int _sceneWidth, map<string, string> _sounds);

@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "SaveScreen.h"
+#include "Game/Game.h"
 
 #define BIND_FN(function) std::bind(&SaveScreen::function, *this)
 
@@ -106,21 +107,21 @@ void SaveScreen::loadButtons()
 void SaveScreen::onSave1BtnClick()
 {
 	Savegame::get_instance().setCurrentGameData(1);
-	SceneSwitcher::get_instance().switchToScene("OVERWORLD", true);
+	game->switchToScene("OVERWORLD", true);
 }
 
 void SaveScreen::onSave2BtnClick()
 {
 	Savegame::get_instance().setCurrentGameData(2);
-	SceneSwitcher::get_instance().switchToScene("OVERWORLD", true);
+	game->switchToScene("OVERWORLD", true);
 }
 
 void SaveScreen::onSave3BtnClick()
 {
 	Savegame::get_instance().setCurrentGameData(3);
-	SceneSwitcher::get_instance().switchToScene("OVERWORLD", true);
+	game->switchToScene("OVERWORLD", true);
 }
 
 void SaveScreen::onStopBtnClick() {
-	SceneSwitcher::get_instance().switchToScene("MAIN_MENU",false);
+	game->switchToScene("MAIN_MENU",false);
 }

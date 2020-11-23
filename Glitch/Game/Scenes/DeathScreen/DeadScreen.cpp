@@ -3,6 +3,7 @@
 #include "Game/SpriteState.h"
 #include "Game/Buttons/PrimaryButton.h"
 #include "Game/Buttons/SecondaryButton.h"
+#include "Game/Game.h"
 
 #define BIND_FN(function) std::bind(&DeadScreen::function, *this)
 
@@ -112,7 +113,7 @@ void DeadScreen::onDetach()
 /// Start transition scene to level1
 void DeadScreen::onReStartBtnClick()
 {
-	SceneSwitcher::get_instance().switchToScene("LEVEL_1", true);
+	game->switchToScene("LEVEL_1", true);
 }
 
 
@@ -120,5 +121,5 @@ void DeadScreen::onReStartBtnClick()
 /// A callback function for overworldBTN
 /// Start transition scene to overworl
 void DeadScreen::onOverworldBtnClick() {
-	SceneSwitcher::get_instance().switchToScene("OVERWORLD", false);
+	game->switchToScene("OVERWORLD", false);
 }
