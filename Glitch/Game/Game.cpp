@@ -80,8 +80,7 @@ void Game::switchToScene(string identifier, const bool _useTransitionScreen)
 		LoadLevelFacade levelLoader{ engine };
 		LevelBuilder levelOneBuilder { engine, sceneId++ };
 		levelLoader.load("Assets/Levels/Maps/Level1.json", &levelOneBuilder);
-		shared_ptr<Scene> level = levelOneBuilder.getLevel();
-		newScene = level;
+		newScene = levelOneBuilder.getLevel();
 		break;
 	}
 	if (sceneId > 10) sceneId = 1;
@@ -95,9 +94,11 @@ void Game::switchToScene(string identifier, const bool _useTransitionScreen)
 	{
 		currentScene->onDetach();
 		engine.deRegisterScene(currentScene->getSceneID());
+		cout << "CurrenScene is still managed by: " << currentScene.use_count() << endl;
+		currentScene.reset();
+		cout << "CurrenScene is still managed by: " << currentScene.use_count() << endl;
 		currentScene = nullptr;
 	}
-
 
 	currentScene = newScene;
 
