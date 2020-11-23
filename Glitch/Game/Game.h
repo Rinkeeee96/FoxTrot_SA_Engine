@@ -46,7 +46,7 @@ private:
 
 	
 
-	Scene * currentScene;
+	shared_ptr<Scene> currentScene;
 	bool gameRunning = true;
 	int sceneId = 0;
 };

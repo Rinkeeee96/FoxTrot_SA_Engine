@@ -36,59 +36,58 @@ void Game::switchToScene(string identifier, const bool _useTransitionScreen)
 	}
 
 
-	Scene* newScene = nullptr;
+	shared_ptr<Scene> newScene = nullptr;
 	switch (sceneIdentifierToID(identifier))
 	{
 	case 0x01:
 	{
-		MainMenu* mainMenu = new MainMenu(sceneId++);
+		shared_ptr<MainMenu> mainMenu (new MainMenu(sceneId++));
 		newScene = mainMenu;
 		break;
 	}
 	case 0x02:
 	{
-		GeneralTransition* generalTransitionScene = new GeneralTransition(sceneId++);
+		shared_ptr<GeneralTransition> generalTransitionScene (new GeneralTransition(sceneId++));
 		newScene = generalTransitionScene;
 		generalTransitionScene->setNextScene(transition);
 		break;
 	}
 	case 0x03:
 	{
-		Overworld* overWorld = new Overworld(sceneId++);
+		shared_ptr<Overworld> overWorld (new Overworld(sceneId++));
 		newScene = overWorld;
 		break;
 	}
 	case 0x04:
 	{
-		DeadScreen* deadScreen = new DeadScreen(sceneId++);
+		shared_ptr<DeadScreen>deadScreen {new DeadScreen(sceneId++)};
 		newScene = deadScreen;
 		break;
 	}
 	case 0x05:
 	{
-		WinScreen* winScreen = new WinScreen(sceneId++);
+		shared_ptr<WinScreen> winScreen{ new WinScreen(sceneId++) };
 		newScene = winScreen;
 		break;
 	}
 	case 0x06:
 	{
-		SaveScreen* saveScreen = new SaveScreen(sceneId++);
+		shared_ptr<SaveScreen> saveScreen{ new SaveScreen(sceneId++) };
 		newScene = saveScreen;
 		break;
 	}
 	case 0x07:
-		LoadLevelFacade *levelLoader = new LoadLevelFacade{ engine };
-		LevelBuilder * levelOneBuilder = new LevelBuilder{ engine, sceneId++ };
-		levelLoader->load("Assets/Levels/Maps/Level1.json", levelOneBuilder);
-		auto level = levelOneBuilder->getLevel();
+		LoadLevelFacade levelLoader{ engine };
+		LevelBuilder levelOneBuilder { engine, sceneId++ };
+		levelLoader.load("Assets/Levels/Maps/Level1.json", &levelOneBuilder);
+		shared_ptr<Scene> level = levelOneBuilder.getLevel();
 		newScene = level;
-		delete levelLoader;
 		break;
 	}
 	if (sceneId > 10) sceneId = 1;
 	if (newScene == nullptr) throw exception("NewScene is Nullptr so cant set new scene");
 
-	engine.insertScene(newScene);
+	engine.insertScene(newScene.get());
 	engine.setCurrentScene(newScene->getSceneID());
 
 	// Detach and delete the old now inactive scene
@@ -96,16 +95,15 @@ void Game::switchToScene(string identifier, const bool _useTransitionScreen)
 	{
 		currentScene->onDetach();
 		engine.deRegisterScene(currentScene->getSceneID());
-		delete currentScene;
 		currentScene = nullptr;
 	}
 
 
 	currentScene = newScene;
 
-	if (currentScene && dynamic_cast<GameScene*>(currentScene))
+	if (currentScene && dynamic_cast<GameScene*>(currentScene.get()))
 	{
-		((GameScene*)currentScene)->registerGame(this);
+		((GameScene*)currentScene.get())->registerGame(this);
 	}
 
 	cout << "Setting current Scene to: " << engine.getCurrentScene()->getSceneID() << endl;
