@@ -10,32 +10,23 @@ Game::Game()
 {
 }
 
-void Game::switchToScene(string const identifier, bool useTransitionScreen) {
+int Game::sceneIdentifierToID(string& identifier)
+{
+	if (identifier == "MAIN_MENU") return 0x01;
+	if (identifier == "GENERAL_TRANSITION_SCENE") return 0x02;
+	if (identifier == "OVERWORLD") return 0x03;
+	if (identifier == "DEAD_SCREEN") return 0x04;
+	if (identifier == "WIN_SCREEN") return 0x05;
+	if (identifier == "LOADSCREEN") return 0x06;
+	if (identifier == "LEVEL_1") return 0x07;
+
+	return 0;
+}
+
+void Game::switchToScene(string identifier, const bool _useTransitionScreen)
+{
+	bool useTransitionScreen = _useTransitionScreen;
 	if (DEBUG_MAIN) { useTransitionScreen = false; }
-
-	auto scene = scenes.find(identifier);
-	if (scene == scenes.end())
-		throw exception("Scene is end()");
-	//TODO start transitiescreen
-
-	auto transScene = scenes.find("GENERAL_TRANSITION_SCENE");
-	bool transitionSceneAvailable = true;
-	transScene == scenes.end() ? transitionSceneAvailable = false : transitionSceneAvailable = true;
-
-	if (!currentlyRunningTransition && useTransitionScreen && transitionSceneAvailable)
-	{
-		currentlyRunningTransition = true;
-		engine.setCurrentScene(scenes["GENERAL_TRANSITION_SCENE"]->getSceneID());
-		scene = scenes.find("GENERAL_TRANSITION_SCENE");
-		((GeneralTransition*)scene->second)->setNextScene(identifier);
-	}
-	else
-	{
-		engine.setCurrentScene(scene->second->getSceneID());
-		currentlyRunningTransition = false;
-	}
-
-	cout << "Setting current Scene to: " << engine.getCurrentScene()->getSceneID() << endl;
 
 	// Detach the old now inactive scene
 	if (currentScene != nullptr)
@@ -43,58 +34,89 @@ void Game::switchToScene(string const identifier, bool useTransitionScreen) {
 		currentScene->onDetach();
 	}
 
-	scene->second->onAttach();
-	scene->second->start();
+	if (!currentlyRunningTransition && useTransitionScreen)
+	{
+		currentlyRunningTransition = true;
+		GeneralTransition* generalTransitionScene = new GeneralTransition(sceneId++);
+		engine.insertScene(generalTransitionScene);
+		engine.setCurrentScene(generalTransitionScene->getSceneID());
+		currentScene = generalTransitionScene;
+		generalTransitionScene->setNextScene(identifier);
+	}
+	else
+	{
+		Scene* newScene = nullptr;
+		switch (sceneIdentifierToID(identifier))
+		{
+		case 0x01:
+		{
+			MainMenu* mainMenu = new MainMenu(sceneId++);
+			newScene = mainMenu;
+			break;
+		}
+		case 0x02:
+		{
+			GeneralTransition* generalTransitionScene = new GeneralTransition(sceneId++);
+			newScene = generalTransitionScene;
+			break;
+		}
+		case 0x03:
+		{
+			Overworld* overWorld = new Overworld(sceneId++);
+			newScene = overWorld;
+			break;
+		}
+		case 0x04:
+		{
+			DeadScreen* deadScreen = new DeadScreen(sceneId++);
+			newScene = deadScreen;
+			break;
+		}
+		case 0x05:
+		{
+			WinScreen* winScreen = new WinScreen(sceneId++);
+			newScene = winScreen;
+			break;
+		}
+		case 0x06:
+		{
+			SaveScreen* saveScreen = new SaveScreen(sceneId++);
+			newScene = saveScreen;
+			break;
+		}
+		case 0x07:
+			LoadLevelFacade levelLoader{ engine };
+			LevelBuilder levelOneBuilder{ engine, sceneId++ };
+			levelLoader.load("Assets/Levels/Maps/Level1.json", &levelOneBuilder);
+			auto level = levelOneBuilder.getLevel();
+			newScene = level;
+			break;
+		}
 
-	// Set the new scene active
-	currentScene = scene->second;
+		engine.insertScene(newScene);
+		engine.setCurrentScene(newScene->getSceneID());
+		currentScene = newScene;
+		currentlyRunningTransition = false;
+	}
 
-	
+	if (currentScene && dynamic_cast<GameScene*>(currentScene))
+	{
+		((GameScene*)currentScene)->registerGame(this);
+	}
+
+	cout << "Setting current Scene to: " << engine.getCurrentScene()->getSceneID() << endl;
+
+	currentScene->onAttach();
+	currentScene->start();
+
 }
 
 void Game::run() {
 	try {
 		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
 
-		MainMenu* mainMenu = new MainMenu(sceneId++);
-		mainMenu->registerGame(this);
-		registerScene("MAIN_MENU", mainMenu);
-
-		GeneralTransition* generalTransitionScene = new GeneralTransition(sceneId++);
-		registerScene("GENERAL_TRANSITION_SCENE", generalTransitionScene);
-		generalTransitionScene->registerGame(this);
-		
-		Overworld* overWorld = new Overworld(sceneId++);
-		registerScene("OVERWORLD", overWorld);
-		overWorld->registerGame(this);
-
-		DeadScreen* deadScreen = new DeadScreen(sceneId++);
-		registerScene("DEAD_SCREEN", deadScreen);
-		deadScreen->registerGame(this);
-
-		WinScreen* winScreen = new WinScreen(sceneId++);
-		registerScene("WIN_SCREEN", winScreen);
-		winScreen->registerGame(this);
-
-		SaveScreen* saveScreen = new SaveScreen(sceneId++);
-		registerScene("LOADSCREEN", saveScreen);
-		saveScreen->registerGame(this);
-
 		switchToScene("MAIN_MENU",false);
 		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
-	}
-	catch (exception e) {
-		cout << e.what() << endl;
-		return;
-	}
-
-	LoadLevelFacade levelLoader{ engine };
-	LevelBuilder levelOneBuilder{ engine, sceneId++ };
-	try {
-		levelLoader.load("Assets/Levels/Maps/Level1.json", &levelOneBuilder);
-		auto level = levelOneBuilder.getLevel();
-		registerScene("LEVEL_1", level);
-		level->registerGame(this);
 	}
 	catch (exception e) {
 		cout << e.what() << endl;

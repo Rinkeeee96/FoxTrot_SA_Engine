@@ -12,6 +12,8 @@ public:
 	void run();
 	bool stopRun(Event& event);
 
+	int sceneIdentifierToID(string& identifier);
+	//void transitionToScene(string identifier, const bool useTransitionScreen);
 	void switchToScene(string const identifier, bool useTransitionScreen);
 
 private:
@@ -22,6 +24,13 @@ private:
 
 	void registerScene(string const identifier, Scene* scene) { 
 		if (scene == nullptr) throw exception("Scene is nullptr");
+
+		if (dynamic_cast<GameScene*>(scene))
+		{
+			cout << "Registered Game" << endl;
+			((GameScene*)scene)->registerGame(this);
+		}
+
 		engine.insertScene(scene);
 		scenes.insert(pair<string, Scene*>(identifier, scene));
 	}
@@ -30,6 +39,7 @@ private:
 	{
 		if (dynamic_cast<GameScene*>(scene))
 		{
+			cout << "Registered Game" << endl;
 			((GameScene*)scene)->registerGame(this);
 		}
 		registerScene("GENERAL_TRANSITION_SCENE", scene);
