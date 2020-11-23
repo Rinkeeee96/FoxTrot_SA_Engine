@@ -13,7 +13,6 @@ public:
 	bool stopRun(Event& event);
 
 	int sceneIdentifierToID(string& identifier);
-	//void transitionToScene(string identifier, const bool useTransitionScreen);
 	void switchToScene(string const identifier, bool useTransitionScreen);
 
 private:

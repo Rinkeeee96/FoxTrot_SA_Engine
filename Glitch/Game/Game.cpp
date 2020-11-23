@@ -86,11 +86,12 @@ void Game::switchToScene(string identifier, const bool _useTransitionScreen)
 		break;
 	}
 	if (sceneId > 10) sceneId = 1;
+	if (newScene == nullptr) throw exception("NewScene is Nullptr so cant set new scene");
 
 	engine.insertScene(newScene);
 	engine.setCurrentScene(newScene->getSceneID());
 
-	// Detach the old now inactive scene
+	// Detach and delete the old now inactive scene
 	if (currentScene != nullptr)
 	{
 		currentScene->onDetach();
@@ -115,18 +116,13 @@ void Game::switchToScene(string identifier, const bool _useTransitionScreen)
 }
 
 void Game::run() {
-	try {
-		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
-
-		switchToScene("MAIN_MENU",false);
-		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
-	}
-	catch (exception e) {
-		cout << e.what() << endl;
-		return;
-	}
 
 	try {
+
+		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
+
+		switchToScene("MAIN_MENU", false);
+
 		while (gameRunning)
 		{
 			AppTickEvent60 appTick;
