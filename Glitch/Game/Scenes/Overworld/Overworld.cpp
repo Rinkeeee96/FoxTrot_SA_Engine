@@ -65,8 +65,6 @@ void Overworld::loadMusic() {
 /// @brief 
 void Overworld::start()
 {
-	level1Btn->reset();
-	stopBtn->reset();
 	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("OVER_WORLD"));
 }
 

@@ -96,8 +96,6 @@ void MainMenu::loadMusic() {
 /// Create the sounds for this scene
 void MainMenu::start()
 {
-	startBtn->reset();
-	stopBtn->reset();
 	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("MENU_SOUND"));
 }
 

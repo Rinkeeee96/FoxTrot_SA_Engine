@@ -101,8 +101,6 @@ void WinScreen::LoadMusic() {
 /// Create the sounds for this scene
 void WinScreen::start()
 {
-	overBtn->reset();
-	mainBtn->reset();
 	//EventSingleton::get_instance().dispatchEvent<PlaySoundEffectEvent>((Event&)PlaySoundEffectEvent("APPLAUSE_SOUND"));
 	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("WIN_SOUND"));
 }
