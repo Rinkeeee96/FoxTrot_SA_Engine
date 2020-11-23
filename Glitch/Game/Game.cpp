@@ -28,76 +28,79 @@ void Game::switchToScene(string identifier, const bool _useTransitionScreen)
 	bool useTransitionScreen = _useTransitionScreen;
 	if (DEBUG_MAIN) { useTransitionScreen = false; }
 
+	string transition = "";
+	if (useTransitionScreen)
+	{
+		transition = identifier;
+		identifier = "GENERAL_TRANSITION_SCENE";
+	}
+
+
+	Scene* newScene = nullptr;
+	switch (sceneIdentifierToID(identifier))
+	{
+	case 0x01:
+	{
+		MainMenu* mainMenu = new MainMenu(sceneId++);
+		newScene = mainMenu;
+		break;
+	}
+	case 0x02:
+	{
+		GeneralTransition* generalTransitionScene = new GeneralTransition(sceneId++);
+		newScene = generalTransitionScene;
+		generalTransitionScene->setNextScene(transition);
+		break;
+	}
+	case 0x03:
+	{
+		Overworld* overWorld = new Overworld(sceneId++);
+		newScene = overWorld;
+		break;
+	}
+	case 0x04:
+	{
+		DeadScreen* deadScreen = new DeadScreen(sceneId++);
+		newScene = deadScreen;
+		break;
+	}
+	case 0x05:
+	{
+		WinScreen* winScreen = new WinScreen(sceneId++);
+		newScene = winScreen;
+		break;
+	}
+	case 0x06:
+	{
+		SaveScreen* saveScreen = new SaveScreen(sceneId++);
+		newScene = saveScreen;
+		break;
+	}
+	case 0x07:
+		LoadLevelFacade *levelLoader = new LoadLevelFacade{ engine };
+		LevelBuilder * levelOneBuilder = new LevelBuilder{ engine, sceneId++ };
+		levelLoader->load("Assets/Levels/Maps/Level1.json", levelOneBuilder);
+		auto level = levelOneBuilder->getLevel();
+		newScene = level;
+		delete levelLoader;
+		break;
+	}
+	if (sceneId > 10) sceneId = 1;
+
+	engine.insertScene(newScene);
+	engine.setCurrentScene(newScene->getSceneID());
+
 	// Detach the old now inactive scene
 	if (currentScene != nullptr)
 	{
 		currentScene->onDetach();
+		engine.deRegisterScene(currentScene->getSceneID());
+		delete currentScene;
+		currentScene = nullptr;
 	}
 
-	if (!currentlyRunningTransition && useTransitionScreen)
-	{
-		currentlyRunningTransition = true;
-		GeneralTransition* generalTransitionScene = new GeneralTransition(sceneId++);
-		engine.insertScene(generalTransitionScene);
-		engine.setCurrentScene(generalTransitionScene->getSceneID());
-		currentScene = generalTransitionScene;
-		generalTransitionScene->setNextScene(identifier);
-	}
-	else
-	{
-		Scene* newScene = nullptr;
-		switch (sceneIdentifierToID(identifier))
-		{
-		case 0x01:
-		{
-			MainMenu* mainMenu = new MainMenu(sceneId++);
-			newScene = mainMenu;
-			break;
-		}
-		case 0x02:
-		{
-			GeneralTransition* generalTransitionScene = new GeneralTransition(sceneId++);
-			newScene = generalTransitionScene;
-			break;
-		}
-		case 0x03:
-		{
-			Overworld* overWorld = new Overworld(sceneId++);
-			newScene = overWorld;
-			break;
-		}
-		case 0x04:
-		{
-			DeadScreen* deadScreen = new DeadScreen(sceneId++);
-			newScene = deadScreen;
-			break;
-		}
-		case 0x05:
-		{
-			WinScreen* winScreen = new WinScreen(sceneId++);
-			newScene = winScreen;
-			break;
-		}
-		case 0x06:
-		{
-			SaveScreen* saveScreen = new SaveScreen(sceneId++);
-			newScene = saveScreen;
-			break;
-		}
-		case 0x07:
-			LoadLevelFacade levelLoader{ engine };
-			LevelBuilder levelOneBuilder{ engine, sceneId++ };
-			levelLoader.load("Assets/Levels/Maps/Level1.json", &levelOneBuilder);
-			auto level = levelOneBuilder.getLevel();
-			newScene = level;
-			break;
-		}
 
-		engine.insertScene(newScene);
-		engine.setCurrentScene(newScene->getSceneID());
-		currentScene = newScene;
-		currentlyRunningTransition = false;
-	}
+	currentScene = newScene;
 
 	if (currentScene && dynamic_cast<GameScene*>(currentScene))
 	{

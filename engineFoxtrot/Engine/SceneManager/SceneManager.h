@@ -13,6 +13,7 @@ public:
 	void API setCurrentScene(const int sceneID);
 	API Scene* getSceneWithID(const int sceneID);
 	void API insertScene(Scene* scene);
+	void API deRegisterScene(const int id);
 	int getFirstFreeSceneID();
 
 	// Pointer
