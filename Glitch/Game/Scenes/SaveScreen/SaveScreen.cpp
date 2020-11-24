@@ -4,6 +4,9 @@
 
 #define BIND_FN(function) std::bind(&SaveScreen::function, *this)
 
+REGISTERIMPL(SaveScreen);
+
+
 #define CENTER_X  (WINDOW_WIDTH / 2)
 #define CENTER_Y (WINDOW_HEIGHT / 2)
 
@@ -103,21 +106,21 @@ void SaveScreen::loadButtons()
 void SaveScreen::onSave1BtnClick()
 {
 	Savegame::get_instance().setCurrentGameData(1);
-	game->switchToScene("OVERWORLD", true);
+	game->switchToScene("Overworld", true);
 }
 
 void SaveScreen::onSave2BtnClick()
 {
 	Savegame::get_instance().setCurrentGameData(2);
-	game->switchToScene("OVERWORLD", true);
+	game->switchToScene("Overworld", true);
 }
 
 void SaveScreen::onSave3BtnClick()
 {
 	Savegame::get_instance().setCurrentGameData(3);
-	game->switchToScene("OVERWORLD", true);
+	game->switchToScene("Overworld", true);
 }
 
 void SaveScreen::onStopBtnClick() {
-	game->switchToScene("MAIN_MENU",false);
+	game->switchToScene("MainMenu",false);
 }

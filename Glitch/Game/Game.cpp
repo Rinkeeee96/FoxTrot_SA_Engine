@@ -10,19 +10,6 @@ Game::Game()
 {
 }
 
-int Game::sceneIdentifierToID(string& identifier)
-{
-	if (identifier == "MAIN_MENU") return 0x01;
-	if (identifier == "GENERAL_TRANSITION_SCENE") return 0x02;
-	if (identifier == "OVERWORLD") return 0x03;
-	if (identifier == "DEAD_SCREEN") return 0x04;
-	if (identifier == "WIN_SCREEN") return 0x05;
-	if (identifier == "LOADSCREEN") return 0x06;
-	if (identifier == "LEVEL_1") return 0x07;
-
-	return 0;
-}
-
 void Game::switchToScene(string identifier, const bool _useTransitionScreen)
 {
 	bool useTransitionScreen = _useTransitionScreen;
@@ -32,56 +19,29 @@ void Game::switchToScene(string identifier, const bool _useTransitionScreen)
 	if (useTransitionScreen)
 	{
 		transition = identifier;
-		identifier = "GENERAL_TRANSITION_SCENE";
+		identifier = "GeneralTransition";
 	}
 
+	bool handlingLevel = false;
+	if (identifier.find("level") != string::npos)
+	{
+		handlingLevel = true;
+	}
 
 	shared_ptr<Scene> newScene = nullptr;
-	switch (sceneIdentifierToID(identifier))
+
+	if (!handlingLevel)
 	{
-	case 0x01:
-	{
-		newScene = Factory::create("MainMenu");
-		break;
+		newScene = Factory::create(identifier, sceneId++);
 	}
-	case 0x02:
+	else
 	{
-		shared_ptr<GeneralTransition> generalTransitionScene{ new GeneralTransition(sceneId++) };
-		newScene = generalTransitionScene;
-		generalTransitionScene->setNextScene(transition);
-		break;
-	}
-	case 0x03:
-	{
-		shared_ptr<Overworld> overWorld{ new Overworld(sceneId++) };
-		newScene = overWorld;
-		break;
-	}
-	case 0x04:
-	{
-		shared_ptr<DeadScreen>deadScreen {new DeadScreen(sceneId++)};
-		newScene = deadScreen;
-		break;
-	}
-	case 0x05:
-	{
-		shared_ptr<WinScreen> winScreen{ new WinScreen(sceneId++) };
-		newScene = winScreen;
-		break;
-	}
-	case 0x06:
-	{
-		shared_ptr<SaveScreen> saveScreen{ new SaveScreen(sceneId++) };
-		newScene = saveScreen;
-		break;
-	}
-	case 0x07:
 		LoadLevelFacade levelLoader{ engine };
-		LevelBuilder levelOneBuilder { engine, sceneId++ };
+		LevelBuilder levelOneBuilder{ engine, sceneId++ };
 		levelLoader.load("Assets/Levels/Maps/Level1.json", &levelOneBuilder);
 		newScene = levelOneBuilder.getLevel();
-		break;
 	}
+
 	if (sceneId > 10) sceneId = 1;
 	if (newScene == nullptr) throw exception("NewScene is Nullptr so cant set new scene");
 
@@ -108,6 +68,11 @@ void Game::switchToScene(string identifier, const bool _useTransitionScreen)
 
 	currentScene = newScene;
 
+	if (currentScene && dynamic_cast<GeneralTransition*>(currentScene.get()))
+	{
+		((GeneralTransition*)currentScene.get())->setNextScene(transition);
+	}
+	
 	if (currentScene && dynamic_cast<GameScene*>(currentScene.get()))
 	{
 		((GameScene*)currentScene.get())->registerGame(this);
@@ -126,7 +91,7 @@ void Game::run() {
 
 		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
 
-		switchToScene("MAIN_MENU", false);
+		switchToScene("MainMenu", false);
 
 		while (gameRunning)
 		{

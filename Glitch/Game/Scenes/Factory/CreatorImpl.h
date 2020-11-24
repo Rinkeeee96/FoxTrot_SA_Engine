@@ -15,7 +15,7 @@ public:
 	CreatorImpl<T>(const std::string& classname) : Creator(classname) {}
 	virtual ~CreatorImpl<T>() {}
 
-	virtual shared_ptr<Scene> create() { return shared_ptr<T>{new T}; }
+	virtual shared_ptr<Scene> create(const int id) { return shared_ptr<T>{new T(id)}; }
 };
 
 

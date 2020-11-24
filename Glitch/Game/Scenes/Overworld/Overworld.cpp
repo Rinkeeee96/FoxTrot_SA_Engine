@@ -6,6 +6,9 @@
 
 #define BIND_FN(function) std::bind(&Overworld::function, *this)
 
+REGISTERIMPL(Overworld);
+
+
 /// @brief 
 /// Loadbuttons
 /// LoadBackground
@@ -84,7 +87,7 @@ void Overworld::onDetach()
 void Overworld::onLevel1BtnClick()
 {
 	cout << "Level1 BTN" << endl;
-	game->switchToScene("LEVEL_1", true);
+	game->switchToScene("level_1", true);
 }
 
 /// @brief 
@@ -101,7 +104,7 @@ void Overworld::onStartBtnClick()
 
 /// @brief 
 void Overworld::onStopBtnClick() {
-	game->switchToScene("MAIN_MENU",true);
+	game->switchToScene("MainMenu",true);
 }
 
 /// @brief 

@@ -14,7 +14,7 @@ public:
 	Creator(const std::string& classname);
 	virtual ~Creator() {};
 
-	virtual shared_ptr<Scene> create() = 0;
+	virtual shared_ptr<Scene> create(const int id) = 0;
 };
 
 #endif //_CREATOR_H_

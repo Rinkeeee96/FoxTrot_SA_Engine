@@ -8,6 +8,8 @@
 
 #define BIND_FN(function) std::bind(&WinScreen::function, *this)
 
+REGISTERIMPL(WinScreen);
+
 #define CENTER_X  (WINDOW_WIDTH / 2)
 #define CENTER_Y (WINDOW_HEIGHT / 2)
 
@@ -116,14 +118,14 @@ void WinScreen::onDetach()
 /// Remove the sounds of the soundengine
 void WinScreen::OnMainBtnClick()
 {
-	game->switchToScene("MAIN_MENU", false);
+	game->switchToScene("MainMenu", false);
 }
 
 /// @brief 
 /// A callback function for overworldBTN
 /// Start transition scene to overworld
 void WinScreen::onOverworldBtnClick() {
-	game->switchToScene("OVERWORLD", false);
+	game->switchToScene("Overworld", false);
 }
 
 /// @brief 

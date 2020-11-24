@@ -6,6 +6,8 @@
 /// @brief 
 class GeneralTransition : public GameScene
 {
+	REGISTER(GeneralTransition);
+
 public:
 	GeneralTransition(const int id) : GameScene(id) {};
 	~GeneralTransition() {};

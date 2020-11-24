@@ -13,7 +13,7 @@ class Creator;
 class Factory
 {
 public:
-	static shared_ptr<Scene> create(const std::string& classname);
+	static shared_ptr<Scene> create(const std::string& classname, const int id);
 	static void registerit(const std::string& classname, Creator* creator);
 private:
 	static std::map<std::string, Creator*>& get_table();

@@ -7,13 +7,13 @@ void Factory::registerit(const std::string& classname, Creator* creator)
 	get_table()[classname] = creator;
 }
 
-shared_ptr<Scene> Factory::create(const std::string& classname)
+shared_ptr<Scene> Factory::create(const std::string& classname, const int id)
 {
 	std::map<std::string, Creator*>::iterator i;
 	i = get_table().find(classname);
 
 	if (i != get_table().end())
-		return i->second->create();
+		return i->second->create(id);
 	else
 		return (shared_ptr<Scene>)NULL;
 }

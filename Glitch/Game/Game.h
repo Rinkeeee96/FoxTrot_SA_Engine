@@ -17,7 +17,6 @@ public:
 
 private:
 	Engine engine;
-	int sceneIdentifierToID(string& identifier);
 
 	shared_ptr<Scene> currentScene;
 	bool gameRunning = true;

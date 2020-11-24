@@ -119,7 +119,7 @@ void MainMenu::onDetach()
 /// Start transition scene to OVERWORLD
 void MainMenu::onStartBtnClick()
 {
-	game->switchToScene("LOADSCREEN", false);
+	game->switchToScene("SaveScreen", false);
 }
 
 

@@ -5,6 +5,8 @@
 
 class WinScreen : public GameScene
 {
+	REGISTER(WinScreen);
+
 public:
 	WinScreen(const int id) : GameScene(id) {};
 	~WinScreen();

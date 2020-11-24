@@ -8,6 +8,8 @@
 
 class SaveScreen : public GameScene
 {
+	REGISTER(SaveScreen);
+
 public:
 	SaveScreen(const int id) : GameScene(id) {};
 	~SaveScreen() {};
