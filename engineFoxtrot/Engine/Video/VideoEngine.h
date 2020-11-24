@@ -7,18 +7,20 @@
 #include "ParticleSystem/ParticleAdapter.h"
 
 
-#define NO_RED 0
-#define NO_BLUE 0
-#define NO_GREEN 0
+#define NO_RED					0
+#define NO_BLUE					0
+#define NO_GREEN				0
 
-#define OFFSETFIX 275
+#define OFFSETFIX				275
 
-#define FPS_Y_POSITION_OFFSET 15
+#define FPS_Y_POSITION_OFFSET	15
 
 #define CAMERA_BOX_HEIGHT		350
 #define CAMERA_BOX_WIDTH		350
 #define CAMERA_BOX_X			785
 #define CAMERA_BOX_Y			365
+
+#define DRAW_OFFSCREEN_BUFFER	100
 
 struct API Sprite
 {
@@ -53,7 +55,11 @@ public:
 
 	void calculateOffset(Object& obj, int sceneWidth, int sceneHeight);
 
+
 	Scene** pointerToCurrentScene = nullptr;
+
+	bool checkInScreen(Object* obj);
+	bool checkFixedLayers(Object* obj);
 
 private:
 	IVideoFacade* videoFacade = new VideoFacade;

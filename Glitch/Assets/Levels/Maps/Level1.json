@@ -27,6 +27,12 @@
                  "y":1099.88
                 }],
          "opacity":1,
+         "properties":[
+                {
+                 "name":"Always Draw",
+                 "type":"bool",
+                 "value":true
+                }],
          "type":"objectgroup",
          "visible":true,
          "x":0,
@@ -38,6 +44,12 @@
          "id":1,
          "name":"Ground",
          "opacity":1,
+         "properties":[
+                {
+                 "name":"Always Draw",
+                 "type":"bool",
+                 "value":false
+                }],
          "type":"tilelayer",
          "visible":true,
          "width":120,
@@ -211,6 +223,12 @@
                  "y":615.83335
                 }],
          "opacity":1,
+         "properties":[
+                {
+                 "name":"Always Draw",
+                 "type":"bool",
+                 "value":false
+                }],
          "type":"objectgroup",
          "visible":true,
          "x":0,
@@ -256,6 +274,12 @@
                  "y":-2.33333333333337
                 }],
          "opacity":1,
+         "properties":[
+                {
+                 "name":"Always Draw",
+                 "type":"bool",
+                 "value":true
+                }],
          "type":"objectgroup",
          "visible":true,
          "x":0,
@@ -267,6 +291,12 @@
          "id":5,
          "name":"Decoration",
          "opacity":1,
+         "properties":[
+                {
+                 "name":"Always Draw",
+                 "type":"bool",
+                 "value":false
+                }],
          "type":"tilelayer",
          "visible":true,
          "width":120,
@@ -296,6 +326,12 @@
                  "y":1000.5
                 }],
          "opacity":1,
+         "properties":[
+                {
+                 "name":"Always Draw",
+                 "type":"bool",
+                 "value":false
+                }],
          "type":"objectgroup",
          "visible":true,
          "x":0,

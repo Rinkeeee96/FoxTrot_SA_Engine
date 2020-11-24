@@ -169,7 +169,7 @@ void LevelBuilder::createBackground(nlohmann::json layerValue) {
 		tile->registerSprite(SpriteState::DEFAULT, tileSprite);
 		tile->changeToState(SpriteState::DEFAULT);
 
-		bLevel->addNewObjectToLayer(BACKGROUND_LAYER_INDEX, tile, false);
+		bLevel->addNewObjectToLayer(BACKGROUND_LAYER_INDEX, tile, false, true);
 	}
 }
 

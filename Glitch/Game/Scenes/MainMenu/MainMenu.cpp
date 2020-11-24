@@ -11,8 +11,8 @@
 
 void MainMenu::onAttach()
 {
-	loadButtons();
 	loadBackground();
+	loadButtons();
 	loadMusic();
 }
 
@@ -39,8 +39,8 @@ void MainMenu::loadButtons() {
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
-	addNewObjectToLayer(3, startBtn);
-	addNewObjectToLayer(3, stopBtn);
+	addNewObjectToLayer(999, startBtn, false, true);
+	addNewObjectToLayer(999, stopBtn, false, true);
 	//addNewObjectToLayer(3, loadBtn);
 	//addNewObjectToLayer(3, creditsBtn);
 }
@@ -80,9 +80,9 @@ void MainMenu::loadBackground() {
 	layer2->registerSprite(SpriteState::DEFAULT, BG_LAYER_2);
 	layer2->changeToState(SpriteState::DEFAULT);
 
-	addNewObjectToLayer(0, layer0, false);
-	addNewObjectToLayer(1, animation, false);
-	addNewObjectToLayer(2, layer2, false);
+	addNewObjectToLayer(999, layer2, false, true);
+	addNewObjectToLayer(999, layer0, false, true);
+	addNewObjectToLayer(999, animation, false, true);
 }
 
 /// @brief 

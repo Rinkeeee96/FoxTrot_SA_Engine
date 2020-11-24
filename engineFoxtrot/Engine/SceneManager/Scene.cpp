@@ -107,19 +107,21 @@ vector <Object*> Scene::getAllObjectsInSceneRenderPhysics()
 /// Zindex of the layer that the object should be added to
 /// @param object 
 /// Pointer to the object
-const void Scene::addNewObjectToLayer(const int zIndex, Object* object, bool renderPhysics)
+const void Scene::addNewObjectToLayer(const int zIndex, Object* object, bool renderPhysics, bool alwaysDraw)
 {
 	if (object == nullptr) throw ERROR_CODE_SCENE_NO_OBJECT_FOUND;
 
 	if (layers.find(zIndex) != layers.end())
 	{
 		layers[zIndex]->objects[object->getObjectId()] = object;
+		layers[zIndex]->alwaysVisible = alwaysDraw;
 	}
 	else
 	{
 		layers[zIndex] = new Layer();
 		layers[zIndex]->renderPhysics = renderPhysics;
 		layers[zIndex]->objects[object->getObjectId()] = object;
+		layers[zIndex]->alwaysVisible = alwaysDraw;
 	}
 }
 
@@ -166,4 +168,23 @@ void Scene::removeObjectFromScene(Object* obj)
 			//delete obj;
 		}
 	}
+}
+
+vector<Object*> Scene::getAllObjectsInLayer(int layerID)
+{
+	vector<Object*> returnVector;
+	auto layer = layers[layerID];
+	for (auto obj : layer->objects)
+	{
+		if (obj.second != nullptr)
+		{
+			returnVector.push_back(obj.second);
+		}
+	}
+	return returnVector;
+}
+
+map<int, Layer*> Scene::getLayers() const
+{
+	return layers;
 }

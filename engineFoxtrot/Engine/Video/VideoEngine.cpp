@@ -109,6 +109,29 @@ void VideoEngine::calculateOffset(Object& obj, int sceneWidth, int sceneHeight)
 	}
 }
 
+bool VideoEngine::checkInScreen(Object* obj) {
+	if (obj->getPositionX() > videoFacade->getXCameraOffset() - DRAW_OFFSCREEN_BUFFER &&
+		obj->getPositionX() < videoFacade->getXCameraOffset() + WINDOW_WIDTH &&
+		obj->getPositionY() > videoFacade->getYCameraOffset() + DRAW_OFFSCREEN_BUFFER &&
+		obj->getPositionY() < videoFacade->getYCameraOffset() + WINDOW_HEIGHT) {
+		return true;
+	}
+	return false;;
+}
+
+bool VideoEngine::checkFixedLayers(Object* obj)
+{
+	for (auto layer : (*pointerToCurrentScene)->getLayers()) {
+		if (layer.second->alwaysVisible) {
+			for (auto object : (*pointerToCurrentScene)->getAllObjectsInLayer(layer.first)) {
+				return object == obj;
+			}
+		}
+	}
+	
+	return false;
+}
+
 /// @brief 
 /// Update all the sprites on the screen
 /// Updates the camera offset
@@ -131,9 +154,8 @@ void VideoEngine::updateScreen()
 	}
 
 	for (Drawable* obj : (*pointerToCurrentScene)->getAllDrawablesInScene()) {
-		if (obj != nullptr) {
-			if (!obj->getIsRemoved())
-			{
+		if (obj) {
+			if((checkInScreen(obj) || checkFixedLayers(obj)) && !obj->getIsRemoved()){
 				if (obj->getIsParticle())
 				{
 					drawParticle((ParticleAdapter*)obj);
