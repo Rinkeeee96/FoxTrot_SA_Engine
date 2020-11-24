@@ -39,8 +39,8 @@ void MainMenu::loadButtons() {
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
-	addNewObjectToLayer(999, startBtn, false, true);
-	addNewObjectToLayer(999, stopBtn, false, true);
+	addNewObjectToLayer(3, startBtn);
+	addNewObjectToLayer(3, stopBtn);
 	//addNewObjectToLayer(3, loadBtn);
 	//addNewObjectToLayer(3, creditsBtn);
 }
@@ -80,9 +80,9 @@ void MainMenu::loadBackground() {
 	layer2->registerSprite(SpriteState::DEFAULT, BG_LAYER_2);
 	layer2->changeToState(SpriteState::DEFAULT);
 
-	addNewObjectToLayer(999, layer2, false, true);
-	addNewObjectToLayer(999, layer0, false, true);
-	addNewObjectToLayer(999, animation, false, true);
+	addNewObjectToLayer(0, layer0, false, true);
+	addNewObjectToLayer(1, layer2, false, true);
+	addNewObjectToLayer(2, animation, false, true);
 }
 
 /// @brief 
