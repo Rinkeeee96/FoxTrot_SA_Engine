@@ -36,10 +36,17 @@ void Game::switchToScene(string identifier, const bool _useTransitionScreen)
 	}
 	else
 	{
-		// Todo check which level # and build this number
 		LoadLevelFacade levelLoader{ engine };
 		LevelBuilder levelOneBuilder{ engine, sceneId++ };
-		levelLoader.load("Assets/Levels/Maps/Level1.json", &levelOneBuilder);
+	
+		int levelToBuild = stoi(identifier.substr(6));
+		cout << "Level to build: " << levelToBuild << endl;
+
+		// Todo check which level # and build this number
+		string path;
+		path = "Assets/Levels/Maps/Level" + to_string(levelToBuild) + ".json";
+		cout << "Path: " << path << endl;
+		levelLoader.load(path, &levelOneBuilder);
 		newScene = levelOneBuilder.getLevel();
 	}
 
