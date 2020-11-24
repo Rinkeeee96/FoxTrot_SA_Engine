@@ -1,6 +1,6 @@
 #pragma once
 
-#include "./DeathScreen/DeadScreen.h"
+#include "./DeathScreen/DeathScreen.h"
 #include "./MainMenu/MainMenu.h"
 #include "./Overworld/Overworld.h"
 #include "./SaveScreen/SaveScreen.h"

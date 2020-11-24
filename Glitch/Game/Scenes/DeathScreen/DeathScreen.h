@@ -3,11 +3,12 @@
 #include "SceneManager/Objects/Button.h"
 #include "Game/Scenes/GameScene.h"
 
-class DeadScreen : public GameScene
+class DeathScreen : public GameScene
 {
+	REGISTER(DeathScreen);
 public:
-	DeadScreen(const int id) : GameScene(id) {};
-	~DeadScreen();
+	DeathScreen(const int id) : GameScene(id) {};
+	~DeathScreen();
 	// Inherited via Scene
 	void onAttach() override;
 	void onDetach() override;
@@ -26,6 +27,6 @@ private:
 	Button* mainBtn = nullptr;
 };
 
-inline DeadScreen::~DeadScreen()
+inline DeathScreen::~DeathScreen()
 {
 }

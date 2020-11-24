@@ -54,7 +54,6 @@ void Game::switchToScene(string identifier, const bool _useTransitionScreen)
 	{
 		currentScene->onDetach();
 		engine.deRegisterScene(currentScene->getSceneID());
-		cout << "CurrenScene is still managed by: " << currentScene.use_count() << endl;
 		if (currentScene.use_count() == 1)
 		{
 			currentScene.reset();
@@ -63,7 +62,6 @@ void Game::switchToScene(string identifier, const bool _useTransitionScreen)
 		{
 			throw exception("CurrentScene is still used somewhere. Issues with deleting");
 		}
-		cout << "CurrenScene is still managed by: " << currentScene.use_count() << endl;
 		currentScene = nullptr;
 	}
 
@@ -79,7 +77,7 @@ void Game::switchToScene(string identifier, const bool _useTransitionScreen)
 		((GameScene*)currentScene.get())->registerGame(this);
 	}
 
-	cout << "Setting current Scene to: " << engine.getCurrentScene()->getSceneID() << endl;
+	cout << "Setting current Scene to: " << typeid(*(engine.getCurrentScene())).name() << endl;
 
 	currentScene->onAttach();
 	currentScene->start();
