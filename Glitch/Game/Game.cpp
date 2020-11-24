@@ -67,6 +67,7 @@ void Game::switchToScene(string identifier, const bool _useTransitionScreen)
 
 	currentScene = newScene;
 
+	// Handle some scene specific things
 	if (currentScene && dynamic_cast<GeneralTransition*>(currentScene.get()))
 	{
 		((GeneralTransition*)currentScene.get())->setNextScene(transition);
