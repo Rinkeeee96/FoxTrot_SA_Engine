@@ -107,6 +107,7 @@ void PhysicsFacade::addDynamicObject(PhysicsBody* object)
 	bodyDef.linearVelocity = b2Vec2(0, object->getYAxisVelocity());
 
 	if(DEBUG_PHYSICS_ENGINE)cout << "Pushing back obj: spriteid: " << object->getObjectId() << endl;
+	body->SetGravityScale(object->getGravity());
 	bodies.insert(pair<PhysicsBody*, b2Body*>(object, body));
 }
 

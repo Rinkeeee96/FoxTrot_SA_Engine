@@ -28,6 +28,9 @@ float PhysicsBody::getWidth() const { return width; }
 void PhysicsBody::setRestitution(const float r) { this->restitution = r; this->object->setRestitution(r); }
 float PhysicsBody::getRestitution() const { return this->restitution;}
 
+void PhysicsBody::setGravity(const float r) { this->gravity = r; this->object->setGravity(r); }
+float PhysicsBody::getGravity() const { return this->gravity; }
+
 void PhysicsBody::setFriction(const float f) { this->friction = f;  this->object->setFriction(f);}
 float PhysicsBody::getFriction() const { return this->friction; }
 

@@ -28,6 +28,9 @@ public:
 	void setRestitution(const float);
 	float getRestitution() const;
 
+	void setGravity(const float);
+	float getGravity() const;
+
 	void setFriction(const float);
 	float getFriction() const;
 
@@ -61,6 +64,7 @@ protected:
 	float speed = 0;
 	float friction = 0;
 	float restitution = 0;
+	float gravity = 1;
 	float density = 0;
 	float rotation = 0;
 	float jumpHeight = 0;

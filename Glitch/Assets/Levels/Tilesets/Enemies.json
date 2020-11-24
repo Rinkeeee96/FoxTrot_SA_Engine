@@ -14,7 +14,7 @@
  "tiles":[
         {
          "id":0,
-         "image":"..\/Sprites\/Enemies\/slime_blue.png",
+         "image":"..\/Tiles\/slime_blue.png",
          "imageheight":16,
          "imagewidth":16
         }],

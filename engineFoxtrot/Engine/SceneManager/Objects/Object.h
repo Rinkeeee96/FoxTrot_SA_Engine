@@ -37,6 +37,9 @@ public:
 	API void setRestitution(const float val);
 	API float getRestitution() const;
 	
+	API void setGravity(const float val);
+	API float getGravity() const;
+	
 	API void setFriction(const float val);
 	API float getFriction() const;
 	
@@ -92,6 +95,7 @@ protected:
 	float density = 0;
 	float friction = 0;
 	float restitution = 0;
+	float gravity = 1;
 	bool staticObject = false;
 	// ----------------
 	// unknown

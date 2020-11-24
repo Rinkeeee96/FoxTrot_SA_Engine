@@ -5,6 +5,7 @@
 #include "Game\Factories\TriggerFactory.h"
 #include "Game\Triggers\DeathTrigger.h"
 #include "Game\Triggers\WinTrigger.h"
+#include "Game\Ground\Dynamic\MovingPlatform.h"
 
 // DO NOT TOUCH GROUND LAYER INDEX
 #define GROUND_LAYER_INDEX 2
@@ -44,6 +45,7 @@ public:
 
 	void createLevel(nlohmann::json json) override;
 	void createEntities(nlohmann::json layerValue) override;
+	void createDynamics(nlohmann::json layerValue) override;
 	void createBackground(nlohmann::json layerValue) override;
 	void createDecoration(nlohmann::json layerValue) override;
 	void createParticle(nlohmann::json layerValue) override;

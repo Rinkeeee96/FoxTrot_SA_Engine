@@ -37,6 +37,10 @@ void LevelBuilderDirector::construct(nlohmann::json json, ILevelBuilder* builder
 				{
 					builder->createEntities(layerValue);
 				}
+				if (layerValue["name"] == "Dynamics")
+				{
+					builder->createDynamics(layerValue);
+				}
 			}
 		}
 	}

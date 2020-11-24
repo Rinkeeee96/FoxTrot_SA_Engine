@@ -46,6 +46,9 @@ bool Object::getStatic() const { return staticObject; }
 float Object::getRestitution() const { return this->restitution;}
 void Object::setRestitution(const float val) {this->restitution = val;}
 
+float Object::getGravity() const { return this->gravity; }
+void Object::setGravity(const float val) { this->gravity = val; }
+
 float Object::getFriction() const {return this->friction;}
 void Object::setFriction(const float val) {this->friction = val;}
 

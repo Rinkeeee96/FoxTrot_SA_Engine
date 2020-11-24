@@ -57,5 +57,7 @@
     <ClInclude Include="Game\SaveGame\Savegame.h" />
     <ClInclude Include="Game\Scenes\SaveScreen\SaveScreen.h" />
     <ClInclude Include="Game\Scenes\Overworld\Overworld.h" />
+    <ClInclude Include="Game\Ground\Dynamic\MovingPlatform.h" />
+    <ClInclude Include="Game\Ground\Dynamic\DynamicGround.h" />
   </ItemGroup>
 </Project>

@@ -24,17 +24,17 @@ void Overworld::loadButtons() {
 	level1Btn->setPositionX(280);
 	level1Btn->setPositionY(1060);
 
-	/*
-	Button* level2Btn = new PrimaryButton(2, "Level 2", BIND_FN(OnLevel2BtnClick));
+	
+	Button* level2Btn = new PrimaryButton(2, "Level 2", BIND_FN(onLevel2BtnClick));
 	level2Btn->setPositionX(710);
 	level2Btn->setPositionY(890);
-	*/
+	
 	stopBtn = new SecondaryButton(3, "To Main Menu", BIND_FN(onStopBtnClick));
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
 	addNewObjectToLayer(3, level1Btn);
-	//addNewObjectToLayer(3, level2Btn);
+	addNewObjectToLayer(3, level2Btn);
 	addNewObjectToLayer(3, stopBtn);
 }
 
@@ -92,6 +92,7 @@ void Overworld::onLevel1BtnClick()
 void Overworld::onLevel2BtnClick()
 {
 	cout << "Level2 BTN" << endl;
+	SceneSwitcher::get_instance().switchToScene("LEVEL_2", true);
 }
 
 /// @brief 
@@ -102,7 +103,7 @@ void Overworld::onStartBtnClick()
 
 /// @brief 
 void Overworld::onStopBtnClick() {
-	SceneSwitcher::get_instance().switchToScene("MAIN_MENU",true);
+	SceneSwitcher::get_instance().switchToScene("MAIN_MENU", true);
 }
 
 /// @brief 

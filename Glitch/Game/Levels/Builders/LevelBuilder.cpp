@@ -142,6 +142,33 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 	}
 }
 
+void LevelBuilder::createDynamics(nlohmann::json layerValue) {
+	for (auto& [objectKey, objectValue] : layerValue["objects"].items())
+	{
+		IGround* object = nullptr;
+		
+		object = new MovingPlatform(id++);
+
+		int gid = objectValue["gid"];
+
+		TileSprite* sprite = textureMap[gid];
+		SpriteObject* tileSprite = new SpriteObject(currentTileId++, sprite->height, sprite->width, 1, 300, sprite->path.c_str());
+		engine.loadSprite(*tileSprite);
+
+		object->setHeight(objectValue["height"]);
+		object->setWidth(objectValue["width"]);
+		object->setRotation(objectValue["rotation"]);
+		object->setPositionX(objectValue["x"]);
+		object->setPositionY(objectValue["y"] + object->getHeight());
+		object->setStatic(false);
+
+		object->registerSprite(SpriteState::DEFAULT, tileSprite);
+		object->changeToState(SpriteState::DEFAULT);
+
+		bLevel->addNewObjectToLayer(ENTITY_LAYER_INDEX, object, true);
+	}
+}
+
 // @brief 
 /// Creates background objects and background the tiles to the level
 /// @param json 
@@ -351,6 +378,7 @@ void LevelBuilder::initFactory() {
 	auto playerRunLeft = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 6, 200, "Assets/Sprites/Character/adventure_run_left.png");
 	auto playerJumpRight = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_jump_right.png");
 	auto slimeDefault = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 1, 200, "Assets/Levels/Tiles/slime_blue.png");
+	auto platformDefault = new SpriteObject(textureId++, 32, 32, 1, 200, "Assets/Levels/Tiles/grassland_level_tile (13).png");
 
 	engine.loadSprite(*tileTop);
 	engine.loadSprite(*playerDefault);
@@ -363,6 +391,7 @@ void LevelBuilder::initFactory() {
 	engine.loadSprite(*playerRunLeft);
 	engine.loadSprite(*playerJumpRight);
 	engine.loadSprite(*slimeDefault);
+	engine.loadSprite(*platformDefault);
 
 	std::map<SpriteState, SpriteObject*> playerMap;
 	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, playerDefault));
