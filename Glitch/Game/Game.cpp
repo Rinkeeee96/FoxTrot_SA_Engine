@@ -41,20 +41,20 @@ void Game::switchToScene(string identifier, const bool _useTransitionScreen)
 	{
 	case 0x01:
 	{
-		shared_ptr<MainMenu> mainMenu (new MainMenu(sceneId++));
+		shared_ptr<MainMenu> mainMenu{new MainMenu(sceneId++)};
 		newScene = mainMenu;
 		break;
 	}
 	case 0x02:
 	{
-		shared_ptr<GeneralTransition> generalTransitionScene (new GeneralTransition(sceneId++));
+		shared_ptr<GeneralTransition> generalTransitionScene{ new GeneralTransition(sceneId++) };
 		newScene = generalTransitionScene;
 		generalTransitionScene->setNextScene(transition);
 		break;
 	}
 	case 0x03:
 	{
-		shared_ptr<Overworld> overWorld (new Overworld(sceneId++));
+		shared_ptr<Overworld> overWorld{ new Overworld(sceneId++) };
 		newScene = overWorld;
 		break;
 	}
@@ -95,7 +95,14 @@ void Game::switchToScene(string identifier, const bool _useTransitionScreen)
 		currentScene->onDetach();
 		engine.deRegisterScene(currentScene->getSceneID());
 		cout << "CurrenScene is still managed by: " << currentScene.use_count() << endl;
-		currentScene.reset();
+		if (currentScene.use_count() == 1)
+		{
+			currentScene.reset();
+		}
+		else
+		{
+			throw exception("CurrentScene is still used somewhere. Issues with deleting");
+		}
 		cout << "CurrenScene is still managed by: " << currentScene.use_count() << endl;
 		currentScene = nullptr;
 	}
