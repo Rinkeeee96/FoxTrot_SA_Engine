@@ -42,7 +42,6 @@ void Game::switchToScene(string identifier, const bool _useTransitionScreen)
 		int levelToBuild = stoi(identifier.substr(6));
 		cout << "Level to build: " << levelToBuild << endl;
 
-		// Todo check which level # and build this number
 		string path;
 		path = "Assets/Levels/Maps/Level" + to_string(levelToBuild) + ".json";
 		cout << "Path: " << path << endl;
