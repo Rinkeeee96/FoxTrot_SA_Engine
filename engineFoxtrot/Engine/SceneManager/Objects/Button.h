@@ -6,13 +6,17 @@
 class Button : public Drawable
 {
 public:
-	API Button(int id, ColoredText _text, const function<void(void)> _onClick) :
+	API Button(int id, ColoredText _text, const function<void(void)> _onClick, SpriteObject* _spriteObject) :
 		Drawable(id), 
 		text(_text),
 		onClick(_onClick)
 	{
 		setSize(200, 50);
 		setStatic(true);
+
+		registerSprite(1, _spriteObject);
+		changeToState(1);
+
 		EventSingleton::get_instance().setEventCallback<MouseButtonPressed>(BIND_EVENT_FN(Button::isClicked));
 		EventSingleton::get_instance().setEventCallback<MouseMovedEvent>(BIND_EVENT_FN(Button::mouseOver));
 	}
