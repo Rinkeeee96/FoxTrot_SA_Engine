@@ -59,7 +59,7 @@ void Game::switchToScene(string identifier, const bool _useTransitionScreen)
 	if (currentScene != nullptr)
 	{
 		currentScene->onDetach();
-		engine.deRegisterScene(currentScene->getSceneID());
+		engine.deregisterScene(currentScene->getSceneID());
 		if (currentScene.use_count() == 1)
 		{
 			currentScene.reset();

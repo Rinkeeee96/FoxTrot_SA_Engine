@@ -42,7 +42,7 @@ void SceneManager::insertScene(Scene* scene)
 
 /// @brief 
 /// @param id 
-void SceneManager::deRegisterScene(const int id)
+void SceneManager::deregisterScene(const int id)
 {
 	scenes.erase(scenes.find(id));
 }

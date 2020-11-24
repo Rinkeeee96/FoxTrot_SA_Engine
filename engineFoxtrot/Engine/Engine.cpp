@@ -50,9 +50,9 @@ void Engine::insertScene(Scene* scene)
 
 /// @brief 
 /// @param id 
-void Engine::deRegisterScene(const int id)
+void Engine::deregisterScene(const int id)
 {
-	sceneManager.deRegisterScene(id);
+	sceneManager.deregisterScene(id);
 }
 
 /// @brief 
