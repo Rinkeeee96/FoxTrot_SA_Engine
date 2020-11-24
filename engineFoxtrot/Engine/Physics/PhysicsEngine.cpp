@@ -73,13 +73,17 @@ void PhysicsEngine::registerObjectInCurrentVectorWithPhysicsEngine()
 		if (DEBUG_PHYSICS_ENGINE)cout << "Registering object : " << phyObj->getObjectId() << endl;
 		if (object->getIsParticle()) continue;
 		if (object->getIsRemoved()) continue;
-		if (object->getStatic())
+		if (object->getBodyType() == BodyType::Static)
 		{
 			physicsFacade->addStaticObject(phyObj);
 		}
-		else
+		else if (object->getBodyType() == BodyType::Dynamic)
 		{
 			physicsFacade->addDynamicObject(phyObj);
+		}
+		else if (object->getBodyType() == BodyType::Kinematic)
+		{
+			physicsFacade->addKinematicObject(phyObj);
 		}
 	}
 }
@@ -103,5 +107,3 @@ bool PhysicsEngine::update30(Event& tick30Event)
 	// do not handle the onupdate events, they are continuous
 	return false;
 }
-
-

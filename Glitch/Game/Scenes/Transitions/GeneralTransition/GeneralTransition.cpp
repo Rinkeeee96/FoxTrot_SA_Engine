@@ -35,7 +35,7 @@ void GeneralTransition::loadBackground()
 	SpriteObject* PROGRESSBAR_FULL = new SpriteObject(-504, 24, 192, 1, 1, "Assets/LoadingBar/progress-bar-full.png");
 
 	auto* layer0 = new Drawable(-505);
-	layer0->setStatic(true);
+	layer0->setBodyType(BodyType::Static);
 	layer0->setPositionX(1);
 	layer0->setPositionY(1080);
 	layer0->setWidth(1920);
@@ -44,7 +44,7 @@ void GeneralTransition::loadBackground()
 	layer0->changeToState(SpriteState::DEFAULT);
 
 	auto* progressBar = new Drawable(-506);
-	progressBar->setStatic(true);
+	progressBar->setBodyType(BodyType::Static);
 	progressBar->setPositionX(585);
 	progressBar->setPositionY(950);
 	progressBar->setWidth(750);
@@ -53,7 +53,7 @@ void GeneralTransition::loadBackground()
 	progressBar->changeToState(SpriteState::DEFAULT);
 
 	progressBarFiller = new Drawable(-507);
-	progressBarFiller->setStatic(true);
+	progressBarFiller->setBodyType(BodyType::Static);
 	progressBarFiller->setPositionX(616);
 	progressBarFiller->setPositionY(921);
 	progressBarFiller->setWidth(10);
@@ -62,7 +62,7 @@ void GeneralTransition::loadBackground()
 	progressBarFiller->changeToState(SpriteState::DEFAULT);
 
 	animation = new Drawable(-508);
-	animation->setStatic(true);
+	animation->setBodyType(BodyType::Static);
 	animation->setPositionX(175);
 	animation->setPositionY(875);
 	animation->setWidth(370);
@@ -72,7 +72,7 @@ void GeneralTransition::loadBackground()
 	animation->setScalable(false);
 
 	auto* layer2 = new Drawable(-509);
-	layer2->setStatic(true);
+	layer2->setBodyType(BodyType::Static);
 	layer2->setPositionX(1);
 	layer2->setPositionY(1080);
 	layer2->setWidth(1920);

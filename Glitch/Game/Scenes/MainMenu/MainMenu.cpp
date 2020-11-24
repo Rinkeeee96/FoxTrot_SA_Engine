@@ -53,7 +53,7 @@ void MainMenu::loadBackground() {
 	SpriteObject* BG_LAYER_2 = new SpriteObject(-1012, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_2.png");
 
 	auto* layer0 = new Drawable(14);
-	layer0->setStatic(true);
+	layer0->setBodyType(BodyType::Static);
 	layer0->setPositionX(1);
 	layer0->setPositionY(1080);
 	layer0->setWidth(1920);
@@ -62,7 +62,7 @@ void MainMenu::loadBackground() {
 	layer0->changeToState(SpriteState::DEFAULT);
 
 	auto* animation = new Drawable(15);
-	animation->setStatic(true);
+	animation->setBodyType(BodyType::Static);
 	animation->setPositionX(175);
 	animation->setPositionY(875);
 	animation->setWidth(370);
@@ -72,7 +72,7 @@ void MainMenu::loadBackground() {
 	animation->setScalable(false);
 
 	auto* layer2 = new Drawable(16);
-	layer2->setStatic(true);
+	layer2->setBodyType(BodyType::Static);
 	layer2->setPositionX(1);
 	layer2->setPositionY(1080);
 	layer2->setWidth(1920);

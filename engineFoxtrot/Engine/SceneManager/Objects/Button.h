@@ -12,7 +12,7 @@ public:
 		onClick(_onClick)
 	{
 		setSize(200, 50);
-		setStatic(true);
+		setBodyType(BodyType::Static);
 		EventSingleton::get_instance().setEventCallback<MouseButtonPressed>(BIND_EVENT_FN(Button::isClicked));
 		EventSingleton::get_instance().setEventCallback<MouseMovedEvent>(BIND_EVENT_FN(Button::mouseOver));
 	}

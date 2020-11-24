@@ -28,7 +28,7 @@ void LevelBuilder::createTriggers(nlohmann::json layerValue) {
 		object->setWidth(objectValue["width"]);
 		object->setPositionX(objectValue["x"]);
 		object->setPositionY(objectValue["y"] + object->getHeight());
-		object->setStatic(true);
+		object->setBodyType(BodyType::Static);
 
 		bLevel->addNewObjectToLayer(ENTITY_LAYER_INDEX, object, true);
 	}
@@ -96,7 +96,7 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 		object->setRotation(objectValue["rotation"]);
 		object->setPositionX(objectValue["x"]);
 		object->setPositionY(objectValue["y"] + object->getHeight());
-		object->setStatic(false);
+		object->setBodyType(BodyType::Dynamic);
 
 		for (auto& [objectPropertyKey, objectPropertyValue] : objectValue["properties"].items())
 		{
@@ -160,10 +160,12 @@ void LevelBuilder::createDynamics(nlohmann::json layerValue) {
 		object->setRotation(objectValue["rotation"]);
 		object->setPositionX(objectValue["x"]);
 		object->setPositionY(objectValue["y"] + object->getHeight());
-		object->setStatic(false);
+		object->setBodyType(BodyType::Kinematic);
 
 		object->registerSprite(SpriteState::DEFAULT, tileSprite);
 		object->changeToState(SpriteState::DEFAULT);
+
+		object->setGravity(0);
 
 		bLevel->addNewObjectToLayer(ENTITY_LAYER_INDEX, object, true);
 	}
@@ -189,7 +191,7 @@ void LevelBuilder::createBackground(nlohmann::json layerValue) {
 
 		tile->setWidth(width);
 		tile->setHeight(height);
-		tile->setStatic(true);
+		tile->setBodyType(BodyType::Static);
 		tile->setPositionX(x);
 		tile->setPositionY(y);
 
@@ -227,7 +229,7 @@ void LevelBuilder::createDecoration(nlohmann::json layerValue)
 
 			tile->setWidth(sprite->width);
 			tile->setHeight(sprite->height);
-			tile->setStatic(true);
+			tile->setBodyType(BodyType::Static);
 			tile->setPositionX(currentX * mapTileWidth);
 			tile->setPositionY((currentY * mapTileHeight) + mapTileHeight);
 			tile->setScalable(true);
@@ -306,7 +308,7 @@ void LevelBuilder::createTiles(nlohmann::json layerValue) {
 
 			tile->setWidth(sprite->width);
 			tile->setHeight(sprite->height);
-			tile->setStatic(true);
+			tile->setBodyType(BodyType::Static);
 			tile->setPositionX(currentX * (float)mapTileWidth);
 			tile->setPositionY((currentY * (float)mapTileHeight) + sprite->height);
 

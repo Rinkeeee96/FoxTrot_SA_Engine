@@ -44,7 +44,7 @@ void Overworld::loadBackground() {
 	SpriteObject* BG_LAYER_0 = new SpriteObject(-9123, 1440, 1344, 1, 1, "Assets/Overworld/World.png");
 
 	auto* layer0 = new Drawable(1);
-	layer0->setStatic(true);
+	layer0->setBodyType(BodyType::Static);
 	layer0->setPositionX(1);
 	layer0->setPositionY(1080);
 	layer0->setWidth(1920);

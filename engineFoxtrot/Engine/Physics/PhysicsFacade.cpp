@@ -80,6 +80,34 @@ void PhysicsFacade::addStaticObject(PhysicsBody* object) {
 	bodies.insert(pair<PhysicsBody*, b2Body*>(object, body));
 }
 
+void PhysicsFacade::addKinematicObject(PhysicsBody* object)
+{
+	b2BodyDef bodyDef;
+	bodyDef.type = b2_kinematicBody;
+	b2Body* body = world->CreateBody(&bodyDef);
+
+	b2PolygonShape bodyBox = createShape(*object);
+
+	b2FixtureDef fixtureDef;
+	fixtureDef.shape = &bodyBox;
+	fixtureDef.density = object->getDensity();
+	fixtureDef.friction = object->getFriction();
+	fixtureDef.restitution = object->getRestitution();
+	if (!object->getRotatable()) body->SetFixedRotation(true);
+
+	body->CreateFixture(&fixtureDef);
+
+	float posY = object->getPositionY() - object->getHeight() / 2; //Box2d needs the middle position
+	float posX = object->getPositionX() + object->getWidth() / 2; //Box2d needs the middle position
+	bodyDef.position.Set(posX, posY);
+	bodyDef.linearVelocity = b2Vec2(0, object->getYAxisVelocity());
+
+	if (DEBUG_PHYSICS_ENGINE)cout << "Pushing back obj: spriteid: " << object->getObjectId() << endl;
+	body->SetGravityScale(object->getGravity());
+	bodyDef.gravityScale = object->getGravity();
+	bodies.insert(pair<PhysicsBody*, b2Body*>(object, body));
+}
+
 /// @brief 
 /// A function for register a non static object
 /// @param Object 
@@ -108,6 +136,7 @@ void PhysicsFacade::addDynamicObject(PhysicsBody* object)
 
 	if(DEBUG_PHYSICS_ENGINE)cout << "Pushing back obj: spriteid: " << object->getObjectId() << endl;
 	body->SetGravityScale(object->getGravity());
+	bodyDef.gravityScale = object->getGravity();
 	bodies.insert(pair<PhysicsBody*, b2Body*>(object, body));
 }
 
@@ -141,9 +170,12 @@ void PhysicsFacade::update() {
 		
 		b2Body* body = it.second;
 
+		
+
 		if (body->GetType() == b2_staticBody) {
 			continue;
 		}
+
 		PhysicsBody* object = it.first;
 		if (!object) return;
 		object->setPositionX(body->GetWorldCenter().x - object->getWidth() / 2);

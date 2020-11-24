@@ -10,6 +10,7 @@ public:
 	virtual ~IPhysicsFacade() {};
 
 	virtual void addStaticObject(PhysicsBody* object) = 0;
+	virtual void addKinematicObject(PhysicsBody* object) = 0;
 	virtual void addDynamicObject(PhysicsBody* object) = 0;
 
 	virtual PhysicsBody* getPhysicsObject(const int objectId) = 0;

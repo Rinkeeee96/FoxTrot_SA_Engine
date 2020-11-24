@@ -38,6 +38,7 @@ public:
 	~PhysicsFacade();
 
 	void addStaticObject(PhysicsBody* object) override;
+	void addKinematicObject(PhysicsBody* object) override;
 	void addDynamicObject(PhysicsBody* object) override;
 
 	PhysicsBody* getPhysicsObject(const int objectId) override;

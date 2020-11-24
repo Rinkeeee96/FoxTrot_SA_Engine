@@ -48,7 +48,7 @@ void DeadScreen::loadBackground() {
 	SpriteObject* BG_LAYER_2 = new SpriteObject(-607, 1080, 1920, 1, 300, "Assets/Backgrounds/game_over_Layer_1.png");
 
 	auto* layer0 = new Drawable(-602);
-	layer0->setStatic(true);
+	layer0->setBodyType(BodyType::Static);
 	layer0->setPositionX(1);
 	layer0->setPositionY(1080);
 	layer0->setWidth(1920);
@@ -57,7 +57,7 @@ void DeadScreen::loadBackground() {
 	layer0->changeToState(SpriteState::DEFAULT);
 
 	auto* animation = new Drawable(-604);
-	animation->setStatic(true);
+	animation->setBodyType(BodyType::Static);
 	animation->setPositionX(175);
 	animation->setPositionY(875);
 	animation->setWidth(370);
@@ -67,7 +67,7 @@ void DeadScreen::loadBackground() {
 	animation->setScalable(false);
 
 	auto* layer2 = new Drawable(-603);
-	layer2->setStatic(true);
+	layer2->setBodyType(BodyType::Static);
 	layer2->setPositionX(1);
 	layer2->setPositionY(1080);
 	layer2->setWidth(1920);

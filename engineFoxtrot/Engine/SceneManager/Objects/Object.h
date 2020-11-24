@@ -2,6 +2,12 @@
 #include "core.h"
 #include "SpriteObject.h"
 
+enum class BodyType {
+	Static,
+	Kinematic,
+	Dynamic
+};
+
 /// @brief 
 /// Object class. Object is linked with a sprite id in SVI. 
 class Object
@@ -11,12 +17,12 @@ public:
 	API Object();
 	API ~Object();
 
-	API void setPositionX(const float);
+	API virtual void setPositionX(const float);
 	API float getPositionX() const;
 	
 	API int getObjectId() const;
 
-	API void setPositionY(const float);
+	API virtual void setPositionY(const float);
 	API float getPositionY() const;
 
 	API void setRotation(const float);
@@ -30,9 +36,6 @@ public:
 	
 	API void setWidth(const float);
 	API float getWidth() const;
-	
-	API void setStatic(const bool);
-	API bool getStatic() const;
 	
 	API void setRestitution(const float val);
 	API float getRestitution() const;
@@ -69,6 +72,9 @@ public:
 
 	API bool getIsParticle();
 
+	API void setBodyType(BodyType val);
+	API BodyType getBodyType() const;
+
 	virtual void onUpdate() = 0;
 	
 protected:
@@ -96,7 +102,7 @@ protected:
 	float friction = 0;
 	float restitution = 0;
 	float gravity = 1;
-	bool staticObject = false;
+	BodyType bodyType = BodyType::Static;
 	// ----------------
 	// unknown
 	bool changed = false;

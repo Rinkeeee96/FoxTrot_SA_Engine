@@ -51,7 +51,7 @@ void WinScreen::LoadBackground() {
 
 
 	auto* layer0 = new Drawable(34);
-	layer0->setStatic(true);
+	layer0->setBodyType(BodyType::Static);
 	layer0->setPositionX(1);
 	layer0->setPositionY(1080);
 	layer0->setWidth(1920);
@@ -60,7 +60,7 @@ void WinScreen::LoadBackground() {
 	layer0->changeToState(SpriteState::DEFAULT);
 
 	animation = new Drawable(35);
-	animation->setStatic(true);
+	animation->setBodyType(BodyType::Static);
 	animation->setPositionX(175);
 	animation->setPositionY(1030);
 	animation->setWidth(370);
