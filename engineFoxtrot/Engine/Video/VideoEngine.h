@@ -59,7 +59,6 @@ public:
 	Scene** pointerToCurrentScene = nullptr;
 
 	bool checkInScreen(Object* obj);
-	bool checkFixedLayers(Object* obj);
 
 private:
 	IVideoFacade* videoFacade = new VideoFacade;

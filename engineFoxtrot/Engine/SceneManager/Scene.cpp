@@ -69,6 +69,40 @@ vector <Drawable*> Scene::getAllDrawablesInScene()
 	return returnVector;
 }
 
+vector<Drawable*> Scene::getAllAlwaysDrawablesInScene()
+{
+	vector <Drawable*> returnVector;
+	for (auto layer : layers)
+	{
+		if (layer.second->alwaysVisible) {
+			for (auto obj : layer.second->objects)
+			{
+				Drawable* drawable = dynamic_cast<Drawable*>(obj.second);
+				if (drawable != nullptr)
+					returnVector.push_back(drawable);
+			}
+		}
+	}
+	return returnVector;
+}
+
+vector<Drawable*> Scene::getAllNotAlwaysDrawablesInScene()
+{
+	vector <Drawable*> returnVector;
+	for (auto layer : layers)
+	{
+		if (!layer.second->alwaysVisible) {
+			for (auto obj : layer.second->objects)
+			{
+				Drawable* drawable = dynamic_cast<Drawable*>(obj.second);
+				if (drawable != nullptr)
+					returnVector.push_back(drawable);
+			}
+		}
+	}
+	return returnVector;
+}
+
 /// @brief 
 /// Returns pointers to all available objects in the whole scene. 
 /// @return 
