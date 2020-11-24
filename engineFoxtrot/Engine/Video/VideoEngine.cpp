@@ -154,39 +154,6 @@ void VideoEngine::updateScreen()
 			}
 		}
 	}
-	
-
-
-
-
-	//// Draw all drawAlways layers
-	//for (Drawable* obj : (*pointerToCurrentScene)->getAllAlwaysDrawablesInScene()) {
-	//	if (obj) {
-	//		if (!obj->getIsRemoved()) {
-	//			if (obj->getIsParticle()) {
-	//				drawParticle((ParticleAdapter*)obj);
-	//			}
-	//			else {
-	//				renderCopy(*obj);
-	//			}
-	//		}
-	//	}
-	//}
-
-	//// Draw all !drawAlways layers when the objects are in screen
-	//for (Drawable* obj : (*pointerToCurrentScene)->getAllNotAlwaysDrawablesInScene()) {
-	//	if (obj) {
-	//		if(checkInScreen(obj) && !obj->getIsRemoved()){
-	//			if (obj->getIsParticle()){
-	//				drawParticle((ParticleAdapter*)obj);
-	//			}
-	//			else{
-	//				renderCopy(*obj);
-	//			}
-	//		}
-	//	}
-	//}
-
 }
 
 /// @brief

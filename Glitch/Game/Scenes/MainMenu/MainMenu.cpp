@@ -11,8 +11,8 @@
 
 void MainMenu::onAttach()
 {
-	loadBackground();
 	loadButtons();
+	loadBackground();
 	loadMusic();
 }
 
@@ -81,8 +81,8 @@ void MainMenu::loadBackground() {
 	layer2->changeToState(SpriteState::DEFAULT);
 
 	addNewObjectToLayer(0, layer0, false, true);
-	addNewObjectToLayer(1, layer2, false, true);
-	addNewObjectToLayer(2, animation, false, true);
+	addNewObjectToLayer(1, animation, false, true);
+	addNewObjectToLayer(2, layer2, false, true);
 }
 
 /// @brief 

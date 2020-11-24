@@ -55,7 +55,6 @@ public:
 
 	void calculateOffset(Object& obj, int sceneWidth, int sceneHeight);
 
-
 	Scene** pointerToCurrentScene = nullptr;
 
 	bool checkInScreen(Object* obj);
