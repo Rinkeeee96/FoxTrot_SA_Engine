@@ -29,6 +29,7 @@ private:
 	void onLoadBtnClick();
 	Button* level1Btn = nullptr;
 	Button* stopBtn = nullptr;
+	Button* level2Btn = nullptr;
 };
 
 inline Overworld::~Overworld()

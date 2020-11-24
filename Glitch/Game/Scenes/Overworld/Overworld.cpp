@@ -19,10 +19,18 @@ void Overworld::onAttach()
 /// @brief 
 /// Loads all the buttons in the Overworld
 void Overworld::loadButtons() {
+	level1Btn = new Button(1, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel1BtnClick), new SpriteObject(101012, 32, 32, 1, 300, "Assets/Buttons/village_smal.png"));
+	level1Btn->setWidth(32);
+	level1Btn->setHeight(32);
+	level1Btn->setPositionX(795);
+	level1Btn->setPositionY(840); 
 
-	level1Btn = new PrimaryButton(1, "Level 1", BIND_FN(onLevel1BtnClick));
-	level1Btn->setPositionX(280);
-	level1Btn->setPositionY(1060);
+
+	level2Btn = new Button(2, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel1BtnClick), new SpriteObject(101013, 32, 32, 1, 300, "Assets/Buttons/village_medium.png"));
+	level2Btn->setWidth(100);
+	level2Btn->setHeight(100);
+	level2Btn->setPositionX(900);
+	level2Btn->setPositionY(740);
 
 	/*
 	Button* level2Btn = new PrimaryButton(2, "Level 2", BIND_FN(OnLevel2BtnClick));
@@ -34,7 +42,7 @@ void Overworld::loadButtons() {
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
 	addNewObjectToLayer(3, level1Btn);
-	//addNewObjectToLayer(3, level2Btn);
+	addNewObjectToLayer(3, level2Btn);
 	addNewObjectToLayer(3, stopBtn);
 }
 
