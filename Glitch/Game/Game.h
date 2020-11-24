@@ -12,39 +12,11 @@ public:
 	void run();
 	bool stopRun(Event& event);
 
-	int sceneIdentifierToID(string& identifier);
 	void switchToScene(string const identifier, bool useTransitionScreen);
 
 private:
 	Engine engine;
-
-	map<string, Scene*> scenes;
-	bool currentlyRunningTransition = false;
-
-	void registerScene(string const identifier, Scene* scene) { 
-		if (scene == nullptr) throw exception("Scene is nullptr");
-
-		if (dynamic_cast<GameScene*>(scene))
-		{
-			cout << "Registered Game" << endl;
-			((GameScene*)scene)->registerGame(this);
-		}
-
-		engine.insertScene(scene);
-		scenes.insert(pair<string, Scene*>(identifier, scene));
-	}
-
-	void registerTransitionScene(Scene* scene)
-	{
-		if (dynamic_cast<GameScene*>(scene))
-		{
-			cout << "Registered Game" << endl;
-			((GameScene*)scene)->registerGame(this);
-		}
-		registerScene("GENERAL_TRANSITION_SCENE", scene);
-	}
-
-	
+	int sceneIdentifierToID(string& identifier);
 
 	shared_ptr<Scene> currentScene;
 	bool gameRunning = true;
