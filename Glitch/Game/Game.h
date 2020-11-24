@@ -2,6 +2,7 @@
 #include "Game/SpriteState.h"
 #include "Game/Characters/Player/Player.h"
 #include "Game/Scenes/Scenes.h"
+#include "Game/Scenes/Factory/FactoryMethod.h"
 
 /// @brief 
 /// Game class runs the game

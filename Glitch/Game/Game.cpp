@@ -41,8 +41,7 @@ void Game::switchToScene(string identifier, const bool _useTransitionScreen)
 	{
 	case 0x01:
 	{
-		shared_ptr<MainMenu> mainMenu{new MainMenu(sceneId++)};
-		newScene = mainMenu;
+		newScene = Factory::create("MainMenu");
 		break;
 	}
 	case 0x02:

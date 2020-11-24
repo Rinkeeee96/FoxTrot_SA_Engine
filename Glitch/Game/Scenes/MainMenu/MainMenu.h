@@ -5,7 +5,10 @@
 
 class MainMenu : public GameScene
 {
+	REGISTER(MainMenu);
+
 public:
+	MainMenu() : GameScene(10) {};
 	MainMenu(const int id) : GameScene(id){};
 	~MainMenu();
 	// Inherited via Scene

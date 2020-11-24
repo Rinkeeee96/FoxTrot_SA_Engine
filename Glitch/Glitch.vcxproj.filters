@@ -20,6 +20,8 @@
     <ClCompile Include="Game\Scenes\SaveScreen\SaveScreen.cpp" />
     <ClCompile Include="Game\Scenes\Overworld\Overworld.cpp" />
     <ClCompile Include="Game\Scenes\GameScene.cpp" />
+    <ClCompile Include="Game\Scenes\Factory\Creator.cpp" />
+    <ClCompile Include="Game\Scenes\Factory\FactoryMethod.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
@@ -57,5 +59,8 @@
     <ClInclude Include="Game\Scenes\SaveScreen\SaveScreen.h" />
     <ClInclude Include="Game\Scenes\Overworld\Overworld.h" />
     <ClInclude Include="Game\Scenes\GameScene.h" />
+    <ClInclude Include="Game\Scenes\Factory\Creator.h" />
+    <ClInclude Include="Game\Scenes\Factory\CreatorImpl.h" />
+    <ClInclude Include="Game\Scenes\Factory\FactoryMethod.h" />
   </ItemGroup>
 </Project>
