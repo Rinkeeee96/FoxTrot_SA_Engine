@@ -111,9 +111,9 @@ void VideoEngine::calculateOffset(Object& obj, int sceneWidth, int sceneHeight)
 
 bool VideoEngine::checkInScreen(Object* obj) {
 	if (obj->getPositionX() > videoFacade->getXCameraOffset() - DRAW_OFFSCREEN_BUFFER &&
-		obj->getPositionX() < videoFacade->getXCameraOffset() + WINDOW_WIDTH &&
+		obj->getPositionX() < videoFacade->getXCameraOffset() + WINDOW_WIDTH + DRAW_OFFSCREEN_BUFFER &&
 		obj->getPositionY() > videoFacade->getYCameraOffset() - DRAW_OFFSCREEN_BUFFER &&
-		obj->getPositionY() < videoFacade->getYCameraOffset() + WINDOW_HEIGHT) {
+		obj->getPositionY() < videoFacade->getYCameraOffset() + WINDOW_HEIGHT + DRAW_OFFSCREEN_BUFFER) {
 		return true;
 	}
 	return false;;
@@ -147,7 +147,9 @@ void VideoEngine::updateScreen()
 					drawParticle((ParticleAdapter*)obj.second);
 				}
 				else {
-					renderCopy(dynamic_cast<Drawable&>(*obj.second));
+					Drawable* drawable = dynamic_cast<Drawable*>(obj.second);
+					if (drawable != nullptr)
+						renderCopy(*drawable);
 				}
 			}
 		}
