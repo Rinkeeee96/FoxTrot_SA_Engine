@@ -20,8 +20,6 @@
 #define CAMERA_BOX_X			785
 #define CAMERA_BOX_Y			365
 
-#define DRAW_OFFSCREEN_BUFFER	100
-
 struct API Sprite
 {
 	int spriteID = 0;
