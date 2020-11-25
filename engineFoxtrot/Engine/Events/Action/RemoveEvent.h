@@ -17,8 +17,4 @@ public:
 	/// @brief
 	/// Returns the name of the event
 	const char* GetName() const override { return "Object stop"; }
-
-	const int GetObjectId() const { return objectId; }
-protected:
-	int objectId;
 };
