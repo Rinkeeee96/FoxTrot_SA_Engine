@@ -1,6 +1,4 @@
 #pragma once
-#include "Game/Scenes/Factory/CreatorImpl.h"
-
 class SceneStateMachine;
 
 class GameScene : public Scene
@@ -21,9 +19,3 @@ protected:
 	SceneStateMachine * stateMachine;
 };
 
-#define REGISTER(classname) \
-	private: \
-	static const CreatorImpl<classname> creator;
-
-#define REGISTERIMPL(classname) \
-	const CreatorImpl<classname> classname::creator(#classname);
