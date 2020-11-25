@@ -170,20 +170,6 @@ void Scene::removeObjectFromScene(Object* obj)
 	}
 }
 
-vector<Object*> Scene::getAllObjectsInLayer(int layerID)
-{
-	vector<Object*> returnVector;
-	auto layer = layers[layerID];
-	for (auto obj : layer->objects)
-	{
-		if (obj.second != nullptr)
-		{
-			returnVector.push_back(obj.second);
-		}
-	}
-	return returnVector;
-}
-
 map<int, Layer*> Scene::getLayers() const
 {
 	return layers;

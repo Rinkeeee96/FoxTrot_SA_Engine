@@ -74,7 +74,6 @@ public:
 
 	API void removeObjectFromScene(Object* obj);
 
-	API vector<Object*> getAllObjectsInLayer(int layerID);
 	API map<int, Layer*> getLayers() const;
 
 private:
