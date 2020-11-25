@@ -19,7 +19,7 @@ public:
 	}
 
 private:
-	Factory*  factory = nullptr;
+	SceneFactory*  factory = nullptr;
 
 	Engine * engine;
 	shared_ptr<Scene> currentScene;

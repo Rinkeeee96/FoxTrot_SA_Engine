@@ -4,7 +4,7 @@
 
 SceneStateMachine::SceneStateMachine()
 {
-	factory = new Factory();
+	factory = new SceneFactory();
 	
 	// Somehow delete this after they are used;
 	CreatorImpl <MainMenu>* Menu = new CreatorImpl <MainMenu>();

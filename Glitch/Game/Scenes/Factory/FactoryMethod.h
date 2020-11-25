@@ -10,11 +10,11 @@
 class Scene;
 class Creator;
 
-class Factory
+class SceneFactory
 {
 public:
-	Factory() {};
-	~Factory() {};
+	SceneFactory() {};
+	~SceneFactory() {};
 	shared_ptr<Scene> create(const std::string& classname, const int id);
 	void registerit(const std::string& classname, Creator* creator);
 private:
