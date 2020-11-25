@@ -57,5 +57,11 @@
     <ClInclude Include="Game\SaveGame\Savegame.h" />
     <ClInclude Include="Game\Scenes\SaveScreen\SaveScreen.h" />
     <ClInclude Include="Game\Scenes\Overworld\Overworld.h" />
+    <ClInclude Include="Commands\CommandInvoker.h" />
+    <ClInclude Include="Commands\ICommand.h" />
+    <ClInclude Include="Commands\JumpCommand.h" />
+    <ClInclude Include="Commands\MoveLeftCommand.h" />
+    <ClInclude Include="Commands\MoveRightCommand.h" />
+    <ClInclude Include="Commands\StopMovementCommand.h" />
   </ItemGroup>
 </Project>

@@ -2,6 +2,12 @@
 #include "Game/Characters/ICharacter.h"
 #include "Game/SpriteState.h"
 
+#include "Commands\MoveLeftCommand.h"
+#include "Commands\MoveRightcommand.h"
+#include "Commands\JumpCommand.h"
+#include "Commands\StopMovementCommand.h"
+#include "Commands\CommandInvoker.h"
+
 class Player : public ICharacter {
 public:
 	Player() : ICharacter() {};
@@ -18,9 +24,6 @@ public:
 	/// @brief 
 	/// Handles when an key pressed event happend, Player can move right, left and jump
 	bool onKeyPressed(Event& event);
-	// @brief 
-	/// Handles when an key released event happend, stop moving
-	bool onKeyReleased(Event& event);
 
 	void onUpdate() override {};
 

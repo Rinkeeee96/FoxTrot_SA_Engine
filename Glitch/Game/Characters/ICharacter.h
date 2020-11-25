@@ -11,9 +11,9 @@ public:
 
 	virtual void onUpdate() = 0;
 
-	bool getCanJump() const { this->canJump; }
+	bool getCanJump() const { return this->canJump; }
 	void setCanJump(bool val) { this->canJump = val; }
-	int getHealth() const { this->health; }
+	int getHealth() const { return this->health; }
 	void setHealth(int val) { this->health = val; }
 	void removeHealth(int val) { 
 		this->health -= val;

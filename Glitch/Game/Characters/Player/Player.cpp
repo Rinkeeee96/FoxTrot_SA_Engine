@@ -22,7 +22,6 @@ Player::Player(const int id) : ICharacter(id) {
 	EventSingleton::get_instance().setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Player::onCollisionBeginEvent));
 	EventSingleton::get_instance().setEventCallback<OnCollisionEndEvent>(BIND_EVENT_FN(Player::onCollisionEndEvent));
 	EventSingleton::get_instance().setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Player::onKeyPressed));
-	EventSingleton::get_instance().setEventCallback<KeyReleasedEvent>(BIND_EVENT_FN(Player::onKeyReleased));
 }
 
 /// @brief 
@@ -97,61 +96,52 @@ void Player::setYAxisVelocity(const float val) {
 /// @brief 
 /// Handles when an key pressed event happend, Player can move right, left and jump
 bool Player::onKeyPressed(Event& event) {
+	ICommand* command = nullptr;
+	CommandInvoker movementInvoker;
+	movementInvoker.SetOnFinish(new StopMovementCommand(*this));
+
+	bool handled = true;
+
 	if (!getIsDead()) {
 		auto keyPressedEvent = static_cast<KeyPressedEvent&>(event);
 		// TODO command pattern
 		switch (keyPressedEvent.GetKeyCode())
 		{
-		case KeyCode::KEY_A:
-			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::LEFT, this->getObjectId()));
-			if (canJump)
-				this->changeToState(SpriteState::RUN_LEFT);
-			else if (this->getYAxisVelocity() > 0)
-				this->changeToState(SpriteState::AIR_FALL_LEFT);
-			else
-				this->changeToState(SpriteState::AIR_JUMP_LEFT);
+		case KeyCode::KEY_A: 
+			movementInvoker.SetOnStart(new MoveLeftCommand(*this), []() -> bool {
+				bool released = false;
+				EventSingleton::get_instance().setEventCallback<KeyReleasedEvent>([&released](Event& e) -> bool {
+					released = static_cast<KeyReleasedEvent&>(e).GetKeyCode() == KeyCode::KEY_A;
+					return true;
+				});
+				return released;
+			});
 			break;
-		case KeyCode::KEY_D:
-			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::RIGHT, this->getObjectId()));
-			if (canJump) {
-				this->changeToState(SpriteState::RUN_RIGHT);
-			}
-			else if (this->getYAxisVelocity() > 0)
-				this->changeToState(SpriteState::AIR_FALL_RIGHT);
-			else
-				this->changeToState(SpriteState::AIR_JUMP_RIGHT);
+		case KeyCode::KEY_D: 
+			movementInvoker.SetOnStart(new MoveRightCommand(*this), []() -> bool {
+				bool released = false;
+				EventSingleton::get_instance().setEventCallback<KeyReleasedEvent>([&released](Event& e) -> bool {
+					released = static_cast<KeyReleasedEvent&>(e).GetKeyCode() == KeyCode::KEY_D;
+					return true;
+				});
+				return released;
+			});
 			break;
-		case KeyCode::KEY_SPACE:
-			if (canJump) {
-				if (this->getXAxisVelocity() > 0)
-					this->changeToState(SpriteState::AIR_JUMP_RIGHT);
-				else
-					this->changeToState(SpriteState::AIR_JUMP_LEFT);
-				EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
-			}
+		case KeyCode::KEY_SPACE: 
+			command = new JumpCommand(*this);
+			command->execute();
 			break;
 		default:
-			return false;
-		}
-		return true;
-	}
-	return false;
-}
-
-bool Player::onKeyReleased(Event& event)
-{
-	if (!getIsDead()) {
-		auto keyReleasedEvent = static_cast<KeyReleasedEvent&>(event);
-
-		switch (keyReleasedEvent.GetKeyCode()) {
-		case KeyCode::KEY_A:
-		case KeyCode::KEY_D:
-			EventSingleton::get_instance().dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->objectId));
+			handled = false;
 		}
 
-		return false;
+		movementInvoker.execute();
+		if (command) {
+			delete command;
+		}
+
 	}
-	return false;
+	return handled;
 }
 
 ICharacter* Player::clone(int id) { return new Player(id); }
