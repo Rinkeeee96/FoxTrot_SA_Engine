@@ -3,8 +3,6 @@
 #include "Game/SpriteState.h"
 #include "Game/Game.h"
 
-REGISTERIMPL(GeneralTransition);
-
 /// @brief 
 /// Loads the background and sets the starttime of this scene;
 void GeneralTransition::onAttach()

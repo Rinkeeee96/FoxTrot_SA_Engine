@@ -11,10 +11,11 @@ class Gate;
 class Creator
 {
 public:
-	Creator(const std::string& classname);
+	Creator() {};
 	virtual ~Creator() {};
 
 	virtual shared_ptr<Scene> create(const int id) = 0;
+
 };
 
 #endif //_CREATOR_H_

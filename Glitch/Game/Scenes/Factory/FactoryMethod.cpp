@@ -4,22 +4,16 @@
 
 void Factory::registerit(const std::string& classname, Creator* creator)
 {
-	get_table()[classname] = creator;
+	table[classname] = creator;
 }
 
 shared_ptr<Scene> Factory::create(const std::string& classname, const int id)
 {
 	std::map<std::string, Creator*>::iterator i;
-	i = get_table().find(classname);
+	i = table.find(classname);
 
-	if (i != get_table().end())
+	if (i != table.end())
 		return i->second->create(id);
 	else
 		return (shared_ptr<Scene>)NULL;
-}
-
-std::map<std::string, Creator*>& Factory::get_table()
-{
-	static std::map<std::string, Creator*> table;
-	return table;
 }

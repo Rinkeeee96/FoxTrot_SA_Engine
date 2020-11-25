@@ -5,7 +5,6 @@
 
 class DeathScreen : public GameScene
 {
-	REGISTER(DeathScreen);
 public:
 	DeathScreen(const int id) : GameScene(id) {};
 	~DeathScreen();

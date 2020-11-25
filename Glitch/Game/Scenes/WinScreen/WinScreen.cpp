@@ -8,8 +8,6 @@
 
 #define BIND_FN(function) std::bind(&WinScreen::function, *this)
 
-REGISTERIMPL(WinScreen);
-
 #define CENTER_X  (WINDOW_WIDTH / 2)
 #define CENTER_Y (WINDOW_HEIGHT / 2)
 

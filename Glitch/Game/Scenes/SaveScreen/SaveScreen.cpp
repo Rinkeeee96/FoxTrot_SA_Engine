@@ -4,9 +4,6 @@
 
 #define BIND_FN(function) std::bind(&SaveScreen::function, *this)
 
-REGISTERIMPL(SaveScreen);
-
-
 #define CENTER_X  (WINDOW_WIDTH / 2)
 #define CENTER_Y (WINDOW_HEIGHT / 2)
 

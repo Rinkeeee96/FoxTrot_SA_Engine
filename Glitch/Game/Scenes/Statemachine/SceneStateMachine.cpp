@@ -4,6 +4,25 @@
 
 SceneStateMachine::SceneStateMachine()
 {
+	factory = new Factory();
+
+	CreatorImpl <MainMenu> * Menu = new CreatorImpl <MainMenu>();
+	Menu->registerClass("MainMenu",factory);
+
+	CreatorImpl <DeathScreen>* Death = new CreatorImpl <DeathScreen>();
+	Death->registerClass("DeathScreen", factory);
+
+	CreatorImpl <Overworld>* overworld = new CreatorImpl <Overworld>();
+	overworld->registerClass("Overworld", factory);
+
+	CreatorImpl <SaveScreen>* saveScreen = new CreatorImpl <SaveScreen>();
+	saveScreen->registerClass("SaveScreen", factory);
+
+	CreatorImpl <GeneralTransition>* general = new CreatorImpl <GeneralTransition>();
+	general->registerClass("GeneralTransition", factory);
+
+	CreatorImpl <WinScreen>* win = new CreatorImpl <WinScreen>();
+	win->registerClass("WinScreen", factory);
 }
 
 SceneStateMachine::~SceneStateMachine()
@@ -29,7 +48,7 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 
 	if (!handlingLevel)
 	{
-		newScene = Factory::create(identifier, sceneId++);
+		newScene = factory->create(identifier, sceneId++);
 	}
 	else
 	{

@@ -5,8 +5,6 @@
 
 class MainMenu : public GameScene
 {
-	REGISTER(MainMenu);
-
 public:
 	MainMenu(const int id) : GameScene(id){};
 	~MainMenu();

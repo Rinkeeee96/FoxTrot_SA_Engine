@@ -6,7 +6,6 @@
 /// Overworld level
 class Overworld : public GameScene
 {
-	REGISTER(Overworld);
 public:
 	Overworld(const int id) : GameScene(id) {};
 	~Overworld();

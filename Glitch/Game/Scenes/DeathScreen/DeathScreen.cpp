@@ -10,8 +10,6 @@
 #define CENTER_X  (WINDOW_WIDTH / 2)
 #define CENTER_Y (WINDOW_HEIGHT / 2)
 
-REGISTERIMPL(DeathScreen);
-
 void DeathScreen::onAttach()
 {
 	loadButtons();

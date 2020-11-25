@@ -7,13 +7,15 @@
 #include <string>
 
 #include "Creator.h"
+#include "FactoryMethod.h"
 
 template <class T>
 class CreatorImpl : public Creator
 {
 public:
-	CreatorImpl<T>(const std::string& classname) : Creator(classname) {}
-	virtual ~CreatorImpl<T>() {}
+	CreatorImpl() {};
+	virtual ~CreatorImpl() {};
+	void registerClass(string classname, Factory* factory) { factory->registerit(classname, this); };
 
 	virtual shared_ptr<Scene> create(const int id) { return shared_ptr<T>{new T(id)}; }
 };

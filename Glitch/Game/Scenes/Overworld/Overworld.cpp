@@ -6,9 +6,6 @@
 
 #define BIND_FN(function) std::bind(&Overworld::function, *this)
 
-REGISTERIMPL(Overworld);
-
-
 /// @brief 
 /// Loadbuttons
 /// LoadBackground
