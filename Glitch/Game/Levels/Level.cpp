@@ -66,11 +66,11 @@ void Level::onUpdate() {
 	if (this->win) {
 		player->kill();
 		this->win = false;
-		game->switchToScene("WinScreen", false);
+		stateMachine->switchToScene("WinScreen", false);
 		return;
 	}
 	if (player->getIsDead()) {
-		game->switchToScene("DeathScreen", false);
+		stateMachine->switchToScene("DeathScreen", false);
 		return;
 	}
 

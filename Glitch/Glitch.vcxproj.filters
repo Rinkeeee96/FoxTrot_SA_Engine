@@ -22,6 +22,7 @@
     <ClCompile Include="Game\Scenes\Factory\Creator.cpp" />
     <ClCompile Include="Game\Scenes\Factory\FactoryMethod.cpp" />
     <ClCompile Include="Game\Scenes\DeathScreen\DeathScreen.cpp" />
+    <ClCompile Include="Game\Scenes\Statemachine\SceneStateMachine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
@@ -62,5 +63,6 @@
     <ClInclude Include="Game\Scenes\Factory\CreatorImpl.h" />
     <ClInclude Include="Game\Scenes\Factory\FactoryMethod.h" />
     <ClInclude Include="Game\Scenes\DeathScreen\DeathScreen.h" />
+    <ClInclude Include="Game\Scenes\Statemachine\SceneStateMachine.h" />
   </ItemGroup>
 </Project>

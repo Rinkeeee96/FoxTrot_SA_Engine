@@ -125,11 +125,12 @@ void GeneralTransition::onUpdate()
 	if (diffFromPreviousCall.count() > 0.05 && moveCharacter)
 	{
 		animation->setPositionX(animation->getPositionX() + 20);
+		previousCallTime = chrono::high_resolution_clock::now();
 		if (animation->getPositionX() > WINDOW_WIDTH)
 		{
-			game->switchToScene(nextScene,false);
+			stateMachine->switchToScene(nextScene,false);
 		}
-		previousCallTime = chrono::high_resolution_clock::now();
+		
 	}
 }
 

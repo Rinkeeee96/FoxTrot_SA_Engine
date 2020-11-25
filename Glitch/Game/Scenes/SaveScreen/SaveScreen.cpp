@@ -106,21 +106,21 @@ void SaveScreen::loadButtons()
 void SaveScreen::onSave1BtnClick()
 {
 	Savegame::get_instance().setCurrentGameData(1);
-	game->switchToScene("Overworld", true);
+	stateMachine->switchToScene("Overworld", true);
 }
 
 void SaveScreen::onSave2BtnClick()
 {
 	Savegame::get_instance().setCurrentGameData(2);
-	game->switchToScene("Overworld", true);
+	stateMachine->switchToScene("Overworld", true);
 }
 
 void SaveScreen::onSave3BtnClick()
 {
 	Savegame::get_instance().setCurrentGameData(3);
-	game->switchToScene("Overworld", true);
+	stateMachine->switchToScene("Overworld", true);
 }
 
 void SaveScreen::onStopBtnClick() {
-	game->switchToScene("MainMenu",false);
+	stateMachine->switchToScene("MainMenu",false);
 }

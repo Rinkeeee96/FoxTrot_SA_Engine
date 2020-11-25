@@ -118,14 +118,14 @@ void WinScreen::onDetach()
 /// Remove the sounds of the soundengine
 void WinScreen::OnMainBtnClick()
 {
-	game->switchToScene("MainMenu", false);
+	stateMachine->switchToScene("MainMenu", false);
 }
 
 /// @brief 
 /// A callback function for overworldBTN
 /// Start transition scene to overworld
 void WinScreen::onOverworldBtnClick() {
-	game->switchToScene("Overworld", false);
+	stateMachine->switchToScene("Overworld", false);
 }
 
 /// @brief 

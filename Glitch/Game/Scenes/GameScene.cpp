@@ -1,9 +1,9 @@
 #include "pch.h"
 #include "GameScene.h"
 
-#include "Game/Game.h"
+#include "Game/Scenes/Statemachine/SceneStateMachine.h"
 
-void GameScene::registerGame(Game * game)
+void GameScene::registerStateMachine(SceneStateMachine * stateMachine)
 {
-	this->game = game;
+	this->stateMachine = stateMachine;
 }

@@ -87,7 +87,7 @@ void Overworld::onDetach()
 void Overworld::onLevel1BtnClick()
 {
 	cout << "Level1 BTN" << endl;
-	game->switchToScene("level_1", true);
+	stateMachine->switchToScene("level_1", true);
 }
 
 /// @brief 
@@ -104,7 +104,7 @@ void Overworld::onStartBtnClick()
 
 /// @brief 
 void Overworld::onStopBtnClick() {
-	game->switchToScene("MainMenu",true);
+	stateMachine->switchToScene("MainMenu",true);
 }
 
 /// @brief 

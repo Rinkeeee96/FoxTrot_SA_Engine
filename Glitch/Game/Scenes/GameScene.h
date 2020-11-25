@@ -1,7 +1,7 @@
 #pragma once
 #include "Game/Scenes/Factory/CreatorImpl.h"
 
-class Game;
+class SceneStateMachine;
 
 class GameScene : public Scene
 {
@@ -15,10 +15,10 @@ public:
 	void onDetach() {};
 	void onUpdate() {};
 
-	void registerGame(Game * game);
+	void registerStateMachine(SceneStateMachine * stateMachine);
 
 protected:
-	Game * game;
+	SceneStateMachine * stateMachine;
 };
 
 #define REGISTER(classname) \

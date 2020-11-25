@@ -201,6 +201,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Triggers\BaseTrigger.h" />
     <ClInclude Include="Game\Triggers\DeathTrigger.h" />
     <ClInclude Include="Game\Triggers\WinTrigger.h" />
+    <ClInclude Include="Game\Scenes\Statemachine\SceneStateMachine.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Characters\Enemies\IEnemy.h" />
@@ -224,6 +225,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClCompile Include="Game\Levels\Level.cpp" />
     <ClCompile Include="Game\Levels\Builders\LevelBuilderDirector.cpp" />
     <ClCompile Include="Game\Levels\Builders\LevelBuilder.cpp" />
+    <ClCompile Include="Game\Scenes\Statemachine\SceneStateMachine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\engineFoxtrot\engineFoxtrot.vcxproj">
