@@ -22,6 +22,7 @@ Player::Player(const int id) : ICharacter(id) {
 	EventSingleton::get_instance().setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Player::onCollisionBeginEvent));
 	EventSingleton::get_instance().setEventCallback<OnCollisionEndEvent>(BIND_EVENT_FN(Player::onCollisionEndEvent));
 	EventSingleton::get_instance().setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Player::onKeyPressed));
+	EventSingleton::get_instance().setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Player::onKeyReleased));
 }
 
 /// @brief 
@@ -97,9 +98,6 @@ void Player::setYAxisVelocity(const float val) {
 /// Handles when an key pressed event happend, Player can move right, left and jump
 bool Player::onKeyPressed(Event& event) {
 	ICommand* command = nullptr;
-	CommandInvoker movementInvoker;
-	movementInvoker.SetOnFinish(new StopMovementCommand(*this));
-
 	bool handled = true;
 
 	if (!getIsDead()) {
@@ -108,40 +106,42 @@ bool Player::onKeyPressed(Event& event) {
 		switch (keyPressedEvent.GetKeyCode())
 		{
 		case KeyCode::KEY_A: 
-			movementInvoker.SetOnStart(new MoveLeftCommand(*this), []() -> bool {
-				bool released = false;
-				EventSingleton::get_instance().setEventCallback<KeyReleasedEvent>([&released](Event& e) -> bool {
-					released = static_cast<KeyReleasedEvent&>(e).GetKeyCode() == KeyCode::KEY_A;
-					return true;
-				});
-				return released;
-			});
+			command = new MoveLeftCommand(*this);
 			break;
 		case KeyCode::KEY_D: 
-			movementInvoker.SetOnStart(new MoveRightCommand(*this), []() -> bool {
-				bool released = false;
-				EventSingleton::get_instance().setEventCallback<KeyReleasedEvent>([&released](Event& e) -> bool {
-					released = static_cast<KeyReleasedEvent&>(e).GetKeyCode() == KeyCode::KEY_D;
-					return true;
-				});
-				return released;
-			});
+			command = new MoveRightCommand(*this);
 			break;
 		case KeyCode::KEY_SPACE: 
 			command = new JumpCommand(*this);
-			command->execute();
 			break;
 		default:
 			handled = false;
 		}
 
-		movementInvoker.execute();
 		if (command) {
+			command->execute();
 			delete command;
 		}
 
 	}
 	return handled;
+}
+
+bool Player::onKeyReleased(Event& event)
+{
+	if (!getIsDead()) {
+		auto keyReleasedEvent = static_cast<KeyReleasedEvent&>(event);
+
+		switch (keyReleasedEvent.GetKeyCode()) {
+		case KeyCode::KEY_A:
+		case KeyCode::KEY_D:
+			StopMovementCommand command(*this);
+			command.execute();
+		}
+
+		return false;
+	}
+	return false;
 }
 
 ICharacter* Player::clone(int id) { return new Player(id); }
