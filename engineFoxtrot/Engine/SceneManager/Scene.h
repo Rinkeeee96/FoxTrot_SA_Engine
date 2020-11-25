@@ -14,9 +14,9 @@ public:
 	API Scene(const int _sceneID, const int _sceneHeight, const int _sceneWidth);
 	API ~Scene();
 
-	bool API checkIfObjectExists(const int objectID);
-	const bool API toggleLayer(const int zIndex, bool render);
-	const void API addNewObjectToLayer(const int zIndex, Object* object, bool renderPhysics = false);
+	API bool checkIfObjectExists(const int objectID);
+	API bool toggleLayer(const int zIndex, bool render);
+	API void addNewObjectToLayer(const int zIndex, Object* object, bool renderPhysics = false);
 
 	vector<Drawable*> API getAllDrawablesInScene();
 	vector <Object*> API getAllObjectsInScene();

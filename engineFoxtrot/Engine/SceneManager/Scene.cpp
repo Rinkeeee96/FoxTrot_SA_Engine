@@ -41,7 +41,7 @@ bool Scene::checkIfObjectExists(const int objectID)
 /// @return 
 /// Returns the new state of the layer.
 /// False in case the layer is not available. 
-const bool Scene::toggleLayer(const int zIndex, bool render)
+bool Scene::toggleLayer(const int zIndex, bool render)
 {
 	if (layers.find(zIndex) != layers.end())
 	{
@@ -107,7 +107,7 @@ vector <Object*> Scene::getAllObjectsInSceneRenderPhysics()
 /// Zindex of the layer that the object should be added to
 /// @param object 
 /// Pointer to the object
-const void Scene::addNewObjectToLayer(const int zIndex, Object* object, bool renderPhysics)
+void Scene::addNewObjectToLayer(const int zIndex, Object* object, bool renderPhysics)
 {
 	if (object == nullptr) throw ERROR_CODE_SCENE_NO_OBJECT_FOUND;
 

@@ -5,7 +5,6 @@
 #include "Events/AppTickEvent60.h"
 
 #include "Events/Action/OnCollisionEvent.h"
-#include "Events/Action/OnCollisionEvent.h"
 #include "Events/Action/RemoveEvent.h"
 
 #include "Events/Sound/OnMusicStartEvent.h"
