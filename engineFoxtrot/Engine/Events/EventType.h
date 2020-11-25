@@ -4,6 +4,9 @@
 enum class EventType
 {
 	None = 0,
+	// -- input capturing events ---
+	CaptureInput,
+	ReleaseInput,
 	// -- engine events -----
 	Engine30, 
 	Engine60,

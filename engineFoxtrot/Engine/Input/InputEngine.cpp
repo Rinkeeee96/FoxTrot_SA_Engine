@@ -24,7 +24,7 @@ bool InputEngine::onKeyPressed(Event& event) {
 	}
 	case KeyCode::KEY_F4: {
 		WindowCloseEvent event;
-		EventSingleton::get_instance().dispatchEvent<WindowCloseEvent>((Event&)WindowCloseEvent());
+		EventSingleton::get_instance().dispatchEvent<WindowCloseEvent>((Event&)event);
 		return true;
 	}
     default:
