@@ -110,13 +110,35 @@ void VideoEngine::calculateOffset(Object& obj, int sceneWidth, int sceneHeight)
 }
 
 bool VideoEngine::checkInScreen(Object* obj) {
-	if (obj->getPositionX() > videoFacade->getXCameraOffset() - DRAW_OFFSCREEN_BUFFER &&
-		obj->getPositionX() < videoFacade->getXCameraOffset() + WINDOW_WIDTH + DRAW_OFFSCREEN_BUFFER &&
-		obj->getPositionY() > videoFacade->getYCameraOffset() - DRAW_OFFSCREEN_BUFFER &&
-		obj->getPositionY() < videoFacade->getYCameraOffset() + WINDOW_HEIGHT + DRAW_OFFSCREEN_BUFFER) {
+	//if (obj->getPositionX() > videoFacade->getXCameraOffset() - DRAW_OFFSCREEN_BUFFER &&
+	//	obj->getPositionX() < videoFacade->getXCameraOffset() + WINDOW_WIDTH + DRAW_OFFSCREEN_BUFFER &&
+	//	obj->getPositionY() > videoFacade->getYCameraOffset() - DRAW_OFFSCREEN_BUFFER &&
+	//	obj->getPositionY() < videoFacade->getYCameraOffset() + WINDOW_HEIGHT + DRAW_OFFSCREEN_BUFFER) {
+	//	return true;
+	//}
+	
+	float objLeft, objRight, objUp, objDown;
+	objLeft = obj->getPositionX();
+	objRight = obj->getPositionX() + obj->getWidth();
+	objUp = obj->getPositionY() - obj->getHeight();
+	objDown = obj->getPositionY();
+
+	if ((objRight	> videoFacade->getXCameraOffset() && objRight	< videoFacade->getXCameraOffset() + WINDOW_WIDTH -100&&
+		 objUp		> videoFacade->getYCameraOffset() && objUp		< videoFacade->getYCameraOffset() + WINDOW_HEIGHT - 100) ||
+
+		(objUp		> videoFacade->getYCameraOffset() && objUp		< videoFacade->getYCameraOffset() + WINDOW_HEIGHT - 100 &&
+		 objLeft	> videoFacade->getXCameraOffset() && objLeft	< videoFacade->getXCameraOffset() + WINDOW_WIDTH - 100) ||
+
+		(objLeft	> videoFacade->getXCameraOffset() && objLeft	< videoFacade->getXCameraOffset() + WINDOW_WIDTH - 100 &&
+		 objDown	> videoFacade->getYCameraOffset() && objDown	< videoFacade->getYCameraOffset() + WINDOW_HEIGHT - 100) ||
+
+		(objDown	> videoFacade->getYCameraOffset() && objDown	< videoFacade->getYCameraOffset() + WINDOW_HEIGHT - 100 &&
+		 objRight	> videoFacade->getXCameraOffset() && objRight	< videoFacade->getXCameraOffset() + WINDOW_WIDTH - 100))
+	{
 		return true;
 	}
-	return false;;
+
+	return false;
 }
 
 /// @brief 
