@@ -110,30 +110,23 @@ void VideoEngine::calculateOffset(Object& obj, int sceneWidth, int sceneHeight)
 }
 
 bool VideoEngine::checkInScreen(Object* obj) {
-	//if (obj->getPositionX() > videoFacade->getXCameraOffset() - DRAW_OFFSCREEN_BUFFER &&
-	//	obj->getPositionX() < videoFacade->getXCameraOffset() + WINDOW_WIDTH + DRAW_OFFSCREEN_BUFFER &&
-	//	obj->getPositionY() > videoFacade->getYCameraOffset() - DRAW_OFFSCREEN_BUFFER &&
-	//	obj->getPositionY() < videoFacade->getYCameraOffset() + WINDOW_HEIGHT + DRAW_OFFSCREEN_BUFFER) {
-	//	return true;
-	//}
-	
 	float objLeft, objRight, objUp, objDown;
 	objLeft = obj->getPositionX();
 	objRight = obj->getPositionX() + obj->getWidth();
 	objUp = obj->getPositionY() - obj->getHeight();
 	objDown = obj->getPositionY();
 
-	if ((objRight	> videoFacade->getXCameraOffset() && objRight	< videoFacade->getXCameraOffset() + WINDOW_WIDTH -100&&
-		 objUp		> videoFacade->getYCameraOffset() && objUp		< videoFacade->getYCameraOffset() + WINDOW_HEIGHT - 100) ||
+	if ((objRight	> videoFacade->getXCameraOffset() && objRight	< videoFacade->getXCameraOffset() + WINDOW_WIDTH &&
+		 objUp		> videoFacade->getYCameraOffset() && objUp		< videoFacade->getYCameraOffset() + WINDOW_HEIGHT	) ||
 
-		(objUp		> videoFacade->getYCameraOffset() && objUp		< videoFacade->getYCameraOffset() + WINDOW_HEIGHT - 100 &&
-		 objLeft	> videoFacade->getXCameraOffset() && objLeft	< videoFacade->getXCameraOffset() + WINDOW_WIDTH - 100) ||
+		(objUp		> videoFacade->getYCameraOffset() && objUp		< videoFacade->getYCameraOffset() + WINDOW_HEIGHT &&
+		 objLeft	> videoFacade->getXCameraOffset() && objLeft	< videoFacade->getXCameraOffset() + WINDOW_WIDTH	) ||
 
-		(objLeft	> videoFacade->getXCameraOffset() && objLeft	< videoFacade->getXCameraOffset() + WINDOW_WIDTH - 100 &&
-		 objDown	> videoFacade->getYCameraOffset() && objDown	< videoFacade->getYCameraOffset() + WINDOW_HEIGHT - 100) ||
+		(objLeft	> videoFacade->getXCameraOffset() && objLeft	< videoFacade->getXCameraOffset() + WINDOW_WIDTH && 
+		 objDown	> videoFacade->getYCameraOffset() && objDown	< videoFacade->getYCameraOffset() + WINDOW_HEIGHT	) ||
 
-		(objDown	> videoFacade->getYCameraOffset() && objDown	< videoFacade->getYCameraOffset() + WINDOW_HEIGHT - 100 &&
-		 objRight	> videoFacade->getXCameraOffset() && objRight	< videoFacade->getXCameraOffset() + WINDOW_WIDTH - 100))
+		(objDown	> videoFacade->getYCameraOffset() && objDown	< videoFacade->getYCameraOffset() + WINDOW_HEIGHT &&
+		 objRight	> videoFacade->getXCameraOffset() && objRight	< videoFacade->getXCameraOffset() + WINDOW_WIDTH))
 	{
 		return true;
 	}
@@ -164,7 +157,7 @@ void VideoEngine::updateScreen()
 
 	for (auto layer : (*pointerToCurrentScene)->getLayers()) {
 		for (auto obj : layer.second->objects) {
-			if (obj.second && ((layer.second->alwaysVisible && !obj.second->getIsRemoved()) || (checkInScreen(obj.second) && !obj.second->getIsRemoved()))) {
+			if (obj.second /*&& ((layer.second->alwaysVisible && !obj.second->getIsRemoved()) || (checkInScreen(obj.second) && !obj.second->getIsRemoved()))*/) {
 				if (obj.second->getIsParticle()) {
 					drawParticle((ParticleAdapter*)obj.second);
 				}

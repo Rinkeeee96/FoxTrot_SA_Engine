@@ -243,6 +243,10 @@ void LevelBuilder::createParticle(nlohmann::json layerValue)
 					part->setPositionX(objectValue["x"]);
 					part->setPositionY(objectValue["y"] + particle1Sprite->getHeight());
 					part->setStyle((ParticleInit::ParticleStyle)type);
+					
+					// TODO Set particle width
+
+
 					bLevel->addNewObjectToLayer(PARTICLE_LAYER_INDEX, part, false);
 				}
 			else {
