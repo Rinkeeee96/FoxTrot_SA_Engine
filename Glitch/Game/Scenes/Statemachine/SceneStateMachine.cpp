@@ -5,34 +5,29 @@
 SceneStateMachine::SceneStateMachine()
 {
 	factory = new Factory();
-
-	Menu = new CreatorImpl <MainMenu>();
+	
+	// Somehow delete this after they are used;
+	CreatorImpl <MainMenu>* Menu = new CreatorImpl <MainMenu>();
 	Menu->registerClass("MainMenu",factory);
 
-	Death = new CreatorImpl <DeathScreen>();
+	CreatorImpl <DeathScreen>* Death = new CreatorImpl <DeathScreen>();
 	Death->registerClass("DeathScreen", factory);
 
-	overworld = new CreatorImpl <Overworld>();
+	CreatorImpl <Overworld>* overworld = new CreatorImpl <Overworld>();
 	overworld->registerClass("Overworld", factory);
 
-	saveScreen = new CreatorImpl <SaveScreen>();
+	CreatorImpl <SaveScreen>* saveScreen = new CreatorImpl <SaveScreen>();
 	saveScreen->registerClass("SaveScreen", factory);
 
-	general = new CreatorImpl <GeneralTransition>();
+	CreatorImpl <GeneralTransition>* general = new CreatorImpl <GeneralTransition>();
 	general->registerClass("GeneralTransition", factory);
 
-	win = new CreatorImpl <WinScreen>();
+	CreatorImpl <WinScreen>* win = new CreatorImpl <WinScreen>();
 	win->registerClass("WinScreen", factory);
 }
 
 SceneStateMachine::~SceneStateMachine()
 {
-	delete Menu;
-	delete Death;
-	delete overworld;
-	delete saveScreen;
-	delete general;
-	delete win;
 	delete factory;
 }
 

@@ -19,14 +19,6 @@ public:
 	}
 
 private:
-
-	CreatorImpl <MainMenu>* Menu;
-	CreatorImpl <DeathScreen>* Death;
-	CreatorImpl <Overworld>* overworld;
-	CreatorImpl <SaveScreen>* saveScreen;
-	CreatorImpl <GeneralTransition>* general;
-	CreatorImpl <WinScreen>* win;
-
 	Factory*  factory = nullptr;
 
 	Engine * engine;
