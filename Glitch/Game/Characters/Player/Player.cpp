@@ -9,9 +9,9 @@ Player::Player(const int id) : ICharacter(id) {
 
 	this->setSpeed(6);
 	this->setJumpHeight(10);
-	this->setDensity(10);
+	this->setDensity(200);
 	this->setFriction(0);
-	this->setRestitution(0.1f);
+	this->setRestitution(0);
 	this->setStatic(false);
 	this->setRotatable(false);
 
@@ -79,7 +79,7 @@ void Player::setXAxisVelocity(const float val) {
 void Player::setYAxisVelocity(const float val) {
 
 	if (!canJump) {
-		if (val > 1 && !changed) {
+		if (val > 0 && !changed) {
 			if (this->getXAxisVelocity() > 0 || this->currentSpriteState == SpriteState::AIR_JUMP_RIGHT)
 				this->changeToState(SpriteState::AIR_FALL_RIGHT);
 			else if (this->currentSpriteState != AIR_FALL_RIGHT)

@@ -11,7 +11,7 @@ Game::Game()
 	SceneSwitcher::get_instance().setEngine(&engine);
 }
 
-int Game::run() {
+void Game::run() {
 	try {
 		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
 
@@ -38,7 +38,7 @@ int Game::run() {
 	}
 	catch (exception e) {
 		cout << e.what() << endl;
-		return EXIT_FAILURE;
+		return;
 	}
 
 	LoadLevelFacade levelLoader{ engine };
@@ -50,7 +50,7 @@ int Game::run() {
 	}
 	catch (exception e) {
 		cout << e.what() << endl;
-		return EXIT_FAILURE;
+		return;
 	}
 
 	try {
@@ -69,15 +69,14 @@ int Game::run() {
 
 			this_thread::sleep_for(chrono::milliseconds(10));
 		}
+
 		Savegame::get_instance().saveGameDataToJsonFile();
+
 	}
 	catch (int e) {
 		cout << ERRORCODES[e] << endl;
-		return EXIT_FAILURE;
 	}
 	catch (exception e) {
 		cout << e.what() << endl;
-		return EXIT_FAILURE;
 	}
-	return EXIT_SUCCES;
 }
