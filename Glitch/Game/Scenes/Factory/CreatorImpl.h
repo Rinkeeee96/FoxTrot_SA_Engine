@@ -14,8 +14,8 @@ class CreatorImpl : public Creator
 {
 public:
 	CreatorImpl() {};
-	virtual ~CreatorImpl() {};
-	void registerClass(string classname, Factory* factory) { factory->registerit(classname, this); };
+	~CreatorImpl() {};
+	void registerClass(const string& classname, Factory* factory) { factory->registerit(classname, this); };
 
 	virtual shared_ptr<Scene> create(const int id) { return shared_ptr<T>{new T(id)}; }
 };

@@ -6,27 +6,34 @@ SceneStateMachine::SceneStateMachine()
 {
 	factory = new Factory();
 
-	CreatorImpl <MainMenu> * Menu = new CreatorImpl <MainMenu>();
+	Menu = new CreatorImpl <MainMenu>();
 	Menu->registerClass("MainMenu",factory);
 
-	CreatorImpl <DeathScreen>* Death = new CreatorImpl <DeathScreen>();
+	Death = new CreatorImpl <DeathScreen>();
 	Death->registerClass("DeathScreen", factory);
 
-	CreatorImpl <Overworld>* overworld = new CreatorImpl <Overworld>();
+	overworld = new CreatorImpl <Overworld>();
 	overworld->registerClass("Overworld", factory);
 
-	CreatorImpl <SaveScreen>* saveScreen = new CreatorImpl <SaveScreen>();
+	saveScreen = new CreatorImpl <SaveScreen>();
 	saveScreen->registerClass("SaveScreen", factory);
 
-	CreatorImpl <GeneralTransition>* general = new CreatorImpl <GeneralTransition>();
+	general = new CreatorImpl <GeneralTransition>();
 	general->registerClass("GeneralTransition", factory);
 
-	CreatorImpl <WinScreen>* win = new CreatorImpl <WinScreen>();
+	win = new CreatorImpl <WinScreen>();
 	win->registerClass("WinScreen", factory);
 }
 
 SceneStateMachine::~SceneStateMachine()
 {
+	delete Menu;
+	delete Death;
+	delete overworld;
+	delete saveScreen;
+	delete general;
+	delete win;
+	delete factory;
 }
 
 void SceneStateMachine::switchToScene(string identifier, const bool _useTransitionScreen)
@@ -52,8 +59,8 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	}
 	else
 	{
-		LoadLevelFacade levelLoader{ *(engine.get()) };
-		LevelBuilder levelOneBuilder{ *(engine.get()), sceneId++ };
+		LoadLevelFacade levelLoader{ *(engine) };
+		LevelBuilder levelOneBuilder{ *(engine), sceneId++ };
 
 		int levelToBuild = stoi(identifier.substr(6));
 		cout << "Level to build: " << levelToBuild << endl;

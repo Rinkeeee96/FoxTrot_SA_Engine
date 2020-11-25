@@ -8,7 +8,7 @@ bool Game::stopRun(Event& event) {
 
 Game::Game()
 {
-	stateMachine.registerEngine(shared_ptr<Engine>(&engine));
+	stateMachine.registerEngine(&engine);
 }
 
 void Game::run() {

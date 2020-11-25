@@ -9,7 +9,7 @@ public:
 	SceneStateMachine();
 	~SceneStateMachine();
 
-	void registerEngine(shared_ptr<Engine> engine) { this->engine = engine; };
+	void registerEngine(Engine * engine) { this->engine = engine; };
 
 	void switchToScene(string const identifier, bool useTransitionScreen);
 
@@ -19,9 +19,17 @@ public:
 	}
 
 private:
-	Factory *factory = nullptr;
 
-	shared_ptr<Engine> engine;
+	CreatorImpl <MainMenu>* Menu;
+	CreatorImpl <DeathScreen>* Death;
+	CreatorImpl <Overworld>* overworld;
+	CreatorImpl <SaveScreen>* saveScreen;
+	CreatorImpl <GeneralTransition>* general;
+	CreatorImpl <WinScreen>* win;
+
+	Factory*  factory = nullptr;
+
+	Engine * engine;
 	shared_ptr<Scene> currentScene;
 	int sceneId = 0;
 
