@@ -165,8 +165,6 @@ void LevelBuilder::createDynamics(nlohmann::json layerValue) {
 		object->registerSprite(SpriteState::DEFAULT, tileSprite);
 		object->changeToState(SpriteState::DEFAULT);
 
-		object->setGravity(0);
-
 		bLevel->addNewObjectToLayer(ENTITY_LAYER_INDEX, object, true);
 	}
 }

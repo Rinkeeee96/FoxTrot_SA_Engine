@@ -97,14 +97,12 @@ void PhysicsFacade::addKinematicObject(PhysicsBody* object)
 
 	body->CreateFixture(&fixtureDef);
 
-	float posY = object->getPositionY() - object->getHeight() / 2; //Box2d needs the middle position
-	float posX = object->getPositionX() + object->getWidth() / 2; //Box2d needs the middle position
+	float posY = object->getPositionY();
+	float posX = object->getPositionX();
 	bodyDef.position.Set(posX, posY);
 	bodyDef.linearVelocity = b2Vec2(0, object->getYAxisVelocity());
 
 	if (DEBUG_PHYSICS_ENGINE)cout << "Pushing back obj: spriteid: " << object->getObjectId() << endl;
-	body->SetGravityScale(object->getGravity());
-	bodyDef.gravityScale = object->getGravity();
 	bodies.insert(pair<PhysicsBody*, b2Body*>(object, body));
 }
 
@@ -173,6 +171,18 @@ void PhysicsFacade::update() {
 		
 
 		if (body->GetType() == b2_staticBody) {
+			continue;
+		}
+
+		if (body->GetType() == b2_kinematicBody) {
+			PhysicsBody* object = it.first;
+			if (!object) return;
+			object->setPositionX(body->GetPosition().x);
+			object->setPositionY(body->GetPosition().y);
+
+			if (object->getRotatable()) object->setRotation(body->GetAngle() * (TOTAL_DEGREES / PI));
+			object->setYAxisVelocity(body->GetLinearVelocity().y);
+			object->setXAxisVelocity(body->GetLinearVelocity().x);
 			continue;
 		}
 

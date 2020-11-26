@@ -10,11 +10,11 @@ class MovingPlatform : public DynamicGround {
 public:
 	MovingPlatform(const int id) : DynamicGround(id) {
 		//this->setGravity(0);
-		this->setSpeed(0);
+		this->setSpeed(1);
 		this->setJumpHeight(5);
 		this->setDensity(200);
-		this->setFriction(0);
-		this->setRestitution(0);
+		this->setFriction(0.1f);
+		this->setRestitution(0.1f);
 		this->setBodyType(BodyType::Kinematic);
 		this->setRotatable(false);
 	}
