@@ -5,6 +5,7 @@
 
 int main() {
 	Game game;
-	game.run();
+	auto result = game.run();
+    //if(_DEBUG) detectMemoryLeak();
 	return 0;
 }

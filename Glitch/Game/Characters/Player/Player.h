@@ -2,6 +2,8 @@
 #include "Game/Characters/ICharacter.h"
 #include "Game/SpriteState.h"
 
+#define RESTITUTION_CORRECTION 1
+
 class Player : public ICharacter {
 public:
 	Player() : ICharacter() {};
