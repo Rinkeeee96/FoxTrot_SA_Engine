@@ -58,7 +58,7 @@ PhysicsBody* PhysicsFacade::getPhysicsObject(const int objectId)
 /// Identifier for ObjectID
 b2PolygonShape createShape(const PhysicsBody& object) {
 	b2PolygonShape shape;
-	float halfH = object.getHeight()/ 2; //Box2D needs the half height of a object
+	float halfH = object.getHeight() / 2; //Box2D needs the half height of a object
 	float halfW = object.getWidth() / 2; //Box2D needs the half width of a object
 	float posY = object.getPositionY() - object.getHeight() / 2; //Box2d needs the middle position
 	float posX = object.getPositionX() + object.getWidth() / 2; //Box2d needs the middle position
@@ -74,8 +74,23 @@ void PhysicsFacade::addStaticObject(PhysicsBody* object) {
 	b2BodyDef groundBodyDef;
 	groundBodyDef.type = b2_staticBody;
 	b2Body* body = world->CreateBody(&groundBodyDef);
+
+
 	b2PolygonShape groundBox = createShape(*object);
 	body->CreateFixture(&groundBox, 0.0f);
+
+
+	b2FixtureDef fixtureDef;
+	fixtureDef.shape = &groundBox;
+	fixtureDef.density = object->getDensity();
+	fixtureDef.friction = object->getFriction();
+	fixtureDef.restitution = object->getRestitution();
+	if (!object->getRotatable()) body->SetFixedRotation(true);
+	body->CreateFixture(&fixtureDef);
+
+	float posY = object->getPositionY() - object->getHeight() / 2; //Box2d needs the middle position
+	float posX = object->getPositionX() + object->getWidth() / 2; //Box2d needs the middle position
+	groundBodyDef.position.Set(posX, posY);
 
 	bodies.insert(pair<PhysicsBody*, b2Body*>(object, body));
 }
@@ -106,7 +121,7 @@ void PhysicsFacade::addDynamicObject(PhysicsBody* object)
 	bodyDef.position.Set(posX, posY);
 	bodyDef.linearVelocity = b2Vec2(0, object->getYAxisVelocity());
 
-	if(DEBUG_PHYSICS_ENGINE)cout << "Pushing back obj: spriteid: " << object->getObjectId() << endl;
+	if (DEBUG_PHYSICS_ENGINE)cout << "Pushing back obj: spriteid: " << object->getObjectId() << endl;
 	bodies.insert(pair<PhysicsBody*, b2Body*>(object, body));
 }
 
@@ -134,15 +149,9 @@ void PhysicsFacade::update() {
 
 	for (auto& it : bodies)
 	{
-		//if (it.first->getObject().getIsRemoved()) {
-		//	continue;
-		//}
-		
 		b2Body* body = it.second;
+		if (body->GetType() == b2_staticBody) continue;
 
-		if (body->GetType() == b2_staticBody) {
-			continue;
-		}
 		PhysicsBody* object = it.first;
 		if (!object) return;
 		object->setPositionX(body->GetWorldCenter().x - object->getWidth() / 2);
@@ -151,7 +160,7 @@ void PhysicsFacade::update() {
 		if (object->getRotatable()) object->setRotation(body->GetAngle() * (TOTAL_DEGREES / PI));
 		object->setYAxisVelocity(body->GetLinearVelocity().y);
 		object->setXAxisVelocity(body->GetLinearVelocity().x);
-	}	
+	}
 }
 
 void PhysicsFacade::stopObject(int objectId) {
@@ -159,7 +168,6 @@ void PhysicsFacade::stopObject(int objectId) {
 	const PhysicsBody* ob = getPhysicsObject(objectId);
 	if (!body || !ob) return;
 	b2Vec2 vel = body->GetLinearVelocity();
-	vel.y = ob->getYAxisVelocity();
 	vel.x = 0;
 	body->SetLinearVelocity(vel);
 }
@@ -175,8 +183,7 @@ void PhysicsFacade::MoveLeft(const int objectId)
 	if (!body || !ob) return;
 
 	b2Vec2 vel = body->GetLinearVelocity();
-	vel.y = ob->getYAxisVelocity();
-	vel.x = ob->getSpeed() *-1;
+	vel.x = ob->getSpeed() * -1;
 	body->SetLinearVelocity(vel);
 };
 
@@ -191,7 +198,6 @@ void PhysicsFacade::MoveRight(const int objectId)
 	if (!body || !ob) return;
 
 	b2Vec2 vel = body->GetLinearVelocity();
-	vel.y = ob->getYAxisVelocity();
 	vel.x = ob->getSpeed();
 	body->SetLinearVelocity(vel);
 };
@@ -202,7 +208,7 @@ void PhysicsFacade::MoveRight(const int objectId)
 /// Identifier for ObjectID
 void PhysicsFacade::Jump(const int objectId)
 {
-  	b2Body* body = findBody(objectId);
+	b2Body* body = findBody(objectId);
 	const PhysicsBody* ob = getPhysicsObject(objectId);
 	if (!body || !ob) return;
 

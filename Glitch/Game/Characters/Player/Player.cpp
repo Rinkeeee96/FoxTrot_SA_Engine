@@ -9,9 +9,9 @@ Player::Player(const int id) : ICharacter(id) {
 
 	this->setSpeed(6);
 	this->setJumpHeight(10);
-	this->setDensity(200);
+	this->setDensity(10);
 	this->setFriction(0);
-	this->setRestitution(0);
+	this->setRestitution(0.1f);
 	this->setTotalHealth(3);
 	this->setStatic(false);
 	this->setRotatable(false);
