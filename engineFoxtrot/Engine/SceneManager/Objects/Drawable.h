@@ -34,13 +34,13 @@ public:
 
 	API virtual const ColoredText* toString() { return nullptr; }
 
-	virtual void onUpdate() override {
+	virtual void onUpdate() override { }
 
-	}
-
+	bool getDrawStatic() { return this->drawStatic; }
+	void setDrawStatic(bool val) { this->drawStatic = val; }
 protected:
 	// TODO	particle related things
-
+	bool drawStatic = false;
 	int currentSpriteState = 0;
 	SpriteObject* currentSprite = nullptr;
 	map<const int, SpriteObject*> textures;

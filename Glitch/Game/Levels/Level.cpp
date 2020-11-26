@@ -53,41 +53,35 @@ void Level::addHuds() {
 	// Health HUDS
 	int startingID = -662;
 	int xAxisChange = 75;
-	int startingXAxis = 75;
+	int startingXAxis = 25;
 	int current = 0;
-	SpriteObject* HUD = new SpriteObject(-660, 50, 50, 1, 300, "Assets/Sprites/HUD/Full.png");
-	SpriteObject* HUDEmpty = new SpriteObject(-661, 50, 50, 1, 300, "Assets/Sprites/HUD/Empty.png");
+	SpriteObject* HealthHUD = new SpriteObject(-660, 50, 50, 1, 300, "Assets/Sprites/HUD/Full.png");
+	SpriteObject* EmptyHealthHUD = new SpriteObject(-661, 50, 50, 1, 300, "Assets/Sprites/HUD/Empty.png");
 
-	for (size_t i = 0; i < player->getHealth(); i++)
+	for (size_t i = 0; i < player->getCurrentHealth(); i++)
 	{
-		auto* health1 = new Drawable(startingID--);
-		health1->setStatic(true);
-		health1->setPositionX(25 + (startingXAxis + (xAxisChange * (current + 1))));
-		health1->setPositionY(100);
-		health1->setWidth(50);
-		health1->setHeight(50);
-		health1->registerSprite(SpriteState::DEFAULT, HUD);
-		health1->changeToState(SpriteState::DEFAULT);
-
-		huds.push_back(health1);
-		addNewObjectToLayer(4, health1, false);
-		current++;
+		this->addHealthHud(startingID, startingXAxis, xAxisChange, current, HealthHUD);
 	}
-	for (size_t i = 0; i < (player->getTotalHealth() - player->getHealth()); i++)
+	int damageTaken = player->getTotalHealth() - player->getCurrentHealth();
+	for (size_t i = 0; i < damageTaken; i++)
 	{
-		auto* health1 = new Drawable(startingID--);
-		health1->setStatic(true);
-		health1->setPositionX(25 + (startingXAxis + (xAxisChange * (current + 1))));
-		health1->setPositionY(100);
-		health1->setWidth(50);
-		health1->setHeight(50);
-		health1->registerSprite(SpriteState::DEFAULT, HUDEmpty);
-		health1->changeToState(SpriteState::DEFAULT);
-
-		huds.push_back(health1);
-		addNewObjectToLayer(4, health1, false);
-		current++;
+		this->addHealthHud(startingID, startingXAxis, xAxisChange, current, EmptyHealthHUD);
 	}
+}
+
+void Level::addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, SpriteObject* HUD) {
+	auto* health1 = new Drawable(startingID--);
+	health1->setStatic(true);
+	health1->setPositionX((startingXAxis + (xAxisChange * (current + 1))));
+	health1->setPositionY(100);
+	health1->setWidth(50);
+	health1->setHeight(50);
+	health1->setDrawStatic(true);
+	health1->registerSprite(SpriteState::DEFAULT, HUD);
+	health1->changeToState(SpriteState::DEFAULT);
+
+	addNewObjectToLayer(4, health1, false);
+	current++;
 }
 
 /// @brief
@@ -95,7 +89,7 @@ void Level::addHuds() {
 void Level::start() {
 	player->setPositionX(50);
 	player->setPositionY(885);
-	player->setHealth(2);
+	player->setCurrentHealth(2);
 	player->setTotalHealth(3);
 	this->addHuds();
 

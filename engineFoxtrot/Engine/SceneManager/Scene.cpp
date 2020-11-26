@@ -167,30 +167,3 @@ void Scene::removeObjectFromScene(Object* obj)
 		}
 	}
 }
-
-void Scene::updateHudPositions() {
-	for (size_t i = 0; i < huds.size(); i++)
-	{
-		if (this->getXCameraOffset() != this->oldXCameraOffset) {
-			huds[i]->setPositionX(huds[i]->getPositionX() + this->getXCameraOffset() - this->oldXCameraOffset);
-		}
-		if (this->getYCameraOffset() != this->oldYCameraOffset) {
-			huds[i]->setPositionY(huds[i]->getPositionY() + this->getYCameraOffset() - this->oldYCameraOffset);
-		}
-	}
-	this->oldXCameraOffset = this->getXCameraOffset();
-}
-
-void Scene::setXCameraOffset(int x) {
-	if (x != oldXCameraOffset && this->getXCameraOffset() != oldXCameraOffset)
-		oldXCameraOffset = x;
-	xCameraOffset = x;
-	this->updateHudPositions();
-}
-
-void Scene::setYCameraOffset(int y) {
-	if (y != oldYCameraOffset && this->getYCameraOffset() != oldYCameraOffset)
-		oldYCameraOffset = y;
-	yCameraOffset = y;
-	this->updateHudPositions();
-}

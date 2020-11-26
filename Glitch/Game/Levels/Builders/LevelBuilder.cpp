@@ -122,7 +122,8 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 			}
 			else if (objectPropertyValue["name"] == "health") {
 				int healthString = objectPropertyValue["value"];
-				object->setHealth(healthString);
+				object->setTotalHealth(healthString);
+				object->setCurrentHealth(healthString);
 			}
 		}
 		bLevel->addNewObjectToLayer(ENTITY_LAYER_INDEX, object, true);

@@ -16,7 +16,8 @@ Player::Player(const int id) : ICharacter(id) {
 	this->setStatic(false);
 	this->setRotatable(false);
 
-	this->setHealth(3);
+	this->setCurrentHealth(3);
+	this->setTotalHealth(3);
 	this->setScalable(true);
 	this->setScale(2);
 
