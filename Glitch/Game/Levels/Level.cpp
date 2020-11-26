@@ -48,12 +48,56 @@ void Level::onAttach() {
 		EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent(s.first, s.second));
 	}
 }
+
+void Level::addHuds() {
+	// Health HUDS
+	int startingID = -662;
+	int xAxisChange = 75;
+	int startingXAxis = 75;
+	int current = 0;
+	SpriteObject* HUD = new SpriteObject(-660, 50, 50, 1, 300, "Assets/Sprites/HUD/Full.png");
+	SpriteObject* HUDEmpty = new SpriteObject(-661, 50, 50, 1, 300, "Assets/Sprites/HUD/Empty.png");
+
+	for (size_t i = 0; i < player->getHealth(); i++)
+	{
+		auto* health1 = new Drawable(startingID--);
+		health1->setStatic(true);
+		health1->setPositionX(25 + (startingXAxis + (xAxisChange * (current + 1))));
+		health1->setPositionY(100);
+		health1->setWidth(50);
+		health1->setHeight(50);
+		health1->registerSprite(SpriteState::DEFAULT, HUD);
+		health1->changeToState(SpriteState::DEFAULT);
+
+		huds.push_back(health1);
+		addNewObjectToLayer(4, health1, false);
+		current++;
+	}
+	for (size_t i = 0; i < (player->getTotalHealth() - player->getHealth()); i++)
+	{
+		auto* health1 = new Drawable(startingID--);
+		health1->setStatic(true);
+		health1->setPositionX(25 + (startingXAxis + (xAxisChange * (current + 1))));
+		health1->setPositionY(100);
+		health1->setWidth(50);
+		health1->setHeight(50);
+		health1->registerSprite(SpriteState::DEFAULT, HUDEmpty);
+		health1->changeToState(SpriteState::DEFAULT);
+
+		huds.push_back(health1);
+		addNewObjectToLayer(4, health1, false);
+		current++;
+	}
+}
+
 /// @brief
 /// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
 void Level::start() {
 	player->setPositionX(50);
 	player->setPositionY(885);
-	player->setHealth(100);
+	player->setHealth(2);
+	player->setTotalHealth(3);
+	this->addHuds();
 
 	this->setObjectToFollow(this->follow);
 	for (const auto& s : sounds) {

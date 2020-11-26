@@ -11,9 +11,9 @@ public:
 
 	virtual void onUpdate() = 0;
 
-	bool getCanJump() const { this->canJump; }
+	bool getCanJump() const { return this->canJump; }
 	void setCanJump(bool val) { this->canJump = val; }
-	int getHealth() const { this->health; }
+	int getHealth() const { return this->health; }
 	void setHealth(int val) { this->health = val; }
 	void removeHealth(int val) { 
 		this->health -= val;
@@ -22,11 +22,15 @@ public:
 		}
 	}
 
+	int getTotalHealth() const { return this->totalHealth; }
+	void setTotalHealth(int val) { this->totalHealth = val; }
+
 	void kill() { this->health = 0; }
 	bool getIsDead() const { return this->health == 0; }
 
 	virtual ICharacter* clone(int id) = 0;
 protected:
 	int health = 0;
+	int totalHealth = 0;
 	bool canJump = false;
 };

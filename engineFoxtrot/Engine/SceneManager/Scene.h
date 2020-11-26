@@ -53,6 +53,7 @@ public:
     
 	void setObjectToFollow(Object* obj) { objectToFollow = obj; }
 
+
 	/// @brief 
 	/// Returns the id of the object to follow
 	/// @return 
@@ -73,6 +74,19 @@ public:
 
 	API void removeObjectFromScene(Object* obj);
 
+	void updateHudPositions();
+	API void setXCameraOffset(int x);
+	API void setYCameraOffset(int y);
+
+	API virtual int getXCameraOffset() const { return xCameraOffset; }
+	API virtual int getYCameraOffset() const { return yCameraOffset; }
+
+protected:
+	int xCameraOffset = 0;
+	int yCameraOffset = 0;
+	int oldXCameraOffset = 0;
+	int oldYCameraOffset = 0;
+	vector<Drawable*> huds;
 private:
 	const int sceneID = 0;
 	map<int, Layer*> layers;

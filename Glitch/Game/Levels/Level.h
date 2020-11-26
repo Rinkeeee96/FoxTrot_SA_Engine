@@ -17,6 +17,8 @@ public:
 	virtual void onDetach() override;
 	virtual void onUpdate() override;
 
+	void addHuds();
+
 	void setWin(const bool val) { this->win = val; }
 private:
 	map<string, string> sounds;

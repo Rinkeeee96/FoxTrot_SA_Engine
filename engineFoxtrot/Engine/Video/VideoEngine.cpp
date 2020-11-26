@@ -97,7 +97,8 @@ void VideoEngine::calculateOffset(Object& obj, int sceneWidth, int sceneHeight)
 		changedY = true;
 	}
 
-
+	/*(*pointerToCurrentScene)->setXCameraOffset(newXOffset);
+	(*pointerToCurrentScene)->setYCameraOffset(newYOffset);*/
 	//// Check if we can actually move the camera due to the level sizes
 	if (newYOffset > 0 && newYOffset + (CAMERA_BOX_Y *2) + CAMERA_BOX_HEIGHT < sceneHeight && changedY)
 	{
@@ -123,6 +124,8 @@ void VideoEngine::updateScreen()
 	if (objectIDToFollow != -1)
 	{
 		calculateOffset(*(*pointerToCurrentScene)->getObject(objectIDToFollow), (*pointerToCurrentScene)->getSceneWidth(), (*pointerToCurrentScene)->getSceneHeight());
+		(*pointerToCurrentScene)->setXCameraOffset(videoFacade->getXCameraOffset());
+		(*pointerToCurrentScene)->setYCameraOffset(videoFacade->getYCameraOffset());
 	}
 	else
 	{

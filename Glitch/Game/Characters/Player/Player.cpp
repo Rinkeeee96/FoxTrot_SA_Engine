@@ -12,6 +12,7 @@ Player::Player(const int id) : ICharacter(id) {
 	this->setDensity(200);
 	this->setFriction(0);
 	this->setRestitution(0);
+	this->setTotalHealth(3);
 	this->setStatic(false);
 	this->setRotatable(false);
 
