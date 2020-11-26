@@ -8,14 +8,15 @@ bool Game::stopRun(Event& event) {
 
 Game::Game()
 {
-	stateMachine.registerEngine(&engine);
+	stateMachine = shared_ptr<SceneStateMachine>(new SceneStateMachine);
+	stateMachine->registerEngine(&engine);
 }
 
 int Game::run() {
 
 	try {
 		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
-		stateMachine.switchToScene("MainMenu", false);
+		stateMachine->switchToScene("MainMenu", false);
 
 		while (gameRunning)
 		{
@@ -27,7 +28,7 @@ int Game::run() {
 			EventSingleton::get_instance().dispatchEvent<AppTickEvent30>(appTick30);
 
 			// TODO get only the non static objects, without looping thru them again and again
-			stateMachine.updateCurrentScene();
+			stateMachine->updateCurrentScene();
 
 			this_thread::sleep_for(chrono::milliseconds(10));
 		}

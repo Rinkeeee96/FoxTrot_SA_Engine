@@ -19,7 +19,7 @@ public:
 private:
 	Engine engine;
 
-	SceneStateMachine stateMachine;
+	shared_ptr<SceneStateMachine> stateMachine;
 
 	bool gameRunning = true;
 };
