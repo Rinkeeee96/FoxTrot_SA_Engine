@@ -1,5 +1,4 @@
 #include "stdafx.h"
-
 #include "Button.h"
 
 /// @brief 
@@ -16,6 +15,18 @@ bool Button::mouseOver(Event& event) {
 				mousePositionX <= (positionX + width) &&
 				mousePositionY >= (positionY - height) &&
 				mousePositionY <= positionY);
+	if (!buttonPressed) {
+		int hoverSpriteId = DEFAULT_SPRITEID;
+		if (isMouseOver && hasHoverSprite) {
+			hoverSpriteId = HOVER_SPRITEID;
+			changeToState(hoverSpriteId);
+		}
+		else {
+			hoverSpriteId = DEFAULT_SPRITEID;
+			changeToState(hoverSpriteId);
+		}
+	}
+
 	return isMouseOver;
 }
 
@@ -36,4 +47,11 @@ bool Button::isClicked(Event& event) {
 		}
 	}
 	return false;
+}
+
+
+void Button::registerHoverSprite(SpriteObject* spriteObject) {
+	hasHoverSprite = true;
+	int hoverSpriteId = HOVER_SPRITEID;
+	Drawable::registerSprite(hoverSpriteId, spriteObject);
 }

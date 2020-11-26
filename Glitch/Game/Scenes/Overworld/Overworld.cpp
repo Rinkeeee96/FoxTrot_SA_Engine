@@ -19,18 +19,22 @@ void Overworld::onAttach()
 /// @brief 
 /// Loads all the buttons in the Overworld
 void Overworld::loadButtons() {
-	level1Btn = new Button(1, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel1BtnClick), new SpriteObject(101012, 11, 15, 1, 300, "Assets/Buttons/village_yellow.png"));
+	auto defaultBtnSprite = new SpriteObject(101013, 11, 15, 1, 300, "Assets/Buttons/village_orange.png");
+	auto hoverBtnSprite = new SpriteObject(101012, 11, 15, 1, 300, "Assets/Buttons/village_gray.png");
+	level1Btn = new Button(1, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel1BtnClick), defaultBtnSprite);
 	level1Btn->setWidth(32);
 	level1Btn->setHeight(32);
 	level1Btn->setPositionX(795);
 	level1Btn->setPositionY(840); 
+	level1Btn->registerHoverSprite(hoverBtnSprite);
 
 
-	level2Btn = new Button(2, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel1BtnClick), new SpriteObject(101013, 11, 15, 1, 300, "Assets/Buttons/village_orange.png"));
+	level2Btn = new Button(2, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel1BtnClick), defaultBtnSprite);
 	level2Btn->setWidth(100);
 	level2Btn->setHeight(100);
 	level2Btn->setPositionX(900);
 	level2Btn->setPositionY(740);
+	level2Btn->registerHoverSprite(hoverBtnSprite);
 
 	/*
 	Button* level2Btn = new PrimaryButton(2, "Level 2", BIND_FN(OnLevel2BtnClick));
