@@ -3,14 +3,13 @@
 
 bool LevelBuilder::getAlwaysDrawFromJson(nlohmann::json layerValue)
 {
-	for (auto& [objectKey, objectValue] : layerValue["properties"].items())
-	{
+	for (auto& [objectKey, objectValue] : layerValue["properties"].items()) {
 		if (objectValue["name"] == "Always Draw") {
 			bool type = objectValue["value"];
 			return type;
 		}
 	}
-	
+	return false;
 }
 
 LevelBuilder::LevelBuilder(Engine& _engine, int levelId) : AbstractLevelBuilder(_engine), bLevel(new Level(levelId, 0, 0)) {
@@ -25,8 +24,7 @@ void LevelBuilder::create() {
 /// Creates triggers objects and adds the triggers to the level
 /// @param json 
 void LevelBuilder::createTriggers(nlohmann::json layerValue) {
-	bool alwaysDraw = getAlwaysDrawFromJson(layerValue);
-
+	bool alwaysDrawLayer = getAlwaysDrawFromJson(layerValue);
 	for (auto& [objectKey, objectValue] : layerValue["objects"].items())
 	{
 		BaseTrigger* object = nullptr;
@@ -44,7 +42,7 @@ void LevelBuilder::createTriggers(nlohmann::json layerValue) {
 		object->setPositionY(objectValue["y"] + object->getHeight());
 		object->setStatic(true);
 
-		bLevel->addNewObjectToLayer(ENTITY_LAYER_INDEX, object, true, alwaysDraw);
+		bLevel->addNewObjectToLayer(ENTITY_LAYER_INDEX, object, true, alwaysDrawLayer);
 	}
 }
 
@@ -92,7 +90,7 @@ void LevelBuilder::createLevel(nlohmann::json json) {
 /// Creates entities objects and adds the entities to the level
 /// @param json 
 void LevelBuilder::createEntities(nlohmann::json layerValue) {
-	bool alwaysDraw = getAlwaysDrawFromJson(layerValue);
+	bool alwaysDrawLayer = getAlwaysDrawFromJson(layerValue);
 	vector<ICharacter*> temp;
 	for (auto& [objectKey, objectValue] : layerValue["objects"].items())
 	{
@@ -140,7 +138,7 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 				object->setHealth(healthString);
 			}
 		}
-		bLevel->addNewObjectToLayer(ENTITY_LAYER_INDEX, object, true, alwaysDraw);
+		bLevel->addNewObjectToLayer(ENTITY_LAYER_INDEX, object, true, alwaysDrawLayer);
 		temp.push_back(object);
 	}
 	for (size_t i = 0; i < temp.size(); i++)
@@ -161,7 +159,7 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 /// Creates background objects and background the tiles to the level
 /// @param json 
 void LevelBuilder::createBackground(nlohmann::json layerValue) {
-	bool alwaysDraw = getAlwaysDrawFromJson(layerValue);
+	bool alwaysDrawLayer = getAlwaysDrawFromJson(layerValue);
 	for (auto& [objectKey, objectValue] : layerValue["objects"].items())
 	{
 		IGround* tile = new BaseGround(id++);
@@ -185,7 +183,7 @@ void LevelBuilder::createBackground(nlohmann::json layerValue) {
 		tile->registerSprite(SpriteState::DEFAULT, tileSprite);
 		tile->changeToState(SpriteState::DEFAULT);
 
-		bLevel->addNewObjectToLayer(BACKGROUND_LAYER_INDEX, tile, false, alwaysDraw);
+		bLevel->addNewObjectToLayer(BACKGROUND_LAYER_INDEX, tile, false, alwaysDrawLayer);
 	}
 }
 
@@ -194,7 +192,7 @@ void LevelBuilder::createBackground(nlohmann::json layerValue) {
 /// @param json 
 void LevelBuilder::createDecoration(nlohmann::json layerValue)
 {
-	bool alwaysDraw = getAlwaysDrawFromJson(layerValue);
+	bool alwaysDrawLayer = getAlwaysDrawFromJson(layerValue);
 	float currentX = 0;
 	float currentY = 0;
 	size_t tileAmount = layerValue["data"].size();
@@ -226,7 +224,7 @@ void LevelBuilder::createDecoration(nlohmann::json layerValue)
 			tile->registerSprite(SpriteState::DEFAULT, tileSprite);
 			tile->changeToState(SpriteState::DEFAULT);
 
-			bLevel->addNewObjectToLayer(DECORATION_LAYER_INDEX, tile, false, alwaysDraw);
+			bLevel->addNewObjectToLayer(DECORATION_LAYER_INDEX, tile, false, alwaysDrawLayer);
 		}
 
 		if (currentX == (layerValue["width"] - 1)) {
@@ -243,7 +241,7 @@ void LevelBuilder::createDecoration(nlohmann::json layerValue)
 /// @param json 
 void LevelBuilder::createParticle(nlohmann::json layerValue)
 {
-	bool alwaysDraw = getAlwaysDrawFromJson(layerValue);
+	bool alwaysDrawLayer = getAlwaysDrawFromJson(layerValue);
 	for (auto& [objectKey, objectValue] : layerValue["objects"].items())
 	{
 		ICharacter* object = nullptr;
@@ -265,7 +263,7 @@ void LevelBuilder::createParticle(nlohmann::json layerValue)
 					// TODO Set particle width
 
 
-					bLevel->addNewObjectToLayer(PARTICLE_LAYER_INDEX, part, false, alwaysDraw);
+					bLevel->addNewObjectToLayer(PARTICLE_LAYER_INDEX, part, false, alwaysDrawLayer);
 				}
 			else {
 				throw std::exception(GAME_ERRORCODES[INVALID_TYPE]);
@@ -278,7 +276,7 @@ void LevelBuilder::createParticle(nlohmann::json layerValue)
 /// Creates tile objects and adds the tiles to the level
 /// @param json 
 void LevelBuilder::createTiles(nlohmann::json layerValue) {
-	bool alwaysDraw = getAlwaysDrawFromJson(layerValue);
+	bool alwaysDrawLayer = getAlwaysDrawFromJson(layerValue);
 	int currentX = 0;
 	int currentY = 0;
 	size_t tileAmount = layerValue["data"].size();
@@ -309,7 +307,7 @@ void LevelBuilder::createTiles(nlohmann::json layerValue) {
 			tile->registerSprite(SpriteState::DEFAULT, tileSprite);
 			tile->changeToState(SpriteState::DEFAULT);
 
-			bLevel->addNewObjectToLayer(GROUND_LAYER_INDEX, tile, true, alwaysDraw);
+			bLevel->addNewObjectToLayer(GROUND_LAYER_INDEX, tile, true, alwaysDrawLayer);
 		}
 
 		if (currentX == (layerValue["width"] - 1)) {

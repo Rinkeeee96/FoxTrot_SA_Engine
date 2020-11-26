@@ -55,7 +55,7 @@ public:
 
 	Scene** pointerToCurrentScene = nullptr;
 
-	bool checkInScreen(Object* obj);
+	bool checkObjectInScreen(const Object& obj);
 
 private:
 	IVideoFacade* videoFacade = new VideoFacade;

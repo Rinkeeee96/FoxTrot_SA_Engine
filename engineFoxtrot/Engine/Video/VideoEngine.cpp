@@ -112,12 +112,12 @@ void VideoEngine::calculateOffset(Object& obj, int sceneWidth, int sceneHeight)
 /// @brief This function checks if the obj is in screen or partially in screen
 /// @param obj 
 /// @return true if on screen, false if off screen
-bool VideoEngine::checkInScreen(Object* obj) {
+bool VideoEngine::checkObjectInScreen(const Object& obj) {
 	float objLeft, objRight, objUp, objDown;
-	objLeft = obj->getPositionX();
-	objRight = obj->getPositionX() + obj->getWidth();
-	objUp = obj->getPositionY() - obj->getHeight();
-	objDown = obj->getPositionY();
+	objLeft = obj.getPositionX();
+	objRight = obj.getPositionX() + obj.getWidth();
+	objUp = obj.getPositionY() - obj.getHeight();
+	objDown = obj.getPositionY();
 
 	if ((objRight	> videoFacade->getXCameraOffset() && objRight	< videoFacade->getXCameraOffset() + WINDOW_WIDTH &&
 		 objUp		> videoFacade->getYCameraOffset() && objUp		< videoFacade->getYCameraOffset() + WINDOW_HEIGHT	) ||
@@ -160,7 +160,7 @@ void VideoEngine::updateScreen()
 
 	for (auto layer : (*pointerToCurrentScene)->getLayers()) {
 		for (auto obj : layer.second->objects) {
-			if (obj.second && ((layer.second->alwaysVisible && !obj.second->getIsRemoved()) || (checkInScreen(obj.second) && !obj.second->getIsRemoved()))) {
+			if (obj.second && ((layer.second->alwaysVisible && !obj.second->getIsRemoved()) || (checkObjectInScreen(*obj.second) && !obj.second->getIsRemoved()))) {
 				if (obj.second->getIsParticle()) {
 					drawParticle((ParticleAdapter*)obj.second);
 				}

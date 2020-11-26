@@ -52,8 +52,6 @@ public:
 	void loadTileSets(nlohmann::json json) override;
 	void createTriggers(nlohmann::json json) override;
 	void initFactory() override;
-	
-	
 
 	virtual void create() override;
 };
