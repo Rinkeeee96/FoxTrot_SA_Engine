@@ -14,43 +14,43 @@
  "tiles":[
         {
          "id":0,
-         "image":"..\/Sprites\/Grassland\/Level\/Decoration\/bg_cloud8.png",
+         "image":"..\/Tiles\/bg_cloud8.png",
          "imageheight":41,
          "imagewidth":64
         }, 
         {
          "id":1,
-         "image":"..\/Sprites\/Grassland\/Level\/Decoration\/bg_cloud01.png",
+         "image":"..\/Tiles\/bg_cloud01.png",
          "imageheight":157,
          "imagewidth":174
         }, 
         {
          "id":2,
-         "image":"..\/Sprites\/Grassland\/Level\/Decoration\/bg_cloud2.png",
+         "image":"..\/Tiles\/bg_cloud2.png",
          "imageheight":128,
          "imagewidth":234
         }, 
         {
          "id":3,
-         "image":"..\/Sprites\/Grassland\/Level\/Decoration\/bg_cloud3.png",
+         "image":"..\/Tiles\/bg_cloud3.png",
          "imageheight":51,
          "imagewidth":76
         }, 
         {
          "id":4,
-         "image":"..\/Sprites\/Grassland\/Level\/Decoration\/bg_cloud5.png",
+         "image":"..\/Tiles\/bg_cloud5.png",
          "imageheight":118,
          "imagewidth":190
         }, 
         {
          "id":5,
-         "image":"..\/Sprites\/Grassland\/Level\/Decoration\/bg_cloud6.png",
+         "image":"..\/Tiles\/bg_cloud6.png",
          "imageheight":211,
          "imagewidth":512
         }, 
         {
          "id":6,
-         "image":"..\/Sprites\/Grassland\/Level\/Decoration\/bg_cloud7.png",
+         "image":"..\/Tiles\/bg_cloud7.png",
          "imageheight":43,
          "imagewidth":54
         }],
