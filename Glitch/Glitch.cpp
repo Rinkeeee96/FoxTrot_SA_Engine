@@ -16,6 +16,6 @@ void detectMemoryLeak() {
 int main() {
 	Game game;
 	auto result = game.run();
-    if(_DEBUG) detectMemoryLeak();
+    //if(_DEBUG) detectMemoryLeak();
 	return 0;
 }
