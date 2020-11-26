@@ -43,16 +43,22 @@ int Game::run() {
 
 	LoadLevelFacade levelLoader{ engine };
 	LoadLevelFacade level2Loader{ engine };
+	LoadLevelFacade level3Loader{ engine };
 	LevelBuilder levelOneBuilder{ engine, sceneId++ };
 	LevelBuilder levelTwoBuilder{ engine, sceneId++ };
+	LevelBuilder levelThreeBuilder{ engine, sceneId++ };
 	try {
-		/*levelLoader.load("Assets/Levels/Maps/Level1.json", &levelOneBuilder);
-		auto level = levelOneBuilder.getLevel();
-		SceneSwitcher::get_instance().registerScene("LEVEL_1", level);*/
+		levelLoader.load("Assets/Levels/Maps/Level1.json", &levelOneBuilder);
+		Level* level = levelOneBuilder.getLevel();
+		SceneSwitcher::get_instance().registerScene("LEVEL_1", level);
 
-		level2Loader.load("Assets/Levels/Maps/Level3.json", &levelTwoBuilder);
-		auto level = levelTwoBuilder.getLevel();
-		SceneSwitcher::get_instance().registerScene("LEVEL_2", level);
+		level2Loader.load("Assets/Levels/Maps/Level2.json", &levelTwoBuilder);
+		Level* level2 = levelTwoBuilder.getLevel();
+		SceneSwitcher::get_instance().registerScene("LEVEL_2", level2);
+
+		level3Loader.load("Assets/Levels/Maps/Level3.json", &levelThreeBuilder);
+		Level* level3 = levelThreeBuilder.getLevel();
+		SceneSwitcher::get_instance().registerScene("LEVEL_3", level3);
 	}
 	catch (exception e) {
 		cout << e.what() << endl;
