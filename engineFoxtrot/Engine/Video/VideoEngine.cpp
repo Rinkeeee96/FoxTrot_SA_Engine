@@ -119,17 +119,22 @@ bool VideoEngine::checkObjectInScreen(const Object& obj) {
 	objUp = obj.getPositionY() - obj.getHeight();
 	objDown = obj.getPositionY();
 
+	//Check if any corner is in the screen
+		// Check top right corner
 	if ((objRight	> videoFacade->getXCameraOffset() && objRight	< videoFacade->getXCameraOffset() + WINDOW_WIDTH &&
 		 objUp		> videoFacade->getYCameraOffset() && objUp		< videoFacade->getYCameraOffset() + WINDOW_HEIGHT	) ||
-
+													  
+		// Check top left corner					  
 		(objUp		> videoFacade->getYCameraOffset() && objUp		< videoFacade->getYCameraOffset() + WINDOW_HEIGHT &&
 		 objLeft	> videoFacade->getXCameraOffset() && objLeft	< videoFacade->getXCameraOffset() + WINDOW_WIDTH	) ||
-
-		(objLeft	> videoFacade->getXCameraOffset() && objLeft	< videoFacade->getXCameraOffset() + WINDOW_WIDTH && 
-		 objDown	> videoFacade->getYCameraOffset() && objDown	< videoFacade->getYCameraOffset() + WINDOW_HEIGHT	) ||
-
+													  
+		// Check bottom right corner				  
 		(objDown	> videoFacade->getYCameraOffset() && objDown	< videoFacade->getYCameraOffset() + WINDOW_HEIGHT &&
-		 objRight	> videoFacade->getXCameraOffset() && objRight	< videoFacade->getXCameraOffset() + WINDOW_WIDTH))
+		 objRight	> videoFacade->getXCameraOffset() && objRight	< videoFacade->getXCameraOffset() + WINDOW_WIDTH	) ||
+													  
+		// Check bottom left corner					  
+		(objLeft	> videoFacade->getXCameraOffset() && objLeft	< videoFacade->getXCameraOffset() + WINDOW_WIDTH && 
+		 objDown	> videoFacade->getYCameraOffset() && objDown	< videoFacade->getYCameraOffset() + WINDOW_HEIGHT)) 	
 	{
 		return true;
 	}
@@ -165,8 +170,7 @@ void VideoEngine::updateScreen()
 					drawParticle((ParticleAdapter*)obj.second);
 				}
 				else {
-					Drawable* drawable = dynamic_cast<Drawable*>(obj.second);
-					if (drawable != nullptr)
+					if (Drawable* drawable = dynamic_cast<Drawable*>(obj.second))
 						renderCopy(*drawable);
 				}
 			}
