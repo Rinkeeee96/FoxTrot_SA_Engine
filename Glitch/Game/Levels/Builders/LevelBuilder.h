@@ -33,7 +33,7 @@ private:
 	// TODO Fix tileId in tilesets
 	Level* bLevel;
 
-	void layerSetup(nlohmann::json layerValue, int zIndex, bool renderPhysics);
+	bool getAlwaysDrawFromJson(nlohmann::json layerValue);
 
 	int currentTileId = 999;
 	int mapTileWidth = 16;
