@@ -3,7 +3,6 @@ var class_video_engine =
     [ "VideoEngine", "class_video_engine.html#a14afd2a5158452bfa3f168f666208915", null ],
     [ "~VideoEngine", "class_video_engine.html#a055e9503fcdccb8c4f6f1df5132fb493", null ],
     [ "calculateOffset", "class_video_engine.html#a0cef84176474de6348509531f6276652", null ],
-    [ "checkInScreen", "class_video_engine.html#a755365f8adde668cff0d91a1a1bf15eb", null ],
     [ "clearScreen", "class_video_engine.html#a82bd8f470de6e28cb38ab1ec6b588144", null ],
     [ "drawFps", "class_video_engine.html#a2e5f05b3866c92d801214a378d448a60", null ],
     [ "drawFps", "class_video_engine.html#ad4de84f7e2801cda58af13aaa969b940", null ],
