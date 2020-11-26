@@ -45,6 +45,9 @@ public:
 	
 	API void setSpeed(const float val);
 	API float getSpeed() const;
+
+	API void setGravity(const float val);
+	API float getGravity() const;
 	
 	API void setJumpHeight(const float val);
 	API float getJumpHeight() const;
@@ -93,6 +96,7 @@ protected:
 	float friction = 0;
 	float restitution = 0;
 	bool staticObject = false;
+	float gravity = 1;
 	// ----------------
 	// unknown
 	bool changed = false;

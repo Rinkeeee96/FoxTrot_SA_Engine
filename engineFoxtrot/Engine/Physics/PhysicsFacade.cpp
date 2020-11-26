@@ -107,6 +107,7 @@ void PhysicsFacade::addDynamicObject(PhysicsBody* object)
 	bodyDef.linearVelocity = b2Vec2(0, object->getYAxisVelocity());
 
 	if(DEBUG_PHYSICS_ENGINE)cout << "Pushing back obj: spriteid: " << object->getObjectId() << endl;
+	body->SetGravityScale(object->getGravity());
 	bodies.insert(pair<PhysicsBody*, b2Body*>(object, body));
 }
 
@@ -154,12 +155,12 @@ void PhysicsFacade::update() {
 	}	
 }
 
-void PhysicsFacade::stopObject(int objectId) {
+void PhysicsFacade::stopObject(int objectId, bool stopVertical) {
 	b2Body* body = findBody(objectId);
 	const PhysicsBody* ob = getPhysicsObject(objectId);
 	if (!body || !ob) return;
 	b2Vec2 vel = body->GetLinearVelocity();
-	vel.y = ob->getYAxisVelocity();
+	vel.y = stopVertical ? 0 : ob->getYAxisVelocity();
 	vel.x = 0;
 	body->SetLinearVelocity(vel);
 }

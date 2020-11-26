@@ -50,7 +50,7 @@ void Game::run() {
 		auto level = levelOneBuilder.getLevel();
 		SceneSwitcher::get_instance().registerScene("LEVEL_1", level);*/
 
-		level2Loader.load("Assets/Levels/Maps/Level2.json", &levelTwoBuilder);
+		level2Loader.load("Assets/Levels/Maps/Level3.json", &levelTwoBuilder);
 		auto level = levelTwoBuilder.getLevel();
 		SceneSwitcher::get_instance().registerScene("LEVEL_2", level);
 	}

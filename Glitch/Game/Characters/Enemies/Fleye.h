@@ -1,6 +1,8 @@
 #pragma once
 #include "Game/Characters/Enemies/IEnemy.h"
 
+#define RANGE 900
+
 /// @brief 
 /// Slime class with correspondending AI logic
 class Fleye : public IEnemy {
@@ -8,6 +10,7 @@ public:
 	Fleye() : IEnemy() {}
 	Fleye(const int id) : IEnemy(id) {
 		EventSingleton::get_instance().setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Fleye::onCollisionBeginEvent));
+		this->setGravity(0);
 	}
 
 	bool onCollisionBeginEvent(Event& event) {
@@ -40,18 +43,45 @@ public:
 	}
 
 	void onUpdate() override {
-		bool playerIsInRange = player->getPositionX() >= this->getPositionX() - this->getWidth() &&
-			player->getPositionX() <= this->getPositionX() + this->width;
-		bool playerIsBelowMe = (player->getPositionY() + player->getHeight()) >= this->getPositionY();
+
+		if (setup) {
+			startY = this->getPositionY();
+			setup = false;
+		}
+
+		float diff = player->getPositionX() - this->getPositionX();
+
+		float fleyeMiddleX = this->getPositionX() + (this->getWidth() / 2);
+
+		bool playerIsInRange = (diff < RANGE&& diff >(RANGE * -1));
+		bool playerIsBelowMe = this->getPositionY() < player->getPositionY();
+		bool playerIsOnSameXLvl = (fleyeMiddleX >= player->getPositionX()) && (fleyeMiddleX <= (player->getPositionX() + player->getWidth()));
+
+		Direction direction = player->getPositionX() < this->positionX ? Direction::LEFT : Direction::RIGHT;
 
 		bool positionedOnGround = this->getYAxisVelocity() == 0;
-		if(positionedOnGround)
-			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
-
-		if (playerIsInRange && playerIsBelowMe && !positionedOnGround){
+		if (!goingUp && playerIsInRange) {
+			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(direction, this->getObjectId()));
+		}
+		if (playerIsBelowMe && playerIsOnSameXLvl && !goingUp && this->getYAxisVelocity() == 0) {
 			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::DOWN, this->getObjectId()));
+			goingUp = true;
+		}
+		else if (goingUp) {
+			if (this->getYAxisVelocity() == 0) {
+				EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
+			}
+			else if (this->getPositionY() <= startY) {
+				EventSingleton::get_instance().dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->getObjectId(), true));
+				goingUp = false;
+			}
 		}
 	};
 
 	ICharacter* clone(int id) override { return new Fleye(id); }
+
+private:
+	bool goingUp = false;
+	bool setup = true;
+	float startY = 0;
 };

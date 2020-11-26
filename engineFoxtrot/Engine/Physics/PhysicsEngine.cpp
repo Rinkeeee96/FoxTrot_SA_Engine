@@ -51,7 +51,7 @@ bool PhysicsEngine::handleAction(Event& event) {
 
 bool PhysicsEngine::stopObject(Event& event) {
 	ObjectStopEvent e = static_cast<ObjectStopEvent&>(event);
-	physicsFacade->stopObject(e.GetObjectId());
+	physicsFacade->stopObject(e.GetObjectId(), e.GetStopVertical());
 	return true;
 }
 

@@ -40,6 +40,9 @@ public:
 	void setJumpHeight(const float);
 	float getJumpHeight() const;
 
+	void setGravity(const float);
+	float getGravity() const;
+
 	void setYAxisVelocity(const float val);
 	float getYAxisVelocity() const;
 
@@ -64,6 +67,7 @@ protected:
 	float density = 0;
 	float rotation = 0;
 	float jumpHeight = 0;
+	float gravity = 1;
 	Object* object = nullptr;
 	float yAxisVelocity = 0;
 	float xAxisVelocity = 0;
