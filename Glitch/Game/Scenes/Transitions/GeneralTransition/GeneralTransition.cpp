@@ -93,9 +93,8 @@ void GeneralTransition::loadBackground()
 /// Also sets the loading bar. 
 void GeneralTransition::onUpdate()
 {
-	// Todo
-	// Define
-	/*chrono::duration<double> diff = chrono::duration_cast<chrono::duration<double>>(previousCallTime - startTime);
+	
+	chrono::duration<double> diff = chrono::duration_cast<chrono::duration<double>>(previousCallTime - startTime);
 	chrono::duration<double> diffFromPreviousCall = chrono::duration_cast<chrono::duration<double>>(chrono::high_resolution_clock::now() - previousCallTime);
 
 	if (diffFromPreviousCall.count() > 0.5 && !moveCharacter)
@@ -124,11 +123,11 @@ void GeneralTransition::onUpdate()
 	{
 		animation->setPositionX(animation->getPositionX() + 20);
 		if (animation->getPositionX() > WINDOW_WIDTH)
-		{*/
-			SceneSwitcher::get_instance().switchToScene(nextScene,false);
-		//}
-		//previousCallTime = chrono::high_resolution_clock::now();
-	//}
+		{
+			SceneSwitcher::get_instance().switchToScene(nextScene, false);
+		}
+		previousCallTime = chrono::high_resolution_clock::now();
+	}
 }
 
 void GeneralTransition::setNextScene(string const identifier)
