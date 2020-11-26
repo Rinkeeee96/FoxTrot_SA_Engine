@@ -72,7 +72,7 @@ void Level::addHuds() {
 void Level::addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, SpriteObject* HUD) {
 	auto* health1 = new Drawable(startingID--);
 	health1->setStatic(true);
-	health1->setPositionX((startingXAxis + (xAxisChange * (current + 1))));
+	health1->setPositionX(((startingXAxis + (float)(xAxisChange * (current + 1)))));
 	health1->setPositionY(100);
 	health1->setWidth(50);
 	health1->setHeight(50);
