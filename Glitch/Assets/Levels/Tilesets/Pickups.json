@@ -14,37 +14,37 @@
  "tiles":[
         {
          "id":0,
-         "image":"..\/..\/Sprites\/icons\/32x32\/gift_01a.png",
+         "image":"..\/..\/..\/GitHub\/FoxTrot_SA_Engine_New\/Glitch\/Assets\/Sprites\/icons\/32x32\/gift_01a.png",
          "imageheight":32,
          "imagewidth":32
         }, 
         {
          "id":1,
-         "image":"..\/..\/Sprites\/icons\/32x32\/gift_01b.png",
+         "image":"..\/..\/..\/GitHub\/FoxTrot_SA_Engine_New\/Glitch\/Assets\/Sprites\/icons\/32x32\/gift_01b.png",
          "imageheight":32,
          "imagewidth":32
         }, 
         {
          "id":2,
-         "image":"..\/..\/Sprites\/icons\/32x32\/gift_01c.png",
+         "image":"..\/..\/..\/GitHub\/FoxTrot_SA_Engine_New\/Glitch\/Assets\/Sprites\/icons\/32x32\/gift_01c.png",
          "imageheight":32,
          "imagewidth":32
         }, 
         {
          "id":3,
-         "image":"..\/..\/Sprites\/icons\/32x32\/gift_01d.png",
+         "image":"..\/..\/..\/GitHub\/FoxTrot_SA_Engine_New\/Glitch\/Assets\/Sprites\/icons\/32x32\/gift_01d.png",
          "imageheight":32,
          "imagewidth":32
         }, 
         {
          "id":4,
-         "image":"..\/..\/Sprites\/icons\/32x32\/gift_01e.png",
+         "image":"..\/..\/..\/GitHub\/FoxTrot_SA_Engine_New\/Glitch\/Assets\/Sprites\/icons\/32x32\/gift_01e.png",
          "imageheight":32,
          "imagewidth":32
         }, 
         {
          "id":5,
-         "image":"..\/..\/Sprites\/icons\/32x32\/gift_01f.png",
+         "image":"..\/..\/..\/GitHub\/FoxTrot_SA_Engine_New\/Glitch\/Assets\/Sprites\/icons\/32x32\/gift_01f.png",
          "imageheight":32,
          "imagewidth":32
         }],
