@@ -309,7 +309,7 @@
          "name":"Particles",
          "objects":[
                 {
-                 "height":0,
+                 "height":300,
                  "id":2,
                  "name":"",
                  "properties":[
@@ -321,7 +321,7 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":0,
+                 "width":400,
                  "x":1729.75,
                  "y":1000.5
                 }],

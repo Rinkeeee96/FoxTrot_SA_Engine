@@ -252,15 +252,17 @@ void LevelBuilder::createParticle(nlohmann::json layerValue)
 					engine.loadSprite(*particle1Sprite);
 
 					int type = objectPropertyValue["value"];
+					float width = objectValue["width"];
+					float height = objectValue["height"];
 
 					ParticleAdapter* part = new ParticleAdapter(id++);
 					part->registerSprite(SpriteState::DEFAULT, particle1Sprite);
 					part->changeToState(SpriteState::DEFAULT);
 					part->setPositionX(objectValue["x"]);
 					part->setPositionY(objectValue["y"] + particle1Sprite->getHeight());
+					part->setWidth(width);
+					part->setHeight(height);
 					part->setStyle((ParticleInit::ParticleStyle)type);
-					
-					// TODO Set particle width
 
 
 					bLevel->addNewObjectToLayer(PARTICLE_LAYER_INDEX, part, false, alwaysDrawLayer);
