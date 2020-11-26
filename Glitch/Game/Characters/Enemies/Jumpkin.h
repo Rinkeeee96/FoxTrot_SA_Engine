@@ -1,7 +1,8 @@
 #pragma once
 #include "Game/Characters/Enemies/IEnemy.h"
 
-#define RANGE 900
+#define HORIZONTAL_RANGE 900
+#define VERTICAL_RANGE 100
 
 /// @brief 
 /// Slime class with correspondending AI logic
@@ -42,12 +43,14 @@ public:
 	}
 
 	void onUpdate() override {
-		float diff = player->getPositionX() - this->getPositionX();
-		bool playerIsInRange = (diff < RANGE&& diff >(RANGE * -1));
+		float xDiff = player->getPositionX() - this->getPositionX();
+		float yDiff = player->getPositionY() - this->getPositionY();
+		bool playerIsInRangeHorizontally = (xDiff < HORIZONTAL_RANGE && xDiff >(HORIZONTAL_RANGE * -1));
+		bool playerIsInRangeVertically = (yDiff < VERTICAL_RANGE && yDiff >(VERTICAL_RANGE * -1));
 		Direction direction = player->getPositionX() < this->positionX ? Direction::LEFT : Direction::RIGHT;
 
 		bool positionedOnGround = this->getYAxisVelocity() == 0;
-		if (positionedOnGround && playerIsInRange) {
+		if (positionedOnGround && playerIsInRangeHorizontally && playerIsInRangeVertically) {
 			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
 			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(direction, this->getObjectId()));
 		}
