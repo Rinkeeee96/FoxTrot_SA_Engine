@@ -13,7 +13,7 @@ public:
 	virtual void PlayEffect(const string& identifier, const int volume) = 0;
 	virtual void LoadEffect(const string& identifier) = 0;
 	virtual void UnloadEffect(const string& identifier) = 0;
-	virtual void StartLoopedEffect(const string& effect) = 0;
+	virtual void StartLoopedEffect(const string& effect, const int volume) = 0;
 	virtual void StopLoopedEffect(const string& identifier) = 0;
 	virtual void LoadMusic(const string& identifier) = 0;
 	virtual void PlayMusic(const int volume) = 0;

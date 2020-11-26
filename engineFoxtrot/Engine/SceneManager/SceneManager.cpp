@@ -20,11 +20,14 @@ SceneManager::~SceneManager()
 /// If SceneID has a valid scene returns true else false
 bool SceneManager::checkIfSceneExists(const int sceneID)
 {
-	for (Scene* s : scenes)
-	{
-		if (s->getSceneID() == sceneID) return true;
+	if (scenes.find(sceneID) == scenes.end()) {
+		// not found
+		return false;
 	}
-	return false;
+	else {
+		// found
+		return true;
+	}
 }
 
 /// @brief 
@@ -34,7 +37,16 @@ bool SceneManager::checkIfSceneExists(const int sceneID)
 void SceneManager::insertScene(Scene* scene)
 {
 	if (scene == nullptr) return;
-	scenes.push_back(scene);
+	scenes[scene->getSceneID()] = scene;
+}
+
+/// @brief 
+/// Returns the last sceneID available in the map + 1
+/// @return 
+/// returns int
+int SceneManager::getFirstFreeSceneID()
+{
+	return scenes.end()->second->getSceneID() + 1;
 }
 
 /// @brief 
@@ -47,7 +59,6 @@ void SceneManager::setCurrentScene(const int sceneID)
 	if (scenes.empty()) throw ERROR_CODE_SCENEMANAGER_SCENES_IS_EMPTY;
 
 	currentScene = getSceneWithID(sceneID);
-	currentScene->OnAttach();
 	if (DEBUG_SCENE_MANAGER)cout << "Setting current scene to " << sceneID << " with amount of obj: " << currentScene->getAllObjectsInScene().size() << endl;
 }
 
@@ -61,12 +72,12 @@ void SceneManager::setCurrentScene(const int sceneID)
 Scene* SceneManager::getSceneWithID(const int sceneID)
 {
 	if (scenes.empty()) throw ERROR_CODE_SCENEMANAGER_SCENES_IS_EMPTY;
-	for (Scene * s : scenes)
-	{
-		if (s->getSceneID() == sceneID)
-		{
-			return s;
-		}
+	if (scenes.find(sceneID) == scenes.end()) {
+		// not found
+		throw ERROR_CODE_SCENEMANAGER_CANT_FIND_SCENE_WITH_ID;
 	}
-	throw ERROR_CODE_SCENEMANAGER_CANT_FIND_SCENE_WITH_ID;
+	else {
+		// found
+		return scenes[sceneID];
+	}
 }

@@ -17,9 +17,10 @@ public:
 	virtual void MoveLeft(const int objectId) = 0;
 	virtual void MoveRight(const int objectId) = 0;
 	virtual void Jump(const int objectId) = 0;
+	virtual void Fall(const int objectId) = 0;
 
 	virtual void update() = 0;
-
+	virtual void stopObject(int objectId) = 0;
 	virtual void cleanMap() = 0;
 private:
 

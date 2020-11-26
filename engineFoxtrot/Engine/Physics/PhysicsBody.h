@@ -1,5 +1,7 @@
 #pragma once
-#include "../SceneManager/Object.h"
+#include "SceneManager/Objects/Object.h"
+
+#define DIVIDER 32.0f
 
 class PhysicsBody
 {
@@ -46,6 +48,10 @@ public:
 
 	void setRotatable(const bool val);
 	bool getRotatable() const;
+
+	Object& getObject() const { return *this->object; }
+	bool objectExists() const { return object != nullptr; }
+
 protected:
 	int objectID = 0;
 	float height = 0;

@@ -2,7 +2,7 @@
 
 #include "InputFacade.h"
 #include "Events/Action/ActionEvent.h"
-#include "Events/Action/FpsToggleEvent.h" //TODO check this
+#include "Events/Action/FpsToggleEvent.h"
 #include "Events/EventSingleton.h"
 
 /// @brief 
@@ -17,5 +17,5 @@ public:
 private:
 	IInputFacade *inputFacade = new InputFacade();
 
-	void onKeyPressed(Event& event);
+	bool onKeyPressed(Event& event);
 };

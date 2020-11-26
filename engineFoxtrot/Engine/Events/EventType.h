@@ -25,9 +25,16 @@ enum class EventType
 	// -- sounds events -----
 	OnMusicStartEvent,
 	OnMusicStopEvent,
+	PlayEffectEvent,
+	StopEffectEvent,
 	AttachSound,
 
 	Action,
 	CollisionEnd,
-	CollisionBegin
+	CollisionBegin,
+
+	ObjectStop,
+	LoadSprite,
+
+	RemoveObject
 };
