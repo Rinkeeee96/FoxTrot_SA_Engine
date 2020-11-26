@@ -14,79 +14,79 @@
  "tiles":[
         {
          "id":1,
-         "image":"..\/Tiles\/tree_0.png",
+         "image":"..\/Sprites\/Grassland\/Level\/Decoration\/tree_0.png",
          "imageheight":64,
          "imagewidth":64
         }, 
         {
          "id":2,
-         "image":"..\/Tiles\/tree_1.png",
+         "image":"..\/Sprites\/Grassland\/Level\/Decoration\/tree_1.png",
          "imageheight":64,
          "imagewidth":64
         }, 
         {
          "id":3,
-         "image":"..\/Tiles\/tree_2.png",
+         "image":"..\/Sprites\/Grassland\/Level\/Decoration\/tree_2.png",
          "imageheight":64,
          "imagewidth":64
         }, 
         {
          "id":4,
-         "image":"..\/Tiles\/tree_3.png",
+         "image":"..\/Sprites\/Grassland\/Level\/Decoration\/tree_3.png",
          "imageheight":64,
          "imagewidth":64
         }, 
         {
          "id":5,
-         "image":"..\/Tiles\/tree_4.png",
+         "image":"..\/Sprites\/Grassland\/Level\/Decoration\/tree_4.png",
          "imageheight":64,
          "imagewidth":64
         }, 
         {
          "id":6,
-         "image":"..\/Tiles\/tree_5.png",
+         "image":"..\/Sprites\/Grassland\/Level\/Decoration\/tree_5.png",
          "imageheight":64,
          "imagewidth":64
         }, 
         {
          "id":7,
-         "image":"..\/Tiles\/tree_6.png",
+         "image":"..\/Sprites\/Grassland\/Level\/Decoration\/tree_6.png",
          "imageheight":64,
          "imagewidth":64
         }, 
         {
          "id":8,
-         "image":"..\/Tiles\/tree_7.png",
+         "image":"..\/Sprites\/Grassland\/Level\/Decoration\/tree_7.png",
          "imageheight":64,
          "imagewidth":64
         }, 
         {
          "id":9,
-         "image":"..\/Tiles\/tree_8.png",
+         "image":"..\/Sprites\/Grassland\/Level\/Decoration\/tree_8.png",
          "imageheight":64,
          "imagewidth":64
         }, 
         {
          "id":10,
-         "image":"..\/Tiles\/tree_9.png",
+         "image":"..\/Sprites\/Grassland\/Level\/Decoration\/tree_9.png",
          "imageheight":64,
          "imagewidth":64
         }, 
         {
          "id":11,
-         "image":"..\/Tiles\/bush_0.png",
+         "image":"..\/Sprites\/Grassland\/Level\/Decoration\/bush_0.png",
          "imageheight":14,
          "imagewidth":27
         }, 
         {
          "id":12,
-         "image":"..\/Tiles\/bush_2.png",
+         "image":"..\/Sprites\/Grassland\/Level\/Decoration\/bush_2.png",
          "imageheight":11,
          "imagewidth":22
         }, 
         {
          "id":13,
-         "image":"..\/Tiles\/bush_3.png",
+         "image":"..\/Sprites\/Grassland\/Level\/Decoration\/bush_3.png",
          "imageheight":13,
          "imagewidth":27
         }],
