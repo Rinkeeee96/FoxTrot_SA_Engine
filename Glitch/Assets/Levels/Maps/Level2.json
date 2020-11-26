@@ -15,6 +15,12 @@
          "name":"Background",
          "objects":[],
          "opacity":1,
+         "properties":[
+                {
+                 "name":"Always Draw",
+                 "type":"bool",
+                 "value":true
+                }],
          "type":"objectgroup",
          "visible":true,
          "x":0,
@@ -38,7 +44,7 @@
          "name":"Entities",
          "objects":[
                 {
-                 "height":0,
+                 "height":61,
                  "id":3,
                  "name":"",
                  "properties":[
@@ -50,38 +56,57 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":0,
+                 "width":59,
                  "x":98,
-                 "y":816
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "draworder":"topdown",
-         "id":9,
-         "name":"Dynamics",
-         "objects":[
+                 "y":755
+                }, 
                 {
-                 "gid":18,
-                 "height":32,
-                 "id":8,
+                 "gid":80,
+                 "height":100,
+                 "id":12,
                  "name":"",
                  "properties":[
                         {
+                         "name":"density",
+                         "type":"int",
+                         "value":50
+                        }, 
+                        {
+                         "name":"friction",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"jump_height",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"restitution",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":3
+                        }, 
+                        {
                          "name":"type",
                          "type":"string",
-                         "value":"platform"
+                         "value":"jumpkin"
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":342.667,
-                 "x":504.6665,
-                 "y":801.333333333333
+                 "width":74.6666666666667,
+                 "x":1073.33333333333,
+                 "y":718.666666666667
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -141,7 +166,7 @@
          "y":0
         }],
  "nextlayerid":10,
- "nextobjectid":9,
+ "nextobjectid":13,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.4.3",
@@ -164,11 +189,11 @@
          "source":"..\/Tilesets\/Enemies.json"
         }, 
         {
-         "firstgid":80,
+         "firstgid":82,
          "source":"..\/Tilesets\/Clouds.json"
         }, 
         {
-         "firstgid":87,
+         "firstgid":89,
          "source":"..\/Tilesets\/Backgrounds.json"
         }],
  "tilewidth":32,

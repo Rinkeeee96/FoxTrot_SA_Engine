@@ -351,6 +351,8 @@ void LevelBuilder::initFactory() {
 	auto playerRunLeft = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 6, 200, "Assets/Sprites/Character/adventure_run_left.png");
 	auto playerJumpRight = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_jump_right.png");
 	auto slimeDefault = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 1, 200, "Assets/Levels/Tiles/slime_blue.png");
+	auto fleyeDefault = new SpriteObject(textureId++, 42, 42, 1, 200, "Assets/Sprites/Enemies/Fleye.png");
+	auto jumpkinDefault = new SpriteObject(textureId++, 40, 32, 1, 200, "Assets/Sprites/Enemies/Jumpkin.png");
 
 	engine.loadSprite(*tileTop);
 	engine.loadSprite(*playerDefault);
@@ -363,6 +365,8 @@ void LevelBuilder::initFactory() {
 	engine.loadSprite(*playerRunLeft);
 	engine.loadSprite(*playerJumpRight);
 	engine.loadSprite(*slimeDefault);
+	engine.loadSprite(*fleyeDefault);
+	engine.loadSprite(*jumpkinDefault);
 
 	std::map<SpriteState, SpriteObject*> playerMap;
 	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, playerDefault));
@@ -379,6 +383,14 @@ void LevelBuilder::initFactory() {
 	std::map<SpriteState, SpriteObject*> slimeMap;
 	slimeMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, slimeDefault));
 	characterFactory->registerCharacter("slime", new Slime(), slimeMap);
+
+	std::map<SpriteState, SpriteObject*> fleyeMap;
+	fleyeMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, fleyeDefault));
+	characterFactory->registerCharacter("fleye", new Fleye(), fleyeMap);
+
+	std::map<SpriteState, SpriteObject*> jumpkinMap;
+	jumpkinMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, jumpkinDefault));
+	characterFactory->registerCharacter("jumpkin", new Jumpkin(), jumpkinMap);
 
 	std::map<std::string, std::map<SpriteState, SpriteObject*>> spriteObjectMap;
 }

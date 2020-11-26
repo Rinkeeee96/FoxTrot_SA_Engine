@@ -1,4 +1,12 @@
 { "columns":0,
+ "editorsettings":
+    {
+     "export":
+        {
+         "format":"",
+         "target":"."
+        }
+    },
  "grid":
     {
      "height":1,
@@ -8,17 +16,29 @@
  "margin":0,
  "name":"Enemies",
  "spacing":0,
- "tilecount":1,
- "tiledversion":"1.4.2",
- "tileheight":16,
+ "tilecount":3,
+ "tiledversion":"1.4.3",
+ "tileheight":42,
  "tiles":[
         {
          "id":0,
          "image":"..\/Tiles\/slime_blue.png",
          "imageheight":16,
          "imagewidth":16
+        }, 
+        {
+         "id":1,
+         "image":"..\/..\/Sprites\/Enemies\/Jumpkin.png",
+         "imageheight":40,
+         "imagewidth":32
+        }, 
+        {
+         "id":2,
+         "image":"..\/..\/Sprites\/Enemies\/Fleye.png",
+         "imageheight":42,
+         "imagewidth":42
         }],
- "tilewidth":16,
+ "tilewidth":42,
  "type":"tileset",
  "version":1.4
 }
