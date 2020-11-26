@@ -24,7 +24,8 @@ private:
 	void onCreditsBtnClick();
 	void onLoadBtnClick();
 	Button* startBtn = nullptr;
-	Button* stopBtn = nullptr;
+	Button* stopBtn = nullptr; 
+	Button* creditsBtn = nullptr;
 };
 
 inline MainMenu::~MainMenu()

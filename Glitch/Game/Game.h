@@ -8,6 +8,7 @@
 #include "Game/Scenes/DeathScreen/DeadScreen.h"
 #include "Game/Scenes/WinScreen/WinScreen.h"
 #include "Game/Scenes/Scenes.h"
+#include <Game/Scenes/Credits/CreditsScene.h>
 
 /// @brief 
 /// Game class runs the game

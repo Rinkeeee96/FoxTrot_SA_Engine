@@ -33,6 +33,9 @@ void Game::run() {
 		SaveScreen* saveScreen = new SaveScreen(sceneId++);
 		SceneSwitcher::get_instance().registerScene("LOADSCREEN", saveScreen);
 
+		CreditsScene* creditsScene = new CreditsScene(sceneId++);
+		SceneSwitcher::get_instance().registerScene("CREDITS", creditsScene);
+
 		SceneSwitcher::get_instance().switchToScene("MAIN_MENU", false);
 		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
 	}

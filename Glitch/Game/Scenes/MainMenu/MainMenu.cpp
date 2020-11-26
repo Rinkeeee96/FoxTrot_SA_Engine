@@ -28,21 +28,20 @@ void MainMenu::loadButtons() {
 	/*Button* loadBtn = new PrimaryButton(3, "Load save", BIND_FN(onLoadBtnClick));
 	/*Button* loadBtn = new PrimaryButton(3, "Load", BIND_FN(onLoadBtnClick));
 	loadBtn->setPositionX(CENTER_X - loadBtn->getWidth() / 2);
-	loadBtn->setPositionY(CENTER_Y - loadBtn->getHeight() / 2 + 100);
+	loadBtn->setPositionY(CENTER_Y - loadBtn->getHeight() / 2 + 100);*/
 
-	Button* creditsBtn = new PrimaryButton(12, "Credits", BIND_FN(onCreditsBtnClick));
+	creditsBtn = new PrimaryButton(12, "Credits", BIND_FN(onCreditsBtnClick));
 	creditsBtn->setPositionX(CENTER_X - creditsBtn->getWidth() / 2);
 	creditsBtn->setPositionY(CENTER_Y - creditsBtn->getHeight() / 2 + 200);
-	creditsBtn->disable();*/
 
-	stopBtn = new SecondaryButton(13, "Stop", BIND_FN(onStopBtnClick));
+	stopBtn = new SecondaryButton(-1204, "Stop", BIND_FN(onStopBtnClick));
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
 	addNewObjectToLayer(3, startBtn);
 	addNewObjectToLayer(3, stopBtn);
 	//addNewObjectToLayer(3, loadBtn);
-	//addNewObjectToLayer(3, creditsBtn);
+	addNewObjectToLayer(3, creditsBtn);
 }
 
 /// @brief 
@@ -97,6 +96,7 @@ void MainMenu::start()
 {
 	startBtn->reset();
 	stopBtn->reset();
+	creditsBtn->reset();
 	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("MENU_SOUND"));
 }
 
@@ -135,6 +135,7 @@ void MainMenu::onStopBtnClick() {
 /// A callback function for creditsBTN
 /// Start transition scene to DEAD_SCREEN
 void MainMenu::onCreditsBtnClick() {
+	SceneSwitcher::get_instance().switchToScene("CREDITS", false);
 }
 
 

@@ -20,6 +20,7 @@
     <ClCompile Include="Game\SaveGame\Savegame.cpp" />
     <ClCompile Include="Game\Scenes\SaveScreen\SaveScreen.cpp" />
     <ClCompile Include="Game\Scenes\Overworld\Overworld.cpp" />
+    <ClCompile Include="Game\Scenes\Credits\CreditsScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
@@ -57,5 +58,6 @@
     <ClInclude Include="Game\SaveGame\Savegame.h" />
     <ClInclude Include="Game\Scenes\SaveScreen\SaveScreen.h" />
     <ClInclude Include="Game\Scenes\Overworld\Overworld.h" />
+    <ClInclude Include="Game\Scenes\Credits\CreditsScene.h" />
   </ItemGroup>
 </Project>
