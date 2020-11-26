@@ -11,12 +11,10 @@ Game::Game()
 	stateMachine.registerEngine(&engine);
 }
 
-void Game::run() {
+int Game::run() {
 
 	try {
-
 		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
-
 		stateMachine.switchToScene("MainMenu", false);
 
 		while (gameRunning)
@@ -33,14 +31,15 @@ void Game::run() {
 
 			this_thread::sleep_for(chrono::milliseconds(10));
 		}
-
 		Savegame::get_instance().saveGameDataToJsonFile();
-
 	}
 	catch (int e) {
 		cout << ERRORCODES[e] << endl;
+		return EXIT_FAILURE;
 	}
 	catch (exception e) {
 		cout << e.what() << endl;
+		return EXIT_FAILURE;
 	}
+	return EXIT_SUCCES;
 }
