@@ -17,6 +17,9 @@
 #include <type_traits>
 #include <filesystem>
 #include <algorithm>
+#include <memory>
+#include <ostream>
+#include <sstream>
 
 using namespace std;
 

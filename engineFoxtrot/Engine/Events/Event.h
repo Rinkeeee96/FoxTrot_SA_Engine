@@ -1,6 +1,5 @@
 #pragma once
-#include <ostream>
-#include <sstream>
+
 #include "EventType.h"
 using namespace std;
 

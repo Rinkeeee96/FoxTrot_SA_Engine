@@ -1,13 +1,13 @@
 #pragma once
 #include "Event.h"
-#include <memory>
-using EventCallbackFn = function<bool(Event&)>;
 
 #define BIND_EVENT_FN(x) bind(&x, this, placeholders::_1)
 
 class EventSingleton
 {
 public:
+    using EventCallbackFn = function<bool(Event&)>;
+
     static API EventSingleton& get_instance() { return instance; }
 
     // prohibit copy & move
@@ -71,7 +71,7 @@ public:
     }
 
 private:
-    map<string, vector<EventCallbackFn>> handlers = map<string, vector<EventCallbackFn>>();
+    map<string, vector<EventCallbackFn>> handlers;
     static EventSingleton instance;
 
     template<typename T>
