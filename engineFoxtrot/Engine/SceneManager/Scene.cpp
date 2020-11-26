@@ -109,12 +109,12 @@ vector <Object*> Scene::getAllObjectsInSceneRenderPhysics()
 /// Pointer to the object
 const void Scene::addNewObjectToLayer(const int zIndex, Object* object, bool renderPhysics, bool alwaysDraw)
 {
-	if (object == nullptr) throw ERROR_CODE_SCENE_NO_OBJECT_FOUND;
+	if (object == nullptr)
+		throw ERROR_CODE_SCENE_NO_OBJECT_FOUND;
 
 	if (layers.find(zIndex) != layers.end())
 	{
 		layers[zIndex]->objects[object->getObjectId()] = object;
-		layers[zIndex]->alwaysVisible = alwaysDraw;
 	}
 	else
 	{
@@ -173,4 +173,11 @@ void Scene::removeObjectFromScene(Object* obj)
 map<int, Layer*> Scene::getLayers() const
 {
 	return layers;
+}
+
+void Scene::createLayer(const int zIndex, bool renderPhysics, bool alwaysDraw)
+{
+	layers[zIndex] = new Layer();
+	layers[zIndex]->renderPhysics = renderPhysics;
+	layers[zIndex]->alwaysVisible = alwaysDraw;
 }

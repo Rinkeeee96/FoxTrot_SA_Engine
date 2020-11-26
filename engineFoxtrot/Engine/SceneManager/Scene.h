@@ -76,6 +76,8 @@ public:
 
 	API map<int, Layer*> getLayers() const;
 
+	API void createLayer(const int zIndex, bool renderPhysics = false, bool alwaysDraw = false);
+
 private:
 	const int sceneID = 0;
 	map<int, Layer*> layers;
