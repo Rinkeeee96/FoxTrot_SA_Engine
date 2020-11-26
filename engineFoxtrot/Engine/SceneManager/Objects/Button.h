@@ -3,6 +3,8 @@
 #include "Events/Mouse/MousePressed.h"
 #include "SceneManager/Objects/Drawable.h"
 
+// TextClass : public Drawable
+
 class Button : public Drawable
 {
 public:

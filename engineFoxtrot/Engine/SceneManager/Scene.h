@@ -19,8 +19,8 @@ public:
 	const void API addNewObjectToLayer(const int zIndex, Object* object, bool renderPhysics = false);
 
 	vector<Drawable*> API getAllDrawablesInScene();
-	vector <Object*> API getAllObjectsInScene();
-	vector <Object*> getAllObjectsInSceneRenderPhysics();
+	vector<Object*> API getAllObjectsInScene();
+	vector<Object*> getAllObjectsInSceneRenderPhysics();
 
 	Object API *getObject(const int objectID);
 
