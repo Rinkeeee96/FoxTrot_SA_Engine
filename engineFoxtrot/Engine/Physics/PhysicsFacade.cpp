@@ -74,8 +74,23 @@ void PhysicsFacade::addStaticObject(PhysicsBody* object) {
 	b2BodyDef groundBodyDef;
 	groundBodyDef.type = b2_staticBody;
 	b2Body* body = world->CreateBody(&groundBodyDef);
+
+
 	b2PolygonShape groundBox = createShape(*object);
 	body->CreateFixture(&groundBox, 0.0f);
+
+
+	b2FixtureDef fixtureDef;
+	fixtureDef.shape = &groundBox;
+	fixtureDef.density = object->getDensity();
+	fixtureDef.friction = object->getFriction();
+	fixtureDef.restitution = object->getRestitution();
+	if (!object->getRotatable()) body->SetFixedRotation(true);
+	body->CreateFixture(&fixtureDef);
+
+	float posY = object->getPositionY() - object->getHeight() / 2; //Box2d needs the middle position
+	float posX = object->getPositionX() + object->getWidth() / 2; //Box2d needs the middle position
+	groundBodyDef.position.Set(posX, posY);
 
 	bodies.insert(pair<PhysicsBody*, b2Body*>(object, body));
 }
@@ -135,15 +150,9 @@ void PhysicsFacade::update() {
 
 	for (auto& it : bodies)
 	{
-		//if (it.first->getObject().getIsRemoved()) {
-		//	continue;
-		//}
-		
 		b2Body* body = it.second;
+		if (body->GetType() == b2_staticBody) continue;
 
-		if (body->GetType() == b2_staticBody) {
-			continue;
-		}
 		PhysicsBody* object = it.first;
 		if (!object) return;
 		object->setPositionX(body->GetWorldCenter().x - object->getWidth() / 2);
