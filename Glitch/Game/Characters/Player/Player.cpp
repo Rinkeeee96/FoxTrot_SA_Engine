@@ -97,7 +97,7 @@ void Player::setYAxisVelocity(const float val) {
 /// @brief 
 /// Handles when an key pressed event happend, Player can move right, left and jump
 bool Player::onKeyPressed(Event& event) {
-	ICommand* command = nullptr;
+	ICharacterCommand* command = nullptr;
 	bool handled = true;
 
 	if (!getIsDead()) {

@@ -1,10 +1,10 @@
 #pragma once
-#include "ICommand.h"
+#include "ICharacterCommand.h"
 
-class MoveRightCommand : public ICommand
+class MoveRightCommand : public ICharacterCommand
 {
 public:
-	MoveRightCommand(ICharacter& _character) : ICommand(_character) {};
+	MoveRightCommand(ICharacter& _character) : ICharacterCommand(_character) {};
 	// Inherited via ICommand
 	void execute() const override
 	{

@@ -163,12 +163,13 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Commands\CommandInvoker.h" />
     <ClInclude Include="Commands\ICommand.h" />
-    <ClInclude Include="Commands\JumpCommand.h" />
-    <ClInclude Include="Commands\MoveLeftCommand.h" />
-    <ClInclude Include="Commands\MoveRightCommand.h" />
-    <ClInclude Include="Commands\StopMovementCommand.h" />
+    <ClInclude Include="Commands\KeypressInvoker.h" />
+    <ClInclude Include="Commands\Character_commands\ICharacterCommand.h" />
+    <ClInclude Include="Commands\Character_commands\JumpCommand.h" />
+    <ClInclude Include="Commands\Character_commands\MoveLeftCommand.h" />
+    <ClInclude Include="Commands\Character_commands\MoveRightCommand.h" />
+    <ClInclude Include="Commands\Character_commands\StopMovementCommand.h" />
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
     <ClInclude Include="Game\Characters\ICharacter.h" />
     <ClInclude Include="Game\Factories\CharacterFactory.h" />

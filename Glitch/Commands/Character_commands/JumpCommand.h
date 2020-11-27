@@ -1,9 +1,9 @@
 #pragma once
-#include "ICommand.h"
-class JumpCommand : public ICommand
+#include "ICharacterCommand.h"
+class JumpCommand : public ICharacterCommand
 {
 public:
-	JumpCommand(ICharacter& _character) : ICommand(_character) {};
+	JumpCommand(ICharacter& _character) : ICharacterCommand(_character) {};
 	// Inherited via ICommand
 	void execute() const override {
 		if (character.getCanJump()) {

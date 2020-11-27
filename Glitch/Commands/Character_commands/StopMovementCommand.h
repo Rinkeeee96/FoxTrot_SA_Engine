@@ -1,11 +1,11 @@
 #pragma once
-#include "ICommand.h"
-class StopMovementCommand : public ICommand
+#include "ICharacterCommand.h"
+class StopMovementCommand : public ICharacterCommand
 {
 public:
-	StopMovementCommand(ICharacter& _character) : ICommand(_character) {};
+	StopMovementCommand(ICharacter& _character) : ICharacterCommand(_character) {};
 	// Inherited via ICommand
 	void execute() const override {
 		EventSingleton::get_instance().dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(character.getObjectId()));
-	}
+	}	
 };

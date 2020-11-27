@@ -1,9 +1,9 @@
 #pragma once
-#include "ICommand.h"
-class MoveLeftCommand : public ICommand
+#include "ICharacterCommand.h"
+class MoveLeftCommand : public ICharacterCommand
 {
 public:
-	MoveLeftCommand(ICharacter& _character) : ICommand(_character) {};
+	MoveLeftCommand(ICharacter& _character) : ICharacterCommand(_character) {};
 	// Inherited via ICommand
 	void execute() const override {
 		EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::LEFT, character.getObjectId()));

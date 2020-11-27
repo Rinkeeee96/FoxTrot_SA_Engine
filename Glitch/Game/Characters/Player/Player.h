@@ -2,11 +2,10 @@
 #include "Game/Characters/ICharacter.h"
 #include "Game/SpriteState.h"
 
-#include "Commands\MoveLeftCommand.h"
-#include "Commands\MoveRightcommand.h"
-#include "Commands\JumpCommand.h"
-#include "Commands\StopMovementCommand.h"
-#include "Commands\CommandInvoker.h"
+#include "Commands/Character_commands/MoveLeftCommand.h"
+#include "Commands/Character_commands/MoveRightcommand.h"
+#include "Commands/Character_commands/JumpCommand.h"
+#include "Commands/Character_commands/StopMovementCommand.h"
 
 class Player : public ICharacter {
 public:
