@@ -41,7 +41,6 @@ public:
 
 	API bool mouseOver(Event& event);
 	API bool isClicked(Event& event);
-	API void reset() { buttonPressed = false; }
 
 	API void registerHoverSprite(SpriteObject* spriteObject);
 private:
