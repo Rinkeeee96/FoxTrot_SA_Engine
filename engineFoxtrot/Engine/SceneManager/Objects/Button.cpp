@@ -1,5 +1,4 @@
 #include "stdafx.h"
-
 #include "Button.h"
 
 /// @brief 
@@ -16,7 +15,17 @@ bool Button::mouseOver(Event& event) {
 				mousePositionX <= (positionX + width) &&
 				mousePositionY >= (positionY - height) &&
 				mousePositionY <= positionY);
-	return isMouseOver;
+
+	if (!buttonPressed) {
+		if (isMouseOver && hasHoverSprite) {
+			changeToState(HOVER_STATE);
+		}
+		else {
+			changeToState(DEFAULT_STATE);
+		}
+	}
+
+	return false;
 }
 
 /// @brief 
@@ -36,4 +45,15 @@ bool Button::isClicked(Event& event) {
 		}
 	}
 	return false;
+}
+
+
+/// @brief 
+/// A function to register a hover effect over a btn 
+/// @param SpriteObject
+/// The spriteobject with the hover effect. 
+/// @return 
+void Button::registerHoverSprite(SpriteObject* spriteObject) {
+	hasHoverSprite = true;
+	Drawable::registerSprite(HOVER_STATE, spriteObject);
 }
