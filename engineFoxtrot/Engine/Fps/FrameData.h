@@ -10,9 +10,12 @@ public:
 	API double calculateAverageFps();
 	API void updateFps();
 	API void startTimer();
-	double fps = 0;
+	API const double getFps() { return fps; };
 
 private:
+
+	double fps = 0;
+
 	list<chrono::duration<double>> frametimes;
 	chrono::high_resolution_clock::time_point startTime;
 	double framesPerSecond = 0;
