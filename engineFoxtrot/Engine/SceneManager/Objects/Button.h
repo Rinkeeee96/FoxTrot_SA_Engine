@@ -3,8 +3,8 @@
 #include "Events/Mouse/MousePressed.h"
 #include "SceneManager/Objects/Drawable.h"
 
-#define DEFAULT_SPRITEID		1;
-#define HOVER_SPRITEID			2;
+#define DEFAULT_SPRITEID		1
+#define HOVER_SPRITEID			2
 
 class Button : public Drawable
 {

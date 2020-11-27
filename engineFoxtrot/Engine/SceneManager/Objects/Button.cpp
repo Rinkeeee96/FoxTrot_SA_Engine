@@ -15,16 +15,12 @@ bool Button::mouseOver(Event& event) {
 				mousePositionX <= (positionX + width) &&
 				mousePositionY >= (positionY - height) &&
 				mousePositionY <= positionY);
+
 	if (!buttonPressed) {
-		int hoverSpriteId = DEFAULT_SPRITEID;
-		if (isMouseOver && hasHoverSprite) {
-			hoverSpriteId = HOVER_SPRITEID;
-			changeToState(hoverSpriteId);
-		}
-		else {
-			hoverSpriteId = DEFAULT_SPRITEID;
-			changeToState(hoverSpriteId);
-		}
+		if (isMouseOver && hasHoverSprite) 
+			changeToState(HOVER_SPRITEID);
+		else if(!isMouseOver) 
+			changeToState(DEFAULT_SPRITEID);
 	}
 
 	return isMouseOver;
