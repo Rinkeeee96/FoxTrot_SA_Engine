@@ -4,7 +4,7 @@
 
 SceneStateMachine::SceneStateMachine(Engine& _engine) : engine(_engine)
 {
-	factory = new SceneFactory();
+	factory = shared_ptr<SceneFactory>(new  SceneFactory());
 	// Somehow delete this after they are used;
 	CreatorImpl <MainMenu>* Menu = new CreatorImpl <MainMenu>();
 	Menu->registerClass("MainMenu",factory);
@@ -27,7 +27,7 @@ SceneStateMachine::SceneStateMachine(Engine& _engine) : engine(_engine)
 
 SceneStateMachine::~SceneStateMachine()
 {
-	delete factory;
+
 }
 
 void SceneStateMachine::switchToScene(string identifier, const bool _useTransitionScreen)
