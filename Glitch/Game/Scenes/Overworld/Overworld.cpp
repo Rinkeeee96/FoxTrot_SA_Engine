@@ -21,6 +21,7 @@ void Overworld::onAttach()
 void Overworld::loadButtons() {
 	auto defaultBtnSprite = new SpriteObject(101013, 11, 15, 1, 300, "Assets/Buttons/village_orange.png");
 	auto hoverBtnSprite = new SpriteObject(101012, 11, 15, 1, 300, "Assets/Buttons/village_gray.png");
+	auto transSprite = new SpriteObject(101014, 10, 10, 1, 300, "Assets/transparant.png");
 	level1Btn = new Button(1, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel1BtnClick), defaultBtnSprite);
 	level1Btn->setWidth(32);
 	level1Btn->setHeight(32);
@@ -28,25 +29,35 @@ void Overworld::loadButtons() {
 	level1Btn->setPositionY(840); 
 	level1Btn->registerHoverSprite(hoverBtnSprite);
 
+	level1TextBtn = new Button(2, ColoredText("Level 1", Color(0, 0, 0)), BIND_FN(onLevel1BtnClick), transSprite);
+	level1TextBtn->setWidth(32);
+	level1TextBtn->setHeight(20);
+	level1TextBtn->setPositionX(795);
+	level1TextBtn->setPositionY(860);
 
-	level2Btn = new Button(2, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel1BtnClick), defaultBtnSprite);
+
+	level2Btn = new Button(3, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel1BtnClick), defaultBtnSprite);
 	level2Btn->setWidth(100);
 	level2Btn->setHeight(100);
 	level2Btn->setPositionX(900);
 	level2Btn->setPositionY(740);
 	level2Btn->registerHoverSprite(hoverBtnSprite);
 
-	/*
-	Button* level2Btn = new PrimaryButton(2, "Level 2", BIND_FN(OnLevel2BtnClick));
-	level2Btn->setPositionX(710);
-	level2Btn->setPositionY(890);
-	*/
-	stopBtn = new SecondaryButton(3, "To Main Menu", BIND_FN(onStopBtnClick));
+	level2TextBtn = new Button(4, ColoredText("Level 2", Color(0, 0, 0)), BIND_FN(onLevel1BtnClick), transSprite);
+	level2TextBtn->setWidth(100);
+	level2TextBtn->setHeight(20);
+	level2TextBtn->setPositionX(900);
+	level2TextBtn->setPositionY(760);
+
+
+	stopBtn = new SecondaryButton(5, "To Main Menu", BIND_FN(onStopBtnClick));
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
 	addNewObjectToLayer(3, level1Btn);
+	addNewObjectToLayer(3, level1TextBtn);
 	addNewObjectToLayer(3, level2Btn);
+	addNewObjectToLayer(3, level2TextBtn);
 	addNewObjectToLayer(3, stopBtn);
 }
 
