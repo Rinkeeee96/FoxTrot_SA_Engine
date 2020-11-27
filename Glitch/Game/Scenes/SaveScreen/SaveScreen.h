@@ -29,10 +29,5 @@ private:
 	void onSave3BtnClick();
 	void onStopBtnClick();
 
-	Button* save1 = nullptr;
-	Button* save2 = nullptr;
-	Button* save3 = nullptr;
-	Button* stopBtn = nullptr;
-
 };
 

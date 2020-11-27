@@ -21,9 +21,6 @@ private:
 	//button functions
 	void onReStartBtnClick();
 	void onOverworldBtnClick();
-	
-	Button* startBtn = nullptr;
-	Button* mainBtn = nullptr;
 };
 
 inline DeathScreen::~DeathScreen()

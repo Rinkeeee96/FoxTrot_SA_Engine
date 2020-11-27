@@ -24,9 +24,11 @@ public:
 		EventSingleton::get_instance().setEventCallback<MouseMovedEvent>(BIND_EVENT_FN(Button::mouseOver));
 	}
 
-	API virtual ~Button() {
+	API virtual ~Button() override {
+		cout << "desturctor BTN " << endl;
 		EventSingleton::get_instance().unSubscribe<MouseMovedEvent>(BIND_EVENT_FN(Button::isClicked));
 		EventSingleton::get_instance().unSubscribe<MouseButtonPressed>(BIND_EVENT_FN(Button::mouseOver));
+		Drawable::~Drawable();
 	}
 
 	API const ColoredText* toString() { return &text; }

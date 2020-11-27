@@ -21,11 +21,11 @@ void MainMenu::onAttach()
 /// Create all buttons for this scene
 void MainMenu::loadButtons() {
 
-	startBtn = new PrimaryButton(10, "Start", BIND_FN(onStartBtnClick));
+	auto* startBtn = new PrimaryButton(10, "Start", BIND_FN(onStartBtnClick));
 	startBtn->setPositionX(CENTER_X - startBtn->getWidth() / 2);
 	startBtn->setPositionY(CENTER_Y - startBtn->getHeight() / 2);
 
-	stopBtn = new SecondaryButton(13, "Stop", BIND_FN(onStopBtnClick));
+	auto* stopBtn = new SecondaryButton(13, "Stop", BIND_FN(onStopBtnClick));
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
