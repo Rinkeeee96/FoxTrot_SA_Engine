@@ -111,6 +111,39 @@ void VideoEngine::calculateOffset(Object& obj, int sceneWidth, int sceneHeight)
 	}
 }
 
+/// @brief This function checks if the obj is in screen or partially in screen
+/// @param obj 
+/// @return true if on screen, false if off screen
+bool VideoEngine::checkObjectInScreen(const Object& obj) {
+	float objLeft, objRight, objUp, objDown;
+	objLeft = obj.getPositionX();
+	objRight = obj.getPositionX() + obj.getWidth();
+	objUp = obj.getPositionY() - obj.getHeight();
+	objDown = obj.getPositionY();
+
+	//Check if any corner is in the screen
+		// Check top right corner
+	if ((objRight	> videoFacade->getXCameraOffset() && objRight	< videoFacade->getXCameraOffset() + WINDOW_WIDTH &&
+		 objUp		> videoFacade->getYCameraOffset() && objUp		< videoFacade->getYCameraOffset() + WINDOW_HEIGHT	) ||
+													  
+		// Check top left corner					  
+		(objUp		> videoFacade->getYCameraOffset() && objUp		< videoFacade->getYCameraOffset() + WINDOW_HEIGHT &&
+		 objLeft	> videoFacade->getXCameraOffset() && objLeft	< videoFacade->getXCameraOffset() + WINDOW_WIDTH	) ||
+													  
+		// Check bottom right corner				  
+		(objDown	> videoFacade->getYCameraOffset() && objDown	< videoFacade->getYCameraOffset() + WINDOW_HEIGHT &&
+		 objRight	> videoFacade->getXCameraOffset() && objRight	< videoFacade->getXCameraOffset() + WINDOW_WIDTH	) ||
+													  
+		// Check bottom left corner					  
+		(objLeft	> videoFacade->getXCameraOffset() && objLeft	< videoFacade->getXCameraOffset() + WINDOW_WIDTH && 
+		 objDown	> videoFacade->getYCameraOffset() && objDown	< videoFacade->getYCameraOffset() + WINDOW_HEIGHT)) 	
+	{
+		return true;
+	}
+
+	return false;
+}
+
 /// @brief 
 /// Update all the sprites on the screen
 /// Updates the camera offset
@@ -132,17 +165,15 @@ void VideoEngine::updateScreen()
 		videoFacade->setYCameraOffset(0);
 	}
 
-	for (Drawable* obj : (*pointerToCurrentScene)->getAllDrawablesInScene()) {
-		if (obj != nullptr) {
-			if (!obj->getIsRemoved())
-			{
-				if (obj->getIsParticle())
-				{
-					drawParticle((ParticleAdapter*)obj);
+	for (auto layer : (*pointerToCurrentScene)->getLayers()) {
+		for (auto obj : layer.second->objects) {
+			if (obj.second && ((layer.second->alwaysVisible && !obj.second->getIsRemoved()) || (checkObjectInScreen(*obj.second) && !obj.second->getIsRemoved()))) {
+				if (obj.second->getIsParticle()) {
+					drawParticle((ParticleAdapter*)obj.second);
 				}
-				else
-				{
-					renderCopy(*obj);
+				else {
+					if (Drawable* drawable = dynamic_cast<Drawable*>(obj.second))
+						renderCopy(*drawable);
 				}
 			}
 		}

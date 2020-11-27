@@ -77,7 +77,7 @@ void WinScreen::LoadBackground() {
 	confetti->setEndSpin(90);
 	confetti->setStartSpinVar(90);
 
-	addNewObjectToLayer(0, layer0);
+	addNewObjectToLayer(0, layer0, false, true);
 	addNewObjectToLayer(1, animation);
 	addNewObjectToLayer(2, confetti);
 }
