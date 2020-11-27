@@ -6,10 +6,8 @@
 class SceneStateMachine
 {
 public:
-	SceneStateMachine();
+	SceneStateMachine(Engine * engine);
 	~SceneStateMachine();
-
-	void registerEngine(Engine * engine) { this->engine = engine; };
 
 	void switchToScene(string const identifier, bool useTransitionScreen);
 

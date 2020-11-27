@@ -2,10 +2,10 @@
 #include "SceneStateMachine.h"
 
 
-SceneStateMachine::SceneStateMachine()
+SceneStateMachine::SceneStateMachine(Engine * engine)
 {
 	factory = new SceneFactory();
-	
+	this->engine = engine;
 	// Somehow delete this after they are used;
 	CreatorImpl <MainMenu>* Menu = new CreatorImpl <MainMenu>();
 	Menu->registerClass("MainMenu",factory);

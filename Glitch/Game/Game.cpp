@@ -8,8 +8,7 @@ bool Game::stopRun(Event& event) {
 
 Game::Game()
 {
-	stateMachine = shared_ptr<SceneStateMachine>(new SceneStateMachine);
-	stateMachine->registerEngine(&engine);
+	stateMachine = shared_ptr<SceneStateMachine>(new SceneStateMachine(&engine));
 }
 
 int Game::run() {
