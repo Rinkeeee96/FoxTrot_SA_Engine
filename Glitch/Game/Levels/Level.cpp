@@ -51,7 +51,7 @@ void Level::onAttach() {
 /// @brief
 /// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
 void Level::start() {
-	player->setPositionX(50);
+	player->setPositionX(100);
 	player->setPositionY(885);
 	player->setHealth(100);
 
