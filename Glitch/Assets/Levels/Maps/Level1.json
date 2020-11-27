@@ -15,7 +15,7 @@
          "name":"Background",
          "objects":[
                 {
-                 "gid":113,
+                 "gid":145,
                  "height":1104.24,
                  "id":8,
                  "name":"",
@@ -359,10 +359,6 @@
          "source":"..\/Tilesets\/Grassland_Level_32.json"
         }, 
         {
-         "firstgid":113,
-         "source":"..\/Tilesets\/Backgrounds.json"
-        }, 
-        {
          "firstgid":115,
          "source":"..\/Tilesets\/Grassland_level_decoration.json"
         }, 
@@ -377,6 +373,10 @@
         {
          "firstgid":142,
          "source":"..\/Tilesets\/Enemies.json"
+        },
+		{
+         "firstgid":145,
+         "source":"..\/Tilesets\/Backgrounds.json"
         }],
  "tilewidth":32,
  "type":"map",
