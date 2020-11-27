@@ -15,6 +15,7 @@
          "name":"Background",
          "objects":[
                 {
+                 "gid":145,
                  "gid":115,
                  "height":1104.24,
                  "id":8,
@@ -358,6 +359,10 @@
         {
          "firstgid":144,
          "source":"..\/Tilesets\/Enemies.json"
+        },
+		{
+         "firstgid":145,
+         "source":"..\/Tilesets\/Backgrounds.json"
         }],
  "tilewidth":32,
  "type":"map",
