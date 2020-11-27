@@ -18,10 +18,10 @@ public:
 	API float getPositionY() const { return this->positionY; };
 
 	API void setWidth(float width) { this->width = width; }
-	API float getWidth() const { return this->getWidth(); }
+	API float getWidth() const { return this->Drawable::getWidth(); }
 
 	API void setHeight(float Height) { this->height = Height; }
-	API float getHeight() const { return this->getHeight(); }
+	API float getHeight() const { return this->Drawable::getHeight(); }
 
 private:
 
