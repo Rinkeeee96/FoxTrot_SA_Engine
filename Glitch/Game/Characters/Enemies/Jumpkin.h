@@ -2,7 +2,7 @@
 #include "Game/Characters/Enemies/IEnemy.h"
 
 #define HORIZONTAL_RANGE 900
-#define VERTICAL_RANGE 100
+#define VERTICAL_RANGE 150
 
 /// @brief 
 /// Slime class with correspondending AI logic
@@ -54,7 +54,7 @@ public:
 			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
 			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(direction, this->getObjectId()));
 		}
-		else {
+		else if(!playerIsInRangeHorizontally) {
 			EventSingleton::get_instance().dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->getObjectId()));
 		}
 	};
