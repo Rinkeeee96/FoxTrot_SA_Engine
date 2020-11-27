@@ -1,14 +1,15 @@
 #include "stdafx.h"
 #include "Events\AppTickEvent60.h"
+#include "Events/Fps/FpsUpdateEvent.h"
 #include "Events\EventSingleton.h"
 #include "VideoEngine.h"
 
 VideoEngine::VideoEngine()
 {
 	frameData = new FrameData;
-	frameData->startTimer();
 	EventSingleton::get_instance().setEventCallback<AppTickEvent60>(BIND_EVENT_FN(VideoEngine::receiveTick));
 	EventSingleton::get_instance().setEventCallback<FpsToggleEvent>(BIND_EVENT_FN(VideoEngine::toggleFps));
+	EventSingleton::get_instance().setEventCallback<FpsUpdateEvent>(BIND_EVENT_FN(VideoEngine::updateFps));
 }
 
 VideoEngine::~VideoEngine()
@@ -151,7 +152,7 @@ void VideoEngine::updateScreen()
 /// @brief
 /// Calls the drawFps method with parameters for all calculated Fps types
 void VideoEngine::drawFps() {
-	drawFps(FrameData::renderFps, WINDOW_WIDTH, FPS_Y_POSITION_OFFSET, "Fps: ");
+	drawFps(FrameData::fps, WINDOW_WIDTH, FPS_Y_POSITION_OFFSET, "Fps: ");
 }
 
 /// @brief
@@ -182,13 +183,16 @@ bool VideoEngine::toggleFps(Event& fpsEvent) {
 	return true;
 }
 
+/// @brief
+/// Updates the fps counter
+bool VideoEngine::updateFps(Event& fpsEvent) {
+	frameData->updateFps();
+	return true;
+}
+
 /// @brief Handle the tick update from the thread
 bool VideoEngine::receiveTick(Event& tickEvent)
 {
-	//tickEvent = static_cast<AppTickEvent&>(tickEvent);
-	FrameData::renderFps = frameData->calculateAverageFps();
-
-	frameData->startTimer();
 	clearScreen();
 	updateScreen();
 

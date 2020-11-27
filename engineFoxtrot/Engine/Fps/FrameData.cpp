@@ -1,8 +1,7 @@
 #include "stdafx.h"
 #include "FrameData.h"
 
-double FrameData::gameFps = 0;
-double FrameData::renderFps = 0;
+double FrameData::fps = 0;
 
 FrameData::FrameData() {
 }
@@ -37,4 +36,15 @@ double FrameData::calculateAverageFps()
 
 	framesPerSecond = TIMESTEP / avgFps;
 	return framesPerSecond;
+}
+
+/// @brief
+/// Determines when to update the fps
+void FrameData::updateFps()
+{
+	if (reset)
+		this->startTimer();
+	else
+		this->fps = this->calculateAverageFps();
+	reset = !reset;
 }

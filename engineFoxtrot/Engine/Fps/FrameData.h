@@ -8,12 +8,13 @@ public:
 	API FrameData();
 	API ~FrameData();
 	API double calculateAverageFps();
+	API void updateFps();
 	API void startTimer();
-	API static double gameFps;
-	API static double renderFps;
+	API static double fps;
 
 private:
 	list<chrono::duration<double>> frametimes;
 	chrono::high_resolution_clock::time_point startTime;
 	double framesPerSecond = 0;
+	bool reset = true;
 };
