@@ -61,7 +61,6 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 
 		string path;
 		path = "Assets/Levels/Maps/Level" + to_string(levelToBuild) + ".json";
-		cout << "Path: " << path << endl;
 		levelLoader.load(path, &levelOneBuilder);
 		newScene = levelOneBuilder.getLevel();
 	}
