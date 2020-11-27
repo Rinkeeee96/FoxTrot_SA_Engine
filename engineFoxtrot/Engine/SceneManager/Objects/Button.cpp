@@ -15,9 +15,10 @@ bool Button::mouseOver(Event& event) {
 				mousePositionX <= (positionX + width) &&
 				mousePositionY >= (positionY - height) &&
 				mousePositionY <= positionY);
+
 	if (!buttonPressed) {
 		if (isMouseOver && hasHoverSprite) {
-			changeToState(HOVER_SPRITE_STATE);
+			changeToState(HOVER_STATE);
 		}
 		else {
 			changeToState(DEFAULT_STATE);
@@ -54,5 +55,5 @@ bool Button::isClicked(Event& event) {
 /// @return 
 void Button::registerHoverSprite(SpriteObject* spriteObject) {
 	hasHoverSprite = true;
-	Drawable::registerSprite(HOVER_SPRITE_STATE, spriteObject);
+	Drawable::registerSprite(HOVER_STATE, spriteObject);
 }

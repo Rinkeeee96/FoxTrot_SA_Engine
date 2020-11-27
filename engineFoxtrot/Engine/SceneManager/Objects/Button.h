@@ -4,7 +4,7 @@
 #include "SceneManager/Objects/Drawable.h"
 
 #define DEFAULT_STATE				1
-#define HOVER_SPRITE_STATE			2
+#define HOVER_STATE					2
 
 class Button : public Drawable
 {
