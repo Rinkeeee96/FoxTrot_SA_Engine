@@ -6,6 +6,7 @@
 VideoEngine::VideoEngine()
 {
 	frameData = new FrameData;
+	frameData->startTimer();
 	EventSingleton::get_instance().setEventCallback<AppTickEvent60>(BIND_EVENT_FN(VideoEngine::receiveTick));
 	EventSingleton::get_instance().setEventCallback<FpsToggleEvent>(BIND_EVENT_FN(VideoEngine::toggleFps));
 }
@@ -185,13 +186,13 @@ bool VideoEngine::toggleFps(Event& fpsEvent) {
 bool VideoEngine::receiveTick(Event& tickEvent)
 {
 	//tickEvent = static_cast<AppTickEvent&>(tickEvent);
+	FrameData::renderFps = frameData->calculateAverageFps();
 	frameData->startTimer();
 	clearScreen();
 	updateScreen();
 
 	drawFps();
 	drawScreen();
-	FrameData::renderFps = frameData->calculateAverageFps();
 
 	// do not handle on update events, they are continues
 	return false;
