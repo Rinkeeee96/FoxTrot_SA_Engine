@@ -55,6 +55,7 @@ void Level::start() {
 	player->setPositionX(50);
 	player->setPositionY(885);
 	player->setHealth(100);
+	this->win = false;
 
 	this->setObjectToFollow(this->follow);
 	for (const auto& s : sounds) {
@@ -65,7 +66,6 @@ void Level::start() {
 void Level::onUpdate() {
 	if (this->win) {
 		player->kill();
-		this->win = false;
 		stateMachine->switchToScene("WinScreen", false);
 		return;
 	}
