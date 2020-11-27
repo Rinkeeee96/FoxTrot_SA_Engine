@@ -88,6 +88,11 @@ void Overworld::loadMusic() {
 void Overworld::start()
 {
 	level1Btn->reset();
+	level1Btn->reset();
+	level1TextBtn->reset();
+	level2Btn->reset();
+	level2TextBtn->reset();
+
 	stopBtn->reset();
 	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("OVER_WORLD"));
 }

@@ -3,8 +3,8 @@
 #include "Events/Mouse/MousePressed.h"
 #include "SceneManager/Objects/Drawable.h"
 
-#define DEFAULT_SPRITEID		1;
-#define HOVER_SPRITEID			2;
+#define DEFAULT_STATE				1
+#define HOVER_SPRITE_STATE			2
 
 class Button : public Drawable
 {
@@ -17,10 +17,8 @@ public:
 		setSize(200, 50);
 		setStatic(true);
 
-		int defaultSpriteId = DEFAULT_SPRITEID;
-
-		registerSprite(defaultSpriteId, _spriteObject);
-		changeToState(defaultSpriteId);
+		registerSprite(DEFAULT_STATE, _spriteObject);
+		changeToState(DEFAULT_STATE);
 
 		EventSingleton::get_instance().setEventCallback<MouseButtonPressed>(BIND_EVENT_FN(Button::isClicked));
 		EventSingleton::get_instance().setEventCallback<MouseMovedEvent>(BIND_EVENT_FN(Button::mouseOver));

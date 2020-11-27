@@ -16,18 +16,15 @@ bool Button::mouseOver(Event& event) {
 				mousePositionY >= (positionY - height) &&
 				mousePositionY <= positionY);
 	if (!buttonPressed) {
-		int hoverSpriteId = DEFAULT_SPRITEID;
 		if (isMouseOver && hasHoverSprite) {
-			hoverSpriteId = HOVER_SPRITEID;
-			changeToState(hoverSpriteId);
+			changeToState(HOVER_SPRITE_STATE);
 		}
 		else {
-			hoverSpriteId = DEFAULT_SPRITEID;
-			changeToState(hoverSpriteId);
+			changeToState(DEFAULT_STATE);
 		}
 	}
 
-	return isMouseOver;
+	return false;
 }
 
 /// @brief 
@@ -57,6 +54,5 @@ bool Button::isClicked(Event& event) {
 /// @return 
 void Button::registerHoverSprite(SpriteObject* spriteObject) {
 	hasHoverSprite = true;
-	int hoverSpriteId = HOVER_SPRITEID;
-	Drawable::registerSprite(hoverSpriteId, spriteObject);
+	Drawable::registerSprite(HOVER_SPRITE_STATE, spriteObject);
 }
