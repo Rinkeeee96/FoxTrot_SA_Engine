@@ -10,7 +10,6 @@
 #include "Game/Scenes/Scenes.h"
 
 #define EXIT_SUCCES 0
-#define EXIT_FAILURE -1
 
 /// @brief 
 /// Game class runs the game
