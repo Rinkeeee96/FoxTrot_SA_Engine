@@ -41,6 +41,13 @@ void SceneManager::insertScene(Scene* scene)
 }
 
 /// @brief 
+/// @param id 
+void SceneManager::deregisterScene(const int id)
+{
+	scenes.erase(scenes.find(id));
+}
+
+/// @brief 
 /// Returns the last sceneID available in the map + 1
 /// @return 
 /// returns int

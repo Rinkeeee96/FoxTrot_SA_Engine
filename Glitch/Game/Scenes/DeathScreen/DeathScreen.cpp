@@ -1,15 +1,16 @@
 #include "pch.h"
-#include "DeadScreen.h"
+#include "DeathScreen.h"
 #include "Game/SpriteState.h"
 #include "Game/Buttons/PrimaryButton.h"
 #include "Game/Buttons/SecondaryButton.h"
+#include "Game/Game.h"
 
-#define BIND_FN(function) std::bind(&DeadScreen::function, *this)
+#define BIND_FN(function) std::bind(&DeathScreen::function, *this)
 
 #define CENTER_X  (WINDOW_WIDTH / 2)
 #define CENTER_Y (WINDOW_HEIGHT / 2)
 
-void DeadScreen::onAttach()
+void DeathScreen::onAttach()
 {
 	loadButtons();
 	loadBackground();
@@ -18,14 +19,14 @@ void DeadScreen::onAttach()
 
 /// @brief 
 /// Create all buttons for this scene
-void DeadScreen::loadButtons() {
+void DeathScreen::loadButtons() {
 	auto btnSprite = new SpriteObject(-601, 40, 116, 1, 300, "Assets/Buttons/btn_gray_round.png");
 
-	startBtn = new Button(-600, ColoredText("Restart", Color(0, 0, 0)), BIND_FN(onReStartBtnClick), btnSprite);
+	auto* startBtn = new Button(-600, ColoredText("Restart", Color(0, 0, 0)), BIND_FN(onReStartBtnClick), btnSprite);
 	startBtn->setPositionX(CENTER_X - startBtn->getWidth() / 2);
 	startBtn->setPositionY(CENTER_Y - startBtn->getHeight() / 2);
 
-	mainBtn = new Button(-601, ColoredText("Overworld", Color(0, 0, 0)), BIND_FN(onOverworldBtnClick), btnSprite);
+	auto* mainBtn = new Button(-601, ColoredText("Overworld", Color(0, 0, 0)), BIND_FN(onOverworldBtnClick), btnSprite);
 	mainBtn->setPositionX(CENTER_X - mainBtn->getWidth() / 2);
 	mainBtn->setPositionY(CENTER_Y - mainBtn->getHeight() / 2 + 100);
 
@@ -35,7 +36,7 @@ void DeadScreen::loadButtons() {
 
 /// @brief 
 /// Create the background for this scene
-void DeadScreen::loadBackground() {
+void DeathScreen::loadBackground() {
 	SpriteObject* BG_LAYER_0 = new SpriteObject(-605, 1080, 1920, 1, 300, "Assets/Backgrounds/game_over_Layer_0.png");
 	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(-606, 37, 50, 7, 300, "Assets/Sprites/Character/adventure_die.png");
 	BG_LAYER_ADVENTRUE->freezeOn(7);
@@ -76,26 +77,24 @@ void DeadScreen::loadBackground() {
 
 /// @brief 
 /// Load the sounds for this scene
-void DeadScreen::loadMusic() {
+void DeathScreen::loadMusic() {
 	EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent("DEAD_SOUND", "Assets/Sound/game_over_looped.wav"));
 }
 
 /// @brief 
 /// Create the sounds for this scene
-void DeadScreen::start()
+void DeathScreen::start()
 {
-	startBtn->reset();
-	mainBtn->reset();
 	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("DEAD_SOUND"));
 }
 
-void DeadScreen::onUpdate()
+void DeathScreen::onUpdate()
 {
 }
 
 /// @brief 
 /// Remove the sounds of the soundengine
-void DeadScreen::onDetach()
+void DeathScreen::onDetach()
 {
 	EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent("DEAD_SOUND"));
 	Scene::onDetach();
@@ -104,15 +103,15 @@ void DeadScreen::onDetach()
 /// @brief 
 /// A callback function for restartBTN
 /// Start transition scene to level1
-void DeadScreen::onReStartBtnClick()
+void DeathScreen::onReStartBtnClick()
 {
-	SceneSwitcher::get_instance().switchToScene("LEVEL_1", true);
+	stateMachine->switchToScene("Level_1", true);
 }
 
 
 /// @brief 
 /// A callback function for overworldBTN
 /// Start transition scene to overworl
-void DeadScreen::onOverworldBtnClick() {
-	SceneSwitcher::get_instance().switchToScene("OVERWORLD", false);
+void DeathScreen::onOverworldBtnClick() {
+	stateMachine->switchToScene("Overworld", false);
 }
