@@ -198,6 +198,7 @@
   <ItemGroup>
     <ClInclude Include="api.h" />
     <ClInclude Include="Engine\Events\Action\RemoveEvent.h" />
+    <ClInclude Include="Engine\Events\Fps\FpsUpdateEvent.h" />
     <ClInclude Include="Engine\SceneManager\Objects\Drawable.h" />
     <ClInclude Include="Engine\core.h" />
     <ClInclude Include="Engine\Events\Action\ActionEvent.h" />

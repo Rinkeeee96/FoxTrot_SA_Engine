@@ -47,6 +47,8 @@ public:
 	void drawFps(double fps, int xPos, int yPos, const string& prefix);
 	bool toggleFps(Event& fpsEvent);
 
+	bool updateFps(Event& fpsEvent);
+
 	bool receiveTick(Event& tickEvent);
 
 	bool drawParticle(ParticleAdapter* part);
