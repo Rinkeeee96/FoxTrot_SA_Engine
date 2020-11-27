@@ -96,6 +96,8 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 		object->setRotation(objectValue["rotation"]);
 		object->setPositionX(objectValue["x"]);
 		object->setPositionY(objectValue["y"] + object->getHeight());
+		object->setSpawnX(object->getPositionX());
+		object->setSpawnY(object->getPositionY());
 		object->setStatic(false);
 
 		for (auto& [objectPropertyKey, objectPropertyValue] : objectValue["properties"].items())
