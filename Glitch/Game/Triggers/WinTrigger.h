@@ -19,10 +19,6 @@ public:
 
 		if (Player* characterObject = dynamic_cast<Player*>(&collisionEvent.getObjectOne())) this->level.setWin(true);
 		else if (Player* characterObject = dynamic_cast<Player*>(&collisionEvent.getObjectTwo())) this->level.setWin(true);
-<<<<<<< HEAD
-=======
-
->>>>>>> c7eb1830d03b8aaf03054868f0d2ce97201a045e
 		return false;
 	}
 };
