@@ -19,7 +19,7 @@ void DeathScreen::onAttach()
 
 /// @brief 
 /// Create all buttons for this scene
-void DeadScreen::loadButtons() {
+void DeathScreen::loadButtons() {
 	auto btnSprite = new SpriteObject(-601, 40, 116, 1, 300, "Assets/Buttons/btn_gray_round.png");
 
 	startBtn = new Button(-600, ColoredText("Restart", Color(0, 0, 0)), BIND_FN(onReStartBtnClick), btnSprite);
@@ -105,7 +105,7 @@ void DeathScreen::onDetach()
 /// Start transition scene to level1
 void DeathScreen::onReStartBtnClick()
 {
-	stateMachine->switchToScene("level_1", true);
+	stateMachine->switchToScene("Level_1", true);
 }
 
 
