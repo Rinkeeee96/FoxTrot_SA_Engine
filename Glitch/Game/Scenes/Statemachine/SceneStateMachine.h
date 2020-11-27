@@ -6,7 +6,7 @@
 class SceneStateMachine
 {
 public:
-	SceneStateMachine(Engine * engine);
+	SceneStateMachine(Engine& engine);
 	~SceneStateMachine();
 
 	void switchToScene(string const identifier, bool useTransitionScreen);
@@ -19,7 +19,7 @@ public:
 private:
 	SceneFactory*  factory = nullptr;
 
-	Engine * engine;
+	Engine& engine;
 	shared_ptr<Scene> currentScene;
 	int sceneId = 0;
 

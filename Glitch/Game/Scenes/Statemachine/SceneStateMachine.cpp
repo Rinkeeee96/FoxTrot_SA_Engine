@@ -2,10 +2,9 @@
 #include "SceneStateMachine.h"
 
 
-SceneStateMachine::SceneStateMachine(Engine * engine)
+SceneStateMachine::SceneStateMachine(Engine& _engine) : engine(_engine)
 {
 	factory = new SceneFactory();
-	this->engine = engine;
 	// Somehow delete this after they are used;
 	CreatorImpl <MainMenu>* Menu = new CreatorImpl <MainMenu>();
 	Menu->registerClass("MainMenu",factory);
@@ -54,8 +53,8 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	}
 	else
 	{
-		LoadLevelFacade levelLoader{ *(engine) };
-		LevelBuilder levelOneBuilder{ *(engine), sceneId++ };
+		LoadLevelFacade levelLoader{ engine };
+		LevelBuilder levelOneBuilder{ engine, sceneId++ };
 
 		int levelToBuild = stoi(identifier.substr(6));
 		cout << "Level to build: " << levelToBuild << endl;
@@ -70,14 +69,14 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	if (sceneId > 10) sceneId = 1;
 	if (newScene == nullptr) throw exception("NewScene is Nullptr so cant set new scene");
 
-	engine->insertScene(newScene.get());
-	engine->setCurrentScene(newScene->getSceneID());
+	engine.insertScene(newScene.get());
+	engine.setCurrentScene(newScene->getSceneID());
 
 	// Detach and delete the old now inactive scene
 	if (currentScene != nullptr)
 	{
 		currentScene->onDetach();
-		engine->deregisterScene(currentScene->getSceneID());
+		engine.deregisterScene(currentScene->getSceneID());
 		currentScene = nullptr;
 	}
 
@@ -94,7 +93,7 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 		((GameScene*)currentScene.get())->registerStateMachine(this);
 	}
 
-	cout << "Setting current Scene to: " << typeid(*(engine->getCurrentScene())).name() << endl;
+	cout << "Setting current Scene to: " << typeid(*(engine.getCurrentScene())).name() << endl;
 
 	currentScene->onAttach();
 	currentScene->start();
