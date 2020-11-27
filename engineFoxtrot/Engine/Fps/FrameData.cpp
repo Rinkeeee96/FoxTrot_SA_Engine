@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "FrameData.h"
 
-double FrameData::fps = 0;
 
 FrameData::FrameData() {
 }

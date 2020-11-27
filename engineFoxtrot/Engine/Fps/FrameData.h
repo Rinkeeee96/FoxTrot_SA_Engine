@@ -10,7 +10,7 @@ public:
 	API double calculateAverageFps();
 	API void updateFps();
 	API void startTimer();
-	API static double fps;
+	double fps = 0;
 
 private:
 	list<chrono::duration<double>> frametimes;

@@ -152,7 +152,7 @@ void VideoEngine::updateScreen()
 /// @brief
 /// Calls the drawFps method with parameters for all calculated Fps types
 void VideoEngine::drawFps() {
-	drawFps(FrameData::fps, WINDOW_WIDTH, FPS_Y_POSITION_OFFSET, "Fps: ");
+	drawFps(frameData->fps, WINDOW_WIDTH, FPS_Y_POSITION_OFFSET, "Fps: ");
 }
 
 /// @brief
