@@ -15,7 +15,7 @@
 #include "Events/Sound/PlaySoundEffectEvent.h"
 #include "Events/Sound/StopSoundEffectEvent.h"
 
-
+#include "Events/Fps/FpsUpdateEvent.h"
 #include "Events/Window/WindowCloseEvent.h"
 #include "Events/Mouse/MousePressed.h"
 #include "Events/EventSingleton.h"
