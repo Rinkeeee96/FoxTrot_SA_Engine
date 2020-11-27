@@ -67,9 +67,9 @@ void MainMenu::loadBackground() {
 	layer2->registerSprite(SpriteState::DEFAULT, BG_LAYER_2);
 	layer2->changeToState(SpriteState::DEFAULT);
 
-	addNewObjectToLayer(0, layer0, false);
-	addNewObjectToLayer(1, animation, false);
-	addNewObjectToLayer(2, layer2, false);
+	addNewObjectToLayer(0, layer0, false, true);
+	addNewObjectToLayer(1, animation, false, true);
+	addNewObjectToLayer(2, layer2, false, true);
 }
 
 /// @brief 

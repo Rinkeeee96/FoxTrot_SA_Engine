@@ -23,7 +23,6 @@
 /// @brief 
 /// Builder class for creating a level
 class LevelBuilder : public AbstractLevelBuilder {
-
 private:
 	TriggerFactory triggerFactory;
 	std::unique_ptr<CharacterFactory> characterFactory;
@@ -33,6 +32,8 @@ private:
 
 	// TODO Fix tileId in tilesets
 	Level* bLevel;
+
+	bool getAlwaysDrawFromJson(nlohmann::json layerValue);
 
 	int currentTileId = 999;
 	int mapTileWidth = 16;
@@ -51,5 +52,6 @@ public:
 	void loadTileSets(nlohmann::json json) override;
 	void createTriggers(nlohmann::json json) override;
 	void initFactory() override;
+
 	virtual void create() override;
 };
