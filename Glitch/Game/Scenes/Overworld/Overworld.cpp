@@ -76,7 +76,7 @@ void Overworld::loadBackground() {
 	layer0->changeToState(SpriteState::DEFAULT);
 	layer0->setScalable(false);
 
-	addNewObjectToLayer(1, layer0);
+	addNewObjectToLayer(1, layer0, false, true);
 }
 
 /// @brief 
