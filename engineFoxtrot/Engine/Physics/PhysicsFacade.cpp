@@ -185,7 +185,6 @@ void PhysicsFacade::MoveLeft(const int objectId)
 	if (!body || !ob) return;
 
 	b2Vec2 vel = body->GetLinearVelocity();
-	vel.y = body->GetLinearVelocity().y;
 	vel.x = ob->getSpeed() *-1;
 	body->SetLinearVelocity(vel);
 };
@@ -201,7 +200,6 @@ void PhysicsFacade::MoveRight(const int objectId)
 	if (!body || !ob) return;
 
 	b2Vec2 vel = body->GetLinearVelocity();
-	vel.y = body->GetLinearVelocity().y;
 	vel.x = ob->getSpeed();
 	body->SetLinearVelocity(vel);
 };
