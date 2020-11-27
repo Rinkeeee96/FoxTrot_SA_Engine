@@ -56,6 +56,7 @@ int Game::run() {
 	try {
 		while (gameRunning)
 		{
+			EventSingleton::get_instance().dispatchEvent<FpsUpdateEvent>((Event&)FpsUpdateEvent());
 			AppTickEvent60 appTick;
 			AppTickEvent30 appTick30;
 
@@ -68,6 +69,7 @@ int Game::run() {
 			scene->onUpdate();
 
 			this_thread::sleep_for(chrono::milliseconds(10));
+			EventSingleton::get_instance().dispatchEvent<FpsUpdateEvent>((Event&)FpsUpdateEvent());
 		}
 		Savegame::get_instance().saveGameDataToJsonFile();
 	}
