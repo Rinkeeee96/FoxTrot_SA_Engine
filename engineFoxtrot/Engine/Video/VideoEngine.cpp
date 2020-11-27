@@ -187,6 +187,7 @@ bool VideoEngine::receiveTick(Event& tickEvent)
 {
 	//tickEvent = static_cast<AppTickEvent&>(tickEvent);
 	FrameData::renderFps = frameData->calculateAverageFps();
+
 	frameData->startTimer();
 	clearScreen();
 	updateScreen();
