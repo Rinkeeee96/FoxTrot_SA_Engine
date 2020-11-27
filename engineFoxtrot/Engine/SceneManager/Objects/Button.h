@@ -3,16 +3,23 @@
 #include "Events/Mouse/MousePressed.h"
 #include "SceneManager/Objects/Drawable.h"
 
+#define DEFAULT_STATE				1
+#define HOVER_STATE					2
+
 class Button : public Drawable
 {
 public:
-	API Button(int id, ColoredText _text, const function<void(void)> _onClick) :
+	API Button(int id, ColoredText _text, const function<void(void)> _onClick, SpriteObject* _spriteObject) :
 		Drawable(id), 
 		text(_text),
 		onClick(_onClick)
 	{
 		setSize(200, 50);
 		setStatic(true);
+
+		registerSprite(DEFAULT_STATE, _spriteObject);
+		changeToState(DEFAULT_STATE);
+
 		EventSingleton::get_instance().setEventCallback<MouseButtonPressed>(BIND_EVENT_FN(Button::isClicked));
 		EventSingleton::get_instance().setEventCallback<MouseMovedEvent>(BIND_EVENT_FN(Button::mouseOver));
 	}
@@ -34,10 +41,15 @@ public:
 
 	API bool mouseOver(Event& event);
 	API bool isClicked(Event& event);
+	API void reset() { buttonPressed = false; }
+
+	API void registerHoverSprite(SpriteObject* spriteObject);
 private:
 	bool isEnabled = true;
 	bool isMouseOver = false;
 	bool buttonPressed = false;
+	bool hasHoverSprite = false;
+
 	const function<void(void)> onClick;
 
 	ColoredText text;

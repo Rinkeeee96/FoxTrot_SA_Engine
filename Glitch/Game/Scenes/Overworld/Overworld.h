@@ -28,6 +28,11 @@ private:
 	void onCreditsBtnClick();
 	void onLoadBtnClick();
 	Button* level1Btn = nullptr;
+	Button* level1TextBtn = nullptr;
+	Button* level2Btn = nullptr;
+	Button* level2TextBtn = nullptr;
+
+
 	Button* stopBtn = nullptr;
 };
 

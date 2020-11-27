@@ -18,14 +18,14 @@ public:
 	/// register a new state or overwrite a existing state and dispatch an event that signals to load the sprite in memory
 	/// register the spriteID
 	/// link a state with a sprite
-	API void registerSprite(int state, SpriteObject* spriteObject) {
+	API virtual void registerSprite(int state, SpriteObject* spriteObject) {
 		textures.insert(pair<int, SpriteObject*>(state, spriteObject));
 		EventSingleton::get_instance().dispatchEvent<VideoLoadSpriteEvent>((Event&)VideoLoadSpriteEvent(*spriteObject));
 	}
 	/// @brief
 	/// change the state
 	/// change the textureID to the current state
-	API void changeToState(const int state) {
+	API virtual void changeToState(const int state) {
 		currentSpriteState = state;
 		SpriteObject* spriteObject = textures[state];
 		if (spriteObject == nullptr) throw ERROR_CODE_SPRITE_DOESNT_EXIST;
