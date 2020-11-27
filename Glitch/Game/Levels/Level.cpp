@@ -49,6 +49,8 @@ void Level::onAttach() {
 	}
 }
 
+/// @brief
+/// Add HUD for lifes of player
 void Level::addHuds() {
 	// Health HUDS
 	int startingID = -662;
@@ -69,6 +71,8 @@ void Level::addHuds() {
 	}
 }
 
+/// @brief
+/// Add single HUD for lifes of player
 void Level::addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, SpriteObject* HUD) {
 	auto* health1 = new Drawable(startingID--);
 	health1->setStatic(true);
