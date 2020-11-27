@@ -81,9 +81,9 @@ void GeneralTransition::loadBackground()
 	layer2->registerSprite(SpriteState::DEFAULT, BG_LAYER_2);
 	layer2->changeToState(SpriteState::DEFAULT);
 
-	addNewObjectToLayer(0, layer0);
+	addNewObjectToLayer(0, layer0, false, true);
 	addNewObjectToLayer(1, animation);
-	addNewObjectToLayer(2, layer2);
+	addNewObjectToLayer(2, layer2, false, true);
 	addNewObjectToLayer(3, progressBar);
 	addNewObjectToLayer(4, progressBarFiller);
 }
