@@ -50,6 +50,11 @@ bool Button::isClicked(Event& event) {
 }
 
 
+/// @brief 
+/// A function to register a hover effect over a btn 
+/// @param SpriteObject
+/// The spriteobject with the hover effect. 
+/// @return 
 void Button::registerHoverSprite(SpriteObject* spriteObject) {
 	hasHoverSprite = true;
 	int hoverSpriteId = HOVER_SPRITEID;
