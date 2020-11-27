@@ -43,7 +43,7 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	}
 
 	bool handlingLevel = false;
-	if (identifier.find("level") != string::npos) handlingLevel = true;
+	if (identifier.find("Level") != string::npos) handlingLevel = true;
 
 	shared_ptr<Scene> newScene = nullptr;
 
