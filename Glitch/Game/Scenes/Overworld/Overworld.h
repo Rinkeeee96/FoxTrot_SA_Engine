@@ -32,7 +32,8 @@ private:
 	Button* level1TextBtn = nullptr;
 	Button* level2Btn = nullptr;
 	Button* level2TextBtn = nullptr;
-
+	Button* level3Btn = nullptr;
+	Button* level3TextBtn = nullptr;
 
 	Button* stopBtn = nullptr;
 };
