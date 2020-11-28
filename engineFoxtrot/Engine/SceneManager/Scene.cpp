@@ -12,6 +12,13 @@ Scene::Scene(const int _sceneID, const int _sceneHeight, const int _sceneWidth) 
 /// @brief 
 Scene::~Scene()
 {
+	//for (auto layer : layers)
+	//{
+	//	for (auto obj : layer.second->objects)
+	//	{
+	//		delete obj.second;
+	//	}
+	//}
 }
 
 /// @brief 
@@ -107,7 +114,7 @@ vector <Object*> Scene::getAllObjectsInSceneRenderPhysics()
 /// Zindex of the layer that the object should be added to
 /// @param object 
 /// Pointer to the object
-const void Scene::addNewObjectToLayer(const int zIndex, Object* object, bool renderPhysics)
+const void Scene::addNewObjectToLayer(const int zIndex, Object* object, bool renderPhysics, bool alwaysDrawLayer)
 {
 	if (object == nullptr) throw ERROR_CODE_SCENE_NO_OBJECT_FOUND;
 
@@ -120,6 +127,7 @@ const void Scene::addNewObjectToLayer(const int zIndex, Object* object, bool ren
 		layers[zIndex] = new Layer();
 		layers[zIndex]->renderPhysics = renderPhysics;
 		layers[zIndex]->objects[object->getObjectId()] = object;
+		layers[zIndex]->alwaysVisible = alwaysDrawLayer;
 	}
 }
 
@@ -143,16 +151,16 @@ Object * Scene::getObject(const int objectID)
 
 void Scene::onDetach()
 {
-	for (auto& layerContainer : layers)
-	{
-		Layer* layer = layerContainer.second;
-		for (const auto& [id, object] : layer->objects)
-			delete object;
+	//for (auto& layerContainer : layers)
+	//{
+	//	Layer* layer = layerContainer.second;
+	//	for (const auto& [id, object] : layer->objects)
+	//		delete object;
 
-		layer->objects.clear();
-		delete layer;
-	}
-	layers.clear();
+	//	layer->objects.clear();
+	//	delete layer;
+	//}
+	//layers.clear();
 }
 
 void Scene::removeObjectFromScene(Object* obj)
@@ -166,4 +174,16 @@ void Scene::removeObjectFromScene(Object* obj)
 			//delete obj;
 		}
 	}
+}
+
+map<int, Layer*> Scene::getLayers() const
+{
+	return layers;
+}
+
+void Scene::createLayer(const int zIndex, bool renderPhysics, bool alwaysDrawLayer)
+{
+	layers[zIndex] = new Layer();
+	layers[zIndex]->renderPhysics = renderPhysics;
+	layers[zIndex]->alwaysVisible = alwaysDrawLayer;
 }

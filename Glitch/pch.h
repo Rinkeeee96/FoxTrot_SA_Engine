@@ -19,9 +19,7 @@
 #include <ctime>
 #include "api.h"
 
-#include "SceneSwitcher/SceneSwitcher.h"
 #include "SceneManager/Objects/Button.h"
-#include "SceneSwitcher/SceneSwitcher.h"
 #include "Game/SaveGame/Savegame.h"
 
 // also returns false when comparing null value to shared ptr

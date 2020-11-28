@@ -7,6 +7,8 @@
 #include "Commands/Character_commands/JumpCommand.h"
 #include "Commands/Character_commands/StopMovementCommand.h"
 
+#define RESTITUTION_CORRECTION 1
+
 class Player : public ICharacter {
 public:
 	Player() : ICharacter() {};

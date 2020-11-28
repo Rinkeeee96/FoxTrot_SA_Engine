@@ -17,6 +17,6 @@ public:
 
 		if (ICharacter* character = dynamic_cast<ICharacter*>(&collisionEvent.getObjectOne())) character->kill();
 		else if (ICharacter* character = dynamic_cast<ICharacter*>(&collisionEvent.getObjectTwo())) character->kill();
-		return true;
+		return false;
 	}
 };

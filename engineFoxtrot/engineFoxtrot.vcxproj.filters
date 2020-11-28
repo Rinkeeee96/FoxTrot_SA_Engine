@@ -186,6 +186,7 @@
     <ClInclude Include="Engine\Events\Action\RemoveEvent.h" />
     <ClInclude Include="Engine\Events\InputMapping\CaptureInputEvent.h" />
     <ClInclude Include="Engine\Events\InputMapping\ReleaseInputEvent.h" />
+    <ClInclude Include="Engine\Events\Fps\FpsUpdateEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
