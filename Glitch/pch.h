@@ -22,13 +22,4 @@
 #include "SceneManager/Objects/Button.h"
 #include "Game/SaveGame/Savegame.h"
 
-// also returns false when comparing null value to shared ptr
-template<class T, class U>
-bool compare_shared_ptr(const std::shared_ptr<T>& a, const std::shared_ptr<U>& b)
-{
-	if (a == b) return true;
-	if (a && b) return *a == *b;
-	return false;
-}
-
 using namespace std;

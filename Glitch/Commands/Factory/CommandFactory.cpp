@@ -1,15 +1,16 @@
 #include "pch.h"
-#include "CommandCreator.h"
 #include "CommandFactory.h"
 #include "Game/characters/ICharacter.h"
-void CommandFactory::registerit(const std::string& classname, CommandCreator* creator)
+#include "CommandCreator.h"
+
+void CommandFactory::registerit(const std::string& classname, ICommandCreator* creator)
 {
 	table[classname] = creator;
 }
 
-shared_ptr<ICommand> CommandFactory::create(const std::string& classname, ICharacter* character)
+shared_ptr<ICommand> CommandFactory::create(const std::string& classname, ICharacter& character)
 {
-	std::map<std::string, CommandCreator*>::iterator i;
+	std::map<std::string, ICommandCreator*>::iterator i;
 	i = table.find(classname);
 
 	if (i != table.end())

@@ -1,11 +1,17 @@
 #pragma once
-#ifndef _CREATOR_H_
-#define _CREATOR_H_
-class ICharacter;
-class CommandCreator
+#include "ICommandCreator.h"
+#include "CommandFactory.h"
+
+template <class T>
+class CommandCreator : public ICommandCreator
 {
 public:
-	virtual shared_ptr<ICommand> create(ICharacter* character) = 0;
-};
+	CommandCreator(const string& _key) : key{ _key } {};
+	~CommandCreator() {};
+	void registerClass(shared_ptr<CommandFactory> factory) { factory->registerit(key, this); };
+	// Inherited via ICommandCreator
+	virtual shared_ptr<ICommand> create(ICharacter& character) { return shared_ptr<T>{new T(character)}; }
+private:
+	const string& key;
 
-#endif //_CREATOR_H_
+};

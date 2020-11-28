@@ -43,5 +43,5 @@ int Game::run() {
 		cout << e.what() << endl;
 		return EXIT_FAILURE;
 	}
-	return EXIT_SUCCES;
+	return EXIT_SUCCESS;
 }

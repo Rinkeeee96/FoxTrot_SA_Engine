@@ -1,7 +1,9 @@
 #include "pch.h"
+#include "Commands/KeypressInvoker.h"
+#include "Commands/Factory/CommandCreator.h"
 #include "Commands/Factory/CommandFactory.h"
 #include "CommandBuilder.h"
-#include <Commands\Factory\CreatorImpl.h>
+
 
 #include "Commands/Character_commands/MoveLeftCommand.h"
 #include "Commands/Character_commands/MoveRightcommand.h"
@@ -9,7 +11,7 @@
 #include <Commands\Character_commands\StopMovementCommand.h>
 
 // TODO read keybinds from file
-void CommandBuilder::create()
+void CommandBuilder::linkCommandsToPlayer(ICharacter& player)
 {
 	keypressInvoker->registerCommands(KeyCode::KEY_A, commandFactory->create("moveRightCommand", player));
 	keypressInvoker->registerCommands(KeyCode::KEY_D, commandFactory->create("moveLeftCommand",  player));
@@ -18,10 +20,10 @@ void CommandBuilder::create()
 
 void CommandBuilder::initFactory()
 {
-	auto* jumpCommand = new CreatorImpl<JumpCommand, CommandFactory>("jumpCommand");
-	auto* moveLeftCommand = new CreatorImpl<MoveLeftCommand, CommandFactory>("moveLeftCommand");
-	auto* moveRightCommand = new CreatorImpl<MoveRightCommand, CommandFactory>("moveRightCommand");
-	auto* stopMovementCommand = new CreatorImpl<StopMovementCommand, CommandFactory>("stopMovementCommand");
+	auto* jumpCommand = new CommandCreator<JumpCommand>("jumpCommand");
+	auto* moveLeftCommand = new CommandCreator<MoveLeftCommand>("moveLeftCommand");
+	auto* moveRightCommand = new CommandCreator<MoveRightCommand>("moveRightCommand");
+	auto* stopMovementCommand = new CommandCreator<StopMovementCommand>("stopMovementCommand");
 
 	jumpCommand->registerClass(commandFactory);
 	moveLeftCommand->registerClass(commandFactory);

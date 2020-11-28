@@ -16,6 +16,6 @@ public:
 	void registerStateMachine(SceneStateMachine * stateMachine);
 
 protected:
-	SceneStateMachine * stateMachine;
+	SceneStateMachine * stateMachine = nullptr;
 };
 

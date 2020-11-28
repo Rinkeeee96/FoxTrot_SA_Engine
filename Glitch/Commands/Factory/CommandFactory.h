@@ -1,23 +1,16 @@
 #pragma once
 
-#ifndef _FACTORY_H_
-#define _FACTORY_H_
-
-#include <string>
-#include <map>
 class ICommand;
-class Creator;
 class ICharacter;
+class ICommandCreator;
 
 class CommandFactory
 {
 public:
 	CommandFactory() {};
 	~CommandFactory() {};
-	shared_ptr<ICommand> create(const std::string& classname, ICharacter* character);
-	void registerit(const std::string& classname, CommandCreator* creator);
+	shared_ptr<ICommand> create(const std::string& classname, ICharacter& character);
+	void registerit(const std::string& classname, ICommandCreator* creator);
 private:
-	std::map<std::string, CommandCreator*> table;
+	std::map<std::string, ICommandCreator*> table;
 };
-
-#endif //_FACTORY_H_

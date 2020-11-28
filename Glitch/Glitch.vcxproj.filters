@@ -65,9 +65,7 @@
     <ClInclude Include="Commands\Character_commands\MoveLeftCommand.h" />
     <ClInclude Include="Commands\Character_commands\MoveRightCommand.h" />
     <ClInclude Include="Commands\Character_commands\StopMovementCommand.h" />
-    <ClInclude Include="Commands\Factory\CommandCreator.h" />
     <ClInclude Include="Commands\Factory\CommandFactory.h" />
-    <ClInclude Include="Commands\Factory\CreatorImpl.h" />
     <ClInclude Include="Commands\ICharacterCommand.h" />
     <ClInclude Include="Commands\CommandBuilder.h" />
     <ClInclude Include="Commands\ICommandBuilder.h" />
@@ -77,5 +75,7 @@
     <ClInclude Include="Game\Scenes\Factory\FactoryMethod.h" />
     <ClInclude Include="Game\Scenes\DeathScreen\DeathScreen.h" />
     <ClInclude Include="Game\Scenes\Statemachine\SceneStateMachine.h" />
+    <ClInclude Include="Commands\Factory\CommandCreator.h" />
+    <ClInclude Include="Commands\Factory\ICommandCreator.h" />
   </ItemGroup>
 </Project>
