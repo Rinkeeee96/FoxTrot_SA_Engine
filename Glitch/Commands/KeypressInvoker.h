@@ -1,15 +1,6 @@
 #pragma once
 #include "pch.h"
 #include "ICharacterCommand.h"
-// also returns false when comparing null value to shared ptr
-template<class T, class U>
-bool compare_shared_ptr(const std::shared_ptr<T>& a, const std::shared_ptr<U>& b)
-{
-	if (a == b) return true;
-	return false;
-}
-
-
 class KeypressInvoker
 {
 public:
@@ -63,7 +54,7 @@ private:
 		auto it = playerCommands.begin();
 		while (it != playerCommands.end())
 		{
-			if (compare_shared_ptr<ICommand, ICommand>(it->second, command))
+			if (it->second == command)
 			{
 				return true;
 			}
