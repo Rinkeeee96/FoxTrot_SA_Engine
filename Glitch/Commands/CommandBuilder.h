@@ -1,6 +1,7 @@
 #pragma once
 #include "ICommandBuilder.h"
-class CommandFactory;
+#include "Commands/Factory/CommandFactory.h"
+class KeypressInvoker;
 class CommandBuilder : public ICommandBuilder
 {
 public:
@@ -9,13 +10,12 @@ public:
 		initFactory();
 	};
 	~CommandBuilder() {};
+	virtual void linkCommandsToPlayer(ICharacter& player) override;
 
 private:
 	shared_ptr<CommandFactory> commandFactory;
 	shared_ptr<KeypressInvoker> keypressInvoker;
 
 	// Inherited via ICommandBuilder
-	virtual void linkCommandsToPlayer(ICharacter& player) override;
 	virtual void initFactory() override;
-
 };

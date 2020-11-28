@@ -9,12 +9,10 @@ Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, map<st
 	GameScene::GameScene(id, _sceneHeight, _sceneWidth),
 	sounds(_sounds)
 {
-
 }
 
 Level::Level(const int id, const int _sceneHeight, const int _sceneWidth) : GameScene::GameScene(id, _sceneHeight, _sceneWidth)
 {
-
 }
 
 // @brief 
@@ -23,6 +21,10 @@ Level::Level(const int id, const int _sceneHeight, const int _sceneWidth) : Game
 void Level::setPlayer(Object* object) {
 	this->follow = object;
 	if (Player* _player = dynamic_cast<Player*>(object)) {
+
+		ICharacter* character = dynamic_cast<ICharacter*>(_player);
+		commandBuilder.linkCommandsToPlayer(*character);
+
 		this->player = _player;
 		startPosPlayerX = _player->getPositionX();
 		startPosPlayerY = _player->getPositionY();

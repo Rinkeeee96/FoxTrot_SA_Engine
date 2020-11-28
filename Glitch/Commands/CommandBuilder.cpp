@@ -1,9 +1,8 @@
 #include "pch.h"
-#include "Commands/KeypressInvoker.h"
+#include "CommandBuilder.h"
 #include "Commands/Factory/CommandCreator.h"
 #include "Commands/Factory/CommandFactory.h"
-#include "CommandBuilder.h"
-
+#include "Commands/KeypressInvoker.h"
 
 #include "Commands/Character_commands/MoveLeftCommand.h"
 #include "Commands/Character_commands/MoveRightcommand.h"

@@ -1,6 +1,7 @@
 #pragma once
 #include "Game/Characters/Player/Player.h"
 #include "Game/Scenes/GameScene.h"
+#include "Commands/CommandBuilder.h"
 /// @brief 
 /// Level class. Level has all the information. 
 class Level : public GameScene
@@ -23,6 +24,8 @@ private:
 	Object* follow = nullptr;
 	Player* player = nullptr;
 	bool win = false;
+
+	CommandBuilder commandBuilder;
 
 	float startPosPlayerX = 0;
 	float startPosPlayerY = 0;
