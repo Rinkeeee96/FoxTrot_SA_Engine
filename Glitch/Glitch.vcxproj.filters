@@ -20,6 +20,8 @@
     <ClCompile Include="Game\SaveGame\Savegame.cpp" />
     <ClCompile Include="Game\Scenes\SaveScreen\SaveScreen.cpp" />
     <ClCompile Include="Game\Scenes\Overworld\Overworld.cpp" />
+    <ClCompile Include="Commands\Factory\CommandFactory.cpp" />
+    <ClCompile Include="Commands\CommandBuilder.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
@@ -59,10 +61,15 @@
     <ClInclude Include="Game\Scenes\Overworld\Overworld.h" />
     <ClInclude Include="Commands\KeypressInvoker.h" />
     <ClInclude Include="Commands\ICommand.h" />
-    <ClInclude Include="Commands\Character_commands\ICharacterCommand.h" />
     <ClInclude Include="Commands\Character_commands\JumpCommand.h" />
     <ClInclude Include="Commands\Character_commands\MoveLeftCommand.h" />
     <ClInclude Include="Commands\Character_commands\MoveRightCommand.h" />
     <ClInclude Include="Commands\Character_commands\StopMovementCommand.h" />
+    <ClInclude Include="Commands\Factory\CommandCreator.h" />
+    <ClInclude Include="Commands\Factory\CommandFactory.h" />
+    <ClInclude Include="Commands\Factory\CreatorImpl.h" />
+    <ClInclude Include="Commands\ICharacterCommand.h" />
+    <ClInclude Include="Commands\CommandBuilder.h" />
+    <ClInclude Include="Commands\ICommandBuilder.h" />
   </ItemGroup>
 </Project>

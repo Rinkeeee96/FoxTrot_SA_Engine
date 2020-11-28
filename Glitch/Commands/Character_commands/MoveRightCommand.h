@@ -1,5 +1,5 @@
 #pragma once
-#include "ICharacterCommand.h"
+#include "Commands/ICharacterCommand.h"
 
 class MoveRightCommand : public ICharacterCommand
 {

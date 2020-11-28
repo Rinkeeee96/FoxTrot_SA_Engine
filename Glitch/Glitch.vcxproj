@@ -163,9 +163,14 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Commands\CommandBuilder.h" />
+    <ClInclude Include="Commands\Factory\CommandFactory.h" />
+    <ClInclude Include="Commands\Factory\CommandCreator.h" />
+    <ClInclude Include="Commands\Factory\CreatorImpl.h" />
     <ClInclude Include="Commands\ICommand.h" />
+    <ClInclude Include="Commands\ICommandBuilder.h" />
     <ClInclude Include="Commands\KeypressInvoker.h" />
-    <ClInclude Include="Commands\Character_commands\ICharacterCommand.h" />
+    <ClInclude Include="Commands\ICharacterCommand.h" />
     <ClInclude Include="Commands\Character_commands\JumpCommand.h" />
     <ClInclude Include="Commands\Character_commands\MoveLeftCommand.h" />
     <ClInclude Include="Commands\Character_commands\MoveRightCommand.h" />
@@ -207,6 +212,8 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Triggers\WinTrigger.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Commands\CommandBuilder.cpp" />
+    <ClCompile Include="Commands\Factory\CommandFactory.cpp" />
     <ClCompile Include="Game\Characters\Enemies\IEnemy.h" />
     <ClCompile Include="Game\Factories\CharacterFactory.cpp" />
     <ClCompile Include="Game\Factories\TriggerFactory.cpp" />
