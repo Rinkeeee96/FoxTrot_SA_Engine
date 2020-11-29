@@ -93,7 +93,7 @@ void Level::addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, 
 void Level::start() {
 	player->setPositionX(50);
 	player->setPositionY(885);
-	player->setCurrentHealth(2);
+	player->setCurrentHealth(3);
 	player->setTotalHealth(3);
 	this->addHuds();
 
