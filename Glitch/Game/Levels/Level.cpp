@@ -104,6 +104,9 @@ void Level::start() {
 }
 
 void Level::onUpdate() {
+	this->huds = std::vector<Drawable*>();
+	this->addHuds();
+
 	if (this->win) {
 		SceneSwitcher::get_instance().switchToScene("WIN_SCREEN", false);
 		player->kill();
