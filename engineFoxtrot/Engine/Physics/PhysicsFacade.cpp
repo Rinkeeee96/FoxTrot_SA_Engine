@@ -237,10 +237,10 @@ void PhysicsFacade::Fall(const int objectId)
 /// destroy all the bodies of the world
 void PhysicsFacade::cleanMap()
 {
-	//for (auto b : bodies)
-	//{
-	//	world->DestroyBody(b.second);
-	//}
+	for (auto b : bodies)
+	{
+		delete b.first;
+	}
 	bodies.clear();
 	delete world;
 	world = new b2World(b2Vec2(GRAVITY_SCALE, GRAVITY_FALL));

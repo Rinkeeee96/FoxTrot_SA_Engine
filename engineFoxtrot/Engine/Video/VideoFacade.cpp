@@ -214,5 +214,7 @@ void VideoFacade::clean()
 		SDL_DestroyTexture(texture.second);
 	}
 	textureMap.clear();
+	xCameraOffset = 0;
+	yCameraOffset = 0;
 }
 
