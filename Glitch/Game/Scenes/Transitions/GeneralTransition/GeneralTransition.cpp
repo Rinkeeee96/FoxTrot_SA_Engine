@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "GeneralTransition.h"
 #include "Game/SpriteState.h"
+#include "Game/Game.h"
 
 /// @brief 
 /// Loads the background and sets the starttime of this scene;
@@ -122,11 +123,12 @@ void GeneralTransition::onUpdate()
 	if (diffFromPreviousCall.count() > 0.05 && moveCharacter)
 	{
 		animation->setPositionX(animation->getPositionX() + 20);
+		previousCallTime = chrono::high_resolution_clock::now();
 		if (animation->getPositionX() > WINDOW_WIDTH)
 		{
-			SceneSwitcher::get_instance().switchToScene(nextScene, false);
+			stateMachine->switchToScene(nextScene,false);
 		}
-		previousCallTime = chrono::high_resolution_clock::now();
+		
 	}
 }
 

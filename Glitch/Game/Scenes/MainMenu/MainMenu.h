@@ -1,12 +1,12 @@
 #pragma once
 #include "api.h"
 #include "SceneManager/Objects/Button.h"
-#include "SceneSwitcher/SceneSwitcher.h"
+#include "Game/Scenes/GameScene.h"
 
-class MainMenu : public Scene
+class MainMenu : public GameScene
 {
 public:
-	MainMenu(const int id) : Scene(id, WINDOW_HEIGHT, WINDOW_WIDTH){};
+	MainMenu(const int id) : GameScene(id){};
 	~MainMenu();
 	// Inherited via Scene
 	void onAttach() override;
@@ -23,8 +23,6 @@ private:
 	void onStopBtnClick();
 	void onCreditsBtnClick();
 	void onLoadBtnClick();
-	Button* startBtn = nullptr;
-	Button* stopBtn = nullptr;
 };
 
 inline MainMenu::~MainMenu()

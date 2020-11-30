@@ -9,7 +9,7 @@ protected:
 public:
 	AbstractLevelBuilder(Engine& _engine) : engine(_engine) { }
 
-	Level* getLevel() override { return level.get(); }
+	shared_ptr<Level> getLevel() override { return level; }
 
 	virtual void create() = 0;
 	virtual void createLevel(nlohmann::json json) = 0;

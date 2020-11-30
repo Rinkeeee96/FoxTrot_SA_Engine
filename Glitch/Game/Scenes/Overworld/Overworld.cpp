@@ -2,6 +2,7 @@
 #include "Overworld.h"
 #include "Game/Buttons/PrimaryButton.h"
 #include "Game/Buttons/SecondaryButton.h"
+#include "Game/Game.h"
 
 #define BIND_FN(function) std::bind(&Overworld::function, *this)
 
@@ -22,14 +23,15 @@ void Overworld::loadButtons() {
 	auto defaultBtnSprite = new SpriteObject(101013, 11, 15, 1, 300, "Assets/Buttons/village_orange.png");
 	auto hoverBtnSprite = new SpriteObject(101012, 11, 15, 1, 300, "Assets/Buttons/village_gray.png");
 	auto transSprite = new SpriteObject(101014, 10, 10, 1, 300, "Assets/transparant.png");
-	level1Btn = new Button(1, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel1BtnClick), defaultBtnSprite);
+
+	auto* level1Btn = new Button(1, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel1BtnClick), defaultBtnSprite);
 	level1Btn->setWidth(32);
 	level1Btn->setHeight(32);
 	level1Btn->setPositionX(295);
 	level1Btn->setPositionY(363); 
 	level1Btn->registerHoverSprite(hoverBtnSprite);
 
-	level1TextBtn = new Button(2, ColoredText("Level 1", Color(0, 0, 0)), BIND_FN(onLevel1BtnClick), transSprite);
+	auto* level1TextBtn = new Button(2, ColoredText("Level 1", Color(0, 0, 0)), BIND_FN(onLevel1BtnClick), transSprite);
 	level1TextBtn->setWidth(32);
 	level1TextBtn->setHeight(20);
 	level1TextBtn->setPositionX(295);
@@ -100,13 +102,6 @@ void Overworld::loadMusic() {
 /// @brief 
 void Overworld::start()
 {
-	level1Btn->reset();
-	level1Btn->reset();
-	level1TextBtn->reset();
-	level2Btn->reset();
-	level2TextBtn->reset();
-
-	stopBtn->reset();
 	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("OVER_WORLD"));
 }
 
@@ -126,7 +121,7 @@ void Overworld::onDetach()
 void Overworld::onLevel1BtnClick()
 {
 	cout << "Level1 BTN" << endl;
-	SceneSwitcher::get_instance().switchToScene("LEVEL_1", true);
+	stateMachine->switchToScene("Level_1", true);
 }
 
 /// @brief 
@@ -151,7 +146,7 @@ void Overworld::onStartBtnClick()
 
 /// @brief 
 void Overworld::onStopBtnClick() {
-	SceneSwitcher::get_instance().switchToScene("MAIN_MENU",true);
+	stateMachine->switchToScene("MainMenu",true);
 }
 
 /// @brief 

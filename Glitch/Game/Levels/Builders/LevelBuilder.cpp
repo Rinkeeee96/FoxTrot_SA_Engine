@@ -17,7 +17,7 @@ LevelBuilder::LevelBuilder(Engine& _engine, int levelId) : AbstractLevelBuilder(
 }
 
 void LevelBuilder::create() {
-	level = unique_ptr<Level>(bLevel);
+	level = shared_ptr<Level>(bLevel);
 }
 
 // @brief 

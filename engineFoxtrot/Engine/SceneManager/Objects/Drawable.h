@@ -9,7 +9,9 @@ public:
 	API Drawable(const int _id, const bool _isParticle = false) : Object(_id, _isParticle) {};
 	API Drawable() : Object() {};
 
-	API virtual ~Drawable() {};
+	API virtual ~Drawable() override {
+		Object::~Object();
+	};
 	/// @brief
 	/// get the current active sprite reference of the drawable
 	API SpriteObject& GetCurrentSprite() const { return *currentSprite; }
