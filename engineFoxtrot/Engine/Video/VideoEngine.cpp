@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Events\AppTickEvent60.h"
+#include "Events/Fps/FpsUpdateEvent.h"
 #include "Events\EventSingleton.h"
 #include "VideoEngine.h"
 
@@ -8,6 +9,7 @@ VideoEngine::VideoEngine()
 	frameData = new FrameData;
 	EventSingleton::get_instance().setEventCallback<AppTickEvent60>(BIND_EVENT_FN(VideoEngine::receiveTick));
 	EventSingleton::get_instance().setEventCallback<FpsToggleEvent>(BIND_EVENT_FN(VideoEngine::toggleFps));
+	EventSingleton::get_instance().setEventCallback<FpsUpdateEvent>(BIND_EVENT_FN(VideoEngine::updateFps));
 }
 
 VideoEngine::~VideoEngine()
@@ -107,6 +109,39 @@ void VideoEngine::calculateOffset(Object& obj, int sceneWidth, int sceneHeight)
 	}
 }
 
+/// @brief This function checks if the obj is in screen or partially in screen
+/// @param obj 
+/// @return true if on screen, false if off screen
+bool VideoEngine::checkObjectInScreen(const Object& obj) {
+	float objLeft, objRight, objUp, objDown;
+	objLeft = obj.getPositionX();
+	objRight = obj.getPositionX() + obj.getWidth();
+	objUp = obj.getPositionY() - obj.getHeight();
+	objDown = obj.getPositionY();
+
+	//Check if any corner is in the screen
+		// Check top right corner
+	if ((objRight	> videoFacade->getXCameraOffset() && objRight	< videoFacade->getXCameraOffset() + WINDOW_WIDTH &&
+		 objUp		> videoFacade->getYCameraOffset() && objUp		< videoFacade->getYCameraOffset() + WINDOW_HEIGHT	) ||
+													  
+		// Check top left corner					  
+		(objUp		> videoFacade->getYCameraOffset() && objUp		< videoFacade->getYCameraOffset() + WINDOW_HEIGHT &&
+		 objLeft	> videoFacade->getXCameraOffset() && objLeft	< videoFacade->getXCameraOffset() + WINDOW_WIDTH	) ||
+													  
+		// Check bottom right corner				  
+		(objDown	> videoFacade->getYCameraOffset() && objDown	< videoFacade->getYCameraOffset() + WINDOW_HEIGHT &&
+		 objRight	> videoFacade->getXCameraOffset() && objRight	< videoFacade->getXCameraOffset() + WINDOW_WIDTH	) ||
+													  
+		// Check bottom left corner					  
+		(objLeft	> videoFacade->getXCameraOffset() && objLeft	< videoFacade->getXCameraOffset() + WINDOW_WIDTH && 
+		 objDown	> videoFacade->getYCameraOffset() && objDown	< videoFacade->getYCameraOffset() + WINDOW_HEIGHT)) 	
+	{
+		return true;
+	}
+
+	return false;
+}
+
 /// @brief 
 /// Update all the sprites on the screen
 /// Updates the camera offset
@@ -128,17 +163,15 @@ void VideoEngine::updateScreen()
 		videoFacade->setYCameraOffset(0);
 	}
 
-	for (Drawable* obj : (*pointerToCurrentScene)->getAllDrawablesInScene()) {
-		if (obj != nullptr) {
-			if (!obj->getIsRemoved())
-			{
-				if (obj->getIsParticle())
-				{
-					drawParticle((ParticleAdapter*)obj);
+	for (auto layer : (*pointerToCurrentScene)->getLayers()) {
+		for (auto obj : layer.second->objects) {
+			if (obj.second && ((layer.second->alwaysVisible && !obj.second->getIsRemoved()) || (checkObjectInScreen(*obj.second) && !obj.second->getIsRemoved()))) {
+				if (obj.second->getIsParticle()) {
+					drawParticle((ParticleAdapter*)obj.second);
 				}
-				else
-				{
-					renderCopy(*obj);
+				else {
+					if (Drawable* drawable = dynamic_cast<Drawable*>(obj.second))
+						renderCopy(*drawable);
 				}
 			}
 		}
@@ -148,7 +181,7 @@ void VideoEngine::updateScreen()
 /// @brief
 /// Calls the drawFps method with parameters for all calculated Fps types
 void VideoEngine::drawFps() {
-	drawFps(FrameData::renderFps, WINDOW_WIDTH, FPS_Y_POSITION_OFFSET, "Fps: ");
+	drawFps(frameData->getFps(), WINDOW_WIDTH, FPS_Y_POSITION_OFFSET, "Fps: ");
 }
 
 /// @brief
@@ -179,17 +212,21 @@ bool VideoEngine::toggleFps(Event& fpsEvent) {
 	return true;
 }
 
+/// @brief
+/// Updates the fps counter
+bool VideoEngine::updateFps(Event& fpsEvent) {
+	frameData->updateFps();
+	return true;
+}
+
 /// @brief Handle the tick update from the thread
 bool VideoEngine::receiveTick(Event& tickEvent)
 {
-	//tickEvent = static_cast<AppTickEvent&>(tickEvent);
-	frameData->startTimer();
 	clearScreen();
 	updateScreen();
 
 	drawFps();
 	drawScreen();
-	FrameData::renderFps = frameData->calculateAverageFps();
 
 	// do not handle on update events, they are continues
 	return false;

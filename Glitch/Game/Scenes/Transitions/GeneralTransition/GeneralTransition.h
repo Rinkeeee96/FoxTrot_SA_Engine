@@ -1,12 +1,13 @@
 #pragma once
+#include "Game/Scenes/GameScene.h"
 
 #define TRANSITION_SCENE_DURATION_S		3
 
 /// @brief 
-class GeneralTransition : public Scene
+class GeneralTransition : public GameScene
 {
 public:
-	GeneralTransition(const int id) : Scene(id, WINDOW_HEIGHT, WINDOW_WIDTH) {};
+	GeneralTransition(const int id) : GameScene(id) {};
 	~GeneralTransition() {};
 
 	// Inherited via Scene
