@@ -34,7 +34,7 @@ public:
 
 	void drawMessageAt(const ColoredText& message, const Position& pos, const ObjectSize& target);
 
-	// TODO clear on scene detach
+	void clean();
 	unordered_map<int, SDL_Texture*> textureMap;
 
 	void setXCameraOffset(int x) override { xCameraOffset = x; }

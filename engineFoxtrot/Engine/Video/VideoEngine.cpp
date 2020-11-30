@@ -138,6 +138,11 @@ bool VideoEngine::checkObjectInScreen(const Object& obj) {
 
 	return false;
 }
+/// @brief 
+void VideoEngine::clearVideoEngine()
+{
+	videoFacade->clean();
+}
 
 /// @brief 
 /// Update all the sprites on the screen

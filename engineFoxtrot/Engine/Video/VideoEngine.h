@@ -56,6 +56,9 @@ public:
 
 	bool checkObjectInScreen(const Object& obj);
 
+	void clearVideoEngine();
+
+
 private:
 	IVideoFacade* videoFacade = new VideoFacade;
 

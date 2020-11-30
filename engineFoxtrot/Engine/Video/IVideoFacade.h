@@ -19,6 +19,7 @@ public:
 	virtual void drawMessageAt(const ColoredText& message, const Position& pos, const ObjectSize& boundary) = 0;
 	virtual void drawParticle(const ParticleData& data, int spriteID) = 0;
 
+	virtual void clean() = 0;
 
 	virtual void setXCameraOffset(int) =0;
 	virtual void setYCameraOffset(int) = 0;

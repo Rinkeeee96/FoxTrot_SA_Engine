@@ -48,6 +48,7 @@ void Engine::insertScene(Scene* scene)
 void Engine::deregisterScene(const int id)
 {
 	sceneManager.deregisterScene(id);
+	videoEngine.clearVideoEngine();
 }
 
 /// @brief

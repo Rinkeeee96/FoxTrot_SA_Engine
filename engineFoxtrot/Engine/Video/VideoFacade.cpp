@@ -205,3 +205,14 @@ void VideoFacade::drawMessageAt(const ColoredText& message, const Position& pos,
 		SDL_DestroyTexture(messageTexture);
 	}
 }
+
+/// @brief 
+void VideoFacade::clean()
+{
+	for (auto texture : textureMap)
+	{
+		SDL_DestroyTexture(texture.second);
+	}
+	textureMap.clear();
+}
+
