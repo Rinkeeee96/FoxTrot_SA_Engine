@@ -3,7 +3,6 @@
 #include "PhysicsFacade.h"
 #include "PhysicsEngine.h"
 #include "Events\Action\ObjectStopEvent.h"
-#include <Events\Action\RemoveEvent.h>
 
 /// @brief Constructor
 PhysicsEngine::PhysicsEngine()

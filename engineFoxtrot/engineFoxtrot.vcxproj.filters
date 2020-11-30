@@ -178,7 +178,6 @@
     <ClInclude Include="Engine\SceneManager\Objects\Drawable.h" />
     <ClInclude Include="Engine\SceneManager\Objects\Button.h" />
     <ClInclude Include="Engine\Events\Action\ObjectStopEvent.h" />
-    <ClInclude Include="Engine\Events\Action\RemoveEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
