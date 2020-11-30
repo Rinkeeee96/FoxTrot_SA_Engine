@@ -1,6 +1,8 @@
 #pragma once
 #include "Game/Scenes/GameScene.h"
-#include "Game/Game.h"
+#include "Commands/ICommandBuilder.h"
+
+class Player;
 /// @brief 
 /// Level class. Level has all the information. 
 class Level : public GameScene

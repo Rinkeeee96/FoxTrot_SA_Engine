@@ -1,10 +1,7 @@
 #pragma once
-#include "Game/Levels/Level.h"
-#include "Game/SpriteState.h"
-#include "Game/Characters/Player/Player.h"
-#include "Game/Characters/Enemies/Slime.h"
-#include "Game/Ground/BaseGround.h"
 #include <nlohmann\json.hpp>
+
+class Level;
 
 /// @brief 
 /// Interface for a levelbuilder

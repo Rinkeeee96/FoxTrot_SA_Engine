@@ -1,5 +1,10 @@
 #include "pch.h"
 #include "LevelBuilder.h"
+#include "Game/Characters/Enemies/IEnemy.h"
+#include "Game/Ground/IGround.h"
+#include "Game/Ground/BaseGround.h"
+#include "Game/Characters/Enemies/Slime.h"
+#include "Game/Factories/CharacterFactory.h"
 
 bool LevelBuilder::getAlwaysDrawFromJson(nlohmann::json layerValue)
 {

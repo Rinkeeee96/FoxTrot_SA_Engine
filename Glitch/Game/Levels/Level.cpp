@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "Commands/CommandBuilder.h"
 #include "Level.h"
+#include "Game/Characters/Player/Player.h"
+#include "Game/Scenes/Statemachine/SceneStateMachine.h"
 
 /// @brief 
 /// @param sceneID 
