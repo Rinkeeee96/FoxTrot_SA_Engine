@@ -64,6 +64,17 @@ void Engine::loadSprite(const SpriteObject& spriteObject) {
 	videoEngine.loadImage(spriteObject);
 }
 
+/// @brief
+/// Updates the fps counter
+void Engine::updateFps() {
+	frameData.updateFps();
+}
+
+/// @brief
+/// Toggles fps visibility
+void Engine::toggleFps() {
+	videoEngine.toggleFps();
+}
 
 void Engine::loadSound(const string& identifier, const string& path)
 {

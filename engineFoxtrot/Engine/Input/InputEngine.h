@@ -5,16 +5,20 @@
 #include "Events/Action/FpsToggleEvent.h"
 #include "Events/EventSingleton.h"
 
+class Engine;
+
 /// @brief 
 /// Input engine for handling input
 class InputEngine
 {
 public:
-	API InputEngine();
+	API InputEngine(Engine& engine);
 	API ~InputEngine();
 
 	void pollEvents();
 private:
+
+	Engine& engine;
 	IInputFacade *inputFacade = new InputFacade();
 
 	bool onKeyPressed(Event& event);

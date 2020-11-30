@@ -1,9 +1,10 @@
 #include "stdafx.h"
 #include "InputEngine.h"
 #include "Events/Window/WindowCloseEvent.h"
+#include "Engine.h"
 
 /// @brief 
-InputEngine::InputEngine()
+InputEngine::InputEngine(Engine& _engine): engine(_engine)
 {
 	EventSingleton::get_instance().setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(InputEngine::onKeyPressed));
 }
@@ -19,7 +20,7 @@ bool InputEngine::onKeyPressed(Event& event) {
 	switch (keyPressedEvent.GetKeyCode())
 	{
 	case KeyCode::KEY_F1: {
-		EventSingleton::get_instance().dispatchEvent<FpsToggleEvent>((Event&)FpsToggleEvent());
+		engine.toggleFps();
 		return true;
 	}
 	case KeyCode::KEY_F4: {

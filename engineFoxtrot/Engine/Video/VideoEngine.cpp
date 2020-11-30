@@ -6,8 +6,7 @@
 
 VideoEngine::VideoEngine(FrameData& _frameData) : frameData(_frameData)
 {
-	EventSingleton::get_instance().setEventCallback<FpsToggleEvent>(BIND_EVENT_FN(VideoEngine::toggleFps));
-	EventSingleton::get_instance().setEventCallback<FpsUpdateEvent>(BIND_EVENT_FN(VideoEngine::updateFps));
+
 }
 
 VideoEngine::~VideoEngine()
@@ -207,16 +206,8 @@ void VideoEngine::drawFps(double fps, int xPos, int yPos, const string& prefix =
 
 /// @brief
 /// Toggles fps visibility
-bool VideoEngine::toggleFps(Event& fpsEvent) {
+void VideoEngine::toggleFps() {
 	shouldDrawFps = !shouldDrawFps;
-	return true;
-}
-
-/// @brief
-/// Updates the fps counter
-bool VideoEngine::updateFps(Event& fpsEvent) {
-	frameData.updateFps();
-	return true;
 }
 
 /// @brief Handle the tick update from the thread

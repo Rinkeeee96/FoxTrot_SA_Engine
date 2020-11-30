@@ -45,9 +45,7 @@ public:
 
 	void drawFps();
 	void drawFps(double fps, int xPos, int yPos, const string& prefix);
-	bool toggleFps(Event& fpsEvent);
-
-	bool updateFps(Event& fpsEvent);
+	void toggleFps();
 
 	void onUpdate();
 

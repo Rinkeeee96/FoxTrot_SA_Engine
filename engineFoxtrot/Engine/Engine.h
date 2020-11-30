@@ -42,6 +42,9 @@ public:
 
 	API void onUpdate();
 
+	API void updateFps();
+	API void toggleFps();
+
 	//Events
 	API void EventListeners();
 	API bool Event_LoadSprite(Event& event);
@@ -49,7 +52,7 @@ private:
 	PhysicsEngine physicsEngine;
 	ParticleEngine particleEngine;
 	SoundEngine soundEngine;
-	InputEngine inputEngine;
+	InputEngine inputEngine = InputEngine(*this);
 	SceneManager sceneManager;
 	FrameData frameData;
 	VideoEngine videoEngine = VideoEngine(frameData);
