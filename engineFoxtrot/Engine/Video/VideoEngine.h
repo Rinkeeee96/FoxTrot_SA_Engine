@@ -32,7 +32,7 @@ struct API Sprite
 class API VideoEngine
 {
 public:
-	VideoEngine();
+	VideoEngine(FrameData& _frameData);
 	~VideoEngine();
 
 	void clearScreen();
@@ -62,6 +62,6 @@ public:
 private:
 	IVideoFacade* videoFacade = new VideoFacade;
 
-	FrameData* frameData = nullptr;
+	FrameData& frameData;
 	bool shouldDrawFps = false;
 };

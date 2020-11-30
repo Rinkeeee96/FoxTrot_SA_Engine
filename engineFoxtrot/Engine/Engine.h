@@ -51,8 +51,8 @@ private:
 	SoundEngine soundEngine;
 	InputEngine inputEngine;
 	SceneManager sceneManager;
-	VideoEngine videoEngine;
+	FrameData frameData;
+	VideoEngine videoEngine = VideoEngine(frameData);
 	// TODO does this need to be a ptr?
-	FrameData* frameData = nullptr;
 };
 #endif

@@ -4,9 +4,8 @@
 #include "Events\EventSingleton.h"
 #include "VideoEngine.h"
 
-VideoEngine::VideoEngine()
+VideoEngine::VideoEngine(FrameData& _frameData) : frameData(_frameData)
 {
-	frameData = new FrameData;
 	EventSingleton::get_instance().setEventCallback<FpsToggleEvent>(BIND_EVENT_FN(VideoEngine::toggleFps));
 	EventSingleton::get_instance().setEventCallback<FpsUpdateEvent>(BIND_EVENT_FN(VideoEngine::updateFps));
 }
@@ -182,7 +181,7 @@ void VideoEngine::updateScreen()
 /// @brief
 /// Calls the drawFps method with parameters for all calculated Fps types
 void VideoEngine::drawFps() {
-	drawFps(frameData->getFps(), WINDOW_WIDTH, FPS_Y_POSITION_OFFSET, "Fps: ");
+	drawFps(frameData.getFps(), WINDOW_WIDTH, FPS_Y_POSITION_OFFSET, "Fps: ");
 }
 
 /// @brief
@@ -216,7 +215,7 @@ bool VideoEngine::toggleFps(Event& fpsEvent) {
 /// @brief
 /// Updates the fps counter
 bool VideoEngine::updateFps(Event& fpsEvent) {
-	frameData->updateFps();
+	frameData.updateFps();
 	return true;
 }
 
