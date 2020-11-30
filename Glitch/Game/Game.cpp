@@ -8,12 +8,16 @@ bool Game::stopRun(Event& event) {
 
 Game::Game()
 {
-	stateMachine = shared_ptr<SceneStateMachine>(new SceneStateMachine(engine));
+	stateMachine = shared_ptr<SceneStateMachine>(new SceneStateMachine(engine,savegame));
 }
 
 int Game::run() {
 
 	try {
+
+		string path = "Assets/SaveGame/saveGameData.json";
+		savegame.readSaveGameDataFromJson(path);
+
 		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
 		stateMachine->switchToScene("MainMenu", false);
 
@@ -33,7 +37,7 @@ int Game::run() {
 			this_thread::sleep_for(chrono::milliseconds(10));
 			EventSingleton::get_instance().dispatchEvent<FpsUpdateEvent>((Event&)FpsUpdateEvent());
 		}
-		Savegame::get_instance().saveGameDataToJsonFile();
+		savegame.saveGameDataToJsonFile();
 	}
 	catch (int e) {
 		cout << ERRORCODES[e] << endl;

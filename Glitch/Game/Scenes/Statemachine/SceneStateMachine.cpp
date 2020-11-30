@@ -2,7 +2,7 @@
 #include "SceneStateMachine.h"
 
 
-SceneStateMachine::SceneStateMachine(Engine& _engine) : engine(_engine)
+SceneStateMachine::SceneStateMachine(Engine& _engine, Savegame& _savegame) : engine(_engine), savegame(_savegame)
 {
 	factory = shared_ptr<SceneFactory>(new  SceneFactory());
 	// Somehow delete this after they are used;
@@ -90,6 +90,7 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	if (currentScene && dynamic_cast<GameScene*>(currentScene.get()))
 	{
 		((GameScene*)currentScene.get())->registerStateMachine(this);
+		((GameScene*)currentScene.get())->registerSavegame(&savegame);
 	}
 
 	cout << "Setting current Scene to: " << typeid(*(engine.getCurrentScene())).name() << endl;

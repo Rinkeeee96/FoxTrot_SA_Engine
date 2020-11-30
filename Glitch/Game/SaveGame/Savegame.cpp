@@ -2,8 +2,6 @@
 #include "Savegame.h"
 
 
-Savegame Savegame::instance;
-
 bool Savegame::saveGameDataToJsonFile()
 {
 	nlohmann::json json;

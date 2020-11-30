@@ -1,5 +1,8 @@
 #pragma once
+class Savegame;
+
 class SceneStateMachine;
+
 
 class GameScene : public Scene
 {
@@ -14,8 +17,11 @@ public:
 	void onUpdate() {};
 
 	void registerStateMachine(SceneStateMachine * stateMachine);
+	void registerSavegame(Savegame* savegame);
 
 protected:
 	SceneStateMachine * stateMachine;
+	Savegame* savegame;
+
 };
 

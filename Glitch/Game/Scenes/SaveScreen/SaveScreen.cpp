@@ -13,8 +13,6 @@ void SaveScreen::onAttach()
 	loadBackground();
 	loadMusic();
 
-	string path = "Assets/SaveGame/saveGameData.json";
-	Savegame::get_instance().readSaveGameDataFromJson(path);
 }
 
 void SaveScreen::onDetach()
@@ -78,15 +76,15 @@ void SaveScreen::loadMusic()
 
 void SaveScreen::loadButtons()
 {
-	auto* save1 = new PrimaryButton(-996, "Save 1", BIND_FN(onSave1BtnClick));
+	auto* save1 = new PrimaryButton(-996, savegame->getSaveGameData(1).saveGameName + " Score: " + to_string(savegame->getSaveGameData(1).totalScore), BIND_FN(onSave1BtnClick));
 	save1->setPositionX(CENTER_X - save1->getWidth() / 2);
 	save1->setPositionY(CENTER_Y - save1->getHeight() / 2);
 
-	auto* save2 = new PrimaryButton(-995, "Save 2", BIND_FN(onSave2BtnClick));
+	auto* save2 = new PrimaryButton(-995, savegame->getSaveGameData(2).saveGameName + " Score: " + to_string(savegame->getSaveGameData(2).totalScore), BIND_FN(onSave2BtnClick));
 	save2->setPositionX(CENTER_X - save2->getWidth() / 2);
 	save2->setPositionY(CENTER_Y - save2->getHeight() / 2 + 100);
 
-	auto* save3 = new PrimaryButton(-994, "Save 3", BIND_FN(onSave3BtnClick));
+	auto* save3 = new PrimaryButton(-994, savegame->getSaveGameData(3).saveGameName + " Score: " + to_string(savegame->getSaveGameData(3).totalScore), BIND_FN(onSave3BtnClick));
 	save3->setPositionX(CENTER_X - save3->getWidth() / 2);
 	save3->setPositionY(CENTER_Y - save3->getHeight() / 2 + 200);
 
@@ -102,19 +100,19 @@ void SaveScreen::loadButtons()
 
 void SaveScreen::onSave1BtnClick()
 {
-	Savegame::get_instance().setCurrentGameData(1);
+	savegame->setCurrentGameData(1);
 	stateMachine->switchToScene("Overworld", true);
 }
 
 void SaveScreen::onSave2BtnClick()
 {
-	Savegame::get_instance().setCurrentGameData(2);
+	savegame->setCurrentGameData(2);
 	stateMachine->switchToScene("Overworld", true);
 }
 
 void SaveScreen::onSave3BtnClick()
 {
-	Savegame::get_instance().setCurrentGameData(3);
+	savegame->setCurrentGameData(3);
 	stateMachine->switchToScene("Overworld", true);
 }
 

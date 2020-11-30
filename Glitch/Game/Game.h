@@ -2,6 +2,7 @@
 #include "Game/SpriteState.h"
 #include "Game/Characters/Player/Player.h"
 #include "Game/Scenes/Statemachine/SceneStateMachine.h"
+#include "Game/SaveGame/Savegame.h"
 
 #define EXIT_SUCCES 0
 #define EXIT_FAILURE -1
@@ -18,6 +19,7 @@ public:
 
 private:
 	Engine engine;
+	Savegame savegame;
 
 	shared_ptr<SceneStateMachine> stateMachine;
 

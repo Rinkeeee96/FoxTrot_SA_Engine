@@ -41,12 +41,8 @@ struct SaveGameData
 class Savegame
 {
 public:
-	static Savegame& get_instance() { return instance; }
-	// prohibit copy & move
-	Savegame(const Savegame&) = delete;
-	Savegame(Savegame&&) = delete;
-	Savegame& operator=(const Savegame&) = delete;
-	Savegame& operator=(Savegame&&) = delete;
+	Savegame() {};
+	~Savegame() {};
 
 	// Loading and parsing savegamedata etc
 	// Call at end of Game
@@ -58,11 +54,9 @@ public:
 	SaveGameData getCurrentGameData();
 	void saveCurrentGameData(SaveGameData saveGame);
 	
+	SaveGameData getSaveGameData(const int id) { return saveGameDataMap[id]; }
 
 private:
-	static Savegame instance;
-	Savegame() {};
-
 	FileLoader fileLoader;
 	map<int, SaveGameData> saveGameDataMap;
 	int currentSaveGame = 0;

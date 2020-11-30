@@ -7,3 +7,8 @@ void GameScene::registerStateMachine(SceneStateMachine * stateMachine)
 {
 	this->stateMachine = stateMachine;
 }
+
+void GameScene::registerSavegame(Savegame* savegame)
+{
+	this->savegame = savegame;
+}
