@@ -51,6 +51,7 @@ void WinScreen::LoadBackground() {
 	layer0->setPositionY(1080);
 	layer0->setWidth(1920);
 	layer0->setHeight(1080);
+	engine.loadSprite(*BG_LAYER_0);
 	layer0->registerSprite(SpriteState::DEFAULT, BG_LAYER_0);
 	layer0->changeToState(SpriteState::DEFAULT);
 
@@ -60,6 +61,8 @@ void WinScreen::LoadBackground() {
 	animation->setPositionY(1030);
 	animation->setWidth(370);
 	animation->setHeight(500);
+	engine.loadSprite(*BG_LAYER_ADVENTRUE_JUMP);
+	engine.loadSprite(*BG_LAYER_ADVENTRUE_FALL);
 	animation->registerSprite(SpriteState::DEFAULT, BG_LAYER_ADVENTRUE_JUMP);
 	animation->registerSprite(SpriteState::AIR_JUMP_RIGHT, BG_LAYER_ADVENTRUE_JUMP);
 	animation->registerSprite(SpriteState::AIR_FALL_RIGHT, BG_LAYER_ADVENTRUE_FALL);
@@ -67,6 +70,7 @@ void WinScreen::LoadBackground() {
 	animation->setScalable(false);
 
 	ParticleAdapter* confetti = new ParticleAdapter(11);        
+	engine.loadSprite(*particleSprite);
 	confetti->registerSprite(SpriteState::DEFAULT, particleSprite);
 	confetti->changeToState(SpriteState::DEFAULT);
 	confetti->setPositionX(CENTER_X);

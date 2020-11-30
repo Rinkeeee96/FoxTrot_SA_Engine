@@ -15,7 +15,7 @@ class SceneFactory
 public:
 	SceneFactory() {};
 	~SceneFactory() {};
-	shared_ptr<Scene> create(const std::string& classname, const int id);
+	shared_ptr<Scene> create(const std::string& classname, const int id, Engine& engine);
 	void registerit(const std::string& classname, Creator* creator);
 private:
 	std::map<std::string, Creator*> table; 

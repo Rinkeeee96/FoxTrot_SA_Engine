@@ -5,14 +5,14 @@
 /// @brief 
 /// @param sceneID 
 /// @param _sounds this contains the sounds for the level with identifier and filepath
-Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, map<string, string> _sounds = map<string, string>()) : 
-	GameScene::GameScene(id, _sceneHeight, _sceneWidth),
+Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, Engine& engine, map<string, string> _sounds = map<string, string>()) :
+	GameScene::GameScene(id, _sceneHeight, _sceneWidth, engine),
 	sounds(_sounds)
 {
 
 }
 
-Level::Level(const int id, const int _sceneHeight, const int _sceneWidth) : GameScene::GameScene(id, _sceneHeight, _sceneWidth)
+Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, Engine& engine) : GameScene::GameScene(id, _sceneHeight, _sceneWidth, engine)
 {
 
 }

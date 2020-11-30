@@ -73,6 +73,7 @@ void Overworld::loadBackground() {
 	layer0->setPositionY(1080);
 	layer0->setWidth(1920);
 	layer0->setHeight(1080);
+	engine.loadSprite(*BG_LAYER_0);
 	layer0->registerSprite(SpriteState::DEFAULT, BG_LAYER_0);
 	layer0->changeToState(SpriteState::DEFAULT);
 	layer0->setScalable(false);

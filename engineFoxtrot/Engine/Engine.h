@@ -45,10 +45,6 @@ public:
 	API void updateFps();
 	API void toggleFps();
 
-	//Events
-	API void EventListeners();
-	API bool Event_LoadSprite(Event& event);
-
 	API bool getEngineRunning() { return running; };
 	API void setEngineRunning(bool run) { running = run; }
 private:
