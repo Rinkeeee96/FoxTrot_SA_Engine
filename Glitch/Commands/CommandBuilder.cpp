@@ -22,8 +22,8 @@ void CommandBuilder::linkCommandsToPlayer(Player& player)
 {
 	ICharacter& character = (ICharacter&)player;
 
-	keypressInvoker->registerCommands(KeyCode::KEY_A, commandFactory->create("moveRightCommand", character));
-	keypressInvoker->registerCommands(KeyCode::KEY_D, commandFactory->create("moveLeftCommand", character));
+	keypressInvoker->registerCommands(KeyCode::KEY_A, commandFactory->create("moveLeftCommand", character));
+	keypressInvoker->registerCommands(KeyCode::KEY_D, commandFactory->create("moveRightCommand", character));
 	keypressInvoker->registerCommands(KeyCode::KEY_SPACE, commandFactory->create("jumpCommand", character));
 
 	player.registerKeypressInvoker(this->keypressInvoker);
