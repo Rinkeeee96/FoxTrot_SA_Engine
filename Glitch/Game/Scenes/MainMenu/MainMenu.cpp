@@ -112,8 +112,7 @@ void MainMenu::onStartBtnClick()
 /// A callback function for stopBTN
 /// Stop the application
 void MainMenu::onStopBtnClick() {
-	WindowCloseEvent event;
-	EventSingleton::get_instance().dispatchEvent<WindowCloseEvent>(event);
+	engine.setEngineRunning(false);
 }
 
 

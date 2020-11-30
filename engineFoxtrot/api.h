@@ -1,8 +1,6 @@
 #pragma once
 // ----- events ----------------------
 #include "Events/Event.h"
-#include "Events/AppTickEvent30.h"
-#include "Events/AppTickEvent60.h"
 
 #include "Events/Action/OnCollisionEvent.h"
 #include "Events/Action/OnCollisionEvent.h"
@@ -15,11 +13,8 @@
 #include "Events/Sound/PlaySoundEffectEvent.h"
 #include "Events/Sound/StopSoundEffectEvent.h"
 
-#include "Events/Fps/FpsUpdateEvent.h"
-#include "Events/Window/WindowCloseEvent.h"
 #include "Events/Mouse/MousePressed.h"
 #include "Events/EventSingleton.h"
-#include "Events/Video/VideoLoadSpriteEvent.h"
 #include "Engine/Events/Action/ObjectStopEvent.h"
 // ----- engine core ----------------------
 #include "Engine/General/ErrorCodes.h"

@@ -1,6 +1,4 @@
 #include "stdafx.h"
-#include "Events\AppTickEvent60.h"
-#include "Events/Fps/FpsUpdateEvent.h"
 #include "Events\EventSingleton.h"
 #include "VideoEngine.h"
 

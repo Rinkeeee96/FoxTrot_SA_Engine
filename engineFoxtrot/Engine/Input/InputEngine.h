@@ -2,7 +2,6 @@
 
 #include "InputFacade.h"
 #include "Events/Action/ActionEvent.h"
-#include "Events/Action/FpsToggleEvent.h"
 #include "Events/EventSingleton.h"
 
 class Engine;

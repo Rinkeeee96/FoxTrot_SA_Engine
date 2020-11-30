@@ -97,7 +97,6 @@
     <ClInclude Include="Engine\Events\Sound\OnMusicStartEvent.h" />
     <ClInclude Include="Engine\Events\Sound\OnMusicStopEvent.h" />
     <ClInclude Include="Engine\Events\Sound\SoundAttachEvent.h" />
-    <ClInclude Include="Engine\Events\Window\WindowCloseEvent.h" />
     <ClInclude Include="Engine\Events\Window\WindowResizeEvent.h" />
     <ClInclude Include="Engine\Fps\FrameData.h" />
     <ClInclude Include="Engine\General\Debug.h" />
@@ -131,8 +130,6 @@
     <ClInclude Include="Engine\Sound\ISoundFacade.h" />
     <ClInclude Include="Engine\Sound\SoundFacade.h" />
     <ClInclude Include="Engine\Sound\SoundEngine.h" />
-    <ClInclude Include="Engine\Events\AppTickEvent60.h" />
-    <ClInclude Include="Engine\Events\AppTickEvent30.h" />
     <ClInclude Include="Engine\Events\EventType.h" />
     <ClInclude Include="Engine\General\Debug.h" />
     <ClInclude Include="Engine\Engine.h" />
@@ -161,7 +158,6 @@
     <ClInclude Include="Engine\Fps\FrameData.h" />
     <ClInclude Include="Engine\Events\Action\OnCollisionEvent.h" />
     <ClInclude Include="Engine\Physics\ContactListenerAdapter.h" />
-    <ClInclude Include="Engine\Events\Action\FpsToggleEvent.h" />
     <ClInclude Include="Main\Level.h" />
     <ClInclude Include="Engine\Events\Sound\OnMusicStartEvent.h" />
     <ClInclude Include="Engine\Events\Sound\BaseSoundEvent.h" />
@@ -176,7 +172,6 @@
     <ClInclude Include="Engine\ParticleSystem\ParticleAdapter.h" />
     <ClInclude Include="Engine\ParticleSystem\ParticleEngine.h" />
     <ClInclude Include="Engine\ParticleSystem\ParticleLib\ParticleInit.h" />
-    <ClInclude Include="Engine\Events\Video\VideoLoadSpriteEvent.h" />
     <ClInclude Include="Engine\Structs\HelperStructs.h" />
     <ClInclude Include="Engine\SceneManager\Objects\Object.h" />
     <ClInclude Include="Engine\SceneManager\Objects\SpriteObject.h" />
@@ -184,7 +179,6 @@
     <ClInclude Include="Engine\SceneManager\Objects\Button.h" />
     <ClInclude Include="Engine\Events\Action\ObjectStopEvent.h" />
     <ClInclude Include="Engine\Events\Action\RemoveEvent.h" />
-    <ClInclude Include="Engine\Events\Fps\FpsUpdateEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
