@@ -110,7 +110,16 @@ void Savegame::parseJsonToMap(nlohmann::json json)
 		{
 			saveGameData.totalScore = jsonObject["totalscore"];
 		}
-
+		if (jsonObject.contains("leveldata"))
+		{
+			for (auto itemJson : jsonObject["leveldata"])
+			{
+				LevelData levelD;
+				levelD.score = itemJson["score"];
+				levelD.completed = itemJson["completed"];
+				saveGameData.levelData[itemJson["levelnr"]] = levelD;
+			}
+		}
 		if (jsonObject.contains("achievements"))
 		{
 			for (auto achievement : jsonObject["achievements"])
