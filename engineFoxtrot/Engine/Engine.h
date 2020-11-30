@@ -58,6 +58,5 @@ private:
 	SceneManager sceneManager;
 	FrameData frameData;
 	VideoEngine videoEngine = VideoEngine(frameData);
-	// TODO does this need to be a ptr?
 };
 #endif
