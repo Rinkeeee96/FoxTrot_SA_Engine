@@ -1,12 +1,13 @@
 #pragma once
 #include "Scene.h"
+class EventDispatcher;
 
 /// @brief 
 /// Contains all scenes. Manages all scenes and objects.
 class SceneManager
 {
 public:
-	API SceneManager();
+	API SceneManager(shared_ptr<EventDispatcher> _dispatcher);
 	API ~SceneManager();
 
 	// Scene modifiers
@@ -18,12 +19,8 @@ public:
 
 	// Pointer
 	Scene* currentScene = nullptr;
-
-protected:
-	
-
 private:
-
+	shared_ptr<EventDispatcher> dispatcher;
 	// Helper Functions
 	bool checkIfSceneExists(const int);
 	// TODO what happens when deleting a scene?

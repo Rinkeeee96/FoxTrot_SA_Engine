@@ -2,7 +2,7 @@
 #include "SceneManager.h"
 
 /// @brief Constructor
-SceneManager::SceneManager()
+SceneManager::SceneManager(shared_ptr<EventDispatcher> _dispatcher) : dispatcher{_dispatcher}
 {
 
 }
