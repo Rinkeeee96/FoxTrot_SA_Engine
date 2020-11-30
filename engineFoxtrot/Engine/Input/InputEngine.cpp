@@ -6,6 +6,8 @@
 InputEngine::InputEngine(Engine& _engine, shared_ptr<EventDispatcher> _dispatcher): engine(_engine), dispatcher {_dispatcher}
 {
 	(*dispatcher).setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(InputEngine::onKeyPressed));
+
+	inputFacade = new InputFacade(_dispatcher);
 }
 
 /// @brief 

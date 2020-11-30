@@ -1,11 +1,9 @@
 #include "stdafx.h"
 #include "ParticleEngine.h"
-#include "Events\EventSingleton.h"
 
 /// @brief Constructor
 ParticleEngine::ParticleEngine()
 {
-
 }
 
 /// @brief Destructor

@@ -11,7 +11,7 @@ public:
 	~GeneralTransition() {};
 
 	// Inherited via Scene
-	virtual void onAttach() override;
+	virtual void onAttach(shared_ptr<EventDispatcher> _dispatcher) override;
 	virtual void onDetach() override;
 	virtual void start() override;
 	virtual void onUpdate() override;

@@ -13,7 +13,6 @@
     <ClCompile Include="Engine\ParticleSystem\ParticleLib\ParticleInit.cpp" />
     <ClCompile Include="Engine\Physics\ContactListenerAdapter.cpp" />
     <ClCompile Include="Engine\stdafx.cpp" />
-    <ClCompile Include="Engine\Events\EventSingleton.cpp" />
     <ClCompile Include="Engine\Physics\PhysicsBody.cpp" />
     <ClCompile Include="Engine\Physics\PhysicsEngine.cpp" />
     <ClCompile Include="Engine\Physics\PhysicsFacade.cpp" />
@@ -119,7 +118,6 @@
     <ClInclude Include="Engine\SceneManager\Scene.h" />
     <ClInclude Include="Engine\SceneManager\SceneManager.h" />
     <ClInclude Include="Engine\General\Version.h" />
-    <ClInclude Include="Engine\Events\EventSingleton.h" />
     <ClInclude Include="Engine\Video\IVideoFacade.h" />
     <ClInclude Include="Engine\Video\VideoEngine.h" />
     <ClInclude Include="Engine\Video\VideoFacade.h" />
@@ -155,12 +153,7 @@
     <ClInclude Include="Engine\Events\Action\OnCollisionEvent.h" />
     <ClInclude Include="Engine\Physics\ContactListenerAdapter.h" />
     <ClInclude Include="Main\Level.h" />
-    <ClInclude Include="Engine\Events\Sound\OnMusicStartEvent.h" />
-    <ClInclude Include="Engine\Events\Sound\BaseSoundEvent.h" />
-    <ClInclude Include="Engine\Events\Sound\OnMusicStopEvent.h" />
-    <ClInclude Include="Engine\Events\Sound\SoundAttachEvent.h" />
     <ClInclude Include="Main\SpriteState.h" />
-    <ClInclude Include="Engine\Events\Action\FpsToggleEvent.h" />
     <ClInclude Include="Engine\Engine.h" />
     <ClInclude Include="api.h" />
     <ClInclude Include="Engine\core.h" />
@@ -174,6 +167,7 @@
     <ClInclude Include="Engine\SceneManager\Objects\Drawable.h" />
     <ClInclude Include="Engine\SceneManager\Objects\Button.h" />
     <ClInclude Include="Engine\Events\Action\ObjectStopEvent.h" />
+    <ClInclude Include="Engine\Events\EventDispatcher.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

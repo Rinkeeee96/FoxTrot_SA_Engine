@@ -94,7 +94,7 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 
 	cout << "Setting current Scene to: " << typeid(*(engine.getCurrentScene())).name() << endl;
 
-	currentScene->onAttach();
+	currentScene->onAttach(engine.getDispatcher());
 	currentScene->start();
 
 }

@@ -6,23 +6,23 @@
 
 class Player : public ICharacter {
 public:
-	Player() : ICharacter() {};
-	Player(const int id);
+	Player(shared_ptr<EventDispatcher> _dispatcher) :ICharacter(_dispatcher) {};
+	Player(const int id, shared_ptr<EventDispatcher> dispatcher);
 	/// @brief 
 	/// Handles when an collision event begins, when the direction of the collision happend on the bottom side of the player object,
 	/// set can jump true
-	bool onCollisionBeginEvent(Event& event);
+	bool onCollisionBeginEvent(const Event& event);
 	/// @brief 
 	/// Handles when an collision event ends, when the direction of the collision happend on the bottom side of the player object, set can jump false
-	bool onCollisionEndEvent(Event& event);
+	bool onCollisionEndEvent(const Event& event);
 	void setYAxisVelocity(const float val) override;
 	void setXAxisVelocity(const float val) override;
 	/// @brief 
 	/// Handles when an key pressed event happend, Player can move right, left and jump
-	bool onKeyPressed(Event& event);
+	bool onKeyPressed(const Event& event);
 	// @brief 
 	/// Handles when an key released event happend, stop moving
-	bool onKeyReleased(Event& event);
+	bool onKeyReleased(const Event& event);
 
 	void onUpdate() override {};
 

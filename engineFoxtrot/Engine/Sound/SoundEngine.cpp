@@ -1,15 +1,8 @@
 #include "stdafx.h"
 #include "SoundEngine.h"
-#include "Events\EventSingleton.h"
 
-
-SoundEngine::SoundEngine()
-{
-}
-
-SoundEngine::~SoundEngine()
-{
-}
+SoundEngine::SoundEngine() {}
+SoundEngine::~SoundEngine(){}
 
 /// @brief 
 /// @param files 

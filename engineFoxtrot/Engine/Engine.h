@@ -8,7 +8,6 @@
 #include "./ParticleSystem/ParticleEngine.h"
 #include "./SceneManager/SceneManager.h"
 
-#include "Events/EventSingleton.h"
 #include "./Video/VideoEngine.h"
 #include "./Sound/SoundEngine.h"
 #include "./Input/InputEngine.h"
@@ -48,14 +47,15 @@ public:
 	API void setEngineRunning(bool run) { running = run; }
 
 	API void restartPhysicsWorld();
+
+	API shared_ptr<EventDispatcher> getDispatcher() { return eventDispatcher; }
 	SoundEngine soundEngine;
 private:
 	bool running = false;
 
-	shared_ptr<EventDispatcher> eventDispatcher;
+	shared_ptr<EventDispatcher> eventDispatcher{new EventDispatcher()};
 
 	ParticleEngine particleEngine;
-	SoundEngine soundEngine;
 	FrameData frameData;
 
 	VideoEngine videoEngine{ frameData };

@@ -80,8 +80,8 @@ void LevelBuilder::createLevel(nlohmann::json json) {
 	bLevel->setSceneWidth(bLevel->getSceneWidth() * this->mapTileWidth);
 	bLevel->setSceneHeight(bLevel->getSceneHeight() * this->mapTileHeight);
 
-	this->triggerFactory.registerTrigger("death", new DeathTrigger());
-	this->triggerFactory.registerTrigger("win", new WinTrigger(*bLevel));
+	this->triggerFactory.registerTrigger("death", new DeathTrigger(level.get()->getEventDispatcher()));
+	this->triggerFactory.registerTrigger("win", new WinTrigger(*bLevel, level.get()->getEventDispatcher()));
 	characterFactory = std::make_unique<CharacterFactory>(engine, *bLevel);
 	this->initFactory();
 }
@@ -377,11 +377,11 @@ void LevelBuilder::initFactory() {
 	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::AIR_FALL_RIGHT, playerFallRight));
 	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::AIR_JUMP_RIGHT, playerJumpRight));
 	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::RUN_LEFT, playerRunLeft));
-	characterFactory->registerCharacter("player", new Player(), playerMap);
+	characterFactory->registerCharacter("player", new Player(level.get()->getEventDispatcher()), playerMap);
 
 	std::map<SpriteState, SpriteObject*> slimeMap;
 	slimeMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, slimeDefault));
-	characterFactory->registerCharacter("slime", new Slime(), slimeMap);
+	characterFactory->registerCharacter("slime", new Slime(level.get()->getEventDispatcher()), slimeMap);
 
 	std::map<std::string, std::map<SpriteState, SpriteObject*>> spriteObjectMap;
 }

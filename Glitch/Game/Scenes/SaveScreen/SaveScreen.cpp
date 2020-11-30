@@ -7,8 +7,9 @@
 #define CENTER_X  (WINDOW_WIDTH / 2)
 #define CENTER_Y (WINDOW_HEIGHT / 2)
 
-void SaveScreen::onAttach()
+void SaveScreen::onAttach(shared_ptr<EventDispatcher> _dispatcher)
 {
+	GameScene::onAttach(_dispatcher);
 	loadButtons();
 	loadBackground();
 	loadMusic();
@@ -78,19 +79,19 @@ void SaveScreen::loadMusic()
 
 void SaveScreen::loadButtons()
 {
-	auto* save1 = new PrimaryButton(-996, "Save 1", BIND_FN(onSave1BtnClick));
+	auto* save1 = new PrimaryButton(-996, "Save 1", BIND_FN(onSave1BtnClick), this->dispatcher);
 	save1->setPositionX(CENTER_X - save1->getWidth() / 2);
 	save1->setPositionY(CENTER_Y - save1->getHeight() / 2);
 
-	auto* save2 = new PrimaryButton(-995, "Save 2", BIND_FN(onSave2BtnClick));
+	auto* save2 = new PrimaryButton(-995, "Save 2", BIND_FN(onSave2BtnClick), this->dispatcher);
 	save2->setPositionX(CENTER_X - save2->getWidth() / 2);
 	save2->setPositionY(CENTER_Y - save2->getHeight() / 2 + 100);
 
-	auto* save3 = new PrimaryButton(-994, "Save 3", BIND_FN(onSave3BtnClick));
+	auto* save3 = new PrimaryButton(-994, "Save 3", BIND_FN(onSave3BtnClick), this->dispatcher);
 	save3->setPositionX(CENTER_X - save3->getWidth() / 2);
 	save3->setPositionY(CENTER_Y - save3->getHeight() / 2 + 200);
 
-	auto* stopBtn = new SecondaryButton(-993, "To Main Menu", BIND_FN(onStopBtnClick));
+	auto* stopBtn = new SecondaryButton(-993, "To Main Menu", BIND_FN(onStopBtnClick), this->dispatcher);
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 

@@ -1,5 +1,4 @@
 #include "stdafx.h"
-#include "Events/EventSingleton.h"
 #include "PhysicsFacade.h"
 #include "PhysicsEngine.h"
 #include "Events\Action\ObjectStopEvent.h"
@@ -8,13 +7,13 @@
 /// @brief Constructor
 PhysicsEngine::PhysicsEngine(shared_ptr<EventDispatcher> _dispatcher) : dispatcher {_dispatcher}
 {
-	physicsFacade = new PhysicsFacade();
+	physicsFacade = new PhysicsFacade(_dispatcher);
 	(*dispatcher.get()).setEventCallback<ActionEvent>(BIND_EVENT_FN(PhysicsEngine::handleAction));
 	(*dispatcher.get()).setEventCallback<ObjectStopEvent>(BIND_EVENT_FN(PhysicsEngine::stopObject));
-	(*dispatcher.get()).setEventCallback<RemoveEvent>(BIND_EVENT_FN(PhysicsEngine::removeObject));
+	//(*dispatcher.get()).setEventCallback<RemoveEvent>(BIND_EVENT_FN(PhysicsEngine::removeObject));
 }
 
-bool PhysicsEngine::removeObject(const Event& event) {
+void PhysicsEngine::removeObject() {
 	physicsFacade->cleanMap();
 	registerObjectInCurrentVectorWithPhysicsEngine();
 }

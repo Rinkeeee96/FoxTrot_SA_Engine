@@ -4,10 +4,10 @@
 #include "box2d/box2d.h"
 
 /// @brief Constructor
-PhysicsFacade::PhysicsFacade()
+PhysicsFacade::PhysicsFacade(shared_ptr<EventDispatcher> _dispatcher) : dispatcher{_dispatcher }
 {
 	world = new b2World(b2Vec2(GRAVITY_SCALE, GRAVITY_FALL));
-	world->SetContactListener(new ContactListenerAdapter(this));
+	world->SetContactListener(new ContactListenerAdapter(this, _dispatcher));
 }
 
 /// @brief Destructor
@@ -244,5 +244,5 @@ void PhysicsFacade::cleanMap()
 	bodies.clear();
 	delete world;
 	world = new b2World(b2Vec2(GRAVITY_SCALE, GRAVITY_FALL));
-	world->SetContactListener(new ContactListenerAdapter(this));
+	world->SetContactListener(new ContactListenerAdapter(this, dispatcher));
 }

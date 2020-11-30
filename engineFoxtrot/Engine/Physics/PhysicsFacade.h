@@ -1,7 +1,6 @@
 #pragma once
 #include "IPhysicsFacade.h"
 #include "PhysicsBody.h"
-#include "Events/EventSingleton.h"
 #include "Events/Action/OnCollisionEvent.h"
 
 #define PI 3.14159f
@@ -34,7 +33,7 @@ class b2Body;
 class PhysicsFacade : public IPhysicsFacade
 {
 public:
-	PhysicsFacade();
+	PhysicsFacade(shared_ptr<EventDispatcher> _dispatcher);
 	~PhysicsFacade();
 
 	void addStaticObject(PhysicsBody* object) override;
@@ -53,6 +52,7 @@ public:
 	void cleanMap();
 
 private:
+	shared_ptr<EventDispatcher> dispatcher;
 	b2World * world;
 	const float timeStep = TIMESTEP_SEC / TIMESTEP_FRAMES;
 

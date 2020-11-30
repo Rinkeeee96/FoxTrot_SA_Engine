@@ -11,8 +11,10 @@
 #define CENTER_X  (WINDOW_WIDTH / 2)
 #define CENTER_Y (WINDOW_HEIGHT / 2)
 
-void WinScreen::onAttach()
+void WinScreen::onAttach(shared_ptr<EventDispatcher> _dispatcher)
 {
+	GameScene::onAttach(_dispatcher);
+
 	LoadButtons();
 	LoadBackground();
 	LoadMusic();
@@ -23,11 +25,11 @@ void WinScreen::onAttach()
 void WinScreen::LoadButtons() {
 	auto mainSprite = new SpriteObject(-602, 40, 116, 1, 300, "Assets/Buttons/btn_gray_round.png");
 
-	auto* overBtn = new Button(-700, ColoredText("Overworld", Color(0, 0, 0)), BIND_FN(onOverworldBtnClick), mainSprite);
+	auto* overBtn = new Button(-700, ColoredText("Overworld", Color(0, 0, 0)), BIND_FN(onOverworldBtnClick), mainSprite, this->dispatcher);
 	overBtn->setPositionX(CENTER_X - overBtn->getWidth() / 2);
 	overBtn->setPositionY(CENTER_Y - overBtn->getHeight() / 2);
 
-	auto* mainBtn = new Button(-701, ColoredText("Hoofdmenu", Color(0, 0, 0)), BIND_FN(OnMainBtnClick), mainSprite);
+	auto* mainBtn = new Button(-701, ColoredText("Hoofdmenu", Color(0, 0, 0)), BIND_FN(OnMainBtnClick), mainSprite, this->dispatcher);
 	mainBtn->setPositionX(CENTER_X - mainBtn->getWidth() / 2);
 	mainBtn->setPositionY(CENTER_Y - mainBtn->getHeight() / 2 + 200);
 

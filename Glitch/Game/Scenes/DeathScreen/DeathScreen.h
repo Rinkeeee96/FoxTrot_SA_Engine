@@ -9,7 +9,7 @@ public:
 	DeathScreen(const int id, Engine& engine) : GameScene(id, engine) {};
 	~DeathScreen();
 	// Inherited via Scene
-	void onAttach() override;
+	void onAttach(shared_ptr<EventDispatcher> _dispatcher) override;
 	void onDetach() override;
 	void start() override;
 	void onUpdate() override;

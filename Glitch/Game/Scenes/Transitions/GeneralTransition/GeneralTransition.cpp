@@ -5,7 +5,7 @@
 
 /// @brief 
 /// Loads the background and sets the starttime of this scene;
-void GeneralTransition::onAttach()
+void GeneralTransition::onAttach(shared_ptr<EventDispatcher> _dispatcher)
 {
 	loadBackground();
 	startTime = chrono::high_resolution_clock::now();

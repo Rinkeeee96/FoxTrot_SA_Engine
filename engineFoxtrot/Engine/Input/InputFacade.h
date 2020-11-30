@@ -1,6 +1,5 @@
 #pragma once
 #include "Events/Codes/KeyCodes.h"
-#include "./Events/EventSingleton.h"
 #include "./Events/Key/KeyPressed.h"
 #include "./Events/Key/KeyReleased.h"
 #include "./Events/Mouse/MouseMoved.h"

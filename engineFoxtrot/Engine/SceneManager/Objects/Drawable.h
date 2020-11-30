@@ -1,6 +1,5 @@
 #pragma once
 #include "SceneManager/Objects/Object.h"
-#include "Events\EventSingleton.h"
 #include "Structs/HelperStructs.h"
 class Drawable : public Object
 {

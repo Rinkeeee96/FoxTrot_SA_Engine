@@ -52,7 +52,7 @@ public:
     }
 
 private:
-    map<string, vector<EventCallbackFn>> handlers = map<string, vector<EventCallbackFn>>();
+    map<string, vector<EventCallbackFn>> handlers;
 
     template<typename T>
     bool handlerExists(string& name) {

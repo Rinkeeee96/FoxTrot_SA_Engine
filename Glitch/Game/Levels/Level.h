@@ -10,12 +10,14 @@ public:
 	Level(const int id, const int _sceneHeight, const int _sceneWidth, Engine& engine);
 
 	void setPlayer(Object* object);
-	virtual void setSound(map<string, string> sounds);
-	virtual void onAttach() override;
-	virtual void start() override;
-	virtual void pause();
-	virtual void onDetach() override;
-	virtual void onUpdate() override;
+	void setSound(map<string, string> sounds);
+	void onAttach(shared_ptr<EventDispatcher> dispatcher) override;
+	void start() override;
+	void pause();
+	void onDetach() override;
+	void onUpdate() override;
+
+	shared_ptr<EventDispatcher> getEventDispatcher() { return dispatcher; }
 
 	void setWin(const bool val) { this->win = val; }
 private:

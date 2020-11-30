@@ -10,7 +10,7 @@ public:
 	Overworld(const int id, Engine& engine) : GameScene(id, engine) {};
 	~Overworld();
 	// Inherited via Scene
-	void onAttach() override;
+	void onAttach(shared_ptr<EventDispatcher> _dispatcher) override;
 	void onDetach() override;
 	void onLevel1BtnClick();
 	void onLevel2BtnClick();

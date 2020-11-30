@@ -1,5 +1,4 @@
 #include "stdafx.h"
-#include "Events\EventSingleton.h"
 #include "VideoEngine.h"
 
 VideoEngine::VideoEngine(FrameData& _frameData) : frameData(_frameData)

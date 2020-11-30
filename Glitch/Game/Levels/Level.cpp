@@ -43,10 +43,18 @@ void Level::setSound(map<string, string> _sounds)
 /// @brief
 /// OnAttach is executed when a scene is "attached" to the current running context
 /// usually this is can be used to prime a level with relevant data before starting it.
-void Level::onAttach() {
-	for (const auto& s : sounds) {
+void Level::onAttach(shared_ptr<EventDispatcher> dispatcher) {
+	GameScene::onAttach(dispatcher);
+    for (const auto& s : sounds) {
 		if(DEBUG_MAIN)std::cout << s.first << " has value " << s.second << std::endl;
-		engine.soundEngine.onLoadBackgroundMusicEvent(s.first, s.second);
+        engine.soundEngine.onLoadBackgroundMusicEvent(s.first, s.second);
+    }
+
+	for (Object* object : getAllObjectsInScene())
+	{
+		ICharacter* character = dynamic_cast<ICharacter*>(object);
+		if (character)
+			character->setDispatcher(dispatcher);
 	}
 }
 /// @brief
