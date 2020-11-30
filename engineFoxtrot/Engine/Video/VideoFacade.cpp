@@ -101,6 +101,10 @@ void VideoFacade::renderCopy(Drawable& object)
 {	
 	SpriteObject& sprite = object.GetCurrentSprite();
 
+	if (!textureMap.count(sprite.getTextureID()))
+	{
+		loadImage(sprite);
+	}
 	if (textureMap[sprite.getTextureID()] == NULL) throw exception(ERRORCODES[ERROR_CODE_SVIFACADE_RENDERCOPY_SPRITE_ID_IS_NULL]);
 
 	//generate image 
@@ -201,3 +205,16 @@ void VideoFacade::drawMessageAt(const ColoredText& message, const Position& pos,
 		SDL_DestroyTexture(messageTexture);
 	}
 }
+
+/// @brief 
+void VideoFacade::clean()
+{
+	for (auto texture : textureMap)
+	{
+		SDL_DestroyTexture(texture.second);
+	}
+	textureMap.clear();
+	xCameraOffset = 0;
+	yCameraOffset = 0;
+}
+

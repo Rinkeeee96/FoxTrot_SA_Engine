@@ -1,10 +1,8 @@
 #include "stdafx.h"
-#include "Events\AppTickEvent30.h"
 #include "Events/EventSingleton.h"
 #include "PhysicsFacade.h"
 #include "PhysicsEngine.h"
 #include "Events\Action\ObjectStopEvent.h"
-#include <Events\Action\RemoveEvent.h>
 
 
 /// @brief Constructor
@@ -19,7 +17,12 @@ PhysicsEngine::PhysicsEngine(shared_ptr<EventDispatcher> _dispatcher) : dispatch
 bool PhysicsEngine::removeObject(const Event& event) {
 	physicsFacade->cleanMap();
 	registerObjectInCurrentVectorWithPhysicsEngine();
-	return true;
+}
+
+/// @brief 
+void PhysicsEngine::clean()
+{
+	physicsFacade->cleanMap();
 }
 
 /// @brief 

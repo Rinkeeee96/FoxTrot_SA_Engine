@@ -34,7 +34,6 @@ ICharacter* CharacterFactory::create(string name, int id) {
 		map<SpriteState, SpriteObject*>::iterator it = sprites.begin();
 		while (it != sprites.end())
 		{
-			engine.loadSprite(*(it->second));
 			clone->registerSprite(it->first, it->second);
 			it++;
 		}

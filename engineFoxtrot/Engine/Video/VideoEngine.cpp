@@ -1,6 +1,4 @@
 #include "stdafx.h"
-#include "Events\AppTickEvent60.h"
-#include "Events/Fps/FpsUpdateEvent.h"
 #include "Events\EventSingleton.h"
 #include "VideoEngine.h"
 
@@ -139,6 +137,11 @@ bool VideoEngine::checkObjectInScreen(const Object& obj) {
 	}
 
 	return false;
+}
+/// @brief 
+void VideoEngine::clearVideoEngine()
+{
+	videoFacade->clean();
 }
 
 /// @brief 

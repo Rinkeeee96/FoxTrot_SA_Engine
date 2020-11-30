@@ -46,7 +46,7 @@ void Level::setSound(map<string, string> _sounds)
 void Level::onAttach() {
 	for (const auto& s : sounds) {
 		if(DEBUG_MAIN)std::cout << s.first << " has value " << s.second << std::endl;
-		EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent(s.first, s.second));
+		engine.soundEngine.onLoadBackgroundMusicEvent(s.first, s.second);
 	}
 }
 /// @brief
@@ -59,7 +59,7 @@ void Level::start() {
 
 	this->setObjectToFollow(this->follow);
 	for (const auto& s : sounds) {
-		EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent(s.first));
+		engine.soundEngine.onStartBackgroundMusicEvent(s.first);
 	}
 }
 
@@ -84,7 +84,7 @@ void Level::onUpdate() {
 					// TODO Death animation
 					object->setIsRemoved(true);
 					removeObjectFromScene(object);
-					EventSingleton::get_instance().dispatchEvent<RemoveEvent>((Event&)RemoveEvent());
+					engine.restartPhysicsWorld();
 				}
 			}
 		}
@@ -95,7 +95,7 @@ void Level::onUpdate() {
 /// Execute pause logic
 void Level::pause() {
 	for (const auto& s : sounds) {
-		EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent(s.first));
+		engine.soundEngine.onStopLoopedEffect(s.first);
 	}
 }
 

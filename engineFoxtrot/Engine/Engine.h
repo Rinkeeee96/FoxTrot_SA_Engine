@@ -32,9 +32,6 @@ public:
 	API void insertScene(Scene * scene);
 	API void deregisterScene(const int id);
 
-	// Video calls
-	API void loadSprite(const SpriteObject& spriteObject);
-
 	// Sound calls
 	API void loadSound(const string& identifier, const string& path);
 	API void loadSound(map<string, string> sounds);
@@ -49,6 +46,9 @@ public:
 
 	API bool getEngineRunning() { return running; };
 	API void setEngineRunning(bool run) { running = run; }
+
+	API void restartPhysicsWorld();
+	SoundEngine soundEngine;
 private:
 	bool running = false;
 

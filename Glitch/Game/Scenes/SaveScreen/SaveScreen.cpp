@@ -19,13 +19,13 @@ void SaveScreen::onAttach()
 
 void SaveScreen::onDetach()
 {
-	EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent("MENU_SOUND"));
+	engine.soundEngine.onStartBackgroundMusicEvent("MENU_SOUND");
 	Scene::onDetach();
 }
 
 void SaveScreen::start()
 {
-	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("MENU_SOUND"));
+	engine.soundEngine.onStartBackgroundMusicEvent("MENU_SOUND");
 }
 
 void SaveScreen::onUpdate()
@@ -44,7 +44,6 @@ void SaveScreen::loadBackground()
 	layer0->setPositionY(1080);
 	layer0->setWidth(1920);
 	layer0->setHeight(1080);
-	engine.loadSprite(*BG_LAYER_0);
 	layer0->registerSprite(SpriteState::DEFAULT, BG_LAYER_0);
 	layer0->changeToState(SpriteState::DEFAULT);
 
@@ -54,7 +53,6 @@ void SaveScreen::loadBackground()
 	animation->setPositionY(875);
 	animation->setWidth(370);
 	animation->setHeight(500);
-	engine.loadSprite(*BG_LAYER_ADVENTRUE);
 	animation->registerSprite(SpriteState::DEFAULT, BG_LAYER_ADVENTRUE);
 	animation->changeToState(SpriteState::DEFAULT);
 	animation->setScalable(false);
@@ -65,7 +63,6 @@ void SaveScreen::loadBackground()
 	layer2->setPositionY(1080);
 	layer2->setWidth(1920);
 	layer2->setHeight(1080);
-	engine.loadSprite(*BG_LAYER_2);
 	layer2->registerSprite(SpriteState::DEFAULT, BG_LAYER_2);
 	layer2->changeToState(SpriteState::DEFAULT);
 
@@ -76,7 +73,7 @@ void SaveScreen::loadBackground()
 
 void SaveScreen::loadMusic()
 {
-	EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent("MENU_SOUND", "Assets/Sound/file_example_WAV_1MG.wav"));
+	engine.soundEngine.onLoadBackgroundMusicEvent("MENU_SOUND", "Assets/Sound/file_example_WAV_1MG.wav");
 }
 
 void SaveScreen::loadButtons()

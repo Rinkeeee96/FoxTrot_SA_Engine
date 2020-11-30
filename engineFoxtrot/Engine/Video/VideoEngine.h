@@ -2,7 +2,6 @@
 #include "VideoFacade.h"
 #include "Fps/FrameData.h"
 #include "Structs/HelperStructs.h"
-#include "Events/Action/FpsToggleEvent.h"
 #include "SceneManager/Scene.h"
 #include "ParticleSystem/ParticleAdapter.h"
 
@@ -56,6 +55,9 @@ public:
 	Scene** pointerToCurrentScene = nullptr;
 
 	bool checkObjectInScreen(const Object& obj);
+
+	void clearVideoEngine();
+
 
 private:
 	IVideoFacade* videoFacade = new VideoFacade;

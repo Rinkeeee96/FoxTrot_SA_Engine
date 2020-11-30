@@ -13,8 +13,6 @@ class Game
 public:
 	Game();
 	int run();
-	bool stopRun(Event& event);
-
 
 private:
 	Engine engine;

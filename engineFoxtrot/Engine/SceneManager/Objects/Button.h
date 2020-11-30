@@ -45,11 +45,14 @@ public:
 	API bool isClicked(Event& event);
 
 	API void registerHoverSprite(SpriteObject* spriteObject);
+
+protected:
+	bool hasHoverSprite = false;
+
 private:
 	bool isEnabled = true;
 	bool isMouseOver = false;
 	bool buttonPressed = false;
-	bool hasHoverSprite = false;
 
 	const function<void(void)> onClick;
 

@@ -73,7 +73,6 @@ void Overworld::loadBackground() {
 	layer0->setPositionY(1080);
 	layer0->setWidth(1920);
 	layer0->setHeight(1080);
-	engine.loadSprite(*BG_LAYER_0);
 	layer0->registerSprite(SpriteState::DEFAULT, BG_LAYER_0);
 	layer0->changeToState(SpriteState::DEFAULT);
 	layer0->setScalable(false);
@@ -83,13 +82,13 @@ void Overworld::loadBackground() {
 
 /// @brief 
 void Overworld::loadMusic() {
-	EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent("OVER_WORLD", "Assets/Sound/file_example_WAV_1MG.wav"));
+	engine.soundEngine.onLoadBackgroundMusicEvent("OVER_WORLD", "Assets/Sound/file_example_WAV_1MG.wav");
 }
 
 /// @brief 
 void Overworld::start()
 {
-	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("OVER_WORLD"));
+	engine.soundEngine.onStartBackgroundMusicEvent("OVER_WORLD");
 }
 
 /// @brief 
@@ -100,7 +99,7 @@ void Overworld::onUpdate()
 /// @brief 
 void Overworld::onDetach()
 {
-	EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent("OVER_WORLD"));
+	engine.soundEngine.onStartBackgroundMusicEvent("OVER_WORLD");
 	Scene::onDetach();
 }
 

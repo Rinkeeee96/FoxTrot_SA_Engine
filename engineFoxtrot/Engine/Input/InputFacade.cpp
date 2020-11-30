@@ -2,7 +2,6 @@
 
 #include "InputFacade.h"
 #include <SDL.h>
-#include "Events/Window/WindowCloseEvent.h"
 
 #undef main
 

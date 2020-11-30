@@ -1,8 +1,5 @@
 #include "stdafx.h"
 #include "Engine.h"
-#include "Events\AppTickEvent30.h"
-#include "Events\AppTickEvent60.h"
-#include "Events\Video\VideoLoadSpriteEvent.h"
 
 /// @brief 
 Engine::Engine()
@@ -51,16 +48,8 @@ void Engine::insertScene(Scene* scene)
 void Engine::deregisterScene(const int id)
 {
 	sceneManager.deregisterScene(id);
-}
-
-/// @brief 
-/// Load a animated sprite (PNG) into the AnimatedTexture map
-/// @param spriteObject 
-void Engine::loadSprite(const SpriteObject& spriteObject) {
-	bool exists = std::filesystem::exists(spriteObject.getFileName());
-	if (!exists)
-		throw ERROR_CODE_IMAGE_FILE_NOT_FOUND;
-	videoEngine.loadImage(spriteObject);
+	videoEngine.clearVideoEngine();
+	physicsEngine.clean();
 }
 
 /// @brief
@@ -73,6 +62,12 @@ void Engine::updateFps() {
 /// Toggles fps visibility
 void Engine::toggleFps() {
 	videoEngine.toggleFps();
+}
+
+/// @brief 
+void Engine::restartPhysicsWorld()
+{
+	physicsEngine.removeObject();
 }
 
 void Engine::loadSound(const string& identifier, const string& path)
@@ -88,6 +83,7 @@ void Engine::loadSound(map<string, string> sounds)
 
 void Engine::onUpdate()
 {
+	particleEngine.onUpdate();
 	videoEngine.onUpdate();
 	physicsEngine.onUpdate();
 }

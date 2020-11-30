@@ -171,7 +171,6 @@ void Scene::removeObjectFromScene(Object* obj)
 			lay.second->objects.erase(it);
 			obj->setIsRemoved(true);
 			return;
-			//delete obj;
 		}
 	}
 }

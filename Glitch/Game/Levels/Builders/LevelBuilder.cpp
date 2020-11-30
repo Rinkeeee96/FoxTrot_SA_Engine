@@ -172,7 +172,6 @@ void LevelBuilder::createBackground(nlohmann::json layerValue) {
 
 		TileSprite* sprite = textureMap[gid];
 		SpriteObject* tileSprite = new SpriteObject(currentTileId++, sprite->height, sprite->width, 1, 300, sprite->path.c_str());
-		engine.loadSprite(*tileSprite);
 
 		tile->setWidth(width);
 		tile->setHeight(height);
@@ -219,7 +218,6 @@ void LevelBuilder::createDecoration(nlohmann::json layerValue)
 			tile->setPositionY((currentY * mapTileHeight) + mapTileHeight);
 			tile->setScalable(true);
 			tile->setScale(2);
-			engine.loadSprite(*tileSprite);
 			tile->registerSprite(SpriteState::DEFAULT, tileSprite);
 			tile->changeToState(SpriteState::DEFAULT);
 
@@ -248,7 +246,6 @@ void LevelBuilder::createParticle(nlohmann::json layerValue)
 		{
 			if (objectPropertyValue["name"] == "type") {
 					SpriteObject* particle1Sprite = new SpriteObject(currentTileId++, 20, 20, 5, 300, "Assets/Particles/fire.png");
-					engine.loadSprite(*particle1Sprite);
 
 					int type = objectPropertyValue["value"];
 
@@ -301,7 +298,6 @@ void LevelBuilder::createTiles(nlohmann::json layerValue) {
 			tile->setStatic(true);
 			tile->setPositionX(currentX * (float)mapTileWidth);
 			tile->setPositionY((currentY * (float)mapTileHeight) + sprite->height);
-			engine.loadSprite(*tileSprite);
 			tile->registerSprite(SpriteState::DEFAULT, tileSprite);
 			tile->changeToState(SpriteState::DEFAULT);
 
@@ -370,18 +366,6 @@ void LevelBuilder::initFactory() {
 	auto playerRunLeft = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 6, 200, "Assets/Sprites/Character/adventure_run_left.png");
 	auto playerJumpRight = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_jump_right.png");
 	auto slimeDefault = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 1, 200, "Assets/Levels/Tiles/slime_blue.png");
-
-	engine.loadSprite(*tileTop);
-	engine.loadSprite(*playerDefault);
-	engine.loadSprite(*playerAirAttack);
-	engine.loadSprite(*playerRunRight);
-	engine.loadSprite(*playerSlide);
-	engine.loadSprite(*playerFallLeft);
-	engine.loadSprite(*playerFallRight);
-	engine.loadSprite(*playerJumpLeft);
-	engine.loadSprite(*playerRunLeft);
-	engine.loadSprite(*playerJumpRight);
-	engine.loadSprite(*slimeDefault);
 
 	std::map<SpriteState, SpriteObject*> playerMap;
 	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, playerDefault));
