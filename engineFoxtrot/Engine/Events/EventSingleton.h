@@ -1,7 +1,7 @@
 #pragma once
 #include "Event.h"
 #include <memory>
-using EventCallbackFn = function<bool(Event&)>;
+//using EventCallbackFn = function<bool(Event&)>;
 
 #define BIND_EVENT_FN(x) bind(&x, this, placeholders::_1)
 

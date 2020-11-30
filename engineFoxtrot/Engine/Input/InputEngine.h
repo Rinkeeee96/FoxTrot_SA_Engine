@@ -12,14 +12,15 @@ class Engine;
 class InputEngine
 {
 public:
-	API InputEngine(Engine& engine);
+	API InputEngine(Engine& engine, shared_ptr<EventDispatcher> _dispatcher);
 	API ~InputEngine();
 
 	void pollEvents();
 private:
 
 	Engine& engine;
-	IInputFacade *inputFacade = new InputFacade();
+	shared_ptr<EventDispatcher> dispatcher;
+	IInputFacade *inputFacade;
 
-	bool onKeyPressed(Event& event);
+	bool onKeyPressed(const Event& event);
 };

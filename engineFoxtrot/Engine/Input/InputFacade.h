@@ -17,10 +17,13 @@ class InputFacade : public IInputFacade
 {
 
 public:
-    InputFacade();
-    ~InputFacade();
+    InputFacade(shared_ptr<EventDispatcher> _dispatcher) : dispatcher{ _dispatcher } {};
+    ~InputFacade() {};
 
 	void pollEvents() override;
+
+private:
+    shared_ptr<EventDispatcher> dispatcher;
 };
 
 

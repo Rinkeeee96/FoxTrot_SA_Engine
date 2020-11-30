@@ -4,9 +4,9 @@
 #include "Engine.h"
 
 /// @brief 
-InputEngine::InputEngine(Engine& _engine): engine(_engine)
+InputEngine::InputEngine(Engine& _engine, shared_ptr<EventDispatcher> _dispatcher): engine(_engine), dispatcher {_dispatcher}
 {
-	EventSingleton::get_instance().setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(InputEngine::onKeyPressed));
+	(*dispatcher).setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(InputEngine::onKeyPressed));
 }
 
 /// @brief 
@@ -14,8 +14,8 @@ InputEngine::~InputEngine()
 {
 }
 
-bool InputEngine::onKeyPressed(Event& event) {
-	auto keyPressedEvent = static_cast<KeyPressedEvent&>(event);
+bool InputEngine::onKeyPressed(const Event& event) {
+	auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
 
 	switch (keyPressedEvent.GetKeyCode())
 	{

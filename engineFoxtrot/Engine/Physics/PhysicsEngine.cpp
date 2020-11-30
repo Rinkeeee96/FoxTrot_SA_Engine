@@ -6,16 +6,17 @@
 #include "Events\Action\ObjectStopEvent.h"
 #include <Events\Action\RemoveEvent.h>
 
+
 /// @brief Constructor
-PhysicsEngine::PhysicsEngine()
+PhysicsEngine::PhysicsEngine(shared_ptr<EventDispatcher> _dispatcher) : dispatcher {_dispatcher}
 {
 	physicsFacade = new PhysicsFacade();
-	EventSingleton::get_instance().setEventCallback<ActionEvent>(BIND_EVENT_FN(PhysicsEngine::handleAction));
-	EventSingleton::get_instance().setEventCallback<ObjectStopEvent>(BIND_EVENT_FN(PhysicsEngine::stopObject));
-	EventSingleton::get_instance().setEventCallback<RemoveEvent>(BIND_EVENT_FN(PhysicsEngine::removeObject));
+	(*dispatcher.get()).setEventCallback<ActionEvent>(BIND_EVENT_FN(PhysicsEngine::handleAction));
+	(*dispatcher.get()).setEventCallback<ObjectStopEvent>(BIND_EVENT_FN(PhysicsEngine::stopObject));
+	(*dispatcher.get()).setEventCallback<RemoveEvent>(BIND_EVENT_FN(PhysicsEngine::removeObject));
 }
 
-bool PhysicsEngine::removeObject(Event& event) {
+bool PhysicsEngine::removeObject(const Event& event) {
 	physicsFacade->cleanMap();
 	registerObjectInCurrentVectorWithPhysicsEngine();
 	return true;
@@ -23,8 +24,8 @@ bool PhysicsEngine::removeObject(Event& event) {
 
 /// @brief 
 /// Handles a ActionEvent and according to the given direction moves the object
-bool PhysicsEngine::handleAction(Event& event) {
-	auto actionEvent = static_cast<ActionEvent&>(event);
+bool PhysicsEngine::handleAction(const Event& event) {
+	auto actionEvent = static_cast<const ActionEvent&>(event);
 
 	auto direction = actionEvent.GetDirection();
 	auto objectId = actionEvent.GetObjectId();
@@ -48,8 +49,8 @@ bool PhysicsEngine::handleAction(Event& event) {
 	}
 }
 
-bool PhysicsEngine::stopObject(Event& event) {
-	ObjectStopEvent e = static_cast<ObjectStopEvent&>(event);
+bool PhysicsEngine::stopObject(const Event& event) {
+	ObjectStopEvent e = static_cast<const ObjectStopEvent&>(event);
 	physicsFacade->stopObject(e.GetObjectId());
 	return true;
 }

@@ -14,6 +14,8 @@
 #include "./Input/InputEngine.h"
 #include "./Fps/FrameData.h"
 
+#include "Events/EventDispatcher.h"
+
 #define	ENGINE_TICK60	 17
 #define ENGINE_TICK30	 33
 
@@ -48,15 +50,18 @@ public:
 	API bool getEngineRunning() { return running; };
 	API void setEngineRunning(bool run) { running = run; }
 private:
-
 	bool running = false;
 
-	PhysicsEngine physicsEngine;
+	shared_ptr<EventDispatcher> eventDispatcher;
+
 	ParticleEngine particleEngine;
 	SoundEngine soundEngine;
-	InputEngine inputEngine = InputEngine(*this);
-	SceneManager sceneManager;
 	FrameData frameData;
-	VideoEngine videoEngine = VideoEngine(frameData);
+
+	VideoEngine videoEngine{ frameData };
+
+	InputEngine inputEngine{ *this, eventDispatcher };
+	SceneManager sceneManager { eventDispatcher };
+	PhysicsEngine physicsEngine{ eventDispatcher };
 };
 #endif

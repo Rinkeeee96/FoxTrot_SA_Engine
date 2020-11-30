@@ -8,22 +8,22 @@
 class API PhysicsEngine
 {
 public:
-	PhysicsEngine();
+	PhysicsEngine(shared_ptr<EventDispatcher> _dispatcher);
 	~PhysicsEngine();
 
 	void registerObjectInCurrentVectorWithPhysicsEngine();
 
-	bool handleAction(Event& event);
-	bool stopObject(Event& event);
+	bool handleAction(const Event& event);
+	bool stopObject(const Event& event);
 	void onUpdate();
-	bool removeObject(Event& event);
+	bool removeObject(const Event& event);
 
 	//TODO Set to private after testing!!!
 	IPhysicsFacade* physicsFacade;
 	Scene** pointerToCurrentScene = nullptr;
 
 private:
-
+	shared_ptr<EventDispatcher> dispatcher;
 	// CurrentScene is stored because if this changes then the objects need to be reset.
 	int currentSceneID = 0;
 };

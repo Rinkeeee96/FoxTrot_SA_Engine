@@ -10,7 +10,7 @@ Engine::Engine()
 	videoEngine.pointerToCurrentScene =	 &sceneManager.currentScene;
 	physicsEngine.pointerToCurrentScene = &sceneManager.currentScene;
 	particleEngine.pointerToCurrentScene = &sceneManager.currentScene;
-
+	
 	//this->startTickThreads();
 }
 
