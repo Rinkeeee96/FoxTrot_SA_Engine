@@ -53,6 +53,7 @@ void Level::onAttach() {
 /// @brief
 /// Add HUD for lifes of player
 void Level::addHuds() {
+	this->huds = std::vector<Drawable*>();
 	// Health HUDS
 	int startingID = -662;
 	int xAxisChange = 75;
@@ -75,17 +76,18 @@ void Level::addHuds() {
 /// @brief
 /// Add single HUD for lifes of player
 void Level::addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, SpriteObject* HUD) {
-	auto* health1 = new Drawable(startingID--);
-	health1->setStatic(true);
-	health1->setPositionX(((startingXAxis + (float)(xAxisChange * (current + 1)))));
-	health1->setPositionY(100);
-	health1->setWidth(50);
-	health1->setHeight(50);
-	health1->setDrawStatic(true);
-	health1->registerSprite(SpriteState::DEFAULT, HUD);
-	health1->changeToState(SpriteState::DEFAULT);
-
-	addNewObjectToLayer(4, health1, false);
+	auto* health = new Drawable(startingID--);
+	health->setStatic(true);
+	health->setPositionX(((startingXAxis + (float)(xAxisChange * (current + 1)))));
+	health->setPositionY(100);
+	health->setWidth(50);
+	health->setHeight(50);
+	health->setDrawStatic(true);
+	health->registerSprite(SpriteState::DEFAULT, HUD);
+	health->changeToState(SpriteState::DEFAULT);
+	
+	addNewObjectToLayer(100, health, false, true);
+	this->huds.push_back(health);
 	current++;
 }
 
@@ -106,7 +108,6 @@ void Level::start() {
 }
 
 void Level::onUpdate() {
-	this->huds = std::vector<Drawable*>();
 	this->addHuds();
 
 	if (this->win) {
