@@ -78,6 +78,7 @@ void Engine::loadSound(map<string, string> sounds)
 
 void Engine::onUpdate()
 {
+	particleEngine.onUpdate();
 	videoEngine.onUpdate();
 	physicsEngine.onUpdate();
 }
