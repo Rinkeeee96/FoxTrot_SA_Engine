@@ -84,7 +84,7 @@ void Level::onUpdate() {
 					// TODO Death animation
 					object->setIsRemoved(true);
 					removeObjectFromScene(object);
-					EventSingleton::get_instance().dispatchEvent<RemoveEvent>((Event&)RemoveEvent());
+					engine.restartPhysicsWorld();
 				}
 			}
 		}

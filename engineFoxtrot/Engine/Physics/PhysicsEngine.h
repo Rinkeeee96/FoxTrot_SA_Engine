@@ -16,11 +16,13 @@ public:
 	bool handleAction(Event& event);
 	bool stopObject(Event& event);
 	void onUpdate();
-	bool removeObject(Event& event);
+	void removeObject();
 
 	//TODO Set to private after testing!!!
 	IPhysicsFacade* physicsFacade;
 	Scene** pointerToCurrentScene = nullptr;
+
+	void clean();
 
 private:
 

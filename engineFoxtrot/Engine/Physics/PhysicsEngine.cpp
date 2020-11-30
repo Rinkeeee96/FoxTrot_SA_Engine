@@ -1,5 +1,4 @@
 #include "stdafx.h"
-#include "Events\AppTickEvent30.h"
 #include "Events/EventSingleton.h"
 #include "PhysicsFacade.h"
 #include "PhysicsEngine.h"
@@ -12,13 +11,17 @@ PhysicsEngine::PhysicsEngine()
 	physicsFacade = new PhysicsFacade();
 	EventSingleton::get_instance().setEventCallback<ActionEvent>(BIND_EVENT_FN(PhysicsEngine::handleAction));
 	EventSingleton::get_instance().setEventCallback<ObjectStopEvent>(BIND_EVENT_FN(PhysicsEngine::stopObject));
-	EventSingleton::get_instance().setEventCallback<RemoveEvent>(BIND_EVENT_FN(PhysicsEngine::removeObject));
 }
 
-bool PhysicsEngine::removeObject(Event& event) {
+void PhysicsEngine::removeObject() {
 	physicsFacade->cleanMap();
 	registerObjectInCurrentVectorWithPhysicsEngine();
-	return true;
+}
+
+/// @brief 
+void PhysicsEngine::clean()
+{
+	physicsFacade->cleanMap();
 }
 
 /// @brief 

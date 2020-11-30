@@ -44,6 +44,8 @@ public:
 
 	API bool getEngineRunning() { return running; };
 	API void setEngineRunning(bool run) { running = run; }
+
+	API void restartPhysicsWorld();
 private:
 
 	bool running = false;

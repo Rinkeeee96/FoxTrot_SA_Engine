@@ -49,6 +49,7 @@ void Engine::deregisterScene(const int id)
 {
 	sceneManager.deregisterScene(id);
 	videoEngine.clearVideoEngine();
+	physicsEngine.clean();
 }
 
 /// @brief
@@ -61,6 +62,12 @@ void Engine::updateFps() {
 /// Toggles fps visibility
 void Engine::toggleFps() {
 	videoEngine.toggleFps();
+}
+
+/// @brief 
+void Engine::restartPhysicsWorld()
+{
+	physicsEngine.removeObject();
 }
 
 void Engine::loadSound(const string& identifier, const string& path)
