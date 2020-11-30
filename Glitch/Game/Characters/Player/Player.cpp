@@ -113,10 +113,10 @@ bool Player::onKeyReleased(Event& event)
 		auto keyReleasedEvent = static_cast<KeyReleasedEvent&>(event);
 
 		switch (keyReleasedEvent.GetKeyCode()) {
-		case KeyCode::KEY_A:
-		case KeyCode::KEY_D:
-			StopMovementCommand command(*this);
-			command.execute();
+			case KeyCode::KEY_A:
+			case KeyCode::KEY_D:
+				StopMovementCommand command(*this);
+				command.execute();
 		}
 
 		return false;
