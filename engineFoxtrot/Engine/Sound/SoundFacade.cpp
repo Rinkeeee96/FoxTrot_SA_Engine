@@ -18,6 +18,7 @@ SoundFacade::SoundFacade()
 }
 
 /// @brief 
+// TODO no sound memory is freed
 SoundFacade::~SoundFacade()
 {
     /*SDL_CloseAudioDevice(deviceId);

@@ -52,7 +52,7 @@ private:
 	InputEngine inputEngine;
 	SceneManager sceneManager;
 	VideoEngine videoEngine;
-
+	// TODO does this need to be a ptr?
 	FrameData* frameData = nullptr;
 };
 #endif

@@ -56,6 +56,7 @@ private:
 	b2World * world;
 	const float timeStep = TIMESTEP_SEC / TIMESTEP_FRAMES;
 
+	// TODO clear on scene detach
 	map <PhysicsBody*, b2Body*> bodies;
 	b2Body* findBody(const int objectId);
 };

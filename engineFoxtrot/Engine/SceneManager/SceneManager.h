@@ -26,7 +26,7 @@ private:
 
 	// Helper Functions
 	bool checkIfSceneExists(const int);
-
+	// TODO what happens when deleting a scene?
 	map<int,Scene*> scenes;
 
 };

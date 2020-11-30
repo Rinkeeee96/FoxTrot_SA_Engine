@@ -45,6 +45,7 @@ protected:
 
 	int currentSpriteState = 0;
 	SpriteObject* currentSprite = nullptr;
+	// TODO delete on scene detach in destructor when object is destroyed
 	map<const int, SpriteObject*> textures;
 };
 
