@@ -7,7 +7,6 @@
 VideoEngine::VideoEngine()
 {
 	frameData = new FrameData;
-	EventSingleton::get_instance().setEventCallback<AppTickEvent60>(BIND_EVENT_FN(VideoEngine::receiveTick));
 	EventSingleton::get_instance().setEventCallback<FpsToggleEvent>(BIND_EVENT_FN(VideoEngine::toggleFps));
 	EventSingleton::get_instance().setEventCallback<FpsUpdateEvent>(BIND_EVENT_FN(VideoEngine::updateFps));
 }
@@ -222,7 +221,7 @@ bool VideoEngine::updateFps(Event& fpsEvent) {
 }
 
 /// @brief Handle the tick update from the thread
-bool VideoEngine::receiveTick(Event& tickEvent)
+void VideoEngine::onUpdate()
 {
 	clearScreen();
 	updateScreen();
@@ -230,8 +229,6 @@ bool VideoEngine::receiveTick(Event& tickEvent)
 	drawFps();
 	drawScreen();
 
-	// do not handle on update events, they are continues
-	return false;
 }
 
 /// @brief Draws the Particles

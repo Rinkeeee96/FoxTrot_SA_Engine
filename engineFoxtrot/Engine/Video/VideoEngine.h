@@ -49,7 +49,7 @@ public:
 
 	bool updateFps(Event& fpsEvent);
 
-	bool receiveTick(Event& tickEvent);
+	void onUpdate();
 
 	bool drawParticle(ParticleAdapter* part);
 

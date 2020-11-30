@@ -24,8 +24,7 @@ int Game::run() {
 			AppTickEvent30 appTick30;
 
 			engine.pollEvents();
-			EventSingleton::get_instance().dispatchEvent<AppTickEvent60>(appTick);
-			EventSingleton::get_instance().dispatchEvent<AppTickEvent30>(appTick30);
+			engine.onUpdate();
 
 			// TODO get only the non static objects, without looping thru them again and again
 			stateMachine->updateCurrentScene();

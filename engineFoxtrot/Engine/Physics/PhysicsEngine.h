@@ -15,7 +15,7 @@ public:
 
 	bool handleAction(Event& event);
 	bool stopObject(Event& event);
-	bool update30(Event& tick30Event);
+	void onUpdate();
 	bool removeObject(Event& event);
 
 	//Set to private after testing!!!

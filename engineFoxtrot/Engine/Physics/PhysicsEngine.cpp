@@ -10,7 +10,6 @@
 PhysicsEngine::PhysicsEngine()
 {
 	physicsFacade = new PhysicsFacade();
-	EventSingleton::get_instance().setEventCallback<AppTickEvent30>(BIND_EVENT_FN(PhysicsEngine::update30));
 	EventSingleton::get_instance().setEventCallback<ActionEvent>(BIND_EVENT_FN(PhysicsEngine::handleAction));
 	EventSingleton::get_instance().setEventCallback<ObjectStopEvent>(BIND_EVENT_FN(PhysicsEngine::stopObject));
 	EventSingleton::get_instance().setEventCallback<RemoveEvent>(BIND_EVENT_FN(PhysicsEngine::removeObject));
@@ -86,7 +85,7 @@ void PhysicsEngine::registerObjectInCurrentVectorWithPhysicsEngine()
 
 /// @brief 
 /// Handle the tick given from the thread. 
-bool PhysicsEngine::update30(Event& tick30Event)
+void PhysicsEngine::onUpdate()
 {
 	if (currentSceneID != (*pointerToCurrentScene)->getSceneID())
 	{
@@ -98,10 +97,6 @@ bool PhysicsEngine::update30(Event& tick30Event)
 
 	physicsFacade->update();
 
-	//tick30Event = (AppTickEvent30&)tick30Event;
-
-	// do not handle the onupdate events, they are continuous
-	return false;
 }
 
 

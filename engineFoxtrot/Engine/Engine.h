@@ -40,6 +40,8 @@ public:
 	// Input calls
 	API void pollEvents();
 
+	API void onUpdate();
+
 	//Events
 	API void EventListeners();
 	API bool Event_LoadSprite(Event& event);

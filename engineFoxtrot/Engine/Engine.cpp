@@ -87,3 +87,9 @@ bool Engine::Event_LoadSprite(Event& event) {
 	// TODO is this called in a single loop or once per sprite?
 	return false;
 }
+
+void Engine::onUpdate()
+{
+	videoEngine.onUpdate();
+	physicsEngine.onUpdate();
+}
