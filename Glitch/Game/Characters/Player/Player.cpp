@@ -23,7 +23,7 @@ Player::Player(const int id) : ICharacter(id) {
 	EventSingleton::get_instance().setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Player::onCollisionBeginEvent));
 	EventSingleton::get_instance().setEventCallback<OnCollisionEndEvent>(BIND_EVENT_FN(Player::onCollisionEndEvent));
 	EventSingleton::get_instance().setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Player::onKeyPressed));
-	EventSingleton::get_instance().setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Player::onKeyReleased));
+	EventSingleton::get_instance().setEventCallback<KeyReleasedEvent>(BIND_EVENT_FN(Player::onKeyReleased));
 }
 
 /// @brief 
