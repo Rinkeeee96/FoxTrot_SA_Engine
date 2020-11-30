@@ -1,11 +1,6 @@
 #include "pch.h"
 #include "Game.h"
 
-bool Game::stopRun(Event& event) {
-	gameRunning = false;
-	return true;
-}
-
 Game::Game()
 {
 	stateMachine = shared_ptr<SceneStateMachine>(new SceneStateMachine(engine));
@@ -14,10 +9,11 @@ Game::Game()
 int Game::run() {
 
 	try {
-		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
 		stateMachine->switchToScene("MainMenu", false);
 
-		while (gameRunning)
+		engine.setEngineRunning(true);
+
+		while (engine.getEngineRunning())
 		{
 			engine.updateFps();
 			AppTickEvent60 appTick;
