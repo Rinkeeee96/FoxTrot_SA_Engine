@@ -52,6 +52,7 @@ private:
 	map<string, string> soundPaths;
 	map<string, int> loopChannels;
 	Mix_Music* music;
+	// TODO clear on scene detach
 	map<std::string, Mix_Chunk*> loadedSoundEffects;
 
 };

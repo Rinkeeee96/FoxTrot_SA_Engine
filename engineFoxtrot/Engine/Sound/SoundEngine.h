@@ -40,6 +40,8 @@ private:
 
 	bool onStartBackgroundMusicEvent(Event& event);
 	bool onLoadBackgroundMusicEvent(Event& event);
+
+	// TODO clear on scene detach
 	ISoundFacade* soundFacade = new SoundFacade;
 
 };

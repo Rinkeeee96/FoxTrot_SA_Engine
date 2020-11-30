@@ -3,4 +3,6 @@
 // This is the definition (the declaration is in the header).
 // Without this, the compiler would not allocate memory for the object.
 // This cannot be put inside the header file because of the One-Definition Rule.
+
+// TODO REMOVE THIS STUPID THING WITH DI AND IOC Containers
 EventSingleton EventSingleton::instance;
