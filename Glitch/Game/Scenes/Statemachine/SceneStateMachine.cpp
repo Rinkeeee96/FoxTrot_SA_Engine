@@ -23,6 +23,9 @@ SceneStateMachine::SceneStateMachine(Engine& _engine) : engine(_engine)
 
 	CreatorImpl <WinScreen>* win = new CreatorImpl <WinScreen>();
 	win->registerClass("WinScreen", factory);
+
+	CreatorImpl <CreditsScene>* cred = new CreatorImpl <CreditsScene>();
+	cred->registerClass("CreditsSreen", factory);
 }
 
 SceneStateMachine::~SceneStateMachine()
@@ -96,5 +99,4 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 
 	currentScene->onAttach();
 	currentScene->start();
-
 }

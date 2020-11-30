@@ -20,17 +20,15 @@ void CreditsScene::onAttach()
 /// Create all buttons for this scene
 void CreditsScene::loadButtons() {
 	// Back button
+	auto* backBtn = new SecondaryButton(3, "To Main Menu", BIND_FN(onBackClick));
+	backBtn->setPositionX(WINDOW_WIDTH - 40 - backBtn->getWidth());
+	backBtn->setPositionY(WINDOW_HEIGHT - 10 - backBtn->getHeight());
 	backBtn = new SecondaryButton(3, "To Main Menu", BIND_FN(onBackClick));
 	backBtn->setPositionX(WINDOW_WIDTH - 40 - backBtn->getWidth());
 	backBtn->setPositionY(WINDOW_HEIGHT - 10 - backBtn->getHeight());
-
-	backBtn = new SecondaryButton(3, "To Main Menu", BIND_FN(onBackClick));
-	backBtn->setPositionX(WINDOW_WIDTH - 40 - backBtn->getWidth());
-	backBtn->setPositionY(WINDOW_HEIGHT - 10 - backBtn->getHeight());
-
 
 	auto* name1 = new Text(4, new ColoredText("Lars Jansen", Color(255, 255, 255)), 100, 50, CENTER_X - 300, CENTER_Y - 150);
-	auto* name2 = new Text(5, new ColoredText("Max van Nistelrooij", Color(255, 255, 255)), 400, 50, CENTER_X - 300, CENTER_Y + 50);
+	auto* name2 = new Text(5, new ColoredText("Max van Nistelrooij", Color(255, 255, 255)), 150, 50, CENTER_X - 300, CENTER_Y + 50);
 	auto* name3 = new Text(6, new ColoredText("Rinke de Vries", Color(255, 255, 255)), 100, 50, CENTER_X - 300, CENTER_Y + 250);
 
 	auto* name4 = new PrimaryButton(7, "Thijs de leeuw", BIND_FN(empty));
@@ -47,8 +45,6 @@ void CreditsScene::loadButtons() {
 	name6->setPositionX(CENTER_X + name6->getWidth() /2 + 100);
 	name6->setPositionY(CENTER_Y - name6->getHeight() + 300);
 	name6->disable();
-
-
 
 	//addNewObjectToLayer(3, level2Btn);
 	addNewObjectToLayer(3, backBtn);
@@ -87,7 +83,6 @@ void CreditsScene::loadMusic() {
 /// Create the sounds for this scene
 void CreditsScene::start()
 {
-	backBtn->reset();
 	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("DEAD_SOUND"));
 }
 
@@ -107,7 +102,7 @@ void CreditsScene::onDetach()
 /// A callback function for overworldBTN
 /// Start transition scene to overworl
 void CreditsScene::onBackClick() {
-	SceneSwitcher::get_instance().switchToScene("MAIN_MENU", false);
+	//stateMachine->switchToScene("MainMenu", false);
 }
 
 void CreditsScene::empty() { }

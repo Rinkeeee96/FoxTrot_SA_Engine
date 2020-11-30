@@ -1,13 +1,13 @@
 #pragma once
 #include "api.h"
 #include "SceneManager/Objects/Button.h"
-#include "sceneSwitcher/SceneSwitcher.h"
+#include "Game/Scenes/GameScene.h"
 
-class CreditsScene : public Scene
+class CreditsScene : public GameScene
 {
 public:
-	CreditsScene(const int id) : Scene(id, WINDOW_HEIGHT, WINDOW_WIDTH) {};
-	~CreditsScene();
+	CreditsScene(const int id) : GameScene(id, WINDOW_HEIGHT, WINDOW_WIDTH) {};
+	~CreditsScene() { };
 	// Inherited via Scene
 	void onAttach() override;
 	void onDetach() override;
@@ -21,10 +21,4 @@ private:
 	//button functions
 	void onBackClick();
 	void empty();
-
-	Button* backBtn = nullptr;
 };
-
-inline CreditsScene::~CreditsScene()
-{
-}

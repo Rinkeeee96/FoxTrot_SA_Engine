@@ -127,7 +127,7 @@ void MainMenu::onStopBtnClick() {
 /// A callback function for creditsBTN
 /// Start transition scene to DEAD_SCREEN
 void MainMenu::onCreditsBtnClick() {
-	SceneSwitcher::get_instance().switchToScene("CREDITS", false);
+	
 }
 
 

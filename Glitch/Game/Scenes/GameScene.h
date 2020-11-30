@@ -8,10 +8,10 @@ public:
 	GameScene(const int id,const int _sceneHeight, const int _sceneWidth) : Scene(id, _sceneHeight, _sceneWidth) {};
 	~GameScene() {};
 
-	void onAttach() {};
-	void start() {};
-	void onDetach() {};
-	void onUpdate() {};
+	virtual void onAttach() = 0;
+	virtual void start() = 0;
+	virtual void onDetach() = 0;
+	virtual void onUpdate() = 0;
 
 	void registerStateMachine(SceneStateMachine * stateMachine);
 
