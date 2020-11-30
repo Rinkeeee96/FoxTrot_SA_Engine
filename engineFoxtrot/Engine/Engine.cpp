@@ -53,16 +53,6 @@ void Engine::deregisterScene(const int id)
 	sceneManager.deregisterScene(id);
 }
 
-/// @brief 
-/// Load a animated sprite (PNG) into the AnimatedTexture map
-/// @param spriteObject 
-void Engine::loadSprite(const SpriteObject& spriteObject) {
-	bool exists = std::filesystem::exists(spriteObject.getFileName());
-	if (!exists)
-		throw ERROR_CODE_IMAGE_FILE_NOT_FOUND;
-	videoEngine.loadImage(spriteObject);
-}
-
 /// @brief
 /// Updates the fps counter
 void Engine::updateFps() {

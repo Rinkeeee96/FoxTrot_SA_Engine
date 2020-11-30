@@ -54,6 +54,5 @@ bool Button::isClicked(Event& event) {
 /// The spriteobject with the hover effect. 
 /// @return 
 void Button::registerHoverSprite(SpriteObject* spriteObject) {
-	hasHoverSprite = true;
-	Drawable::registerSprite(HOVER_STATE, spriteObject);
+	
 }

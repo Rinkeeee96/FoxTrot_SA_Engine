@@ -30,9 +30,6 @@ public:
 	API void insertScene(Scene * scene);
 	API void deregisterScene(const int id);
 
-	// Video calls
-	API void loadSprite(const SpriteObject& spriteObject);
-
 	// Sound calls
 	API void loadSound(const string& identifier, const string& path);
 	API void loadSound(map<string, string> sounds);

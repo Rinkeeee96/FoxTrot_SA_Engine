@@ -101,6 +101,10 @@ void VideoFacade::renderCopy(Drawable& object)
 {	
 	SpriteObject& sprite = object.GetCurrentSprite();
 
+	if (!textureMap.count(sprite.getTextureID()))
+	{
+		loadImage(sprite);
+	}
 	if (textureMap[sprite.getTextureID()] == NULL) throw exception(ERRORCODES[ERROR_CODE_SVIFACADE_RENDERCOPY_SPRITE_ID_IS_NULL]);
 
 	//generate image 
