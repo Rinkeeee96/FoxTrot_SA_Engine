@@ -6,8 +6,8 @@
 class Level : public GameScene
 {
 public:
-	Level(const int id, const int _sceneHeight, const int _sceneWidth, map<string, string> _sounds);
-	Level(const int id, const int _sceneHeight, const int _sceneWidth);
+	Level(const int id, const int _sceneHeight, const int _sceneWidth, Engine& engine, map<string, string> _sounds);
+	Level(const int id, const int _sceneHeight, const int _sceneWidth, Engine& engine);
 
 	void setPlayer(Object* object);
 	virtual void setSound(map<string, string> sounds);

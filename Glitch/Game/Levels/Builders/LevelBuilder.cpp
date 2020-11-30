@@ -12,7 +12,7 @@ bool LevelBuilder::getAlwaysDrawFromJson(nlohmann::json layerValue)
 	return false;
 }
 
-LevelBuilder::LevelBuilder(Engine& _engine, int levelId) : AbstractLevelBuilder(_engine), bLevel(new Level(levelId, 0, 0)) {
+LevelBuilder::LevelBuilder(Engine& _engine, int levelId) : AbstractLevelBuilder(_engine), bLevel(new Level(levelId, 0, 0, _engine)) {
 	
 }
 
@@ -207,7 +207,6 @@ void LevelBuilder::createDecoration(nlohmann::json layerValue)
 			if (spriteMap.find(tileId) == spriteMap.end()) {
 				sprite = textureMap[tileId];
 				tileSprite = new SpriteObject(currentTileId++, sprite->height, sprite->width, 1, 300, sprite->path.c_str());
-				engine.loadSprite(*tileSprite);
 			}
 			else {
 				tileSprite = spriteMap[tileId];
@@ -220,7 +219,7 @@ void LevelBuilder::createDecoration(nlohmann::json layerValue)
 			tile->setPositionY((currentY * mapTileHeight) + mapTileHeight);
 			tile->setScalable(true);
 			tile->setScale(2);
-
+			engine.loadSprite(*tileSprite);
 			tile->registerSprite(SpriteState::DEFAULT, tileSprite);
 			tile->changeToState(SpriteState::DEFAULT);
 
@@ -292,7 +291,6 @@ void LevelBuilder::createTiles(nlohmann::json layerValue) {
 				sprite = textureMap[tileId];
 				tileSprite = new SpriteObject(currentTileId, sprite->height, sprite->width, 1, 300, sprite->path.c_str());
 				currentTileId++;
-				engine.loadSprite(*tileSprite);
 			}
 			else {
 				tileSprite = spriteMap[tileId];
@@ -303,7 +301,7 @@ void LevelBuilder::createTiles(nlohmann::json layerValue) {
 			tile->setStatic(true);
 			tile->setPositionX(currentX * (float)mapTileWidth);
 			tile->setPositionY((currentY * (float)mapTileHeight) + sprite->height);
-
+			engine.loadSprite(*tileSprite);
 			tile->registerSprite(SpriteState::DEFAULT, tileSprite);
 			tile->changeToState(SpriteState::DEFAULT);
 

@@ -22,7 +22,6 @@ public:
 	/// link a state with a sprite
 	API virtual void registerSprite(int state, SpriteObject* spriteObject) {
 		textures.insert(pair<int, SpriteObject*>(state, spriteObject));
-		EventSingleton::get_instance().dispatchEvent<VideoLoadSpriteEvent>((Event&)VideoLoadSpriteEvent(*spriteObject));
 	}
 	/// @brief
 	/// change the state

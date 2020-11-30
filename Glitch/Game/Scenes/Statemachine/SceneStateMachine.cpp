@@ -49,7 +49,7 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 
 	if (!handlingLevel)
 	{
-		newScene = factory->create(identifier, sceneId++);
+		newScene = factory->create(identifier, sceneId++,engine);
 	}
 	else
 	{

@@ -1,11 +1,12 @@
 #pragma once
 class SceneStateMachine;
+class Engine;
 
 class GameScene : public Scene
 {
 public:
-	GameScene(const int id) : Scene(id, WINDOW_HEIGHT, WINDOW_WIDTH) {};
-	GameScene(const int id,const int _sceneHeight, const int _sceneWidth) : Scene(id, _sceneHeight, _sceneWidth) {};
+	GameScene(const int id, Engine& _engine) : engine(_engine), Scene(id, WINDOW_HEIGHT, WINDOW_WIDTH) {};
+	GameScene(const int id,const int _sceneHeight, const int _sceneWidth, Engine& _engine) : engine(_engine), Scene(id, _sceneHeight, _sceneWidth) {};
 	~GameScene() {};
 
 	void onAttach() {};
@@ -17,5 +18,6 @@ public:
 
 protected:
 	SceneStateMachine * stateMachine;
+	Engine& engine;
 };
 

@@ -6,7 +6,7 @@
 class MainMenu : public GameScene
 {
 public:
-	MainMenu(const int id) : GameScene(id){};
+	MainMenu(const int id, Engine& engine) : GameScene(id,engine){};
 	~MainMenu();
 	// Inherited via Scene
 	void onAttach() override;

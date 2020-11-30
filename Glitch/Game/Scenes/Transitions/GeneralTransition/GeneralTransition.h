@@ -7,7 +7,7 @@
 class GeneralTransition : public GameScene
 {
 public:
-	GeneralTransition(const int id) : GameScene(id) {};
+	GeneralTransition(const int id, Engine& engine) : GameScene(id, engine) {};
 	~GeneralTransition() {};
 
 	// Inherited via Scene
