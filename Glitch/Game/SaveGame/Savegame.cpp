@@ -26,6 +26,7 @@ bool Savegame::saveGameDataToJsonFile()
 			nlohmann::json levelDataJson;
 			levelDataJson["score"] = levelData.second.score;
 			levelDataJson["completed"] = levelData.second.completed;
+			levelDataJson["levelnr"] = levelData.first;
 			saveGameJson["leveldata"].push_back(levelDataJson);
 		}
 		nlohmann::json characterData;
