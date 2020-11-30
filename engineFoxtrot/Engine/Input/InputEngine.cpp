@@ -5,7 +5,7 @@
 /// @brief 
 InputEngine::InputEngine(Engine& _engine, shared_ptr<EventDispatcher> _dispatcher): engine(_engine), dispatcher {_dispatcher}
 {
-	(*dispatcher).setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(InputEngine::onKeyPressed));
+	startup();
 
 	inputFacade = new InputFacade(_dispatcher);
 }
@@ -14,6 +14,12 @@ InputEngine::InputEngine(Engine& _engine, shared_ptr<EventDispatcher> _dispatche
 InputEngine::~InputEngine()
 {
 }
+
+void InputEngine::startup()
+{
+	(*dispatcher).setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(InputEngine::onKeyPressed));
+}
+
 
 bool InputEngine::onKeyPressed(const Event& event) {
 	auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);

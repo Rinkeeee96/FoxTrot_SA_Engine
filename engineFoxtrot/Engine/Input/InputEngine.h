@@ -13,6 +13,8 @@ public:
 	API InputEngine(Engine& engine, shared_ptr<EventDispatcher> _dispatcher);
 	API ~InputEngine();
 
+	void startup();
+
 	void pollEvents();
 private:
 
