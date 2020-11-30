@@ -18,7 +18,7 @@ public:
 	bool update30(Event& tick30Event);
 	bool removeObject(Event& event);
 
-	//TODO Set to private after testing!!!
+	//Set to private after testing!!!
 	IPhysicsFacade* physicsFacade;
 	Scene** pointerToCurrentScene = nullptr;
 
