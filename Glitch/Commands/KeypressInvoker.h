@@ -4,8 +4,6 @@
 class KeypressInvoker
 {
 public:
-	KeypressInvoker();
-	~KeypressInvoker();
 	/// @brief
 	/// Register keybinds in the invoker for the first time, 
 	/// throws exception when trying to register multiple commands under the same binding
@@ -66,11 +64,3 @@ private:
 		return playerCommands.find(keyCode) != playerCommands.end();
 	}
 };
-
-KeypressInvoker::KeypressInvoker()
-{
-}
-
-KeypressInvoker::~KeypressInvoker()
-{
-}

@@ -2,10 +2,7 @@
 #include "Game/Characters/ICharacter.h"
 #include "Game/SpriteState.h"
 
-#include "Commands/Character_commands/MoveLeftCommand.h"
-#include "Commands/Character_commands/MoveRightcommand.h"
-#include "Commands/Character_commands/JumpCommand.h"
-#include "Commands/Character_commands/StopMovementCommand.h"
+#include "Commands/KeypressInvoker.h"
 
 #define RESTITUTION_CORRECTION 1
 
@@ -28,8 +25,14 @@ public:
 	// @brief 
 	/// Handles when an key released event happend, stop moving
 	bool onKeyReleased(Event& event);
+	// @brief 
+	/// Register the keypressinvoker from the builder to capture relevant keyevents and act on them accordingly
+	void registerKeypressInvoker(shared_ptr<KeypressInvoker> invoker);
 
 	void onUpdate() override {};
 
 	ICharacter* clone(int id) override;
+
+private:
+	shared_ptr<KeypressInvoker> keypressInvoker;
 };

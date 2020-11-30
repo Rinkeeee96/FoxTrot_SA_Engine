@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Player.h"
+#include <Commands\Character_commands\StopMovementCommand.h>
 
 Player::Player(const int id) : ICharacter(id) {
 	this->setHeight(80);
@@ -97,38 +98,17 @@ void Player::setYAxisVelocity(const float val) {
 /// @brief 
 /// Handles when an key pressed event happend, Player can move right, left and jump
 bool Player::onKeyPressed(Event& event) {
-	ICharacterCommand* command = nullptr;
-	bool handled = true;
-
 	if (!getIsDead()) {
 		auto keyPressedEvent = static_cast<KeyPressedEvent&>(event);
-		// TODO command pattern
-		switch (keyPressedEvent.GetKeyCode())
-		{
-		case KeyCode::KEY_A: 
-			command = new MoveLeftCommand(*this);
-			break;
-		case KeyCode::KEY_D: 
-			command = new MoveRightCommand(*this);
-			break;
-		case KeyCode::KEY_SPACE: 
-			command = new JumpCommand(*this);
-			break;
-		default:
-			handled = false;
-		}
-
-		if (command) {
-			command->execute();
-			delete command;
-		}
-
+		keypressInvoker->executeCommand(keyPressedEvent.GetKeyCode());
+		return true;
 	}
-	return handled;
+	return false;
 }
 
 bool Player::onKeyReleased(Event& event)
 {
+	// TODO find a way to dynamically execute stop command
 	if (!getIsDead()) {
 		auto keyReleasedEvent = static_cast<KeyReleasedEvent&>(event);
 
@@ -142,6 +122,11 @@ bool Player::onKeyReleased(Event& event)
 		return false;
 	}
 	return false;
+}
+
+void Player::registerKeypressInvoker(shared_ptr<KeypressInvoker> invoker)
+{
+	keypressInvoker = invoker;
 }
 
 ICharacter* Player::clone(int id) { return new Player(id); }

@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "Commands/CommandBuilder.h"
 #include "Level.h"
-#include "Game/Game.h"
 
 /// @brief 
 /// @param sceneID 
@@ -9,11 +8,12 @@
 Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, map<string, string> _sounds = map<string, string>()) : 
 	GameScene::GameScene(id, _sceneHeight, _sceneWidth),
 	sounds(_sounds),
-	commandBuilder{ new CommandBuilder() }
+	commandBuilder{new CommandBuilder()}
 {
 }
 
-Level::Level(const int id, const int _sceneHeight, const int _sceneWidth) : GameScene::GameScene(id, _sceneHeight, _sceneWidth)
+Level::Level(const int id, const int _sceneHeight, const int _sceneWidth) : GameScene::GameScene(id, _sceneHeight, _sceneWidth),
+commandBuilder{ new CommandBuilder() }
 {
 }
 
@@ -23,11 +23,9 @@ Level::Level(const int id, const int _sceneHeight, const int _sceneWidth) : Game
 void Level::setPlayer(Object* object) {
 	this->follow = object;
 	if (Player* _player = dynamic_cast<Player*>(object)) {
-
-		ICharacter* character = dynamic_cast<ICharacter*>(_player);
-		commandBuilder->linkCommandsToPlayer(*character);
-
 		this->player = _player;
+		commandBuilder->linkCommandsToPlayer(*this->player);
+
 		startPosPlayerX = _player->getPositionX();
 		startPosPlayerY = _player->getPositionY();
 	}

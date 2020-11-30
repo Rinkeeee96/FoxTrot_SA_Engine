@@ -1,16 +1,19 @@
 #pragma once
-#include "ICommandBuilder.h"
+#include "Commands/ICommandBuilder.h"
 #include "Commands/Factory/CommandFactory.h"
-class KeypressInvoker;
+#include "Game/Characters//Player/Player.h"
 class CommandBuilder : public ICommandBuilder
 {
 public:
-	CommandBuilder() : commandFactory{new CommandFactory() } 
+	CommandBuilder()
 	{
+		keypressInvoker = std::shared_ptr<KeypressInvoker>(new KeypressInvoker());
+		commandFactory = std::shared_ptr<CommandFactory>(new CommandFactory());
 		initFactory();
 	};
 	~CommandBuilder() {};
-	virtual void linkCommandsToPlayer(ICharacter& player) override;
+	shared_ptr<KeypressInvoker> getKeypressInvoker() { return keypressInvoker; }
+	void linkCommandsToPlayer(Player& player) override;
 
 private:
 	shared_ptr<CommandFactory> commandFactory;

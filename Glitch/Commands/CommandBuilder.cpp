@@ -2,19 +2,22 @@
 #include "CommandBuilder.h"
 #include "Commands/Factory/CommandCreator.h"
 #include "Commands/Factory/CommandFactory.h"
-#include "Commands/KeypressInvoker.h"
 
 #include "Commands/Character_commands/MoveLeftCommand.h"
 #include "Commands/Character_commands/MoveRightcommand.h"
 #include "Commands/Character_commands/JumpCommand.h"
-#include <Commands\Character_commands\StopMovementCommand.h>
+#include "Commands/Character_commands/StopMovementCommand.h"
 
 // TODO read keybinds from file
-void CommandBuilder::linkCommandsToPlayer(ICharacter& player)
+void CommandBuilder::linkCommandsToPlayer(Player& player)
 {
-	keypressInvoker->registerCommands(KeyCode::KEY_A, commandFactory->create("moveRightCommand", player));
-	keypressInvoker->registerCommands(KeyCode::KEY_D, commandFactory->create("moveLeftCommand",  player));
-	keypressInvoker->registerCommands(KeyCode::KEY_SPACE, commandFactory->create("jumpCommand",  player));
+	ICharacter& character = (ICharacter&)player;
+
+	keypressInvoker->registerCommands(KeyCode::KEY_A, commandFactory->create("moveRightCommand", character));
+	keypressInvoker->registerCommands(KeyCode::KEY_D, commandFactory->create("moveLeftCommand", character));
+	keypressInvoker->registerCommands(KeyCode::KEY_SPACE, commandFactory->create("jumpCommand", character));
+
+	player.registerKeypressInvoker(this->keypressInvoker);
 }
 
 void CommandBuilder::initFactory()
