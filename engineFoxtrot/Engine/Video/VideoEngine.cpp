@@ -170,7 +170,7 @@ void VideoEngine::drawFps(double fps, int xPos, int yPos, const string& prefix =
 	if (shouldDrawFps) {
 		ColoredText m(str, Color(NO_RED, NO_BLUE, NO_GREEN), false);
 		Position p(xPos, yPos);
-		videoFacade->drawMessageAt(m, p, ObjectSize(WINDOW_WIDTH, WINDOW_HEIGHT));
+		videoFacade->drawMessageAt(m, p, ObjectSize(100, 50));
 	}
 }
 

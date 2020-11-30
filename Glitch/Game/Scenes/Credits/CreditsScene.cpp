@@ -24,21 +24,14 @@ void CreditsScene::loadButtons() {
 	backBtn->setPositionX(WINDOW_WIDTH - 40 - backBtn->getWidth());
 	backBtn->setPositionY(WINDOW_HEIGHT - 10 - backBtn->getHeight());
 
-	auto* name1 = new PrimaryButton(4, "Lars Jansen", BIND_FN(empty));
-	name1->setPositionX(CENTER_X - name1->getWidth() - 200);
-	name1->setPositionY(CENTER_Y - name1->getHeight() - 100);
-	name1->disable();
+	backBtn = new SecondaryButton(3, "To Main Menu", BIND_FN(onBackClick));
+	backBtn->setPositionX(WINDOW_WIDTH - 40 - backBtn->getWidth());
+	backBtn->setPositionY(WINDOW_HEIGHT - 10 - backBtn->getHeight());
 
-	auto* name2 = new PrimaryButton(5, "Max van Nistelrooij", BIND_FN(empty));
-	name2->setPositionX(CENTER_X - name2->getWidth() - 200);
-	name2->setPositionY(CENTER_Y - name2->getHeight() + 100);
-	name2->disable();
 
-	auto* name3 = new PrimaryButton(6, "Rinke de Vries", BIND_FN(empty));
-	name3->setPositionX(CENTER_X - name3->getWidth() - 200);
-	name3->setPositionY(CENTER_Y - name3->getHeight() + 300);
-	name3->disable();
-
+	auto* name1 = new Text(4, new ColoredText("Lars Jansen", Color(255, 255, 255)), 100, 50, CENTER_X - 300, CENTER_Y - 150);
+	auto* name2 = new Text(5, new ColoredText("Max van Nistelrooij", Color(255, 255, 255)), 400, 50, CENTER_X - 300, CENTER_Y + 50);
+	auto* name3 = new Text(6, new ColoredText("Rinke de Vries", Color(255, 255, 255)), 100, 50, CENTER_X - 300, CENTER_Y + 250);
 
 	auto* name4 = new PrimaryButton(7, "Thijs de leeuw", BIND_FN(empty));
 	name4->setPositionX(CENTER_X + name4->getWidth() /2 + 100);
