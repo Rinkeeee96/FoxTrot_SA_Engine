@@ -31,7 +31,7 @@ void Overworld::loadButtons() {
 	level1Btn->setPositionY(840); 
 	level1Btn->registerHoverSprite(hoverBtnSprite);
 
-	auto* level1TextBtn = new Button(2, ColoredText("Level 1", Color(0, 0, 0)), BIND_FN(onLevel1BtnClick), transSprite);
+	auto* level1TextBtn = new Button(2, ColoredText("Level 1, Score: " + to_string(savegame->getCurrentGameData().levelData[1].score), Color(0, 0, 0)), BIND_FN(onLevel1BtnClick), transSprite);
 	level1TextBtn->setWidth(32);
 	level1TextBtn->setHeight(20);
 	level1TextBtn->setPositionX(795);
@@ -45,7 +45,7 @@ void Overworld::loadButtons() {
 	level2Btn->setPositionY(740);
 	level2Btn->registerHoverSprite(hoverBtnSprite);
 
-	auto* level2TextBtn = new Button(4, ColoredText("Level 2", Color(0, 0, 0)), BIND_FN(onLevel1BtnClick), transSprite);
+	auto* level2TextBtn = new Button(4, ColoredText("Level 2, Score: " + to_string(savegame->getCurrentGameData().levelData[1].score), Color(0, 0, 0)), BIND_FN(onLevel1BtnClick), transSprite);
 	level2TextBtn->setWidth(100);
 	level2TextBtn->setHeight(20);
 	level2TextBtn->setPositionX(900);
