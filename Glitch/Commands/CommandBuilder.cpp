@@ -3,10 +3,19 @@
 #include "Commands/Factory/CommandCreator.h"
 #include "Commands/Factory/CommandFactory.h"
 
+#include "Game/Characters/Player/Player.h"
+
 #include "Commands/Character_commands/MoveLeftCommand.h"
 #include "Commands/Character_commands/MoveRightcommand.h"
 #include "Commands/Character_commands/JumpCommand.h"
 #include "Commands/Character_commands/StopMovementCommand.h"
+
+CommandBuilder::CommandBuilder()
+{
+	keypressInvoker = std::shared_ptr<KeypressInvoker>(new KeypressInvoker());
+	commandFactory = std::shared_ptr<CommandFactory>(new CommandFactory());
+	initFactory();
+};
 
 // TODO read keybinds from file
 void CommandBuilder::linkCommandsToPlayer(Player& player)

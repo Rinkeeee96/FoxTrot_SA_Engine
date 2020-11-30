@@ -1,5 +1,4 @@
 #pragma once
-class ICommand;
 class Player;
 
 class ICommandBuilder

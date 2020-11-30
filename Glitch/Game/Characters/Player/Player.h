@@ -1,7 +1,6 @@
 #pragma once
 #include "Game/Characters/ICharacter.h"
 #include "Game/SpriteState.h"
-
 #include "Commands/KeypressInvoker.h"
 
 #define RESTITUTION_CORRECTION 1

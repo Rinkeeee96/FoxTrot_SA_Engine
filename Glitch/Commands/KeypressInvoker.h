@@ -1,6 +1,5 @@
 #pragma once
-#include "pch.h"
-#include "ICharacterCommand.h"
+#include "Commands/ICharacterCommand.h"
 class KeypressInvoker
 {
 public:

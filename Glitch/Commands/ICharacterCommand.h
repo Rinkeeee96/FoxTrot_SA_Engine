@@ -1,8 +1,7 @@
 #pragma once
 #include "Commands/ICommand.h"
-#include "Game/SpriteState.h"
-#include "Game/Characters/ICharacter.h"
-class Player;
+
+class ICharacter;
 class ICharacterCommand : public ICommand
 {
 public:

@@ -1,4 +1,7 @@
 #pragma once
+class ICommand;
+class ICharacter;
+
 class ICommandCreator
 {
 public:
