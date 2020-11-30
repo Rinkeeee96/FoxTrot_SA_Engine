@@ -87,7 +87,7 @@ void WinScreen::LoadBackground() {
 void WinScreen::LoadMusic() {
 
 	//EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent("APPLAUSE_SOUND", "Assets/Sound/applause.wav"));
-	EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent("WIN_SOUND", "Assets/Sound/TremLoadingloopl.wav"));
+	engine.soundEngine.onLoadBackgroundMusicEvent("WIN_SOUND", "Assets/Sound/TremLoadingloopl.wav");
 }
 
 
@@ -96,13 +96,13 @@ void WinScreen::LoadMusic() {
 void WinScreen::start()
 {
 	//EventSingleton::get_instance().dispatchEvent<PlaySoundEffectEvent>((Event&)PlaySoundEffectEvent("APPLAUSE_SOUND"));
-	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("WIN_SOUND"));
+	engine.soundEngine.onStartBackgroundMusicEvent("WIN_SOUND");
 }
 
 void WinScreen::onDetach()
 {
 	//EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent("APPLAUSE_SOUND"));
-	EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent("WIN_SOUND"));
+	engine.soundEngine.onStartBackgroundMusicEvent("WIN_SOUND");
 	Scene::onDetach();
 }
 

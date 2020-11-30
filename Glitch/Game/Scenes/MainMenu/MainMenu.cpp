@@ -76,14 +76,14 @@ void MainMenu::loadBackground() {
 /// @brief 
 /// Load the sounds for this scene
 void MainMenu::loadMusic() {
-	EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent("MENU_SOUND", "Assets/Sound/file_example_WAV_1MG.wav"));
+	engine.soundEngine.onLoadBackgroundMusicEvent("MENU_SOUND", "Assets/Sound/file_example_WAV_1MG.wav");
 }
 
 /// @brief 
 /// Create the sounds for this scene
 void MainMenu::start()
 {
-	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("MENU_SOUND"));
+	engine.soundEngine.onStartBackgroundMusicEvent("MENU_SOUND");
 }
 
 void MainMenu::onUpdate()
@@ -94,7 +94,7 @@ void MainMenu::onUpdate()
 /// Remove the sounds of the soundengine
 void MainMenu::onDetach()
 {
-	EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent("MENU_SOUND"));
+	engine.soundEngine.onStartBackgroundMusicEvent("MENU_SOUND");
 	Scene::onDetach();
 }
 

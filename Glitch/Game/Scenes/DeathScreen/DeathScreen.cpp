@@ -78,14 +78,14 @@ void DeathScreen::loadBackground() {
 /// @brief 
 /// Load the sounds for this scene
 void DeathScreen::loadMusic() {
-	EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent("DEAD_SOUND", "Assets/Sound/game_over_looped.wav"));
+	engine.soundEngine.onLoadBackgroundMusicEvent("DEAD_SOUND", "Assets/Sound/game_over_looped.wav");
 }
 
 /// @brief 
 /// Create the sounds for this scene
 void DeathScreen::start()
 {
-	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("DEAD_SOUND"));
+	engine.soundEngine.onStartBackgroundMusicEvent("DEAD_SOUND");
 }
 
 void DeathScreen::onUpdate()
@@ -96,7 +96,7 @@ void DeathScreen::onUpdate()
 /// Remove the sounds of the soundengine
 void DeathScreen::onDetach()
 {
-	EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent("DEAD_SOUND"));
+	engine.soundEngine.onStartBackgroundMusicEvent("DEAD_SOUND");
 	Scene::onDetach();
 }
 

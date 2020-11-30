@@ -19,13 +19,13 @@ void SaveScreen::onAttach()
 
 void SaveScreen::onDetach()
 {
-	EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent("MENU_SOUND"));
+	engine.soundEngine.onStartBackgroundMusicEvent("MENU_SOUND");
 	Scene::onDetach();
 }
 
 void SaveScreen::start()
 {
-	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("MENU_SOUND"));
+	engine.soundEngine.onStartBackgroundMusicEvent("MENU_SOUND");
 }
 
 void SaveScreen::onUpdate()
@@ -73,7 +73,7 @@ void SaveScreen::loadBackground()
 
 void SaveScreen::loadMusic()
 {
-	EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent("MENU_SOUND", "Assets/Sound/file_example_WAV_1MG.wav"));
+	engine.soundEngine.onLoadBackgroundMusicEvent("MENU_SOUND", "Assets/Sound/file_example_WAV_1MG.wav");
 }
 
 void SaveScreen::loadButtons()

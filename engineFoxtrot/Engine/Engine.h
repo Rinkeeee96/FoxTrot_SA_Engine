@@ -46,13 +46,13 @@ public:
 	API void setEngineRunning(bool run) { running = run; }
 
 	API void restartPhysicsWorld();
+	SoundEngine soundEngine;
 private:
 
 	bool running = false;
 
 	PhysicsEngine physicsEngine;
 	ParticleEngine particleEngine;
-	SoundEngine soundEngine;
 	InputEngine inputEngine = InputEngine(*this);
 	SceneManager sceneManager;
 	FrameData frameData;
