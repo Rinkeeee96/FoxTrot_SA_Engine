@@ -40,4 +40,4 @@ void CommandBuilder::initFactory()
 	moveLeftCommand->registerClass(commandFactory);
 	moveRightCommand->registerClass(commandFactory);
 	stopMovementCommand->registerClass(commandFactory);
-}
+} 

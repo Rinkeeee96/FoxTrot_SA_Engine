@@ -55,6 +55,7 @@ private:
 			{
 				return true;
 			}
+			++it;
 		}
 		return false;
 	}
