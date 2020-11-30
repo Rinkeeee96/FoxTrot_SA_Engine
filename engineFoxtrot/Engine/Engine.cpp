@@ -49,6 +49,13 @@ void Engine::insertScene(Scene* scene)
 }
 
 /// @brief 
+/// @param id 
+void Engine::deregisterScene(const int id)
+{
+	sceneManager.deregisterScene(id);
+}
+
+/// @brief 
 /// Load a animated sprite (PNG) into the AnimatedTexture map
 /// @param spriteObject 
 void Engine::loadSprite(const SpriteObject& spriteObject) {

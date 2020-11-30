@@ -11,7 +11,7 @@ LoadLevelFacade::LoadLevelFacade(Engine& _engine) : engine(_engine)
 /// @param levelbuilder to use 
 void LoadLevelFacade::load(string path, ILevelBuilder* levelBuilder) {
 	nlohmann::json json;
-
+	builderDirector = LevelBuilderDirector();
 	try {
 		auto filestream = fileLoader.readFile(path);
 		filestream >> json;
