@@ -10,7 +10,7 @@ class Button : public Drawable
 {
 public:
 	API Button(int id, ColoredText _text, const function<void(void)> _onClick, SpriteObject* _spriteObject, 
-		shared_ptr<EventDispatcher> _dispatcher) :
+		EventDispatcher& _dispatcher) :
 		Drawable(id), 
 		text(_text),
 		onClick(_onClick),
@@ -22,8 +22,8 @@ public:
 		registerSprite(DEFAULT_STATE, _spriteObject);
 		changeToState(DEFAULT_STATE);
 
-		(*dispatcher.get()).setEventCallback<MouseButtonPressed>(BIND_EVENT_FN(Button::isClicked));
-		(*dispatcher.get()).setEventCallback<MouseMovedEvent>(BIND_EVENT_FN(Button::mouseOver));
+		dispatcher.setEventCallback<MouseButtonPressed>(BIND_EVENT_FN(Button::isClicked));
+		dispatcher.setEventCallback<MouseMovedEvent>(BIND_EVENT_FN(Button::mouseOver));
 	}
 
 	API const ColoredText* toString() { return &text; }
@@ -51,7 +51,7 @@ private:
 
 	const function<void(void)> onClick;
 
-	shared_ptr<EventDispatcher> dispatcher;
+	EventDispatcher& dispatcher;
 
 	ColoredText text;
 };

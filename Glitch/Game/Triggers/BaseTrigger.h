@@ -6,14 +6,14 @@
 class BaseTrigger : public Object
 {
 public:
-	BaseTrigger(shared_ptr<EventDispatcher> _dispatcher) : dispatcher{ _dispatcher }, Object() { }
-	BaseTrigger(const int _id, shared_ptr<EventDispatcher> _dispatcher) : dispatcher{ _dispatcher }, Object(_id, false) {
-		(*dispatcher.get()).setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(BaseTrigger::onCollisionBegin));
+	BaseTrigger(EventDispatcher& _dispatcher) : dispatcher{ _dispatcher }, Object() { }
+	BaseTrigger(const int _id, EventDispatcher& _dispatcher) : dispatcher{ _dispatcher }, Object(_id, false) {
+		dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(BaseTrigger::onCollisionBegin));
 	}
 	virtual ~BaseTrigger() { }
 
 	virtual bool onCollisionBegin(const Event& event) = 0;
 	virtual BaseTrigger* clone(const int id) = 0;
 protected:
-	shared_ptr<EventDispatcher> dispatcher;
+	EventDispatcher& dispatcher;
 };

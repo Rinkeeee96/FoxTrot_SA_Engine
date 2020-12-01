@@ -15,10 +15,7 @@ int Game::run() {
 		while (engine.getEngineRunning())
 		{
 			engine.updateFps();
-
-			engine.pollEvents();
 			engine.onUpdate();
-
 			// TODO get only the non static objects, without looping thru them again and again
 			stateMachine->updateCurrentScene();
 

@@ -8,7 +8,7 @@
 class API PhysicsEngine : public ISubsystem
 {
 public:
-	PhysicsEngine(shared_ptr<EventDispatcher> _dispatcher);
+	PhysicsEngine();
 	~PhysicsEngine();
 
 	void registerObjectInCurrentVectorWithPhysicsEngine();
@@ -22,16 +22,13 @@ public:
 	IPhysicsFacade* physicsFacade;
 	Scene** pointerToCurrentScene = nullptr;
 
-
-	void start(EventDispatcher& dispatcher) override { };
-	void update() override { };
-	void shutdown() override { };
-
-
+	void start(EventDispatcher& dispatcher) override;
+	void update() override;
+	void shutdown() override;
 	void clean();
 
 private:
-	shared_ptr<EventDispatcher> dispatcher;
+	EventDispatcher* dispatcher;
 	// CurrentScene is stored because if this changes then the objects need to be reset.
 	int currentSceneID = 0;
 };

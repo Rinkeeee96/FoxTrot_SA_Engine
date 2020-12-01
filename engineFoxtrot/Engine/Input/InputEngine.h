@@ -11,21 +11,17 @@ class Engine;
 class InputEngine : public ISubsystem
 {
 public:
-	API InputEngine(Engine& engine, shared_ptr<EventDispatcher> _dispatcher);
+	API InputEngine(Engine& engine);
 	API ~InputEngine();
 
-	void start(EventDispatcher& dispatcher) override { };
-	void update() override { };
-	void shutdown() override { };
-
-	void startup();
-
-	void pollEvents();
+	void start(EventDispatcher& dispatcher) override;
+	void update() override;
+	void shutdown() override;
 private:
 
 	Engine& engine;
-	shared_ptr<EventDispatcher> dispatcher;
 	IInputFacade *inputFacade;
+	EventDispatcher* dispatcher;
 
 	bool onKeyPressed(const Event& event);
 };

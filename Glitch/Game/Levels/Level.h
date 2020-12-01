@@ -17,8 +17,6 @@ public:
 	void onDetach() override;
 	void onUpdate() override;
 
-	shared_ptr<EventDispatcher> getEventDispatcher() { return dispatcher; }
-
 	void setWin(const bool val) { this->win = val; }
 private:
 	map<string, string> sounds;

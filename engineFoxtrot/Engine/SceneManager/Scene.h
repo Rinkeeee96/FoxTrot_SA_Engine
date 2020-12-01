@@ -80,8 +80,10 @@ public:
 
 	API void createLayer(const int zIndex, bool renderPhysics = false, bool alwaysDrawLayer = false);
 
-	shared_ptr<EventDispatcher> dispatcher{ new EventDispatcher() };
+	EventDispatcher& getEventDispatcher() { return dispatcher; }
+
 protected:
+	EventDispatcher dispatcher;
 private:
 	const int sceneID = 0;
 	map<int, Layer*> layers;

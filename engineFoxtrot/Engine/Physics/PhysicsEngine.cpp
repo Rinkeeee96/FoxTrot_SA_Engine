@@ -5,13 +5,26 @@
 
 
 /// @brief Constructor
-PhysicsEngine::PhysicsEngine(shared_ptr<EventDispatcher> _dispatcher) : dispatcher {_dispatcher}
+PhysicsEngine::PhysicsEngine()
 {
-	physicsFacade = new PhysicsFacade(_dispatcher);
-	(*dispatcher.get()).setEventCallback<ActionEvent>(BIND_EVENT_FN(PhysicsEngine::handleAction));
-	(*dispatcher.get()).setEventCallback<ObjectStopEvent>(BIND_EVENT_FN(PhysicsEngine::stopObject));
-	//(*dispatcher.get()).setEventCallback<RemoveEvent>(BIND_EVENT_FN(PhysicsEngine::removeObject));
 }
+
+
+void PhysicsEngine::start(EventDispatcher& dispatcher) {
+	this->dispatcher = &dispatcher;
+
+	dispatcher.setEventCallback<ActionEvent>(BIND_EVENT_FN(PhysicsEngine::handleAction));
+	dispatcher.setEventCallback<ObjectStopEvent>(BIND_EVENT_FN(PhysicsEngine::stopObject));
+	//(*dispatcher.get()).setEventCallback<RemoveEvent>(BIND_EVENT_FN(PhysicsEngine::removeObject));
+
+};
+void PhysicsEngine::update() {
+
+};
+void PhysicsEngine::shutdown() {
+
+};
+
 
 void PhysicsEngine::removeObject() {
 	physicsFacade->cleanMap();

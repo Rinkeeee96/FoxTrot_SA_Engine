@@ -20,26 +20,26 @@ void InputFacade::pollEvents() {
 				SDL_GetMouseState(&x, &y);
 
 				MouseMovedEvent event((float)x, (float)y);
-				(*dispatcher.get()).dispatchEvent<MouseMovedEvent>(event);
+				dispatcher.dispatchEvent<MouseMovedEvent>(event);
 				break;
 			}
 			case SDL_MOUSEBUTTONDOWN:
 			{
 				int keycode = sdl_event.button.button; 
 				MouseButtonPressed event((MouseCode)keycode);
-				(*dispatcher.get()).dispatchEvent<MouseButtonPressed>(event);
+				dispatcher.dispatchEvent<MouseButtonPressed>(event);
 				break;
 			}
 			case SDL_KEYDOWN: 
 			{
 				// Command queue with events to fire
 				KeyPressedEvent event((KeyCode)sdl_event.key.keysym.scancode, 1);
-				(*dispatcher.get()).dispatchEvent<KeyPressedEvent>(event);
+				dispatcher.dispatchEvent<KeyPressedEvent>(event);
 				break;
 			}
 			case SDL_KEYUP: {
 				KeyReleasedEvent event((KeyCode)sdl_event.key.keysym.scancode);
-				(*dispatcher.get()).dispatchEvent<KeyReleasedEvent>(event);
+				dispatcher.dispatchEvent<KeyReleasedEvent>(event);
 				break;
 			}
 			case SDL_QUIT: {

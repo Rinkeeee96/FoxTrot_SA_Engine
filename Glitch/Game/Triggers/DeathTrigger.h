@@ -4,8 +4,8 @@
 class DeathTrigger : public BaseTrigger
 {
 public:
-	DeathTrigger(shared_ptr<EventDispatcher> _dispatcher) : BaseTrigger(_dispatcher) { }
-	DeathTrigger(const int _id, shared_ptr<EventDispatcher> _dispatcher) : BaseTrigger(_id, _dispatcher) { }
+	DeathTrigger(EventDispatcher& _dispatcher) : BaseTrigger(_dispatcher) { }
+	DeathTrigger(const int _id, EventDispatcher& _dispatcher) : BaseTrigger(_id, _dispatcher) { }
 
 	virtual BaseTrigger* clone(const int id) override { return new DeathTrigger(id, dispatcher); }
 

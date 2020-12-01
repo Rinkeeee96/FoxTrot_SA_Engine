@@ -6,8 +6,8 @@ class WinTrigger : public BaseTrigger
 private:
 	Level& level;
 public:
-	WinTrigger(Level& _level, shared_ptr<EventDispatcher> _dispatcher) : BaseTrigger(_dispatcher), level(_level) { }
-	WinTrigger(const int _id, Level& _level, shared_ptr<EventDispatcher> _dispatcher) : BaseTrigger(_id, _dispatcher), level(_level) { }
+	WinTrigger(Level& _level, EventDispatcher& _dispatcher) : BaseTrigger(_dispatcher), level(_level) { }
+	WinTrigger(const int _id, Level& _level, EventDispatcher& _dispatcher) : BaseTrigger(_id, _dispatcher), level(_level) { }
 
 	virtual BaseTrigger* clone(const int id) override { return new WinTrigger(id, level, dispatcher); }
 

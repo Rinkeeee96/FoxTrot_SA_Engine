@@ -27,8 +27,7 @@ void Engine::setCurrentScene(const int sceneID)
 	inputEngine.shutdown();
 	physicsEngine.shutdown();
 
-	sceneManager.setCurrentScene(sceneID);
-	this->eventDispatcher = sceneManager.currentScene->dispatcher;
+	this->eventDispatcher =  &sceneManager.setCurrentScene(sceneID);
 
 	particleEngine.start(*this->eventDispatcher);
 	videoEngine.start(*this->eventDispatcher);
@@ -39,12 +38,6 @@ void Engine::setCurrentScene(const int sceneID)
 Scene* Engine::getCurrentScene()
 {
 	return sceneManager.currentScene;
-}
-
-/// @brief 
-void Engine::pollEvents() 
-{
-	this->inputEngine.pollEvents();
 }
 
 /// @brief 
@@ -94,6 +87,7 @@ void Engine::loadSound(map<string, string> sounds)
 
 void Engine::onUpdate()
 {
+	inputEngine.update();
 	particleEngine.onUpdate();
 	videoEngine.onUpdate();
 	physicsEngine.onUpdate();

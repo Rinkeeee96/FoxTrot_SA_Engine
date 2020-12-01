@@ -3,11 +3,8 @@
 #include "Engine.h"
 
 /// @brief 
-InputEngine::InputEngine(Engine& _engine, shared_ptr<EventDispatcher> _dispatcher): engine(_engine), dispatcher {_dispatcher}
+InputEngine::InputEngine(Engine& _engine): engine(_engine)
 {
-	startup();
-
-	inputFacade = new InputFacade(_dispatcher);
 }
 
 /// @brief 
@@ -15,15 +12,24 @@ InputEngine::~InputEngine()
 {
 }
 
-void InputEngine::startup()
-{
-	(*dispatcher).setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(InputEngine::onKeyPressed));
-}
+void InputEngine::start(EventDispatcher& dispatcher) {
+	this->dispatcher = &dispatcher;
+	inputFacade = new InputFacade(dispatcher);
+	dispatcher.setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(InputEngine::onKeyPressed));
+};
+
+void InputEngine::update() { 
+	inputFacade->pollEvents();
+};
+
+void InputEngine::shutdown() {
+	delete inputFacade;
+};
 
 
 bool InputEngine::onKeyPressed(const Event& event) {
 	auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
-
+	// TODO Send events instead of calling engine directly
 	switch (keyPressedEvent.GetKeyCode())
 	{
 	case KeyCode::KEY_F1: {
@@ -34,12 +40,7 @@ bool InputEngine::onKeyPressed(const Event& event) {
 		engine.setEngineRunning(false);
 		return true;
 	}
-    default:
-        return false;
-    }
+	default:
+		return false;
+	}
 }
-
-void InputEngine::pollEvents() {
-	inputFacade->pollEvents();
-}
-

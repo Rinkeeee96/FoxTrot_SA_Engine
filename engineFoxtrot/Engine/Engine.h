@@ -48,21 +48,20 @@ public:
 
 	API void restartPhysicsWorld();
 
-	API shared_ptr<EventDispatcher> getDispatcher() { return eventDispatcher; }
+	//API EventDispatcher& getDispatcher() { return *eventDispatcher; }
 	SoundEngine soundEngine;
 
-	shared_ptr<EventDispatcher> eventDispatcher{ new EventDispatcher() };
 private:
+	EventDispatcher* eventDispatcher;
 	bool running = false;
 
-
 	FrameData frameData;
-
 	
+	SceneManager sceneManager;
 	ParticleEngine particleEngine;
+	PhysicsEngine physicsEngine;
+
 	VideoEngine videoEngine{ frameData };
-	InputEngine inputEngine{ *this, eventDispatcher };
-	SceneManager sceneManager { eventDispatcher };
-	PhysicsEngine physicsEngine{ eventDispatcher };
+	InputEngine inputEngine{ *this };
 };
 #endif

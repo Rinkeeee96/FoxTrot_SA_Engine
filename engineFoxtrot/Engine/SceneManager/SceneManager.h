@@ -8,20 +8,19 @@ class Scene;
 class SceneManager
 {
 public:
-	API SceneManager(shared_ptr<EventDispatcher> _dispatcher);
+	API SceneManager();
 	API ~SceneManager();
 
 	// Scene modifiers
-	void API setCurrentScene(const int sceneID);
+	API EventDispatcher& setCurrentScene(const int sceneID);
 	API Scene* getSceneWithID(const int sceneID);
-	void API insertScene(Scene* scene);
-	void API deregisterScene(const int id);
+	API void insertScene(Scene* scene);
+	API void deregisterScene(const int id);
 	int getFirstFreeSceneID();
 
 	// Pointer
 	Scene* currentScene = nullptr;
 private:
-	shared_ptr<EventDispatcher> dispatcher;
 	// Helper Functions
 	bool checkIfSceneExists(const int);
 	// TODO what happens when deleting a scene?
