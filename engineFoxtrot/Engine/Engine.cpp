@@ -49,12 +49,12 @@ void Engine::insertScene(Scene* scene)
 /// @param id 
 void Engine::deregisterScene(const int id)
 {
+	inputEngine.shutdown();
 	sceneManager.deregisterScene(id);
 	videoEngine.clearVideoEngine();
 
 	particleEngine.shutdown();
 	physicsEngine.shutdown();
-	inputEngine.shutdown();
 }
 
 /// @brief

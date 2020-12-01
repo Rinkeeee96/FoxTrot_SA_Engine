@@ -14,7 +14,6 @@ union SDL_Event;
 /// @brief Facade for SDL input part
 class InputFacade : public IInputFacade
 {
-
 public:
     InputFacade(EventDispatcher& _dispatcher) : dispatcher{ _dispatcher } {};
     ~InputFacade() {};
@@ -24,6 +23,3 @@ public:
 private:
     EventDispatcher& dispatcher;
 };
-
-
-

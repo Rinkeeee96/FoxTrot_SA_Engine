@@ -71,23 +71,20 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	// Detach and delete the old now inactive scene
 	if (currentScene != nullptr)
 	{
-		currentScene->onDetach();
 		engine.deregisterScene(currentScene->getSceneID());
 	}
-
 	currentScene = newScene;
 
 	engine.insertScene(currentScene.get());
 	engine.setCurrentScene(currentScene->getSceneID());
 
-	currentScene->onAttach();
 
 	// Handle some scene specific things
 	if (currentScene && dynamic_cast<GeneralTransition*>(currentScene.get()))
 		((GeneralTransition*)currentScene.get())->setNextScene(transition);
 	
 	cout << "Setting current Scene to: " << typeid(*(engine.getCurrentScene())).name() << endl;
-	
-	
+
+	currentScene->onAttach();
 	currentScene->start();
 }
