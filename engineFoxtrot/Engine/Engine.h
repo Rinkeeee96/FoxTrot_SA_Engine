@@ -55,16 +55,17 @@ public:
 
 	API shared_ptr<EventDispatcher> getDispatcher() { return eventDispatcher; }
 	SoundEngine soundEngine;
+
+	shared_ptr<EventDispatcher> eventDispatcher{ new EventDispatcher() };
 private:
 	bool running = false;
 
-	shared_ptr<EventDispatcher> eventDispatcher{new EventDispatcher()};
 
-	ParticleEngine particleEngine;
 	FrameData frameData;
 
+	
+	ParticleEngine particleEngine;
 	VideoEngine videoEngine{ frameData };
-
 	InputEngine inputEngine{ *this, eventDispatcher };
 	SceneManager sceneManager { eventDispatcher };
 	PhysicsEngine physicsEngine{ eventDispatcher };

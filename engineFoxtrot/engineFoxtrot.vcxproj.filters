@@ -168,6 +168,7 @@
     <ClInclude Include="Engine\SceneManager\Objects\Button.h" />
     <ClInclude Include="Engine\Events\Action\ObjectStopEvent.h" />
     <ClInclude Include="Engine\Events\EventDispatcher.h" />
+    <ClInclude Include="Engine\General\ISubsystem.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

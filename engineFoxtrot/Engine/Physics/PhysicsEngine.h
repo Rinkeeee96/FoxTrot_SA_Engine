@@ -3,8 +3,9 @@
 #include "IPhysicsFacade.h"
 
 #include "SceneManager/Scene.h"
+#include "General/ISubsystem.h"
 
-class API PhysicsEngine
+class API PhysicsEngine : public ISubsystem
 {
 public:
 	PhysicsEngine(shared_ptr<EventDispatcher> _dispatcher);
@@ -20,6 +21,12 @@ public:
 	//TODO Set to private after testing!!!
 	IPhysicsFacade* physicsFacade;
 	Scene** pointerToCurrentScene = nullptr;
+
+
+	void start(EventDispatcher& dispatcher) override { };
+	void update() override { };
+	void shutdown() override { };
+
 
 	void clean();
 

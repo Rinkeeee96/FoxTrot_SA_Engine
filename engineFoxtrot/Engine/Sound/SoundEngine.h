@@ -2,16 +2,21 @@
 #include "SceneManager/Scene.h"
 #include "SoundFacade.h"
 #include "Events/Event.h"
+#include "General/ISubsystem.h"
 
 #define MAX_VOLUME 128
 
 /// @brief 
 /// SoundEngine is the Sound SDL2 wrapper
-class API SoundEngine
+class API SoundEngine : public ISubsystem
 {
 public:
 	SoundEngine();
 	~SoundEngine();
+
+	void start(EventDispatcher& dispatcher) override { };
+	void update() override { };
+	void shutdown() override { };
 
 	void SetFiles(map<string, string> files);
 	void AddFile(const string& identifier, const string& file);

@@ -23,6 +23,5 @@ private:
 	Engine& engine;
 	shared_ptr<Scene> currentScene;
 	int sceneId = 0;
-
 };
 

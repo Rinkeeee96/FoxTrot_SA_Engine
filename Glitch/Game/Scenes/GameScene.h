@@ -15,8 +15,8 @@ public:
 	// register base events
 	void onAttach(shared_ptr<EventDispatcher> _dispatcher) {
 		// register objects in scene with event dispatcher
-		_dispatcher = shared_ptr<EventDispatcher>(new EventDispatcher());
-		dispatcher = _dispatcher;
+		//_dispatcher = shared_ptr<EventDispatcher>(new EventDispatcher());
+		//dispatcher = _dispatcher;
 	};
 
 	void start() {};

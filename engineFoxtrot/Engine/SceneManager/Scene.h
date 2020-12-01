@@ -33,7 +33,7 @@ public:
 	/// OnAttach is executed when a scene is "attached" to the current running context
 	/// usually this is can be used to prime a level with relevant data before starting it.
 	/// Must be implemented by a concrete implementation of a scene
-	virtual void onAttach(shared_ptr<EventDispatcher> dispatcher) = 0;
+	virtual void onAttach() = 0;
 	/// @brief
 	/// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
 	/// Must be implemented by a concrete implementation of a scene
@@ -79,8 +79,9 @@ public:
 	API map<int, Layer*> getLayers() const;
 
 	API void createLayer(const int zIndex, bool renderPhysics = false, bool alwaysDrawLayer = false);
+
+	shared_ptr<EventDispatcher> dispatcher{ new EventDispatcher() };
 protected:
-	shared_ptr<EventDispatcher> dispatcher;
 private:
 	const int sceneID = 0;
 	map<int, Layer*> layers;

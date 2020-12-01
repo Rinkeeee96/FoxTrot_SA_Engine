@@ -4,7 +4,7 @@
 #include "Structs/HelperStructs.h"
 #include "SceneManager/Scene.h"
 #include "ParticleSystem/ParticleAdapter.h"
-
+#include "General/ISubsystem.h"
 
 #define NO_RED					0
 #define NO_BLUE					0
@@ -28,7 +28,7 @@ struct API Sprite
 /// @brief 
 /// Video is the SDL2 wrapper
 
-class API VideoEngine
+class API VideoEngine : public ISubsystem
 {
 public:
 	VideoEngine(FrameData& _frameData);
@@ -58,7 +58,9 @@ public:
 
 	void clearVideoEngine();
 
-
+	void start(EventDispatcher& dispatcher) override { };
+	void update() override { };
+	void shutdown() override { };
 private:
 	IVideoFacade* videoFacade = new VideoFacade;
 

@@ -7,7 +7,6 @@ Engine::Engine()
 	videoEngine.pointerToCurrentScene =	 &sceneManager.currentScene;
 	physicsEngine.pointerToCurrentScene = &sceneManager.currentScene;
 	particleEngine.pointerToCurrentScene = &sceneManager.currentScene;
-	
 	//this->startTickThreads();
 }
 
@@ -22,7 +21,18 @@ Engine::~Engine()
 /// SceneID to set the currentSceneID to
 void Engine::setCurrentScene(const int sceneID)
 {
+	particleEngine.shutdown();
+	videoEngine.shutdown();
+	inputEngine.shutdown();
+	physicsEngine.shutdown();
+
 	sceneManager.setCurrentScene(sceneID);
+	this->eventDispatcher = sceneManager.currentScene->dispatcher;
+
+	particleEngine.start(*this->eventDispatcher);
+	videoEngine.start(*this->eventDispatcher);
+	inputEngine.start(*this->eventDispatcher);
+	physicsEngine.start(*this->eventDispatcher);
 }
 
 Scene* Engine::getCurrentScene()

@@ -1,5 +1,6 @@
 #pragma once
 #include "Scene.h"
+
 class EventDispatcher;
 
 /// @brief 
@@ -25,5 +26,5 @@ private:
 	bool checkIfSceneExists(const int);
 	// TODO what happens when deleting a scene?
 	map<int,Scene*> scenes;
-
+	Engine* engine;
 };
