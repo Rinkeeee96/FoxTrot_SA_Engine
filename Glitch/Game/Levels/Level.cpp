@@ -48,14 +48,6 @@ void Level::onAttach() {
 		if(DEBUG_MAIN)std::cout << s.first << " has value " << s.second << std::endl;
         engine.soundEngine.onLoadBackgroundMusicEvent(s.first, s.second);
     }
-
-	for (Object* object : getAllObjectsInScene())
-	{
-		ICharacter* character = dynamic_cast<ICharacter*>(object);
-		if (character)
-			// TODO add to clone factory
-			//character->setDispatcher(dispatcher);
-	}
 }
 /// @brief
 /// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene

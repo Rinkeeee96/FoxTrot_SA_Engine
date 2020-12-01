@@ -18,8 +18,6 @@ public:
 	void onUpdate();
 	void removeObject();
 
-	//TODO Set to private after testing!!!
-	IPhysicsFacade* physicsFacade;
 	Scene** pointerToCurrentScene = nullptr;
 
 	void start(EventDispatcher& dispatcher) override;
@@ -28,6 +26,7 @@ public:
 	void clean();
 
 private:
+	IPhysicsFacade* physicsFacade;
 	EventDispatcher* dispatcher;
 	// CurrentScene is stored because if this changes then the objects need to be reset.
 	int currentSceneID = 0;

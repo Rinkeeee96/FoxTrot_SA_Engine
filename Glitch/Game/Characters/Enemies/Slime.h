@@ -5,9 +5,9 @@
 /// Slime class with correspondending AI logic
 class Slime : public IEnemy {
 public:
-	Slime(shared_ptr<EventDispatcher> _dispatcher) : IEnemy(_dispatcher) {}
-	Slime(const int id, shared_ptr<EventDispatcher> _dispatcher) : IEnemy(id, _dispatcher) {
-		(*dispatcher.get()).setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Slime::onCollisionBeginEvent));
+	Slime(EventDispatcher& _dispatcher) : IEnemy(_dispatcher) {}
+	Slime(const int id, EventDispatcher& _dispatcher) : IEnemy(id, _dispatcher) {
+		_dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Slime::onCollisionBeginEvent));
 	}
 
 	bool onCollisionBeginEvent(const Event& event) {
@@ -46,10 +46,10 @@ public:
 
 		bool positionedOnGround = this->getYAxisVelocity() == 0;
 		if(positionedOnGround)
-			(*dispatcher.get()).dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
+			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
 
 		if (playerIsInRange && playerIsBelowMe && !positionedOnGround){
-			(*dispatcher.get()).dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::DOWN, this->getObjectId()));
+			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::DOWN, this->getObjectId()));
 		}
 	};
 

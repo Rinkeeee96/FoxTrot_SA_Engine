@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Player.h"
 
-Player::Player(const int id, shared_ptr<EventDispatcher> _dispatcher) : ICharacter(id, _dispatcher) {
+Player::Player(const int id, EventDispatcher& _dispatcher) : ICharacter(id, _dispatcher) {
 	this->setHeight(80);
 	this->setWidth(80);
 	this->setPositionX(100);
@@ -19,10 +19,10 @@ Player::Player(const int id, shared_ptr<EventDispatcher> _dispatcher) : ICharact
 	this->setScalable(true);
 	this->setScale(2);
 
-	(*dispatcher.get()).setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Player::onCollisionBeginEvent));
-	(*dispatcher.get()).setEventCallback<OnCollisionEndEvent>(BIND_EVENT_FN(Player::onCollisionEndEvent));
-	(*dispatcher.get()).setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Player::onKeyPressed));
-	(*dispatcher.get()).setEventCallback<KeyReleasedEvent>(BIND_EVENT_FN(Player::onKeyReleased));
+	dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Player::onCollisionBeginEvent));
+	dispatcher.setEventCallback<OnCollisionEndEvent>(BIND_EVENT_FN(Player::onCollisionEndEvent));
+	dispatcher.setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Player::onKeyPressed));
+	dispatcher.setEventCallback<KeyReleasedEvent>(BIND_EVENT_FN(Player::onKeyReleased));
 }
 
 /// @brief 
@@ -103,7 +103,7 @@ bool Player::onKeyPressed(const Event& event) {
 		switch (keyPressedEvent.GetKeyCode())
 		{
 		case KeyCode::KEY_A:
-			(*dispatcher.get()).dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::LEFT, this->getObjectId()));
+			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::LEFT, this->getObjectId()));
 			if (canJump)
 				this->changeToState(SpriteState::RUN_LEFT);
 			else if (this->getYAxisVelocity() > 0)
@@ -112,7 +112,7 @@ bool Player::onKeyPressed(const Event& event) {
 				this->changeToState(SpriteState::AIR_JUMP_LEFT);
 			break;
 		case KeyCode::KEY_D:
-			(*dispatcher.get()).dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::RIGHT, this->getObjectId()));
+			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::RIGHT, this->getObjectId()));
 			if (canJump) {
 				this->changeToState(SpriteState::RUN_RIGHT);
 			}
@@ -127,7 +127,7 @@ bool Player::onKeyPressed(const Event& event) {
 					this->changeToState(SpriteState::AIR_JUMP_RIGHT);
 				else
 					this->changeToState(SpriteState::AIR_JUMP_LEFT);
-				(*dispatcher.get()).dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
+				dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
 			}
 			break;
 		default:
@@ -146,7 +146,7 @@ bool Player::onKeyReleased(const Event& event)
 		switch (keyReleasedEvent.GetKeyCode()) {
 		case KeyCode::KEY_A:
 		case KeyCode::KEY_D:
-			(*dispatcher.get()).dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->objectId));
+			dispatcher.dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->objectId));
 		}
 
 		return false;

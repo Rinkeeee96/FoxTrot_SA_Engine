@@ -10,12 +10,12 @@ class ContactListenerAdapter : public b2ContactListener
 private:
 	PhysicsFacade* facade;
 public:
-	ContactListenerAdapter(PhysicsFacade* _facade, shared_ptr<EventDispatcher> _dispatcher) : facade(_facade) { }
+	ContactListenerAdapter(PhysicsFacade* _facade, EventDispatcher& _dispatcher) : facade(_facade), dispatcher(_dispatcher) { }
 protected:
 	void BeginContact(b2Contact* contact) override;
 	void EndContact(b2Contact* contact) override;
 
-	shared_ptr<EventDispatcher> dispatcher;
+	EventDispatcher& dispatcher;
 	
 	map<int, vector<Direction>> getCollisionDirection(CollisionStruct result);
 };

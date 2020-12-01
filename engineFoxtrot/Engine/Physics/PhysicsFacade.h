@@ -33,7 +33,7 @@ class b2Body;
 class PhysicsFacade : public IPhysicsFacade
 {
 public:
-	PhysicsFacade(shared_ptr<EventDispatcher> _dispatcher);
+	PhysicsFacade(EventDispatcher& _dispatcher);
 	~PhysicsFacade();
 
 	void addStaticObject(PhysicsBody* object) override;
@@ -52,7 +52,7 @@ public:
 	void cleanMap();
 
 private:
-	shared_ptr<EventDispatcher> dispatcher;
+	EventDispatcher& dispatcher;
 	b2World * world;
 	const float timeStep = TIMESTEP_SEC / TIMESTEP_FRAMES;
 

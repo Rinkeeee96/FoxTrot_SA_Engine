@@ -6,8 +6,8 @@
 
 class Player : public ICharacter {
 public:
-	Player(shared_ptr<EventDispatcher> _dispatcher) :ICharacter(_dispatcher) {};
-	Player(const int id, shared_ptr<EventDispatcher> dispatcher);
+	Player(EventDispatcher& _dispatcher) :ICharacter(_dispatcher) {};
+	Player(const int id, EventDispatcher& dispatcher);
 	/// @brief 
 	/// Handles when an collision event begins, when the direction of the collision happend on the bottom side of the player object,
 	/// set can jump true

@@ -9,8 +9,8 @@ class IEnemy : public ICharacter {
 protected:
 	Player* player = nullptr;
 public:
-	IEnemy(shared_ptr<EventDispatcher> dispatcher) : ICharacter(dispatcher) {}
-	IEnemy(const int id, shared_ptr<EventDispatcher> dispatcher) : ICharacter(id, dispatcher) {}
+	IEnemy(EventDispatcher& dispatcher) : ICharacter(dispatcher) {}
+	IEnemy(const int id, EventDispatcher& dispatcher) : ICharacter(id, dispatcher) {}
 	virtual ~IEnemy() {}
 
 	void setPlayer(Player* player) {
