@@ -5,7 +5,7 @@
 /// Slime class with correspondending AI logic
 class Slime : public IEnemy {
 public:
-	Slime(EventDispatcher& _dispatcher) : IEnemy(_dispatcher) {}
+	Slime(const EventDispatcher& _dispatcher) : IEnemy(_dispatcher) {}
 	Slime(const int id, EventDispatcher& _dispatcher) : IEnemy(id, _dispatcher) {
 		_dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Slime::onCollisionBeginEvent));
 	}

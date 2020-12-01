@@ -7,7 +7,7 @@ class BaseTrigger : public Object
 {
 public:
 	BaseTrigger(EventDispatcher& _dispatcher) : dispatcher{ _dispatcher }, Object() { }
-	BaseTrigger(const int _id, EventDispatcher& _dispatcher) : dispatcher{ _dispatcher }, Object(_id, false) {
+	BaseTrigger(const int _id,EventDispatcher& _dispatcher) : dispatcher{ _dispatcher }, Object(_id, false) {
 		dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(BaseTrigger::onCollisionBegin));
 	}
 	virtual ~BaseTrigger() { }

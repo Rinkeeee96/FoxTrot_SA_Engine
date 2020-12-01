@@ -6,7 +6,7 @@
 /// Character base class
 class ICharacter : public IGameObject  {
 public:
-	ICharacter(EventDispatcher& _dispatcher) : dispatcher{ _dispatcher } {};
+	ICharacter(const EventDispatcher& _dispatcher) : dispatcher{ _dispatcher } {};
 	ICharacter(const int id, EventDispatcher& _dispatcher) : dispatcher{ _dispatcher }, IGameObject(id) {}
 	virtual ~ICharacter() {}
 
@@ -31,5 +31,5 @@ public:
 protected:
 	int health = 0;
 	bool canJump = false;
-	EventDispatcher& dispatcher;
+	const EventDispatcher& dispatcher;
 };
