@@ -6,9 +6,25 @@ bool Game::stopRun(Event& event) {
 	return true;
 }
 
+bool Game::onKeyPressed(Event& event)
+{
+	auto keyPressedEvent = static_cast<KeyPressedEvent&>(event);
+	// TODO command pattern
+	switch (keyPressedEvent.GetKeyCode())
+	{
+	case KeyCode::KEY_ESCAPE:
+		stateMachine->switchToScene("PauseScreen", false);
+		break;
+	default:
+		return false;
+	}
+	return true;
+}
+
 Game::Game()
 {
 	stateMachine = shared_ptr<SceneStateMachine>(new SceneStateMachine(engine));
+	EventSingleton::get_instance().setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Game::onKeyPressed));
 }
 
 int Game::run() {

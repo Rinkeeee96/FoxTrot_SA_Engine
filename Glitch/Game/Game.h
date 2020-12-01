@@ -15,6 +15,7 @@ public:
 	int run();
 	bool stopRun(Event& event);
 
+	bool onKeyPressed(Event& event);
 
 private:
 	Engine engine;
