@@ -15,7 +15,6 @@ public:
 
 	bool handleAction(const Event& event);
 	bool stopObject(const Event& event);
-	void onUpdate();
 	void removeObject();
 
 	Scene** pointerToCurrentScene = nullptr;
@@ -23,11 +22,12 @@ public:
 	void start(EventDispatcher& dispatcher) override;
 	void update() override;
 	void shutdown() override;
-	void clean();
 
 private:
+	void clean();
 	IPhysicsFacade* physicsFacade;
 	EventDispatcher* dispatcher;
+
 	// CurrentScene is stored because if this changes then the objects need to be reset.
 	int currentSceneID = 0;
 };
