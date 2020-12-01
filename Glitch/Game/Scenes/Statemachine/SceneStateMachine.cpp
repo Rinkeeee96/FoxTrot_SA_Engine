@@ -6,7 +6,7 @@ SceneStateMachine::SceneStateMachine(Engine& _engine) : engine(_engine)
 {
 	factory = shared_ptr<SceneFactory>(new  SceneFactory());
 	// Somehow delete this after they are used;
-	CreatorImpl <MainMenu>* Menu = new CreatorImpl <MainMenu>();
+	CreatorImpl <MainMenu>* Menu = new CreatorImpl<MainMenu>();
 	Menu->registerClass("MainMenu",factory);
 
 	CreatorImpl <DeathScreen>* Death = new CreatorImpl <DeathScreen>();
@@ -49,7 +49,7 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 
 	if (!handlingLevel)
 	{
-		newScene = factory->create(identifier, sceneId++, engine);
+		newScene = factory->create(identifier, sceneId++, engine, *this);
 	}
 	else
 	{
@@ -68,33 +68,26 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	if (sceneId > 10) sceneId = 1;
 	if (newScene == nullptr) throw exception("NewScene is Nullptr so cant set new scene");
 
-	engine.insertScene(newScene.get());
-	engine.setCurrentScene(newScene->getSceneID());
-
 	// Detach and delete the old now inactive scene
 	if (currentScene != nullptr)
 	{
 		currentScene->onDetach();
 		engine.deregisterScene(currentScene->getSceneID());
-		currentScene = nullptr;
 	}
 
 	currentScene = newScene;
 
+	engine.insertScene(currentScene.get());
+	engine.setCurrentScene(currentScene->getSceneID());
+
+	currentScene->onAttach();
+
 	// Handle some scene specific things
 	if (currentScene && dynamic_cast<GeneralTransition*>(currentScene.get()))
-	{
 		((GeneralTransition*)currentScene.get())->setNextScene(transition);
-	}
-
-	if (currentScene && dynamic_cast<GameScene*>(currentScene.get()))
-	{
-		//((GameScene*)currentScene.get())->registerStateMachine(this);
-	}
-
-	cout << "Setting current Scene to: " << typeid(*(engine.getCurrentScene())).name() << endl;
-
 	
-	currentScene->onAttach();
+	cout << "Setting current Scene to: " << typeid(*(engine.getCurrentScene())).name() << endl;
+	
+	
 	currentScene->start();
 }

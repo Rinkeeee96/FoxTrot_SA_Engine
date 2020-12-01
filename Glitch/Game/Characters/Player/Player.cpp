@@ -154,4 +154,6 @@ bool Player::onKeyReleased(const Event& event)
 	return false;
 }
 
-ICharacter* Player::clone(int id) { return new Player(id, this->dispatcher); }
+ICharacter* Player::clone(int id) { 
+	return new Player(id, this->dispatcher); 
+}

@@ -26,10 +26,6 @@ Engine::~Engine()
 /// SceneID to set the currentSceneID to
 void Engine::setCurrentScene(const int sceneID)
 {
-	particleEngine.shutdown();
-	physicsEngine.shutdown();
-	inputEngine.shutdown();
-
 	this->eventDispatcher =  &sceneManager.setCurrentScene(sceneID);
 
 	particleEngine.start(*this->eventDispatcher);
@@ -55,7 +51,10 @@ void Engine::deregisterScene(const int id)
 {
 	sceneManager.deregisterScene(id);
 	videoEngine.clearVideoEngine();
+
+	particleEngine.shutdown();
 	physicsEngine.shutdown();
+	inputEngine.shutdown();
 }
 
 /// @brief
