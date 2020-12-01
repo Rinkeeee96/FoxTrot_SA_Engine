@@ -2,7 +2,7 @@
 #include "SceneManager/Objects/Drawable.h"
 #include "Structs/HelperStructs.h"
 
-#include "ParticleSystem/ParticleLib/ParticleInit.h"
+#include "ParticleSystem/ParticleAdapter.h"
 
 /// @brief Interface class for Video facade
 class IVideoFacade
@@ -17,7 +17,7 @@ public:
 	virtual void loadImage(const SpriteObject& spriteObject) = 0;
 	virtual void renderCopy(Drawable& object) = 0;
 	virtual void drawMessageAt(const ColoredText& message, const Position& pos, const ObjectSize& boundary) = 0;
-	virtual void drawParticle(const ParticleData& data, int spriteID) = 0;
+	virtual void drawParticle(const ParticleAdapter& part) = 0;
 
 	virtual void clean() = 0;
 

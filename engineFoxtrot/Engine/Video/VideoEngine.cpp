@@ -236,17 +236,9 @@ void VideoEngine::toggleFps() {
 /// @param part pointer to the particle
 bool VideoEngine::drawParticle(ParticleAdapter* part)
 {
-	vector<ParticleData> particleData = part->getParticleDataVector();
-	for (unsigned int index = 0; index < part->getParticleCount(); index++)
-	{
-		auto& partData = particleData[index];
-
-		if (partData.size <= 0 || partData.colorA <= 0)
-		{
-			continue;
-		}
-		videoFacade->drawParticle(partData, part->GetCurrentSprite().getTextureID());
-	}
+	
+	videoFacade->drawParticle(*part);
+	
 	// do not handle on update events, they are continues
 	return false;
 }

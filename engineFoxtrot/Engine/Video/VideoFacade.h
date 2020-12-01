@@ -1,7 +1,7 @@
 #pragma once
 #include "IVideoFacade.h"
 
-#include "ParticleSystem/ParticleLib/ParticleInit.h"
+#include "ParticleSystem/ParticleAdapter.h"
 
 #define FONT_PATH "Assets/Fonts/Sans.ttf"
 #define FONT_POINT_SIZE 24
@@ -26,7 +26,7 @@ public:
 	void loadImage(const SpriteObject& spriteObject);
 	void renderCopy(Drawable& object);
 
-	void drawParticle(const ParticleData& data, int spriteID);
+	void drawParticle(const ParticleAdapter& part);
 
 	void drawMessageAt(const ColoredText& message, const Position& pos, const ObjectSize& target);
 
