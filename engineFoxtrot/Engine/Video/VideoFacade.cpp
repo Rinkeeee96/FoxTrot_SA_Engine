@@ -26,7 +26,7 @@ VideoFacade::~VideoFacade()
 /// Inits SDL2
 void VideoFacade::initSDL()
 {
-	Uint32 flags = SDL_WINDOW_SHOWN | SDL_WINDOW_FULLSCREEN;
+	Uint32 flags = SDL_WINDOW_SHOWN /*| SDL_WINDOW_FULLSCREEN*/;
 	SDL_Init(SDL_INIT_EVERYTHING);
 	TTF_Init();
 	Sans = TTF_OpenFont(FONT_PATH, FONT_POINT_SIZE);
