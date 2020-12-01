@@ -22,8 +22,13 @@ public:
 	IPhysicsFacade* physicsFacade;
 	Scene** pointerToCurrentScene = nullptr;
 
+	void setPhysicsPause(bool value) { physicsPaused = value; };
+	bool getPhysicsPauze() const { return physicsPaused; };
+
 private:
 
 	// CurrentScene is stored because if this changes then the objects need to be reset.
 	int currentSceneID = 0;
+
+	bool physicsPaused = false;
 };

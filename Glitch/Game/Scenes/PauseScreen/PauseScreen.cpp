@@ -5,13 +5,7 @@
 #include "Game/Buttons/SecondaryButton.h"
 #include "Game/Game.h"
 
-PauseScreen::PauseScreen()
-{
-}
-
-PauseScreen::~PauseScreen()
-{
-}
+#define BIND_FN(function) std::bind(&PauseScreen::function, *this)
 
 void PauseScreen::onAttach()
 {
@@ -30,7 +24,6 @@ void PauseScreen::start()
 
 void PauseScreen::onUpdate()
 {
-
 }
 
 void PauseScreen::loadBackground()
@@ -51,10 +44,54 @@ void PauseScreen::loadBackground()
 	addNewObjectToLayer(0, layer0, false, true);
 }
 
+void PauseScreen::loadButtons()
+{
+
+	//// Resume button
+	auto* resumeButton = new PrimaryButton(10, "Resume", BIND_FN(onResumeButtonClick));
+	resumeButton->setPositionX(CENTER_X - (resumeButton->getWidth() / 2));
+	resumeButton->setPositionY(CENTER_Y - 100);
+
+	// Exit button
+	auto* exitButton = new PrimaryButton(11, "Exit Level", BIND_FN(onExitButtonClick));
+	exitButton->setPositionX(CENTER_X - (exitButton->getWidth() / 2));
+	exitButton->setPositionY(CENTER_Y - 40);
+
+	// Music on/off button
+	auto* musicButton = new PrimaryButton(12, "Music On/Off", BIND_FN(onMusicButtonClick));
+	musicButton->setPositionX(CENTER_X - (musicButton->getWidth() / 2));
+	musicButton->setPositionY(CENTER_Y + 20);
+
+	// Help button
+	auto* helpButton = new PrimaryButton(13, "Help", BIND_FN(onHelpButtonClick));
+	helpButton->setPositionX(CENTER_X - (helpButton->getWidth() / 2));
+	helpButton->setPositionY(CENTER_Y + 80);
+
+	addNewObjectToLayer(3, resumeButton);
+	addNewObjectToLayer(3, exitButton);
+	addNewObjectToLayer(3, musicButton);
+	addNewObjectToLayer(3, helpButton);
+}
+
 void PauseScreen::loadMusic()
 {
 }
 
-void PauseScreen::loadButtons()
+void PauseScreen::onResumeButtonClick()
+{
+
+}
+
+void PauseScreen::onExitButtonClick()
+{
+	stateMachine->switchToScene("Overworld", false);
+}
+
+void PauseScreen::onMusicButtonClick()
 {
 }
+
+void PauseScreen::onHelpButtonClick()
+{
+}
+

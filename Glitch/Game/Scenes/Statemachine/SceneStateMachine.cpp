@@ -25,7 +25,7 @@ SceneStateMachine::SceneStateMachine(Engine& _engine) : engine(_engine)
 	win->registerClass("WinScreen", factory);
 
 	CreatorImpl <PauseScreen>* pause = new CreatorImpl <PauseScreen>();
-	win->registerClass("PauseScreen", factory);
+	pause->registerClass("PauseScreen", factory);
 }
 
 SceneStateMachine::~SceneStateMachine()

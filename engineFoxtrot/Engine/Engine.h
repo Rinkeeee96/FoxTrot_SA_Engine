@@ -43,6 +43,10 @@ public:
 	//Events
 	API void EventListeners();
 	API bool Event_LoadSprite(Event& event);
+
+	// Physics pause
+	API void setPhysicsPause(bool value);
+	API bool getPhysicsPause() const;
 private:
 	PhysicsEngine physicsEngine;
 	ParticleEngine particleEngine;

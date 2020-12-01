@@ -96,7 +96,10 @@ bool PhysicsEngine::update30(Event& tick30Event)
 		currentSceneID = (*pointerToCurrentScene)->getSceneID();
 	}
 
-	physicsFacade->update();
+	if (!physicsPaused) {
+		physicsFacade->update();
+	}
+	
 
 	//tick30Event = (AppTickEvent30&)tick30Event;
 

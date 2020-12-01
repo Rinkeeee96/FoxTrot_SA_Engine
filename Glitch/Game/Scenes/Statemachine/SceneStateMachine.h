@@ -16,6 +16,9 @@ public:
 		if (currentScene)currentScene->onUpdate();
 	}
 
+	void setPhysicsPause(bool value) { engine.setPhysicsPause(value); }
+	bool getPhysicsPause() const { return engine.getPhysicsPause(); }
+	
 private:
 
 	shared_ptr<SceneFactory>  factory = nullptr;

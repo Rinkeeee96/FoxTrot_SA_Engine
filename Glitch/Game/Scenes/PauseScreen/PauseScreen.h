@@ -3,11 +3,14 @@
 #include "SceneManager/Objects/Button.h"
 #include "Game/Scenes/GameScene.h"
 
+#define CENTER_X  (WINDOW_WIDTH / 2)
+#define CENTER_Y (WINDOW_HEIGHT / 2)
+
 class PauseScreen : public GameScene
 {
 public:
 	PauseScreen(const int id) : GameScene(id) {};
-	~PauseScreen();
+	~PauseScreen() {};
 
 	// Inherited via Scene
 	void onAttach() override;
@@ -16,16 +19,13 @@ public:
 	void onUpdate() override;
 private:
 	void loadBackground();
-	void loadMusic();
 	void loadButtons();
+	void loadMusic();
 
 	//button functions
-	//void onStartBtnClick();
-	//void onStopBtnClick();
-	//void onCreditsBtnClick();
-	//void onLoadBtnClick();
-	//Button* startBtn = nullptr;
-	//Button* stopBtn = nullptr;
-
+	void onResumeButtonClick();
+	void onExitButtonClick();
+	void onMusicButtonClick();
+	void onHelpButtonClick();
 };
 

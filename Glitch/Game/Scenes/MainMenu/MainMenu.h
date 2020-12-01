@@ -13,6 +13,7 @@ public:
 	void onDetach() override;
 	void start() override;
 	void onUpdate() override;
+
 private:
 	void loadBackground();
 	void loadMusic();
