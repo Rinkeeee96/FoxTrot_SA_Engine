@@ -107,7 +107,7 @@ void GeneralTransition::onUpdate()
 		}
 
 
-		int generated = rand() % 150 + 1;
+		int generated = rand() % 685 + 1;
 		if (progressBarFiller->getWidth() + generated > 685)
 		{
 			progressBarFiller->setWidth(685);
