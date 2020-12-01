@@ -373,9 +373,19 @@ void LevelBuilder::initFactory() {
 	auto playerJumpLeft = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_jump_left.png");
 	auto playerRunLeft = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 6, 200, "Assets/Sprites/Character/adventure_run_left.png");
 	auto playerJumpRight = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_jump_right.png");
+	
 	auto slimeDefault = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 1, 200, "Assets/Levels/Tiles/slime_blue.png");
-	auto fleyeDefault = new SpriteObject(textureId++, 42, 42, 1, 200, "Assets/Sprites/Enemies/Fleye.png");
-	auto jumpkinDefault = new SpriteObject(textureId++, 40, 32, 1, 200, "Assets/Sprites/Enemies/Jumpkin.png");
+
+	auto fleyeDefault = new SpriteObject(textureId++, 42, 42, 1, 200, "Assets/Sprites/Enemies/Fleye/Fleye_idle.png");
+	auto fleyeMove = new SpriteObject(textureId++, 112, 140, 4, 200, "Assets/Sprites/Enemies/Fleye/Fleye_move.png");
+
+	auto jumpkinDefault = new SpriteObject(textureId++, 43, 32, 1, 200, "Assets/Sprites/Enemies/Jumpkin/Jumpkin_idle.png");
+	auto jumpkinActionLeft1 = new SpriteObject(textureId++, 43, 32, 1, 400, "Assets/Sprites/Enemies/Jumpkin/Jumpkin_left_1.png");
+	auto jumpkinActionLeft2 = new SpriteObject(textureId++, 43, 30, 1, 400, "Assets/Sprites/Enemies/Jumpkin/Jumpkin_left_2.png");
+	auto jumpkinActionLeft3 = new SpriteObject(textureId++, 43, 30, 1, 400, "Assets/Sprites/Enemies/Jumpkin/Jumpkin_left_3.png");
+	auto jumpkinActionRight1 = new SpriteObject(textureId++, 43, 32, 1, 400, "Assets/Sprites/Enemies/Jumpkin/Jumpkin_right_1.png");
+	auto jumpkinActionRight2 = new SpriteObject(textureId++, 43, 30, 1, 400, "Assets/Sprites/Enemies/Jumpkin/Jumpkin_right_2.png");
+	auto jumpkinActionRight3 = new SpriteObject(textureId++, 43, 30, 1, 400, "Assets/Sprites/Enemies/Jumpkin/Jumpkin_right_3.png");
 
 	engine.loadSprite(*tileTop);
 	engine.loadSprite(*playerDefault);
@@ -387,9 +397,19 @@ void LevelBuilder::initFactory() {
 	engine.loadSprite(*playerJumpLeft);
 	engine.loadSprite(*playerRunLeft);
 	engine.loadSprite(*playerJumpRight);
+
 	engine.loadSprite(*slimeDefault);
+
 	engine.loadSprite(*fleyeDefault);
+	engine.loadSprite(*fleyeMove);
+
 	engine.loadSprite(*jumpkinDefault);
+	engine.loadSprite(*jumpkinActionLeft1);
+	engine.loadSprite(*jumpkinActionLeft2);
+	engine.loadSprite(*jumpkinActionLeft3);
+	engine.loadSprite(*jumpkinActionRight1);
+	engine.loadSprite(*jumpkinActionRight2);
+	engine.loadSprite(*jumpkinActionRight3);
 
 	std::map<SpriteState, SpriteObject*> playerMap;
 	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, playerDefault));
@@ -409,10 +429,17 @@ void LevelBuilder::initFactory() {
 
 	std::map<SpriteState, SpriteObject*> fleyeMap;
 	fleyeMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, fleyeDefault));
+	fleyeMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::ACTION_LEFT_1, fleyeMove));
 	characterFactory->registerCharacter("fleye", new Fleye(), fleyeMap);
 
 	std::map<SpriteState, SpriteObject*> jumpkinMap;
 	jumpkinMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, jumpkinDefault));
+	jumpkinMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::ACTION_LEFT_1, jumpkinActionLeft1));
+	jumpkinMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::ACTION_LEFT_2, jumpkinActionLeft2));
+	jumpkinMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::ACTION_LEFT_3, jumpkinActionLeft3));
+	jumpkinMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::ACTION_RIGHT_1, jumpkinActionRight1));
+	jumpkinMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::ACTION_RIGHT_2, jumpkinActionRight2));
+	jumpkinMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::ACTION_RIGHT_3, jumpkinActionRight3));
 	characterFactory->registerCharacter("jumpkin", new Jumpkin(), jumpkinMap);
 
 	std::map<std::string, std::map<SpriteState, SpriteObject*>> spriteObjectMap;

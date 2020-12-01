@@ -4,6 +4,9 @@
 #define HORIZONTAL_RANGE 900
 #define VERTICAL_RANGE 150
 
+//TODO Use deltaTime
+#define JUMP_ANIMATION_TIME 100
+
 /// @brief 
 /// Slime class with correspondending AI logic
 class Jumpkin : public IEnemy {
@@ -48,16 +51,38 @@ public:
 		bool playerIsInRangeHorizontally = (xDiff < HORIZONTAL_RANGE && xDiff >(HORIZONTAL_RANGE * -1));
 		bool playerIsInRangeVertically = (yDiff < VERTICAL_RANGE && yDiff >(VERTICAL_RANGE * -1));
 		Direction direction = player->getPositionX() < this->positionX ? Direction::LEFT : Direction::RIGHT;
-
 		bool positionedOnGround = this->getYAxisVelocity() == 0;
+
 		if (positionedOnGround && playerIsInRangeHorizontally && playerIsInRangeVertically) {
-			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
-			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(direction, this->getObjectId()));
+			if (!jumping) {
+				EventSingleton::get_instance().dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->getObjectId(), false));
+				jumping = true;
+			}
+		}	
+
+		if (jumping) {
+			jumpTimer++;
+			if (jumpTimer == JUMP_ANIMATION_TIME / 2) {
+				changeToState(direction == Direction::LEFT ? SpriteState::ACTION_LEFT_1 : SpriteState::ACTION_RIGHT_1);
+			}
+			if (jumpTimer == JUMP_ANIMATION_TIME) {
+				changeToState(direction == Direction::LEFT ? SpriteState::ACTION_LEFT_3 : SpriteState::ACTION_RIGHT_3);
+				EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
+				EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(direction, this->getObjectId()));
+				jumpTimer = 0;
+				jumping = false;
+			}
 		}
-		else if(!playerIsInRangeHorizontally) {
-			EventSingleton::get_instance().dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->getObjectId()));
+
+		if (!playerIsInRangeHorizontally) {
+			changeToState(SpriteState::DEFAULT);
+			EventSingleton::get_instance().dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->getObjectId(), false));
 		}
 	};
 
 	ICharacter* clone(int id) override { return new Jumpkin(id); }
+
+private:
+	int jumpTimer = 0;
+	bool jumping = false;
 };
