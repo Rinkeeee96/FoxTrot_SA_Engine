@@ -53,7 +53,8 @@ void Level::onAttach() {
 	{
 		ICharacter* character = dynamic_cast<ICharacter*>(object);
 		if (character)
-			character->setDispatcher(dispatcher);
+			// TODO add to clone factory
+			//character->setDispatcher(dispatcher);
 	}
 }
 /// @brief
