@@ -12,11 +12,10 @@ public:
 	ParticleEngine();
 	~ParticleEngine();
 
-	void start(EventDispatcher& dispatcher) override { };
-	void update() override { };
-	void shutdown() override { };
+	void start(EventDispatcher& dispatcher) override;
+	void update() override;
+	void shutdown() override;
 
-	void onUpdate();
 	Scene** pointerToCurrentScene = nullptr;
 
 private:
