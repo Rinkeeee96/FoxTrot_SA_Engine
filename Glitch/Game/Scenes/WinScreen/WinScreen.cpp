@@ -79,7 +79,7 @@ void WinScreen::LoadBackground() {
 
 	addNewObjectToLayer(0, layer0, false, true);
 	addNewObjectToLayer(1, animation);
-	addNewObjectToLayer(2, confetti);
+	addNewObjectToLayer(2, confetti, false, true);
 }
 
 /// @brief 

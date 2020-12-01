@@ -6,7 +6,7 @@ Game::Game()
 
 int Game::run() {
 
-	/*try {*/
+	try {
 		stateMachine.switchToScene("MainMenu", false);
 
 		engine.setEngineRunning(true);
@@ -22,14 +22,14 @@ int Game::run() {
 			engine.updateFps();
 		}
 		Savegame::get_instance().saveGameDataToJsonFile();
-	//}
-	/*catch (int e) {
+	}
+	catch (int e) {
 		cout << ERRORCODES[e] << endl;
 		return EXIT_FAILURE;
 	}
 	catch (exception e) {
 		cout << e.what() << endl;
 		return EXIT_FAILURE;
-	}*/
+	}
 	return EXIT_SUCCES;
 }
