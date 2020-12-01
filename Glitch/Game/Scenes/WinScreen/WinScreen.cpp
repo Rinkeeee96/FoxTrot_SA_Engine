@@ -13,8 +13,6 @@
 
 void WinScreen::onAttach()
 {
-	
-
 	LoadButtons();
 	LoadBackground();
 	LoadMusic();
@@ -112,14 +110,14 @@ void WinScreen::onDetach()
 /// Remove the sounds of the soundengine
 void WinScreen::OnMainBtnClick()
 {
-	stateMachine->switchToScene("MainMenu", false);
+	stateMachine.switchToScene("MainMenu", false);
 }
 
 /// @brief 
 /// A callback function for overworldBTN
 /// Start transition scene to overworld
 void WinScreen::onOverworldBtnClick() {
-	stateMachine->switchToScene("Overworld", false);
+	stateMachine.switchToScene("Overworld", false);
 }
 
 /// @brief 

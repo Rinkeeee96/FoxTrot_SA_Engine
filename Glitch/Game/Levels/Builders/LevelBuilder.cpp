@@ -12,7 +12,7 @@ bool LevelBuilder::getAlwaysDrawFromJson(nlohmann::json layerValue)
 	return false;
 }
 
-LevelBuilder::LevelBuilder(Engine& _engine, int levelId) : AbstractLevelBuilder(_engine), bLevel(new Level(levelId, 0, 0, _engine)) {
+LevelBuilder::LevelBuilder(Engine& _engine, int levelId, SceneStateMachine& _statemachine) : AbstractLevelBuilder(_engine), bLevel(new Level(levelId, 0, 0, _engine, _statemachine)) {
 	
 }
 

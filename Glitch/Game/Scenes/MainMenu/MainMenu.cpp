@@ -106,7 +106,7 @@ void MainMenu::onDetach()
 /// Start transition scene to OVERWORLD
 void MainMenu::onStartBtnClick()
 {
-	stateMachine->switchToScene("SaveScreen", false);
+	stateMachine.switchToScene("SaveScreen", false);
 }
 
 

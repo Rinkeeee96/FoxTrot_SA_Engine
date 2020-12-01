@@ -126,7 +126,7 @@ void GeneralTransition::onUpdate()
 		previousCallTime = chrono::high_resolution_clock::now();
 		if (animation->getPositionX() > WINDOW_WIDTH)
 		{
-			stateMachine->switchToScene(nextScene,false);
+			stateMachine.switchToScene(nextScene,false);
 		}
 		
 	}

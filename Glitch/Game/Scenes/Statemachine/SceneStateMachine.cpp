@@ -54,7 +54,7 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	else
 	{
 		LoadLevelFacade levelLoader{ engine };
-		LevelBuilder levelOneBuilder{ engine, sceneId++ };
+		LevelBuilder levelOneBuilder{ engine, sceneId++, *this };
 
 		int levelToBuild = stoi(identifier.substr(6));
 		cout << "Level to build: " << levelToBuild << endl;
@@ -89,7 +89,7 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 
 	if (currentScene && dynamic_cast<GameScene*>(currentScene.get()))
 	{
-		((GameScene*)currentScene.get())->registerStateMachine(this);
+		//((GameScene*)currentScene.get())->registerStateMachine(this);
 	}
 
 	cout << "Setting current Scene to: " << typeid(*(engine.getCurrentScene())).name() << endl;

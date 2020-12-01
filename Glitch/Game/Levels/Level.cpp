@@ -2,17 +2,7 @@
 #include "Level.h"
 #include "Game/Game.h"
 
-/// @brief 
-/// @param sceneID 
-/// @param _sounds this contains the sounds for the level with identifier and filepath
-Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, Engine& engine, map<string, string> _sounds = map<string, string>()) :
-	GameScene::GameScene(id, _sceneHeight, _sceneWidth, engine),
-	sounds(_sounds)
-{
-
-}
-
-Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, Engine& engine) : GameScene::GameScene(id, _sceneHeight, _sceneWidth, engine)
+Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, Engine& engine, SceneStateMachine& _stateMachine) : GameScene::GameScene(id, _sceneHeight, _sceneWidth, engine, _stateMachine)
 {
 
 }
@@ -66,11 +56,11 @@ void Level::start() {
 void Level::onUpdate() {
 	if (this->win) {
 		player->kill();
-		stateMachine->switchToScene("WinScreen", false);
+		stateMachine.switchToScene("WinScreen", false);
 		return;
 	}
 	if (player->getIsDead()) {
-		stateMachine->switchToScene("DeathScreen", false);
+		stateMachine.switchToScene("DeathScreen", false);
 		return;
 	}
 

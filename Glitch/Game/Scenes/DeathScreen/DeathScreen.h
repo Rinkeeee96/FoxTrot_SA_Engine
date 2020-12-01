@@ -6,7 +6,7 @@
 class DeathScreen : public GameScene
 {
 public:
-	DeathScreen(const int id, Engine& engine) : GameScene(id, engine) {};
+	DeathScreen(const int id, Engine& engine, SceneStateMachine& _statemachine) : GameScene(id, engine, _statemachine) {};
 	~DeathScreen();
 	// Inherited via Scene
 	void onAttach() override;

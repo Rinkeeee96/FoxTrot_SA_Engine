@@ -12,8 +12,6 @@
 
 void DeathScreen::onAttach()
 {
-	
-
 	loadButtons();
 	loadBackground();
 	loadMusic();
@@ -107,7 +105,7 @@ void DeathScreen::onDetach()
 /// Start transition scene to level1
 void DeathScreen::onReStartBtnClick()
 {
-	stateMachine->switchToScene("Level_1", true);
+	stateMachine.switchToScene("Level_1", true);
 }
 
 
@@ -115,5 +113,5 @@ void DeathScreen::onReStartBtnClick()
 /// A callback function for overworldBTN
 /// Start transition scene to overworl
 void DeathScreen::onOverworldBtnClick() {
-	stateMachine->switchToScene("Overworld", false);
+	stateMachine.switchToScene("Overworld", false);
 }

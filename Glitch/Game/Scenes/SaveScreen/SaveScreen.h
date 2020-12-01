@@ -7,7 +7,7 @@
 class SaveScreen : public GameScene
 {
 public:
-	SaveScreen(const int id, Engine& engine) : GameScene(id, engine) {};
+	SaveScreen(const int id, Engine& engine, SceneStateMachine& _statemachine) : GameScene(id, engine, _statemachine) {};
 	~SaveScreen() {};
 
 	// Inherited via Scene
