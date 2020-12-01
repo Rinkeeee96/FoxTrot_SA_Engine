@@ -143,6 +143,26 @@ void VideoEngine::clearVideoEngine()
 	videoFacade->clean();
 }
 
+void VideoEngine::start(EventDispatcher& dispatcher)
+{
+	videoFacade = new VideoFacade();
+}
+
+void VideoEngine::update()
+{
+	clearScreen();
+	updateScreen();
+
+	drawFps();
+	drawScreen();
+}
+
+void VideoEngine::shutdown()
+{
+	clearVideoEngine();
+	delete videoFacade;
+}
+
 /// @brief 
 /// Update all the sprites on the screen
 /// Updates the camera offset
@@ -210,17 +230,6 @@ void VideoEngine::drawFps(double fps, int xPos, int yPos, const string& prefix =
 /// Toggles fps visibility
 void VideoEngine::toggleFps() {
 	shouldDrawFps = !shouldDrawFps;
-}
-
-/// @brief Handle the tick update from the thread
-void VideoEngine::onUpdate()
-{
-	clearScreen();
-	updateScreen();
-
-	drawFps();
-	drawScreen();
-
 }
 
 /// @brief Draws the Particles

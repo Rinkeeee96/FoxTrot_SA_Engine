@@ -8,12 +8,16 @@ Engine::Engine()
 	videoEngine.pointerToCurrentScene =	 &sceneManager.currentScene;
 	physicsEngine.pointerToCurrentScene = &sceneManager.currentScene;
 	particleEngine.pointerToCurrentScene = &sceneManager.currentScene;
+
+
+	videoEngine.start(*this->eventDispatcher);
 	//this->startTickThreads();
 }
 
 /// @brief 
 Engine::~Engine()
 {
+	videoEngine.shutdown();
 }
 
 /// @brief 
@@ -23,14 +27,12 @@ Engine::~Engine()
 void Engine::setCurrentScene(const int sceneID)
 {
 	particleEngine.shutdown();
-	videoEngine.shutdown();
-	inputEngine.shutdown();
 	physicsEngine.shutdown();
+	inputEngine.shutdown();
 
 	this->eventDispatcher =  &sceneManager.setCurrentScene(sceneID);
 
 	particleEngine.start(*this->eventDispatcher);
-	videoEngine.start(*this->eventDispatcher);
 	inputEngine.start(*this->eventDispatcher);
 	physicsEngine.start(*this->eventDispatcher);
 }
@@ -53,7 +55,7 @@ void Engine::deregisterScene(const int id)
 {
 	sceneManager.deregisterScene(id);
 	videoEngine.clearVideoEngine();
-	physicsEngine.clean();
+	physicsEngine.shutdown();
 }
 
 /// @brief
@@ -89,6 +91,6 @@ void Engine::onUpdate()
 {
 	inputEngine.update();
 	particleEngine.update();
-	videoEngine.onUpdate();
-	physicsEngine.onUpdate();
+	videoEngine.update();
+	physicsEngine.update();
 }

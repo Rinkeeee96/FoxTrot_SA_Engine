@@ -20,10 +20,19 @@ void PhysicsEngine::start(EventDispatcher& dispatcher) {
 
 };
 void PhysicsEngine::update() {
+	if (currentSceneID != (*pointerToCurrentScene)->getSceneID())
+	{
+		if (DEBUG_PHYSICS_ENGINE)cout << "Cleaning map and reinserting Objects" << endl;
+		physicsFacade->cleanMap();
+		registerObjectInCurrentVectorWithPhysicsEngine();
+		currentSceneID = (*pointerToCurrentScene)->getSceneID();
+	}
 
+	physicsFacade->update();
 };
 void PhysicsEngine::shutdown() {
-
+	clean();
+	delete physicsFacade;
 };
 
 
@@ -35,7 +44,9 @@ void PhysicsEngine::removeObject() {
 /// @brief 
 void PhysicsEngine::clean()
 {
-	physicsFacade->cleanMap();
+	if (physicsFacade)
+		physicsFacade->cleanMap();
+	
 }
 
 /// @brief 
@@ -74,7 +85,7 @@ bool PhysicsEngine::stopObject(const Event& event) {
 /// @brief Destructor
 PhysicsEngine::~PhysicsEngine()
 {
-	delete physicsFacade;
+	shutdown();
 }
 
 /// @brief 
@@ -98,22 +109,6 @@ void PhysicsEngine::registerObjectInCurrentVectorWithPhysicsEngine()
 			physicsFacade->addDynamicObject(phyObj);
 		}
 	}
-}
-
-/// @brief 
-/// Handle the tick given from the thread. 
-void PhysicsEngine::onUpdate()
-{
-	if (currentSceneID != (*pointerToCurrentScene)->getSceneID())
-	{
-		if (DEBUG_PHYSICS_ENGINE)cout << "Cleaning map and reinserting Objects" << endl;
-		physicsFacade->cleanMap();
-		registerObjectInCurrentVectorWithPhysicsEngine();
-		currentSceneID = (*pointerToCurrentScene)->getSceneID();
-	}
-
-	physicsFacade->update();
-
 }
 
 

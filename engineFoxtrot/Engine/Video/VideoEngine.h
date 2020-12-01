@@ -34,36 +34,31 @@ public:
 	VideoEngine(FrameData& _frameData);
 	~VideoEngine();
 
-	void clearScreen();
-	void drawScreen();
 	void loadImage(const SpriteObject& spriteObject);
-
 	void renderCopy(Drawable& drawable);
-
-	void updateScreen();
-
-	void drawFps();
-	void drawFps(double fps, int xPos, int yPos, const string& prefix);
 	void toggleFps();
-
-	void onUpdate();
-
 	bool drawParticle(ParticleAdapter* part);
-
 	void calculateOffset(Object& obj, int sceneWidth, int sceneHeight);
 
-	Scene** pointerToCurrentScene = nullptr;
 
 	bool checkObjectInScreen(const Object& obj);
 
 	void clearVideoEngine();
 
-	void start(EventDispatcher& dispatcher) override { };
-	void update() override { };
-	void shutdown() override { };
-private:
-	IVideoFacade* videoFacade = new VideoFacade;
+	void start(EventDispatcher& dispatcher) override;
+	void update() override;
+	void shutdown() override;
 
+	Scene** pointerToCurrentScene = nullptr;
+private:
+	void drawFps();
+	void drawFps(double fps, int xPos, int yPos, const string& prefix);
+	void updateScreen();
+	void clearScreen();
+	void drawScreen();
+
+	IVideoFacade* videoFacade;
+	
 	FrameData& frameData;
 	bool shouldDrawFps = false;
 };
