@@ -16,7 +16,7 @@ public:
 		if (currentScene)currentScene->onUpdate();
 	}
 
-	string& getCurrentSceneIdentifier();
+	string& getCurrentLevelIdentifier();
 
 private:
 

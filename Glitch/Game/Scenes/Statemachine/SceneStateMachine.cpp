@@ -101,7 +101,7 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 
 }
 
-string& SceneStateMachine::getCurrentSceneIdentifier()
+string& SceneStateMachine::getCurrentLevelIdentifier()
 {
 	return this->currentLevelIdentifier;
 }
