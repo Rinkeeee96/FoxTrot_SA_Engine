@@ -1,8 +1,12 @@
 #pragma once
-class PauseScreen : public Scene
+#include "api.h"
+#include "SceneManager/Objects/Button.h"
+#include "Game/Scenes/GameScene.h"
+
+class PauseScreen : public GameScene
 {
 public:
-	PauseScreen();
+	PauseScreen(const int id) : GameScene(id) {};
 	~PauseScreen();
 
 	// Inherited via Scene

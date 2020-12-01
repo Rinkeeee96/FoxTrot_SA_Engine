@@ -15,7 +15,7 @@ int Game::run() {
 
 	try {
 		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
-		stateMachine->switchToScene("MainMenu", false);
+		stateMachine->switchToScene("PauseScreen", false);
 
 		while (gameRunning)
 		{
