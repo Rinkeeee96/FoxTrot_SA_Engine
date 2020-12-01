@@ -88,8 +88,8 @@ void Engine::loadSound(map<string, string> sounds)
 
 void Engine::onUpdate()
 {
-	inputEngine.update();
 	particleEngine.update();
 	videoEngine.update();
 	physicsEngine.update();
+	inputEngine.update();
 }
