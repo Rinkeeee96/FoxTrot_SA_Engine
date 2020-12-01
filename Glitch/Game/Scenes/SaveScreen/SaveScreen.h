@@ -4,8 +4,6 @@
 #include "Game/Buttons/PrimaryButton.h"
 #include "Game/Buttons/SecondaryButton.h"
 
-
-
 class SaveScreen : public GameScene
 {
 public:
@@ -13,7 +11,7 @@ public:
 	~SaveScreen() {};
 
 	// Inherited via Scene
-	void onAttach(shared_ptr<EventDispatcher> _dispatcher) override;
+	void onAttach() override;
 	void onDetach() override;
 	void start() override;
 	void onUpdate() override;

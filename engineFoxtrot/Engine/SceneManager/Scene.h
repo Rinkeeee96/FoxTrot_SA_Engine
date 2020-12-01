@@ -33,11 +33,11 @@ public:
 	/// OnAttach is executed when a scene is "attached" to the current running context
 	/// usually this is can be used to prime a level with relevant data before starting it.
 	/// Must be implemented by a concrete implementation of a scene
-	virtual void onAttach() = 0;
+	API virtual void onAttach() = 0;
 	/// @brief
 	/// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
 	/// Must be implemented by a concrete implementation of a scene
-	virtual void start() = 0;
+	API virtual void start() = 0;
 	/// @brief
 	/// OnDetach is called when a scene is destroyed/closed and is responsible for cleanup
 	/// Must be implemented by a concrete implementation of a scene
@@ -46,7 +46,7 @@ public:
 	/// @brief
 	/// run is called in the main loop on the currentScene
 	/// If any work needs to be done during a scene this is were to place it
-	virtual void onUpdate() = 0;
+	API virtual void onUpdate() = 0;
 
 	void setSceneWidth(const int width) { sceneWidth = width; }
 	int getSceneWidth() const { return sceneWidth; }

@@ -9,7 +9,7 @@ public:
 	WinScreen(const int id, Engine& engine) : GameScene(id, engine) {};
 	~WinScreen();
 	// Inherited via Scene
-	void onAttach(shared_ptr<EventDispatcher> _dispatcher) override;
+	void onAttach() override;
 	void onDetach() override;
 	void start() override;
 	void onUpdate() override;

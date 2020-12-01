@@ -10,9 +10,9 @@
 #define CENTER_X  (WINDOW_WIDTH / 2)
 #define CENTER_Y (WINDOW_HEIGHT / 2)
 
-void DeathScreen::onAttach(shared_ptr<EventDispatcher> _dispatcher)
+void DeathScreen::onAttach()
 {
-	GameScene::onAttach(_dispatcher);
+	
 
 	loadButtons();
 	loadBackground();

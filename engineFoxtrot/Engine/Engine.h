@@ -48,11 +48,6 @@ public:
 
 	API void restartPhysicsWorld();
 
-	API void restart()
-	{
-		inputEngine.startup();
-	};
-
 	API shared_ptr<EventDispatcher> getDispatcher() { return eventDispatcher; }
 	SoundEngine soundEngine;
 

@@ -11,9 +11,9 @@
 #define CENTER_X  (WINDOW_WIDTH / 2)
 #define CENTER_Y (WINDOW_HEIGHT / 2)
 
-void WinScreen::onAttach(shared_ptr<EventDispatcher> _dispatcher)
+void WinScreen::onAttach()
 {
-	GameScene::onAttach(_dispatcher);
+	
 
 	LoadButtons();
 	LoadBackground();

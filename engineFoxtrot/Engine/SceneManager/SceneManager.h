@@ -1,7 +1,7 @@
 #pragma once
-#include "Scene.h"
-
 class EventDispatcher;
+class Engine;
+class Scene;
 
 /// @brief 
 /// Contains all scenes. Manages all scenes and objects.

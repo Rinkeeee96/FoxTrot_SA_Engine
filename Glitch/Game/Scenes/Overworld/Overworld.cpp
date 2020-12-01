@@ -10,9 +10,9 @@
 /// Loadbuttons
 /// LoadBackground
 /// LoadMusic
-void Overworld::onAttach(shared_ptr<EventDispatcher> _dispatcher)
+void Overworld::onAttach()
 {
-	GameScene::onAttach(_dispatcher);
+	
 	loadButtons();
 	loadBackground();
 	loadMusic();

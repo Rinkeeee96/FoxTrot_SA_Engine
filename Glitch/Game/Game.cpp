@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "Game.h"
-
 Game::Game()
 {
 	stateMachine = shared_ptr<SceneStateMachine>(new SceneStateMachine(engine));

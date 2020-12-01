@@ -2,6 +2,7 @@
 class SceneStateMachine;
 class Engine;
 class ICharacter;
+#include "Engine/SceneManager/Scene.h"
 
 class GameScene : public Scene
 {
@@ -13,18 +14,12 @@ public:
 	~GameScene() {};
 
 	// register base events
-	void onAttach(shared_ptr<EventDispatcher> _dispatcher) {
-		// register objects in scene with event dispatcher
-		//_dispatcher = shared_ptr<EventDispatcher>(new EventDispatcher());
-		//dispatcher = _dispatcher;
-	};
-
-	void start() {};
-	void onDetach() {};
-	void onUpdate() {};
+	virtual void onAttach() override = 0;
+	virtual void start() override = 0;
+	virtual void onUpdate() override = 0;
+	virtual void onDetach() override = 0;
 
 	void registerStateMachine(SceneStateMachine * stateMachine);
-
 protected:
 	SceneStateMachine * stateMachine;
 	Engine& engine;
