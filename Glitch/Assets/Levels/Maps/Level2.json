@@ -327,6 +327,12 @@
  "nextlayerid":10,
  "nextobjectid":23,
  "orientation":"orthogonal",
+ "properties":[
+        {
+         "name":"music",
+         "type":"string",
+         "value":"file_example_WAV_2MG.wav"
+        }],
  "renderorder":"right-down",
  "tiledversion":"1.4.3",
  "tileheight":32,
