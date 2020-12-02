@@ -398,3 +398,8 @@ void LevelBuilder::initFactory() {
 
 	std::map<std::string, std::map<SpriteState, SpriteObject*>> spriteObjectMap;
 }
+
+int LevelBuilder::GetLastTextureId()
+{
+	return textureId;
+}

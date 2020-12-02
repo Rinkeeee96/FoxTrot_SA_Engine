@@ -16,6 +16,7 @@ protected:
 	std::unique_ptr<Level> level;
 public:
 	virtual unique_ptr<Level> getLevel() = 0;
+	virtual int GetLastTextureId() = 0;
 	virtual void create() = 0;
 	virtual void createLevel(nlohmann::json json) = 0;
 	virtual void createEntities(nlohmann::json layerValue) = 0;
