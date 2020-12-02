@@ -20,6 +20,8 @@ public:
 	virtual void start() override = 0;
 	virtual void onUpdate() override = 0;
 	virtual void onDetach() override = 0;
+
+	void registerSavegame(Savegame* _savegame);
 protected:
 	SceneStateMachine& stateMachine;
 	Engine& engine;

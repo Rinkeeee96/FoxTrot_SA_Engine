@@ -14,9 +14,9 @@ public:
 
 private:
 	Engine engine;
-	Savegame savegame;
+	Savegame* savegame;
 
-	SceneStateMachine stateMachine{ engine,savegame };
+	shared_ptr<SceneStateMachine> stateMachine;
 
 	bool gameRunning = true;
 };

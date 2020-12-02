@@ -54,7 +54,14 @@ public:
 	SaveGameData getCurrentGameData();
 	void saveCurrentGameData(SaveGameData saveGame);
 	
-	SaveGameData getSaveGameData(const int id) { return saveGameDataMap[id]; }
+	SaveGameData getSaveGameData(const int id) 
+	{ 
+		if (saveGameDataMap.count(id) > 0)
+		{
+			return saveGameDataMap[id];
+		}
+		throw exception("Trying to get unknown");
+	}
 
 private:
 	FileLoader fileLoader;

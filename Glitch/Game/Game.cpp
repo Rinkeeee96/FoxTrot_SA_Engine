@@ -2,14 +2,16 @@
 #include "Game.h"
 Game::Game()
 {
+	savegame = new Savegame();
+	stateMachine = shared_ptr<SceneStateMachine>(new SceneStateMachine{ engine,savegame });
 }
 
 int Game::run() {
 
 	try {
 		string path = "Assets/SaveGame/saveGameData.json";
-		savegame.readSaveGameDataFromJson(path);
-		stateMachine.switchToScene("MainMenu", false);
+		savegame->readSaveGameDataFromJson(path);
+		stateMachine->switchToScene("MainMenu", false);
 
 		engine.setEngineRunning(true);
 
@@ -18,12 +20,12 @@ int Game::run() {
 			engine.updateFps();
 			engine.onUpdate();
 			// TODO get only the non static objects, without looping thru them again and again
-			stateMachine.updateCurrentScene();
+			stateMachine->updateCurrentScene();
 
 			this_thread::sleep_for(chrono::milliseconds(10));
 			engine.updateFps();
 		}
-		savegame.saveGameDataToJsonFile();
+		savegame->saveGameDataToJsonFile();
 	}
 	catch (int e) {
 		cout << ERRORCODES[e] << endl;
