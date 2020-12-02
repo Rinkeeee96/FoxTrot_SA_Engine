@@ -6,7 +6,7 @@
 class CreditsScene : public GameScene
 {
 public:
-	CreditsScene(const int id) : GameScene(id, WINDOW_HEIGHT, WINDOW_WIDTH) {};
+	CreditsScene(const int id, Engine& _engine, SceneStateMachine& _statemachine) : GameScene(id, _engine, _statemachine) {};
 	~CreditsScene() { };
 	// Inherited via Scene
 	void onAttach() override;
@@ -14,6 +14,9 @@ public:
 	void start() override;
 	void onUpdate() override;
 private:
+
+	vector<Text*> text;
+
 	void loadBackground();
 	void loadMusic();
 	void loadButtons();

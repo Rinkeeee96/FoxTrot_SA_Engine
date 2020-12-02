@@ -115,15 +115,13 @@ void VideoFacade::renderCopy(Drawable& object)
 	}
 	SpriteObject& sprite = object.GetCurrentSprite();
 
-	/*if (sprite == NULL) {
-	if (!textureMap.count(sprite.getTextureID()))
-	{
+	//if (sprite == NULL) {
+	if (!textureMap.count(sprite.getTextureID())) {
 		loadImage(sprite);
 	}
-	if (textureMap[sprite.getTextureID()] == NULL) 
+	if (textureMap[sprite.getTextureID()] == NULL)  {
 		throw exception(ERRORCODES[ERROR_CODE_SVIFACADE_RENDERCOPY_SPRITE_ID_IS_NULL]);
-	}*/
-	if (textureMap[sprite.getTextureID()] == NULL) throw exception(ERRORCODES[ERROR_CODE_SVIFACADE_RENDERCOPY_SPRITE_ID_IS_NULL]);
+	}
 	//generate image 
 	Uint32 ticks = SDL_GetTicks();
 	Uint32 seconds = ticks / sprite.getAnimationDelay();
