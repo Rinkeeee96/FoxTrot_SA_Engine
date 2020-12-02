@@ -3,15 +3,17 @@
 class JumpCommand : public ICharacterCommand
 {
 public:
-	JumpCommand(ICharacter& _character) : ICharacterCommand(_character) {};
 	// Inherited via ICommand
-	void execute() const override {
-		if (character.getCanJump()) {
-			if (character.getXAxisVelocity() > 0)
-				character.changeToState(SpriteState::AIR_JUMP_RIGHT);
+	void execute(EventDispatcher& dispatcher) override {
+		if (!isEnabled())
+			return;
+
+		if (character->getCanJump()) {
+			if (character->getXAxisVelocity() > 0)
+				character->changeToState(SpriteState::AIR_JUMP_RIGHT);
 			else
-				character.changeToState(SpriteState::AIR_JUMP_LEFT);
-			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, character.getObjectId()));
+				character->changeToState(SpriteState::AIR_JUMP_LEFT);
+			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, character->getObjectId()));
 		}
 	}
 };

@@ -12,22 +12,23 @@
 
 CommandBuilder::CommandBuilder()
 {
-	keypressInvoker = std::shared_ptr<KeypressInvoker>(new KeypressInvoker());
+	keypressInvoker = new GameKeypressInvoker();
 	commandFactory = std::shared_ptr<CommandFactory>(new CommandFactory());
 	initFactory();
-};
+}
 
 // TODO read keybinds from file
-void CommandBuilder::linkCommandsToPlayer(Player& player)
+void CommandBuilder::buildCommandList()
 {
-	ICharacter& character = (ICharacter&)player;
+	keypressInvoker->registerPlayerCommand(KeyCode::KEY_A, commandFactory->createCharacterCommand("moveLeftCommand"));
+	keypressInvoker->registerPlayerCommand(KeyCode::KEY_D, commandFactory->createCharacterCommand("moveRightCommand"));
+	keypressInvoker->registerPlayerCommand(KeyCode::KEY_SPACE, commandFactory->createCharacterCommand("jumpCommand"));
+};
 
-	keypressInvoker->registerCommands(KeyCode::KEY_A, commandFactory->create("moveLeftCommand", character));
-	keypressInvoker->registerCommands(KeyCode::KEY_D, commandFactory->create("moveRightCommand", character));
-	keypressInvoker->registerCommands(KeyCode::KEY_SPACE, commandFactory->create("jumpCommand", character));
-
-	player.registerKeypressInvoker(this->keypressInvoker);
+GameKeypressInvoker* CommandBuilder::getKeypressInvoker() {
+	return keypressInvoker;
 }
+
 
 void CommandBuilder::initFactory()
 {

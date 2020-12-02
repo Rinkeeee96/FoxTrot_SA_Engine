@@ -3,13 +3,18 @@
 #include "Engine.h"
 
 /// @brief 
-InputEngine::InputEngine(Engine& _engine): engine(_engine)
+InputEngine::InputEngine(Engine& _engine): 
+	engine(_engine)
 {
 }
 
 /// @brief 
 InputEngine::~InputEngine()
 {
+}
+
+void InputEngine::registerKeypressInvoker(KeypressInvoker* _keypressInvoker) {
+	keypressInvoker = _keypressInvoker;
 }
 
 void InputEngine::start(EventDispatcher& dispatcher) {
@@ -19,7 +24,11 @@ void InputEngine::start(EventDispatcher& dispatcher) {
 };
 
 void InputEngine::update() { 
-	if(inputFacade)inputFacade->pollEvents();
+	if(inputFacade)
+		inputFacade->pollEvents();
+
+	if (keypressInvoker)
+		keypressInvoker->executeCommandQueue(*this->dispatcher);
 };
 
 void InputEngine::shutdown() {

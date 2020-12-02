@@ -25,8 +25,6 @@ private:
 	Player* player = nullptr;
 	bool win = false;
 
-	ICommandBuilder* commandBuilder;
-
 	float startPosPlayerX = 0;
 	float startPosPlayerY = 0;
 };

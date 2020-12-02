@@ -1,7 +1,7 @@
 #pragma once
 #include "Game/Characters/ICharacter.h"
 #include "Game/SpriteState.h"
-#include "Commands/KeypressInvoker.h"
+#include "Commands/GameKeypressInvoker.h"
 
 #define RESTITUTION_CORRECTION 1
 
@@ -26,12 +26,12 @@ public:
 	bool onKeyReleased(const Event& event);
 	// @brief 
 	/// Register the keypressinvoker from the builder to capture relevant keyevents and act on them accordingly
-	void registerKeypressInvoker(shared_ptr<KeypressInvoker> invoker);
+	void registerKeypressInvoker(GameKeypressInvoker* invoker);
 
-	void onUpdate() override {};
+	void onUpdate() override;
 
 	ICharacter* clone(int id) override;
 
 private:
-	shared_ptr<KeypressInvoker> keypressInvoker;
+	GameKeypressInvoker* keypressInvoker;
 };

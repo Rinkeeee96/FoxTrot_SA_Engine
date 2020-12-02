@@ -8,13 +8,24 @@ void CommandFactory::registerit(const std::string& classname, ICommandCreator* c
 	table[classname] = creator;
 }
 
-shared_ptr<ICommand> CommandFactory::create(const std::string& classname, ICharacter& character)
+unique_ptr<ICommand> CommandFactory::create(const std::string& classname)
 {
 	std::map<std::string, ICommandCreator*>::iterator i;
 	i = table.find(classname);
 
 	if (i != table.end())
-		return i->second->create(character);
+		return i->second->create();
 	else
-		return (shared_ptr<ICommand>) nullptr;
+		return (unique_ptr<ICommand>) nullptr;
+}
+
+unique_ptr<ICharacterCommand> CommandFactory::createCharacterCommand(const std::string& classname)
+{
+	std::map<std::string, ICommandCreator*>::iterator i;
+	i = table.find(classname);
+
+	if (i != table.end())
+		return i->second->createCharacterCommand();
+	else
+		return (unique_ptr<ICharacterCommand>) nullptr;
 }

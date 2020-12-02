@@ -25,6 +25,10 @@ public:
 	API Engine();
 	API ~Engine();
 
+	API void useCustomCommandInvoker(KeypressInvoker* newInvoker) {
+		this->keypressInvoker = newInvoker;
+	}
+
 	//SceneManager calls
 	API void setCurrentScene(const int sceneID);
 	API Scene* getCurrentScene();
@@ -35,9 +39,6 @@ public:
 	API void loadSound(const string& identifier, const string& path);
 	API void loadSound(map<string, string> sounds);
 
-	// Input calls
-	API void pollEvents();
-
 	API void onUpdate();
 
 	API void updateFps();
@@ -45,6 +46,8 @@ public:
 
 	API bool getEngineRunning() { return running; };
 	API void setEngineRunning(bool run) { running = run; }
+
+	API KeypressInvoker& getKeypressedInvoker() { return *keypressInvoker; }
 
 	API void restartPhysicsWorld();
 
@@ -56,7 +59,8 @@ private:
 	bool running = false;
 
 	FrameData frameData;
-	
+	KeypressInvoker* keypressInvoker;
+
 	SceneManager sceneManager;
 	ParticleEngine particleEngine;
 	PhysicsEngine physicsEngine;

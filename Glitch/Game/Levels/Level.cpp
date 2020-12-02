@@ -5,9 +5,7 @@
 #include "Game/Scenes/Statemachine/SceneStateMachine.h"
 
 Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, Engine& engine, SceneStateMachine& _stateMachine) : 
-GameScene::GameScene(id, _sceneHeight, _sceneWidth, engine, _stateMachine),
-commandBuilder{ new CommandBuilder() }
-{
+GameScene::GameScene(id, _sceneHeight, _sceneWidth, engine, _stateMachine){
 }
 
 // @brief 
@@ -17,7 +15,9 @@ void Level::setPlayer(Object* object) {
 	this->follow = object;
 	if (Player* _player = dynamic_cast<Player*>(object)) {
 		this->player = _player;
-		commandBuilder->linkCommandsToPlayer(*this->player);
+
+		auto gameInvoker = (GameKeypressInvoker&)engine.getKeypressedInvoker();
+		gameInvoker.linkCommandsToPlayer(*this->player);
 
 		startPosPlayerX = _player->getPositionX();
 		startPosPlayerY = _player->getPositionY();

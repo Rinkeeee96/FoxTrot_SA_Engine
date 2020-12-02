@@ -10,6 +10,8 @@ Engine::Engine()
 	particleEngine.pointerToCurrentScene = &sceneManager.currentScene;
 
 
+	keypressInvoker = new KeypressInvoker();
+
 	videoEngine.start(*this->eventDispatcher);
 	//this->startTickThreads();
 }

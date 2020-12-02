@@ -13,6 +13,7 @@ public:
 private:
 	Engine engine;
 	SceneStateMachine stateMachine{ engine };
+	ICommandBuilder* commandBuilder;
 
 	bool gameRunning = true;
 };

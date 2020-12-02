@@ -24,6 +24,7 @@
     <ClCompile Include="Game\Scenes\Factory\FactoryMethod.cpp" />
     <ClCompile Include="Game\Scenes\DeathScreen\DeathScreen.cpp" />
     <ClCompile Include="Game\Scenes\Statemachine\SceneStateMachine.cpp" />
+    <ClCompile Include="Commands\GameKeypressInvoker.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
@@ -59,8 +60,6 @@
     <ClInclude Include="Game\SaveGame\Savegame.h" />
     <ClInclude Include="Game\Scenes\SaveScreen\SaveScreen.h" />
     <ClInclude Include="Game\Scenes\Overworld\Overworld.h" />
-    <ClInclude Include="Commands\KeypressInvoker.h" />
-    <ClInclude Include="Commands\ICommand.h" />
     <ClInclude Include="Commands\Character_commands\JumpCommand.h" />
     <ClInclude Include="Commands\Character_commands\MoveLeftCommand.h" />
     <ClInclude Include="Commands\Character_commands\MoveRightCommand.h" />
@@ -77,5 +76,6 @@
     <ClInclude Include="Game\Scenes\Statemachine\SceneStateMachine.h" />
     <ClInclude Include="Commands\Factory\CommandCreator.h" />
     <ClInclude Include="Commands\Factory\ICommandCreator.h" />
+    <ClInclude Include="Commands\GameKeypressInvoker.h" />
   </ItemGroup>
 </Project>

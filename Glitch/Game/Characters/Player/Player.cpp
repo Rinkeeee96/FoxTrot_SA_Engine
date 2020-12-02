@@ -99,8 +99,14 @@ void Player::setYAxisVelocity(const float val) {
 /// Handles when an key pressed event happend, Player can move right, left and jump
 bool Player::onKeyPressed(const Event& event) {
 	if (!getIsDead()) {
-		auto keyPressedEvent = static_cast<KeyPressedEvent&>(event);
+		auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
+		// zet welke toest ik indruk in de player.h en of ik een toets indruk 
+		// bool keyPressed =  true
+		// Keycode pressedKey = event.getKeyCode()
+		// keyPressInvoker->setDispatcher(this->dispatcher)
 		keypressInvoker->executeCommand(keyPressedEvent.GetKeyCode());
+
+		// keypressInvoker->executeCommand(keyPressedEvent.GetKeyCode(), this->dispatcher);
 		return true;
 	}
 	return false;
@@ -108,6 +114,9 @@ bool Player::onKeyPressed(const Event& event) {
 
 bool Player::onKeyReleased(const Event& event)
 {
+	// bool keyPressed =  false
+	// Keycode pressedKey = nullptr
+
 	// TODO find a way to dynamically execute stop command
 	if (!getIsDead()) {
 		auto keyReleasedEvent = static_cast<const KeyReleasedEvent&>(event);
@@ -115,8 +124,9 @@ bool Player::onKeyReleased(const Event& event)
 		switch (keyReleasedEvent.GetKeyCode()) {
 			case KeyCode::KEY_A:
 			case KeyCode::KEY_D:
-				StopMovementCommand command(*this);
-				command.execute();
+				StopMovementCommand command;
+				command.registerCharacter(this);
+				command.execute(this->dispatcher);
 		}
 
 		return false;
@@ -124,9 +134,16 @@ bool Player::onKeyReleased(const Event& event)
 	return false;
 }
 
-void Player::registerKeypressInvoker(shared_ptr<KeypressInvoker> invoker)
+void Player::registerKeypressInvoker(GameKeypressInvoker* invoker)
 {
 	keypressInvoker = invoker;
+}
+
+void Player::onUpdate()
+{
+	// welke toest is pressed?
+	// call invoker met pressed key
+	// hoe komen we hier aan pressed key?
 }
 
 ICharacter* Player::clone(int id) { 

@@ -167,9 +167,8 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Commands\Factory\CommandFactory.h" />
     <ClInclude Include="Commands\Factory\ICommandCreator.h" />
     <ClInclude Include="Commands\Factory\CommandCreator.h" />
-    <ClInclude Include="Commands\ICommand.h" />
     <ClInclude Include="Commands\ICommandBuilder.h" />
-    <ClInclude Include="Commands\KeypressInvoker.h" />
+    <ClInclude Include="Commands\GameKeypressInvoker.h" />
     <ClInclude Include="Commands\ICharacterCommand.h" />
     <ClInclude Include="Commands\Character_commands\JumpCommand.h" />
     <ClInclude Include="Commands\Character_commands\MoveLeftCommand.h" />
@@ -218,6 +217,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
   <ItemGroup>
     <ClCompile Include="Commands\CommandBuilder.cpp" />
     <ClCompile Include="Commands\Factory\CommandFactory.cpp" />
+    <ClCompile Include="Commands\GameKeypressInvoker.cpp" />
     <ClCompile Include="Game\Characters\Enemies\IEnemy.h" />
     <ClCompile Include="Game\Factories\CharacterFactory.cpp" />
     <ClCompile Include="Game\Factories\TriggerFactory.cpp" />

@@ -12,7 +12,8 @@ public:
 		factory->registerit(key, this); 
 	};
 	// Inherited via ICommandCreator
-	virtual shared_ptr<ICommand> create(ICharacter& character) { return shared_ptr<T>{new T(character)}; }
+	virtual unique_ptr<ICommand> create() { return unique_ptr<T>{new T()}; }
+	virtual unique_ptr<ICharacterCommand> createCharacterCommand() { return unique_ptr<T>{new T()}; }
 private:
 	string key;
 };

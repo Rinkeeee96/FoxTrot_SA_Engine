@@ -1,13 +1,20 @@
 #pragma once
-#include "Commands/ICommand.h"
+#include "Input/ICommand.h"
 
 class ICharacter;
 class ICharacterCommand : public ICommand
 {
 public:
-	ICharacterCommand(ICharacter& _character) : character{ _character } {};
-	virtual void execute() const override = 0;
+	virtual void execute(EventDispatcher& dispatcher) override = 0;
+
+	void registerCharacter(ICharacter* _character) {
+		character = _character;
+	}
+
+	bool isEnabled() override {
+		return character == nullptr;
+	}
 
 protected:
-	ICharacter& character;
+	ICharacter* character;
 };

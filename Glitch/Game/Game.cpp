@@ -1,12 +1,16 @@
 #include "pch.h"
 #include "Game.h"
+#include "Commands/CommandBuilder.h"
 Game::Game()
 {
+	commandBuilder = new CommandBuilder();
 }
 
 int Game::run() {
 
 	try {
+		engine.useCustomCommandInvoker(commandBuilder->getKeypressInvoker());
+
 		stateMachine.switchToScene("MainMenu", false);
 
 		engine.setEngineRunning(true);

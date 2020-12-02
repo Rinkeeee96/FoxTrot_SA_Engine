@@ -1,10 +1,12 @@
 #pragma once
 class Player;
-
+class GameKeypressInvoker;
 class ICommandBuilder
 {
-private:
 public:
-	virtual void linkCommandsToPlayer(Player& character) = 0;
 	virtual void initFactory() = 0;
+
+	GameKeypressInvoker* getKeypressInvoker() { return keypressInvoker; }
+protected:
+	GameKeypressInvoker* keypressInvoker;
 };

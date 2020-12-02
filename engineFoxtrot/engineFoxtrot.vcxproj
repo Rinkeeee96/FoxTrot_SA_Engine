@@ -163,6 +163,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Engine\Input\KeypressInvoker.cpp" />
     <ClCompile Include="Engine\SceneManager\Objects\Drawable.cpp" />
     <ClCompile Include="Engine\Engine.cpp" />
     <ClCompile Include="Engine\FileParser\FileLoader.cpp" />
@@ -200,6 +201,8 @@
     <ClInclude Include="Engine\Events\InputMapping\ReleaseInputEvent.h" />
     <ClInclude Include="Engine\Events\EventDispatcher.h" />
     <ClInclude Include="Engine\General\ISubsystem.h" />
+    <ClInclude Include="Engine\Input\ICommand.h" />
+    <ClInclude Include="Engine\Input\KeypressInvoker.h" />
     <ClInclude Include="Engine\SceneManager\Objects\Drawable.h" />
     <ClInclude Include="Engine\core.h" />
     <ClInclude Include="Engine\Events\Action\ActionEvent.h" />
