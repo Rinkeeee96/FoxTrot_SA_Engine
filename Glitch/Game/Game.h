@@ -16,7 +16,7 @@ private:
 	Engine engine;
 	Savegame savegame;
 
-	SceneStateMachine stateMachine{ engine };
+	SceneStateMachine stateMachine{ engine,savegame };
 
 	bool gameRunning = true;
 };
