@@ -14,11 +14,13 @@ public:
 	void updateCurrentScene()
 	{
 		if (currentScene)currentScene->onUpdate();
-	}
+	};
 
 	void setPhysicsPause(bool value) { engine.setPhysicsPause(value); }
 	bool getPhysicsPause() const { return engine.getPhysicsPause(); }
 	
+	string& getCurrentSceneIdentifier();
+
 private:
 
 	shared_ptr<SceneFactory>  factory = nullptr;
@@ -26,6 +28,6 @@ private:
 	Engine& engine;
 	shared_ptr<Scene> currentScene;
 	int sceneId = 0;
-
+	string currentLevelIdentifier = "";
 };
 

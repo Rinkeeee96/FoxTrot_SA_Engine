@@ -66,6 +66,8 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 		path = "Assets/Levels/Maps/Level" + to_string(levelToBuild) + ".json";
 		levelLoader.load(path, &levelOneBuilder);
 		newScene = levelOneBuilder.getLevel();
+
+		this->currentLevelIdentifier = identifier;
 	}
 
 	if (sceneId > 10) sceneId = 1;
@@ -100,4 +102,9 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	currentScene->onAttach();
 	currentScene->start();
 
+}
+
+string& SceneStateMachine::getCurrentSceneIdentifier()
+{
+	return this->currentLevelIdentifier;
 }

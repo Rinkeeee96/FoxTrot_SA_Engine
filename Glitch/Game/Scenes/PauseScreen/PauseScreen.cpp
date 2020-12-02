@@ -79,7 +79,7 @@ void PauseScreen::loadMusic()
 
 void PauseScreen::onResumeButtonClick()
 {
-
+	stateMachine->switchToScene(stateMachine->getCurrentSceneIdentifier(), false);
 }
 
 void PauseScreen::onExitButtonClick()
