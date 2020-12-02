@@ -57,7 +57,7 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 		int levelToBuild = stoi(identifier.substr(6));
 		cout << "Level to build: " << levelToBuild << endl;
 
-		LevelBuilder levelOneBuilder{ engine, sceneId++, *this, currentTextureId };
+		LevelBuilder levelOneBuilder{ engine, sceneId++, *this };
 
 		string path;
 		path = "Assets/Levels/Maps/Level" + to_string(levelToBuild) + ".json";

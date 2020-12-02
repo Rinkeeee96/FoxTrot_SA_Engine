@@ -35,13 +35,13 @@ private:
 
 	bool getAlwaysDrawFromJson(nlohmann::json layerValue);
 
-	int currentTileId = 999;
+	int currentTileId = 0;
 	int mapTileWidth = 16;
 	int mapTileHeight = 16;
 	int textureId = 0;
 	int id = 0;
 public:
-	LevelBuilder(Engine& _engine, int levelId, SceneStateMachine& _statemachine, int _startingTileId = 999);
+	LevelBuilder(Engine& _engine, int levelId, SceneStateMachine& _statemachine);
 
 	void createLevel(nlohmann::json json) override;
 	void createEntities(nlohmann::json layerValue) override;
