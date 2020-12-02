@@ -155,12 +155,12 @@ void SaveScreen::onSave1ExtraBtnClick()
 		SaveGameData save3;
 		save3.saveGameName = "Save 1";
 		savegame->addSaveGameData(1, save3);
-		stateMachine.switchToScene("SaveScreen", true);
+		stateMachine.switchToScene("SaveScreen", false);
 	}
 	else
 	{
 		savegame->deleteSaveGameData(1);
-		stateMachine.switchToScene("SaveScreen", true);
+		stateMachine.switchToScene("SaveScreen", false);
 	}
 }
 
@@ -177,12 +177,12 @@ void SaveScreen::onSave2ExtraBtnClick()
 		SaveGameData save3;
 		save3.saveGameName = "Save 2";
 		savegame->addSaveGameData(2, save3);
-		stateMachine.switchToScene("SaveScreen", true);
+		stateMachine.switchToScene("SaveScreen", false);
 	}
 	else
 	{
 		savegame->deleteSaveGameData(2);
-		stateMachine.switchToScene("SaveScreen", true);
+		stateMachine.switchToScene("SaveScreen", false);
 	}
 }
 
@@ -200,12 +200,12 @@ void SaveScreen::onSave3ExtraBtnClick()
 		SaveGameData save3;
 		save3.saveGameName = "Save 3";
 		savegame->addSaveGameData(3,save3);
-		stateMachine.switchToScene("SaveScreen", true);
+		stateMachine.switchToScene("SaveScreen", false);
 	}
 	else
 	{
 		savegame->deleteSaveGameData(3);
-		stateMachine.switchToScene("SaveScreen", true);
+		stateMachine.switchToScene("SaveScreen", false);
 	}
 }
 
