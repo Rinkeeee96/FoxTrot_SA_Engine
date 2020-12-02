@@ -1,6 +1,5 @@
 #pragma once
 #include "Events/Codes/KeyCodes.h"
-#include "./Events/EventSingleton.h"
 #include "./Events/Key/KeyPressed.h"
 #include "./Events/Key/KeyReleased.h"
 #include "./Events/Mouse/MouseMoved.h"
@@ -15,13 +14,12 @@ union SDL_Event;
 /// @brief Facade for SDL input part
 class InputFacade : public IInputFacade
 {
-
 public:
-    InputFacade();
-    ~InputFacade();
+    InputFacade(EventDispatcher& _dispatcher) : dispatcher{ _dispatcher } {};
+    ~InputFacade() {};
 
 	void pollEvents() override;
+
+private:
+    EventDispatcher& dispatcher;
 };
-
-
-

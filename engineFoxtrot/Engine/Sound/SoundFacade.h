@@ -27,31 +27,32 @@ public:
 
 	bool isMix_PlayingMusic();
 
-	void SetFiles(map<string, string> files);
-	void AddFile(const string& identifier, const string& file);
-	void PlayEffect(const string& identifier, const int volume);
-	void LoadEffect(const string& identifier);
-	void UnloadEffect(const string& identifier);
-	void StartLoopedEffect(const string& effect, const int volume);
-	void StopLoopedEffect(const string& identifier);
-	void LoadMusic(const string& identifier);
-	void PlayMusic(const int volume);
-	void PlayMusic(const string& identifier, const int volume);
-	void ChangeMusic(const string& identifier);
-	void FadeOutMusic(const int fadeTime);
-	void FadeInMusic(const int fadeTime);
-	void FadeInMusic(const string& identifier, const int fadeTime);
-	void RewindMusic();
-	void StopMusic();
-	void PauseMusic();
-	void ResumeMusic();
-	void Flush();
-	bool IdentifierExists(const string& identifier);
-	bool IdentifierIsLoaded(const string& identifier);
+	void setFiles(map<string, string> files);
+	void addFile(const string& identifier, const string& file);
+	void playEffect(const string& identifier, const int volume);
+	void loadEffect(const string& identifier);
+	void unloadEffect(const string& identifier);
+	void startLoopedEffect(const string& effect, const int volume);
+	void stopLoopedEffect(const string& identifier);
+	void loadMusic(const string& identifier);
+	void playMusic(const int volume);
+	void playMusic(const string& identifier, const int volume);
+	void changeMusic(const string& identifier);
+	void fadeOutMusic(const int fadeTime);
+	void fadeInMusic(const int fadeTime);
+	void fadeInMusic(const string& identifier, const int fadeTime);
+	void rewindMusic();
+	void stopMusic();
+	void pauseMusic();
+	void resumeMusic();
+	void flush();
+	bool identifierExists(const string& identifier);
+	bool identifierIsLoaded(const string& identifier);
 private:
 	map<string, string> soundPaths;
 	map<string, int> loopChannels;
 	Mix_Music* music;
+	// TODO clear on scene detach
 	map<std::string, Mix_Chunk*> loadedSoundEffects;
 
 };

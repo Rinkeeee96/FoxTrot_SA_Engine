@@ -26,7 +26,7 @@ VideoFacade::~VideoFacade()
 /// Inits SDL2
 void VideoFacade::initSDL()
 {
-	Uint32 flags = SDL_WINDOW_SHOWN | SDL_WINDOW_FULLSCREEN;
+	Uint32 flags = SDL_WINDOW_SHOWN /*| SDL_WINDOW_FULLSCREEN*/;
 	SDL_Init(SDL_INIT_EVERYTHING);
 	TTF_Init();
 	Sans = TTF_OpenFont(FONT_PATH, FONT_POINT_SIZE);
@@ -80,7 +80,8 @@ void VideoFacade::drawScreen()
 /// @param spriteObject 
 /// @param filename
 void VideoFacade::loadImage(const SpriteObject& spriteObject) {
-	if (spriteObject.getFileName() == NULL) throw exception(ERRORCODES[ERROR_CODE_SVIFACADE_FILENAME_IS_NULL]);
+	if (spriteObject.getFileName() == NULL) 
+		throw exception(ERRORCODES[ERROR_CODE_SVIFACADE_FILENAME_IS_NULL]);
 
 	int textureId = spriteObject.getTextureID();
 
@@ -115,7 +116,12 @@ void VideoFacade::renderCopy(Drawable& object)
 	SpriteObject& sprite = object.GetCurrentSprite();
 
 	/*if (sprite == NULL) {
-
+	if (!textureMap.count(sprite.getTextureID()))
+	{
+		loadImage(sprite);
+	}
+	if (textureMap[sprite.getTextureID()] == NULL) 
+		throw exception(ERRORCODES[ERROR_CODE_SVIFACADE_RENDERCOPY_SPRITE_ID_IS_NULL]);
 	}*/
 	if (textureMap[sprite.getTextureID()] == NULL) throw exception(ERRORCODES[ERROR_CODE_SVIFACADE_RENDERCOPY_SPRITE_ID_IS_NULL]);
 	//generate image 
@@ -158,14 +164,36 @@ void VideoFacade::renderCopy(Drawable& object)
 /// @param colorB 
 /// @param colorA 
 /// @param rotation 
-void VideoFacade::drawParticle(const ParticleData& data, int spriteID)
+void VideoFacade::drawParticle(const ParticleAdapter& part)
 {
-	SDL_Rect r = { int(data.posx + data.startPosX - data.size / 2) - xCameraOffset, int(data.posy + data.startPosY - data.size / 2) - yCameraOffset, int(data.size), int(data.size) };
-	SDL_Color c = { Uint8(data.colorR * 255), Uint8(data.colorG * 255), Uint8(data.colorB * 255), Uint8(data.colorA * 255) };
-	SDL_SetTextureColorMod(textureMap[spriteID], c.r, c.g, c.b);
-	SDL_SetTextureAlphaMod(textureMap[spriteID], c.a);
-	SDL_SetTextureBlendMode(textureMap[spriteID], SDL_BLENDMODE_BLEND);
-	SDL_RenderCopyEx(renderer, textureMap[spriteID], nullptr, &r, data.rotation, nullptr, SDL_FLIP_NONE);
+	SpriteObject& sprite = part.GetCurrentSprite();
+
+	if (!textureMap.count(sprite.getTextureID()))
+	{
+		loadImage(sprite);
+	}
+	if (textureMap[sprite.getTextureID()] == NULL)
+		throw exception(ERRORCODES[ERROR_CODE_SVIFACADE_RENDERCOPY_SPRITE_ID_IS_NULL]);
+
+
+	vector<ParticleData> particleData = part.getParticleDataVector();
+	for (unsigned int index = 0; index < part.getParticleCount(); index++)
+	{
+		auto& partData = particleData[index];
+
+		if (partData.size <= 0 || partData.colorA <= 0)
+		{
+			continue;
+		}
+		SDL_Rect r = { int(partData.posx + partData.startPosX - partData.size / 2) - xCameraOffset, int(partData.posy + partData.startPosY - partData.size / 2) - yCameraOffset, int(partData.size), int(partData.size) };
+		SDL_Color c = { Uint8(partData.colorR * 255), Uint8(partData.colorG * 255), Uint8(partData.colorB * 255), Uint8(partData.colorA * 255) };
+		SDL_SetTextureColorMod(textureMap[sprite.getTextureID()], c.r, c.g, c.b);
+		SDL_SetTextureAlphaMod(textureMap[sprite.getTextureID()], c.a);
+		SDL_SetTextureBlendMode(textureMap[sprite.getTextureID()], SDL_BLENDMODE_BLEND);
+		SDL_RenderCopyEx(renderer, textureMap[sprite.getTextureID()], nullptr, &r, partData.rotation, nullptr, SDL_FLIP_NONE);
+	}
+
+	
 }
 
 /// @brief
@@ -212,3 +240,16 @@ void VideoFacade::drawMessageAt(const ColoredText& message, const Position& pos,
 		SDL_DestroyTexture(messageTexture);
 	}
 }
+
+/// @brief 
+void VideoFacade::clean()
+{
+	for (auto texture : textureMap)
+	{
+		SDL_DestroyTexture(texture.second);
+	}
+	textureMap.clear();
+	xCameraOffset = 0;
+	yCameraOffset = 0;
+}
+

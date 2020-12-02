@@ -2,10 +2,9 @@
 #include "VideoFacade.h"
 #include "Fps/FrameData.h"
 #include "Structs/HelperStructs.h"
-#include "Events/Action/FpsToggleEvent.h"
 #include "SceneManager/Scene.h"
 #include "ParticleSystem/ParticleAdapter.h"
-
+#include "General/ISubsystem.h"
 
 #define NO_RED					0
 #define NO_BLUE					0
@@ -29,39 +28,37 @@ struct API Sprite
 /// @brief 
 /// Video is the SDL2 wrapper
 
-class API VideoEngine
+class API VideoEngine : public ISubsystem
 {
 public:
-	VideoEngine();
+	VideoEngine(FrameData& _frameData);
 	~VideoEngine();
 
-	void clearScreen();
-	void drawScreen();
 	void loadImage(const SpriteObject& spriteObject);
-
 	void renderCopy(Drawable& drawable);
-
-	void updateScreen();
-
-	void drawFps();
-	void drawFps(double fps, int xPos, int yPos, const string& prefix);
-	bool toggleFps(Event& fpsEvent);
-
-	bool updateFps(Event& fpsEvent);
-
-	bool receiveTick(Event& tickEvent);
-
+	void toggleFps();
 	bool drawParticle(ParticleAdapter* part);
-
 	void calculateOffset(Object& obj, int sceneWidth, int sceneHeight);
 
-	Scene** pointerToCurrentScene = nullptr;
 
 	bool checkObjectInScreen(const Object& obj);
 
-private:
-	IVideoFacade* videoFacade = new VideoFacade;
+	void clearVideoEngine();
 
-	FrameData* frameData = nullptr;
+	void start(EventDispatcher& dispatcher) override;
+	void update() override;
+	void shutdown() override;
+
+	Scene** pointerToCurrentScene = nullptr;
+private:
+	void drawFps();
+	void drawFps(double fps, int xPos, int yPos, const string& prefix);
+	void updateScreen();
+	void clearScreen();
+	void drawScreen();
+
+	IVideoFacade* videoFacade;
+	
+	FrameData& frameData;
 	bool shouldDrawFps = false;
 };
