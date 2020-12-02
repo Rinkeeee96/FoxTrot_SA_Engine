@@ -21,9 +21,6 @@ public:
 	float getSpawnY() const { this->spawnY; }
 	void setSpawnY(float val) { this->spawnY = val; }
 
-	int getHealth() const { this->health; }
-	void setHealth(int val) { this->health = val; }
-
 	int getCurrentHealth() const { return this->currentHealth; }
 	void setCurrentHealth(int val) { 
 		this->currentHealth = val; 

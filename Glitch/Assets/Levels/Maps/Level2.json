@@ -215,54 +215,6 @@
                  "width":45.3333333333335,
                  "x":3897.33333333333,
                  "y":361.333333333333
-                }, 
-                {
-                 "gid":81,
-                 "height":64,
-                 "id":22,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"density",
-                         "type":"int",
-                         "value":50
-                        }, 
-                        {
-                         "name":"friction",
-                         "type":"int",
-                         "value":0
-                        }, 
-                        {
-                         "name":"health",
-                         "type":"int",
-                         "value":10
-                        }, 
-                        {
-                         "name":"jump_height",
-                         "type":"int",
-                         "value":5
-                        }, 
-                        {
-                         "name":"restitution",
-                         "type":"int",
-                         "value":0
-                        }, 
-                        {
-                         "name":"speed",
-                         "type":"int",
-                         "value":6
-                        }, 
-                        {
-                         "name":"type",
-                         "type":"string",
-                         "value":"fleye"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":58,
-                 "x":702,
-                 "y":441
                 }],
          "opacity":1,
          "type":"objectgroup",
