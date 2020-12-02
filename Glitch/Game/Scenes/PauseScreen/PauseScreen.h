@@ -9,7 +9,7 @@
 class PauseScreen : public GameScene
 {
 public:
-	PauseScreen(const int id) : GameScene(id) {};
+	PauseScreen(const int id, Engine& engine, SceneStateMachine& _statemachine) : GameScene(id, engine, _statemachine) {};
 	~PauseScreen() {};
 
 	// Inherited via Scene

@@ -48,22 +48,22 @@ void PauseScreen::loadButtons()
 {
 
 	//// Resume button
-	auto* resumeButton = new PrimaryButton(10, "Resume", BIND_FN(onResumeButtonClick));
+	auto* resumeButton = new PrimaryButton(10, "Resume", BIND_FN(onResumeButtonClick), this->dispatcher);
 	resumeButton->setPositionX(CENTER_X - (resumeButton->getWidth() / 2));
 	resumeButton->setPositionY(CENTER_Y - 100);
 
 	// Exit button
-	auto* exitButton = new PrimaryButton(11, "Exit Level", BIND_FN(onExitButtonClick));
+	auto* exitButton = new PrimaryButton(11, "Exit Level", BIND_FN(onExitButtonClick), this->dispatcher);
 	exitButton->setPositionX(CENTER_X - (exitButton->getWidth() / 2));
 	exitButton->setPositionY(CENTER_Y - 40);
 
 	// Music on/off button
-	auto* musicButton = new PrimaryButton(12, "Music On/Off", BIND_FN(onMusicButtonClick));
+	auto* musicButton = new PrimaryButton(12, "Music On/Off", BIND_FN(onMusicButtonClick), this->dispatcher);
 	musicButton->setPositionX(CENTER_X - (musicButton->getWidth() / 2));
 	musicButton->setPositionY(CENTER_Y + 20);
 
 	// Help button
-	auto* helpButton = new PrimaryButton(13, "Help", BIND_FN(onHelpButtonClick));
+	auto* helpButton = new PrimaryButton(13, "Help", BIND_FN(onHelpButtonClick), this->dispatcher);
 	helpButton->setPositionX(CENTER_X - (helpButton->getWidth() / 2));
 	helpButton->setPositionY(CENTER_Y + 80);
 
@@ -79,12 +79,12 @@ void PauseScreen::loadMusic()
 
 void PauseScreen::onResumeButtonClick()
 {
-	stateMachine->switchToScene(stateMachine->getCurrentSceneIdentifier(), false);
+	stateMachine.switchToScene(stateMachine.getCurrentSceneIdentifier(), false);
 }
 
 void PauseScreen::onExitButtonClick()
 {
-	stateMachine->switchToScene("Overworld", false);
+	stateMachine.switchToScene("Overworld", false);
 }
 
 void PauseScreen::onMusicButtonClick()
