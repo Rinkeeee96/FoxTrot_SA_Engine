@@ -46,6 +46,7 @@ void SceneManager::insertScene(Scene* scene)
 /// @param id 
 void SceneManager::deregisterScene(const int id)
 {
+	currentScene->onDetach();
 	scenes.erase(scenes.find(id));
 }
 

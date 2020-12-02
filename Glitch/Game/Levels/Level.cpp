@@ -91,5 +91,5 @@ void Level::pause() {
 
 void Level::onDetach() 
 {
-	//Scene::onDetach();
+	Scene::onDetach();
 }//cleaup buffer
