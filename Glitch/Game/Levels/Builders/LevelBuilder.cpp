@@ -12,7 +12,7 @@ bool LevelBuilder::getAlwaysDrawFromJson(nlohmann::json layerValue)
 	return false;
 }
 
-LevelBuilder::LevelBuilder(Engine& _engine, int levelId) : AbstractLevelBuilder(_engine), bLevel(new Level(levelId, 0, 0)) {
+LevelBuilder::LevelBuilder(Engine& _engine, int levelId, int _startingTileId) : AbstractLevelBuilder(_engine), bLevel(new Level(levelId, 0, 0)), textureId{_startingTileId} {
 	
 }
 
@@ -173,7 +173,7 @@ void LevelBuilder::createBackground(nlohmann::json layerValue) {
 		float y = objectValue["y"];
 
 		TileSprite* sprite = textureMap[gid];
-		SpriteObject* tileSprite = new SpriteObject(currentTileId++, sprite->height, sprite->width, 1, 300, sprite->path.c_str());
+		SpriteObject* tileSprite = new SpriteObject(textureId++, sprite->height, sprite->width, 1, 300, sprite->path.c_str());
 		engine.loadSprite(*tileSprite);
 
 		tile->setWidth(width);
@@ -208,7 +208,7 @@ void LevelBuilder::createDecoration(nlohmann::json layerValue)
 
 			if (spriteMap.find(tileId) == spriteMap.end()) {
 				sprite = textureMap[tileId];
-				tileSprite = new SpriteObject(currentTileId++, sprite->height, sprite->width, 1, 300, sprite->path.c_str());
+				tileSprite = new SpriteObject(textureId++, sprite->height, sprite->width, 1, 300, sprite->path.c_str());
 				engine.loadSprite(*tileSprite);
 			}
 			else {
@@ -250,7 +250,7 @@ void LevelBuilder::createParticle(nlohmann::json layerValue)
 		for (auto& [objectPropertyKey, objectPropertyValue] : objectValue["properties"].items())
 		{
 			if (objectPropertyValue["name"] == "type") {
-					SpriteObject* particle1Sprite = new SpriteObject(currentTileId++, 20, 20, 5, 300, "Assets/Particles/fire.png");
+					SpriteObject* particle1Sprite = new SpriteObject(textureId++, 20, 20, 5, 300, "Assets/Particles/fire.png");
 					engine.loadSprite(*particle1Sprite);
 
 					int type = objectPropertyValue["value"];
@@ -292,7 +292,7 @@ void LevelBuilder::createTiles(nlohmann::json layerValue) {
 
 			if (spriteMap.find(tileId) == spriteMap.end()) {
 				sprite = textureMap[tileId];
-				tileSprite = new SpriteObject(currentTileId, sprite->height, sprite->width, 1, 300, sprite->path.c_str());
+				tileSprite = new SpriteObject(textureId++, sprite->height, sprite->width, 1, 300, sprite->path.c_str());
 				currentTileId++;
 				engine.loadSprite(*tileSprite);
 			}
@@ -416,4 +416,10 @@ void LevelBuilder::initFactory() {
 	characterFactory->registerCharacter("jumpkin", new Jumpkin(), jumpkinMap);
 
 	std::map<std::string, std::map<SpriteState, SpriteObject*>> spriteObjectMap;
+}
+
+void LevelBuilder::cleanup()
+{
+	textureMap.clear();
+	spriteMap.clear();
 }

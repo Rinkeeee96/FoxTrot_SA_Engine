@@ -54,15 +54,17 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	else
 	{
 		LoadLevelFacade levelLoader{ engine };
-		LevelBuilder levelOneBuilder{ engine, sceneId++ };
 
 		int levelToBuild = stoi(identifier.substr(6));
 		cout << "Level to build: " << levelToBuild << endl;
+
+		LevelBuilder levelOneBuilder{ engine, sceneId++, levelToBuild * 999 };
 
 		string path;
 		path = "Assets/Levels/Maps/Level" + to_string(levelToBuild) + ".json";
 		levelLoader.load(path, &levelOneBuilder);
 		newScene = levelOneBuilder.getLevel();
+		levelOneBuilder.cleanup();
 
 		this->currentLevelIdentifier = identifier;
 	}
