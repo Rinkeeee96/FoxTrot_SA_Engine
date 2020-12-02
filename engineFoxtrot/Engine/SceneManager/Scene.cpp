@@ -187,3 +187,20 @@ void Scene::createLayer(const int zIndex, bool renderPhysics, bool alwaysDrawLay
 	layers[zIndex]->renderPhysics = renderPhysics;
 	layers[zIndex]->alwaysVisible = alwaysDrawLayer;
 }
+
+void Scene::createPopUpLayer(float xPosition, float yPosition, string text) {
+	int zIndex = 0;
+
+	// Get highest zIndex
+	for (auto layer : layers) {
+		if (zIndex < layer.first)
+			zIndex = layer.first;
+	}
+	zIndex++;
+
+
+}
+
+void Scene::removePopUpLayer() {
+
+}
