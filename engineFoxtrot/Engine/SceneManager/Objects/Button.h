@@ -9,10 +9,12 @@
 class Button : public Drawable
 {
 public:
-	API Button(int id, ColoredText _text, const function<void(void)> _onClick, SpriteObject* _spriteObject) :
+	API Button(int id, ColoredText _text, const function<void(void)> _onClick, SpriteObject* _spriteObject, 
+		EventDispatcher& _dispatcher) :
 		Drawable(id), 
 		text(_text),
-		onClick(_onClick)
+		onClick(_onClick),
+		dispatcher{_dispatcher}
 	{
 		setSize(200, 50);
 		setStatic(true);
@@ -20,16 +22,10 @@ public:
 		registerSprite(DEFAULT_STATE, _spriteObject);
 		changeToState(DEFAULT_STATE);
 
-		EventSingleton::get_instance().setEventCallback<MouseButtonPressed>(BIND_EVENT_FN(Button::isClicked));
-		EventSingleton::get_instance().setEventCallback<MouseMovedEvent>(BIND_EVENT_FN(Button::mouseOver));
+		dispatcher.setEventCallback<MouseButtonPressed>(BIND_EVENT_FN(Button::isClicked));
+		dispatcher.setEventCallback<MouseMovedEvent>(BIND_EVENT_FN(Button::mouseOver));
 	}
-
-	API virtual ~Button() override {
-		cout << "desturctor BTN " << endl;
-		EventSingleton::get_instance().unSubscribe<MouseMovedEvent>(BIND_EVENT_FN(Button::isClicked));
-		EventSingleton::get_instance().unSubscribe<MouseButtonPressed>(BIND_EVENT_FN(Button::mouseOver));
-		Drawable::~Drawable();
-	}
+	virtual ~Button() {};
 
 	API const ColoredText* toString() { return &text; }
 
@@ -41,17 +37,22 @@ public:
 		setHeight(height);
 	}
 
-	API bool mouseOver(Event& event);
-	API bool isClicked(Event& event);
+	API bool mouseOver(const Event& event);
+	API bool isClicked(const Event& event);
 
 	API void registerHoverSprite(SpriteObject* spriteObject);
+
+protected:
+	bool hasHoverSprite = false;
+
 private:
 	bool isEnabled = true;
 	bool isMouseOver = false;
 	bool buttonPressed = false;
-	bool hasHoverSprite = false;
 
 	const function<void(void)> onClick;
+
+	EventDispatcher& dispatcher;
 
 	ColoredText text;
 };
