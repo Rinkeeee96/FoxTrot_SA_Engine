@@ -397,9 +397,3 @@ void LevelBuilder::initFactory() {
 
 	std::map<std::string, std::map<SpriteState, SpriteObject*>> spriteObjectMap;
 }
-
-void LevelBuilder::cleanup()
-{
-	textureMap.clear();
-	spriteMap.clear();
-}

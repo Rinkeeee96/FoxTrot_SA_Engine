@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "SceneStateMachine.h"
 
+#define TextureIDOffset 999
 
 SceneStateMachine::SceneStateMachine(Engine& _engine) : engine(_engine)
 {
@@ -58,13 +59,12 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 		int levelToBuild = stoi(identifier.substr(6));
 		cout << "Level to build: " << levelToBuild << endl;
 
-		LevelBuilder levelOneBuilder{ engine, sceneId++, *this, levelToBuild * 999 };
+		LevelBuilder levelOneBuilder{ engine, sceneId++, *this, levelToBuild * TextureIDOffset };
 
 		string path;
 		path = "Assets/Levels/Maps/Level" + to_string(levelToBuild) + ".json";
 		levelLoader.load(path, &levelOneBuilder);
 		newScene = levelOneBuilder.getLevel();
-		levelOneBuilder.cleanup();
 
 		this->currentLevelIdentifier = identifier;
 	}

@@ -2,6 +2,7 @@
 #include "SceneManager/Objects/Object.h"
 
 #define DIVIDER 32.0f
+#define BASE_GRAVITY 1
 
 class PhysicsBody
 {
@@ -67,7 +68,7 @@ protected:
 	float density = 0;
 	float rotation = 0;
 	float jumpHeight = 0;
-	float gravity = 1;
+	float gravity = BASE_GRAVITY;
 	Object* object = nullptr;
 	float yAxisVelocity = 0;
 	float xAxisVelocity = 0;

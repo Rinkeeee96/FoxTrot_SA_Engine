@@ -26,6 +26,5 @@ public:
 	virtual void createTiles(nlohmann::json layerValue) = 0;
 	virtual void loadTileSets(nlohmann::json json) = 0;
 	virtual void initFactory() = 0;
-	virtual void cleanup() = 0;
 };
 

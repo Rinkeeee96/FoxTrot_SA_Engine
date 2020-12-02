@@ -2,6 +2,8 @@
 #include "core.h"
 #include "SpriteObject.h"
 
+#define BASE_GRAVITY 1
+
 /// @brief 
 /// Object class. Object is linked with a sprite id in SVI. 
 class Object
@@ -96,7 +98,7 @@ protected:
 	float friction = 0;
 	float restitution = 0;
 	bool staticObject = false;
-	float gravity = 1;
+	float gravity = BASE_GRAVITY;
 	// ----------------
 	// unknown
 	bool changed = false;
