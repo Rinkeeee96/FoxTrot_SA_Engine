@@ -1,141 +1,122 @@
 #include "stdafx.h"
 #include "SoundEngine.h"
-#include "Events\EventSingleton.h"
 
-#include "Events/Sound/OnMusicStartEvent.h"
-#include "Events\Sound\SoundAttachEvent.h"
-#include "Events\Sound\OnMusicStopEvent.h"
-#include "Events\Sound\PlaySoundEffectEvent.h"
-#include "Events\Sound\StopSoundEffectEvent.h"
-
-SoundEngine::SoundEngine()
-{
-	EventSingleton::get_instance().setEventCallback<OnMusicStartEvent>(BIND_EVENT_FN(SoundEngine::onStartBackgroundMusicEvent));
-	EventSingleton::get_instance().setEventCallback<SoundAttachEvent>(BIND_EVENT_FN(SoundEngine::onLoadBackgroundMusicEvent));
-
-	EventSingleton::get_instance().setEventCallback<PlaySoundEffectEvent>(BIND_EVENT_FN(SoundEngine::onPlayEffect));
-	EventSingleton::get_instance().setEventCallback<StopSoundEffectEvent>(BIND_EVENT_FN(SoundEngine::onStopLoopedEffect));
-}
-
-SoundEngine::~SoundEngine()
-{
-}
+SoundEngine::SoundEngine() {}
+SoundEngine::~SoundEngine(){}
 
 /// @brief 
 /// @param files 
-void SoundEngine::SetFiles(map<string, string> files)
+void SoundEngine::setFiles(map<string, string> files)
 {
-	soundFacade->SetFiles(files);
+	soundFacade->setFiles(files);
 }
 /// @brief 
 /// @param identifier 
 /// @param file 
-void SoundEngine::AddFile(const string& identifier, const string& file)
+void SoundEngine::addFile(const string& identifier, const string& file)
 {
-	soundFacade->AddFile(identifier, file);
+	soundFacade->addFile(identifier, file);
 }
 /// @brief 
 /// @param effect 
 /// @param volume 
-void SoundEngine::PlayEffect(const string& effect, int volume = MAX_VOLUME)
+void SoundEngine::playEffect(const string& effect, int volume = MAX_VOLUME)
 {
-	soundFacade->PlayEffect(effect, volume);
+	soundFacade->playEffect(effect, volume);
 }
 /// @brief 
 /// @param identifier 
-void SoundEngine::LoadEffect(const string& identifier)
+void SoundEngine::loadEffect(const string& identifier)
 {
-	soundFacade->LoadEffect(identifier);
+	soundFacade->loadEffect(identifier);
 }
 /// @brief 
 /// @param identifier 
-void SoundEngine::UnloadEffect(const string& identifier)
+void SoundEngine::unloadEffect(const string& identifier)
 {
-	soundFacade->UnloadEffect(identifier);
+	soundFacade->unloadEffect(identifier);
 }
 /// @brief 
 /// @param effect 
-void SoundEngine::StartLoopedEffect(const string& effect, int volume = MAX_VOLUME)
+void SoundEngine::startLoopedEffect(const string& effect, int volume = MAX_VOLUME)
 {
-	soundFacade->StartLoopedEffect(effect, volume);
+	soundFacade->startLoopedEffect(effect, volume);
 }
 /// @brief 
 /// @param identifier 
-void SoundEngine::StopLoopedEffect(const string& identifier)
+void SoundEngine::stopLoopedEffect(const string& identifier)
 {
-	soundFacade->StopLoopedEffect(identifier);
+	soundFacade->stopLoopedEffect(identifier);
 }
 /// @brief 
 /// @param identifier 
-void SoundEngine::LoadMusic(const string& identifier)
+void SoundEngine::loadMusic(const string& identifier)
 {
-	soundFacade->LoadMusic(identifier);
+	soundFacade->loadMusic(identifier);
 }
 /// @brief 
 /// @param volume 
-void SoundEngine::PlayMusic(int volume = MAX_VOLUME)
+void SoundEngine::playMusic(int volume = MAX_VOLUME)
 {
-	soundFacade->PlayMusic(volume);
+	soundFacade->playMusic(volume);
 }
 /// @brief 
 /// @param identifier 
 /// @param volume 
-void SoundEngine::PlayMusic(const string& identifier, int volume = MAX_VOLUME)
+void SoundEngine::playMusic(const string& identifier, int volume = MAX_VOLUME)
 {
-	soundFacade->PlayMusic(identifier, volume);
+	soundFacade->playMusic(identifier, volume);
 }
 /// @brief 
 /// @param identifier 
-void SoundEngine::ChangeMusic(const string& identifier)
+void SoundEngine::changeMusic(const string& identifier)
 {
-	soundFacade->ChangeMusic(identifier);
+	soundFacade->changeMusic(identifier);
 }
 /// @brief 
 /// @param fadeTime 
-void SoundEngine::FadeOutMusic(int fadeTime)
+void SoundEngine::fadeOutMusic(int fadeTime)
 {
-	soundFacade->FadeOutMusic(fadeTime);
+	soundFacade->fadeOutMusic(fadeTime);
 }
 /// @brief 
 /// @param fadeTime 
-void SoundEngine::FadeInMusic(int fadeTime)
+void SoundEngine::fadeInMusic(int fadeTime)
 {
-	soundFacade->FadeInMusic(fadeTime);
+	soundFacade->fadeInMusic(fadeTime);
 }
 /// @brief 
 /// @param identifier 
 /// @param fadeTime 
-void SoundEngine::FadeInMusic(const string& identifier, int fadeTime)
+void SoundEngine::fadeInMusic(const string& identifier, int fadeTime)
 {
-	soundFacade->FadeInMusic(identifier, fadeTime);
+	soundFacade->fadeInMusic(identifier, fadeTime);
 }
 /// @brief 
-void SoundEngine::RewindMusic()
+void SoundEngine::rewindMusic()
 {
-	soundFacade->RewindMusic();
+	soundFacade->rewindMusic();
 }
 /// @brief 
-void SoundEngine::StopMusic()
+void SoundEngine::stopMusic()
 {
-	soundFacade->StopMusic();
+	soundFacade->stopMusic();
 }
 /// @brief 
-void SoundEngine::PauseMusic()
+void SoundEngine::pauseMusic()
 {
-	soundFacade->PauseMusic();
+	soundFacade->pauseMusic();
 }
 /// @brief 
-void SoundEngine::ResumeMusic()
+void SoundEngine::resumeMusic()
 {
-	soundFacade->ResumeMusic();
+	soundFacade->resumeMusic();
 }
 /// @brief 
-void SoundEngine::Flush()
+void SoundEngine::flush()
 {
-	soundFacade->Flush();
+	soundFacade->flush();
 }
-
-
 
 /// @brief
 /// Event listener for when the music has to be changed
@@ -144,13 +125,13 @@ void SoundEngine::Flush()
 /// @param volume
 /// The volume to play the music at. Ranges from 0 to 128
 void SoundEngine::onChangeBackgroundMusic(const string& identifier, int volume = MAX_VOLUME) {
-	if (IdentifierExists(identifier)) {
+	if (identifierExists(identifier)) {
 		if (soundFacade->isMix_PlayingMusic()) {
-			ChangeMusic(identifier);
+			changeMusic(identifier);
 		}
 		else {
-			LoadMusic(identifier);
-			PlayMusic(volume);
+			loadMusic(identifier);
+			playMusic(volume);
 		}
 	}
 }
@@ -159,25 +140,20 @@ void SoundEngine::onChangeBackgroundMusic(const string& identifier, int volume =
 /// Event listener for stopping a looped effect
 /// @param event
 /// The event for the sound effect, contains everything for an effect to start
-bool SoundEngine::onStopLoopedEffect(Event& event) {
-	auto effectEvent = static_cast<PlaySoundEffectEvent&>(event);
-	StopLoopedEffect(effectEvent.Getidentifier());
-	return true;
+void SoundEngine::onStopLoopedEffect(const string& identifier) {
+	stopLoopedEffect(identifier);
 }
 
 /// @brief
 /// Event listener for when an effect has to be played
 /// @param event
 /// The event for the sound effect, contains everything for an effect to start
-bool SoundEngine::onPlayEffect(Event& event) {
-	auto effectEvent = static_cast<PlaySoundEffectEvent&>(event);
-	const string& identifier = effectEvent.Getidentifier();
-	int volume = effectEvent.getVolume();
+bool SoundEngine::onPlayEffect(const string& identifier, int volume, bool shouldLoop) {
 
-	if (IdentifierExists(effectEvent.Getidentifier())) {
-		if (! IdentifierIsLoaded(identifier)) LoadEffect(identifier);
+	if (identifierExists(identifier)) {
+		if (! identifierIsLoaded(identifier)) loadEffect(identifier);
 		
-		(effectEvent.shouldLoop()) ? StartLoopedEffect(identifier, volume) : PlayEffect(identifier, volume);
+		(shouldLoop) ? startLoopedEffect(identifier, volume) : playEffect(identifier, volume);
 
 		return true;
 	}
@@ -187,28 +163,22 @@ bool SoundEngine::onPlayEffect(Event& event) {
 /// @brief 
 /// @param identifier 
 /// @return 
-bool SoundEngine::IdentifierExists(const string& identifier)
+bool SoundEngine::identifierExists(const string& identifier)
 {
-	return soundFacade->IdentifierExists(identifier);
+	return soundFacade->identifierExists(identifier);
 }
 
 /// @brief 
 /// @param identifier 
 /// @return 
-bool SoundEngine::IdentifierIsLoaded(const string& identifier)
+bool SoundEngine::identifierIsLoaded(const string& identifier)
 {
-	return soundFacade->IdentifierIsLoaded(identifier);
+	return soundFacade->identifierIsLoaded(identifier);
 }
 
-bool SoundEngine::onStartBackgroundMusicEvent(Event& event) {
-	auto startEvent = static_cast<OnMusicStartEvent&>(event);
-	this->PlayMusic(startEvent.Getidentifier(), 15);
-
-	return true;
+void SoundEngine::onStartBackgroundMusicEvent(const string& identifier) {
+	this->playMusic(identifier, 15);
 }
-bool SoundEngine::onLoadBackgroundMusicEvent(Event& event) {
-	auto attachEvent = static_cast<SoundAttachEvent&>(event);
-	this->AddFile(attachEvent.Getidentifier(), attachEvent.GetFileName());
-
-	return true;
+void SoundEngine::onLoadBackgroundMusicEvent(const string& identifier, const string& fileName) {
+	this->addFile(identifier, fileName);
 }

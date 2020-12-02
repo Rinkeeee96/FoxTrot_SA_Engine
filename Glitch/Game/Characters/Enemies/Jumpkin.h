@@ -8,13 +8,13 @@
 /// Slime class with correspondending AI logic
 class Jumpkin : public IEnemy {
 public:
-	Jumpkin() : IEnemy() {}
-	Jumpkin(const int id) : IEnemy(id) {
-		EventSingleton::get_instance().setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Jumpkin::onCollisionBeginEvent));
+	Jumpkin(EventDispatcher& _dispatcher) : IEnemy(_dispatcher) {}
+	Jumpkin(const int id, EventDispatcher& _dispatcher) : IEnemy(id, _dispatcher) {
+		_dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Jumpkin::onCollisionBeginEvent));
 	}
 
-	bool onCollisionBeginEvent(Event& event) {
-		auto collisionEvent = static_cast<OnCollisionBeginEvent&>(event);
+	bool onCollisionBeginEvent(const Event& event) {
+		auto collisionEvent = static_cast<const OnCollisionBeginEvent&>(event);
 		if (collisionEvent.getObjectOne().getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo().getObjectId() != this->getObjectId()) return false;
 
 		auto map = collisionEvent.getDirectionMap();
@@ -51,13 +51,13 @@ public:
 
 		bool positionedOnGround = this->getYAxisVelocity() == 0;
 		if (positionedOnGround && playerIsInRangeHorizontally && playerIsInRangeVertically) {
-			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
-			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(direction, this->getObjectId()));
+			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
+			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(direction, this->getObjectId()));
 		}
 		else if(!playerIsInRangeHorizontally) {
-			EventSingleton::get_instance().dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->getObjectId()));
+			dispatcher.dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->getObjectId()));
 		}
 	};
 
-	ICharacter* clone(int id) override { return new Jumpkin(id); }
+	ICharacter* clone(int id) override { return new Jumpkin(id, this->dispatcher); }
 };

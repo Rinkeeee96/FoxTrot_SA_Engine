@@ -6,8 +6,8 @@
 /// @param event
 /// The mouse moved event for the mouse position. 
 /// @return 
-bool Button::mouseOver(Event& event) {
-	auto& mouseOverEvent = static_cast<MouseMovedEvent&>(event);
+bool Button::mouseOver(const Event& event) {
+	auto mouseOverEvent = static_cast<const MouseMovedEvent&>(event);
 	float mousePositionX = mouseOverEvent.GetX();
 	float mousePositionY = mouseOverEvent.GetY();
 
@@ -33,9 +33,9 @@ bool Button::mouseOver(Event& event) {
 /// @param event
 /// The mouse pressed event for the mouse type. 
 /// @return 
-bool Button::isClicked(Event& event) {
+bool Button::isClicked(const Event& event) {
 	if (!buttonPressed) {
-		auto& mousePressedEvent = static_cast<MouseButtonPressed&>(event);
+		auto mousePressedEvent = static_cast<const MouseButtonPressed&>(event);
 		MouseCode pressedBtn = mousePressedEvent.GetButton();
 		// TODO expand functionallity, buttons only handle a primary "left click" for now
 		if (isMouseOver && isEnabled && pressedBtn == MouseCode::MOUSE_BTN_LEFT) {

@@ -12,6 +12,7 @@
 /// LoadMusic
 void Overworld::onAttach()
 {
+	
 	loadButtons();
 	loadBackground();
 	loadMusic();
@@ -24,46 +25,46 @@ void Overworld::loadButtons() {
 	auto hoverBtnSprite = new SpriteObject(101012, 11, 15, 1, 300, "Assets/Buttons/village_gray.png");
 	auto transSprite = new SpriteObject(101014, 10, 10, 1, 300, "Assets/transparant.png");
 
-	Button* level1Btn = new Button(1, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel1BtnClick), defaultBtnSprite);
+	auto* level1Btn = new Button(1, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel1BtnClick), defaultBtnSprite, this->dispatcher);
 	level1Btn->setWidth(32);
 	level1Btn->setHeight(32);
 	level1Btn->setPositionX(295);
-	level1Btn->setPositionY(363); 
+	level1Btn->setPositionY(363);
 	level1Btn->registerHoverSprite(hoverBtnSprite);
 
-	Button* level1TextBtn = new Button(2, ColoredText("Level 1", Color(0, 0, 0)), BIND_FN(onLevel1BtnClick), transSprite);
+	auto* level1TextBtn = new Button(2, ColoredText("Level 1", Color(0, 0, 0)), BIND_FN(onLevel1BtnClick), transSprite, this->dispatcher);
 	level1TextBtn->setWidth(32);
 	level1TextBtn->setHeight(20);
 	level1TextBtn->setPositionX(295);
 	level1TextBtn->setPositionY(383);
 
-	Button* level2Btn = new Button(3, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel2BtnClick), defaultBtnSprite);
+	auto* level2Btn = new Button(3, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel2BtnClick), defaultBtnSprite, this->dispatcher);
 	level2Btn->setWidth(32);
 	level2Btn->setHeight(32);
 	level2Btn->setPositionX(955);
 	level2Btn->setPositionY(320);
 	level2Btn->registerHoverSprite(hoverBtnSprite);
 
-	Button* level2TextBtn = new Button(4, ColoredText("Level 2", Color(0, 0, 0)), BIND_FN(onLevel2BtnClick), transSprite);
+	auto* level2TextBtn = new Button(4, ColoredText("Level 2", Color(0, 0, 0)), BIND_FN(onLevel2BtnClick), transSprite, this->dispatcher);
 	level2TextBtn->setWidth(32);
 	level2TextBtn->setHeight(20);
 	level2TextBtn->setPositionX(955);
 	level2TextBtn->setPositionY(340);
 
-	Button* level3Btn = new Button(5, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel3BtnClick), defaultBtnSprite);
+    auto* level3Btn = new Button(5, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel3BtnClick), defaultBtnSprite, this->dispatcher);
 	level3Btn->setWidth(32);
 	level3Btn->setHeight(32);
 	level3Btn->setPositionX(795);
 	level3Btn->setPositionY(850);
 	level3Btn->registerHoverSprite(hoverBtnSprite);
 
-	Button* level3TextBtn = new Button(6, ColoredText("Level 3", Color(0, 0, 0)), BIND_FN(onLevel3BtnClick), transSprite);
+	auto* level3TextBtn = new Button(6, ColoredText("Level 3", Color(0, 0, 0)), BIND_FN(onLevel3BtnClick), transSprite, this->dispatcher);
 	level3TextBtn->setWidth(32);
 	level3TextBtn->setHeight(20);
 	level3TextBtn->setPositionX(795);
 	level3TextBtn->setPositionY(870);
 
-	Button* stopBtn = new SecondaryButton(7, "To Main Menu", BIND_FN(onStopBtnClick));
+	auto* stopBtn = new SecondaryButton(7, "To Main Menu", BIND_FN(onStopBtnClick), this->dispatcher);
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
@@ -96,13 +97,13 @@ void Overworld::loadBackground() {
 
 /// @brief 
 void Overworld::loadMusic() {
-	EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent("OVER_WORLD", "Assets/Sound/file_example_WAV_1MG.wav"));
+	engine.soundEngine.onLoadBackgroundMusicEvent("OVER_WORLD", "Assets/Sound/file_example_WAV_1MG.wav");
 }
 
 /// @brief 
 void Overworld::start()
 {
-	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("OVER_WORLD"));
+	engine.soundEngine.onStartBackgroundMusicEvent("OVER_WORLD");
 }
 
 /// @brief 
@@ -113,7 +114,7 @@ void Overworld::onUpdate()
 /// @brief 
 void Overworld::onDetach()
 {
-	EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent("OVER_WORLD"));
+	engine.soundEngine.onStartBackgroundMusicEvent("OVER_WORLD");
 	Scene::onDetach();
 }
 
@@ -121,21 +122,21 @@ void Overworld::onDetach()
 void Overworld::onLevel1BtnClick()
 {
 	cout << "Level1 BTN" << endl;
-	stateMachine->switchToScene("Level_1", true);
+	stateMachine.switchToScene("Level_1", true);
 }
 
 /// @brief 
 void Overworld::onLevel2BtnClick()
 {
 	cout << "Level2 BTN" << endl;
-	stateMachine->switchToScene("Level_2", true);
+	stateMachine.switchToScene("Level_2", true);
 }
 
 /// @brief 
 void Overworld::onLevel3BtnClick()
 {
 	cout << "Level3 BTN" << endl;
-	stateMachine->switchToScene("Level_3", true);
+	stateMachine.switchToScene("Level_3", true);
 }
 
 /// @brief 
@@ -146,7 +147,7 @@ void Overworld::onStartBtnClick()
 
 /// @brief 
 void Overworld::onStopBtnClick() {
-	stateMachine->switchToScene("MainMenu",true);
+	stateMachine.switchToScene("MainMenu",true);
 }
 
 /// @brief 

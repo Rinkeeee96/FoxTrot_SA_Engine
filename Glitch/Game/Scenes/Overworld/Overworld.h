@@ -7,7 +7,7 @@
 class Overworld : public GameScene
 {
 public:
-	Overworld(const int id) : GameScene(id) {};
+	Overworld(const int id, Engine& engine, SceneStateMachine& _statemachine) : GameScene(id, engine, _statemachine) {};
 	~Overworld();
 	// Inherited via Scene
 	void onAttach() override;

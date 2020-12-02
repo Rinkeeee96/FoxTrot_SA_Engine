@@ -4,7 +4,8 @@
 
 /// @brief 
 /// @param sceneID 
-Scene::Scene(const int _sceneID, const int _sceneHeight, const int _sceneWidth) : sceneID(_sceneID), sceneHeight(_sceneHeight), sceneWidth(_sceneWidth)
+Scene::Scene(const int _sceneID, const int _sceneHeight, const int _sceneWidth) : 
+	sceneID(_sceneID), sceneHeight(_sceneHeight), sceneWidth(_sceneWidth)
 {
 
 }
@@ -151,16 +152,16 @@ Object * Scene::getObject(const int objectID)
 
 void Scene::onDetach()
 {
-	//for (auto& layerContainer : layers)
-	//{
-	//	Layer* layer = layerContainer.second;
-	//	for (const auto& [id, object] : layer->objects)
-	//		delete object;
+	for (auto& layerContainer : layers)
+	{
+		Layer* layer = layerContainer.second;
+		for (const auto& [id, object] : layer->objects)
+			delete object;
 
-	//	layer->objects.clear();
-	//	delete layer;
-	//}
-	//layers.clear();
+		layer->objects.clear();
+		delete layer;
+	}
+	layers.clear();
 }
 
 void Scene::removeObjectFromScene(Object* obj)
@@ -171,7 +172,6 @@ void Scene::removeObjectFromScene(Object* obj)
 			lay.second->objects.erase(it);
 			obj->setIsRemoved(true);
 			return;
-			//delete obj;
 		}
 	}
 }
