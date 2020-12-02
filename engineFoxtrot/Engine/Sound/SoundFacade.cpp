@@ -18,11 +18,16 @@ SoundFacade::SoundFacade()
 }
 
 /// @brief 
-// TODO no sound memory is freed
 SoundFacade::~SoundFacade()
 {
+	// TODO no sound memory is freed
     /*SDL_CloseAudioDevice(deviceId);
     SDL_FreeWAV(wavBuffer);*/
+
+	for (auto layer : loadedSoundEffects)
+	{
+		delete layer.second;
+	}
 }
 
 /// @brief 

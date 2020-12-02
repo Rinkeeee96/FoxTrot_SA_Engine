@@ -41,10 +41,10 @@ public:
 
 	PhysicsBody* getPhysicsObject(const int objectId) override;
 
-	void MoveLeft(const int objectId) override;
-	void MoveRight(const int objectId) override;
-	void Jump(const int objectId) override;
-	void Fall(const int objectId) override;
+	void moveLeft(const int objectId) override;
+	void moveRight(const int objectId) override;
+	void jump(const int objectId) override;
+	void fall(const int objectId) override;
 
 	CollisionStruct getObjectsByFixture(b2Fixture* fixture1, b2Fixture* fixture2);
 	void update() override;
@@ -56,7 +56,6 @@ private:
 	b2World * world;
 	const float timeStep = TIMESTEP_SEC / TIMESTEP_FRAMES;
 
-	// TODO clear on scene detach
 	map <PhysicsBody*, b2Body*> bodies;
 	b2Body* findBody(const int objectId);
 };

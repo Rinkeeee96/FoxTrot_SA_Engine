@@ -69,7 +69,6 @@ EventDispatcher& SceneManager::setCurrentScene(const int sceneID)
 	if (scenes.empty()) throw ERROR_CODE_SCENEMANAGER_SCENES_IS_EMPTY;
 
 	currentScene = getSceneWithID(sceneID);
-	currentScene->onAttach();
 	if (DEBUG_SCENE_MANAGER)cout << "Setting current scene to " << sceneID << " with amount of obj: " << currentScene->getAllObjectsInScene().size() << endl;
 
 	return currentScene->getEventDispatcher();
