@@ -1,6 +1,8 @@
 #pragma once
 #include <nlohmann\json.hpp>
 
+#define MAX_AMOUNT_OF_LEVELS 3
+
 struct Item
 {
 	string itemName;
@@ -33,7 +35,7 @@ struct SaveGameData
 
 	int totalScore = 0;
 
-	map<int,LevelData> levelData;
+	LevelData levelData[MAX_AMOUNT_OF_LEVELS];
 	vector<Achievement> achievements;
 	CharacterData characterData;
 };

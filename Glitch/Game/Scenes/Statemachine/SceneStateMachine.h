@@ -17,14 +17,18 @@ public:
 		if (currentScene)currentScene->onUpdate();
 	}
 
+	string& getCurrentLevelIdentifier();
+
+	int levelToBuild = 0;
 private:
 
+	Savegame* savegame;
 	shared_ptr<SceneFactory>  factory = nullptr;
 
 	Engine& engine;
-	Savegame* savegame;
 
 	unique_ptr<Scene> currentScene;
 	int sceneId = 0;
+	string currentLevelIdentifier = "";
 };
 

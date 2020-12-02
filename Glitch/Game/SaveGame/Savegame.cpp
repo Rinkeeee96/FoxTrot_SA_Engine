@@ -21,12 +21,13 @@ bool Savegame::saveGameDataToJsonFile()
 		{
 			saveGameJson["achievements"].push_back(achievement);
 		}
+		int count = 0;
 		for (auto levelData : saveGame.second.levelData)
 		{
 			nlohmann::json levelDataJson;
-			levelDataJson["score"] = levelData.second.score;
-			levelDataJson["completed"] = levelData.second.completed;
-			levelDataJson["levelnr"] = levelData.first;
+			levelDataJson["score"] = levelData.score;
+			levelDataJson["completed"] = levelData.completed;
+			levelDataJson["levelnr"] = count++;
 			saveGameJson["leveldata"].push_back(levelDataJson);
 		}
 		nlohmann::json characterData;

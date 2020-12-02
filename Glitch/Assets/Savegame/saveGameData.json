@@ -9,11 +9,11 @@
                     ]
                 }
             },
-            "leveldata": [{ "levelnr": 1, "score": 1200, "completed": false }],
+            "leveldata": [{ "levelnr": 0, "score": 0, "completed": false }],
             "savegameid": 1,
             "savegamename": "Save 1",
             "timestamp": 1605860661,
-            "totalscore": 100
+            "totalscore": 0
         },
         {
             "achievements": ["Take inventory"],
@@ -25,7 +25,7 @@
                     ]
                 }
             },
-            "leveldata": [{ "levelnr": 1, "score": 1200, "completed": false }],
+            "leveldata": [{ "levelnr": 0, "score": 1200, "completed": false }],
             "savegameid": 2,
             "savegamename": "Save 2",
             "timestamp": 1605860661,
