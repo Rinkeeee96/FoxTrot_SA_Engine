@@ -39,12 +39,56 @@ void Level::onAttach() {
         engine.soundEngine.onLoadBackgroundMusicEvent(s.first, s.second);
     }
 }
+
+/// @brief
+/// Add HUD for lifes of player
+void Level::addHuds() {
+	this->huds = std::vector<Drawable*>();
+	// Health HUDS
+	int startingID = -662;
+	int xAxisChange = 75;
+	int startingXAxis = 25;
+	int current = 0;
+	SpriteObject* HealthHUD = new SpriteObject(-660, 50, 50, 1, 300, "Assets/Sprites/HUD/Full.png");
+	SpriteObject* EmptyHealthHUD = new SpriteObject(-661, 50, 50, 1, 300, "Assets/Sprites/HUD/Empty.png");
+
+	for (size_t i = 0; i < player->getCurrentHealth(); i++)
+	{
+		this->addHealthHud(startingID, startingXAxis, xAxisChange, current, HealthHUD);
+	}
+	int damageTaken = player->getTotalHealth() - player->getCurrentHealth();
+	for (size_t i = 0; i < damageTaken; i++)
+	{
+		this->addHealthHud(startingID, startingXAxis, xAxisChange, current, EmptyHealthHUD);
+	}
+}
+
+/// @brief
+/// Add single HUD for lifes of player
+void Level::addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, SpriteObject* HUD) {
+	auto* health = new Drawable(startingID--);
+	health->setStatic(true);
+	health->setPositionX(((startingXAxis + (float)(xAxisChange * (current + 1)))));
+	health->setPositionY(100);
+	health->setWidth(50);
+	health->setHeight(50);
+	health->setDrawStatic(true);
+	health->registerSprite(SpriteState::DEFAULT, HUD);
+	health->changeToState(SpriteState::DEFAULT);
+	
+	addNewObjectToLayer(100, health, false, true);
+	this->huds.push_back(health);
+	current++;
+}
+
 /// @brief
 /// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
 void Level::start() {
 	player->setPositionX(50);
 	player->setPositionY(885);
-	player->setHealth(100);
+	player->setCurrentHealth(3);
+	player->setTotalHealth(3);
+	this->addHuds();
 	this->win = false;
 
 	this->setObjectToFollow(this->follow);
@@ -54,6 +98,8 @@ void Level::start() {
 }
 
 void Level::onUpdate() {
+	this->addHuds();
+
 	if (this->win) {
 		player->kill();
 		stateMachine.switchToScene("WinScreen", false);

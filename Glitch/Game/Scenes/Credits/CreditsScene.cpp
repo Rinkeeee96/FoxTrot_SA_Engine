@@ -70,9 +70,9 @@ void CreditsScene::loadBackground() {
 	auto* foregroundTop = new Drawable(14);
 	foregroundTop->setStatic(true);
 	foregroundTop->setPositionX(0);
-	foregroundTop->setPositionY(0 + 220);
+	foregroundTop->setPositionY(0 + 250);
 	foregroundTop->setWidth(1920);
-	foregroundTop->setHeight(220);
+	foregroundTop->setHeight(250);
 	foregroundTop->registerSprite(SpriteState::DEFAULT, fgTop);
 	foregroundTop->changeToState(SpriteState::DEFAULT);
 

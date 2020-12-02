@@ -95,10 +95,13 @@ void VideoFacade::loadImage(const SpriteObject& spriteObject) {
 	SDL_FreeSurface(surface);
 }
 
-SDL_Rect VideoFacade::createRect(Object& object) {
+SDL_Rect VideoFacade::createRect(Drawable& object) {
 	SDL_Rect destination;
-	destination.x = (int)object.getPositionX() - xCameraOffset;
-	destination.y = (int)object.getPositionY() - (int)object.getHeight() - yCameraOffset;
+	int x = object.getDrawStatic() ? (int)object.getPositionX() : (int)object.getPositionX() - xCameraOffset;
+	int y = object.getDrawStatic() ? (int)object.getPositionY() - (int)object.getHeight() : (int)object.getPositionY() - (int)object.getHeight() - yCameraOffset;
+
+	destination.x = x;
+	destination.y = y;
 	destination.w = (int)object.getWidth();
 	destination.h = (int)object.getHeight();
 	return destination;

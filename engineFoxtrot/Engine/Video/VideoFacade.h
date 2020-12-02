@@ -39,7 +39,7 @@ public:
 	int getXCameraOffset() const { return xCameraOffset; };
 	int getYCameraOffset() const { return yCameraOffset; };
 private:
-	SDL_Rect createRect(Object& object);
+	SDL_Rect createRect(Drawable& object);
 
 	int xCameraOffset = 0;
 	int yCameraOffset = 0;
