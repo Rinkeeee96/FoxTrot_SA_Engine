@@ -3,6 +3,12 @@
 #include "SceneManager/Objects/Button.h"
 #include "Game/Scenes/GameScene.h"
 
+#define SHORT_NAME_WIDTH 300
+#define LONG_NAME_WIDTH 350
+#define LEFT_X_CENTER 500
+#define RIGHT_X_CENTER 50
+#define TEXT_HEIGHT 50
+
 class CreditsScene : public GameScene
 {
 public:
@@ -17,6 +23,7 @@ private:
 
 	vector<Text*> text;
 
+	void loadText();
 	void loadBackground();
 	void loadMusic();
 	void loadButtons();
