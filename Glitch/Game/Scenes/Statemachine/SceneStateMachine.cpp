@@ -63,7 +63,6 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 		path = "Assets/Levels/Maps/Level" + to_string(levelToBuild) + ".json";
 		levelLoader.load(path, &levelOneBuilder);
 		newScene = levelOneBuilder.getLevel();
-		currentTextureId = levelOneBuilder.GetLastTextureId() + 1;
 
 		this->currentLevelIdentifier = identifier;
 	}

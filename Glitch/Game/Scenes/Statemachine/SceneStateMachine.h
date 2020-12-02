@@ -25,7 +25,6 @@ private:
 	Engine& engine;
 	unique_ptr<Scene> currentScene;
 	int sceneId = 0;
-	int currentTextureId = 0;
 	string currentLevelIdentifier = "";
 };
 
