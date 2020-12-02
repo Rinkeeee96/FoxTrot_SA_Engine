@@ -14,22 +14,28 @@ public:
 
 	bool getCanJump() const { return this->canJump; }
 	void setCanJump(bool val) { this->canJump = val; }
-	int getHealth() const { return this->health; }
-	void setHealth(int val) { this->health = val; }
-
+	int getCurrentHealth() const { return this->currentHealth; }
+	void setCurrentHealth(int val) { 
+		this->currentHealth = val; 
+		if (currentHealth > totalHealth) totalHealth = currentHealth;
+	}
 	void removeHealth(int val) { 
-		this->health -= val;
-		if (this->health <= 0) {
+		this->currentHealth -= val;
+		if (this->currentHealth <= 0) {
 			this->kill();
 		}
 	}
 
-	void kill() { this->health = 0; }
-	bool getIsDead() const { return this->health == 0; }
+	int getTotalHealth() const { return this->totalHealth; }
+	void setTotalHealth(int val) { this->totalHealth = val; }
+
+	void kill() { this->currentHealth = 0; }
+	bool getIsDead() const { return this->currentHealth == 0; }
 
 	virtual ICharacter* clone(int id) = 0;
 protected:
-	int health = 0;
+	int currentHealth = 0;
+	int totalHealth = 0;
 	bool canJump = false;
 	EventDispatcher& dispatcher;
 };
