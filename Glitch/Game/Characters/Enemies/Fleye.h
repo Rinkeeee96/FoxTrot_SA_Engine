@@ -47,6 +47,7 @@ public:
 		if (setup) {
 			startY = this->getPositionY();
 			setup = false;
+			changeToState(SpriteState::ACTION_LEFT_1);
 		}
 
 		float diff = player->getPositionX() - this->getPositionX();
