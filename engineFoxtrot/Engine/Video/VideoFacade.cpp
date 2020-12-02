@@ -115,7 +115,6 @@ void VideoFacade::renderCopy(Drawable& object)
 	}
 	SpriteObject& sprite = object.GetCurrentSprite();
 
-	//if (sprite == NULL) {
 	if (!textureMap.count(sprite.getTextureID())) {
 		loadImage(sprite);
 	}

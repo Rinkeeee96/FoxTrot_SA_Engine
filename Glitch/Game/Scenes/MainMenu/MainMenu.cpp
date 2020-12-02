@@ -37,7 +37,6 @@ void MainMenu::loadButtons() {
 
 	addNewObjectToLayer(3, startBtn);
 	addNewObjectToLayer(3, stopBtn);
-	//addNewObjectToLayer(3, loadBtn);
 	addNewObjectToLayer(3, creditsBtn);
 }
 

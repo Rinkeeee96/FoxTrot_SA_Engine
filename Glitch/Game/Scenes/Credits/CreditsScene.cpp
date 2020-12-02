@@ -23,8 +23,8 @@ void CreditsScene::onAttach()
 void CreditsScene::loadText() {
 	auto* name1 = new Text(4, new ColoredText("Lars Jansen", Color(0, 0, 0)), SHORT_NAME_WIDTH, TEXT_HEIGHT, CENTER_X - LEFT_X_CENTER, CENTER_Y - 150);
 	auto* name2 = new Text(5, new ColoredText("Max van Nistelrooij", Color(0, 0, 0)), LONG_NAME_WIDTH, TEXT_HEIGHT, CENTER_X - LEFT_X_CENTER, CENTER_Y + 50);
-	auto* name3 = new Text(6, new ColoredText("Rinke de Vries", Color(0, 0, 0)), SHORT_NAME_WIDTH, TEXT_HEIGHT, CENTER_X - LEFT_X_CENTER, CENTER_Y + 250);
-	auto* name4 = new Text(7, new ColoredText("Thijs de leeuw", Color(0, 0, 0)), SHORT_NAME_WIDTH, TEXT_HEIGHT, CENTER_X + RIGHT_X_CENTER, CENTER_Y - 150);
+	auto* name3 = new Text(6, new ColoredText("Thijs de leeuw", Color(0, 0, 0)), SHORT_NAME_WIDTH, TEXT_HEIGHT, CENTER_X - LEFT_X_CENTER, CENTER_Y + 250);
+	auto* name4 = new Text(7, new ColoredText("Rinke de Vries", Color(0, 0, 0)), SHORT_NAME_WIDTH, TEXT_HEIGHT, CENTER_X + RIGHT_X_CENTER, CENTER_Y - 150);
 	auto* name5 = new Text(8, new ColoredText("William Ross", Color(0, 0, 0)), SHORT_NAME_WIDTH, TEXT_HEIGHT, CENTER_X + RIGHT_X_CENTER, CENTER_Y + 50);
 	auto* name6 = new Text(9, new ColoredText("Wouter van Hees", Color(0, 0, 0)), LONG_NAME_WIDTH, TEXT_HEIGHT, CENTER_X + RIGHT_X_CENTER, CENTER_Y + 250);
 	auto* name7 = new Text(10, new ColoredText("Foxtrot", Color(0, 0, 0)), 500, 75, CENTER_X - 350, CENTER_Y + 650);
@@ -48,11 +48,8 @@ void CreditsScene::loadButtons() {
 	auto* backBtn = new SecondaryButton(3, "To Main Menu", BIND_FN(onBackClick), this->dispatcher);
 	backBtn->setPositionX(WINDOW_WIDTH - 40 - backBtn->getWidth());
 	backBtn->setPositionY(WINDOW_HEIGHT - 10 - backBtn->getHeight());
-	backBtn = new SecondaryButton(3, "To Main Menu", BIND_FN(onBackClick), this->dispatcher);
-	backBtn->setPositionX(WINDOW_WIDTH - 40 - backBtn->getWidth());
-	backBtn->setPositionY(WINDOW_HEIGHT - 10 - backBtn->getHeight());
 
-	addNewObjectToLayer(3, backBtn);
+	addNewObjectToLayer(5, backBtn);
 }
 
 /// @brief 
