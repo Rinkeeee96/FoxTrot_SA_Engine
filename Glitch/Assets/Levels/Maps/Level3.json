@@ -15,16 +15,16 @@
          "name":"Background",
          "objects":[
                 {
-                 "gid":89,
-                 "height":2324,
-                 "id":18,
+                 "gid":90,
+                 "height":2088,
+                 "id":32,
                  "name":"",
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":5176,
-                 "x":-26.6666666666666,
-                 "y":1118.90909090909
+                 "width":5248,
+                 "x":-48,
+                 "y":1268
                 }],
          "opacity":1,
          "properties":[
@@ -421,7 +421,7 @@
          "y":0
         }],
  "nextlayerid":11,
- "nextobjectid":32,
+ "nextobjectid":33,
  "orientation":"orthogonal",
  "properties":[
         {
