@@ -25,14 +25,14 @@ public:
 				Object& otherE = collisionEvent.getObjectTwo();
 
 				if (this->player->getObjectId() == otherE.getObjectId()) {
-					this->player->kill();
+					this->player->setCurrentHealth(this->player->getCurrentHealth() - 1);
 				}
 			}
 			else if (collisionEvent.getObjectTwo().getObjectId() == this->getObjectId()) {
 				Object& otherEntity = collisionEvent.getObjectOne();
 
 				if (this->player->getObjectId() == otherEntity.getObjectId()) {
-					this->player->kill();
+					this->player->setCurrentHealth(this->player->getCurrentHealth() - 1);
 				}
 			}
 		}
