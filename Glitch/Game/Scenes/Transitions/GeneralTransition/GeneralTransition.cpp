@@ -95,7 +95,6 @@ void GeneralTransition::loadBackground()
 void GeneralTransition::onUpdate()
 {
 	
-	chrono::duration<double> diff = chrono::duration_cast<chrono::duration<double>>(previousCallTime - startTime);
 	chrono::duration<double> diffFromPreviousCall = chrono::duration_cast<chrono::duration<double>>(chrono::high_resolution_clock::now() - previousCallTime);
 
 	if (diffFromPreviousCall.count() > 0.5 && !moveCharacter)

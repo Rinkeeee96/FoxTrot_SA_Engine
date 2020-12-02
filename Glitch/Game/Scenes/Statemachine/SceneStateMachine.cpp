@@ -68,6 +68,7 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	if (sceneId > 10) sceneId = 1;
 	if (newScene == nullptr) throw exception("NewScene is Nullptr so cant set new scene");
 
+	shared_ptr<Scene> oldScene = currentScene;
 	// Detach and delete the old now inactive scene
 	if (currentScene != nullptr)
 	{
@@ -87,4 +88,6 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 
 	currentScene->onAttach();
 	currentScene->start();
+
+	if(oldScene)oldScene->onDetach();
 }

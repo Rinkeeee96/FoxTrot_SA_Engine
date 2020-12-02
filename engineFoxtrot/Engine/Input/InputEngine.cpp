@@ -19,7 +19,7 @@ void InputEngine::start(EventDispatcher& dispatcher) {
 };
 
 void InputEngine::update() { 
-	inputFacade->pollEvents();
+	if(inputFacade)inputFacade->pollEvents();
 };
 
 void InputEngine::shutdown() {
