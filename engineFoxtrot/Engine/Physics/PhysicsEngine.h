@@ -1,11 +1,11 @@
 #pragma once
-#include "Events\EventSingleton.h"
 #include "Events/Action/ActionEvent.h"
 #include "IPhysicsFacade.h"
 
 #include "SceneManager/Scene.h"
+#include "General/ISubsystem.h"
 
-class API PhysicsEngine
+class API PhysicsEngine : public ISubsystem
 {
 public:
 	PhysicsEngine();
@@ -13,16 +13,20 @@ public:
 
 	void registerObjectInCurrentVectorWithPhysicsEngine();
 
-	bool handleAction(Event& event);
-	bool stopObject(Event& event);
-	bool update30(Event& tick30Event);
-	bool removeObject(Event& event);
+	bool handleAction(const Event& event);
+	bool stopObject(const Event& event);
+	void removeObject();
 
-	//Set to private after testing!!!
-	IPhysicsFacade* physicsFacade;
 	Scene** pointerToCurrentScene = nullptr;
 
+	void start(EventDispatcher& dispatcher) override;
+	void update() override;
+	void shutdown() override;
+
 private:
+	void clean();
+	IPhysicsFacade* physicsFacade;
+	EventDispatcher* dispatcher;
 
 	// CurrentScene is stored because if this changes then the objects need to be reset.
 	int currentSceneID = 0;
