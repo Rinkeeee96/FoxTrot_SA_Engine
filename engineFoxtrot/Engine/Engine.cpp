@@ -28,8 +28,8 @@ void Engine::setCurrentScene(const int sceneID)
 {
 	this->eventDispatcher =  &sceneManager.setCurrentScene(sceneID);
 
-	soundEngine.start(*this->eventDispatcher);
 	particleEngine.start(*this->eventDispatcher);
+	soundEngine.start(*this->eventDispatcher);
 	inputEngine.start(*this->eventDispatcher);
 	physicsEngine.start(*this->eventDispatcher);
 }

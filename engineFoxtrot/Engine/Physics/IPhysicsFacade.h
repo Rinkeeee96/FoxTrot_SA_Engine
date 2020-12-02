@@ -14,10 +14,10 @@ public:
 
 	virtual PhysicsBody* getPhysicsObject(const int objectId) = 0;
 
-	virtual void moveLeft(const int objectId) = 0;
-	virtual void moveRight(const int objectId) = 0;
-	virtual void jump(const int objectId) = 0;
-	virtual void fall(const int objectId) = 0;
+	virtual void MoveLeft(const int objectId) = 0;
+	virtual void MoveRight(const int objectId) = 0;
+	virtual void Jump(const int objectId) = 0;
+	virtual void Fall(const int objectId) = 0;
 
 	virtual void update() = 0;
 	virtual void stopObject(int objectId) = 0;

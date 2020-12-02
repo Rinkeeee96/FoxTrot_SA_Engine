@@ -14,15 +14,9 @@ public:
 	SoundEngine();
 	~SoundEngine();
 
-	void start(EventDispatcher& dispatcher) override { 
-		soundFacade = new SoundFacade;
-	};
-
+	void start(EventDispatcher& dispatcher) override { };
 	void update() override { };
-
-	void shutdown() override {
-		delete soundFacade;
-	};
+	void shutdown() override { };
 
 	void setFiles(map<string, string> files);
 	void addFile(const string& identifier, const string& file);
@@ -56,5 +50,8 @@ public:
 private:
 	void onChangeBackgroundMusic(const string& identifier, const int volume);
 
+
+	// TODO clear on scene detach
 	ISoundFacade* soundFacade = new SoundFacade;
+
 };
