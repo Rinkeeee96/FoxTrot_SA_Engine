@@ -652,7 +652,7 @@ void ParticleInit::setStyle(ParticleStyle style)
         _lifeVar = 0;
 
         // size, in pixels
-        _startSize = 4.0f;
+        _startSize = 6.0f;
         _startSizeVar = 2.0f;
         _endSize = START_SIZE_EQUAL_TO_END_SIZE;
 
