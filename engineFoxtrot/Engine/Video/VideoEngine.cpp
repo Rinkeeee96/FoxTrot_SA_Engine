@@ -46,7 +46,6 @@ void VideoEngine::renderCopy(Drawable& object) {
 /// @param sceneHeight 
 void VideoEngine::calculateOffset(Object& obj, int sceneWidth, int sceneHeight)
 {
-	
 	// Place obj variables in temporary variables for easy use. 
 	// Object Y pos needs to be subtracted with the height due to the position conversion from Object to SDL2.
 	int objectPosY = (int)obj.getPositionY() - (int)obj.getHeight();
@@ -92,7 +91,6 @@ void VideoEngine::calculateOffset(Object& obj, int sceneWidth, int sceneHeight)
 		newYOffset = objectPosY - CAMERA_BOX_Y;
 		changedY = true;
 	}
-
 
 	//// Check if we can actually move the camera due to the level sizes
 	if (newYOffset > 0 && newYOffset + (CAMERA_BOX_Y *2) + CAMERA_BOX_HEIGHT < sceneHeight && changedY)

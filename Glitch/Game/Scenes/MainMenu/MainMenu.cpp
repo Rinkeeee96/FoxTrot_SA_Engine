@@ -60,7 +60,7 @@ void MainMenu::loadBackground() {
 	animation->registerSprite(SpriteState::DEFAULT, BG_LAYER_ADVENTRUE);
 	animation->changeToState(SpriteState::DEFAULT);
 	animation->setScalable(false);
-
+	
 	auto* layer2 = new Drawable(16);
 	layer2->setStatic(true);
 	layer2->setPositionX(1);
