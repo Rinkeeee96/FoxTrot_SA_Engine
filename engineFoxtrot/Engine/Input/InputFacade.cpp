@@ -28,7 +28,7 @@ void InputFacade::pollEvents() {
 				int keycode = sdl_event.button.button; 
 				MouseButtonPressed event((MouseCode)keycode);
 				dispatcher.dispatchEvent<MouseButtonPressed>(event);
-				break;
+				return;
 			}
 			case SDL_KEYDOWN: 
 			{
