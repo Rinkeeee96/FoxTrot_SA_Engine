@@ -45,7 +45,7 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	bool handlingLevel = false;
 	if (identifier.find("Level") != string::npos) handlingLevel = true;
 
-	shared_ptr<Scene> newScene = nullptr;
+	std::unique_ptr<Scene> newScene = nullptr;
 
 	if (!handlingLevel)
 	{
@@ -73,7 +73,7 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	{
 		engine.deregisterScene(currentScene->getSceneID());
 	}
-	currentScene = newScene;
+	currentScene = std::move(newScene);
 
 	engine.insertScene(currentScene.get());
 	engine.setCurrentScene(currentScene->getSceneID());

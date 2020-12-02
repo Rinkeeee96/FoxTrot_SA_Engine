@@ -29,6 +29,7 @@ void Engine::setCurrentScene(const int sceneID)
 	this->eventDispatcher =  &sceneManager.setCurrentScene(sceneID);
 
 	particleEngine.start(*this->eventDispatcher);
+	soundEngine.start(*this->eventDispatcher);
 	inputEngine.start(*this->eventDispatcher);
 	physicsEngine.start(*this->eventDispatcher);
 }
@@ -53,6 +54,7 @@ void Engine::deregisterScene(const int id)
 	sceneManager.deregisterScene(id);
 	videoEngine.clearVideoEngine();
 
+	soundEngine.shutdown();
 	particleEngine.shutdown();
 	physicsEngine.shutdown();
 }
@@ -77,12 +79,12 @@ void Engine::restartPhysicsWorld()
 
 void Engine::loadSound(const string& identifier, const string& path)
 {
-	this->soundEngine.AddFile(identifier, path);
+	this->soundEngine.addFile(identifier, path);
 }
 
 void Engine::loadSound(map<string, string> sounds)
 {
-	this->soundEngine.SetFiles(sounds);
+	this->soundEngine.setFiles(sounds);
 }
 
 

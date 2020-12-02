@@ -9,16 +9,14 @@ PhysicsEngine::PhysicsEngine()
 {
 }
 
-
 void PhysicsEngine::start(EventDispatcher& dispatcher) {
 	this->dispatcher = &dispatcher;
 	physicsFacade = new PhysicsFacade(dispatcher);
 
 	dispatcher.setEventCallback<ActionEvent>(BIND_EVENT_FN(PhysicsEngine::handleAction));
 	dispatcher.setEventCallback<ObjectStopEvent>(BIND_EVENT_FN(PhysicsEngine::stopObject));
-	//(*dispatcher.get()).setEventCallback<RemoveEvent>(BIND_EVENT_FN(PhysicsEngine::removeObject));
-
 };
+
 void PhysicsEngine::update() {
 	if (currentSceneID != (*pointerToCurrentScene)->getSceneID())
 	{
@@ -30,11 +28,11 @@ void PhysicsEngine::update() {
 
 	physicsFacade->update();
 };
+
 void PhysicsEngine::shutdown() {
 	clean();
 	delete physicsFacade;
 };
-
 
 void PhysicsEngine::removeObject() {
 	physicsFacade->cleanMap();

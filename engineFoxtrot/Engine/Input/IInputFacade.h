@@ -8,7 +8,7 @@ class IInputFacade
 public:
 	IInputFacade() {};
 	IInputFacade(EventDispatcher& _dispatcher) {};
-	~IInputFacade() {};
+	virtual ~IInputFacade() {};
 
 	virtual void pollEvents() = 0;
 };

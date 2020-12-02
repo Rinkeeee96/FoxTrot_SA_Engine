@@ -25,6 +25,7 @@ public:
 		dispatcher.setEventCallback<MouseButtonPressed>(BIND_EVENT_FN(Button::isClicked));
 		dispatcher.setEventCallback<MouseMovedEvent>(BIND_EVENT_FN(Button::mouseOver));
 	}
+	virtual ~Button() {};
 
 	API const ColoredText* toString() { return &text; }
 

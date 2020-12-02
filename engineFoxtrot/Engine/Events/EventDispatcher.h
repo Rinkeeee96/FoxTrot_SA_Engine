@@ -56,12 +56,7 @@ private:
 
     template<typename T>
     bool handlerExists(string& name) {
-        try {
-            name = typeid(T).name();
-            return handlers.count(name) > 0;
-        }
-        catch (...) {
-            return false;
-        }
+        name = typeid(T).name();
+        return handlers.count(name) > 0;
     }
 };

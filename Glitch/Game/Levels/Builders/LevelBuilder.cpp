@@ -17,7 +17,7 @@ LevelBuilder::LevelBuilder(Engine& _engine, int levelId, SceneStateMachine& _sta
 }
 
 void LevelBuilder::create() {
-	level = shared_ptr<Level>(bLevel);
+	level = unique_ptr<Level>(bLevel);
 }
 
 // @brief 
