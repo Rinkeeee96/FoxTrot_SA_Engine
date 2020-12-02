@@ -9,6 +9,7 @@
 
 void SaveScreen::onAttach()
 {
+	
 	loadButtons();
 	loadBackground();
 	loadMusic();
@@ -17,13 +18,13 @@ void SaveScreen::onAttach()
 
 void SaveScreen::onDetach()
 {
-	EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent("MENU_SOUND"));
+	engine.soundEngine.onStartBackgroundMusicEvent("MENU_SOUND");
 	Scene::onDetach();
 }
 
 void SaveScreen::start()
 {
-	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("MENU_SOUND"));
+	engine.soundEngine.onStartBackgroundMusicEvent("MENU_SOUND");
 }
 
 void SaveScreen::onUpdate()
@@ -71,24 +72,25 @@ void SaveScreen::loadBackground()
 
 void SaveScreen::loadMusic()
 {
-	EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent("MENU_SOUND", "Assets/Sound/file_example_WAV_1MG.wav"));
+	engine.soundEngine.onLoadBackgroundMusicEvent("MENU_SOUND", "Assets/Sound/file_example_WAV_1MG.wav");
 }
 
 void SaveScreen::loadButtons()
 {
-	auto* save1 = new PrimaryButton(-996, savegame->getSaveGameData(1).saveGameName + " Score: " + to_string(savegame->getSaveGameData(1).totalScore), BIND_FN(onSave1BtnClick));
+	auto* save1 = new PrimaryButton(-996, savegame->getSaveGameData(1).saveGameName + " Score: " + to_string(savegame->getSaveGameData(1).totalScore), BIND_FN(onSave1BtnClick), this->dispatcher);
 	save1->setPositionX(CENTER_X - save1->getWidth() / 2);
 	save1->setPositionY(CENTER_Y - save1->getHeight() / 2);
 
-	auto* save2 = new PrimaryButton(-995, savegame->getSaveGameData(2).saveGameName + " Score: " + to_string(savegame->getSaveGameData(2).totalScore), BIND_FN(onSave2BtnClick));
+	auto* save2 = new PrimaryButton(-995, savegame->getSaveGameData(2).saveGameName + " Score: " + to_string(savegame->getSaveGameData(2).totalScore), BIND_FN(onSave2BtnClick), this->dispatcher);
 	save2->setPositionX(CENTER_X - save2->getWidth() / 2);
 	save2->setPositionY(CENTER_Y - save2->getHeight() / 2 + 100);
 
-	auto* save3 = new PrimaryButton(-994, savegame->getSaveGameData(3).saveGameName + " Score: " + to_string(savegame->getSaveGameData(3).totalScore), BIND_FN(onSave3BtnClick));
+	auto* save3 = new PrimaryButton(-994, savegame->getSaveGameData(3).saveGameName + " Score: " + to_string(savegame->getSaveGameData(3).totalScore), BIND_FN(onSave3BtnClick), this->dispatcher);
+
 	save3->setPositionX(CENTER_X - save3->getWidth() / 2);
 	save3->setPositionY(CENTER_Y - save3->getHeight() / 2 + 200);
 
-	auto* stopBtn = new SecondaryButton(-993, "To Main Menu", BIND_FN(onStopBtnClick));
+	auto* stopBtn = new SecondaryButton(-993, "To Main Menu", BIND_FN(onStopBtnClick), this->dispatcher);
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
@@ -101,21 +103,21 @@ void SaveScreen::loadButtons()
 void SaveScreen::onSave1BtnClick()
 {
 	savegame->setCurrentGameData(1);
-	stateMachine->switchToScene("Overworld", true);
+	stateMachine.switchToScene("Overworld", true);
 }
 
 void SaveScreen::onSave2BtnClick()
 {
 	savegame->setCurrentGameData(2);
-	stateMachine->switchToScene("Overworld", true);
+	stateMachine.switchToScene("Overworld", true);
 }
 
 void SaveScreen::onSave3BtnClick()
 {
 	savegame->setCurrentGameData(3);
-	stateMachine->switchToScene("Overworld", true);
+	stateMachine.switchToScene("Overworld", true);
 }
 
 void SaveScreen::onStopBtnClick() {
-	stateMachine->switchToScene("MainMenu",false);
+	stateMachine.switchToScene("MainMenu",false);
 }

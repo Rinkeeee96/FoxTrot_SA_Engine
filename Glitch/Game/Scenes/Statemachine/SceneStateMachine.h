@@ -23,8 +23,8 @@ private:
 
 	Engine& engine;
 	Savegame& savegame;
-	shared_ptr<Scene> currentScene;
-	int sceneId = 0;
 
+	unique_ptr<Scene> currentScene;
+	int sceneId = 0;
 };
 
