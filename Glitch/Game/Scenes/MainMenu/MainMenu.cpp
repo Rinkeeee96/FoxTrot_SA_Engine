@@ -12,6 +12,7 @@
 
 void MainMenu::onAttach()
 {
+	
 	loadButtons();
 	loadBackground();
 	loadMusic();
@@ -21,13 +22,14 @@ void MainMenu::onAttach()
 /// Create all buttons for this scene
 void MainMenu::loadButtons() {
 
-	auto* startBtn = new PrimaryButton(10, "Start", BIND_FN(onStartBtnClick));
+	auto* startBtn = new PrimaryButton(10, "Start", BIND_FN(onStartBtnClick), this->dispatcher);
 	startBtn->setPositionX(CENTER_X - startBtn->getWidth() / 2);
 	startBtn->setPositionY(CENTER_Y - startBtn->getHeight() / 2);
 
-	auto* stopBtn = new SecondaryButton(13, "Stop", BIND_FN(onStopBtnClick));
+	auto* stopBtn = new SecondaryButton(13, "Stop", BIND_FN(onStopBtnClick), this->dispatcher);
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
+
 
 	addNewObjectToLayer(3, startBtn);
 	addNewObjectToLayer(3, stopBtn);
@@ -76,14 +78,14 @@ void MainMenu::loadBackground() {
 /// @brief 
 /// Load the sounds for this scene
 void MainMenu::loadMusic() {
-	EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent("MENU_SOUND", "Assets/Sound/file_example_WAV_1MG.wav"));
+	engine.soundEngine.onLoadBackgroundMusicEvent("MENU_SOUND", "Assets/Sound/file_example_WAV_1MG.wav");
 }
 
 /// @brief 
 /// Create the sounds for this scene
 void MainMenu::start()
 {
-	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("MENU_SOUND"));
+	engine.soundEngine.onStartBackgroundMusicEvent("MENU_SOUND");
 }
 
 void MainMenu::onUpdate()
@@ -94,7 +96,7 @@ void MainMenu::onUpdate()
 /// Remove the sounds of the soundengine
 void MainMenu::onDetach()
 {
-	EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent("MENU_SOUND"));
+	engine.soundEngine.onStartBackgroundMusicEvent("MENU_SOUND");
 	Scene::onDetach();
 }
 
@@ -104,7 +106,7 @@ void MainMenu::onDetach()
 /// Start transition scene to OVERWORLD
 void MainMenu::onStartBtnClick()
 {
-	stateMachine->switchToScene("SaveScreen", false);
+	stateMachine.switchToScene("SaveScreen", false);
 }
 
 
@@ -112,8 +114,7 @@ void MainMenu::onStartBtnClick()
 /// A callback function for stopBTN
 /// Stop the application
 void MainMenu::onStopBtnClick() {
-	WindowCloseEvent event;
-	EventSingleton::get_instance().dispatchEvent<WindowCloseEvent>(event);
+	engine.setEngineRunning(false);
 }
 
 

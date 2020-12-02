@@ -3,15 +3,19 @@
 #include "Events/Event.h"
 #include "Events/Action/ActionEvent.h"
 #include "ParticleAdapter.h"
+#include "General/ISubsystem.h"
 
 /// @brief Class to update Particle
-class API ParticleEngine
+class API ParticleEngine: public ISubsystem
 {
 public:
 	ParticleEngine();
 	~ParticleEngine();
 
-	bool onUpdate(Event& tickEvent);
+	void start(EventDispatcher& dispatcher) override;
+	void update() override;
+	void shutdown() override;
+
 	Scene** pointerToCurrentScene = nullptr;
 
 private:

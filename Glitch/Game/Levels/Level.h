@@ -6,16 +6,15 @@
 class Level : public GameScene
 {
 public:
-	Level(const int id, const int _sceneHeight, const int _sceneWidth, map<string, string> _sounds);
-	Level(const int id, const int _sceneHeight, const int _sceneWidth);
+	Level(const int id, const int _sceneHeight, const int _sceneWidth, Engine& engine, SceneStateMachine& _stateMachine);
 
 	void setPlayer(Object* object);
-	virtual void setSound(map<string, string> sounds);
-	virtual void onAttach() override;
-	virtual void start() override;
-	virtual void pause();
-	virtual void onDetach() override;
-	virtual void onUpdate() override;
+	void setSound(map<string, string> sounds);
+	void onAttach() override;
+	void start() override;
+	void pause();
+	void onDetach() override;
+	void onUpdate() override;
 
 	void addHuds();
 

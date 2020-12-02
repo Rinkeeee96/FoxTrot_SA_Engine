@@ -5,13 +5,13 @@
 /// Slime class with correspondending AI logic
 class Slime : public IEnemy {
 public:
-	Slime() : IEnemy() {}
-	Slime(const int id) : IEnemy(id) {
-		EventSingleton::get_instance().setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Slime::onCollisionBeginEvent));
+	Slime(EventDispatcher& _dispatcher) : IEnemy(_dispatcher) {}
+	Slime(const int id, EventDispatcher& _dispatcher) : IEnemy(id, _dispatcher) {
+		_dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Slime::onCollisionBeginEvent));
 	}
 
-	bool onCollisionBeginEvent(Event& event) {
-		auto collisionEvent = static_cast<OnCollisionBeginEvent&>(event);
+	bool onCollisionBeginEvent(const Event& event) {
+		auto collisionEvent = static_cast<const OnCollisionBeginEvent&>(event);
 		if (collisionEvent.getObjectOne().getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo().getObjectId() != this->getObjectId()) return false;
 
 		auto map = collisionEvent.getDirectionMap();
@@ -46,12 +46,12 @@ public:
 
 		bool positionedOnGround = this->getYAxisVelocity() == 0;
 		if(positionedOnGround)
-			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
+			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
 
 		if (playerIsInRange && playerIsBelowMe && !positionedOnGround){
-			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::DOWN, this->getObjectId()));
+			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::DOWN, this->getObjectId()));
 		}
 	};
 
-	ICharacter* clone(int id) override { return new Slime(id); }
+	ICharacter* clone(int id) override { return new Slime(id, this->dispatcher); }
 };
