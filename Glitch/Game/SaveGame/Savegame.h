@@ -54,13 +54,31 @@ public:
 	SaveGameData getCurrentGameData();
 	void saveCurrentGameData(SaveGameData saveGame);
 	
+	void addSaveGameData(const int id, SaveGameData savegame)
+	{
+		saveGameDataMap[id] = savegame;
+	}
+	void deleteSaveGameData(const int id)
+	{
+		saveGameDataMap.erase(id);
+	}
+
+	bool isSaveGameDataEmpty(const int id)
+	{
+		if (saveGameDataMap.count(id) > 0)
+		{
+			return false;
+		}
+		return true;
+	}
+
 	SaveGameData getSaveGameData(const int id) 
 	{ 
 		if (saveGameDataMap.count(id) > 0)
 		{
 			return saveGameDataMap[id];
 		}
-		throw exception("Trying to get unknown");
+		throw exception("Trying to get unknown SaveGame");
 	}
 
 private:

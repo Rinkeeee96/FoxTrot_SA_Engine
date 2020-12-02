@@ -77,24 +77,66 @@ void SaveScreen::loadMusic()
 
 void SaveScreen::loadButtons()
 {
-	auto* save1 = new PrimaryButton(-996, savegame->getSaveGameData(1).saveGameName + " Score: " + to_string(savegame->getSaveGameData(1).totalScore), BIND_FN(onSave1BtnClick), this->dispatcher);
-	save1->setPositionX(CENTER_X - save1->getWidth() / 2);
+	string nameBtn = "Empty";
+	string nameBtnExtra = "Create New";
+	if (!savegame->isSaveGameDataEmpty(1))
+	{
+		nameBtn = savegame->getSaveGameData(1).saveGameName + " Score: " + to_string(savegame->getSaveGameData(1).totalScore);
+		nameBtnExtra = "Delete";
+	}
+
+	auto* save1 = new PrimaryButton(-996, nameBtn, BIND_FN(onSave1BtnClick), this->dispatcher);
+	save1->setPositionX(CENTER_X - save1->getWidth() / 2 - 110);
 	save1->setPositionY(CENTER_Y - save1->getHeight() / 2);
+	if (savegame->isSaveGameDataEmpty(1)) save1->disable();
 
-	auto* save2 = new PrimaryButton(-995, savegame->getSaveGameData(2).saveGameName + " Score: " + to_string(savegame->getSaveGameData(2).totalScore), BIND_FN(onSave2BtnClick), this->dispatcher);
-	save2->setPositionX(CENTER_X - save2->getWidth() / 2);
+	auto* delSave1 = new PrimaryButton(-992, nameBtnExtra, BIND_FN(onSave1ExtraBtnClick), this->dispatcher);
+	delSave1->setPositionX(CENTER_X - save1->getWidth() / 2 + 110);
+	delSave1->setPositionY(CENTER_Y - save1->getHeight() / 2);
+
+	string name1Btn = "Empty";
+	string name1BtnExtra = "Create New";
+	if (!savegame->isSaveGameDataEmpty(2))
+	{
+		name1Btn = savegame->getSaveGameData(2).saveGameName + " Score: " + to_string(savegame->getSaveGameData(2).totalScore);
+		name1BtnExtra = "Delete";
+	}
+
+	auto* save2 = new PrimaryButton(-995, name1Btn, BIND_FN(onSave2BtnClick), this->dispatcher);
+	save2->setPositionX(CENTER_X - save2->getWidth() / 2 - 110);
 	save2->setPositionY(CENTER_Y - save2->getHeight() / 2 + 100);
+	if (savegame->isSaveGameDataEmpty(2)) save2->disable();
 
-	auto* save3 = new PrimaryButton(-994, savegame->getSaveGameData(3).saveGameName + " Score: " + to_string(savegame->getSaveGameData(3).totalScore), BIND_FN(onSave3BtnClick), this->dispatcher);
+	auto* delSave2 = new PrimaryButton(-991, name1BtnExtra, BIND_FN(onSave2ExtraBtnClick), this->dispatcher);
+	delSave2->setPositionX(CENTER_X - save1->getWidth() / 2 + 110);
+	delSave2->setPositionY(CENTER_Y - save1->getHeight() / 2 + 100);
 
-	save3->setPositionX(CENTER_X - save3->getWidth() / 2);
+	string name2Btn = "Empty";
+	string name3BtnExtra = "Create New";
+	if (!savegame->isSaveGameDataEmpty(3))
+	{
+		name2Btn = savegame->getSaveGameData(3).saveGameName + " Score: " + to_string(savegame->getSaveGameData(3).totalScore);
+		name3BtnExtra = "Delete";
+	}
+
+	auto* save3 = new PrimaryButton(-994, name2Btn, BIND_FN(onSave3BtnClick), this->dispatcher);
+	save3->setPositionX(CENTER_X - save3->getWidth() / 2 - 110);
 	save3->setPositionY(CENTER_Y - save3->getHeight() / 2 + 200);
+	if (savegame->isSaveGameDataEmpty(3)) save3->disable();
+
+	auto* delSave3 = new PrimaryButton(-990, name3BtnExtra, BIND_FN(onSave3ExtraBtnClick), this->dispatcher);
+	delSave3->setPositionX(CENTER_X - save1->getWidth() / 2 + 110);
+	delSave3->setPositionY(CENTER_Y - save1->getHeight() / 2 + 200);
 
 	auto* stopBtn = new SecondaryButton(-993, "To Main Menu", BIND_FN(onStopBtnClick), this->dispatcher);
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
 	addNewObjectToLayer(3, save1);
+	addNewObjectToLayer(3, delSave1);
+	addNewObjectToLayer(3, delSave2);
+	addNewObjectToLayer(3, delSave3);
+
 	addNewObjectToLayer(3, save2);
 	addNewObjectToLayer(3, save3);
 	addNewObjectToLayer(3, stopBtn);
@@ -106,17 +148,67 @@ void SaveScreen::onSave1BtnClick()
 	stateMachine.switchToScene("Overworld", true);
 }
 
+void SaveScreen::onSave1ExtraBtnClick()
+{
+	if (savegame->isSaveGameDataEmpty(1))
+	{
+		SaveGameData save3;
+		save3.saveGameName = "Save 1";
+		savegame->addSaveGameData(1, save3);
+		stateMachine.switchToScene("SaveScreen", true);
+	}
+	else
+	{
+		savegame->deleteSaveGameData(1);
+		stateMachine.switchToScene("SaveScreen", true);
+	}
+}
+
 void SaveScreen::onSave2BtnClick()
 {
 	savegame->setCurrentGameData(2);
 	stateMachine.switchToScene("Overworld", true);
 }
 
+void SaveScreen::onSave2ExtraBtnClick()
+{
+	if (savegame->isSaveGameDataEmpty(2))
+	{
+		SaveGameData save3;
+		save3.saveGameName = "Save 2";
+		savegame->addSaveGameData(2, save3);
+		stateMachine.switchToScene("SaveScreen", true);
+	}
+	else
+	{
+		savegame->deleteSaveGameData(2);
+		stateMachine.switchToScene("SaveScreen", true);
+	}
+}
+
+
 void SaveScreen::onSave3BtnClick()
 {
 	savegame->setCurrentGameData(3);
 	stateMachine.switchToScene("Overworld", true);
 }
+
+void SaveScreen::onSave3ExtraBtnClick()
+{
+	if (savegame->isSaveGameDataEmpty(3))
+	{
+		SaveGameData save3;
+		save3.saveGameName = "Save 3";
+		savegame->addSaveGameData(3,save3);
+		stateMachine.switchToScene("SaveScreen", true);
+	}
+	else
+	{
+		savegame->deleteSaveGameData(3);
+		stateMachine.switchToScene("SaveScreen", true);
+	}
+}
+
 
 void SaveScreen::onStopBtnClick() {
 	stateMachine.switchToScene("MainMenu",false);

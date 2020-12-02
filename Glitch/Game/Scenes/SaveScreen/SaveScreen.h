@@ -27,5 +27,10 @@ private:
 	void onSave3BtnClick();
 	void onStopBtnClick();
 
+	void onSave1ExtraBtnClick();
+	void onSave2ExtraBtnClick();
+	void onSave3ExtraBtnClick();
+
+
 };
 
