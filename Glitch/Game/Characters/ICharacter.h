@@ -1,12 +1,13 @@
 #pragma once
 #include "Game/IGameObject.h"
+#include "Events/EventDispatcher.h"
 
 /// @brief 
 /// Character base class
 class ICharacter : public IGameObject  {
 public:
-	ICharacter() : IGameObject() {}
-	ICharacter(const int id) : IGameObject(id) {}
+	ICharacter(EventDispatcher& _dispatcher) : dispatcher{ _dispatcher } {};
+	ICharacter(const int id, EventDispatcher& _dispatcher) : dispatcher{ _dispatcher }, IGameObject(id) {}
 	virtual ~ICharacter() {}
 
 	virtual void onUpdate() = 0;
@@ -15,6 +16,7 @@ public:
 	void setCanJump(bool val) { this->canJump = val; }
 	int getHealth() const { return this->health; }
 	void setHealth(int val) { this->health = val; }
+
 	void removeHealth(int val) { 
 		this->health -= val;
 		if (this->health <= 0) {
@@ -29,4 +31,5 @@ public:
 protected:
 	int health = 0;
 	bool canJump = false;
+	EventDispatcher& dispatcher;
 };

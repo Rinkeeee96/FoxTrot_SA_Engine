@@ -11,7 +11,7 @@ void ContactListenerAdapter::BeginContact(b2Contact* contact) {
 	if (result.object1 != nullptr && result.object2 != nullptr) {
 		map<int, vector<Direction>> direction = getCollisionDirection(result);
 
-		EventSingleton::get_instance().dispatchEvent<OnCollisionBeginEvent>((Event&)OnCollisionBeginEvent(result.object1->getObject(), result.object2->getObject(), direction));
+		dispatcher.dispatchEvent<OnCollisionBeginEvent>((Event&)OnCollisionBeginEvent(result.object1->getObject(), result.object2->getObject(), direction));
 	}
 }
 
@@ -63,7 +63,7 @@ void ContactListenerAdapter::EndContact(b2Contact* contact) {
 
 		map<int, vector<Direction>> direction = getCollisionDirection(result);
 
-		EventSingleton::get_instance().dispatchEvent<OnCollisionEndEvent>((Event&)OnCollisionEndEvent(result.object1->getObject(), result.object2->getObject(), direction));
+		dispatcher.dispatchEvent<OnCollisionEndEvent>((Event&)OnCollisionEndEvent(result.object1->getObject(), result.object2->getObject(), direction));
 	}
 };
 

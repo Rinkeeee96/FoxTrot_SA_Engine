@@ -9,10 +9,11 @@ class Game
 public:
 	Game();
 	int run();
-	bool stopRun(Event& event);
+
 private:
 	Engine engine;
-	shared_ptr<SceneStateMachine> stateMachine;
+	SceneStateMachine stateMachine{ engine };
+
 	bool gameRunning = true;
 };
 

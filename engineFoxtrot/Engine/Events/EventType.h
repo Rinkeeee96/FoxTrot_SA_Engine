@@ -7,11 +7,8 @@ enum class EventType
 	// -- input capturing events ---
 	CaptureInput,
 	ReleaseInput,
-	// -- engine events -----
-	Engine30, 
-	Engine60,
+
 	// -- window events -----
-	WindowClose, 
 	WindowResize, 
 	WindowFocus, 
 	WindowLostFocus, 
@@ -25,19 +22,10 @@ enum class EventType
 	MouseButtonPressed, 
 	MouseButtonReleased, 
 	MouseMoved, 
-	// -- sounds events -----
-	OnMusicStartEvent,
-	OnMusicStopEvent,
-	PlayEffectEvent,
-	StopEffectEvent,
-	AttachSound,
 
 	Action,
 	CollisionEnd,
 	CollisionBegin,
 
-	ObjectStop,
-	LoadSprite,
-
-	RemoveObject
+	ObjectStop
 };
