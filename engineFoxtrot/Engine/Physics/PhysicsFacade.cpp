@@ -4,10 +4,10 @@
 #include "box2d/box2d.h"
 
 /// @brief Constructor
-PhysicsFacade::PhysicsFacade()
+PhysicsFacade::PhysicsFacade(EventDispatcher& _dispatcher) : dispatcher{_dispatcher }
 {
 	world = new b2World(b2Vec2(GRAVITY_SCALE, GRAVITY_FALL));
-	world->SetContactListener(new ContactListenerAdapter(this));
+	world->SetContactListener(new ContactListenerAdapter(this, _dispatcher));
 }
 
 /// @brief Destructor
@@ -58,7 +58,7 @@ PhysicsBody* PhysicsFacade::getPhysicsObject(const int objectId)
 /// Identifier for ObjectID
 b2PolygonShape createShape(const PhysicsBody& object) {
 	b2PolygonShape shape;
-	float halfH = object.getHeight()/ 2; //Box2D needs the half height of a object
+	float halfH = object.getHeight() / 2; //Box2D needs the half height of a object
 	float halfW = object.getWidth() / 2; //Box2D needs the half width of a object
 	float posY = object.getPositionY() - object.getHeight() / 2; //Box2d needs the middle position
 	float posX = object.getPositionX() + object.getWidth() / 2; //Box2d needs the middle position
@@ -161,7 +161,7 @@ void PhysicsFacade::update() {
 		if (object->getRotatable()) object->setRotation(body->GetAngle() * (TOTAL_DEGREES / PI));
 		object->setYAxisVelocity(body->GetLinearVelocity().y);
 		object->setXAxisVelocity(body->GetLinearVelocity().x);
-	}	
+	}
 }
 
 void PhysicsFacade::stopObject(int objectId, bool stopVertical) {
@@ -185,7 +185,7 @@ void PhysicsFacade::MoveLeft(const int objectId)
 	if (!body || !ob) return;
 
 	b2Vec2 vel = body->GetLinearVelocity();
-	vel.x = ob->getSpeed() *-1;
+	vel.x = ob->getSpeed() * -1;
 	body->SetLinearVelocity(vel);
 };
 
@@ -210,7 +210,7 @@ void PhysicsFacade::MoveRight(const int objectId)
 /// Identifier for ObjectID
 void PhysicsFacade::Jump(const int objectId)
 {
-  	b2Body* body = findBody(objectId);
+	b2Body* body = findBody(objectId);
 	const PhysicsBody* ob = getPhysicsObject(objectId);
 	if (!body || !ob) return;
 
@@ -239,12 +239,12 @@ void PhysicsFacade::Fall(const int objectId)
 /// destroy all the bodies of the world
 void PhysicsFacade::cleanMap()
 {
-	/*for (auto b : bodies)
+	for (auto b : bodies)
 	{
-		world->DestroyBody(b.second);
-	}*/
+		delete b.first;
+	}
 	bodies.clear();
 	delete world;
 	world = new b2World(b2Vec2(GRAVITY_SCALE, GRAVITY_FALL));
-	world->SetContactListener(new ContactListenerAdapter(this));
+	world->SetContactListener(new ContactListenerAdapter(this, dispatcher));
 }

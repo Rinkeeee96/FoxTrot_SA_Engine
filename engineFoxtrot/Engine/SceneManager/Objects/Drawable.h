@@ -1,7 +1,5 @@
 #pragma once
 #include "SceneManager/Objects/Object.h"
-#include "Events\EventSingleton.h"
-#include "Events\Video\VideoLoadSpriteEvent.h"
 #include "Structs/HelperStructs.h"
 class Drawable : public Object
 {
@@ -22,7 +20,6 @@ public:
 	/// link a state with a sprite
 	API virtual void registerSprite(int state, SpriteObject* spriteObject) {
 		textures.insert(pair<int, SpriteObject*>(state, spriteObject));
-		EventSingleton::get_instance().dispatchEvent<VideoLoadSpriteEvent>((Event&)VideoLoadSpriteEvent(*spriteObject));
 	}
 	/// @brief
 	/// change the state
@@ -36,15 +33,16 @@ public:
 
 	API virtual const ColoredText* toString() { return nullptr; }
 
-	virtual void onUpdate() override {
+	virtual void onUpdate() override { }
 
-	}
-
+	bool getDrawStatic() { return this->drawStatic; }
+	void setDrawStatic(bool val) { this->drawStatic = val; }
 protected:
 	// TODO	particle related things
-
+	bool drawStatic = false;
 	int currentSpriteState = 0;
 	SpriteObject* currentSprite = nullptr;
+	// TODO delete on scene detach in destructor when object is destroyed
 	map<const int, SpriteObject*> textures;
 };
 

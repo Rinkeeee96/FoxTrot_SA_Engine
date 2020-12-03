@@ -15,16 +15,16 @@
          "name":"Background",
          "objects":[
                 {
-                 "gid":89,
-                 "height":1168,
-                 "id":18,
+                 "gid":90,
+                 "height":1984,
+                 "id":61,
                  "name":"",
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":5176,
-                 "x":-26.6666666666666,
-                 "y":1118.90909090909
+                 "width":5264,
+                 "x":-64,
+                 "y":1252
                 }],
          "opacity":1,
          "properties":[
@@ -303,7 +303,7 @@
          "objects":[
                 {
                  "height":37.5,
-                 "id":2,
+                 "id":47,
                  "name":"",
                  "properties":[
                         {
@@ -314,9 +314,128 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":5108,
-                 "x":11.818181818182,
-                 "y":6.242424242424
+                 "width":48,
+                 "x":1184,
+                 "y":1.25
+                }, 
+                {
+                 "height":37.5,
+                 "id":54,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"int",
+                         "value":11
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":48,
+                 "x":2914,
+                 "y":3.25
+                }, 
+                {
+                 "height":37.5,
+                 "id":55,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"int",
+                         "value":11
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":48,
+                 "x":4146,
+                 "y":-0.75
+                }, 
+                {
+                 "height":37.5,
+                 "id":56,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"int",
+                         "value":11
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":48,
+                 "x":1182,
+                 "y":1.25
+                }, 
+                {
+                 "height":37.5,
+                 "id":57,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"int",
+                         "value":11
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":48,
+                 "x":2918,
+                 "y":3.25
+                }, 
+                {
+                 "height":37.5,
+                 "id":58,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"int",
+                         "value":11
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":48,
+                 "x":4140,
+                 "y":1.25
+                }, 
+                {
+                 "height":37.5,
+                 "id":59,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"int",
+                         "value":11
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":48,
+                 "x":4954,
+                 "y":7.25
+                }, 
+                {
+                 "height":37.5,
+                 "id":60,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"int",
+                         "value":11
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":48,
+                 "x":4954,
+                 "y":7.25
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -325,8 +444,14 @@
          "y":0
         }],
  "nextlayerid":10,
- "nextobjectid":22,
+ "nextobjectid":63,
  "orientation":"orthogonal",
+ "properties":[
+        {
+         "name":"music",
+         "type":"string",
+         "value":"file_example_WAV_2MG.wav"
+        }],
  "renderorder":"right-down",
  "tiledversion":"1.4.3",
  "tileheight":32,

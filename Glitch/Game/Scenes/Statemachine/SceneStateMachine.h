@@ -23,8 +23,9 @@ private:
 	shared_ptr<SceneFactory>  factory = nullptr;
 
 	Engine& engine;
-	shared_ptr<Scene> currentScene;
+	unique_ptr<Scene> currentScene;
 	int sceneId = 0;
+	int currentTextureId = 0;
 	string currentLevelIdentifier = "";
 };
 

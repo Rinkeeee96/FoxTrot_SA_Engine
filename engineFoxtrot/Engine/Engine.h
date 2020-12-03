@@ -8,11 +8,12 @@
 #include "./ParticleSystem/ParticleEngine.h"
 #include "./SceneManager/SceneManager.h"
 
-#include "Events/EventSingleton.h"
 #include "./Video/VideoEngine.h"
 #include "./Sound/SoundEngine.h"
 #include "./Input/InputEngine.h"
 #include "./Fps/FrameData.h"
+
+#include "Events/EventDispatcher.h"
 
 #define	ENGINE_TICK60	 17
 #define ENGINE_TICK30	 33
@@ -30,9 +31,6 @@ public:
 	API void insertScene(Scene * scene);
 	API void deregisterScene(const int id);
 
-	// Video calls
-	API void loadSprite(const SpriteObject& spriteObject);
-
 	// Sound calls
 	API void loadSound(const string& identifier, const string& path);
 	API void loadSound(map<string, string> sounds);
@@ -40,17 +38,30 @@ public:
 	// Input calls
 	API void pollEvents();
 
-	//Events
-	API void EventListeners();
-	API bool Event_LoadSprite(Event& event);
-private:
-	PhysicsEngine physicsEngine;
-	ParticleEngine particleEngine;
-	SoundEngine soundEngine;
-	InputEngine inputEngine;
-	SceneManager sceneManager;
-	VideoEngine videoEngine;
+	API void onUpdate();
 
-	FrameData* frameData = nullptr;
+	API void updateFps();
+	API void toggleFps();
+
+	API bool getEngineRunning() { return running; };
+	API void setEngineRunning(bool run) { running = run; }
+
+	API void restartPhysicsWorld();
+
+	//API EventDispatcher& getDispatcher() { return *eventDispatcher; }
+	SoundEngine soundEngine;
+
+private:
+	EventDispatcher* eventDispatcher;
+	bool running = false;
+
+	FrameData frameData;
+	
+	SceneManager sceneManager;
+	ParticleEngine particleEngine;
+	PhysicsEngine physicsEngine;
+
+	VideoEngine videoEngine{ frameData };
+	InputEngine inputEngine{ *this };
 };
 #endif

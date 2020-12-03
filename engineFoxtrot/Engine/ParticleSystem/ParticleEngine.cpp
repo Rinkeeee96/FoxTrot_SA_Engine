@@ -1,12 +1,9 @@
 #include "stdafx.h"
 #include "ParticleEngine.h"
-#include "Events\AppTickEvent60.h"
-#include "Events\EventSingleton.h"
 
 /// @brief Constructor
 ParticleEngine::ParticleEngine()
 {
-	EventSingleton::get_instance().setEventCallback<AppTickEvent60>(BIND_EVENT_FN(ParticleEngine::onUpdate));
 }
 
 /// @brief Destructor
@@ -14,22 +11,26 @@ ParticleEngine::~ParticleEngine()
 {
 }
 
-/// @brief OnUpdate for updating particles
-/// @param tickEvent tick event listening to
-bool ParticleEngine::onUpdate(Event& tickEvent)
+void ParticleEngine::start(EventDispatcher& dispatcher)
 {
-	if ((*pointerToCurrentScene)->getAllDrawablesInScene().size() == 0) return false;
-	for (Drawable *particle : (*pointerToCurrentScene)->getAllDrawablesInScene())
+}
+
+void ParticleEngine::update()
+{
+	if ((*pointerToCurrentScene)->getAllDrawablesInScene().size() == 0) return;
+	for (Drawable* particle : (*pointerToCurrentScene)->getAllDrawablesInScene())
 	{
 		if (particle != nullptr && particle->getIsParticle())
 		{
-			((ParticleAdapter *)particle)->update();
+			((ParticleAdapter*)particle)->update();
 
-			checkIfObjectValueAndParticleValueMatch((ParticleAdapter &)particle);
+			checkIfObjectValueAndParticleValueMatch((ParticleAdapter&)particle);
 		}
 	}
-	// do not handle the onupdate events, they are continuous
-	return false;
+}
+
+void ParticleEngine::shutdown()
+{
 }
 
 void ParticleEngine::checkIfObjectValueAndParticleValueMatch(ParticleAdapter& particle)

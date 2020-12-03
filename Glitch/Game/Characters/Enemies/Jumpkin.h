@@ -11,13 +11,13 @@
 /// Slime class with correspondending AI logic
 class Jumpkin : public IEnemy {
 public:
-	Jumpkin() : IEnemy() {}
-	Jumpkin(const int id) : IEnemy(id) {
-		EventSingleton::get_instance().setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Jumpkin::onCollisionBeginEvent));
+	Jumpkin(EventDispatcher& _dispatcher) : IEnemy(_dispatcher) {}
+	Jumpkin(const int id, EventDispatcher& _dispatcher) : IEnemy(id, _dispatcher) {
+		_dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Jumpkin::onCollisionBeginEvent));
 	}
 
-	bool onCollisionBeginEvent(Event& event) {
-		auto collisionEvent = static_cast<OnCollisionBeginEvent&>(event);
+	bool onCollisionBeginEvent(const Event& event) {
+		auto collisionEvent = static_cast<const OnCollisionBeginEvent&>(event);
 		if (collisionEvent.getObjectOne().getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo().getObjectId() != this->getObjectId()) return false;
 
 		auto map = collisionEvent.getDirectionMap();
@@ -31,14 +31,14 @@ public:
 				Object& otherE = collisionEvent.getObjectTwo();
 
 				if (this->player->getObjectId() == otherE.getObjectId()) {
-					this->player->kill();
+					this->player->setCurrentHealth(this->player->getCurrentHealth() - 1);
 				}
 			}
 			else if (collisionEvent.getObjectTwo().getObjectId() == this->getObjectId()) {
 				Object& otherEntity = collisionEvent.getObjectOne();
 
 				if (this->player->getObjectId() == otherEntity.getObjectId()) {
-					this->player->kill();
+					this->player->setCurrentHealth(this->player->getCurrentHealth() - 1);
 				}
 			}
 		}
@@ -48,8 +48,8 @@ public:
 	void onUpdate() override {
 		float xDiff = player->getPositionX() - this->getPositionX();
 		float yDiff = player->getPositionY() - this->getPositionY();
-		bool playerIsInRangeHorizontally = (xDiff < HORIZONTAL_RANGE && xDiff >(HORIZONTAL_RANGE * -1));
-		bool playerIsInRangeVertically = (yDiff < VERTICAL_RANGE && yDiff >(VERTICAL_RANGE * -1));
+		bool playerIsInRangeHorizontally = (xDiff < HORIZONTAL_RANGE&& xDiff >(HORIZONTAL_RANGE * -1));
+		bool playerIsInRangeVertically = (yDiff < VERTICAL_RANGE&& yDiff >(VERTICAL_RANGE * -1));
 		Direction direction = player->getPositionX() < this->positionX ? Direction::LEFT : Direction::RIGHT;
 		bool positionedOnGround = this->getYAxisVelocity() == 0;
 
@@ -77,6 +77,11 @@ public:
 		if (!playerIsInRangeHorizontally) {
 			changeToState(SpriteState::DEFAULT);
 			EventSingleton::get_instance().dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->getObjectId(), false));
+		}
+
+		if (!playerIsInRangeHorizontally) {
+			changeToState(SpriteState::DEFAULT);
+			dispatcher.dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->getObjectId(), false));
 		}
 	};
 
