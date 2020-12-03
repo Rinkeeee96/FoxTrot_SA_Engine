@@ -212,10 +212,6 @@ void Scene::createLayer(const int zIndex, bool renderPhysics, bool alwaysDrawLay
 	layers[zIndex]->alwaysVisible = alwaysDrawLayer;
 }
 
-void Scene::createPopUpLayer(float xPosition, float yPosition, string text) {
-	createPopUpLayer(xPosition, yPosition, POP_UP_DEFAULT_WIDTH, POP_UP_DEFAULT_HEIGHT, text);
-}
-
 int Scene::getHighestLayerIndex() {
 	int zIndex = 0;
 
@@ -225,6 +221,10 @@ int Scene::getHighestLayerIndex() {
 			zIndex = layer.first;
 	}
 	return zIndex;
+}
+
+void Scene::createPopUpLayer(float xPosition, float yPosition, string text) {
+	createPopUpLayer(xPosition, yPosition, POP_UP_DEFAULT_WIDTH, POP_UP_DEFAULT_HEIGHT, text);
 }
 
 void Scene::createPopUpLayer(float xPosition, float yPosition, float width, float height, string text) {
