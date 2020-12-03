@@ -2,13 +2,14 @@
 #include "Scene.h"
 #include "SceneManager\Objects\Drawable.h"
 #include "Objects/PopUp.h"
+#include "Events/Key/KeyPressed.h"
 
 /// @brief 
 /// @param sceneID 
 Scene::Scene(const int _sceneID, const int _sceneHeight, const int _sceneWidth) : 
 	sceneID(_sceneID), sceneHeight(_sceneHeight), sceneWidth(_sceneWidth)
 {
-
+	dispatcher.setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Scene::onKeyPressed));
 }
 
 /// @brief 
@@ -165,6 +166,25 @@ void Scene::onDetach()
 	layers.clear();
 }
 
+bool Scene::onKeyPressed(const Event& event) {	
+	auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
+	// TODO command pattern
+	switch (keyPressedEvent.GetKeyCode())
+	{
+	case KeyCode::KEY_P:
+		if (!hasActivePopUp) {
+			createPopUpLayer(200, 500, "Paused");
+		}
+		else {
+			removePopUpLayer();
+		}
+		break;
+	default:
+		return false;
+	}
+	return true;
+}
+
 void Scene::removeObjectFromScene(Object* obj)
 {
 	for (auto lay : layers) {
@@ -200,7 +220,7 @@ void Scene::createPopUpLayer(float xPosition, float yPosition, string text) {
 	}
 	zIndex++;
 
-	PopUp* popUp = new PopUp(987, ColoredText("Paused", Color(0, 0, 0)), this->dispatcher);
+	PopUp* popUp = new PopUp(987, ColoredText(text, Color(0, 0, 0)), this->dispatcher);
 	addNewObjectToLayer(zIndex, popUp);
 }
 

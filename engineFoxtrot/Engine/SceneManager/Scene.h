@@ -56,6 +56,8 @@ public:
     
 	void setObjectToFollow(Object* obj) { objectToFollow = obj; }
 
+	bool onKeyPressed(const Event& event);
+
 
 	/// @brief 
 	/// Returns the id of the object to follow
