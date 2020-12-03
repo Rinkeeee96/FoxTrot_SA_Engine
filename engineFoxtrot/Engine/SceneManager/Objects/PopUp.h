@@ -3,14 +3,12 @@
 class PopUp : public Drawable
 {
 public:
-	PopUp(int id, ColoredText _text, EventDispatcher& _dispatcher);
+	PopUp(int id, float width, float height, ColoredText _text);
 	~PopUp();
 
 	API const ColoredText* toString() { return &text; }
 
 private:
-	EventDispatcher& dispatcher;
-
 	ColoredText text;
 
 };

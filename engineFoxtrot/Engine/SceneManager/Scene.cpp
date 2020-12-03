@@ -4,6 +4,9 @@
 #include "Objects/PopUp.h"
 #include "Events/Key/KeyPressed.h"
 
+#define POP_UP_DEFAULT_WIDTH	400
+#define POP_UP_DEFAULT_HEIGHT	150
+
 /// @brief 
 /// @param sceneID 
 Scene::Scene(const int _sceneID, const int _sceneHeight, const int _sceneWidth) : 
@@ -173,7 +176,7 @@ bool Scene::onKeyPressed(const Event& event) {
 	{
 	case KeyCode::KEY_P:
 		if (!hasActivePopUp) {
-			createPopUpLayer(200, 500, "Paused");
+			createPopUpLayer(WINDOW_WIDTH_CENTER, WINDOW_HEIGHT_CENTER, "Paused");
 		}
 		else {
 			removePopUpLayer();
@@ -210,6 +213,10 @@ void Scene::createLayer(const int zIndex, bool renderPhysics, bool alwaysDrawLay
 }
 
 void Scene::createPopUpLayer(float xPosition, float yPosition, string text) {
+	createPopUpLayer(xPosition, yPosition, POP_UP_DEFAULT_WIDTH, POP_UP_DEFAULT_HEIGHT, text);
+}
+
+void Scene::createPopUpLayer(float xPosition, float yPosition, float width, float height, string text) {
 	int zIndex = 0;
 	hasActivePopUp = true;
 
@@ -220,8 +227,11 @@ void Scene::createPopUpLayer(float xPosition, float yPosition, string text) {
 	}
 	zIndex += 2;
 
-	PopUp* popUp = new PopUp(987, ColoredText(text, Color(0, 0, 0)), this->dispatcher);
-	addNewObjectToLayer(zIndex, popUp);
+	PopUp* popUp = new PopUp(-6487, width, height, ColoredText(text, Color(0, 0, 0)));
+	popUp->setPositionX(xPosition);
+	popUp->setPositionY(yPosition);
+	
+	addNewObjectToLayer(zIndex, popUp, false, true);
 }
 
 void Scene::removePopUpLayer() {
