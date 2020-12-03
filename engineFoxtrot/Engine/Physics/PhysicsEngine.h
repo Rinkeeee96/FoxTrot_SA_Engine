@@ -11,6 +11,8 @@ public:
 	PhysicsEngine();
 	~PhysicsEngine();
 
+	bool onKeyPressed(const Event& event);
+
 	void registerObjectInCurrentVectorWithPhysicsEngine();
 
 	bool handleAction(const Event& event);
@@ -20,7 +22,7 @@ public:
 	Scene** pointerToCurrentScene = nullptr;
 
 	void setPhysicsPause(bool value) { physicsPaused = value; };
-	bool getPhysicsPauze() const { return physicsPaused; };
+	bool getPhysicsPause() const { return physicsPaused; };
 
 	void start(EventDispatcher& dispatcher) override;
 	void update() override;

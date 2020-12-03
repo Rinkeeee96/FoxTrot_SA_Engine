@@ -38,9 +38,6 @@ public:
 	// Input calls
 	API void pollEvents();
 
-	// Physics pause
-	API void setPhysicsPause(bool value);
-	API bool getPhysicsPause() const;
 	API void onUpdate();
 
 	API void updateFps();

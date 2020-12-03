@@ -15,9 +15,6 @@ public:
 	{
 		if (currentScene)currentScene->onUpdate();
 	};
-
-	void setPhysicsPause(bool value) { engine.setPhysicsPause(value); }
-	bool getPhysicsPause() const { return engine.getPhysicsPause(); }
 	
 	string& getCurrentSceneIdentifier();
 

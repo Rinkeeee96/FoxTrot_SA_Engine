@@ -2,6 +2,7 @@
 #include "PhysicsFacade.h"
 #include "PhysicsEngine.h"
 #include "Events\Action\ObjectStopEvent.h"
+#include "Events/Key/KeyPressed.h"
 
 
 /// @brief Constructor
@@ -15,10 +16,26 @@ void PhysicsEngine::start(EventDispatcher& dispatcher) {
 
 	dispatcher.setEventCallback<ActionEvent>(BIND_EVENT_FN(PhysicsEngine::handleAction));
 	dispatcher.setEventCallback<ObjectStopEvent>(BIND_EVENT_FN(PhysicsEngine::stopObject));
+	dispatcher.setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(PhysicsEngine::onKeyPressed));
 };
 
+
+bool PhysicsEngine::onKeyPressed(const Event& event) {
+	auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
+	// TODO command pattern
+	switch (keyPressedEvent.GetKeyCode())
+	{
+	case KeyCode::KEY_P:
+		setPhysicsPause(!getPhysicsPause());
+		break;
+	default:
+		return false;
+	}
+	return true;
+}
+
 void PhysicsEngine::update() {
-	if (currentSceneID != (*pointerToCurrentScene)->getSceneID())
+	if ((currentSceneID != (*pointerToCurrentScene)->getSceneID()))
 	{
 		if (DEBUG_PHYSICS_ENGINE)cout << "Cleaning map and reinserting Objects" << endl;
 		physicsFacade->cleanMap();
@@ -26,7 +43,10 @@ void PhysicsEngine::update() {
 		currentSceneID = (*pointerToCurrentScene)->getSceneID();
 	}
 
-	physicsFacade->update();
+	if (!getPhysicsPause()) {
+		physicsFacade->update();
+	}
+	
 };
 
 void PhysicsEngine::shutdown() {

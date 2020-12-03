@@ -183,7 +183,6 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Scenes\Factory\FactoryMethod.h" />
     <ClInclude Include="Game\Scenes\GameScene.h" />
     <ClInclude Include="Game\Scenes\MainMenu\MainMenu.h" />
-    <ClInclude Include="Game\Scenes\PauseScreen\PauseScreen.h" />
     <ClInclude Include="Game\Scenes\SaveScreen\SaveScreen.h" />
     <ClInclude Include="Game\Scenes\Scenes.h" />
     <ClInclude Include="Game\Scenes\Transitions\GeneralTransition\GeneralTransition.h" />
@@ -216,7 +215,6 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClCompile Include="Game\Scenes\Overworld\Overworld.cpp" />
     <ClCompile Include="Game\SaveGame\Savegame.cpp" />
     <ClCompile Include="Game\Scenes\MainMenu\MainMenu.cpp" />
-    <ClCompile Include="Game\Scenes\PauseScreen\PauseScreen.cpp" />
     <ClCompile Include="Game\Scenes\SaveScreen\SaveScreen.cpp" />
     <ClCompile Include="Game\Scenes\Transitions\GeneralTransition\GeneralTransition.cpp" />
     <ClCompile Include="Game\Scenes\DeathScreen\DeathScreen.cpp" />
