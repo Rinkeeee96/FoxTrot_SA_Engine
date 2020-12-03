@@ -224,7 +224,7 @@ int Scene::getHighestLayerIndex() {
 		if (zIndex < layer.first)
 			zIndex = layer.first;
 	}
-	return zIndex
+	return zIndex;
 }
 
 void Scene::createPopUpLayer(float xPosition, float yPosition, float width, float height, string text) {
