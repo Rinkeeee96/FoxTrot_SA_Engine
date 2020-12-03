@@ -185,7 +185,7 @@ bool Scene::onKeyPressed(const Event& event) {
 	default:
 		return false;
 	}
-	return true;
+	return false;
 }
 
 void Scene::removeObjectFromScene(Object* obj)
