@@ -56,6 +56,7 @@ public:
     
 	void setObjectToFollow(Object* obj) { objectToFollow = obj; }
 
+
 	/// @brief 
 	/// Returns the id of the object to follow
 	/// @return 

@@ -130,8 +130,12 @@ void VideoFacade::renderCopy(Drawable& object)
 
 	//generate stratch of image
 	SDL_Rect destination;
-	destination.x = (int)object.getPositionX() - xCameraOffset;
-	destination.y = (int)object.getPositionY() - (int)object.getHeight() - yCameraOffset;
+
+	int x = object.getDrawStatic() ? (int)object.getPositionX() : (int)object.getPositionX() - xCameraOffset;
+	int y = object.getDrawStatic() ? (int)object.getPositionY() - (int)object.getHeight() : (int)object.getPositionY() - (int)object.getHeight() - yCameraOffset;
+
+	destination.x = x;
+	destination.y = y;
 	destination.w = (int)object.getWidth();
 	destination.h = (int)object.getHeight();
 
