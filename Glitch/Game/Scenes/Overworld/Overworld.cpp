@@ -28,15 +28,15 @@ void Overworld::loadButtons() {
 	auto* level1Btn = new Button(1, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel1BtnClick), defaultBtnSprite, this->dispatcher);
 	level1Btn->setWidth(32);
 	level1Btn->setHeight(32);
-	level1Btn->setPositionX(795);
-	level1Btn->setPositionY(850);
+	level1Btn->setPositionX(295);
+	level1Btn->setPositionY(363);
 	level1Btn->registerHoverSprite(hoverBtnSprite);
 
 	auto* level1TextBtn = new Button(2, ColoredText("Level 1", Color(0, 0, 0)), BIND_FN(onLevel1BtnClick), transSprite, this->dispatcher);
 	level1TextBtn->setWidth(32);
 	level1TextBtn->setHeight(20);
-	level1TextBtn->setPositionX(795);
-	level1TextBtn->setPositionY(870);
+	level1TextBtn->setPositionX(295);
+	level1TextBtn->setPositionY(383);
 
 	auto* level2Btn = new Button(3, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel2BtnClick), defaultBtnSprite, this->dispatcher);
 	level2Btn->setWidth(32);
@@ -54,15 +54,15 @@ void Overworld::loadButtons() {
     auto* level3Btn = new Button(5, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel3BtnClick), defaultBtnSprite, this->dispatcher);
 	level3Btn->setWidth(32);
 	level3Btn->setHeight(32);
-	level3Btn->setPositionX(295);
-	level3Btn->setPositionY(363);
+	level3Btn->setPositionX(795);
+	level3Btn->setPositionY(850);
 	level3Btn->registerHoverSprite(hoverBtnSprite);
 
 	auto* level3TextBtn = new Button(6, ColoredText("Level 3", Color(0, 0, 0)), BIND_FN(onLevel3BtnClick), transSprite, this->dispatcher);
 	level3TextBtn->setWidth(32);
 	level3TextBtn->setHeight(20);
-	level3TextBtn->setPositionX(295);
-	level3TextBtn->setPositionY(383);
+	level3TextBtn->setPositionX(795);
+	level3TextBtn->setPositionY(870);
 
 	auto* stopBtn = new SecondaryButton(7, "To Main Menu", BIND_FN(onStopBtnClick), this->dispatcher);
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
