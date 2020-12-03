@@ -216,16 +216,21 @@ void Scene::createPopUpLayer(float xPosition, float yPosition, string text) {
 	createPopUpLayer(xPosition, yPosition, POP_UP_DEFAULT_WIDTH, POP_UP_DEFAULT_HEIGHT, text);
 }
 
-void Scene::createPopUpLayer(float xPosition, float yPosition, float width, float height, string text) {
+int Scene::getHighestLayerIndex() {
 	int zIndex = 0;
-	hasActivePopUp = true;
 
 	// Get highest zIndex
 	for (auto layer : layers) {
 		if (zIndex < layer.first)
 			zIndex = layer.first;
 	}
-	zIndex += 2;
+	return zIndex
+}
+
+void Scene::createPopUpLayer(float xPosition, float yPosition, float width, float height, string text) {
+	
+	hasActivePopUp = true;
+	int zIndex = getHighestLayerIndex() + 2;
 
 	PopUp* popUp = new PopUp(-6487, width, height, ColoredText(text, Color(0, 0, 0)));
 	popUp->setPositionX(xPosition);
