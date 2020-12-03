@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Scene.h"
 #include "SceneManager\Objects\Drawable.h"
+#include "Objects/PopUp.h"
 
 /// @brief 
 /// @param sceneID 
@@ -190,6 +191,7 @@ void Scene::createLayer(const int zIndex, bool renderPhysics, bool alwaysDrawLay
 
 void Scene::createPopUpLayer(float xPosition, float yPosition, string text) {
 	int zIndex = 0;
+	hasActivePopUp = true;
 
 	// Get highest zIndex
 	for (auto layer : layers) {
@@ -198,9 +200,19 @@ void Scene::createPopUpLayer(float xPosition, float yPosition, string text) {
 	}
 	zIndex++;
 
-
+	PopUp* popUp = new PopUp(987, ColoredText("Paused", Color(0, 0, 0)), this->dispatcher);
+	addNewObjectToLayer(zIndex, popUp);
 }
 
 void Scene::removePopUpLayer() {
+	int zIndex = 0;
+	if (hasActivePopUp) {
+		for (auto layer : layers) {
+			if (zIndex < layer.first)
+				zIndex = layer.first;
+		}
+	}
 
+	zIndex++;
+	layers.erase(zIndex);
 }
