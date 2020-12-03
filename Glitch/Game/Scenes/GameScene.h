@@ -9,7 +9,7 @@ class GameScene : public Scene
 public:
 	GameScene(const int id, Engine& _engine, SceneStateMachine& _sceneStateMachine):
 		engine(_engine), stateMachine(_sceneStateMachine), Scene(id, WINDOW_HEIGHT, WINDOW_WIDTH) {};
-	GameScene(const int id,const int _sceneHeight, const int _sceneWidth, Engine& _engine, SceneStateMachine& _sceneStateMachine) :
+	GameScene(const int id, const int _sceneHeight, const int _sceneWidth, Engine& _engine, SceneStateMachine& _sceneStateMachine) :
 		engine(_engine), stateMachine(_sceneStateMachine), Scene(id, _sceneHeight, _sceneWidth) {};
 
 	// register base events
