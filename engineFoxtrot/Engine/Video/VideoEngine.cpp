@@ -97,6 +97,9 @@ void VideoEngine::calculateOffset(Object& obj, int sceneWidth, int sceneHeight)
 	{
 		videoFacade->setYCameraOffset(newYOffset);
 	}
+	else if (newYOffset > 0) {
+		videoFacade->setYCameraOffset((*pointerToCurrentScene)->getSceneHeight() - (CAMERA_BOX_Y * 2) - CAMERA_BOX_HEIGHT);
+	}
 	if (newXOffset > 0 && newXOffset + (CAMERA_BOX_X * 2) + CAMERA_BOX_WIDTH < sceneWidth && changedX)
 	{
 		videoFacade->setXCameraOffset(newXOffset);
