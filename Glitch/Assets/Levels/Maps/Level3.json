@@ -16,15 +16,15 @@
          "objects":[
                 {
                  "gid":90,
-                 "height":2088,
+                 "height":2180,
                  "id":32,
                  "name":"",
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":5248,
-                 "x":-48,
-                 "y":2356
+                 "width":5124,
+                 "x":0,
+                 "y":2176
                 }],
          "opacity":1,
          "properties":[
