@@ -2,9 +2,7 @@
 #include "PopUp.h"
 
 PopUp::PopUp(int id, ColoredText _text, EventDispatcher& _dispatcher) :
-	Drawable(id),
-	text(_text),
-	dispatcher{ _dispatcher }
+	Drawable(id), text(_text), dispatcher{ _dispatcher }
 {
 	setHeight(200);
 	setWidth(500);

@@ -218,7 +218,7 @@ void Scene::createPopUpLayer(float xPosition, float yPosition, string text) {
 		if (zIndex < layer.first)
 			zIndex = layer.first;
 	}
-	zIndex++;
+	zIndex += 2;
 
 	PopUp* popUp = new PopUp(987, ColoredText(text, Color(0, 0, 0)), this->dispatcher);
 	addNewObjectToLayer(zIndex, popUp);
@@ -233,6 +233,7 @@ void Scene::removePopUpLayer() {
 		}
 	}
 
-	zIndex++;
+	zIndex;
 	layers.erase(zIndex);
+	hasActivePopUp = false;
 }
