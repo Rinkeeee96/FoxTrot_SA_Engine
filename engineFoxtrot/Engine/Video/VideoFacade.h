@@ -9,6 +9,7 @@
 struct SDL_Renderer;
 struct SDL_Window;
 struct SDL_Texture;
+struct SDL_Rect;
 typedef struct _TTF_Font TTF_Font;
 
 /// @brief 
@@ -37,8 +38,9 @@ public:
 	void setYCameraOffset(int y) override { yCameraOffset = y; }
 	int getXCameraOffset() const { return xCameraOffset; };
 	int getYCameraOffset() const { return yCameraOffset; };
-
 private:
+	SDL_Rect createRect(Drawable& object);
+
 	int xCameraOffset = 0;
 	int yCameraOffset = 0;
 

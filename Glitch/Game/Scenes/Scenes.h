@@ -6,3 +6,4 @@
 #include "./SaveScreen/SaveScreen.h"
 #include "./Transitions/Transitions.h"
 #include "./WinScreen/WinScreen.h"
+#include "./Credits/CreditsScene.h"
