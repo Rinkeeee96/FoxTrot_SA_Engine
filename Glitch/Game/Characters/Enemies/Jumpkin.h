@@ -55,7 +55,7 @@ public:
 
 		if (positionedOnGround && playerIsInRangeHorizontally && playerIsInRangeVertically) {
 			if (!jumping) {
-				EventSingleton::get_instance().dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->getObjectId(), false));
+				dispatcher.dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->getObjectId(), false));
 				jumping = true;
 			}
 		}	
@@ -67,8 +67,8 @@ public:
 			}
 			if (jumpTimer == JUMP_ANIMATION_TIME) {
 				changeToState(direction == Direction::LEFT ? SpriteState::ACTION_LEFT_3 : SpriteState::ACTION_RIGHT_3);
-				EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
-				EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(direction, this->getObjectId()));
+				dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
+				dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(direction, this->getObjectId()));
 				jumpTimer = 0;
 				jumping = false;
 			}
@@ -76,7 +76,7 @@ public:
 
 		if (!playerIsInRangeHorizontally) {
 			changeToState(SpriteState::DEFAULT);
-			EventSingleton::get_instance().dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->getObjectId(), false));
+			dispatcher.dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->getObjectId(), false));
 		}
 
 		if (!playerIsInRangeHorizontally) {
@@ -85,7 +85,29 @@ public:
 		}
 	};
 
-	ICharacter* clone(int id) override { return new Jumpkin(id); }
+	map<SpriteState, SpriteObject*> buildSpritemap(int startId) override {
+		std::map<SpriteState, SpriteObject*> spriteMap;
+
+		auto jumpkinDefault = new SpriteObject(startId++, 43, 32, 1, 200, "Assets/Sprites/Enemies/Jumpkin/Jumpkin_idle.png");
+		auto jumpkinActionLeft1 = new SpriteObject(startId++, 43, 32, 1, 400, "Assets/Sprites/Enemies/Jumpkin/Jumpkin_left_1.png");
+		auto jumpkinActionLeft2 = new SpriteObject(startId++, 43, 30, 1, 400, "Assets/Sprites/Enemies/Jumpkin/Jumpkin_left_2.png");
+		auto jumpkinActionLeft3 = new SpriteObject(startId++, 43, 30, 1, 400, "Assets/Sprites/Enemies/Jumpkin/Jumpkin_left_3.png");
+		auto jumpkinActionRight1 = new SpriteObject(startId++, 43, 32, 1, 400, "Assets/Sprites/Enemies/Jumpkin/Jumpkin_right_1.png");
+		auto jumpkinActionRight2 = new SpriteObject(startId++, 43, 30, 1, 400, "Assets/Sprites/Enemies/Jumpkin/Jumpkin_right_2.png");
+		auto jumpkinActionRight3 = new SpriteObject(startId++, 43, 30, 1, 400, "Assets/Sprites/Enemies/Jumpkin/Jumpkin_right_3.png");
+
+		spriteMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, jumpkinDefault));
+		spriteMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::ACTION_LEFT_1, jumpkinActionLeft1));
+		spriteMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::ACTION_LEFT_2, jumpkinActionLeft2));
+		spriteMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::ACTION_LEFT_3, jumpkinActionLeft3));
+		spriteMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::ACTION_RIGHT_1, jumpkinActionRight1));
+		spriteMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::ACTION_RIGHT_2, jumpkinActionRight2));
+		spriteMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::ACTION_RIGHT_3, jumpkinActionRight3));
+
+		return spriteMap;
+	}
+
+	ICharacter* clone(int id) override { return new Jumpkin(id, dispatcher); }
 
 private:
 	int jumpTimer = 0;

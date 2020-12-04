@@ -3,6 +3,8 @@
 #include "Game/SpriteState.h"
 
 #define RESTITUTION_CORRECTION 1
+#define PLAYER_SPRITE_HEIGHT 37
+#define PLAYER_SPRITE_WIDTH 50
 
 class Player : public ICharacter {
 public:
@@ -26,6 +28,8 @@ public:
 	bool onKeyReleased(const Event& event);
 
 	void onUpdate() override {};
+
+	map<SpriteState, SpriteObject*> buildSpritemap(int startId) override;
 
 	ICharacter* clone(int id) override;
 };

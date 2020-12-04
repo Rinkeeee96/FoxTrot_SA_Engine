@@ -79,6 +79,18 @@ public:
 		}
 	};
 
+	map<SpriteState, SpriteObject*> buildSpritemap(int startId) override {
+		std::map<SpriteState, SpriteObject*> spriteMap;
+
+		auto fleyeDefault = new SpriteObject(startId++, 42, 42, 1, 200, "Assets/Sprites/Enemies/Fleye/Fleye_idle.png");
+		auto fleyeMove = new SpriteObject(startId++, 112, 140, 4, 200, "Assets/Sprites/Enemies/Fleye/Fleye_move.png");
+
+		spriteMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, fleyeDefault));
+		spriteMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::ACTION_LEFT_1, fleyeMove));
+
+		return spriteMap;
+	}
+
 	ICharacter* clone(int id) override { return new Fleye(id, this->dispatcher); }
 
 private:

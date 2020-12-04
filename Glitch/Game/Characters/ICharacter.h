@@ -1,6 +1,7 @@
 #pragma once
 #include "Game/IGameObject.h"
 #include "Events/EventDispatcher.h"
+#include "Game/SpriteState.h"
 
 /// @brief 
 /// Character base class
@@ -39,6 +40,8 @@ public:
 	void kill() { this->currentHealth = 0; }
     void respawn() { this->setPositionX(spawnX); this->setPositionY(spawnY); }
 	bool getIsDead() const { return this->currentHealth == 0; }
+
+	virtual map<SpriteState, SpriteObject*> buildSpritemap(int startId) = 0;
 
 	virtual ICharacter* clone(int id) = 0;
 protected:

@@ -13,9 +13,6 @@
 #define PARTICLE_LAYER_INDEX 5
 #define BACKGROUND_LAYER_INDEX 1
 
-#define ICHARACTER_HEIGHT 37
-#define ICHARACTER_WIDTH 50
-
 #define CHARACTER_PATH "Assets/Sprites/Character/"
 #define TILESET_PATH "Assets/Levels/Tilesets/"
 #define TILE_IMAGE_PATH "Assets/Levels/Tiles/"

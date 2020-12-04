@@ -53,5 +53,15 @@ public:
 		}
 	};
 
+	map<SpriteState, SpriteObject*> buildSpritemap(int startId) override {
+		std::map<SpriteState, SpriteObject*> spriteMap;
+
+		auto slimeDefault = new SpriteObject(startId, 16, 16, 1, 200, "Assets/Levels/Tiles/slime_blue.png");
+
+		spriteMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, slimeDefault));
+
+		return spriteMap;
+	}
+
 	ICharacter* clone(int id) override { return new Slime(id, this->dispatcher); }
 };
