@@ -2,7 +2,7 @@
 #include "PopUp.h"
 
 PopUp::PopUp( const int id, float width, float height, float positionX, float positionY, ColoredText _text) :
-	Drawable(id), text( id - 1, _text, width, height, positionX, positionY)
+	Drawable(id), text( id - 1, &_text, width, height, positionX, positionY)
 {
 	
 	setPositionX(positionX);

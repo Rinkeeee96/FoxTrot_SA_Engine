@@ -232,7 +232,7 @@ void Scene::createPopUpLayer(float xPosition, float yPosition, float width, floa
 	hasActivePopUp = true;
 	int zIndex = getHighestLayerIndex() + 2;
 
-	PopUp* popUp = new PopUp(-6487, width, height, ColoredText(text, Color(0, 0, 0)));
+	PopUp* popUp = new PopUp(-6487, width, height, xPosition, yPosition, ColoredText(text, Color(0, 0, 0)));
 	popUp->setPositionX(xPosition);
 	popUp->setPositionY(yPosition);
 	

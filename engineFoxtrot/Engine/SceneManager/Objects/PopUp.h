@@ -9,7 +9,7 @@ public:
 	API const ColoredText* toString() { return text.toString(); }
 
 private:
-	Text *text;
+	Text text;
 
 };
 
