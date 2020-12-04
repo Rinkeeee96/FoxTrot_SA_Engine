@@ -1,6 +1,8 @@
 #pragma once
 #include <nlohmann\json.hpp>
 
+
+//TODO change when new levels are built
 #define MAX_AMOUNT_OF_LEVELS 3
 
 struct Item
