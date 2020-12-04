@@ -26,6 +26,10 @@ void MainMenu::loadButtons() {
 	startBtn->setPositionX(CENTER_X - startBtn->getWidth() / 2);
 	startBtn->setPositionY(CENTER_Y - startBtn->getHeight() / 2);
 
+	auto* creditsBtn = new PrimaryButton(12, "Credits", BIND_FN(onCreditsBtnClick), this->dispatcher);
+	creditsBtn->setPositionX(CENTER_X - creditsBtn->getWidth() / 2);
+	creditsBtn->setPositionY(CENTER_Y - creditsBtn->getHeight() / 2 + 200);
+
 	auto* stopBtn = new SecondaryButton(13, "Stop", BIND_FN(onStopBtnClick), this->dispatcher);
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
@@ -33,6 +37,7 @@ void MainMenu::loadButtons() {
 
 	addNewObjectToLayer(3, startBtn);
 	addNewObjectToLayer(3, stopBtn);
+	addNewObjectToLayer(3, creditsBtn);
 }
 
 /// @brief 
@@ -122,6 +127,7 @@ void MainMenu::onStopBtnClick() {
 /// A callback function for creditsBTN
 /// Start transition scene to DEAD_SCREEN
 void MainMenu::onCreditsBtnClick() {
+	stateMachine.switchToScene("CreditsSreen", false);
 }
 
 

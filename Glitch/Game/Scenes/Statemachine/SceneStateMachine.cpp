@@ -23,6 +23,9 @@ SceneStateMachine::SceneStateMachine(Engine& _engine, Savegame* _savegame) : eng
 
 	CreatorImpl <WinScreen>* win = new CreatorImpl <WinScreen>();
 	win->registerClass("WinScreen", factory);
+
+	CreatorImpl <CreditsScene>* cred = new CreatorImpl <CreditsScene>();
+	cred->registerClass("CreditsSreen", factory);
 }
 
 SceneStateMachine::~SceneStateMachine()
