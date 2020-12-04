@@ -1,6 +1,9 @@
 #pragma once
 #include "Game/Characters/Enemies/IEnemy.h"
 
+//TODO Use deltaTime
+#define JUMP_ANIMATION_TIME 60
+
 /// @brief 
 /// Slime class with correspondending AI logic
 class Slime : public IEnemy {
@@ -40,28 +43,47 @@ public:
 	}
 
 	void onUpdate() override {
-		bool playerIsInRange = player->getPositionX() >= this->getPositionX() - this->getWidth() &&
-			player->getPositionX() <= this->getPositionX() + this->width;
-		bool playerIsBelowMe = (player->getPositionY() + player->getHeight()) >= this->getPositionY();
-
 		bool positionedOnGround = this->getYAxisVelocity() == 0;
-		if(positionedOnGround)
-			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
 
-		if (playerIsInRange && playerIsBelowMe && !positionedOnGround){
-			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::DOWN, this->getObjectId()));
+		if (positionedOnGround) {
+			if (!jumping) {
+				changeToState(SpriteState::DEFAULT);
+				dispatcher.dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->getObjectId(), false));
+				jumping = true;
+			}
+		}
+
+		if (jumping) {
+			jumpTimer++;
+			if (jumpTimer == JUMP_ANIMATION_TIME / 2) {
+				changeToState(SpriteState::ACTION_1);
+			}
+			if (jumpTimer == JUMP_ANIMATION_TIME) {
+				changeToState(SpriteState::ACTION_3);
+				dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
+				jumpTimer = 0;
+				jumping = false;
+			}
 		}
 	};
 
 	map<SpriteState, SpriteObject*> buildSpritemap(int startId) override {
 		std::map<SpriteState, SpriteObject*> spriteMap;
 
-		auto slimeDefault = new SpriteObject(startId, 16, 16, 1, 200, "Assets/Levels/Tiles/slime_blue.png");
+		auto slimeDefault = new SpriteObject(startId, 16, 16, 1, 200, "Assets/Sprites/Enemies/Slime_idle.png");
+		auto slimeAction1 = new SpriteObject(startId, 16, 16, 1, 200, "Assets/Sprites/Enemies/Slime_action1.png");
+		auto slimeAction3 = new SpriteObject(startId, 16, 16, 1, 200, "Assets/Sprites/Enemies/Slime_action3.png");
 
 		spriteMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, slimeDefault));
+		spriteMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::ACTION_1, slimeAction1));
+		spriteMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::ACTION_3, slimeAction3));
 
 		return spriteMap;
 	}
 
 	ICharacter* clone(int id) override { return new Slime(id, this->dispatcher); }
+
+private:
+	int jumpTimer = 0;
+	bool jumping = false;
 };
