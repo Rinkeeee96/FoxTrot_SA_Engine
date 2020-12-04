@@ -2,9 +2,8 @@
 #include "PopUp.h"
 
 PopUp::PopUp( const int id, float width, float height, float positionX, float positionY, ColoredText _text) :
-	Drawable(id), text( id - 1, _text, width, height, positionX, positionY)
+	Drawable(id), text(_text)
 {
-	
 	setPositionX(positionX);
 	setPositionY(positionY);
 
@@ -13,7 +12,7 @@ PopUp::PopUp( const int id, float width, float height, float positionX, float po
 
 	setStatic(true);
 
-	SpriteObject* basicPopUp = new SpriteObject(-78944, 200, 500, 1, 1, "Assets/Sprites/PopUp/BasicPopUp.png");
+	SpriteObject* basicPopUp = new SpriteObject(-78944, 800, 800, 1, 1, "Assets/Sprites/PopUp/BasicPopUp.png");
 
 	registerSprite(1, basicPopUp);
 	changeToState(1);

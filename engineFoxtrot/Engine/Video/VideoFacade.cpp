@@ -113,7 +113,7 @@ void VideoFacade::renderCopy(Drawable& object)
 {	
 	if (object.getIsText()) {
 		SDL_Rect destination = this->createRect(object);
-		drawMessageAt(*object.toString(), Position(destination.x, destination.y), ObjectSize(destination.w, destination.h));
+		drawMessageAt(*object.toString(), Position(destination.x, destination.y), ObjectSize(destination.w, destination.h), true);
 		return;
 	}
 	SpriteObject& sprite = object.GetCurrentSprite();
@@ -144,12 +144,19 @@ void VideoFacade::renderCopy(Drawable& object)
 	}
 
 	//generate stratch of image
-	SDL_Rect destination = this->createRect(object);
+	SDL_Rect destination;
+	int x = object.getDrawStatic() ? (int)object.getPositionX() : (int)object.getPositionX() - xCameraOffset;
+	int y = object.getDrawStatic() ? (int)object.getPositionY() - (int)object.getHeight() : (int)object.getPositionY() - (int)object.getHeight() - yCameraOffset;
+
+	destination.x = x;
+	destination.y = y;
+	destination.w = (int)object.getWidth();
+	destination.h = (int)object.getHeight();
 
 	SDL_RenderCopyEx(renderer, textureMap[sprite.getTextureID()], &rect, &destination, object.getRotation(), NULL, SDL_FLIP_NONE);
 	// crude fix to draw text on top of a drawable, maybe fix with a callback function in the future, or a visitor?
 	if (object.toString() != nullptr)
-		drawMessageAt(*object.toString(), Position(destination.x, destination.y), ObjectSize(MESSAGE_WIDTH, MESSAGE_HEIGHT));
+		drawMessageAt(*object.toString(), Position(destination.x, destination.y), ObjectSize(destination.w, destination.h));
 }
 
 /// @brief Function to draw Particles
@@ -192,8 +199,6 @@ void VideoFacade::drawParticle(const ParticleAdapter& part)
 		SDL_SetTextureBlendMode(textureMap[sprite.getTextureID()], SDL_BLENDMODE_BLEND);
 		SDL_RenderCopyEx(renderer, textureMap[sprite.getTextureID()], nullptr, &r, partData.rotation, nullptr, SDL_FLIP_NONE);
 	}
-
-	
 }
 
 /// @brief
@@ -204,7 +209,7 @@ void VideoFacade::drawParticle(const ParticleAdapter& part)
 /// @param target
 /// the boundaries of the target that the text needs to be draw on top of
 /// A Position struct containing the position to draw the message at
-void VideoFacade::drawMessageAt(const ColoredText& message, const Position& pos, const ObjectSize& bounds)
+void VideoFacade::drawMessageAt(const ColoredText& message, const Position& pos, const ObjectSize& bounds, bool fromText)
 {
 	bool exists = std::filesystem::exists(FONT_PATH); // TODO dynamic fonts
 	// TODO check if message is in bounds
@@ -219,20 +224,35 @@ void VideoFacade::drawMessageAt(const ColoredText& message, const Position& pos,
 		SDL_Rect message_rect;
 		if (message.centered)
 		{
-			// TODO check width and height positioning relative to set x/y position	
-			xPos = pos.xPos + (bounds.width / 6);
-			yPos = pos.yPos + (bounds.height / 3);
+			if (fromText) {
+				// TODO check width and height positioning relative to set x/y position	
+				xPos = pos.xPos + (bounds.width / 2);
+				yPos = pos.yPos + (bounds.height / 2);
+			}
+			else {
+				xPos = pos.xPos + (bounds.width / 2) - MESSAGE_WIDTH / 2;
+				yPos = pos.yPos + (bounds.height / 2) - MESSAGE_HEIGHT / 2;
+			}
+			
 		}
 		else {
 			// If the message doesn't fit the screen, make it fit the screen
 			xPos = pos.xPos + bounds.width > WINDOW_WIDTH ? WINDOW_WIDTH - bounds.width : pos.xPos < 0 ? 0 : pos.xPos;
 			yPos = pos.yPos + bounds.height > WINDOW_HEIGHT ? WINDOW_HEIGHT - bounds.height : pos.yPos < 0 ? 0 : pos.yPos;
 		}
-
-		message_rect.x = xPos;
-		message_rect.y = yPos;
-		message_rect.w = bounds.width;
-		message_rect.h = bounds.height;
+		
+		if (fromText) {
+			message_rect.x = xPos;
+			message_rect.y = yPos;
+			message_rect.w = bounds.width;
+			message_rect.h = bounds.height;
+		}
+		else {
+			message_rect.x = xPos;
+			message_rect.y = yPos;
+			message_rect.w = MESSAGE_WIDTH;
+			message_rect.h = MESSAGE_HEIGHT;
+		}
 
 		SDL_RenderCopy(renderer, messageTexture, NULL, &message_rect);
 

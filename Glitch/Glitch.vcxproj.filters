@@ -58,7 +58,7 @@
     <ClInclude Include="Game\SaveGame\Savegame.h" />
     <ClInclude Include="Game\Scenes\SaveScreen\SaveScreen.h" />
     <ClInclude Include="Game\Scenes\Overworld\Overworld.h" />
-     <ClInclude Include="Game\Scenes\Credits\CreditsScene.h" />
+    <ClInclude Include="Game\Scenes\Credits\CreditsScene.h" />
     <ClInclude Include="Game\Scenes\GameScene.h" />
     <ClInclude Include="Game\Scenes\Factory\Creator.h" />
     <ClInclude Include="Game\Scenes\Factory\CreatorImpl.h" />
