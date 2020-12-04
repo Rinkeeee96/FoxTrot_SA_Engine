@@ -107,7 +107,6 @@ void Level::onUpdate() {
 		player->kill();
 		SaveGameData save = savegame->getCurrentGameData();
 		save.levelData[stateMachine.levelToBuild -1].completed = true;
-		cout << "Winning level: " << stateMachine.levelToBuild - 1 << endl;
 		savegame->saveCurrentGameData(save);
 		stateMachine.switchToScene("WinScreen", false);
 		return;
