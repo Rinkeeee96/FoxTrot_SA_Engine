@@ -223,10 +223,20 @@ int Scene::getHighestLayerIndex() {
 	return zIndex;
 }
 
+/// @brief Creates a basic PopUp with text
+/// @param xPosition 
+/// @param yPosition 
+/// @param text 
 void Scene::createPopUpLayer(float xPosition, float yPosition, string text) {
 	createPopUpLayer(xPosition, yPosition, POP_UP_DEFAULT_WIDTH, POP_UP_DEFAULT_HEIGHT, text);
 }
 
+/// @brief Extended PopUp creation
+/// @param xPosition 
+/// @param yPosition 
+/// @param width 
+/// @param height 
+/// @param text 
 void Scene::createPopUpLayer(float xPosition, float yPosition, float width, float height, string text) {
 	hasActivePopUp = true;
 	int zIndex = getHighestLayerIndex() + 2;
@@ -239,6 +249,13 @@ void Scene::createPopUpLayer(float xPosition, float yPosition, float width, floa
 	addNewObjectToLayer(zIndex, popUp, false, true);
 }
 
+/// @brief Extended PopUp creation
+/// @param xPosition 
+/// @param yPosition 
+/// @param width 
+/// @param height 
+/// @param text 
+/// @param spObject 
 void Scene::createPopUpLayer(float xPosition, float yPosition, float width, float height, string text, SpriteObject* spObject) {
 	hasActivePopUp = true;
 	int zIndex = getHighestLayerIndex() + 2;
@@ -248,6 +265,12 @@ void Scene::createPopUpLayer(float xPosition, float yPosition, float width, floa
 	addNewObjectToLayer(zIndex, popUp, false, true);
 }
 
+/// @brief Extended PopUp creation
+/// @param xPosition 
+/// @param yPosition 
+/// @param width 
+/// @param height 
+/// @param spObject 
 void Scene::createPopUpLayer(float xPosition, float yPosition, float width, float height, SpriteObject* spObject) {
 	hasActivePopUp = true;
 	int zIndex = getHighestLayerIndex() + 2;
@@ -257,6 +280,7 @@ void Scene::createPopUpLayer(float xPosition, float yPosition, float width, floa
 	addNewObjectToLayer(zIndex, popUp, false, true);
 }
 
+/// @brief Remove PopUp layer
 void Scene::removePopUpLayer() {
 	int zIndex = 0;
 	if (hasActivePopUp) {

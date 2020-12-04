@@ -1,5 +1,6 @@
 #pragma once
 #include "Drawable.h"
+/// @brief Class for PopUp drawable
 class PopUp : public Drawable
 {
 public:
