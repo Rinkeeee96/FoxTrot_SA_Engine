@@ -31,13 +31,21 @@ struct SaveGameData
 {
 	int saveGameTimeStamp = 0;
 	string saveGameName = "";
-	int overWorldProgress = 0;
-
 	int totalScore = 0;
 
 	LevelData levelData[MAX_AMOUNT_OF_LEVELS];
 	vector<Achievement> achievements;
 	CharacterData characterData;
+
+	int getOverWorldProgress()
+	{
+		double progress = 0;
+		for (auto data : levelData)
+		{
+			if (data.completed) progress++;
+		}
+		return (int)((progress / MAX_AMOUNT_OF_LEVELS) * 100);
+	}
 };
 
 class Savegame

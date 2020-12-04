@@ -80,7 +80,7 @@ void SaveScreen::loadButtons()
 	string nameBtnExtra = "Create New";
 	if (!savegame->isSaveGameDataEmpty(1))
 	{
-		nameBtn = savegame->getSaveGameData(1).saveGameName + " Score: " + to_string(savegame->getSaveGameData(1).totalScore);
+		nameBtn = savegame->getSaveGameData(1).saveGameName + " Progress: " + to_string(savegame->getSaveGameData(1).getOverWorldProgress()) + " %";
 		nameBtnExtra = "Delete";
 	}
 
@@ -97,7 +97,7 @@ void SaveScreen::loadButtons()
 	string name1BtnExtra = "Create New";
 	if (!savegame->isSaveGameDataEmpty(2))
 	{
-		name1Btn = savegame->getSaveGameData(2).saveGameName + " Score: " + to_string(savegame->getSaveGameData(2).totalScore);
+		name1Btn = savegame->getSaveGameData(2).saveGameName + " Progress: " + to_string(savegame->getSaveGameData(2).getOverWorldProgress()) + " %";
 		name1BtnExtra = "Delete";
 	}
 
@@ -114,7 +114,7 @@ void SaveScreen::loadButtons()
 	string name3BtnExtra = "Create New";
 	if (!savegame->isSaveGameDataEmpty(3))
 	{
-		name2Btn = savegame->getSaveGameData(3).saveGameName + " Score: " + to_string(savegame->getSaveGameData(3).totalScore);
+		name2Btn = savegame->getSaveGameData(3).saveGameName + " Progress: " + to_string(savegame->getSaveGameData(3).getOverWorldProgress()) + " %";
 		name3BtnExtra = "Delete";
 	}
 
