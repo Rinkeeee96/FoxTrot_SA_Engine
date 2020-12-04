@@ -84,8 +84,7 @@ void Level::addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, 
 /// @brief
 /// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
 void Level::start() {
-	player->setPositionX(50);
-	player->setPositionY(885);
+	player->respawn();
 	player->setCurrentHealth(3);
 	player->setTotalHealth(3);
 	this->addHuds();

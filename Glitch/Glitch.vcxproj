@@ -163,6 +163,8 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Game\Characters\Enemies\Fleye.h" />
+    <ClInclude Include="Game\Characters\Enemies\Jumpkin.h" />
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
     <ClInclude Include="Game\Characters\ICharacter.h" />
     <ClInclude Include="Game\Factories\CharacterFactory.h" />

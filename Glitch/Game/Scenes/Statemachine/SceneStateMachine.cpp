@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "SceneStateMachine.h"
 
-
 SceneStateMachine::SceneStateMachine(Engine& _engine) : engine(_engine)
 {
 	factory = shared_ptr<SceneFactory>(new  SceneFactory());
@@ -57,10 +56,11 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	else
 	{
 		LoadLevelFacade levelLoader{ engine };
-		LevelBuilder levelOneBuilder{ engine, sceneId++, *this };
 
 		int levelToBuild = stoi(identifier.substr(6));
 		cout << "Level to build: " << levelToBuild << endl;
+
+		LevelBuilder levelOneBuilder{ engine, sceneId++, *this };
 
 		string path;
 		path = "Assets/Levels/Maps/Level" + to_string(levelToBuild) + ".json";
@@ -91,9 +91,10 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	cout << "Setting current Scene to: " << typeid(*(engine.getCurrentScene())).name() << endl;
 
 	currentScene->start();
-}
 
-string& SceneStateMachine::getCurrentSceneIdentifier()
-{
-	return this->currentLevelIdentifier;
-}
+}
+
+string& SceneStateMachine::getCurrentLevelIdentifier()
+{
+	return this->currentLevelIdentifier;
+}

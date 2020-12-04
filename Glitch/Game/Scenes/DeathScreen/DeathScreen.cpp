@@ -105,7 +105,7 @@ void DeathScreen::onDetach()
 /// Start transition scene to level1
 void DeathScreen::onReStartBtnClick()
 {
-	stateMachine.switchToScene(stateMachine.getCurrentSceneIdentifier(), true);
+	stateMachine.switchToScene(stateMachine.getCurrentLevelIdentifier(), true);
 }
 
 

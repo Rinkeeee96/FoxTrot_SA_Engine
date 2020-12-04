@@ -18,6 +18,8 @@ public:
 	
 	string& getCurrentSceneIdentifier();
 
+	string& getCurrentLevelIdentifier();
+
 private:
 
 	shared_ptr<SceneFactory>  factory = nullptr;
