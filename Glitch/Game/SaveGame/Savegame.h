@@ -50,6 +50,8 @@ struct SaveGameData
 	}
 };
 
+/// @brief 
+/// Class used for all savegame handling
 class Savegame
 {
 public:

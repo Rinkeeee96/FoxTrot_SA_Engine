@@ -2,6 +2,10 @@
 #include "Savegame.h"
 
 
+/// @brief 
+/// Saves the savegamedata array to a json file
+/// @return 
+/// Failed or succes
 bool Savegame::saveGameDataToJsonFile()
 {
 	nlohmann::json json;
@@ -53,6 +57,10 @@ bool Savegame::saveGameDataToJsonFile()
 	return true;
 }
 
+/// @brief 
+/// 
+/// @param path 
+/// @return 
 bool Savegame::readSaveGameDataFromJson(string& path)
 {
 	nlohmann::json json;
