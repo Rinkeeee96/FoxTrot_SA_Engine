@@ -41,7 +41,7 @@ public:
     void respawn() { this->setPositionX(spawnX); this->setPositionY(spawnY); }
 	bool getIsDead() const { return this->currentHealth == 0; }
 
-	virtual map<SpriteState, SpriteObject*> buildSpritemap(int startId) = 0;
+	virtual map<SpriteState, SpriteObject*> buildSpritemap(int textureId) = 0;
 
 	virtual ICharacter* clone(int id) = 0;
 protected:

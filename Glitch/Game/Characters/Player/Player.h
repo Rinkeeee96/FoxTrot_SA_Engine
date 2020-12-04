@@ -29,7 +29,7 @@ public:
 
 	void onUpdate() override {};
 
-	map<SpriteState, SpriteObject*> buildSpritemap(int startId) override;
+	map<SpriteState, SpriteObject*> buildSpritemap(int textureId) override;
 
 	ICharacter* clone(int id) override;
 };

@@ -207,13 +207,16 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Scenes\Statemachine\SceneStateMachine.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Game\Characters\Enemies\Fleye.cpp" />
     <ClCompile Include="Game\Characters\Enemies\IEnemy.h" />
+    <ClCompile Include="Game\Characters\Enemies\Jumpkin.cpp" />
+    <ClCompile Include="Game\Characters\Enemies\Slime.cpp" />
     <ClCompile Include="Game\Factories\CharacterFactory.cpp" />
     <ClCompile Include="Game\Factories\TriggerFactory.cpp" />
     <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="Game\Characters\Player\Player.cpp" />
     <ClCompile Include="Game\Levels\LoadLevelFacade.cpp" />
-      <ClCompile Include="Game\Scenes\Credits\CreditsScene.cpp" />
+    <ClCompile Include="Game\Scenes\Credits\CreditsScene.cpp" />
     <ClCompile Include="Game\Scenes\Factory\FactoryMethod.cpp" />
     <ClCompile Include="Game\Scenes\GameScene.cpp" />
     <ClCompile Include="Game\Scenes\Overworld\Overworld.cpp" />

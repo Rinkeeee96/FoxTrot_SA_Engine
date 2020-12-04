@@ -12,7 +12,7 @@ private:
 	map<string, map<SpriteState, SpriteObject*>> spriteObjectMap;
 	Engine& engine;
 	Level& level;
-	int currentTextureId = 0;
+	int currentTextureId = 9999;
 public:
 	CharacterFactory(Engine& _engine, Level& _level);
 

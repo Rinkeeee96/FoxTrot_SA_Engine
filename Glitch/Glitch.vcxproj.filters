@@ -23,6 +23,9 @@
     <ClCompile Include="Game\Scenes\Factory\FactoryMethod.cpp" />
     <ClCompile Include="Game\Scenes\DeathScreen\DeathScreen.cpp" />
     <ClCompile Include="Game\Scenes\Statemachine\SceneStateMachine.cpp" />
+    <ClCompile Include="Game\Characters\Enemies\Slime.cpp" />
+    <ClCompile Include="Game\Characters\Enemies\Jumpkin.cpp" />
+    <ClCompile Include="Game\Characters\Enemies\Fleye.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
@@ -58,7 +61,7 @@
     <ClInclude Include="Game\SaveGame\Savegame.h" />
     <ClInclude Include="Game\Scenes\SaveScreen\SaveScreen.h" />
     <ClInclude Include="Game\Scenes\Overworld\Overworld.h" />
-     <ClInclude Include="Game\Scenes\Credits\CreditsScene.h" />
+    <ClInclude Include="Game\Scenes\Credits\CreditsScene.h" />
     <ClInclude Include="Game\Scenes\GameScene.h" />
     <ClInclude Include="Game\Scenes\Factory\Creator.h" />
     <ClInclude Include="Game\Scenes\Factory\CreatorImpl.h" />
