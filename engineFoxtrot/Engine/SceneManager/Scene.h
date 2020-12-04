@@ -86,8 +86,11 @@ public:
 	EventDispatcher& getEventDispatcher() { return dispatcher; };
 	
 	void createPopUpLayer(float xPosition, float yPosition, string text);
-	int getHighestLayerIndex();
 	void createPopUpLayer(float xPosition, float yPosition, float width, float height, string text);
+	void createPopUpLayer(float xPosition, float yPosition, float width, float height, string text, SpriteObject* spObject);
+	void createPopUpLayer(float xPosition, float yPosition, float width, float height, SpriteObject* spObject);
+
+	int getHighestLayerIndex();
 	void removePopUpLayer();
 
 protected:

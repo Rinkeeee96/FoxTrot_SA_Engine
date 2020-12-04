@@ -26,7 +26,7 @@ bool PhysicsEngine::onKeyPressed(const Event& event) {
 	switch (keyPressedEvent.GetKeyCode())
 	{
 	case KeyCode::KEY_P:
-		setPhysicsPause(!getPhysicsPause());
+		setPhysicsPaused(!getPhysicsPaused());
 		break;
 	default:
 		return false;
@@ -43,7 +43,7 @@ void PhysicsEngine::update() {
 		currentSceneID = (*pointerToCurrentScene)->getSceneID();
 	}
 
-	if (!getPhysicsPause()) {
+	if (!getPhysicsPaused()) {
 		physicsFacade->update();
 	}
 	

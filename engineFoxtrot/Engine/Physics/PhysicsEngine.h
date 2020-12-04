@@ -21,8 +21,8 @@ public:
 
 	Scene** pointerToCurrentScene = nullptr;
 
-	void setPhysicsPause(bool value) { physicsPaused = value; };
-	bool getPhysicsPause() const { return physicsPaused; };
+	void setPhysicsPaused(bool value) { physicsPaused = value; };
+	bool getPhysicsPaused() const { return physicsPaused; };
 
 	void start(EventDispatcher& dispatcher) override;
 	void update() override;

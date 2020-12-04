@@ -228,12 +228,32 @@ void Scene::createPopUpLayer(float xPosition, float yPosition, string text) {
 }
 
 void Scene::createPopUpLayer(float xPosition, float yPosition, float width, float height, string text) {
-	
 	hasActivePopUp = true;
 	int zIndex = getHighestLayerIndex() + 2;
 
-	PopUp* popUp = new PopUp(-6487, width, height, (xPosition - width/2), (yPosition + height/2),ColoredText(text, Color(0, 0, 0)));
+	PopUp* popUp = new PopUp(-6487, width, height, (xPosition - width / 2), (yPosition + height / 2), ColoredText(text, Color(0, 0, 0)));
+
 	
+	PopUp* popUp3 = new PopUp(-6487, width, height, (xPosition - width / 2), (yPosition + height / 2), ColoredText(text, Color(0, 0, 0)));
+
+	addNewObjectToLayer(zIndex, popUp, false, true);
+}
+
+void Scene::createPopUpLayer(float xPosition, float yPosition, float width, float height, string text, SpriteObject* spObject) {
+	hasActivePopUp = true;
+	int zIndex = getHighestLayerIndex() + 2;
+
+	PopUp* popUp = new PopUp(-6487, width, height, (xPosition - width / 2), (yPosition + height / 2), ColoredText(text, Color(0, 0, 0)), spObject);
+
+	addNewObjectToLayer(zIndex, popUp, false, true);
+}
+
+void Scene::createPopUpLayer(float xPosition, float yPosition, float width, float height, SpriteObject* spObject) {
+	hasActivePopUp = true;
+	int zIndex = getHighestLayerIndex() + 2;
+
+	PopUp* popUp = new PopUp(-6487, width, height, (xPosition - width / 2), (yPosition + height / 2), spObject);
+
 	addNewObjectToLayer(zIndex, popUp, false, true);
 }
 
@@ -246,7 +266,6 @@ void Scene::removePopUpLayer() {
 		}
 	}
 
-	zIndex;
 	layers.erase(zIndex);
 	hasActivePopUp = false;
 }
