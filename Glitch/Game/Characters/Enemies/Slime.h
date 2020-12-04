@@ -2,7 +2,7 @@
 #include "Game/Characters/Enemies/IEnemy.h"
 
 //TODO Use deltaTime
-#define JUMP_ANIMATION_TIME 60
+#define JUMP_ANIMATION_TIME 50
 
 /// @brief 
 /// Slime class with correspondending AI logic
@@ -47,7 +47,6 @@ public:
 
 		if (positionedOnGround) {
 			if (!jumping) {
-				changeToState(SpriteState::DEFAULT);
 				dispatcher.dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->getObjectId(), false));
 				jumping = true;
 			}
@@ -70,9 +69,9 @@ public:
 	map<SpriteState, SpriteObject*> buildSpritemap(int startId) override {
 		std::map<SpriteState, SpriteObject*> spriteMap;
 
-		auto slimeDefault = new SpriteObject(startId, 16, 16, 1, 200, "Assets/Sprites/Enemies/Slime_idle.png");
-		auto slimeAction1 = new SpriteObject(startId, 16, 16, 1, 200, "Assets/Sprites/Enemies/Slime_action1.png");
-		auto slimeAction3 = new SpriteObject(startId, 16, 16, 1, 200, "Assets/Sprites/Enemies/Slime_action3.png");
+		auto slimeDefault = new SpriteObject(startId, 23, 31, 1, 200, "Assets/Sprites/Enemies/Slime/Slime_idle.png");
+		auto slimeAction1 = new SpriteObject(startId, 24, 33, 1, 200, "Assets/Sprites/Enemies/Slime/Slime_action1.png");
+		auto slimeAction3 = new SpriteObject(startId, 24, 33, 1, 200, "Assets/Sprites/Enemies/Slime/Slime_action3.png");
 
 		spriteMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, slimeDefault));
 		spriteMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::ACTION_1, slimeAction1));
