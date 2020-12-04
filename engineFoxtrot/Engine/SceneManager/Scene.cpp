@@ -169,6 +169,7 @@ void Scene::onDetach()
 	layers.clear();
 }
 
+// TODO remove after command pattern is implemented
 bool Scene::onKeyPressed(const Event& event) {	
 	auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
 	// TODO command pattern
@@ -288,6 +289,9 @@ void Scene::removePopUpLayer() {
 			if (zIndex < layer.first)
 				zIndex = layer.first;
 		}
+	}
+	else {
+		return;
 	}
 
 	layers.erase(zIndex);

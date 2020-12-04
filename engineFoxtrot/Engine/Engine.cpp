@@ -96,7 +96,8 @@ bool Engine::getPhysicsPaused() {
 
 void Engine::onUpdate()
 {
-	if (!getPhysicsPaused()) {
+	// TODO change after command pattern is implemented
+	if (!getPhysicsPaused()) { 
 		particleEngine.update();
 		physicsEngine.update();
 	}

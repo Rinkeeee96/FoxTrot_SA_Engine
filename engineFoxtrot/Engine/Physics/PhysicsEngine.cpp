@@ -19,7 +19,7 @@ void PhysicsEngine::start(EventDispatcher& dispatcher) {
 	dispatcher.setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(PhysicsEngine::onKeyPressed));
 };
 
-
+// TODO Remove after command pattern is implemented
 bool PhysicsEngine::onKeyPressed(const Event& event) {
 	auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
 	// TODO command pattern
