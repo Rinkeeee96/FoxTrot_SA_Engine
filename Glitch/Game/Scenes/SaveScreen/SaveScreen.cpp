@@ -18,13 +18,12 @@ void SaveScreen::onAttach()
 
 void SaveScreen::onDetach()
 {
-	engine.soundEngine.onStartBackgroundMusicEvent("MENU_SOUND");
 	Scene::onDetach();
 }
 
-void SaveScreen::start()
+void SaveScreen::start(bool playSound)
 {
-	engine.soundEngine.onStartBackgroundMusicEvent("MENU_SOUND");
+	if(playSound)engine.soundEngine.onStartBackgroundMusicEvent("MENU_SOUND");
 }
 
 void SaveScreen::onUpdate()
@@ -155,12 +154,12 @@ void SaveScreen::onSave1ExtraBtnClick()
 		SaveGameData save3;
 		save3.saveGameName = "Save 1";
 		savegame->addSaveGameData(1, save3);
-		stateMachine.switchToScene("SaveScreen", false);
+		stateMachine.switchToScene("SaveScreen", false, false);
 	}
 	else
 	{
 		savegame->deleteSaveGameData(1);
-		stateMachine.switchToScene("SaveScreen", false);
+		stateMachine.switchToScene("SaveScreen", false, false);
 	}
 }
 
@@ -177,12 +176,12 @@ void SaveScreen::onSave2ExtraBtnClick()
 		SaveGameData save3;
 		save3.saveGameName = "Save 2";
 		savegame->addSaveGameData(2, save3);
-		stateMachine.switchToScene("SaveScreen", false);
+		stateMachine.switchToScene("SaveScreen", false, false);
 	}
 	else
 	{
 		savegame->deleteSaveGameData(2);
-		stateMachine.switchToScene("SaveScreen", false);
+		stateMachine.switchToScene("SaveScreen", false, false);
 	}
 }
 
@@ -200,12 +199,12 @@ void SaveScreen::onSave3ExtraBtnClick()
 		SaveGameData save3;
 		save3.saveGameName = "Save 3";
 		savegame->addSaveGameData(3,save3);
-		stateMachine.switchToScene("SaveScreen", false);
+		stateMachine.switchToScene("SaveScreen", false, false);
 	}
 	else
 	{
 		savegame->deleteSaveGameData(3);
-		stateMachine.switchToScene("SaveScreen", false);
+		stateMachine.switchToScene("SaveScreen", false, false);
 	}
 }
 

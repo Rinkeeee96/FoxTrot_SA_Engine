@@ -33,7 +33,7 @@ SceneStateMachine::~SceneStateMachine()
 
 }
 
-void SceneStateMachine::switchToScene(string identifier, const bool _useTransitionScreen)
+void SceneStateMachine::switchToScene(string identifier, const bool _useTransitionScreen, bool playSound)
 {
 	bool useTransitionScreen = _useTransitionScreen;
 	if (DEBUG_MAIN) { useTransitionScreen = false; }
@@ -96,7 +96,7 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 
 	cout << "Setting current Scene to: " << typeid(*(engine.getCurrentScene())).name() << endl;
 
-	currentScene->start();
+	currentScene->start(playSound);
 
 }
 

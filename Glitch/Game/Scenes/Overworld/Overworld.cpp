@@ -62,7 +62,7 @@ void Overworld::loadButtons() {
 	}
 
 	string level3Name = "Locked";
-	if (savegame->getCurrentGameData().levelData[0].completed)
+	if (savegame->getCurrentGameData().levelData[1].completed)
 	{
 		level3Name = "Level 3, Score: " + to_string(savegame->getCurrentGameData().levelData[2].score);
 	}
@@ -121,9 +121,9 @@ void Overworld::loadMusic() {
 }
 
 /// @brief 
-void Overworld::start()
+void Overworld::start(bool playSound)
 {
-	engine.soundEngine.onStartBackgroundMusicEvent("OVER_WORLD");
+	if(playSound)engine.soundEngine.onStartBackgroundMusicEvent("OVER_WORLD");
 }
 
 /// @brief 

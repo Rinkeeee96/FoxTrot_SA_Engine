@@ -10,7 +10,7 @@ public:
 	SceneStateMachine(Engine& engine, Savegame* savegame);
 	~SceneStateMachine();
 
-	void switchToScene(string const identifier, bool useTransitionScreen);
+	void switchToScene(string const identifier, bool useTransitionScreen, bool playSound = true);
 
 	void updateCurrentScene()
 	{
