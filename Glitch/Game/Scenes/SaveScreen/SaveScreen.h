@@ -31,6 +31,7 @@ private:
 	void onSave2ExtraBtnClick();
 	void onSave3ExtraBtnClick();
 
+	void resetOrSaveSaveGame(const int id);
 
 };
 

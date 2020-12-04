@@ -147,20 +147,25 @@ void SaveScreen::onSave1BtnClick()
 	stateMachine.switchToScene("Overworld", true);
 }
 
-void SaveScreen::onSave1ExtraBtnClick()
+void SaveScreen::resetOrSaveSaveGame(const int id)
 {
-	if (savegame->isSaveGameDataEmpty(1))
+	if (savegame->isSaveGameDataEmpty(id))
 	{
-		SaveGameData save3;
-		save3.saveGameName = "Save 1";
-		savegame->addSaveGameData(1, save3);
+		SaveGameData save;
+		save.saveGameName = "Save " + to_string(id);
+		savegame->addSaveGameData(id, save);
 		stateMachine.switchToScene("SaveScreen", false, false);
 	}
 	else
 	{
-		savegame->deleteSaveGameData(1);
+		savegame->deleteSaveGameData(id);
 		stateMachine.switchToScene("SaveScreen", false, false);
 	}
+}
+
+void SaveScreen::onSave1ExtraBtnClick()
+{
+	resetOrSaveSaveGame(1);
 }
 
 void SaveScreen::onSave2BtnClick()
@@ -171,18 +176,7 @@ void SaveScreen::onSave2BtnClick()
 
 void SaveScreen::onSave2ExtraBtnClick()
 {
-	if (savegame->isSaveGameDataEmpty(2))
-	{
-		SaveGameData save3;
-		save3.saveGameName = "Save 2";
-		savegame->addSaveGameData(2, save3);
-		stateMachine.switchToScene("SaveScreen", false, false);
-	}
-	else
-	{
-		savegame->deleteSaveGameData(2);
-		stateMachine.switchToScene("SaveScreen", false, false);
-	}
+	resetOrSaveSaveGame(2);
 }
 
 
@@ -194,18 +188,7 @@ void SaveScreen::onSave3BtnClick()
 
 void SaveScreen::onSave3ExtraBtnClick()
 {
-	if (savegame->isSaveGameDataEmpty(3))
-	{
-		SaveGameData save3;
-		save3.saveGameName = "Save 3";
-		savegame->addSaveGameData(3,save3);
-		stateMachine.switchToScene("SaveScreen", false, false);
-	}
-	else
-	{
-		savegame->deleteSaveGameData(3);
-		stateMachine.switchToScene("SaveScreen", false, false);
-	}
+	resetOrSaveSaveGame(3);
 }
 
 
