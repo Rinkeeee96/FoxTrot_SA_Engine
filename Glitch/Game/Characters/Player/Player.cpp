@@ -39,7 +39,6 @@ bool Player::onCollisionBeginEvent(const Event& event) {
 		auto collidedDirection = map[this->getObjectId()];
 
 		if (std::find(collidedDirection.begin(), collidedDirection.end(), Direction::DOWN) != collidedDirection.end()) {
-			//this->canJump = true;
 			if (this->getXAxisVelocity() == 0)
 				this->changeToState(SpriteState::DEFAULT);
 			else if (this->getXAxisVelocity() > 0)
