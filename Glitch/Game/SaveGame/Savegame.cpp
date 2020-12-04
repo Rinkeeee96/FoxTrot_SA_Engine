@@ -45,7 +45,8 @@ bool Savegame::saveGameDataToJsonFile()
 	}
 	// Todo move to engine.
 	// Write Json data to file
-	std::ofstream file("saveGameData.json");
+	const char* path = "Assets/Savegame/saveGameData.json";
+	std::ofstream file(path); //open in constructor
 	file << json;
 
 
