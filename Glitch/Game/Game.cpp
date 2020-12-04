@@ -2,7 +2,7 @@
 #include "Game.h"
 Game::Game()
 {
-	savegame = new Savegame();
+	savegame = shared_ptr<Savegame>(new Savegame());
 	stateMachine = shared_ptr<SceneStateMachine>(new SceneStateMachine{ engine,savegame });
 }
 

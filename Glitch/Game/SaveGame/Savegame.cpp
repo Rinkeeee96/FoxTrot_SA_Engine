@@ -71,9 +71,8 @@ bool Savegame::readSaveGameDataFromJson(string& path)
 		}
 	}
 	catch (exception exc) {
-		cout << "Something went wrong opening file, make sure the file exists" << "\n";
-		cout << exc.what() << "\n";
-		throw exc;
+		// File doesnt exist. 
+		// Doesnt matter because json can handle empty jsons
 	}
 
 	return true;

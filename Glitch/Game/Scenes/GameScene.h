@@ -21,11 +21,11 @@ public:
 	virtual void onUpdate() override = 0;
 	virtual void onDetach() override = 0;
 
-	void registerSavegame(Savegame* _savegame);
+	void registerSavegame(shared_ptr<Savegame> _savegame);
 protected:
 	SceneStateMachine& stateMachine;
 	Engine& engine;
-	Savegame* savegame;
+	shared_ptr<Savegame> savegame;
 
 };
 

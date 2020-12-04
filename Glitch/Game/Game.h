@@ -14,7 +14,7 @@ public:
 
 private:
 	Engine engine;
-	Savegame* savegame;
+	shared_ptr<Savegame> savegame;
 
 	shared_ptr<SceneStateMachine> stateMachine;
 

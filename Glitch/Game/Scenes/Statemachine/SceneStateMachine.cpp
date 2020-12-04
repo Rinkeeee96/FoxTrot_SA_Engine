@@ -2,7 +2,7 @@
 #include "SceneStateMachine.h"
 
 
-SceneStateMachine::SceneStateMachine(Engine& _engine, Savegame* _savegame) : engine(_engine), savegame(_savegame)
+SceneStateMachine::SceneStateMachine(Engine& _engine, shared_ptr<Savegame> _savegame) : engine(_engine), savegame(_savegame)
 {
 	factory = shared_ptr<SceneFactory>(new  SceneFactory());
 	// Somehow delete this after they are used;

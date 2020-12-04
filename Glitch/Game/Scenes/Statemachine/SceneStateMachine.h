@@ -7,7 +7,7 @@ class Savegame;
 class SceneStateMachine
 {
 public:
-	SceneStateMachine(Engine& engine, Savegame* savegame);
+	SceneStateMachine(Engine& engine, shared_ptr<Savegame> savegame);
 	~SceneStateMachine();
 
 	void switchToScene(string const identifier, bool useTransitionScreen, bool playSound = true);
@@ -22,7 +22,7 @@ public:
 	int levelToBuild = 0;
 private:
 
-	Savegame* savegame;
+	shared_ptr<Savegame> savegame;
 	shared_ptr<SceneFactory>  factory = nullptr;
 
 	Engine& engine;
