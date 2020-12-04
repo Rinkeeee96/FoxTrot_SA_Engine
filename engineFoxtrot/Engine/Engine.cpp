@@ -33,6 +33,8 @@ void Engine::setCurrentScene(const int sceneID)
 	inputEngine.start(*this->eventDispatcher);
 	physicsEngine.start(*this->eventDispatcher);
 
+	eventDispatcher->setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Engine::onKeyPressed));
+
 	sceneManager.getSceneWithID(sceneID)->onAttach();
 	sceneManager.getSceneWithID(sceneID)->onAttach();
 }
@@ -40,6 +42,21 @@ void Engine::setCurrentScene(const int sceneID)
 Scene* Engine::getCurrentScene()
 {
 	return sceneManager.currentScene;
+}
+
+// TODO Remove after command pattern is implemented
+bool Engine::onKeyPressed(const Event& event) {
+	auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
+	// TODO command pattern
+	switch (keyPressedEvent.GetKeyCode())
+	{
+	case KeyCode::KEY_P:
+		engineIsPaused = !engineIsPaused;
+		break;
+	default:
+		return false;
+	}
+	return true;
 }
 
 /// @brief 
@@ -90,14 +107,10 @@ void Engine::loadSound(map<string, string> sounds)
 	this->soundEngine.setFiles(sounds);
 }
 
-bool Engine::getPhysicsPaused() {
-	return physicsEngine.getPhysicsPaused();
-}
-
 void Engine::onUpdate()
 {
 	// TODO change after command pattern is implemented
-	if (!getPhysicsPaused()) { 
+	if (!engineIsPaused) { 
 		particleEngine.update();
 		physicsEngine.update();
 	}

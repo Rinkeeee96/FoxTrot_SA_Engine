@@ -16,23 +16,9 @@ void PhysicsEngine::start(EventDispatcher& dispatcher) {
 
 	dispatcher.setEventCallback<ActionEvent>(BIND_EVENT_FN(PhysicsEngine::handleAction));
 	dispatcher.setEventCallback<ObjectStopEvent>(BIND_EVENT_FN(PhysicsEngine::stopObject));
-	dispatcher.setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(PhysicsEngine::onKeyPressed));
 };
 
-// TODO Remove after command pattern is implemented
-bool PhysicsEngine::onKeyPressed(const Event& event) {
-	auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
-	// TODO command pattern
-	switch (keyPressedEvent.GetKeyCode())
-	{
-	case KeyCode::KEY_P:
-		setPhysicsPaused(!getPhysicsPaused());
-		break;
-	default:
-		return false;
-	}
-	return true;
-}
+
 
 void PhysicsEngine::update() {
 	if ((currentSceneID != (*pointerToCurrentScene)->getSceneID()))
@@ -43,10 +29,7 @@ void PhysicsEngine::update() {
 		currentSceneID = (*pointerToCurrentScene)->getSceneID();
 	}
 
-	if (!getPhysicsPaused()) {
-		physicsFacade->update();
-	}
-	
+	physicsFacade->update();
 };
 
 void PhysicsEngine::shutdown() {

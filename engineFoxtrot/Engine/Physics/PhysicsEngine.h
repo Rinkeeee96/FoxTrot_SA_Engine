@@ -11,8 +11,6 @@ public:
 	PhysicsEngine();
 	~PhysicsEngine();
 
-	bool onKeyPressed(const Event& event);
-
 	void registerObjectInCurrentVectorWithPhysicsEngine();
 
 	bool handleAction(const Event& event);
@@ -20,9 +18,6 @@ public:
 	void removeObject();
 
 	Scene** pointerToCurrentScene = nullptr;
-
-	void setPhysicsPaused(bool value) { physicsPaused = value; };
-	bool getPhysicsPaused() const { return physicsPaused; };
 
 	void start(EventDispatcher& dispatcher) override;
 	void update() override;
@@ -35,6 +30,4 @@ private:
 
 	// CurrentScene is stored because if this changes then the objects need to be reset.
 	int currentSceneID = 0;
-
-	bool physicsPaused = false;
 };

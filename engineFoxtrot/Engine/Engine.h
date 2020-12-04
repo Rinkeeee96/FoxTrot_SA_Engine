@@ -28,6 +28,7 @@ public:
 	//SceneManager calls
 	API void setCurrentScene(const int sceneID);
 	API Scene* getCurrentScene();
+	bool onKeyPressed(const Event& event);
 	API void insertScene(Scene * scene);
 	API void deregisterScene(const int id);
 
@@ -65,5 +66,7 @@ private:
 
 	VideoEngine videoEngine{ frameData };
 	InputEngine inputEngine{ *this };
+
+	bool engineIsPaused = false;
 };
 #endif
