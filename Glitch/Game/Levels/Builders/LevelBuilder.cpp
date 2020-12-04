@@ -360,13 +360,13 @@ void LevelBuilder::loadTileSets(nlohmann::json json) {
 void LevelBuilder::initFactory() {
 	auto tileTop = new SpriteObject(textureId++, 16, 16, 1, 300, "Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png");
 
-	characterFactory->registerCharacter("player", new Player(bLevel->getEventDispatcher()));
+	characterFactory->registerCharacter("player", new Player(bLevel->getEventDispatcher()), &textureId);
 
-	characterFactory->registerCharacter("slime", new Slime(bLevel->getEventDispatcher()));
+	characterFactory->registerCharacter("slime", new Slime(bLevel->getEventDispatcher()), &textureId);
 
-	characterFactory->registerCharacter("fleye", new Fleye(bLevel->getEventDispatcher()));
+	characterFactory->registerCharacter("fleye", new Fleye(bLevel->getEventDispatcher()), &textureId);
 
-	characterFactory->registerCharacter("jumpkin", new Jumpkin(bLevel->getEventDispatcher()));
+	characterFactory->registerCharacter("jumpkin", new Jumpkin(bLevel->getEventDispatcher()), &textureId);
 
 	std::map<std::string, std::map<SpriteState, SpriteObject*>> spriteObjectMap;
 }

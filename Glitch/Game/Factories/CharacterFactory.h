@@ -12,10 +12,9 @@ private:
 	map<string, map<SpriteState, SpriteObject*>> spriteObjectMap;
 	Engine& engine;
 	Level& level;
-	int currentTextureId = 9999;
 public:
 	CharacterFactory(Engine& _engine, Level& _level);
 
-	void registerCharacter(string name, ICharacter* character);
+	void registerCharacter(string name, ICharacter* character, int* textureId);
 	ICharacter* create(string name, int id);
 };

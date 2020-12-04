@@ -10,11 +10,11 @@ CharacterFactory::CharacterFactory(Engine& _engine, Level& _level) : engine{ _en
 /// @param name 
 /// @param character 
 /// @param _spriteObjectMap , All sprites of the object 
-void CharacterFactory::registerCharacter(string name, ICharacter* character) {
+void CharacterFactory::registerCharacter(string name, ICharacter* character, int* textureID) {
 	if (characterMap.count(name) == 0) {
 		characterMap.insert(pair<string&, ICharacter*>(name, character));
-		map<SpriteState, SpriteObject*> spriteMap = character->buildSpritemap(currentTextureId);
-		currentTextureId += spriteMap.size();
+		map<SpriteState, SpriteObject*> spriteMap = character->buildSpritemap(*textureID);
+		*textureID += spriteMap.size();
 		spriteObjectMap.insert(pair<string, map<SpriteState, SpriteObject*>>(name, spriteMap));
 	}
 }
