@@ -44,16 +44,23 @@ public:
 
 	void onUpdate() override {
 		bool positionedOnGround = this->getYAxisVelocity() == 0;
+		float slimeMiddleX = this->getPositionX() + (this->getWidth() / 2);
+		bool playerIsBelowMe = this->getPositionY() < player->getPositionY();
+		bool playerIsOnSameXLvl = (slimeMiddleX >= player->getPositionX()) && (slimeMiddleX <= (player->getPositionX() + player->getWidth()));
 
-		if (positionedOnGround) {
-			if (!jumping) {
-				dispatcher.dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->getObjectId(), false));
-				jumping = true;
-			}
+		if (positionedOnGround && !jumping) {
+			jumping = true;
+		}
+
+		if (playerIsBelowMe && playerIsOnSameXLvl) {
+			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::DOWN, this->getObjectId()));
 		}
 
 		if (jumping) {
 			jumpTimer++;
+			if (jumpTimer < JUMP_ANIMATION_TIME / 2) {
+				changeToState(SpriteState::ACTION_2);
+			}
 			if (jumpTimer == JUMP_ANIMATION_TIME / 2) {
 				changeToState(SpriteState::ACTION_1);
 			}
@@ -69,12 +76,14 @@ public:
 	map<SpriteState, SpriteObject*> buildSpritemap(int startId) override {
 		std::map<SpriteState, SpriteObject*> spriteMap;
 
-		auto slimeDefault = new SpriteObject(startId, 23, 31, 1, 200, "Assets/Sprites/Enemies/Slime/Slime_idle.png");
-		auto slimeAction1 = new SpriteObject(startId, 24, 33, 1, 200, "Assets/Sprites/Enemies/Slime/Slime_action1.png");
-		auto slimeAction3 = new SpriteObject(startId, 24, 33, 1, 200, "Assets/Sprites/Enemies/Slime/Slime_action3.png");
+		auto slimeDefault = new SpriteObject(startId++, 23, 31, 1, 200, "Assets/Sprites/Enemies/Slime/Slime_idle.png");
+		auto slimeAction1 = new SpriteObject(startId++, 24, 33, 1, 200, "Assets/Sprites/Enemies/Slime/Slime_action1.png");
+		auto slimeAction2 = new SpriteObject(startId++, 24, 33, 1, 200, "Assets/Sprites/Enemies/Slime/Slime_action2.png");
+		auto slimeAction3 = new SpriteObject(startId++, 24, 33, 1, 200, "Assets/Sprites/Enemies/Slime/Slime_action3.png");
 
 		spriteMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, slimeDefault));
 		spriteMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::ACTION_1, slimeAction1));
+		spriteMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::ACTION_2, slimeAction2));
 		spriteMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::ACTION_3, slimeAction3));
 
 		return spriteMap;

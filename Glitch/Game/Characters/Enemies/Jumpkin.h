@@ -78,11 +78,6 @@ public:
 			changeToState(SpriteState::DEFAULT);
 			dispatcher.dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->getObjectId(), false));
 		}
-
-		if (!playerIsInRangeHorizontally) {
-			changeToState(SpriteState::DEFAULT);
-			dispatcher.dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->getObjectId(), false));
-		}
 	};
 
 	map<SpriteState, SpriteObject*> buildSpritemap(int startId) override {
