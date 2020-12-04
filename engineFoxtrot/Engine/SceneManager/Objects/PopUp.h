@@ -3,13 +3,13 @@
 class PopUp : public Drawable
 {
 public:
-	PopUp(int id, float width, float height, ColoredText _text);
+	PopUp(const int id, float width, float height, float positionX, float positionY, ColoredText _text);
 	~PopUp();
 
-	API const ColoredText* toString() { return &text; }
+	API const ColoredText* toString() { return text.toString(); }
 
 private:
-	ColoredText text;
+	Text *text;
 
 };
 
