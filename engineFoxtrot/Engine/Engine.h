@@ -35,6 +35,8 @@ public:
 	API void loadSound(const string& identifier, const string& path);
 	API void loadSound(map<string, string> sounds);
 
+	bool getPhysicsPaused();
+
 	// Input calls
 	API void pollEvents();
 

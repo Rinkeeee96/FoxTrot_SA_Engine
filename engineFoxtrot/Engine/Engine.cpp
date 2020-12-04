@@ -90,10 +90,16 @@ void Engine::loadSound(map<string, string> sounds)
 	this->soundEngine.setFiles(sounds);
 }
 
+bool Engine::getPhysicsPaused() {
+	return physicsEngine.getPhysicsPaused();
+}
+
 void Engine::onUpdate()
 {
-	particleEngine.update();
+	if (!getPhysicsPaused()) {
+		particleEngine.update();
+		physicsEngine.update();
+	}
 	videoEngine.update();
-	physicsEngine.update();
 	inputEngine.update();
 }
