@@ -91,10 +91,12 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	cout << "Setting current Scene to: " << typeid(*(engine.getCurrentScene())).name() << endl;
 
 	currentScene->start();
+}
 
-}
-
-string& SceneStateMachine::getCurrentLevelIdentifier()
-{
-	return this->currentLevelIdentifier;
-}
+
+
+string& SceneStateMachine::getCurrentLevelIdentifier()
+{
+	return this->currentLevelIdentifier;
+}
+
