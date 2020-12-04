@@ -109,6 +109,8 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 		object->setRotation(objectValue["rotation"]);
 		object->setPositionX(objectValue["x"]);
 		object->setPositionY(objectValue["y"] + object->getHeight());
+		object->setSpawnX(object->getPositionX());
+		object->setSpawnY(object->getPositionY());
 		object->setStatic(false);
 
 		for (auto& [objectPropertyKey, objectPropertyValue] : objectValue["properties"].items())
@@ -172,7 +174,7 @@ void LevelBuilder::createBackground(nlohmann::json layerValue) {
 		float y = objectValue["y"];
 
 		TileSprite* sprite = textureMap[gid];
-		SpriteObject* tileSprite = new SpriteObject(currentTileId++, sprite->height, sprite->width, 1, 300, sprite->path.c_str());
+		SpriteObject* tileSprite = new SpriteObject(textureId++, sprite->height, sprite->width, 1, 300, sprite->path.c_str());
 
 		tile->setWidth(width);
 		tile->setHeight(height);
@@ -206,7 +208,7 @@ void LevelBuilder::createDecoration(nlohmann::json layerValue)
 
 			if (spriteMap.find(tileId) == spriteMap.end()) {
 				sprite = textureMap[tileId];
-				tileSprite = new SpriteObject(currentTileId++, sprite->height, sprite->width, 1, 300, sprite->path.c_str());
+				tileSprite = new SpriteObject(textureId++, sprite->height, sprite->width, 1, 300, sprite->path.c_str());
 			}
 			else {
 				tileSprite = spriteMap[tileId];
@@ -246,7 +248,7 @@ void LevelBuilder::createParticle(nlohmann::json layerValue)
 		for (auto& [objectPropertyKey, objectPropertyValue] : objectValue["properties"].items())
 		{
 			if (objectPropertyValue["name"] == "type") {
-					SpriteObject* particle1Sprite = new SpriteObject(currentTileId++, 20, 20, 5, 300, "Assets/Particles/fire.png");
+					SpriteObject* particle1Sprite = new SpriteObject(textureId++, 20, 20, 5, 300, "Assets/Particles/fire.png");
 
 					int type = objectPropertyValue["value"];
 
@@ -287,7 +289,7 @@ void LevelBuilder::createTiles(nlohmann::json layerValue) {
 
 			if (spriteMap.find(tileId) == spriteMap.end()) {
 				sprite = textureMap[tileId];
-				tileSprite = new SpriteObject(currentTileId, sprite->height, sprite->width, 1, 300, sprite->path.c_str());
+				tileSprite = new SpriteObject(textureId++, sprite->height, sprite->width, 1, 300, sprite->path.c_str());
 				currentTileId++;
 			}
 			else {
@@ -367,6 +369,8 @@ void LevelBuilder::initFactory() {
 	auto playerRunLeft = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 6, 200, "Assets/Sprites/Character/adventure_run_left.png");
 	auto playerJumpRight = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_jump_right.png");
 	auto slimeDefault = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 1, 200, "Assets/Levels/Tiles/slime_blue.png");
+	auto fleyeDefault = new SpriteObject(textureId++, 42, 42, 1, 200, "Assets/Sprites/Enemies/Fleye.png");
+	auto jumpkinDefault = new SpriteObject(textureId++, 40, 32, 1, 200, "Assets/Sprites/Enemies/Jumpkin.png");
 
 	std::map<SpriteState, SpriteObject*> playerMap;
 	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, playerDefault));
@@ -384,5 +388,14 @@ void LevelBuilder::initFactory() {
 	slimeMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, slimeDefault));
 	characterFactory->registerCharacter("slime", new Slime(bLevel->getEventDispatcher()), slimeMap);
 
+	std::map<SpriteState, SpriteObject*> fleyeMap;
+	fleyeMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, fleyeDefault));
+	characterFactory->registerCharacter("fleye", new Fleye(bLevel->getEventDispatcher()), fleyeMap);
+
+	std::map<SpriteState, SpriteObject*> jumpkinMap;
+	jumpkinMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, jumpkinDefault));
+	characterFactory->registerCharacter("jumpkin", new Jumpkin(bLevel->getEventDispatcher()), jumpkinMap);
+
 	std::map<std::string, std::map<SpriteState, SpriteObject*>> spriteObjectMap;
 }
+

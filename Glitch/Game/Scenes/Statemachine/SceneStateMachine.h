@@ -16,6 +16,8 @@ public:
 		if (currentScene)currentScene->onUpdate();
 	}
 
+	string& getCurrentLevelIdentifier();
+
 private:
 
 	shared_ptr<SceneFactory>  factory = nullptr;
@@ -23,5 +25,6 @@ private:
 	Engine& engine;
 	unique_ptr<Scene> currentScene;
 	int sceneId = 0;
+	string currentLevelIdentifier = "";
 };
 

@@ -8,8 +8,8 @@
 class ObjectStopEvent : public Event
 {
 public:
-	ObjectStopEvent(int _objectId) :
-		objectId{ _objectId }{};
+	ObjectStopEvent(int _objectId, bool _stopVertical = false) :
+		objectId{ _objectId }, stopVertical{_stopVertical} {};
 
 	/// @brief
 	/// Returns the eventType of a specific event
@@ -20,6 +20,8 @@ public:
 	const char* GetName() const override { return "Object stop"; }
 
 	const int GetObjectId() const { return objectId; }
+	const bool GetStopVertical() const { return stopVertical; }
 protected:
 	int objectId;
+	bool stopVertical;
 };

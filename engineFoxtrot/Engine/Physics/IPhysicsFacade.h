@@ -20,7 +20,7 @@ public:
 	virtual void Fall(const int objectId) = 0;
 
 	virtual void update() = 0;
-	virtual void stopObject(int objectId) = 0;
+	virtual void stopObject(int objectId, bool stopVertical) = 0;
 	virtual void cleanMap() = 0;
 private:
 
