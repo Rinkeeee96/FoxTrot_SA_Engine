@@ -206,6 +206,10 @@ map<int, Layer*> Scene::getLayers() const
 	return layers;
 }
 
+/// @brief Create a layer on the active scene with the given zIndex
+/// @param zIndex 
+/// @param renderPhysics 
+/// @param alwaysDrawLayer 
 void Scene::createLayer(const int zIndex, bool renderPhysics, bool alwaysDrawLayer)
 {
 	layers[zIndex] = new Layer();

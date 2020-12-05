@@ -21,7 +21,7 @@ void PhysicsEngine::start(EventDispatcher& dispatcher) {
 
 
 void PhysicsEngine::update() {
-	if ((currentSceneID != (*pointerToCurrentScene)->getSceneID()))
+	if (currentSceneID != (*pointerToCurrentScene)->getSceneID())
 	{
 		if (DEBUG_PHYSICS_ENGINE)cout << "Cleaning map and reinserting Objects" << endl;
 		physicsFacade->cleanMap();
