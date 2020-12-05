@@ -76,12 +76,12 @@ public:
 
 	bool isSaveGameDataEmpty(const int id)
 	{
-		return saveGameDataMap.count(id) > 0;
+		return saveGameDataMap.count(id) == 0;
 	}
 
 	SaveGameData getSaveGameData(const int id) 
 	{ 
-		if (isSaveGameDataEmpty(id))
+		if (!isSaveGameDataEmpty(id))
 		{
 			return saveGameDataMap[id];
 		}
