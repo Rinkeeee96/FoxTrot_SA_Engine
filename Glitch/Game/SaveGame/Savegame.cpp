@@ -58,9 +58,11 @@ bool Savegame::saveGameDataToJsonFile()
 }
 
 /// @brief 
-/// 
+/// Reads a json file and parses it into savegame data map
 /// @param path 
+/// String path for the folder/file location
 /// @return 
+/// Returns true when it completes
 bool Savegame::readSaveGameDataFromJson(string& path)
 {
 	nlohmann::json json;
@@ -88,21 +90,33 @@ bool Savegame::readSaveGameDataFromJson(string& path)
 	
 }
 
+/// @brief 
+/// Sets the currentsavegame data to the given id
+/// @param id 
 void Savegame::setCurrentGameData(const int id)
 {
 	currentSaveGame = id;
 }
 
+/// @brief 
+/// Returns the current Savegame data
+/// @return 
 SaveGameData Savegame::getCurrentGameData()
 {
 	return saveGameDataMap[currentSaveGame];
 }
 
+/// @brief 
+/// Saves the given savegamedata into the current slot
+/// @param saveGame 
 void Savegame::saveCurrentGameData(SaveGameData saveGame)
 {
 	saveGameDataMap[currentSaveGame] = saveGame;
 }
 
+/// @brief 
+/// Parses the json file into the map
+/// @param json 
 void Savegame::parseJsonToMap(nlohmann::json json)
 {
 	for (auto jsonObject : json["saveGames"])
