@@ -58,12 +58,10 @@ void CommandBuilder::initFactory()
 	auto* jumpCommand = new CommandCreator<JumpCommand>("jump");
 	auto* moveLeftCommand = new CommandCreator<MoveLeftCommand>("moveLeft");
 	auto* moveRightCommand = new CommandCreator<MoveRightCommand>("moveRight");
-	//auto* stopMovementCommand = new CommandCreator<StopMovementCommand>("stopMovement");
 
 	jumpCommand->registerClass(commandFactory);
 	moveLeftCommand->registerClass(commandFactory);
 	moveRightCommand->registerClass(commandFactory);
-	//stopMovementCommand->registerClass(commandFactory);
 }
 
 void CommandBuilder::buildPlayerCommands(Player& player, GameKeypressInvoker* invoker)
