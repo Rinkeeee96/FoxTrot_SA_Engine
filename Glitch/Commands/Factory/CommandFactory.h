@@ -10,9 +10,9 @@ class CommandFactory
 public:
 	CommandFactory() {};
 	~CommandFactory() {};
-	unique_ptr<ICommand> create(const std::string& classname);
+	ICommand* create(const std::string& classname);
 
-	unique_ptr<ICharacterCommand> createCharacterCommand(const std::string& classname);
+	ICharacterCommand* createCharacterCommand(const std::string& classname, ICharacter& character);
 	void registerit(const std::string& classname, ICommandCreator* creator);
 private:
 	std::map<std::string, ICommandCreator*> table;

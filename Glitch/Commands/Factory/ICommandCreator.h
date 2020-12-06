@@ -9,7 +9,6 @@ public:
 	ICommandCreator() {};
 	~ICommandCreator() {};
 
-	virtual unique_ptr<ICommand> create() = 0;
-	virtual unique_ptr<ICharacterCommand> createCharacterCommand() = 0;
-
+	virtual ICommand* create() = 0;
+	virtual ICharacterCommand* createCharacterCommand(ICharacter& character) = 0;
 };
