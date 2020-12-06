@@ -23,7 +23,6 @@ Player::Player(const int id, EventDispatcher& _dispatcher) : ICharacter(id, _dis
 	dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Player::onCollisionBeginEvent));
 	dispatcher.setEventCallback<OnCollisionEndEvent>(BIND_EVENT_FN(Player::onCollisionEndEvent));
 	dispatcher.setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Player::onKeyPressed));
-	dispatcher.setEventCallback<KeyReleasedEvent>(BIND_EVENT_FN(Player::onKeyReleased));
 }
 
 /// @brief 
@@ -100,36 +99,8 @@ void Player::setYAxisVelocity(const float val) {
 bool Player::onKeyPressed(const Event& event) {
 	if (!getIsDead()) {
 		auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
-		// zet welke toest ik indruk in de player.h en of ik een toets indruk 
-		// bool keyPressed =  true
-		// Keycode pressedKey = event.getKeyCode()
-		// keyPressInvoker->setDispatcher(this->dispatcher)
 		keypressInvoker->executeCommand(keyPressedEvent.GetKeyCode());
-
-		// keypressInvoker->executeCommand(keyPressedEvent.GetKeyCode(), this->dispatcher);
 		return true;
-	}
-	return false;
-}
-
-bool Player::onKeyReleased(const Event& event)
-{
-	// bool keyPressed =  false
-	// Keycode pressedKey = nullptr
-
-	// TODO find a way to dynamically execute stop command
-	if (!getIsDead()) {
-		auto keyReleasedEvent = static_cast<const KeyReleasedEvent&>(event);
-
-		switch (keyReleasedEvent.GetKeyCode()) {
-			case KeyCode::KEY_A:
-			case KeyCode::KEY_D:
-				StopMovementCommand command;
-				command.registerCharacter(this);
-				command.execute(this->dispatcher);
-		}
-
-		return false;
 	}
 	return false;
 }
