@@ -32,7 +32,7 @@ void Overworld::loadButtons() {
 	level1Btn->setPositionY(363);
 	level1Btn->registerHoverSprite(hoverBtnSprite);
 
-	auto* level1TextBtn = new Button(2, ColoredText("Level 1", Color(0, 0, 0)), BIND_FN(onLevel1BtnClick), transSprite, this->dispatcher);
+	auto* level1TextBtn = new Button(2, ColoredText("Level 1, Score: " + to_string(savegame->getCurrentGameData().levelData[0].score), Color(0, 0, 0)), BIND_FN(onLevel1BtnClick), transSprite, this->dispatcher);
 	level1TextBtn->setWidth(32);
 	level1TextBtn->setHeight(20);
 	level1TextBtn->setPositionX(295);
@@ -45,12 +45,27 @@ void Overworld::loadButtons() {
 	level2Btn->setPositionY(320);
 	level2Btn->registerHoverSprite(hoverBtnSprite);
 
-	auto* level2TextBtn = new Button(4, ColoredText("Level 2", Color(0, 0, 0)), BIND_FN(onLevel2BtnClick), transSprite, this->dispatcher);
+	string level2Name = "Locked";
+	if (savegame->getCurrentGameData().levelData[0].completed)
+	{
+		level2Name = "Level 2, Score: " + to_string(savegame->getCurrentGameData().levelData[1].score);
+	}
+	auto* level2TextBtn = new Button(4, ColoredText(level2Name, Color(0, 0, 0)), BIND_FN(onLevel2BtnClick), transSprite, this->dispatcher);
 	level2TextBtn->setWidth(32);
 	level2TextBtn->setHeight(20);
 	level2TextBtn->setPositionX(955);
 	level2TextBtn->setPositionY(340);
+	if (!savegame->getCurrentGameData().levelData[0].completed)
+	{
+		level2Btn->disable();
+		level2TextBtn->disable();
+	}
 
+	string level3Name = "Locked";
+	if (savegame->getCurrentGameData().levelData[1].completed)
+	{
+		level3Name = "Level 3, Score: " + to_string(savegame->getCurrentGameData().levelData[2].score);
+	}
     auto* level3Btn = new Button(5, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel3BtnClick), defaultBtnSprite, this->dispatcher);
 	level3Btn->setWidth(32);
 	level3Btn->setHeight(32);
@@ -58,11 +73,16 @@ void Overworld::loadButtons() {
 	level3Btn->setPositionY(850);
 	level3Btn->registerHoverSprite(hoverBtnSprite);
 
-	auto* level3TextBtn = new Button(6, ColoredText("Level 3", Color(0, 0, 0)), BIND_FN(onLevel3BtnClick), transSprite, this->dispatcher);
+	auto* level3TextBtn = new Button(6, ColoredText(level3Name, Color(0, 0, 0)), BIND_FN(onLevel3BtnClick), transSprite, this->dispatcher);
 	level3TextBtn->setWidth(32);
 	level3TextBtn->setHeight(20);
 	level3TextBtn->setPositionX(795);
 	level3TextBtn->setPositionY(870);
+	if (!savegame->getCurrentGameData().levelData[2].completed)
+	{
+		level3Btn->disable();
+		level3TextBtn->disable();
+	}
 
 	auto* stopBtn = new SecondaryButton(7, "To Main Menu", BIND_FN(onStopBtnClick), this->dispatcher);
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
@@ -101,9 +121,9 @@ void Overworld::loadMusic() {
 }
 
 /// @brief 
-void Overworld::start()
+void Overworld::start(bool playSound)
 {
-	engine.soundEngine.onStartBackgroundMusicEvent("OVER_WORLD");
+	if(playSound)engine.soundEngine.onStartBackgroundMusicEvent("OVER_WORLD");
 }
 
 /// @brief 

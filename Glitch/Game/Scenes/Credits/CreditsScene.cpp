@@ -100,9 +100,9 @@ void CreditsScene::loadMusic() {
 
 /// @brief 
 /// Create the sounds for this scene
-void CreditsScene::start()
+void CreditsScene::start(bool playSound)
 {
-	engine.soundEngine.onStartBackgroundMusicEvent("WIN_SOUND");
+	if(playSound)engine.soundEngine.onStartBackgroundMusicEvent("WIN_SOUND");
 }
 
 void CreditsScene::onUpdate()

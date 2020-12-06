@@ -2,8 +2,10 @@
 #include "Savegame.h"
 
 
-Savegame Savegame::instance;
-
+/// @brief 
+/// Saves the savegamedata array to a json file
+/// @return 
+/// Failed or succes
 bool Savegame::saveGameDataToJsonFile()
 {
 	nlohmann::json json;
@@ -23,11 +25,13 @@ bool Savegame::saveGameDataToJsonFile()
 		{
 			saveGameJson["achievements"].push_back(achievement);
 		}
+		int count = 0;
 		for (auto levelData : saveGame.second.levelData)
 		{
 			nlohmann::json levelDataJson;
-			levelDataJson["score"] = levelData.second.score;
-			levelDataJson["completed"] = levelData.second.completed;
+			levelDataJson["score"] = levelData.score;
+			levelDataJson["completed"] = levelData.completed;
+			levelDataJson["levelnr"] = count++;
 			saveGameJson["leveldata"].push_back(levelDataJson);
 		}
 		nlohmann::json characterData;
@@ -45,13 +49,20 @@ bool Savegame::saveGameDataToJsonFile()
 	}
 	// Todo move to engine.
 	// Write Json data to file
-	std::ofstream file("saveGameData.json");
+	const char* path = "Assets/Savegame/saveGameData.json";
+	std::ofstream file(path); //open in constructor
 	file << json;
 
 
 	return true;
 }
 
+/// @brief 
+/// Reads a json file and parses it into savegame data map
+/// @param path 
+/// String path for the folder/file location
+/// @return 
+/// Returns true when it completes
 bool Savegame::readSaveGameDataFromJson(string& path)
 {
 	nlohmann::json json;
@@ -71,30 +82,41 @@ bool Savegame::readSaveGameDataFromJson(string& path)
 		}
 	}
 	catch (exception exc) {
-		cout << "Something went wrong opening file, make sure the file exists" << "\n";
-		cout << exc.what() << "\n";
-		throw exc;
+		// File doesnt exist. 
+		// Doesnt matter because json can handle empty jsons
 	}
 
 	return true;
 	
 }
 
+/// @brief 
+/// Sets the currentsavegame data to the given id
+/// @param id 
 void Savegame::setCurrentGameData(const int id)
 {
 	currentSaveGame = id;
 }
 
+/// @brief 
+/// Returns the current Savegame data
+/// @return 
 SaveGameData Savegame::getCurrentGameData()
 {
 	return saveGameDataMap[currentSaveGame];
 }
 
+/// @brief 
+/// Saves the given savegamedata into the current slot
+/// @param saveGame 
 void Savegame::saveCurrentGameData(SaveGameData saveGame)
 {
 	saveGameDataMap[currentSaveGame] = saveGame;
 }
 
+/// @brief 
+/// Parses the json file into the map
+/// @param json 
 void Savegame::parseJsonToMap(nlohmann::json json)
 {
 	for (auto jsonObject : json["saveGames"])
@@ -112,7 +134,16 @@ void Savegame::parseJsonToMap(nlohmann::json json)
 		{
 			saveGameData.totalScore = jsonObject["totalscore"];
 		}
-
+		if (jsonObject.contains("leveldata"))
+		{
+			for (auto itemJson : jsonObject["leveldata"])
+			{
+				LevelData levelD;
+				levelD.score = itemJson["score"];
+				levelD.completed = itemJson["completed"];
+				saveGameData.levelData[itemJson["levelnr"]] = levelD;
+			}
+		}
 		if (jsonObject.contains("achievements"))
 		{
 			for (auto achievement : jsonObject["achievements"])
