@@ -115,7 +115,8 @@ bool Player::onKeyReleased(const Event& event)
 	releasedKeyLastFrame = true;
 	return false;
 }
-
+/// @brief 
+/// Handles registration of a custom gamekeypressinvoker
 void Player::registerKeypressInvoker(GameKeypressInvoker* _invoker)
 {
 	invoker = _invoker;
