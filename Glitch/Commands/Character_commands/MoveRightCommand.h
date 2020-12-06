@@ -4,18 +4,16 @@
 class MoveRightCommand : public ICharacterCommand
 {
 public:
+	MoveRightCommand(ICharacter& _character, string identifier) :ICharacterCommand(_character, identifier) {}
 	// Inherited via ICommand
 	void execute(EventDispatcher& dispatcher) override {
-
-		if (! isEnabled())
-			return;
-		dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::RIGHT, character->getObjectId()));
-		if (character->getCanJump()) {
-			character->changeToState(SpriteState::RUN_RIGHT);
+		dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::RIGHT, character.getObjectId()));
+		if (character.getCanJump()) {
+			character.changeToState(SpriteState::RUN_RIGHT);
 		}
-		else if (character->getYAxisVelocity() > 0)
-			character->changeToState(SpriteState::AIR_FALL_RIGHT);
+		else if (character.getYAxisVelocity() > 0)
+			character.changeToState(SpriteState::AIR_FALL_RIGHT);
 		else
-			character->changeToState(SpriteState::AIR_JUMP_RIGHT);
+			character.changeToState(SpriteState::AIR_JUMP_RIGHT);
 	}
 };

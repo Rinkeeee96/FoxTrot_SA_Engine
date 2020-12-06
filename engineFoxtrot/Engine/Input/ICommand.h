@@ -2,9 +2,11 @@
 class EventDispatcher;
 class ICommand
 {
-protected:
-	bool enabled;
 public:
-	virtual bool isEnabled() { return enabled; }
+	ICommand(string _identifier) : identifier{ _identifier } {}
+
 	virtual void execute(EventDispatcher& dispatcher) = 0;
+	const string& getIdentifier() { return identifier; }
+private:
+	const string identifier;
 };
