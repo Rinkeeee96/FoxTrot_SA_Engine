@@ -3,7 +3,7 @@
 class JumpCommand : public ICharacterCommand
 {
 public:
-	JumpCommand(ICharacter& _character, string identifier) :ICharacterCommand(_character, identifier) {}
+	JumpCommand(ICharacter& _character, string identifier) : ICharacterCommand(_character, identifier) {}
 	// Inherited via ICommand
 	void execute(EventDispatcher& dispatcher) override {
 		if (character.getCanJump()) {

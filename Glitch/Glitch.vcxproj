@@ -164,6 +164,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Commands\CommandBuilder.h" />
+    <ClInclude Include="Commands\exceptions\unknownCommandException.h" />
     <ClInclude Include="Commands\Factory\CommandFactory.h" />
     <ClInclude Include="Commands\Factory\ICommandCreator.h" />
     <ClInclude Include="Commands\Factory\CommandCreator.h" />

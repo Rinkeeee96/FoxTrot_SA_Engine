@@ -5,16 +5,8 @@ class ICharacter;
 class ICharacterCommand : public ICommand
 {
 public:
+	ICharacterCommand(ICharacter& _character, string identifier) : character{_character}, ICommand(identifier) {}
 	virtual void execute(EventDispatcher& dispatcher) override = 0;
-
-	void registerCharacter(ICharacter* _character) {
-		character = _character;
-	}
-
-	bool isEnabled() override {
-		return character == nullptr;
-	}
-
 protected:
-	ICharacter* character;
+	ICharacter& character;
 };

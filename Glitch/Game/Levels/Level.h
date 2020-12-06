@@ -25,6 +25,9 @@ private:
 	Player* player = nullptr;
 	bool win = false;
 
+	ICommandBuilder* commandBuilder;
+	GameKeypressInvoker* gameInvoker;
+
 	float startPosPlayerX = 0;
 	float startPosPlayerY = 0;
 };

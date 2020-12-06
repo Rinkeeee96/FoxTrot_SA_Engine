@@ -77,5 +77,6 @@
     <ClInclude Include="Commands\Factory\CommandCreator.h" />
     <ClInclude Include="Commands\Factory\ICommandCreator.h" />
     <ClInclude Include="Commands\GameKeypressInvoker.h" />
+    <ClInclude Include="Commands\exceptions\unknownCommandException.h" />
   </ItemGroup>
 </Project>
