@@ -32,7 +32,7 @@
     <ClCompile Include="Engine\SceneManager\Objects\SpriteObject.cpp" />
     <ClCompile Include="Engine\SceneManager\Objects\Drawable.cpp" />
     <ClCompile Include="Engine\SceneManager\Objects\Button.cpp" />
-    <ClCompile Include="Engine\Input\KeypressInvoker.cpp" />
+    <ClCompile Include="Engine\Input\Commands\KeypressInvoker.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Engine.cpp">
@@ -172,8 +172,8 @@
     <ClInclude Include="Engine\Events\InputMapping\ReleaseInputEvent.h" />
     <ClInclude Include="Engine\Events\EventDispatcher.h" />
     <ClInclude Include="Engine\General\ISubsystem.h" />
-    <ClInclude Include="Engine\Input\KeypressInvoker.h" />
-    <ClInclude Include="Engine\Input\ICommand.h" />
+    <ClInclude Include="Engine\Input\Commands\ICommand.h" />
+    <ClInclude Include="Engine\Input\Commands\KeypressInvoker.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

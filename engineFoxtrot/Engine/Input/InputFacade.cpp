@@ -1,7 +1,7 @@
 #include "stdafx.h"
 
 #include "InputFacade.h"
-#include "KeypressInvoker.h"
+#include "Commands/KeypressInvoker.h"
 
 #include <SDL.h>
 

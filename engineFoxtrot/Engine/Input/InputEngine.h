@@ -3,7 +3,7 @@
 #include "InputFacade.h"
 #include "Events/Action/ActionEvent.h"
 #include "General/ISubsystem.h"
-#include "Input/KeypressInvoker.h"
+#include "Input/Commands/KeypressInvoker.h"
 
 class Engine;
 

@@ -1,5 +1,5 @@
 #pragma once
-#include "Input/ICommand.h"
+#include "Input/Commands/ICommand.h"
 
 class ICharacter;
 class ICharacterCommand : public ICommand
