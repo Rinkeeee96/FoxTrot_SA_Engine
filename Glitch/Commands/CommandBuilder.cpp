@@ -10,35 +10,86 @@
 #include "Commands/Character_commands/JumpCommand.h"
 #include "Commands/Character_commands/StopMovementCommand.h"
 
+#include "Commands/exceptions/unknownCommandException.h"
+
 CommandBuilder::CommandBuilder()
 {
-	keypressInvoker = new GameKeypressInvoker();
-	commandFactory = std::shared_ptr<CommandFactory>(new CommandFactory());
 	initFactory();
 }
 
 // TODO read keybinds from file
-void CommandBuilder::buildCommandList()
-{
-	keypressInvoker->registerPlayerCommand(KeyCode::KEY_A, commandFactory->createCharacterCommand("moveLeftCommand"));
-	keypressInvoker->registerPlayerCommand(KeyCode::KEY_D, commandFactory->createCharacterCommand("moveRightCommand"));
-	keypressInvoker->registerPlayerCommand(KeyCode::KEY_SPACE, commandFactory->createCharacterCommand("jumpCommand"));
-};
-
-GameKeypressInvoker* CommandBuilder::getKeypressInvoker() {
-	return keypressInvoker;
+/*
+global: {
+	KEY_P: "pause",
+	.....
+},
+player : {
+	{
+		KEY_A : "walkLeft",
+		KEY_D : "walkRight"
+		....
+	},
+	{
+		....
+	}
 }
+*/
+GameKeypressInvoker* CommandBuilder::readBindingsAndCreateInvoker() {
+	// bindings now belong "hardcoded" to the player
+	unordered_map<KeyCode, string> playerBindings = {
+		{ KeyCode::KEY_A, "moveLeft" },
+		{ KeyCode::KEY_D, "moveRight" },
+		{ KeyCode::KEY_SPACE, "jump" }
+	};
 
+	unordered_map<KeyCode, string> globalBindings = {
+		{ KeyCode::KEY_P, "pause" }
+	};
+
+	return new GameKeypressInvoker(playerBindings, globalBindings);
+}
 
 void CommandBuilder::initFactory()
 {
-	auto* jumpCommand = new CommandCreator<JumpCommand>("jumpCommand");
-	auto* moveLeftCommand = new CommandCreator<MoveLeftCommand>("moveLeftCommand");
-	auto* moveRightCommand = new CommandCreator<MoveRightCommand>("moveRightCommand");
-	auto* stopMovementCommand = new CommandCreator<StopMovementCommand>("stopMovementCommand");
+	commandFactory = std::shared_ptr<CommandFactory>(new CommandFactory());
+
+	auto* jumpCommand = new CommandCreator<JumpCommand>("jump");
+	auto* moveLeftCommand = new CommandCreator<MoveLeftCommand>("moveLeft");
+	auto* moveRightCommand = new CommandCreator<MoveRightCommand>("moveRight");
+	//auto* stopMovementCommand = new CommandCreator<StopMovementCommand>("stopMovement");
 
 	jumpCommand->registerClass(commandFactory);
 	moveLeftCommand->registerClass(commandFactory);
 	moveRightCommand->registerClass(commandFactory);
-	stopMovementCommand->registerClass(commandFactory);
-} 
+	//stopMovementCommand->registerClass(commandFactory);
+}
+
+void CommandBuilder::buildPlayerCommands(Player& player, GameKeypressInvoker* invoker)
+{
+	// for (auto pair : globalBindings)
+	//	keypressInvoker->registerCommands(pair.first, commandFactory->createGlobalCommand(pair.second));
+	// first = keycode
+	// second = identifier
+	for (auto pair = invoker->getPlayerCommands().begin(); pair != invoker->getPlayerCommands().end(); ++pair)
+	{
+		try
+		{
+			invoker->registerCommands(
+				pair->first, 
+				*commandFactory->createCharacterCommand(pair->second, player)
+			);
+		}
+		catch (const unknownCommandException& e)
+		{
+			// TODO throw up further and create a popup for missparsed bindings
+			// unkown command, skipping it
+			if (DEBUG_COMMAND_BUILDER)
+			{
+				cout << e.what();
+			}
+			++pair;
+		}
+
+		player.registerKeypressInvoker(invoker);
+	}
+};

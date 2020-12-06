@@ -9,8 +9,8 @@ class CommandBuilder : public ICommandBuilder
 public:
 	CommandBuilder();
 	~CommandBuilder() {};
-	void buildCommandList();
-	GameKeypressInvoker* getKeypressInvoker();
+	GameKeypressInvoker* readBindingsAndCreateInvoker() override;
+	void buildPlayerCommands(Player& player, GameKeypressInvoker* invoker) override;
 private:
 	shared_ptr<CommandFactory> commandFactory;
 
