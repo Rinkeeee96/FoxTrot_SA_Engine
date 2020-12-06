@@ -32,7 +32,6 @@ void GameKeypressInvoker::updateGlobalCommand(KeyCode code, ICommand* command)
 	updateCollection(globalCommands, code, command);
 }
 
-// TODO implement
 void GameKeypressInvoker::destroyGlobalCommands()
 {
 	for (auto pair : globalCommands)
