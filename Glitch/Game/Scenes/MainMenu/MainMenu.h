@@ -14,6 +14,7 @@ public:
 	void onDetach() override;
 	void start(bool playSound) override;
 	void onUpdate() override;
+
 private:
 	void loadBackground();
 	void loadMusic();

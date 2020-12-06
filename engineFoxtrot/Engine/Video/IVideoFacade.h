@@ -16,7 +16,7 @@ public:
 	virtual void drawScreen() = 0;
 	virtual void loadImage(const SpriteObject& spriteObject) = 0;
 	virtual void renderCopy(Drawable& object) = 0;
-	virtual void drawMessageAt(const ColoredText& message, const Position& pos, const ObjectSize& boundary) = 0;
+	virtual void drawMessageAt(const ColoredText& message, const Position& pos, const ObjectSize& boundary, bool fromText = false) = 0;
 	virtual void drawParticle(const ParticleAdapter& part) = 0;
 
 	virtual void clean() = 0;

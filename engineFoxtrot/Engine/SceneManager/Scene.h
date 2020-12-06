@@ -56,6 +56,8 @@ public:
     
 	void setObjectToFollow(Object* obj) { objectToFollow = obj; }
 
+	bool onKeyPressed(const Event& event);
+
 
 	/// @brief 
 	/// Returns the id of the object to follow
@@ -73,7 +75,7 @@ public:
 		}
 		
 	}
-	Object* getObjectToFollow() { return objectToFollow; }
+	Object* getObjectToFollow() { return objectToFollow; };
 
 	API void removeObjectFromScene(Object* obj);
 
@@ -81,7 +83,15 @@ public:
 
 	API void createLayer(const int zIndex, bool renderPhysics = false, bool alwaysDrawLayer = false);
 
-	EventDispatcher& getEventDispatcher() { return dispatcher; }
+	EventDispatcher& getEventDispatcher() { return dispatcher; };
+	
+	void createPopUpLayer(float xPosition, float yPosition, string text);
+	void createPopUpLayer(float xPosition, float yPosition, float width, float height, string text);
+	void createPopUpLayer(float xPosition, float yPosition, float width, float height, string text, SpriteObject* spObject);
+	void createPopUpLayer(float xPosition, float yPosition, float width, float height, SpriteObject* spObject);
+
+	int getHighestLayerIndex();
+	void removePopUpLayer();
 
 protected:
 	EventDispatcher dispatcher;
@@ -93,4 +103,6 @@ private:
 
 	int sceneWidth = WINDOW_WIDTH;
 	int sceneHeight = WINDOW_HEIGHT;
+
+	bool hasActivePopUp = false;
 };
