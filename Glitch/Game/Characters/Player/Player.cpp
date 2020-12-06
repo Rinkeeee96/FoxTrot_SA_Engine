@@ -102,7 +102,6 @@ bool Player::onKeyPressed(const Event& event) {
 	if (!getIsDead()) {
 		auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
 		keypressInvoker->executeCommand(keyPressedEvent.GetKeyCode());
-		return true;
 	}
 	return false;
 }

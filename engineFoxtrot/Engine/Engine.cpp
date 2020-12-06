@@ -32,6 +32,7 @@ void Engine::setCurrentScene(const int sceneID)
 	particleEngine.start(*this->eventDispatcher);
 	soundEngine.start(*this->eventDispatcher);
 	inputEngine.start(*this->eventDispatcher);
+	inputEngine.registerKeypressInvoker(this->keypressInvoker);
 	physicsEngine.start(*this->eventDispatcher);
 
 	sceneManager.getSceneWithID(sceneID)->onAttach();

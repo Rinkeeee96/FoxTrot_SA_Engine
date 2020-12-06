@@ -39,8 +39,7 @@ void KeypressInvoker::deleteCommandThatBelongsTo(const KeyCode& keycode) {
 
 void KeypressInvoker::executeCommandQueue(EventDispatcher& dispatcher)
 {
-	auto it = executionQueue.front();
-	while (it != executionQueue.back())
+	for (size_t i = 0; i < executionQueue.size(); i++)
 	{
 		KeyCode& key = executionQueue.front();
 		commands[key]->execute(dispatcher);
