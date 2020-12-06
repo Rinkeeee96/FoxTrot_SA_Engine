@@ -1,7 +1,8 @@
 #include "pch.h"
 #include "SceneStateMachine.h"
 
-SceneStateMachine::SceneStateMachine(Engine& _engine) : engine(_engine)
+
+SceneStateMachine::SceneStateMachine(Engine& _engine, shared_ptr<Savegame> _savegame) : engine(_engine), savegame(_savegame)
 {
 	factory = shared_ptr<SceneFactory>(new  SceneFactory());
 	// Somehow delete this after they are used;
@@ -32,7 +33,7 @@ SceneStateMachine::~SceneStateMachine()
 
 }
 
-void SceneStateMachine::switchToScene(string identifier, const bool _useTransitionScreen)
+void SceneStateMachine::switchToScene(string identifier, const bool _useTransitionScreen, bool playSound)
 {
 	bool useTransitionScreen = _useTransitionScreen;
 	if (DEBUG_MAIN) { useTransitionScreen = false; }
@@ -57,7 +58,7 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	{
 		LoadLevelFacade levelLoader{ engine };
 
-		int levelToBuild = stoi(identifier.substr(6));
+		levelToBuild = stoi(identifier.substr(6));
 		cout << "Level to build: " << levelToBuild << endl;
 
 		LevelBuilder levelOneBuilder{ engine, sceneId++, *this };
@@ -80,6 +81,9 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	}
 	currentScene = std::move(newScene);
 
+	if (currentScene && dynamic_cast<GameScene*>(currentScene.get()))
+		((GameScene*)currentScene.get())->registerSavegame(savegame);
+
 	engine.insertScene(currentScene.get());
 	engine.setCurrentScene(currentScene->getSceneID());
 
@@ -87,16 +91,16 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	// Handle some scene specific things
 	if (currentScene && dynamic_cast<GeneralTransition*>(currentScene.get()))
 		((GeneralTransition*)currentScene.get())->setNextScene(transition);
-	
+
+
+
 	cout << "Setting current Scene to: " << typeid(*(engine.getCurrentScene())).name() << endl;
 
-	currentScene->start();
+	currentScene->start(playSound);
+
 }
-
-
 
 string& SceneStateMachine::getCurrentLevelIdentifier()
 {
 	return this->currentLevelIdentifier;
 }
-

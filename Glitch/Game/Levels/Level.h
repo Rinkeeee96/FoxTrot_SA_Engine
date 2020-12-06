@@ -11,7 +11,7 @@ public:
 	void setPlayer(Object* object);
 	void setSound(map<string, string> sounds);
 	void onAttach() override;
-	void start() override;
+	void start(bool playSound) override;
 	void pause();
 	void onDetach() override;
 	void onUpdate() override;
