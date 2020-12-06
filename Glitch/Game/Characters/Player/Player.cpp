@@ -25,6 +25,7 @@ Player::Player(const int id, EventDispatcher& _dispatcher) : ICharacter(id, _dis
 	dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Player::onCollisionBeginEvent));
 	dispatcher.setEventCallback<OnCollisionEndEvent>(BIND_EVENT_FN(Player::onCollisionEndEvent));
 	dispatcher.setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Player::onKeyPressed));
+	dispatcher.setEventCallback<KeyReleasedEvent>(BIND_EVENT_FN(Player::onKeyReleased));
 }
 
 /// @brief 
@@ -101,21 +102,29 @@ void Player::setYAxisVelocity(const float val) {
 bool Player::onKeyPressed(const Event& event) {
 	if (!getIsDead()) {
 		auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
-		keypressInvoker->executeCommand(keyPressedEvent.GetKeyCode());
+		invoker->executeCommand(keyPressedEvent.GetKeyCode());
+		// reset release key each time we press one
+		releasedKeyLastFrame = false;
+		//pressedKeys.push_back(keyPressedEvent.GetKeyCode());
 	}
 	return false;
 }
 
-void Player::registerKeypressInvoker(GameKeypressInvoker* invoker)
+bool Player::onKeyReleased(const Event& event)
 {
-	keypressInvoker = invoker;
+	releasedKeyLastFrame = true;
+	return false;
+}
+
+void Player::registerKeypressInvoker(GameKeypressInvoker* _invoker)
+{
+	invoker = _invoker;
 }
 
 void Player::onUpdate()
 {
-	// welke toest is pressed?
-	// call invoker met pressed key
-	// hoe komen we hier aan pressed key?
+	if (releasedKeyLastFrame)
+		StopMovementCommand(*this, "stopMovement").execute(this->dispatcher);
 }
 
 ICharacter* Player::clone(int id) { 

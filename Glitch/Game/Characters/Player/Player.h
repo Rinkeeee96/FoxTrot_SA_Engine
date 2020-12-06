@@ -23,6 +23,10 @@ public:
 	/// Handles when an key pressed event happend, Player can move right, left and jump
 	bool onKeyPressed(const Event& event);
 
+	/// @brief 
+	/// Handles when an key released event happend, Player can move right, left and jump
+	bool onKeyReleased(const Event& event);
+
 	// @brief 
 	/// Register the keypressinvoker from the builder to capture relevant keyevents and act on them accordingly
 	void registerKeypressInvoker(GameKeypressInvoker* invoker);
@@ -32,5 +36,6 @@ public:
 	ICharacter* clone(int id) override;
 
 private:
-	GameKeypressInvoker* keypressInvoker;
+	GameKeypressInvoker* invoker;
+	bool releasedKeyLastFrame;
 };
