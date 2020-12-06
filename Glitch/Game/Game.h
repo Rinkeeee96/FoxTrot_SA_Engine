@@ -13,7 +13,6 @@ public:
 
 private:
 	Engine engine;
-	SceneStateMachine stateMachine{ engine };
 	ICommandBuilder* commandBuilder;
 	shared_ptr<Savegame> savegame;
 

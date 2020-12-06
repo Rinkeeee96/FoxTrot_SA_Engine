@@ -13,7 +13,7 @@ void GameKeypressInvoker::updateCollection(unordered_map<KeyCode, string>& comma
 			// sla het oude commando op
 			string oldCommand = commandList[code];
 			// zet het nieuwe commando op zijn plaats
-			commandList[code] == command->getIdentifier();
+			commandList[code] = command->getIdentifier();
 			// zet het oude command op de nu oude plek
 			commandIt->second = oldCommand;
 

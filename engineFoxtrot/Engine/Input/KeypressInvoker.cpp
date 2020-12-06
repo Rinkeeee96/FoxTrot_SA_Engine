@@ -25,7 +25,7 @@ void KeypressInvoker::updateCommand(KeyCode code, ICommand& command) {
 				// sla het oude commando op
 				unique_ptr<ICommand> oldCommand = move(commands[code]);
 				// zet het nieuwe commando op zijn plaats
-				commands[code] == make_unique<ICommand>(command);
+				commands[code] = make_unique<ICommand>(command);
 				// zet het oude command op de nu oude plek
 				it->second = move(oldCommand);
 			}

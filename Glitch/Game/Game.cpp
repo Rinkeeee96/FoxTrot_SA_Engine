@@ -13,7 +13,7 @@ int Game::run() {
 	try {
 		engine.useCustomCommandInvoker(commandBuilder->readBindingsAndCreateInvoker());
 
-		stateMachine.switchToScene("MainMenu", false);
+		stateMachine->switchToScene("MainMenu", false);
 		string path = "Assets/SaveGame/saveGameData.json";
 		savegame->readSaveGameDataFromJson(path);
 		stateMachine->switchToScene("MainMenu", false);
