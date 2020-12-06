@@ -1,10 +1,12 @@
 #include "stdafx.h"
 #include "SceneManager.h"
+#include "Scene.h"
+#include "Engine.h"
+
 
 /// @brief Constructor
 SceneManager::SceneManager()
 {
-
 }
 
 /// @brief Destructor
@@ -41,6 +43,14 @@ void SceneManager::insertScene(Scene* scene)
 }
 
 /// @brief 
+/// @param id 
+void SceneManager::deregisterScene(const int id)
+{
+	currentScene->onDetach();
+	scenes.erase(scenes.find(id));
+}
+
+/// @brief 
 /// Returns the last sceneID available in the map + 1
 /// @return 
 /// returns int
@@ -54,12 +64,15 @@ int SceneManager::getFirstFreeSceneID()
 /// If a scene does not exists throw ERROR_CODE_SCENEMANAGER_SCENES_IS_EMPTY
 /// @param sceneID 
 /// Identifier to a SceneID.
-void SceneManager::setCurrentScene(const int sceneID)
+EventDispatcher& SceneManager::setCurrentScene(const int sceneID)
 {
 	if (scenes.empty()) throw ERROR_CODE_SCENEMANAGER_SCENES_IS_EMPTY;
 
 	currentScene = getSceneWithID(sceneID);
+	//currentScene->onAttach();
 	if (DEBUG_SCENE_MANAGER)cout << "Setting current scene to " << sceneID << " with amount of obj: " << currentScene->getAllObjectsInScene().size() << endl;
+
+	return currentScene->getEventDispatcher();
 }
 
 /// @brief 

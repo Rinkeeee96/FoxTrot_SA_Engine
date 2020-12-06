@@ -13,7 +13,6 @@
     <ClCompile Include="Engine\ParticleSystem\ParticleLib\ParticleInit.cpp" />
     <ClCompile Include="Engine\Physics\ContactListenerAdapter.cpp" />
     <ClCompile Include="Engine\stdafx.cpp" />
-    <ClCompile Include="Engine\Events\EventSingleton.cpp" />
     <ClCompile Include="Engine\Physics\PhysicsBody.cpp" />
     <ClCompile Include="Engine\Physics\PhysicsEngine.cpp" />
     <ClCompile Include="Engine\Physics\PhysicsFacade.cpp" />
@@ -93,11 +92,6 @@
     <ClInclude Include="Engine\Events\mouse\MouseReleased.h" />
     <ClInclude Include="Engine\Events\Mouse\MouseScrolledEvent.h" />
     <ClInclude Include="Engine\Events\ObjectEventCodes.h" />
-    <ClInclude Include="Engine\Events\Sound\BaseSoundEvent.h" />
-    <ClInclude Include="Engine\Events\Sound\OnMusicStartEvent.h" />
-    <ClInclude Include="Engine\Events\Sound\OnMusicStopEvent.h" />
-    <ClInclude Include="Engine\Events\Sound\SoundAttachEvent.h" />
-    <ClInclude Include="Engine\Events\Window\WindowCloseEvent.h" />
     <ClInclude Include="Engine\Events\Window\WindowResizeEvent.h" />
     <ClInclude Include="Engine\Fps\FrameData.h" />
     <ClInclude Include="Engine\General\Debug.h" />
@@ -124,15 +118,12 @@
     <ClInclude Include="Engine\SceneManager\Scene.h" />
     <ClInclude Include="Engine\SceneManager\SceneManager.h" />
     <ClInclude Include="Engine\General\Version.h" />
-    <ClInclude Include="Engine\Events\EventSingleton.h" />
     <ClInclude Include="Engine\Video\IVideoFacade.h" />
     <ClInclude Include="Engine\Video\VideoEngine.h" />
     <ClInclude Include="Engine\Video\VideoFacade.h" />
     <ClInclude Include="Engine\Sound\ISoundFacade.h" />
     <ClInclude Include="Engine\Sound\SoundFacade.h" />
     <ClInclude Include="Engine\Sound\SoundEngine.h" />
-    <ClInclude Include="Engine\Events\AppTickEvent60.h" />
-    <ClInclude Include="Engine\Events\AppTickEvent30.h" />
     <ClInclude Include="Engine\Events\EventType.h" />
     <ClInclude Include="Engine\General\Debug.h" />
     <ClInclude Include="Engine\Engine.h" />
@@ -161,14 +152,8 @@
     <ClInclude Include="Engine\Fps\FrameData.h" />
     <ClInclude Include="Engine\Events\Action\OnCollisionEvent.h" />
     <ClInclude Include="Engine\Physics\ContactListenerAdapter.h" />
-    <ClInclude Include="Engine\Events\Action\FpsToggleEvent.h" />
     <ClInclude Include="Main\Level.h" />
-    <ClInclude Include="Engine\Events\Sound\OnMusicStartEvent.h" />
-    <ClInclude Include="Engine\Events\Sound\BaseSoundEvent.h" />
-    <ClInclude Include="Engine\Events\Sound\OnMusicStopEvent.h" />
-    <ClInclude Include="Engine\Events\Sound\SoundAttachEvent.h" />
     <ClInclude Include="Main\SpriteState.h" />
-    <ClInclude Include="Engine\Events\Action\FpsToggleEvent.h" />
     <ClInclude Include="Engine\Engine.h" />
     <ClInclude Include="api.h" />
     <ClInclude Include="Engine\core.h" />
@@ -176,14 +161,14 @@
     <ClInclude Include="Engine\ParticleSystem\ParticleAdapter.h" />
     <ClInclude Include="Engine\ParticleSystem\ParticleEngine.h" />
     <ClInclude Include="Engine\ParticleSystem\ParticleLib\ParticleInit.h" />
-    <ClInclude Include="Engine\Events\Video\VideoLoadSpriteEvent.h" />
     <ClInclude Include="Engine\Structs\HelperStructs.h" />
     <ClInclude Include="Engine\SceneManager\Objects\Object.h" />
     <ClInclude Include="Engine\SceneManager\Objects\SpriteObject.h" />
     <ClInclude Include="Engine\SceneManager\Objects\Drawable.h" />
     <ClInclude Include="Engine\SceneManager\Objects\Button.h" />
     <ClInclude Include="Engine\Events\Action\ObjectStopEvent.h" />
-    <ClInclude Include="Engine\Events\Action\RemoveEvent.h" />
+    <ClInclude Include="Engine\Events\EventDispatcher.h" />
+    <ClInclude Include="Engine\General\ISubsystem.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

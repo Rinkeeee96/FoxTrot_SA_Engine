@@ -1,13 +1,13 @@
 #pragma once
 #include "api.h"
 #include "SceneManager/Objects/Button.h"
-#include "sceneSwitcher/SceneSwitcher.h"
+#include "Game/Scenes/GameScene.h"
 
-class DeadScreen : public Scene
+class DeathScreen : public GameScene
 {
 public:
-	DeadScreen(const int id) : Scene(id, WINDOW_HEIGHT, WINDOW_WIDTH){};
-	~DeadScreen();
+	DeathScreen(const int id, Engine& engine, SceneStateMachine& _statemachine) : GameScene(id, engine, _statemachine) {};
+	~DeathScreen();
 	// Inherited via Scene
 	void onAttach() override;
 	void onDetach() override;
@@ -21,11 +21,8 @@ private:
 	//button functions
 	void onReStartBtnClick();
 	void onOverworldBtnClick();
-	
-	Button* startBtn = nullptr;
-	Button* mainBtn = nullptr;
 };
 
-inline DeadScreen::~DeadScreen()
+inline DeathScreen::~DeathScreen()
 {
 }

@@ -1,13 +1,9 @@
 #include "stdafx.h"
-#include "Events\AppTickEvent60.h"
-#include "Events\EventSingleton.h"
 #include "VideoEngine.h"
 
-VideoEngine::VideoEngine()
+VideoEngine::VideoEngine(FrameData& _frameData) : frameData(_frameData)
 {
-	frameData = new FrameData;
-	EventSingleton::get_instance().setEventCallback<AppTickEvent60>(BIND_EVENT_FN(VideoEngine::receiveTick));
-	EventSingleton::get_instance().setEventCallback<FpsToggleEvent>(BIND_EVENT_FN(VideoEngine::toggleFps));
+
 }
 
 VideoEngine::~VideoEngine()
@@ -50,7 +46,6 @@ void VideoEngine::renderCopy(Drawable& object) {
 /// @param sceneHeight 
 void VideoEngine::calculateOffset(Object& obj, int sceneWidth, int sceneHeight)
 {
-	
 	// Place obj variables in temporary variables for easy use. 
 	// Object Y pos needs to be subtracted with the height due to the position conversion from Object to SDL2.
 	int objectPosY = (int)obj.getPositionY() - (int)obj.getHeight();
@@ -97,16 +92,88 @@ void VideoEngine::calculateOffset(Object& obj, int sceneWidth, int sceneHeight)
 		changedY = true;
 	}
 
-
 	//// Check if we can actually move the camera due to the level sizes
-	if (newYOffset > 0 && newYOffset + (CAMERA_BOX_Y *2) + CAMERA_BOX_HEIGHT < sceneHeight && changedY)
+	if (newYOffset > 0 && changedY)
 	{
-		videoFacade->setYCameraOffset(newYOffset);
+		if (newYOffset < sceneHeight - CAMERA_BOX_HEIGHT - (CAMERA_BOX_Y * 2))
+		{
+			videoFacade->setYCameraOffset(newYOffset);
+		}
+		else
+		{
+			videoFacade->setYCameraOffset(sceneHeight - CAMERA_BOX_HEIGHT - CAMERA_BOX_Y*2);
+		}
 	}
-	if (newXOffset > 0 && newXOffset + (CAMERA_BOX_X * 2) + CAMERA_BOX_WIDTH < sceneWidth && changedX)
+
+	if (newXOffset > 0 && changedX)
 	{
-		videoFacade->setXCameraOffset(newXOffset);
+		if (newXOffset < sceneWidth - CAMERA_BOX_WIDTH - (CAMERA_BOX_X * 2))
+		{
+			videoFacade->setXCameraOffset(newXOffset);
+		}
+		else
+		{
+			videoFacade->setXCameraOffset(sceneWidth - CAMERA_BOX_WIDTH - CAMERA_BOX_X * 2);
+		}
 	}
+}
+
+/// @brief This function checks if the obj is in screen or partially in screen
+/// @param obj 
+/// @return true if on screen, false if off screen
+bool VideoEngine::checkObjectInScreen(const Object& obj) {
+	float objLeft, objRight, objUp, objDown;
+	objLeft = obj.getPositionX();
+	objRight = obj.getPositionX() + obj.getWidth();
+	objUp = obj.getPositionY() - obj.getHeight();
+	objDown = obj.getPositionY();
+
+	//Check if any corner is in the screen
+		// Check top right corner
+	if ((objRight	> videoFacade->getXCameraOffset() && objRight	< videoFacade->getXCameraOffset() + WINDOW_WIDTH &&
+		 objUp		> videoFacade->getYCameraOffset() && objUp		< videoFacade->getYCameraOffset() + WINDOW_HEIGHT	) ||
+													  
+		// Check top left corner					  
+		(objUp		> videoFacade->getYCameraOffset() && objUp		< videoFacade->getYCameraOffset() + WINDOW_HEIGHT &&
+		 objLeft	> videoFacade->getXCameraOffset() && objLeft	< videoFacade->getXCameraOffset() + WINDOW_WIDTH	) ||
+													  
+		// Check bottom right corner				  
+		(objDown	> videoFacade->getYCameraOffset() && objDown	< videoFacade->getYCameraOffset() + WINDOW_HEIGHT &&
+		 objRight	> videoFacade->getXCameraOffset() && objRight	< videoFacade->getXCameraOffset() + WINDOW_WIDTH	) ||
+													  
+		// Check bottom left corner					  
+		(objLeft	> videoFacade->getXCameraOffset() && objLeft	< videoFacade->getXCameraOffset() + WINDOW_WIDTH && 
+		 objDown	> videoFacade->getYCameraOffset() && objDown	< videoFacade->getYCameraOffset() + WINDOW_HEIGHT)) 	
+	{
+		return true;
+	}
+
+	return false;
+}
+/// @brief 
+void VideoEngine::clearVideoEngine()
+{
+	videoFacade->clean();
+}
+
+void VideoEngine::start(EventDispatcher& dispatcher)
+{
+	videoFacade = new VideoFacade();
+}
+
+void VideoEngine::update()
+{
+	clearScreen();
+	updateScreen();
+
+	drawFps();
+	drawScreen();
+}
+
+void VideoEngine::shutdown()
+{
+	clearVideoEngine();
+	delete videoFacade;
 }
 
 /// @brief 
@@ -130,17 +197,15 @@ void VideoEngine::updateScreen()
 		videoFacade->setYCameraOffset(0);
 	}
 
-	for (Drawable* obj : (*pointerToCurrentScene)->getAllDrawablesInScene()) {
-		if (obj != nullptr) {
-			if (!obj->getIsRemoved())
-			{
-				if (obj->getIsParticle())
-				{
-					drawParticle((ParticleAdapter*)obj);
+	for (auto layer : (*pointerToCurrentScene)->getLayers()) {
+		for (auto obj : layer.second->objects) {
+			if (obj.second && ((layer.second->alwaysVisible && !obj.second->getIsRemoved()) || (checkObjectInScreen(*obj.second) && !obj.second->getIsRemoved()))) {
+				if (obj.second->getIsParticle()) {
+					drawParticle((ParticleAdapter*)obj.second);
 				}
-				else
-				{
-					renderCopy(*obj);
+				else {
+					if (Drawable* drawable = dynamic_cast<Drawable*>(obj.second))
+						renderCopy(*drawable);
 				}
 			}
 		}
@@ -150,7 +215,7 @@ void VideoEngine::updateScreen()
 /// @brief
 /// Calls the drawFps method with parameters for all calculated Fps types
 void VideoEngine::drawFps() {
-	drawFps(FrameData::renderFps, WINDOW_WIDTH, FPS_Y_POSITION_OFFSET, "Fps: ");
+	drawFps(frameData.getFps(), WINDOW_WIDTH, FPS_Y_POSITION_OFFSET, "Fps: ");
 }
 
 /// @brief
@@ -170,48 +235,23 @@ void VideoEngine::drawFps(double fps, int xPos, int yPos, const string& prefix =
 	if (shouldDrawFps) {
 		ColoredText m(str, Color(NO_RED, NO_BLUE, NO_GREEN), false);
 		Position p(xPos, yPos);
-		videoFacade->drawMessageAt(m, p, ObjectSize(WINDOW_WIDTH, WINDOW_HEIGHT));
+		videoFacade->drawMessageAt(m, p, ObjectSize(FPS_MESSAGE_WIDTH, FPS_MESSAGE_HEIGHT));
 	}
 }
 
 /// @brief
 /// Toggles fps visibility
-bool VideoEngine::toggleFps(Event& fpsEvent) {
+void VideoEngine::toggleFps() {
 	shouldDrawFps = !shouldDrawFps;
-	return true;
-}
-
-/// @brief Handle the tick update from the thread
-bool VideoEngine::receiveTick(Event& tickEvent)
-{
-	//tickEvent = static_cast<AppTickEvent&>(tickEvent);
-	frameData->startTimer();
-	clearScreen();
-	updateScreen();
-
-	drawFps();
-	drawScreen();
-	FrameData::renderFps = frameData->calculateAverageFps();
-
-	// do not handle on update events, they are continues
-	return false;
 }
 
 /// @brief Draws the Particles
 /// @param part pointer to the particle
 bool VideoEngine::drawParticle(ParticleAdapter* part)
 {
-	vector<ParticleData> particleData = part->getParticleDataVector();
-	for (unsigned int index = 0; index < part->getParticleCount(); index++)
-	{
-		auto& partData = particleData[index];
-
-		if (partData.size <= 0 || partData.colorA <= 0)
-		{
-			continue;
-		}
-		videoFacade->drawParticle(partData, part->GetCurrentSprite().getTextureID());
-	}
+	
+	videoFacade->drawParticle(*part);
+	
 	// do not handle on update events, they are continues
 	return false;
 }

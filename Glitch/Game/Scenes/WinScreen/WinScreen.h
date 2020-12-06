@@ -1,12 +1,12 @@
 #pragma once
 #include "api.h"
 #include "SceneManager/Objects/Button.h"
-#include "SceneSwitcher/SceneSwitcher.h"
+#include "Game/Scenes/GameScene.h"
 
-class WinScreen : public Scene
+class WinScreen : public GameScene
 {
 public:
-	WinScreen(const int id) : Scene(id, WINDOW_HEIGHT, WINDOW_WIDTH) {};
+	WinScreen(const int id, Engine& engine, SceneStateMachine& _statemachine) : GameScene(id, engine, _statemachine) {};
 	~WinScreen();
 	// Inherited via Scene
 	void onAttach() override;
@@ -24,8 +24,6 @@ private:
 
 	int animationTick = 0;
 	Drawable* animation = nullptr;
-	Button* overBtn = nullptr;
-	Button* mainBtn = nullptr;
 };
 
 inline WinScreen::~WinScreen()

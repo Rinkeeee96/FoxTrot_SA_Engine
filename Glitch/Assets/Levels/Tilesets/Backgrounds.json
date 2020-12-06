@@ -17,20 +17,20 @@
  "name":"Backgrounds",
  "spacing":0,
  "tilecount":2,
- "tiledversion":"1.4.2",
+ "tiledversion":"1.4.3",
  "tileheight":1080,
  "tiles":[
         {
          "id":0,
-         "image":"..\/..\/..\/GitHub\/FoxTrot_SA_Engine_New\/Glitch\/Assets\/Levels\/Tiles\/Grassland_Background.png",
+         "image":"..\/Tiles\/Grassland_Background.png",
          "imageheight":1080,
          "imagewidth":1920
         }, 
         {
          "id":1,
-         "image":"..\/..\/..\/GitHub\/FoxTrot_SA_Engine_New\/Glitch\/Assets\/Levels\/Tiles\/Ground.png",
-         "imageheight":32,
-         "imagewidth":32
+         "image":"..\/Tiles\/Grassland_Background_Night.png",
+         "imageheight":1080,
+         "imagewidth":1920
         }],
  "tilewidth":1920,
  "type":"tileset",

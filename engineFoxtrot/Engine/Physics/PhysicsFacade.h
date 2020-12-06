@@ -1,7 +1,6 @@
 #pragma once
 #include "IPhysicsFacade.h"
 #include "PhysicsBody.h"
-#include "Events/EventSingleton.h"
 #include "Events/Action/OnCollisionEvent.h"
 
 #define PI 3.14159f
@@ -34,7 +33,7 @@ class b2Body;
 class PhysicsFacade : public IPhysicsFacade
 {
 public:
-	PhysicsFacade();
+	PhysicsFacade(EventDispatcher& _dispatcher);
 	~PhysicsFacade();
 
 	void addStaticObject(PhysicsBody* object) override;
@@ -49,13 +48,15 @@ public:
 
 	CollisionStruct getObjectsByFixture(b2Fixture* fixture1, b2Fixture* fixture2);
 	void update() override;
-	void stopObject(int objectId);
+	void stopObject(int objectId, bool stopVertical);
 	void cleanMap();
 
 private:
+	EventDispatcher& dispatcher;
 	b2World * world;
 	const float timeStep = TIMESTEP_SEC / TIMESTEP_FRAMES;
 
+	// TODO clear on scene detach
 	map <PhysicsBody*, b2Body*> bodies;
 	b2Body* findBody(const int objectId);
 };

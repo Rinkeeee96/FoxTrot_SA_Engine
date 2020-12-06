@@ -1,19 +1,20 @@
 #pragma once
-#include "SceneSwitcher/SceneSwitcher.h"
+#include "Game/Scenes/GameScene.h"
 #include "Game/Levels/LoadLevelFacade.h"
 
 /// @brief 
 /// Overworld level
-class Overworld : public Scene
+class Overworld : public GameScene
 {
 public:
-	Overworld(const int id) : Scene(id, WINDOW_HEIGHT, WINDOW_WIDTH) {};
+	Overworld(const int id, Engine& engine, SceneStateMachine& _statemachine) : GameScene(id, engine, _statemachine) {};
 	~Overworld();
 	// Inherited via Scene
 	void onAttach() override;
 	void onDetach() override;
 	void onLevel1BtnClick();
 	void onLevel2BtnClick();
+	void onLevel3BtnClick();
 	void start() override;
 	virtual void onUpdate() override;
 
@@ -27,8 +28,6 @@ private:
 	void onStopBtnClick();
 	void onCreditsBtnClick();
 	void onLoadBtnClick();
-	Button* level1Btn = nullptr;
-	Button* stopBtn = nullptr;
 };
 
 inline Overworld::~Overworld()

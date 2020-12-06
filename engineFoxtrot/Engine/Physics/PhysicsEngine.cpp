@@ -1,31 +1,56 @@
 #include "stdafx.h"
-#include "Events\AppTickEvent30.h"
-#include "Events/EventSingleton.h"
 #include "PhysicsFacade.h"
 #include "PhysicsEngine.h"
 #include "Events\Action\ObjectStopEvent.h"
-#include <Events\Action\RemoveEvent.h>
+
 
 /// @brief Constructor
 PhysicsEngine::PhysicsEngine()
 {
-	physicsFacade = new PhysicsFacade();
-	EventSingleton::get_instance().setEventCallback<AppTickEvent30>(BIND_EVENT_FN(PhysicsEngine::update30));
-	EventSingleton::get_instance().setEventCallback<ActionEvent>(BIND_EVENT_FN(PhysicsEngine::handleAction));
-	EventSingleton::get_instance().setEventCallback<ObjectStopEvent>(BIND_EVENT_FN(PhysicsEngine::stopObject));
-	EventSingleton::get_instance().setEventCallback<RemoveEvent>(BIND_EVENT_FN(PhysicsEngine::removeObject));
 }
 
-bool PhysicsEngine::removeObject(Event& event) {
+void PhysicsEngine::start(EventDispatcher& dispatcher) {
+	this->dispatcher = &dispatcher;
+	physicsFacade = new PhysicsFacade(dispatcher);
+
+	dispatcher.setEventCallback<ActionEvent>(BIND_EVENT_FN(PhysicsEngine::handleAction));
+	dispatcher.setEventCallback<ObjectStopEvent>(BIND_EVENT_FN(PhysicsEngine::stopObject));
+};
+
+void PhysicsEngine::update() {
+	if (currentSceneID != (*pointerToCurrentScene)->getSceneID())
+	{
+		if (DEBUG_PHYSICS_ENGINE)cout << "Cleaning map and reinserting Objects" << endl;
+		physicsFacade->cleanMap();
+		registerObjectInCurrentVectorWithPhysicsEngine();
+		currentSceneID = (*pointerToCurrentScene)->getSceneID();
+	}
+
+	physicsFacade->update();
+};
+
+void PhysicsEngine::shutdown() {
+	clean();
+	delete physicsFacade;
+};
+
+void PhysicsEngine::removeObject() {
 	physicsFacade->cleanMap();
 	registerObjectInCurrentVectorWithPhysicsEngine();
-	return true;
+}
+
+/// @brief 
+void PhysicsEngine::clean()
+{
+	if (physicsFacade)
+		physicsFacade->cleanMap();
+	
 }
 
 /// @brief 
 /// Handles a ActionEvent and according to the given direction moves the object
-bool PhysicsEngine::handleAction(Event& event) {
-	auto actionEvent = static_cast<ActionEvent&>(event);
+bool PhysicsEngine::handleAction(const Event& event) {
+	auto actionEvent = static_cast<const ActionEvent&>(event);
 
 	auto direction = actionEvent.GetDirection();
 	auto objectId = actionEvent.GetObjectId();
@@ -49,16 +74,16 @@ bool PhysicsEngine::handleAction(Event& event) {
 	}
 }
 
-bool PhysicsEngine::stopObject(Event& event) {
-	ObjectStopEvent e = static_cast<ObjectStopEvent&>(event);
-	physicsFacade->stopObject(e.GetObjectId());
+bool PhysicsEngine::stopObject(const Event& event) {
+	ObjectStopEvent e = static_cast<const ObjectStopEvent&>(event);
+	physicsFacade->stopObject(e.GetObjectId(), e.GetStopVertical());
 	return true;
 }
 
 /// @brief Destructor
 PhysicsEngine::~PhysicsEngine()
 {
-	delete physicsFacade;
+	shutdown();
 }
 
 /// @brief 
@@ -82,26 +107,6 @@ void PhysicsEngine::registerObjectInCurrentVectorWithPhysicsEngine()
 			physicsFacade->addDynamicObject(phyObj);
 		}
 	}
-}
-
-/// @brief 
-/// Handle the tick given from the thread. 
-bool PhysicsEngine::update30(Event& tick30Event)
-{
-	if (currentSceneID != (*pointerToCurrentScene)->getSceneID())
-	{
-		if (DEBUG_PHYSICS_ENGINE)cout << "Cleaning map and reinserting Objects" << endl;
-		physicsFacade->cleanMap();
-		registerObjectInCurrentVectorWithPhysicsEngine();
-		currentSceneID = (*pointerToCurrentScene)->getSceneID();
-	}
-
-	physicsFacade->update();
-
-	//tick30Event = (AppTickEvent30&)tick30Event;
-
-	// do not handle the onupdate events, they are continuous
-	return false;
 }
 
 

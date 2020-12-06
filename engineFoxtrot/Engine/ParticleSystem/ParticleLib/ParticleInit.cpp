@@ -629,7 +629,7 @@ void ParticleInit::setStyle(ParticleStyle style)
         setEmitterMode(Mode::GRAVITY);
 
         // Gravity Mode: gravity
-        setGravity(Vec2(10, 10));
+        setGravity(Vec2(10, 50));
 
         // Gravity Mode: radial
         setRadialAccel(0);
@@ -641,7 +641,7 @@ void ParticleInit::setStyle(ParticleStyle style)
 
         // Gravity Mode: speed of particles
         setSpeedParticle(-130);
-        setSpeedVar(30);
+        setSpeedVar(60);
 
         // angle
         _angle = -90;
@@ -652,7 +652,7 @@ void ParticleInit::setStyle(ParticleStyle style)
         _lifeVar = 0;
 
         // size, in pixels
-        _startSize = 4.0f;
+        _startSize = 6.0f;
         _startSizeVar = 2.0f;
         _endSize = START_SIZE_EQUAL_TO_END_SIZE;
 
