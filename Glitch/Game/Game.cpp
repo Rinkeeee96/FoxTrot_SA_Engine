@@ -9,7 +9,7 @@ Game::Game()
 int Game::run() {
 
 	try {
-		engine.useCustomCommandInvoker(commandBuilder->getKeypressInvoker());
+		engine.useCustomCommandInvoker(commandBuilder->readBindingsAndCreateInvoker());
 
 		stateMachine.switchToScene("MainMenu", false);
 

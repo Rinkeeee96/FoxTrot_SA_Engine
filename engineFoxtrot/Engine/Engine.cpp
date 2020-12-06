@@ -9,11 +9,10 @@ Engine::Engine()
 	physicsEngine.pointerToCurrentScene = &sceneManager.currentScene;
 	particleEngine.pointerToCurrentScene = &sceneManager.currentScene;
 
-
+	// register default invoker
 	keypressInvoker = new KeypressInvoker();
 
 	videoEngine.start(*this->eventDispatcher);
-	//this->startTickThreads();
 }
 
 /// @brief 

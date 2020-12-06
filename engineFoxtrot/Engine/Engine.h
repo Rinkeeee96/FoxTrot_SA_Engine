@@ -25,7 +25,7 @@ public:
 	API Engine();
 	API ~Engine();
 
-	API void useCustomCommandInvoker(KeypressInvoker* newInvoker) {
+	void useCustomCommandInvoker(KeypressInvoker* newInvoker) {
 		this->keypressInvoker = newInvoker;
 	}
 
@@ -47,7 +47,7 @@ public:
 	API bool getEngineRunning() { return running; };
 	API void setEngineRunning(bool run) { running = run; }
 
-	API KeypressInvoker& getKeypressedInvoker() { return *keypressInvoker; }
+	KeypressInvoker* getKeypressedInvoker() { return keypressInvoker; }
 
 	API void restartPhysicsWorld();
 
