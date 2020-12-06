@@ -1,44 +1,55 @@
+#include "pch.h"
 #include "GameKeypressInvoker.h"
 
 #include "Game/characters/Player/Player.h"
-void GameKeypressInvoker::registerPlayerCommand(KeyCode code, unique_ptr<ICharacterCommand> command) {
-	KeypressInvoker::registerCommands(code, move(command));
-	playerCommands[code] = command;
-}
+unordered_map<KeyCode, string>& GameKeypressInvoker::getPlayerCommands() { return this->playerCommands; }
 
-unordered_map<KeyCode, reference_wrapper<unique_ptr<ICharacterCommand>>>& GameKeypressInvoker::getPlayerCommands() { return this->playerCommands; }
-
-void GameKeypressInvoker::registerGlobalCommand(KeyCode code, unique_ptr<ICommand> command) {
-	KeypressInvoker::registerCommands(code, move(command));
-	globalCommands[code] = command;
-}
-
-void GameKeypressInvoker::linkCommandsToPlayer(Player& player)
-{
-	ICharacter& character = (ICharacter&)player;
-	// TODO unknown ICharacterCommand in de lambda????
-	for_each(
-		playerCommands.begin(),
-		playerCommands.end(),
-		[&character](ICharacterCommand& command) {
-			command.registerCharacter(&character);
-		}
-	);
-	player.registerKeypressInvoker(this);
-}
-
-/// @brief
-/// Update the keycode that is set to this command, unbinds the previously registerd command if present
-/// @param code
-/// The new keycode for the command in the map
-/// @param command
-/// A shared pointer to the command which needs to be updated
-void GameKeypressInvoker::updateCommand(KeyCode code, unique_ptr<ICommand> command) {
-	if (isRegistered(command))
+void GameKeypressInvoker::updateCollection(unordered_map<KeyCode, string>& commandList, KeyCode code, ICommand* command) {
+	for (auto commandIt = commandList.begin(); commandIt->second != command->getIdentifier(); ++commandIt)
 	{
-		playerCommands.erase(code);
-		globalCommands.erase(code);
-	}
+		// zoek het commando op in de lijst
+		if ((commandIt->second == command->getIdentifier()))
+		{
+			// sla het oude commando op
+			string oldCommand = commandList[code];
+			// zet het nieuwe commando op zijn plaats
+			commandList[code] == command->getIdentifier();
+			// zet het oude command op de nu oude plek
+			commandIt->second = oldCommand;
 
-	KeypressInvoker::updateCommand(code, move(command));
-};
+			// update het commando in de baseclass
+			KeypressInvoker::updateCommand(code, *command);
+			return;
+		}
+	}
+}
+
+void GameKeypressInvoker::updatePlayerCommand(KeyCode code, ICharacterCommand* command)
+{
+	updateCollection(playerCommands, code, command);
+}
+unordered_map<KeyCode, string>& GameKeypressInvoker::getGlobalCommands() { return globalCommands; }
+
+void GameKeypressInvoker::updateGlobalCommand(KeyCode code, ICommand* command)
+{
+	updateCollection(globalCommands, code, command);
+}
+
+// TODO implement
+void GameKeypressInvoker::destroyGlobalCommands()
+{
+	for (auto pair : globalCommands)
+	{
+		KeyCode keycode = pair.first;
+		deleteCommandThatBelongsTo(keycode);
+	}
+}
+
+void GameKeypressInvoker::destroyPlayercommands()
+{
+	for (auto pair : playerCommands)
+	{
+		KeyCode keycode = pair.first;
+		deleteCommandThatBelongsTo(keycode);
+	}
+}
