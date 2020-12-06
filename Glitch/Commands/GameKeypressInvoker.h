@@ -2,7 +2,6 @@
 #include "Commands/ICharacterCommand.h"
 #include "Engine/Input/KeypressInvoker.h"
 class Player;
-class ICharacter;
 class GameKeypressInvoker : public KeypressInvoker
 {
 public:

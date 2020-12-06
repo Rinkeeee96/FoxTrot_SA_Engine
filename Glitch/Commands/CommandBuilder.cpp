@@ -12,6 +12,8 @@
 
 #include "Commands/exceptions/unknownCommandException.h"
 
+#include "Commands/GameKeypressInvoker.h"
+
 CommandBuilder::CommandBuilder()
 {
 	initFactory();
@@ -66,10 +68,7 @@ void CommandBuilder::initFactory()
 
 void CommandBuilder::buildPlayerCommands(Player& player, GameKeypressInvoker* invoker)
 {
-	// for (auto pair : globalBindings)
-	//	keypressInvoker->registerCommands(pair.first, commandFactory->createGlobalCommand(pair.second));
-	// first = keycode
-	// second = identifier
+	// first = keycode, second = identifier
 	for (auto pair = invoker->getPlayerCommands().begin(); pair != invoker->getPlayerCommands().end(); ++pair)
 	{
 		try
@@ -82,11 +81,7 @@ void CommandBuilder::buildPlayerCommands(Player& player, GameKeypressInvoker* in
 		catch (const unknownCommandException& e)
 		{
 			// TODO throw up further and create a popup for missparsed bindings
-			// unkown command, skipping it
-			if (DEBUG_COMMAND_BUILDER)
-			{
-				cout << e.what();
-			}
+			if (DEBUG_COMMAND_BUILDER) cout << e.what();
 			++pair;
 		}
 
