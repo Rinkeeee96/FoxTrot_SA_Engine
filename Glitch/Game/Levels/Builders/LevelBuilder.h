@@ -35,7 +35,7 @@ private:
 
 	bool getAlwaysDrawFromJson(nlohmann::json layerValue);
 
-	int currentTileId = 999;
+	int currentTileId = 0;
 	int mapTileWidth = 16;
 	int mapTileHeight = 16;
 	int textureId = 0;

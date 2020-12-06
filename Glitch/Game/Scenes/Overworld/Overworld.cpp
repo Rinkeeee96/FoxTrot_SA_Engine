@@ -28,31 +28,63 @@ void Overworld::loadButtons() {
 	auto* level1Btn = new Button(1, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel1BtnClick), defaultBtnSprite, this->dispatcher);
 	level1Btn->setWidth(32);
 	level1Btn->setHeight(32);
-	level1Btn->setPositionX(795);
-	level1Btn->setPositionY(840); 
+	level1Btn->setPositionX(295);
+	level1Btn->setPositionY(363);
 	level1Btn->registerHoverSprite(hoverBtnSprite);
 
-	auto* level1TextBtn = new Button(2, ColoredText("Level 1", Color(0, 0, 0)), BIND_FN(onLevel1BtnClick), transSprite, this->dispatcher);
+	auto* level1TextBtn = new Button(2, ColoredText("Level 1, Score: " + to_string(savegame->getCurrentGameData().levelData[0].score), Color(0, 0, 0)), BIND_FN(onLevel1BtnClick), transSprite, this->dispatcher);
 	level1TextBtn->setWidth(32);
 	level1TextBtn->setHeight(20);
-	level1TextBtn->setPositionX(795);
-	level1TextBtn->setPositionY(860);
+	level1TextBtn->setPositionX(295);
+	level1TextBtn->setPositionY(383);
 
-
-	auto* level2Btn = new Button(3, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel1BtnClick), defaultBtnSprite, this->dispatcher);
-	level2Btn->setWidth(100);
-	level2Btn->setHeight(100);
-	level2Btn->setPositionX(900);
-	level2Btn->setPositionY(740);
+	auto* level2Btn = new Button(3, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel2BtnClick), defaultBtnSprite, this->dispatcher);
+	level2Btn->setWidth(32);
+	level2Btn->setHeight(32);
+	level2Btn->setPositionX(955);
+	level2Btn->setPositionY(320);
 	level2Btn->registerHoverSprite(hoverBtnSprite);
 
-	auto* level2TextBtn = new Button(4, ColoredText("Level 2", Color(0, 0, 0)), BIND_FN(onLevel1BtnClick), transSprite, this->dispatcher);
-	level2TextBtn->setWidth(100);
+	string level2Name = "Locked";
+	if (savegame->getCurrentGameData().levelData[0].completed)
+	{
+		level2Name = "Level 2, Score: " + to_string(savegame->getCurrentGameData().levelData[1].score);
+	}
+	auto* level2TextBtn = new Button(4, ColoredText(level2Name, Color(0, 0, 0)), BIND_FN(onLevel2BtnClick), transSprite, this->dispatcher);
+	level2TextBtn->setWidth(32);
 	level2TextBtn->setHeight(20);
-	level2TextBtn->setPositionX(900);
-	level2TextBtn->setPositionY(760);
+	level2TextBtn->setPositionX(955);
+	level2TextBtn->setPositionY(340);
+	if (!savegame->getCurrentGameData().levelData[0].completed)
+	{
+		level2Btn->disable();
+		level2TextBtn->disable();
+	}
 
-	auto* stopBtn = new SecondaryButton(5, "To Main Menu", BIND_FN(onStopBtnClick), this->dispatcher);
+	string level3Name = "Locked";
+	if (savegame->getCurrentGameData().levelData[1].completed)
+	{
+		level3Name = "Level 3, Score: " + to_string(savegame->getCurrentGameData().levelData[2].score);
+	}
+    auto* level3Btn = new Button(5, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel3BtnClick), defaultBtnSprite, this->dispatcher);
+	level3Btn->setWidth(32);
+	level3Btn->setHeight(32);
+	level3Btn->setPositionX(795);
+	level3Btn->setPositionY(850);
+	level3Btn->registerHoverSprite(hoverBtnSprite);
+
+	auto* level3TextBtn = new Button(6, ColoredText(level3Name, Color(0, 0, 0)), BIND_FN(onLevel3BtnClick), transSprite, this->dispatcher);
+	level3TextBtn->setWidth(32);
+	level3TextBtn->setHeight(20);
+	level3TextBtn->setPositionX(795);
+	level3TextBtn->setPositionY(870);
+	if (!savegame->getCurrentGameData().levelData[2].completed)
+	{
+		level3Btn->disable();
+		level3TextBtn->disable();
+	}
+
+	auto* stopBtn = new SecondaryButton(7, "To Main Menu", BIND_FN(onStopBtnClick), this->dispatcher);
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
@@ -60,6 +92,8 @@ void Overworld::loadButtons() {
 	addNewObjectToLayer(3, level1TextBtn);
 	addNewObjectToLayer(3, level2Btn);
 	addNewObjectToLayer(3, level2TextBtn);
+	addNewObjectToLayer(3, level3Btn);
+	addNewObjectToLayer(3, level3TextBtn);
 	addNewObjectToLayer(3, stopBtn);
 }
 
@@ -87,9 +121,9 @@ void Overworld::loadMusic() {
 }
 
 /// @brief 
-void Overworld::start()
+void Overworld::start(bool playSound)
 {
-	engine.soundEngine.onStartBackgroundMusicEvent("OVER_WORLD");
+	if(playSound)engine.soundEngine.onStartBackgroundMusicEvent("OVER_WORLD");
 }
 
 /// @brief 
@@ -115,6 +149,14 @@ void Overworld::onLevel1BtnClick()
 void Overworld::onLevel2BtnClick()
 {
 	cout << "Level2 BTN" << endl;
+	stateMachine.switchToScene("Level_2", true);
+}
+
+/// @brief 
+void Overworld::onLevel3BtnClick()
+{
+	cout << "Level3 BTN" << endl;
+	stateMachine.switchToScene("Level_3", true);
 }
 
 /// @brief 

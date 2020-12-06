@@ -14,7 +14,8 @@ public:
 	void onDetach() override;
 	void onLevel1BtnClick();
 	void onLevel2BtnClick();
-	void start() override;
+	void onLevel3BtnClick();
+	void start(bool playSound) override;
 	virtual void onUpdate() override;
 
 private:

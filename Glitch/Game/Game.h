@@ -1,6 +1,7 @@
 #pragma once
 #include "Game/Characters/Player/Player.h"
 #include "Game/Scenes/Statemachine/SceneStateMachine.h"
+#include "Game/SaveGame/Savegame.h"
 
 /// @brief 
 /// Game class runs the game
@@ -14,6 +15,9 @@ private:
 	Engine engine;
 	SceneStateMachine stateMachine{ engine };
 	ICommandBuilder* commandBuilder;
+	shared_ptr<Savegame> savegame;
+
+	shared_ptr<SceneStateMachine> stateMachine;
 
 	bool gameRunning = true;
 };

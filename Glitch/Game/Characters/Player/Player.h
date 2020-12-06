@@ -18,6 +18,7 @@ public:
 	bool onCollisionEndEvent(const Event& event);
 	void setYAxisVelocity(const float val) override;
 	void setXAxisVelocity(const float val) override;
+
 	/// @brief 
 	/// Handles when an key pressed event happend, Player can move right, left and jump
 	bool onKeyPressed(const Event& event);

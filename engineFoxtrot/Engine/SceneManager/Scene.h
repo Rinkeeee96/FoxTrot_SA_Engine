@@ -37,7 +37,7 @@ public:
 	/// @brief
 	/// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
 	/// Must be implemented by a concrete implementation of a scene
-	API virtual void start() = 0;
+	API virtual void start(bool playSound) = 0;
 	/// @brief
 	/// OnDetach is called when a scene is destroyed/closed and is responsible for cleanup
 	/// Must be implemented by a concrete implementation of a scene
@@ -55,6 +55,7 @@ public:
 	int getSceneHeight() const { return sceneHeight; }
     
 	void setObjectToFollow(Object* obj) { objectToFollow = obj; }
+
 
 	/// @brief 
 	/// Returns the id of the object to follow

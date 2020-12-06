@@ -20,6 +20,7 @@
     <ClCompile Include="Game\Scenes\Overworld\Overworld.cpp" />
     <ClCompile Include="Commands\Factory\CommandFactory.cpp" />
     <ClCompile Include="Commands\CommandBuilder.cpp" />
+    <ClCompile Include="Game\Scenes\Credits\CreditsScene.cpp" />
     <ClCompile Include="Game\Scenes\GameScene.cpp" />
     <ClCompile Include="Game\Scenes\Factory\FactoryMethod.cpp" />
     <ClCompile Include="Game\Scenes\DeathScreen\DeathScreen.cpp" />
@@ -68,6 +69,7 @@
     <ClInclude Include="Commands\ICharacterCommand.h" />
     <ClInclude Include="Commands\CommandBuilder.h" />
     <ClInclude Include="Commands\ICommandBuilder.h" />
+    <ClInclude Include="Game\Scenes\Credits\CreditsScene.h" />
     <ClInclude Include="Game\Scenes\GameScene.h" />
     <ClInclude Include="Game\Scenes\Factory\Creator.h" />
     <ClInclude Include="Game\Scenes\Factory\CreatorImpl.h" />
@@ -78,5 +80,8 @@
     <ClInclude Include="Commands\Factory\ICommandCreator.h" />
     <ClInclude Include="Commands\GameKeypressInvoker.h" />
     <ClInclude Include="Commands\exceptions\unknownCommandException.h" />
+    <ClInclude Include="Game\Characters\Enemies\Fleye.h" />
+    <ClInclude Include="Game\Characters\Enemies\Jumpkin.h" />
+    <ClInclude Include="Game\General\GeneralGameDefines.h" />
   </ItemGroup>
 </Project>

@@ -13,7 +13,7 @@ public:
 	// Inherited via Scene
 	virtual void onAttach() override;
 	virtual void onDetach() override;
-	virtual void start() override;
+	virtual void start(bool playSound) override;
 	virtual void onUpdate() override;
 
 	void setNextScene(string const identifier);

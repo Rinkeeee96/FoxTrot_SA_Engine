@@ -20,7 +20,7 @@ void DeathScreen::onAttach()
 /// @brief 
 /// Create all buttons for this scene
 void DeathScreen::loadButtons() {
-	auto btnSprite = new SpriteObject(-601, 40, 116, 1, 300, "Assets/Buttons/btn_gray_round.png");
+	auto btnSprite = new SpriteObject(-599, 40, 116, 1, 300, "Assets/Buttons/btn_gray_round.png");
 
 	auto* startBtn = new Button(-600, ColoredText("Restart", Color(0, 0, 0)), BIND_FN(onReStartBtnClick), btnSprite, this->dispatcher);
 	startBtn->setPositionX(CENTER_X - startBtn->getWidth() / 2);
@@ -83,9 +83,9 @@ void DeathScreen::loadMusic() {
 
 /// @brief 
 /// Create the sounds for this scene
-void DeathScreen::start()
+void DeathScreen::start(bool playSound)
 {
-	engine.soundEngine.onStartBackgroundMusicEvent("DEAD_SOUND");
+	if(playSound)engine.soundEngine.onStartBackgroundMusicEvent("DEAD_SOUND");
 }
 
 void DeathScreen::onUpdate()
@@ -105,7 +105,7 @@ void DeathScreen::onDetach()
 /// Start transition scene to level1
 void DeathScreen::onReStartBtnClick()
 {
-	stateMachine.switchToScene("Level_1", true);
+	stateMachine.switchToScene(stateMachine.getCurrentLevelIdentifier(), true);
 }
 
 

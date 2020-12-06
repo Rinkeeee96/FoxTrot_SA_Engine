@@ -2,26 +2,33 @@
 #include "Game/Scenes/Factory/FactoryMethod.h"
 #include "Game/Scenes/Scenes.h"
 #include "Game/Scenes/Factory/CreatorImpl.h"
+class Savegame;
 
 class SceneStateMachine
 {
 public:
-	SceneStateMachine(Engine& engine);
+	SceneStateMachine(Engine& engine, shared_ptr<Savegame> savegame);
 	~SceneStateMachine();
 
-	void switchToScene(string const identifier, bool useTransitionScreen);
+	void switchToScene(string const identifier, bool useTransitionScreen, bool playSound = true);
 
 	void updateCurrentScene()
 	{
 		if (currentScene)currentScene->onUpdate();
 	}
 
+	string& getCurrentLevelIdentifier();
+
+	int levelToBuild = 0;
 private:
 
+	shared_ptr<Savegame> savegame;
 	shared_ptr<SceneFactory>  factory = nullptr;
 
 	Engine& engine;
+
 	unique_ptr<Scene> currentScene;
 	int sceneId = 0;
+	string currentLevelIdentifier = "";
 };
 

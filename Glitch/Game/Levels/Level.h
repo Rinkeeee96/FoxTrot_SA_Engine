@@ -13,13 +13,18 @@ public:
 	void setPlayer(Object* object);
 	void setSound(map<string, string> sounds);
 	void onAttach() override;
-	void start() override;
+	void start(bool playSound) override;
 	void pause();
 	void onDetach() override;
 	void onUpdate() override;
 
+	void addHuds();
+
 	void setWin(const bool val) { this->win = val; }
 private:
+	void addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, SpriteObject* HUD);
+	vector<Drawable*> huds;
+
 	map<string, string> sounds;
 	Object* follow = nullptr;
 	Player* player = nullptr;

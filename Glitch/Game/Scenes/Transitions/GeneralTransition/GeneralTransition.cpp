@@ -20,7 +20,7 @@ void GeneralTransition::onDetach()
 }
 
 /// @brief 
-void GeneralTransition::start()
+void GeneralTransition::start(bool playSound)
 {
 
 }

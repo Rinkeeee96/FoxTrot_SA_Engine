@@ -52,6 +52,9 @@ void Object::setDensity(const float val) {this->density = val;}
 float Object::getSpeed() const {return this->speed;}
 void Object::setSpeed(const float val) { this->speed = val; }
 
+float Object::getGravity() const { return this->gravity; }
+void Object::setGravity(const float val) { this->gravity = val; }
+
 float Object::getJumpHeight() const {return this->jumpHeight;}
 void Object::setJumpHeight(const float val) {	this->jumpHeight = val;}
 

@@ -33,16 +33,43 @@ public:
 
 	API virtual const ColoredText* toString() { return nullptr; }
 
-	virtual void onUpdate() override {
+	virtual void onUpdate() override { }
 
-	}
+	bool getIsText() const { return this->isText; }
 
+	bool getDrawStatic() { return this->drawStatic; }
+	void setDrawStatic(bool val) { this->drawStatic = val; }
 protected:
 	// TODO	particle related things
-
+	bool isText = false;
+protected:
+	// TODO	particle related things
+	bool drawStatic = false;
 	int currentSpriteState = 0;
 	SpriteObject* currentSprite = nullptr;
 	// TODO delete on scene detach in destructor when object is destroyed
 	map<const int, SpriteObject*> textures;
+};
+
+class Text : public Drawable {
+private:
+	ColoredText* color = nullptr;
+public:
+	Text(const int _id, ColoredText* _color, float _width, float _height, float _x, float _y)
+		: color(_color), Drawable(_id)
+	{
+		Object::setHeight(_height);
+		Object::setWidth(_width);
+		Object::setPositionX(_x);
+		Object::setPositionY(_y);
+
+		this->isText = true;
+	}
+
+	~Text() {
+
+	}
+
+	API virtual const ColoredText* toString() { return color; }
 };
 
