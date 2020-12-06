@@ -10,7 +10,7 @@ class CommandFactory
 public:
 	CommandFactory() {};
 	~CommandFactory() {};
-	ICommand* create(const std::string& classname);
+	//ICommand* create(const std::string& classname);
 
 	ICharacterCommand* createCharacterCommand(const std::string& classname, ICharacter& character);
 	void registerit(const std::string& classname, ICommandCreator* creator);

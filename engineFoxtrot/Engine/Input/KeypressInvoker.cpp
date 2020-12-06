@@ -2,38 +2,32 @@
 #include "stdafx.h"
 #include "KeypressInvoker.h"
 
-void KeypressInvoker::registerCommands(KeyCode code, const ICommand& command) {
-	if (isRegistered(command)) 
+void KeypressInvoker::registerCommand(KeyCode code, ICommand* command) {
+	if (isRegistered(*command)) 
 		throw exception("keycode already registered, cannot override");
-	commands.insert(make_pair(code, make_unique<ICommand>(command)));
+	commands.insert(make_pair(code, command));
 };
 
-void KeypressInvoker::updateCommand(KeyCode code, ICommand& command) {
+void KeypressInvoker::updateCommand(KeyCode code, ICommand* command) {
 
-	if (! isRegistered(command))
+	if (! isRegistered(*command))
 		throw exception("trying to update an unregistered command");
 
 	// check if the keycode for this new command has been registered
 	// if so, swap them, else, register the new key for this command
 	if (isRegistered(code)) {
-		auto it = commands.begin();
-		while (it != commands.end())
+		for (pair<KeyCode, ICommand*> registeredCommand : commands)
 		{
-			auto* registeredCommand = it->second.get();
-			if (registeredCommand->getIdentifier() == command.getIdentifier())
+
+			if (registeredCommand.second->getIdentifier() == command->getIdentifier())
 			{
-				// sla het oude commando op
-				unique_ptr<ICommand> oldCommand = move(commands[code]);
-				// zet het nieuwe commando op zijn plaats
-				commands[code] = make_unique<ICommand>(command);
-				// zet het oude command op de nu oude plek
-				it->second = move(oldCommand);
+				swap(registeredCommand.second, command);
+				return;
 			}
-			++it;
 		}
 	}
 	else
-		commands[code] = make_unique<ICommand>(command);
+		commands[code] = command;
 }
 
 void KeypressInvoker::deleteCommandThatBelongsTo(const KeyCode& keycode) {
@@ -49,7 +43,7 @@ void KeypressInvoker::executeCommandQueue(EventDispatcher& dispatcher)
 	while (it != executionQueue.back())
 	{
 		KeyCode& key = executionQueue.front();
-		commands[key].get()->execute(dispatcher);
+		commands[key]->execute(dispatcher);
 
 		executionQueue.pop();
 	}
@@ -65,8 +59,7 @@ bool KeypressInvoker::isRegistered(const ICommand& command) {
 	auto it = commands.begin();
 	while (it != commands.end())
 	{
-		auto* registeredCommand = it->second.get();
-		if (registeredCommand == &command) return true;
+		if (it->second == &command) return true;
 		++it;
 	}
 	return false;

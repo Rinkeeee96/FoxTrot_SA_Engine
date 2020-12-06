@@ -18,7 +18,7 @@ void GameKeypressInvoker::updateCollection(unordered_map<KeyCode, string>& comma
 			commandIt->second = oldCommand;
 
 			// update het commando in de baseclass
-			KeypressInvoker::updateCommand(code, *command);
+			KeypressInvoker::updateCommand(code, command);
 			return;
 		}
 	}

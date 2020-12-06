@@ -13,7 +13,7 @@ public:
 	/// The keycode for the command in the map
 	/// @param command
 	/// A shared pointer to the command which needs to be registered
-	void registerCommands(KeyCode code, const ICommand& command);
+	void registerCommand(KeyCode code, ICommand* command);
 
 	/// @brief
 	/// Update the keycode that is set to this command
@@ -21,7 +21,7 @@ public:
 	/// The new keycode for the command in the map
 	/// @param command
 	/// A shared pointer to the command which needs to be updated
-	virtual void updateCommand(KeyCode code, ICommand& command);
+	virtual void updateCommand(KeyCode code, ICommand* command);
 
 	/// @brief
 	/// Delete a command registered to the given keycode
@@ -42,6 +42,6 @@ protected:
 	bool isRegistered(const ICommand& command);
 	bool isRegistered(const KeyCode& keyCode);
 private:
-	unordered_map<KeyCode, unique_ptr<ICommand>> commands;
+	unordered_map<KeyCode, ICommand*> commands;
 	queue<KeyCode> executionQueue;
 };

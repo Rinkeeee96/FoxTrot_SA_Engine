@@ -74,9 +74,9 @@ void CommandBuilder::buildPlayerCommands(Player& player, GameKeypressInvoker* in
 	{
 		try
 		{
-			invoker->registerCommands(
+			invoker->registerCommand(
 				pair->first, 
-				*commandFactory->createCharacterCommand(pair->second, player)
+				commandFactory->createCharacterCommand(pair->second, player)
 			);
 		}
 		catch (const unknownCommandException& e)

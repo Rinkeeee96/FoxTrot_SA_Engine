@@ -9,6 +9,6 @@ public:
 	ICommandCreator() {};
 	~ICommandCreator() {};
 
-	virtual ICommand* create() = 0;
+	//virtual ICommand* create() = 0;
 	virtual ICharacterCommand* createCharacterCommand(ICharacter& character) = 0;
 };
