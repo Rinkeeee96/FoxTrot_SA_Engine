@@ -60,6 +60,7 @@ $(document).ready(function(){initNavTree('class_engine.html',''); initResizable(
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_engine-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -75,52 +76,108 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab81eff238bf568d470ba149e51be0c45"><td class="memItemLeft" align="right" valign="top"><a id="ab81eff238bf568d470ba149e51be0c45"></a>
 API <a class="el" href="class_scene.html">Scene</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getCurrentScene</b> ()</td></tr>
 <tr class="separator:ab81eff238bf568d470ba149e51be0c45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99c7af6f7e2e52b97f664cfdcd57358f"><td class="memItemLeft" align="right" valign="top"><a id="a99c7af6f7e2e52b97f664cfdcd57358f"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>onKeyPressed</b> (const <a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
+<tr class="separator:a99c7af6f7e2e52b97f664cfdcd57358f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab12a03be719deab6073873235b87d2d5"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#ab12a03be719deab6073873235b87d2d5">insertScene</a> (<a class="el" href="class_scene.html">Scene</a> *scene)</td></tr>
 <tr class="separator:ab12a03be719deab6073873235b87d2d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab893add93ac417edd6bc073ef99ba2cf"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#ab893add93ac417edd6bc073ef99ba2cf">loadSprite</a> (const <a class="el" href="class_sprite_object.html">SpriteObject</a> &amp;spriteObject)</td></tr>
-<tr class="memdesc:ab893add93ac417edd6bc073ef99ba2cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load a animated sprite (PNG) into the AnimatedTexture map.  <a href="class_engine.html#ab893add93ac417edd6bc073ef99ba2cf">More...</a><br /></td></tr>
-<tr class="separator:ab893add93ac417edd6bc073ef99ba2cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47b89ed8fab7ae4ca68b638b1b56d768"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a47b89ed8fab7ae4ca68b638b1b56d768">deregisterScene</a> (const int id)</td></tr>
+<tr class="separator:a47b89ed8fab7ae4ca68b638b1b56d768"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aece87efecfa18b9de057737b0c239011"><td class="memItemLeft" align="right" valign="top"><a id="aece87efecfa18b9de057737b0c239011"></a>
 API void&#160;</td><td class="memItemRight" valign="bottom"><b>loadSound</b> (const string &amp;identifier, const string &amp;path)</td></tr>
 <tr class="separator:aece87efecfa18b9de057737b0c239011"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12d740aa16e10017280776280c6dbf42"><td class="memItemLeft" align="right" valign="top"><a id="a12d740aa16e10017280776280c6dbf42"></a>
 API void&#160;</td><td class="memItemRight" valign="bottom"><b>loadSound</b> (map&lt; string, string &gt; sounds)</td></tr>
 <tr class="separator:a12d740aa16e10017280776280c6dbf42"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2ecb7debf3913287a29e3b2de4fd67a"><td class="memItemLeft" align="right" valign="top"><a id="aa2ecb7debf3913287a29e3b2de4fd67a"></a>
+<tr class="memitem:af043480fb9b118b8e4b692c87bedd63e"><td class="memItemLeft" align="right" valign="top"><a id="af043480fb9b118b8e4b692c87bedd63e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>getPhysicsPaused</b> ()</td></tr>
+<tr class="separator:af043480fb9b118b8e4b692c87bedd63e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72edb1b3150224cef342287e180ded3d"><td class="memItemLeft" align="right" valign="top"><a id="a72edb1b3150224cef342287e180ded3d"></a>
 API void&#160;</td><td class="memItemRight" valign="bottom"><b>pollEvents</b> ()</td></tr>
-<tr class="separator:aa2ecb7debf3913287a29e3b2de4fd67a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac27d76aca08fd8f652099eb10424a59b"><td class="memItemLeft" align="right" valign="top"><a id="ac27d76aca08fd8f652099eb10424a59b"></a>
-API void&#160;</td><td class="memItemRight" valign="bottom"><b>EventListeners</b> ()</td></tr>
-<tr class="separator:ac27d76aca08fd8f652099eb10424a59b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0c4914e7ce9d00b8f04e253a0db0ea8"><td class="memItemLeft" align="right" valign="top"><a id="ae0c4914e7ce9d00b8f04e253a0db0ea8"></a>
-API bool&#160;</td><td class="memItemRight" valign="bottom"><b>Event_LoadSprite</b> (<a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
-<tr class="separator:ae0c4914e7ce9d00b8f04e253a0db0ea8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a72edb1b3150224cef342287e180ded3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea2ad228a62881a5ea7c58f67d2b7c3a"><td class="memItemLeft" align="right" valign="top"><a id="aea2ad228a62881a5ea7c58f67d2b7c3a"></a>
+API void&#160;</td><td class="memItemRight" valign="bottom"><b>onUpdate</b> ()</td></tr>
+<tr class="separator:aea2ad228a62881a5ea7c58f67d2b7c3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71aa9acfae99ce60af8f93d25adda1cc"><td class="memItemLeft" align="right" valign="top"><a id="a71aa9acfae99ce60af8f93d25adda1cc"></a>
+API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a71aa9acfae99ce60af8f93d25adda1cc">updateFps</a> ()</td></tr>
+<tr class="memdesc:a71aa9acfae99ce60af8f93d25adda1cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the fps counter. <br /></td></tr>
+<tr class="separator:a71aa9acfae99ce60af8f93d25adda1cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3360f7c892943c02423e7e6d7ac1969"><td class="memItemLeft" align="right" valign="top"><a id="ae3360f7c892943c02423e7e6d7ac1969"></a>
+API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#ae3360f7c892943c02423e7e6d7ac1969">toggleFps</a> ()</td></tr>
+<tr class="memdesc:ae3360f7c892943c02423e7e6d7ac1969"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles fps visibility. <br /></td></tr>
+<tr class="separator:ae3360f7c892943c02423e7e6d7ac1969"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1d2632aba5caf68005ce340bcdaa252"><td class="memItemLeft" align="right" valign="top"><a id="aa1d2632aba5caf68005ce340bcdaa252"></a>
+API bool&#160;</td><td class="memItemRight" valign="bottom"><b>getEngineRunning</b> ()</td></tr>
+<tr class="separator:aa1d2632aba5caf68005ce340bcdaa252"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a129dbf1f1b1d0e53ac2427937a438181"><td class="memItemLeft" align="right" valign="top"><a id="a129dbf1f1b1d0e53ac2427937a438181"></a>
+API void&#160;</td><td class="memItemRight" valign="bottom"><b>setEngineRunning</b> (bool run)</td></tr>
+<tr class="separator:a129dbf1f1b1d0e53ac2427937a438181"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf8a2d328644bcb0d3c4b52ba02a239d"><td class="memItemLeft" align="right" valign="top"><a id="abf8a2d328644bcb0d3c4b52ba02a239d"></a>
+API void&#160;</td><td class="memItemRight" valign="bottom"><b>restartPhysicsWorld</b> ()</td></tr>
+<tr class="separator:abf8a2d328644bcb0d3c4b52ba02a239d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:ac52b19aa960d18ddd73492979754467a"><td class="memItemLeft" align="right" valign="top"><a id="ac52b19aa960d18ddd73492979754467a"></a>
-<a class="el" href="class_physics_engine.html">PhysicsEngine</a>&#160;</td><td class="memItemRight" valign="bottom"><b>physicsEngine</b></td></tr>
-<tr class="separator:ac52b19aa960d18ddd73492979754467a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad15e0daf5264d8e6478efb9c1ad1a152"><td class="memItemLeft" align="right" valign="top"><a id="ad15e0daf5264d8e6478efb9c1ad1a152"></a>
-<a class="el" href="class_particle_engine.html">ParticleEngine</a>&#160;</td><td class="memItemRight" valign="bottom"><b>particleEngine</b></td></tr>
-<tr class="separator:ad15e0daf5264d8e6478efb9c1ad1a152"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
 <tr class="memitem:a7e3f297e995c280e5edcf9101f4f9c35"><td class="memItemLeft" align="right" valign="top"><a id="a7e3f297e995c280e5edcf9101f4f9c35"></a>
 <a class="el" href="class_sound_engine.html">SoundEngine</a>&#160;</td><td class="memItemRight" valign="bottom"><b>soundEngine</b></td></tr>
 <tr class="separator:a7e3f297e995c280e5edcf9101f4f9c35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69edf25f489a43c1658aa93db5d2ca73"><td class="memItemLeft" align="right" valign="top"><a id="a69edf25f489a43c1658aa93db5d2ca73"></a>
-<a class="el" href="class_input_engine.html">InputEngine</a>&#160;</td><td class="memItemRight" valign="bottom"><b>inputEngine</b></td></tr>
-<tr class="separator:a69edf25f489a43c1658aa93db5d2ca73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a75c9ee613a15a61a60da718c7cd45aa3"><td class="memItemLeft" align="right" valign="top"><a id="a75c9ee613a15a61a60da718c7cd45aa3"></a>
+<a class="el" href="class_event_dispatcher.html">EventDispatcher</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>eventDispatcher</b></td></tr>
+<tr class="separator:a75c9ee613a15a61a60da718c7cd45aa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c5f934e8ab38cf076170f8e8fe25a24"><td class="memItemLeft" align="right" valign="top"><a id="a1c5f934e8ab38cf076170f8e8fe25a24"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>running</b> = false</td></tr>
+<tr class="separator:a1c5f934e8ab38cf076170f8e8fe25a24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dbf7cd03f5e0ce7566e688d2dd0baca"><td class="memItemLeft" align="right" valign="top"><a id="a9dbf7cd03f5e0ce7566e688d2dd0baca"></a>
+<a class="el" href="class_frame_data.html">FrameData</a>&#160;</td><td class="memItemRight" valign="bottom"><b>frameData</b></td></tr>
+<tr class="separator:a9dbf7cd03f5e0ce7566e688d2dd0baca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae998ed00ca0d7cb439f7cdc0d4084ccf"><td class="memItemLeft" align="right" valign="top"><a id="ae998ed00ca0d7cb439f7cdc0d4084ccf"></a>
 <a class="el" href="class_scene_manager.html">SceneManager</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sceneManager</b></td></tr>
 <tr class="separator:ae998ed00ca0d7cb439f7cdc0d4084ccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad15e0daf5264d8e6478efb9c1ad1a152"><td class="memItemLeft" align="right" valign="top"><a id="ad15e0daf5264d8e6478efb9c1ad1a152"></a>
+<a class="el" href="class_particle_engine.html">ParticleEngine</a>&#160;</td><td class="memItemRight" valign="bottom"><b>particleEngine</b></td></tr>
+<tr class="separator:ad15e0daf5264d8e6478efb9c1ad1a152"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac52b19aa960d18ddd73492979754467a"><td class="memItemLeft" align="right" valign="top"><a id="ac52b19aa960d18ddd73492979754467a"></a>
+<a class="el" href="class_physics_engine.html">PhysicsEngine</a>&#160;</td><td class="memItemRight" valign="bottom"><b>physicsEngine</b></td></tr>
+<tr class="separator:ac52b19aa960d18ddd73492979754467a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95a022b976d0b54867ad32dbf611d652"><td class="memItemLeft" align="right" valign="top"><a id="a95a022b976d0b54867ad32dbf611d652"></a>
-<a class="el" href="class_video_engine.html">VideoEngine</a>&#160;</td><td class="memItemRight" valign="bottom"><b>videoEngine</b></td></tr>
+<a class="el" href="class_video_engine.html">VideoEngine</a>&#160;</td><td class="memItemRight" valign="bottom"><b>videoEngine</b> { frameData }</td></tr>
 <tr class="separator:a95a022b976d0b54867ad32dbf611d652"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4de34329d4b56e77d1426c9819a20d9"><td class="memItemLeft" align="right" valign="top"><a id="aa4de34329d4b56e77d1426c9819a20d9"></a>
-<a class="el" href="class_frame_data.html">FrameData</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>frameData</b> = nullptr</td></tr>
-<tr class="separator:aa4de34329d4b56e77d1426c9819a20d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69edf25f489a43c1658aa93db5d2ca73"><td class="memItemLeft" align="right" valign="top"><a id="a69edf25f489a43c1658aa93db5d2ca73"></a>
+<a class="el" href="class_input_engine.html">InputEngine</a>&#160;</td><td class="memItemRight" valign="bottom"><b>inputEngine</b> { *this }</td></tr>
+<tr class="separator:a69edf25f489a43c1658aa93db5d2ca73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf8bc7302c25b3eda9b44a0aa40833f0"><td class="memItemLeft" align="right" valign="top"><a id="aaf8bc7302c25b3eda9b44a0aa40833f0"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>engineIsPaused</b> = false</td></tr>
+<tr class="separator:aaf8bc7302c25b3eda9b44a0aa40833f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a47b89ed8fab7ae4ca68b638b1b56d768"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47b89ed8fab7ae4ca68b638b1b56d768">&#9670;&nbsp;</a></span>deregisterScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Engine::deregisterScene </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td><br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ab12a03be719deab6073873235b87d2d5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab12a03be719deab6073873235b87d2d5">&#9670;&nbsp;</a></span>insertScene()</h2>
 
@@ -139,33 +196,6 @@ Private Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">scene</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ab893add93ac417edd6bc073ef99ba2cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab893add93ac417edd6bc073ef99ba2cf">&#9670;&nbsp;</a></span>loadSprite()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Engine::loadSprite </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_sprite_object.html">SpriteObject</a> &amp;&#160;</td>
-          <td class="paramname"><em>spriteObject</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Load a animated sprite (PNG) into the AnimatedTexture map. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">spriteObject</td><td><br  />
- </td></tr>
   </table>
   </dd>
 </dl>

@@ -61,6 +61,7 @@ $(document).ready(function(){initNavTree('class_video_facade.html',''); initResi
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_video_facade-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -102,12 +103,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a2757862e28e26aef520e167e03ae7985"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_facade.html#a2757862e28e26aef520e167e03ae7985">renderCopy</a> (<a class="el" href="class_drawable.html">Drawable</a> &amp;object)</td></tr>
 <tr class="memdesc:a2757862e28e26aef520e167e03ae7985"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes the sprites from the Textuture map animated and copys them to the screen.  <a href="class_video_facade.html#a2757862e28e26aef520e167e03ae7985">More...</a><br /></td></tr>
 <tr class="separator:a2757862e28e26aef520e167e03ae7985"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9bb053433b1bd931887c95fa2c8a548"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_facade.html#af9bb053433b1bd931887c95fa2c8a548">drawParticle</a> (const <a class="el" href="class_particle_data.html">ParticleData</a> &amp;data, int spriteID)</td></tr>
-<tr class="memdesc:af9bb053433b1bd931887c95fa2c8a548"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to draw Particles.  <a href="class_video_facade.html#af9bb053433b1bd931887c95fa2c8a548">More...</a><br /></td></tr>
-<tr class="separator:af9bb053433b1bd931887c95fa2c8a548"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67e20d2cd7a828c573bb5a3b30df103e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_facade.html#a67e20d2cd7a828c573bb5a3b30df103e">drawMessageAt</a> (const <a class="el" href="struct_colored_text.html">ColoredText</a> &amp;message, const <a class="el" href="struct_position.html">Position</a> &amp;pos, const <a class="el" href="struct_object_size.html">ObjectSize</a> &amp;target)</td></tr>
-<tr class="memdesc:a67e20d2cd7a828c573bb5a3b30df103e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the given text message at the given position.  <a href="class_video_facade.html#a67e20d2cd7a828c573bb5a3b30df103e">More...</a><br /></td></tr>
-<tr class="separator:a67e20d2cd7a828c573bb5a3b30df103e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a3f8e2910d6322efe124e81709959e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_facade.html#a6a3f8e2910d6322efe124e81709959e8">drawParticle</a> (const <a class="el" href="class_particle_adapter.html">ParticleAdapter</a> &amp;part)</td></tr>
+<tr class="memdesc:a6a3f8e2910d6322efe124e81709959e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to draw Particles.  <a href="class_video_facade.html#a6a3f8e2910d6322efe124e81709959e8">More...</a><br /></td></tr>
+<tr class="separator:a6a3f8e2910d6322efe124e81709959e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa8cfa2158d507d92a9313c79267a8b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_facade.html#afa8cfa2158d507d92a9313c79267a8b7">drawMessageAt</a> (const <a class="el" href="struct_colored_text.html">ColoredText</a> &amp;message, const <a class="el" href="struct_position.html">Position</a> &amp;pos, const <a class="el" href="struct_object_size.html">ObjectSize</a> &amp;target, bool fromText=false)</td></tr>
+<tr class="memdesc:afa8cfa2158d507d92a9313c79267a8b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the given text message at the given position.  <a href="class_video_facade.html#afa8cfa2158d507d92a9313c79267a8b7">More...</a><br /></td></tr>
+<tr class="separator:afa8cfa2158d507d92a9313c79267a8b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca351f606045d14b99642e55f10a99bd"><td class="memItemLeft" align="right" valign="top"><a id="aca351f606045d14b99642e55f10a99bd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>clean</b> ()</td></tr>
+<tr class="separator:aca351f606045d14b99642e55f10a99bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98017417115e0b2c2560f21161413094"><td class="memItemLeft" align="right" valign="top"><a id="a98017417115e0b2c2560f21161413094"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setXCameraOffset</b> (int x) override</td></tr>
 <tr class="separator:a98017417115e0b2c2560f21161413094"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,6 +130,12 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:afc5632d73fe9f80ce7e6e0915512e74c"><td class="memItemLeft" align="right" valign="top"><a id="afc5632d73fe9f80ce7e6e0915512e74c"></a>
 unordered_map&lt; int, SDL_Texture * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>textureMap</b></td></tr>
 <tr class="separator:afc5632d73fe9f80ce7e6e0915512e74c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a569ca1161f3f70619dad1def4628bfbf"><td class="memItemLeft" align="right" valign="top"><a id="a569ca1161f3f70619dad1def4628bfbf"></a>
+SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><b>createRect</b> (<a class="el" href="class_drawable.html">Drawable</a> &amp;object)</td></tr>
+<tr class="separator:a569ca1161f3f70619dad1def4628bfbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -148,8 +158,8 @@ TTF_Font *&#160;</td><td class="memItemRight" valign="bottom"><b>Sans</b></td></
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_video_facade.html" title="VideoFacade is de SDL2 facade.">VideoFacade</a> is de SDL2 facade. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a67e20d2cd7a828c573bb5a3b30df103e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67e20d2cd7a828c573bb5a3b30df103e">&#9670;&nbsp;</a></span>drawMessageAt()</h2>
+<a id="afa8cfa2158d507d92a9313c79267a8b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa8cfa2158d507d92a9313c79267a8b7">&#9670;&nbsp;</a></span>drawMessageAt()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -173,7 +183,13 @@ TTF_Font *&#160;</td><td class="memItemRight" valign="bottom"><b>Sans</b></td></
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="struct_object_size.html">ObjectSize</a> &amp;&#160;</td>
-          <td class="paramname"><em>bounds</em>&#160;</td>
+          <td class="paramname"><em>bounds</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>fromText</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -202,8 +218,8 @@ TTF_Font *&#160;</td><td class="memItemRight" valign="bottom"><b>Sans</b></td></
 
 </div>
 </div>
-<a id="af9bb053433b1bd931887c95fa2c8a548"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9bb053433b1bd931887c95fa2c8a548">&#9670;&nbsp;</a></span>drawParticle()</h2>
+<a id="a6a3f8e2910d6322efe124e81709959e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a3f8e2910d6322efe124e81709959e8">&#9670;&nbsp;</a></span>drawParticle()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -214,19 +230,9 @@ TTF_Font *&#160;</td><td class="memItemRight" valign="bottom"><b>Sans</b></td></
         <tr>
           <td class="memname">void VideoFacade::drawParticle </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_particle_data.html">ParticleData</a> &amp;&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const <a class="el" href="class_particle_adapter.html">ParticleAdapter</a> &amp;&#160;</td>
+          <td class="paramname"><em>part</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>spriteID</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>

@@ -72,24 +72,48 @@ $(document).ready(function(){initNavTree('class_input_engine.html',''); initResi
  <a href="class_input_engine.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_input_engine_8h_source.html">InputEngine.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for InputEngine:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_input_engine.png" usemap="#InputEngine_map" alt=""/>
+  <map id="InputEngine_map" name="InputEngine_map">
+<area href="class_i_subsystem.html" alt="ISubsystem" shape="rect" coords="0,0,78,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abc55f12bd95969c286ffb900cab0b62a"><td class="memItemLeft" align="right" valign="top"><a id="abc55f12bd95969c286ffb900cab0b62a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>pollEvents</b> ()</td></tr>
-<tr class="separator:abc55f12bd95969c286ffb900cab0b62a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a20294376216586c550c50ae736a817"><td class="memItemLeft" align="right" valign="top"><a id="a6a20294376216586c550c50ae736a817"></a>
+API&#160;</td><td class="memItemRight" valign="bottom"><b>InputEngine</b> (<a class="el" href="class_engine.html">Engine</a> &amp;engine)</td></tr>
+<tr class="separator:a6a20294376216586c550c50ae736a817"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a082f29fa0a4bd45802048ee560bbda06"><td class="memItemLeft" align="right" valign="top"><a id="a082f29fa0a4bd45802048ee560bbda06"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>start</b> (<a class="el" href="class_event_dispatcher.html">EventDispatcher</a> &amp;dispatcher) override</td></tr>
+<tr class="separator:a082f29fa0a4bd45802048ee560bbda06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40f0b299416a98b334dee568fd4adf58"><td class="memItemLeft" align="right" valign="top"><a id="a40f0b299416a98b334dee568fd4adf58"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> () override</td></tr>
+<tr class="separator:a40f0b299416a98b334dee568fd4adf58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa545a112b41abd4b1a9d0a82123eb894"><td class="memItemLeft" align="right" valign="top"><a id="aa545a112b41abd4b1a9d0a82123eb894"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>shutdown</b> () override</td></tr>
+<tr class="separator:aa545a112b41abd4b1a9d0a82123eb894"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a0ced8eb0a32557659d6905336cd902c0"><td class="memItemLeft" align="right" valign="top"><a id="a0ced8eb0a32557659d6905336cd902c0"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>onKeyPressed</b> (<a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
-<tr class="separator:a0ced8eb0a32557659d6905336cd902c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7226dfe2df84a0c0279b411e9c90225"><td class="memItemLeft" align="right" valign="top"><a id="ab7226dfe2df84a0c0279b411e9c90225"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>onKeyPressed</b> (const <a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
+<tr class="separator:ab7226dfe2df84a0c0279b411e9c90225"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:a49def99fcbe6584862ac9dcf4de4c2b4"><td class="memItemLeft" align="right" valign="top"><a id="a49def99fcbe6584862ac9dcf4de4c2b4"></a>
+<a class="el" href="class_engine.html">Engine</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>engine</b></td></tr>
+<tr class="separator:a49def99fcbe6584862ac9dcf4de4c2b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6586627bfe398e3e1e2e9eeb76e3e9f"><td class="memItemLeft" align="right" valign="top"><a id="ac6586627bfe398e3e1e2e9eeb76e3e9f"></a>
-<a class="el" href="class_i_input_facade.html">IInputFacade</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>inputFacade</b> = new <a class="el" href="class_input_facade.html">InputFacade</a>()</td></tr>
+<a class="el" href="class_i_input_facade.html">IInputFacade</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>inputFacade</b></td></tr>
 <tr class="separator:ac6586627bfe398e3e1e2e9eeb76e3e9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab642ad1c2ba61666d8fb927254392d55"><td class="memItemLeft" align="right" valign="top"><a id="ab642ad1c2ba61666d8fb927254392d55"></a>
+<a class="el" href="class_event_dispatcher.html">EventDispatcher</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>dispatcher</b></td></tr>
+<tr class="separator:ab642ad1c2ba61666d8fb927254392d55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Input engine for handling input. </p>

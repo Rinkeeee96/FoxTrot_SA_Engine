@@ -85,74 +85,74 @@ Inheritance diagram for SoundFacade:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3ed608ce4e2e76379fb6d88dcd78791e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a3ed608ce4e2e76379fb6d88dcd78791e">isMix_PlayingMusic</a> ()</td></tr>
 <tr class="separator:a3ed608ce4e2e76379fb6d88dcd78791e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76da0902795296c1c3619ceb24818ded"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a76da0902795296c1c3619ceb24818ded">SetFiles</a> (map&lt; string, string &gt; files)</td></tr>
-<tr class="memdesc:a76da0902795296c1c3619ceb24818ded"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the identifier,filepath map.  <a href="class_sound_facade.html#a76da0902795296c1c3619ceb24818ded">More...</a><br /></td></tr>
-<tr class="separator:a76da0902795296c1c3619ceb24818ded"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dfc806cd55e65685fb486ef603ee8c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a9dfc806cd55e65685fb486ef603ee8c5">AddFile</a> (const string &amp;identifier, const string &amp;file)</td></tr>
-<tr class="memdesc:a9dfc806cd55e65685fb486ef603ee8c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a file to the files map.  <a href="class_sound_facade.html#a9dfc806cd55e65685fb486ef603ee8c5">More...</a><br /></td></tr>
-<tr class="separator:a9dfc806cd55e65685fb486ef603ee8c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae88e0c30d34bfe6464a2ea8bc413af3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#ae88e0c30d34bfe6464a2ea8bc413af3c">PlayEffect</a> (const string &amp;identifier, const int volume)</td></tr>
-<tr class="memdesc:ae88e0c30d34bfe6464a2ea8bc413af3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plays the effect that belongs to the given identifier at the given volume.  <a href="class_sound_facade.html#ae88e0c30d34bfe6464a2ea8bc413af3c">More...</a><br /></td></tr>
-<tr class="separator:ae88e0c30d34bfe6464a2ea8bc413af3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a388ef5b494eb64425aa18c7427e1f6df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a388ef5b494eb64425aa18c7427e1f6df">LoadEffect</a> (const string &amp;identifier)</td></tr>
-<tr class="memdesc:a388ef5b494eb64425aa18c7427e1f6df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the effect that belongs to the given identifier into the buffer.  <a href="class_sound_facade.html#a388ef5b494eb64425aa18c7427e1f6df">More...</a><br /></td></tr>
-<tr class="separator:a388ef5b494eb64425aa18c7427e1f6df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96f46b7372b27662ae4cd795c9b8db5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a96f46b7372b27662ae4cd795c9b8db5d">UnloadEffect</a> (const string &amp;identifier)</td></tr>
-<tr class="memdesc:a96f46b7372b27662ae4cd795c9b8db5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unloads the effect that belongs to the given identifier from the buffer.  <a href="class_sound_facade.html#a96f46b7372b27662ae4cd795c9b8db5d">More...</a><br /></td></tr>
-<tr class="separator:a96f46b7372b27662ae4cd795c9b8db5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bf9c8d6084a7edd3e9e3e0085b77192"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a5bf9c8d6084a7edd3e9e3e0085b77192">StartLoopedEffect</a> (const string &amp;effect, const int volume)</td></tr>
-<tr class="memdesc:a5bf9c8d6084a7edd3e9e3e0085b77192"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indefinitely plays a loaded effect that belongs to the given identifier.  <a href="class_sound_facade.html#a5bf9c8d6084a7edd3e9e3e0085b77192">More...</a><br /></td></tr>
-<tr class="separator:a5bf9c8d6084a7edd3e9e3e0085b77192"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b1e8cbd539c214b111e2a86cb3bbb4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a6b1e8cbd539c214b111e2a86cb3bbb4a">StopLoopedEffect</a> (const string &amp;identifier)</td></tr>
-<tr class="memdesc:a6b1e8cbd539c214b111e2a86cb3bbb4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops a looped effect.  <a href="class_sound_facade.html#a6b1e8cbd539c214b111e2a86cb3bbb4a">More...</a><br /></td></tr>
-<tr class="separator:a6b1e8cbd539c214b111e2a86cb3bbb4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad668daa8ddb782cede8c2c60f470aa95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#ad668daa8ddb782cede8c2c60f470aa95">LoadMusic</a> (const string &amp;identifier)</td></tr>
-<tr class="memdesc:ad668daa8ddb782cede8c2c60f470aa95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the music that belongs to the given identifier into the buffer.  <a href="class_sound_facade.html#ad668daa8ddb782cede8c2c60f470aa95">More...</a><br /></td></tr>
-<tr class="separator:ad668daa8ddb782cede8c2c60f470aa95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5fdf3f796a6d627ae382400fba238f00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a5fdf3f796a6d627ae382400fba238f00">PlayMusic</a> (const int volume)</td></tr>
-<tr class="memdesc:a5fdf3f796a6d627ae382400fba238f00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plays the currently loaded music at the given volume.  <a href="class_sound_facade.html#a5fdf3f796a6d627ae382400fba238f00">More...</a><br /></td></tr>
-<tr class="separator:a5fdf3f796a6d627ae382400fba238f00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a648a172590fa1d85e3a78fc6144c23c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a648a172590fa1d85e3a78fc6144c23c6">PlayMusic</a> (const string &amp;identifier, const int volume)</td></tr>
-<tr class="memdesc:a648a172590fa1d85e3a78fc6144c23c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads and plays music that belongs to the given identifier at the given volume.  <a href="class_sound_facade.html#a648a172590fa1d85e3a78fc6144c23c6">More...</a><br /></td></tr>
-<tr class="separator:a648a172590fa1d85e3a78fc6144c23c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebf761031ea3c958b4f5eca9c2c092cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#aebf761031ea3c958b4f5eca9c2c092cf">ChangeMusic</a> (const string &amp;identifier)</td></tr>
-<tr class="memdesc:aebf761031ea3c958b4f5eca9c2c092cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the currently playing music and swaps it with the music that belongs to the given identifier.  <a href="class_sound_facade.html#aebf761031ea3c958b4f5eca9c2c092cf">More...</a><br /></td></tr>
-<tr class="separator:aebf761031ea3c958b4f5eca9c2c092cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94933f6c51f08670636ba0469cd3aefc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a94933f6c51f08670636ba0469cd3aefc">FadeOutMusic</a> (const int fadeTime)</td></tr>
-<tr class="memdesc:a94933f6c51f08670636ba0469cd3aefc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fades out the currently playing music over the given time.  <a href="class_sound_facade.html#a94933f6c51f08670636ba0469cd3aefc">More...</a><br /></td></tr>
-<tr class="separator:a94933f6c51f08670636ba0469cd3aefc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c7881609ba0e94ac52229c1e294204f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a5c7881609ba0e94ac52229c1e294204f">FadeInMusic</a> (const int fadeTime)</td></tr>
-<tr class="memdesc:a5c7881609ba0e94ac52229c1e294204f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fades in the currently playing music over the given time.  <a href="class_sound_facade.html#a5c7881609ba0e94ac52229c1e294204f">More...</a><br /></td></tr>
-<tr class="separator:a5c7881609ba0e94ac52229c1e294204f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54a83dab7813c8b62eb7e9d4bb560972"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a54a83dab7813c8b62eb7e9d4bb560972">FadeInMusic</a> (const string &amp;identifier, const int fadeTime)</td></tr>
-<tr class="memdesc:a54a83dab7813c8b62eb7e9d4bb560972"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fades in the music that belongs to the given identifier over [fadeTime]ms.  <a href="class_sound_facade.html#a54a83dab7813c8b62eb7e9d4bb560972">More...</a><br /></td></tr>
-<tr class="separator:a54a83dab7813c8b62eb7e9d4bb560972"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35743b20cdb7e2e54cec4993a4daed87"><td class="memItemLeft" align="right" valign="top"><a id="a35743b20cdb7e2e54cec4993a4daed87"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a35743b20cdb7e2e54cec4993a4daed87">RewindMusic</a> ()</td></tr>
-<tr class="memdesc:a35743b20cdb7e2e54cec4993a4daed87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rewinds the currently playing music. <br /></td></tr>
-<tr class="separator:a35743b20cdb7e2e54cec4993a4daed87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d602a5ff9f64a8a8ccea97fddf81920"><td class="memItemLeft" align="right" valign="top"><a id="a1d602a5ff9f64a8a8ccea97fddf81920"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a1d602a5ff9f64a8a8ccea97fddf81920">StopMusic</a> ()</td></tr>
-<tr class="memdesc:a1d602a5ff9f64a8a8ccea97fddf81920"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the currently playing music. <br /></td></tr>
-<tr class="separator:a1d602a5ff9f64a8a8ccea97fddf81920"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a549f3c4ebadb1d9ad4296e67f1dfccaf"><td class="memItemLeft" align="right" valign="top"><a id="a549f3c4ebadb1d9ad4296e67f1dfccaf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a549f3c4ebadb1d9ad4296e67f1dfccaf">PauseMusic</a> ()</td></tr>
-<tr class="memdesc:a549f3c4ebadb1d9ad4296e67f1dfccaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pauses the currently playing music. <br /></td></tr>
-<tr class="separator:a549f3c4ebadb1d9ad4296e67f1dfccaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18975448a850d4d20a101db92c304066"><td class="memItemLeft" align="right" valign="top"><a id="a18975448a850d4d20a101db92c304066"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a18975448a850d4d20a101db92c304066">ResumeMusic</a> ()</td></tr>
-<tr class="memdesc:a18975448a850d4d20a101db92c304066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resumes the currently playing music. <br /></td></tr>
-<tr class="separator:a18975448a850d4d20a101db92c304066"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5630d2eac7cec5ae6d40e8331c9da4c9"><td class="memItemLeft" align="right" valign="top"><a id="a5630d2eac7cec5ae6d40e8331c9da4c9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a5630d2eac7cec5ae6d40e8331c9da4c9">Flush</a> ()</td></tr>
-<tr class="memdesc:a5630d2eac7cec5ae6d40e8331c9da4c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flushes the audio buffers. <br /></td></tr>
-<tr class="separator:a5630d2eac7cec5ae6d40e8331c9da4c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade7b05ae603a1eb8a275ab05f1a77443"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#ade7b05ae603a1eb8a275ab05f1a77443">IdentifierExists</a> (const string &amp;identifier)</td></tr>
-<tr class="memdesc:ade7b05ae603a1eb8a275ab05f1a77443"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the given identifier exists in the list of sounds.  <a href="class_sound_facade.html#ade7b05ae603a1eb8a275ab05f1a77443">More...</a><br /></td></tr>
-<tr class="separator:ade7b05ae603a1eb8a275ab05f1a77443"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59b43a6ee32d352788cdbf3461f946c7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a59b43a6ee32d352788cdbf3461f946c7">IdentifierIsLoaded</a> (const string &amp;identifier)</td></tr>
-<tr class="memdesc:a59b43a6ee32d352788cdbf3461f946c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the given identifier has a sound loaded in a stream.  <a href="class_sound_facade.html#a59b43a6ee32d352788cdbf3461f946c7">More...</a><br /></td></tr>
-<tr class="separator:a59b43a6ee32d352788cdbf3461f946c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a663af468687b3c903b92e6dbeaab7970"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a663af468687b3c903b92e6dbeaab7970">setFiles</a> (map&lt; string, string &gt; files)</td></tr>
+<tr class="memdesc:a663af468687b3c903b92e6dbeaab7970"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the identifier,filepath map.  <a href="class_sound_facade.html#a663af468687b3c903b92e6dbeaab7970">More...</a><br /></td></tr>
+<tr class="separator:a663af468687b3c903b92e6dbeaab7970"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5cf738b3b6c7d4fd93e2a9d38d49600"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#ae5cf738b3b6c7d4fd93e2a9d38d49600">addFile</a> (const string &amp;identifier, const string &amp;file)</td></tr>
+<tr class="memdesc:ae5cf738b3b6c7d4fd93e2a9d38d49600"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a file to the files map.  <a href="class_sound_facade.html#ae5cf738b3b6c7d4fd93e2a9d38d49600">More...</a><br /></td></tr>
+<tr class="separator:ae5cf738b3b6c7d4fd93e2a9d38d49600"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93e0bed2183d81a2686ecfc38ff493a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a93e0bed2183d81a2686ecfc38ff493a1">playEffect</a> (const string &amp;identifier, const int volume)</td></tr>
+<tr class="memdesc:a93e0bed2183d81a2686ecfc38ff493a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plays the effect that belongs to the given identifier at the given volume.  <a href="class_sound_facade.html#a93e0bed2183d81a2686ecfc38ff493a1">More...</a><br /></td></tr>
+<tr class="separator:a93e0bed2183d81a2686ecfc38ff493a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66fe48099c67d3fedac138bd29ad77c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a66fe48099c67d3fedac138bd29ad77c3">loadEffect</a> (const string &amp;identifier)</td></tr>
+<tr class="memdesc:a66fe48099c67d3fedac138bd29ad77c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the effect that belongs to the given identifier into the buffer.  <a href="class_sound_facade.html#a66fe48099c67d3fedac138bd29ad77c3">More...</a><br /></td></tr>
+<tr class="separator:a66fe48099c67d3fedac138bd29ad77c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e1277bf227dc8c4146431b99c4a5cb6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a7e1277bf227dc8c4146431b99c4a5cb6">unloadEffect</a> (const string &amp;identifier)</td></tr>
+<tr class="memdesc:a7e1277bf227dc8c4146431b99c4a5cb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unloads the effect that belongs to the given identifier from the buffer.  <a href="class_sound_facade.html#a7e1277bf227dc8c4146431b99c4a5cb6">More...</a><br /></td></tr>
+<tr class="separator:a7e1277bf227dc8c4146431b99c4a5cb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fd34c3610a7ffe25f8e1b5304e406da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a7fd34c3610a7ffe25f8e1b5304e406da">startLoopedEffect</a> (const string &amp;effect, const int volume)</td></tr>
+<tr class="memdesc:a7fd34c3610a7ffe25f8e1b5304e406da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indefinitely plays a loaded effect that belongs to the given identifier.  <a href="class_sound_facade.html#a7fd34c3610a7ffe25f8e1b5304e406da">More...</a><br /></td></tr>
+<tr class="separator:a7fd34c3610a7ffe25f8e1b5304e406da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59e89a6f8d09d5a9d293bdd33e69e99b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a59e89a6f8d09d5a9d293bdd33e69e99b">stopLoopedEffect</a> (const string &amp;identifier)</td></tr>
+<tr class="memdesc:a59e89a6f8d09d5a9d293bdd33e69e99b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops a looped effect.  <a href="class_sound_facade.html#a59e89a6f8d09d5a9d293bdd33e69e99b">More...</a><br /></td></tr>
+<tr class="separator:a59e89a6f8d09d5a9d293bdd33e69e99b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bf14a67afb289faa08d8f90cebc6b1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a1bf14a67afb289faa08d8f90cebc6b1c">loadMusic</a> (const string &amp;identifier)</td></tr>
+<tr class="memdesc:a1bf14a67afb289faa08d8f90cebc6b1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the music that belongs to the given identifier into the buffer.  <a href="class_sound_facade.html#a1bf14a67afb289faa08d8f90cebc6b1c">More...</a><br /></td></tr>
+<tr class="separator:a1bf14a67afb289faa08d8f90cebc6b1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60f6668ef1ed0b69cf9cde13e46c1cbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a60f6668ef1ed0b69cf9cde13e46c1cbd">playMusic</a> (const int volume)</td></tr>
+<tr class="memdesc:a60f6668ef1ed0b69cf9cde13e46c1cbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plays the currently loaded music at the given volume.  <a href="class_sound_facade.html#a60f6668ef1ed0b69cf9cde13e46c1cbd">More...</a><br /></td></tr>
+<tr class="separator:a60f6668ef1ed0b69cf9cde13e46c1cbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad25c7c2bc3989f54c64f4162fbe9b821"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#ad25c7c2bc3989f54c64f4162fbe9b821">playMusic</a> (const string &amp;identifier, const int volume)</td></tr>
+<tr class="memdesc:ad25c7c2bc3989f54c64f4162fbe9b821"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads and plays music that belongs to the given identifier at the given volume.  <a href="class_sound_facade.html#ad25c7c2bc3989f54c64f4162fbe9b821">More...</a><br /></td></tr>
+<tr class="separator:ad25c7c2bc3989f54c64f4162fbe9b821"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c96e7fc0092aaeaab535f72d6f7fe51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a7c96e7fc0092aaeaab535f72d6f7fe51">changeMusic</a> (const string &amp;identifier)</td></tr>
+<tr class="memdesc:a7c96e7fc0092aaeaab535f72d6f7fe51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the currently playing music and swaps it with the music that belongs to the given identifier.  <a href="class_sound_facade.html#a7c96e7fc0092aaeaab535f72d6f7fe51">More...</a><br /></td></tr>
+<tr class="separator:a7c96e7fc0092aaeaab535f72d6f7fe51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cd40914898c351233b24508d8261b48"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a9cd40914898c351233b24508d8261b48">fadeOutMusic</a> (const int fadeTime)</td></tr>
+<tr class="memdesc:a9cd40914898c351233b24508d8261b48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fades out the currently playing music over the given time.  <a href="class_sound_facade.html#a9cd40914898c351233b24508d8261b48">More...</a><br /></td></tr>
+<tr class="separator:a9cd40914898c351233b24508d8261b48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa66f815f7b2e742f00bc9eb443b099bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#aa66f815f7b2e742f00bc9eb443b099bc">fadeInMusic</a> (const int fadeTime)</td></tr>
+<tr class="memdesc:aa66f815f7b2e742f00bc9eb443b099bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fades in the currently playing music over the given time.  <a href="class_sound_facade.html#aa66f815f7b2e742f00bc9eb443b099bc">More...</a><br /></td></tr>
+<tr class="separator:aa66f815f7b2e742f00bc9eb443b099bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2493b74ef61801baded9c780597963c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#ac2493b74ef61801baded9c780597963c">fadeInMusic</a> (const string &amp;identifier, const int fadeTime)</td></tr>
+<tr class="memdesc:ac2493b74ef61801baded9c780597963c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fades in the music that belongs to the given identifier over [fadeTime]ms.  <a href="class_sound_facade.html#ac2493b74ef61801baded9c780597963c">More...</a><br /></td></tr>
+<tr class="separator:ac2493b74ef61801baded9c780597963c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abedd22c14166658c0af75791d9be1ea0"><td class="memItemLeft" align="right" valign="top"><a id="abedd22c14166658c0af75791d9be1ea0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#abedd22c14166658c0af75791d9be1ea0">rewindMusic</a> ()</td></tr>
+<tr class="memdesc:abedd22c14166658c0af75791d9be1ea0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rewinds the currently playing music. <br /></td></tr>
+<tr class="separator:abedd22c14166658c0af75791d9be1ea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cc772f7e8e5e82eb51f0ef2d0dd482c"><td class="memItemLeft" align="right" valign="top"><a id="a1cc772f7e8e5e82eb51f0ef2d0dd482c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a1cc772f7e8e5e82eb51f0ef2d0dd482c">stopMusic</a> ()</td></tr>
+<tr class="memdesc:a1cc772f7e8e5e82eb51f0ef2d0dd482c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the currently playing music. <br /></td></tr>
+<tr class="separator:a1cc772f7e8e5e82eb51f0ef2d0dd482c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36255cc008472f94055ec66d9bcf4f04"><td class="memItemLeft" align="right" valign="top"><a id="a36255cc008472f94055ec66d9bcf4f04"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a36255cc008472f94055ec66d9bcf4f04">pauseMusic</a> ()</td></tr>
+<tr class="memdesc:a36255cc008472f94055ec66d9bcf4f04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pauses the currently playing music. <br /></td></tr>
+<tr class="separator:a36255cc008472f94055ec66d9bcf4f04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2722a3ebe44fac6e4331fb1c0934ee1"><td class="memItemLeft" align="right" valign="top"><a id="af2722a3ebe44fac6e4331fb1c0934ee1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#af2722a3ebe44fac6e4331fb1c0934ee1">resumeMusic</a> ()</td></tr>
+<tr class="memdesc:af2722a3ebe44fac6e4331fb1c0934ee1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resumes the currently playing music. <br /></td></tr>
+<tr class="separator:af2722a3ebe44fac6e4331fb1c0934ee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba844339c09b8125674b7886e48a0293"><td class="memItemLeft" align="right" valign="top"><a id="aba844339c09b8125674b7886e48a0293"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#aba844339c09b8125674b7886e48a0293">flush</a> ()</td></tr>
+<tr class="memdesc:aba844339c09b8125674b7886e48a0293"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flushes the audio buffers. <br /></td></tr>
+<tr class="separator:aba844339c09b8125674b7886e48a0293"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e9debe3050c96b6b77b7e76331d9532"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a1e9debe3050c96b6b77b7e76331d9532">identifierExists</a> (const string &amp;identifier)</td></tr>
+<tr class="memdesc:a1e9debe3050c96b6b77b7e76331d9532"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the given identifier exists in the list of sounds.  <a href="class_sound_facade.html#a1e9debe3050c96b6b77b7e76331d9532">More...</a><br /></td></tr>
+<tr class="separator:a1e9debe3050c96b6b77b7e76331d9532"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63f6c72bf4b407459f0448e0dfaee238"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_facade.html#a63f6c72bf4b407459f0448e0dfaee238">identifierIsLoaded</a> (const string &amp;identifier)</td></tr>
+<tr class="memdesc:a63f6c72bf4b407459f0448e0dfaee238"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the given identifier has a sound loaded in a stream.  <a href="class_sound_facade.html#a63f6c72bf4b407459f0448e0dfaee238">More...</a><br /></td></tr>
+<tr class="separator:a63f6c72bf4b407459f0448e0dfaee238"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -172,8 +172,8 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_sound_facade.html" title="SoundFacade is de Sound SDL2 facade.">SoundFacade</a> is de Sound SDL2 facade. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9dfc806cd55e65685fb486ef603ee8c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9dfc806cd55e65685fb486ef603ee8c5">&#9670;&nbsp;</a></span>AddFile()</h2>
+<a id="ae5cf738b3b6c7d4fd93e2a9d38d49600"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5cf738b3b6c7d4fd93e2a9d38d49600">&#9670;&nbsp;</a></span>addFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -182,7 +182,7 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SoundFacade::AddFile </td>
+          <td class="memname">void SoundFacade::addFile </td>
           <td>(</td>
           <td class="paramtype">const string &amp;&#160;</td>
           <td class="paramname"><em>identifier</em>, </td>
@@ -219,8 +219,8 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
 
 </div>
 </div>
-<a id="aebf761031ea3c958b4f5eca9c2c092cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aebf761031ea3c958b4f5eca9c2c092cf">&#9670;&nbsp;</a></span>ChangeMusic()</h2>
+<a id="a7c96e7fc0092aaeaab535f72d6f7fe51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c96e7fc0092aaeaab535f72d6f7fe51">&#9670;&nbsp;</a></span>changeMusic()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -229,7 +229,7 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SoundFacade::ChangeMusic </td>
+          <td class="memname">void SoundFacade::changeMusic </td>
           <td>(</td>
           <td class="paramtype">const string &amp;&#160;</td>
           <td class="paramname"><em>identifier</em></td><td>)</td>
@@ -255,8 +255,8 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
 
 </div>
 </div>
-<a id="a5c7881609ba0e94ac52229c1e294204f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c7881609ba0e94ac52229c1e294204f">&#9670;&nbsp;</a></span>FadeInMusic() <span class="overload">[1/2]</span></h2>
+<a id="aa66f815f7b2e742f00bc9eb443b099bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa66f815f7b2e742f00bc9eb443b099bc">&#9670;&nbsp;</a></span>fadeInMusic() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -265,7 +265,7 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SoundFacade::FadeInMusic </td>
+          <td class="memname">void SoundFacade::fadeInMusic </td>
           <td>(</td>
           <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>fadeTime</em></td><td>)</td>
@@ -291,8 +291,8 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
 
 </div>
 </div>
-<a id="a54a83dab7813c8b62eb7e9d4bb560972"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a54a83dab7813c8b62eb7e9d4bb560972">&#9670;&nbsp;</a></span>FadeInMusic() <span class="overload">[2/2]</span></h2>
+<a id="ac2493b74ef61801baded9c780597963c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2493b74ef61801baded9c780597963c">&#9670;&nbsp;</a></span>fadeInMusic() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -301,7 +301,7 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SoundFacade::FadeInMusic </td>
+          <td class="memname">void SoundFacade::fadeInMusic </td>
           <td>(</td>
           <td class="paramtype">const string &amp;&#160;</td>
           <td class="paramname"><em>identifier</em>, </td>
@@ -338,8 +338,8 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
 
 </div>
 </div>
-<a id="a94933f6c51f08670636ba0469cd3aefc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94933f6c51f08670636ba0469cd3aefc">&#9670;&nbsp;</a></span>FadeOutMusic()</h2>
+<a id="a9cd40914898c351233b24508d8261b48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cd40914898c351233b24508d8261b48">&#9670;&nbsp;</a></span>fadeOutMusic()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -348,7 +348,7 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SoundFacade::FadeOutMusic </td>
+          <td class="memname">void SoundFacade::fadeOutMusic </td>
           <td>(</td>
           <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>fadeTime</em></td><td>)</td>
@@ -374,8 +374,8 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
 
 </div>
 </div>
-<a id="ade7b05ae603a1eb8a275ab05f1a77443"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ade7b05ae603a1eb8a275ab05f1a77443">&#9670;&nbsp;</a></span>IdentifierExists()</h2>
+<a id="a1e9debe3050c96b6b77b7e76331d9532"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e9debe3050c96b6b77b7e76331d9532">&#9670;&nbsp;</a></span>identifierExists()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -384,7 +384,7 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool SoundFacade::IdentifierExists </td>
+          <td class="memname">bool SoundFacade::identifierExists </td>
           <td>(</td>
           <td class="paramtype">const string &amp;&#160;</td>
           <td class="paramname"><em>identifier</em></td><td>)</td>
@@ -410,8 +410,8 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
 
 </div>
 </div>
-<a id="a59b43a6ee32d352788cdbf3461f946c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59b43a6ee32d352788cdbf3461f946c7">&#9670;&nbsp;</a></span>IdentifierIsLoaded()</h2>
+<a id="a63f6c72bf4b407459f0448e0dfaee238"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63f6c72bf4b407459f0448e0dfaee238">&#9670;&nbsp;</a></span>identifierIsLoaded()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -420,7 +420,7 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool SoundFacade::IdentifierIsLoaded </td>
+          <td class="memname">bool SoundFacade::identifierIsLoaded </td>
           <td>(</td>
           <td class="paramtype">const string &amp;&#160;</td>
           <td class="paramname"><em>identifier</em></td><td>)</td>
@@ -475,8 +475,8 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
 
 </div>
 </div>
-<a id="a388ef5b494eb64425aa18c7427e1f6df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a388ef5b494eb64425aa18c7427e1f6df">&#9670;&nbsp;</a></span>LoadEffect()</h2>
+<a id="a66fe48099c67d3fedac138bd29ad77c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66fe48099c67d3fedac138bd29ad77c3">&#9670;&nbsp;</a></span>loadEffect()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -485,7 +485,7 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SoundFacade::LoadEffect </td>
+          <td class="memname">void SoundFacade::loadEffect </td>
           <td>(</td>
           <td class="paramtype">const string &amp;&#160;</td>
           <td class="paramname"><em>identifier</em></td><td>)</td>
@@ -511,8 +511,8 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
 
 </div>
 </div>
-<a id="ad668daa8ddb782cede8c2c60f470aa95"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad668daa8ddb782cede8c2c60f470aa95">&#9670;&nbsp;</a></span>LoadMusic()</h2>
+<a id="a1bf14a67afb289faa08d8f90cebc6b1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bf14a67afb289faa08d8f90cebc6b1c">&#9670;&nbsp;</a></span>loadMusic()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -521,7 +521,7 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SoundFacade::LoadMusic </td>
+          <td class="memname">void SoundFacade::loadMusic </td>
           <td>(</td>
           <td class="paramtype">const string &amp;&#160;</td>
           <td class="paramname"><em>identifier</em></td><td>)</td>
@@ -548,8 +548,8 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
 
 </div>
 </div>
-<a id="ae88e0c30d34bfe6464a2ea8bc413af3c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae88e0c30d34bfe6464a2ea8bc413af3c">&#9670;&nbsp;</a></span>PlayEffect()</h2>
+<a id="a93e0bed2183d81a2686ecfc38ff493a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93e0bed2183d81a2686ecfc38ff493a1">&#9670;&nbsp;</a></span>playEffect()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -558,7 +558,7 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SoundFacade::PlayEffect </td>
+          <td class="memname">void SoundFacade::playEffect </td>
           <td>(</td>
           <td class="paramtype">const string &amp;&#160;</td>
           <td class="paramname"><em>identifier</em>, </td>
@@ -595,8 +595,8 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
 
 </div>
 </div>
-<a id="a5fdf3f796a6d627ae382400fba238f00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5fdf3f796a6d627ae382400fba238f00">&#9670;&nbsp;</a></span>PlayMusic() <span class="overload">[1/2]</span></h2>
+<a id="a60f6668ef1ed0b69cf9cde13e46c1cbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60f6668ef1ed0b69cf9cde13e46c1cbd">&#9670;&nbsp;</a></span>playMusic() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -605,7 +605,7 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SoundFacade::PlayMusic </td>
+          <td class="memname">void SoundFacade::playMusic </td>
           <td>(</td>
           <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>volume</em> = <code>MIX_MAX_VOLUME</code></td><td>)</td>
@@ -631,8 +631,8 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
 
 </div>
 </div>
-<a id="a648a172590fa1d85e3a78fc6144c23c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a648a172590fa1d85e3a78fc6144c23c6">&#9670;&nbsp;</a></span>PlayMusic() <span class="overload">[2/2]</span></h2>
+<a id="ad25c7c2bc3989f54c64f4162fbe9b821"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad25c7c2bc3989f54c64f4162fbe9b821">&#9670;&nbsp;</a></span>playMusic() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -641,7 +641,7 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SoundFacade::PlayMusic </td>
+          <td class="memname">void SoundFacade::playMusic </td>
           <td>(</td>
           <td class="paramtype">const string &amp;&#160;</td>
           <td class="paramname"><em>identifier</em>, </td>
@@ -678,8 +678,8 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
 
 </div>
 </div>
-<a id="a76da0902795296c1c3619ceb24818ded"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76da0902795296c1c3619ceb24818ded">&#9670;&nbsp;</a></span>SetFiles()</h2>
+<a id="a663af468687b3c903b92e6dbeaab7970"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a663af468687b3c903b92e6dbeaab7970">&#9670;&nbsp;</a></span>setFiles()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -688,7 +688,7 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SoundFacade::SetFiles </td>
+          <td class="memname">void SoundFacade::setFiles </td>
           <td>(</td>
           <td class="paramtype">map&lt; string, string &gt;&#160;</td>
           <td class="paramname"><em>files</em></td><td>)</td>
@@ -714,8 +714,8 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
 
 </div>
 </div>
-<a id="a5bf9c8d6084a7edd3e9e3e0085b77192"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5bf9c8d6084a7edd3e9e3e0085b77192">&#9670;&nbsp;</a></span>StartLoopedEffect()</h2>
+<a id="a7fd34c3610a7ffe25f8e1b5304e406da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fd34c3610a7ffe25f8e1b5304e406da">&#9670;&nbsp;</a></span>startLoopedEffect()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -724,7 +724,7 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SoundFacade::StartLoopedEffect </td>
+          <td class="memname">void SoundFacade::startLoopedEffect </td>
           <td>(</td>
           <td class="paramtype">const string &amp;&#160;</td>
           <td class="paramname"><em>identifier</em>, </td>
@@ -760,8 +760,8 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
 
 </div>
 </div>
-<a id="a6b1e8cbd539c214b111e2a86cb3bbb4a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b1e8cbd539c214b111e2a86cb3bbb4a">&#9670;&nbsp;</a></span>StopLoopedEffect()</h2>
+<a id="a59e89a6f8d09d5a9d293bdd33e69e99b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59e89a6f8d09d5a9d293bdd33e69e99b">&#9670;&nbsp;</a></span>stopLoopedEffect()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -770,7 +770,7 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SoundFacade::StopLoopedEffect </td>
+          <td class="memname">void SoundFacade::stopLoopedEffect </td>
           <td>(</td>
           <td class="paramtype">const string &amp;&#160;</td>
           <td class="paramname"><em>identifier</em></td><td>)</td>
@@ -796,8 +796,8 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
 
 </div>
 </div>
-<a id="a96f46b7372b27662ae4cd795c9b8db5d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96f46b7372b27662ae4cd795c9b8db5d">&#9670;&nbsp;</a></span>UnloadEffect()</h2>
+<a id="a7e1277bf227dc8c4146431b99c4a5cb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e1277bf227dc8c4146431b99c4a5cb6">&#9670;&nbsp;</a></span>unloadEffect()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -806,7 +806,7 @@ map&lt; std::string, Mix_Chunk * &gt;&#160;</td><td class="memItemRight" valign=
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SoundFacade::UnloadEffect </td>
+          <td class="memname">void SoundFacade::unloadEffect </td>
           <td>(</td>
           <td class="paramtype">const string &amp;&#160;</td>
           <td class="paramname"><em>identifier</em></td><td>)</td>

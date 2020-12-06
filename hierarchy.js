@@ -10,16 +10,6 @@ var hierarchy =
     [ "Engine", "class_engine.html", null ],
     [ "Event", "class_event.html", [
       [ "ActionEvent", "class_action_event.html", null ],
-      [ "AppTickEvent30", "class_app_tick_event30.html", null ],
-      [ "AppTickEvent60", "class_app_tick_event60.html", null ],
-      [ "BaseSoundEvent", "class_base_sound_event.html", [
-        [ "OnMusicStartEvent", "class_on_music_start_event.html", null ],
-        [ "OnMusicStopEvent", "class_on_music_stop_event.html", null ],
-        [ "PlaySoundEffectEvent", "class_play_sound_effect_event.html", null ],
-        [ "SoundAttachEvent", "class_sound_attach_event.html", null ],
-        [ "StopSoundEffectEvent", "class_stop_sound_effect_event.html", null ]
-      ] ],
-      [ "FpsToggleEvent", "class_fps_toggle_event.html", null ],
       [ "KeyEvent", "class_key_event.html", [
         [ "KeyPressedEvent", "class_key_pressed_event.html", null ],
         [ "KeyReleasedEvent", "class_key_released_event.html", null ],
@@ -36,23 +26,26 @@ var hierarchy =
         [ "OnCollisionBeginEvent", "class_on_collision_begin_event.html", null ],
         [ "OnCollisionEndEvent", "class_on_collision_end_event.html", null ]
       ] ],
-      [ "RemoveEvent", "class_remove_event.html", null ],
-      [ "VideoLoadSpriteEvent", "class_video_load_sprite_event.html", null ],
-      [ "WindowCloseEvent", "class_window_close_event.html", null ],
       [ "WindowResizeEvent", "class_window_resize_event.html", null ]
     ] ],
-    [ "EventSingleton", "class_event_singleton.html", null ],
+    [ "EventDispatcher", "class_event_dispatcher.html", null ],
     [ "FileLoader", "class_file_loader.html", null ],
     [ "FrameData", "class_frame_data.html", null ],
     [ "IInputFacade", "class_i_input_facade.html", [
       [ "InputFacade", "class_input_facade.html", null ]
     ] ],
-    [ "InputEngine", "class_input_engine.html", null ],
     [ "IPhysicsFacade", "class_i_physics_facade.html", [
       [ "PhysicsFacade", "class_physics_facade.html", null ]
     ] ],
     [ "ISoundFacade", "class_i_sound_facade.html", [
       [ "SoundFacade", "class_sound_facade.html", null ]
+    ] ],
+    [ "ISubsystem", "class_i_subsystem.html", [
+      [ "InputEngine", "class_input_engine.html", null ],
+      [ "ParticleEngine", "class_particle_engine.html", null ],
+      [ "PhysicsEngine", "class_physics_engine.html", null ],
+      [ "SoundEngine", "class_sound_engine.html", null ],
+      [ "VideoEngine", "class_video_engine.html", null ]
     ] ],
     [ "IVideoFacade", "class_i_video_facade.html", [
       [ "VideoFacade", "class_video_facade.html", null ]
@@ -61,7 +54,9 @@ var hierarchy =
     [ "Object", "class_object.html", [
       [ "Drawable", "class_drawable.html", [
         [ "Button", "class_button.html", null ],
-        [ "ParticleAdapter", "class_particle_adapter.html", null ]
+        [ "ParticleAdapter", "class_particle_adapter.html", null ],
+        [ "PopUp", "class_pop_up.html", null ],
+        [ "Text", "class_text.html", null ]
       ] ]
     ] ],
     [ "ObjectSize", "struct_object_size.html", null ],
@@ -71,16 +66,12 @@ var hierarchy =
       ] ]
     ] ],
     [ "ParticleData", "class_particle_data.html", null ],
-    [ "ParticleEngine", "class_particle_engine.html", null ],
     [ "ParticleSystem", "class_particle_system.html", null ],
     [ "PhysicsBody", "class_physics_body.html", null ],
-    [ "PhysicsEngine", "class_physics_engine.html", null ],
     [ "Pointf", "struct_pointf.html", null ],
     [ "Position", "struct_position.html", null ],
     [ "Scene", "class_scene.html", null ],
     [ "SceneManager", "class_scene_manager.html", null ],
-    [ "SoundEngine", "class_sound_engine.html", null ],
     [ "Sprite", "struct_sprite.html", null ],
-    [ "SpriteObject", "class_sprite_object.html", null ],
-    [ "VideoEngine", "class_video_engine.html", null ]
+    [ "SpriteObject", "class_sprite_object.html", null ]
 ];

@@ -60,7 +60,6 @@ $(document).ready(function(){initNavTree('class_frame_data.html',''); initResiza
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_frame_data-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -74,22 +73,23 @@ Public Member Functions</h2></td></tr>
 API double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_data.html#a6828d7e1d3c4b1df131a5e992065c56d">calculateAverageFps</a> ()</td></tr>
 <tr class="memdesc:a6828d7e1d3c4b1df131a5e992065c56d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the average fps of the last few ticks. <br /></td></tr>
 <tr class="separator:a6828d7e1d3c4b1df131a5e992065c56d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7890e9bbccc31d81d11fa3aac1817cd6"><td class="memItemLeft" align="right" valign="top"><a id="a7890e9bbccc31d81d11fa3aac1817cd6"></a>
+API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_data.html#a7890e9bbccc31d81d11fa3aac1817cd6">updateFps</a> ()</td></tr>
+<tr class="memdesc:a7890e9bbccc31d81d11fa3aac1817cd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines when to update the fps. <br /></td></tr>
+<tr class="separator:a7890e9bbccc31d81d11fa3aac1817cd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab291ac496d88ac9145e13afb39a56bd6"><td class="memItemLeft" align="right" valign="top"><a id="ab291ac496d88ac9145e13afb39a56bd6"></a>
 API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_data.html#ab291ac496d88ac9145e13afb39a56bd6">startTimer</a> ()</td></tr>
 <tr class="memdesc:ab291ac496d88ac9145e13afb39a56bd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the start time for the fps counter (use at beginning of loop) <br /></td></tr>
 <tr class="separator:ab291ac496d88ac9145e13afb39a56bd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:ad9f194c273994dc2810ddd2b4eb1744e"><td class="memItemLeft" align="right" valign="top"><a id="ad9f194c273994dc2810ddd2b4eb1744e"></a>
-static API double&#160;</td><td class="memItemRight" valign="bottom"><b>gameFps</b> = 0</td></tr>
-<tr class="separator:ad9f194c273994dc2810ddd2b4eb1744e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f73069488f5bec3021ab2e1bfa1853f"><td class="memItemLeft" align="right" valign="top"><a id="a9f73069488f5bec3021ab2e1bfa1853f"></a>
-static API double&#160;</td><td class="memItemRight" valign="bottom"><b>renderFps</b> = 0</td></tr>
-<tr class="separator:a9f73069488f5bec3021ab2e1bfa1853f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a799f538700525b3d1f6a72e894cdde99"><td class="memItemLeft" align="right" valign="top"><a id="a799f538700525b3d1f6a72e894cdde99"></a>
+API const double&#160;</td><td class="memItemRight" valign="bottom"><b>getFps</b> ()</td></tr>
+<tr class="separator:a799f538700525b3d1f6a72e894cdde99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:a64c5d8f688715ca21ff0d18e324a8eac"><td class="memItemLeft" align="right" valign="top"><a id="a64c5d8f688715ca21ff0d18e324a8eac"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>fps</b> = 0</td></tr>
+<tr class="separator:a64c5d8f688715ca21ff0d18e324a8eac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add5301424de08f0dec9c065974b80514"><td class="memItemLeft" align="right" valign="top"><a id="add5301424de08f0dec9c065974b80514"></a>
 list&lt; chrono::duration&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>frametimes</b></td></tr>
 <tr class="separator:add5301424de08f0dec9c065974b80514"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -99,6 +99,9 @@ chrono::high_resolution_clock::time_point&#160;</td><td class="memItemRight" val
 <tr class="memitem:a7f747deee20e2ff9b55f9120bd22fabc"><td class="memItemLeft" align="right" valign="top"><a id="a7f747deee20e2ff9b55f9120bd22fabc"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>framesPerSecond</b> = 0</td></tr>
 <tr class="separator:a7f747deee20e2ff9b55f9120bd22fabc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a094ca201b899b7eec0d9c501805d617e"><td class="memItemLeft" align="right" valign="top"><a id="a094ca201b899b7eec0d9c501805d617e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> = true</td></tr>
+<tr class="separator:a094ca201b899b7eec0d9c501805d617e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>Engine/Fps/<a class="el" href="_frame_data_8h_source.html">FrameData.h</a></li>

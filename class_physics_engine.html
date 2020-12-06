@@ -61,12 +61,22 @@ $(document).ready(function(){initNavTree('class_physics_engine.html',''); initRe
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_physics_engine-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">PhysicsEngine Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="dynheader">
+Inheritance diagram for PhysicsEngine:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_physics_engine.png" usemap="#PhysicsEngine_map" alt=""/>
+  <map id="PhysicsEngine_map" name="PhysicsEngine_map">
+<area href="class_i_subsystem.html" alt="ISubsystem" shape="rect" coords="0,0,95,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -82,33 +92,46 @@ Public Member Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a395053a3efe7baf0d5154a204b81b062">registerObjectInCurrentVectorWithPhysicsEngine</a> ()</td></tr>
 <tr class="memdesc:a395053a3efe7baf0d5154a204b81b062"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to create all objects in the facade. <br /></td></tr>
 <tr class="separator:a395053a3efe7baf0d5154a204b81b062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae403b95b6d1c0bc5ac7eb361c0058866"><td class="memItemLeft" align="right" valign="top"><a id="ae403b95b6d1c0bc5ac7eb361c0058866"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#ae403b95b6d1c0bc5ac7eb361c0058866">handleAction</a> (<a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
-<tr class="memdesc:ae403b95b6d1c0bc5ac7eb361c0058866"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles a <a class="el" href="class_action_event.html" title="AppTickEvent is fired when a tick happened in the engine. Derived class of event.">ActionEvent</a> and according to the given direction moves the object. <br /></td></tr>
-<tr class="separator:ae403b95b6d1c0bc5ac7eb361c0058866"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b5226f1d81015ae653baf1ebd5287fd"><td class="memItemLeft" align="right" valign="top"><a id="a6b5226f1d81015ae653baf1ebd5287fd"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>stopObject</b> (<a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
-<tr class="separator:a6b5226f1d81015ae653baf1ebd5287fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af14454d402142720dcfe78a8b16af517"><td class="memItemLeft" align="right" valign="top"><a id="af14454d402142720dcfe78a8b16af517"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#af14454d402142720dcfe78a8b16af517">update30</a> (<a class="el" href="class_event.html">Event</a> &amp;tick30Event)</td></tr>
-<tr class="memdesc:af14454d402142720dcfe78a8b16af517"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle the tick given from the thread. <br  />
- <br /></td></tr>
-<tr class="separator:af14454d402142720dcfe78a8b16af517"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a5291560a97ca4e6a0711c6ae99c046"><td class="memItemLeft" align="right" valign="top"><a id="a0a5291560a97ca4e6a0711c6ae99c046"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>removeObject</b> (<a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
-<tr class="separator:a0a5291560a97ca4e6a0711c6ae99c046"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a934274d6d30baac10dd6d5142522d2f4"><td class="memItemLeft" align="right" valign="top"><a id="a934274d6d30baac10dd6d5142522d2f4"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a934274d6d30baac10dd6d5142522d2f4">handleAction</a> (const <a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
+<tr class="memdesc:a934274d6d30baac10dd6d5142522d2f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles a <a class="el" href="class_action_event.html" title="AppTickEvent is fired when a tick happened in the engine. Derived class of event.">ActionEvent</a> and according to the given direction moves the object. <br /></td></tr>
+<tr class="separator:a934274d6d30baac10dd6d5142522d2f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c94fb9996654e0d495e3a680a431102"><td class="memItemLeft" align="right" valign="top"><a id="a9c94fb9996654e0d495e3a680a431102"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>stopObject</b> (const <a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
+<tr class="separator:a9c94fb9996654e0d495e3a680a431102"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fe197ed6df375d392407740ae20cc7c"><td class="memItemLeft" align="right" valign="top"><a id="a6fe197ed6df375d392407740ae20cc7c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>removeObject</b> ()</td></tr>
+<tr class="separator:a6fe197ed6df375d392407740ae20cc7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1211e342e28078b0774a98e43599fcb7"><td class="memItemLeft" align="right" valign="top"><a id="a1211e342e28078b0774a98e43599fcb7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>start</b> (<a class="el" href="class_event_dispatcher.html">EventDispatcher</a> &amp;dispatcher) override</td></tr>
+<tr class="separator:a1211e342e28078b0774a98e43599fcb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5558246d687304435d45c5e04c3eb29f"><td class="memItemLeft" align="right" valign="top"><a id="a5558246d687304435d45c5e04c3eb29f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> () override</td></tr>
+<tr class="separator:a5558246d687304435d45c5e04c3eb29f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a594c1e5e15be202e90e4584157df5b7d"><td class="memItemLeft" align="right" valign="top"><a id="a594c1e5e15be202e90e4584157df5b7d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>shutdown</b> () override</td></tr>
+<tr class="separator:a594c1e5e15be202e90e4584157df5b7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a6c5b158b02bc35ac02008cbedae5bfeb"><td class="memItemLeft" align="right" valign="top"><a id="a6c5b158b02bc35ac02008cbedae5bfeb"></a>
-<a class="el" href="class_i_physics_facade.html">IPhysicsFacade</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>physicsFacade</b></td></tr>
-<tr class="separator:a6c5b158b02bc35ac02008cbedae5bfeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a87eef7b319b415385b63724195fb41"><td class="memItemLeft" align="right" valign="top"><a id="a7a87eef7b319b415385b63724195fb41"></a>
 <a class="el" href="class_scene.html">Scene</a> **&#160;</td><td class="memItemRight" valign="bottom"><b>pointerToCurrentScene</b> = nullptr</td></tr>
 <tr class="separator:a7a87eef7b319b415385b63724195fb41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a1b8eb1b60b64196cab53e89bef06d21b"><td class="memItemLeft" align="right" valign="top"><a id="a1b8eb1b60b64196cab53e89bef06d21b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>clean</b> ()</td></tr>
+<tr class="separator:a1b8eb1b60b64196cab53e89bef06d21b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:a6c5b158b02bc35ac02008cbedae5bfeb"><td class="memItemLeft" align="right" valign="top"><a id="a6c5b158b02bc35ac02008cbedae5bfeb"></a>
+<a class="el" href="class_i_physics_facade.html">IPhysicsFacade</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>physicsFacade</b></td></tr>
+<tr class="separator:a6c5b158b02bc35ac02008cbedae5bfeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6945956fed49dc5086c08bf324336169"><td class="memItemLeft" align="right" valign="top"><a id="a6945956fed49dc5086c08bf324336169"></a>
+<a class="el" href="class_event_dispatcher.html">EventDispatcher</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>dispatcher</b></td></tr>
+<tr class="separator:a6945956fed49dc5086c08bf324336169"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a858c48efe8067f869a2512301e609edc"><td class="memItemLeft" align="right" valign="top"><a id="a858c48efe8067f869a2512301e609edc"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>currentSceneID</b> = 0</td></tr>
 <tr class="separator:a858c48efe8067f869a2512301e609edc"><td class="memSeparator" colspan="2">&#160;</td></tr>

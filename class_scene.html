@@ -60,6 +60,7 @@ $(document).ready(function(){initNavTree('class_scene.html',''); initResizable()
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_scene-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -82,9 +83,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aedaad4ca2d73ffdc2ebf0de2a31f4ca5"><td class="memItemLeft" align="right" valign="top">const bool API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#aedaad4ca2d73ffdc2ebf0de2a31f4ca5">toggleLayer</a> (const int zIndex, bool render)</td></tr>
 <tr class="memdesc:aedaad4ca2d73ffdc2ebf0de2a31f4ca5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns the layer on or off.  <a href="class_scene.html#aedaad4ca2d73ffdc2ebf0de2a31f4ca5">More...</a><br /></td></tr>
 <tr class="separator:aedaad4ca2d73ffdc2ebf0de2a31f4ca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37541de6ba38b1905683bfe6cd88b2b4"><td class="memItemLeft" align="right" valign="top">const void API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a37541de6ba38b1905683bfe6cd88b2b4">addNewObjectToLayer</a> (const int zIndex, <a class="el" href="class_object.html">Object</a> *object, bool renderPhysics=false)</td></tr>
-<tr class="memdesc:a37541de6ba38b1905683bfe6cd88b2b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new object to the given Z index.  <a href="class_scene.html#a37541de6ba38b1905683bfe6cd88b2b4">More...</a><br /></td></tr>
-<tr class="separator:a37541de6ba38b1905683bfe6cd88b2b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d7026062180c2f43eda8d1785ceb7d8"><td class="memItemLeft" align="right" valign="top">const void API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a7d7026062180c2f43eda8d1785ceb7d8">addNewObjectToLayer</a> (const int zIndex, <a class="el" href="class_object.html">Object</a> *object, bool renderPhysics=false, bool alwaysDrawLayer=false)</td></tr>
+<tr class="memdesc:a7d7026062180c2f43eda8d1785ceb7d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new object to the given Z index.  <a href="class_scene.html#a7d7026062180c2f43eda8d1785ceb7d8">More...</a><br /></td></tr>
+<tr class="separator:a7d7026062180c2f43eda8d1785ceb7d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abdd9e7feda2031b46c64f797dee51615"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_drawable.html">Drawable</a> * &gt; API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#abdd9e7feda2031b46c64f797dee51615">getAllDrawablesInScene</a> ()</td></tr>
 <tr class="memdesc:abdd9e7feda2031b46c64f797dee51615"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a filtered collection of all the drawables in the current scene TEMPORARY.  <a href="class_scene.html#abdd9e7feda2031b46c64f797dee51615">More...</a><br /></td></tr>
 <tr class="separator:abdd9e7feda2031b46c64f797dee51615"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -100,22 +101,22 @@ vector&lt; <a class="el" href="class_object.html">Object</a> * &gt;&#160;</td><t
 <tr class="memitem:ae3e629e67c6dc2e4dab696f63fd7fa9e"><td class="memItemLeft" align="right" valign="top"><a id="ae3e629e67c6dc2e4dab696f63fd7fa9e"></a>
 int API&#160;</td><td class="memItemRight" valign="bottom"><b>getSceneID</b> ()</td></tr>
 <tr class="separator:ae3e629e67c6dc2e4dab696f63fd7fa9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acaeb7fdb1cb8a44852a2fe593d912ccd"><td class="memItemLeft" align="right" valign="top"><a id="acaeb7fdb1cb8a44852a2fe593d912ccd"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#acaeb7fdb1cb8a44852a2fe593d912ccd">onAttach</a> ()=0</td></tr>
-<tr class="memdesc:acaeb7fdb1cb8a44852a2fe593d912ccd"><td class="mdescLeft">&#160;</td><td class="mdescRight">OnAttach is executed when a scene is "attached" to the current running context usually this is can be used to prime a level with relevant data before starting it. Must be implemented by a concrete implementation of a scene. <br /></td></tr>
-<tr class="separator:acaeb7fdb1cb8a44852a2fe593d912ccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ec5c2aa1fe770f3f72e1ce71138ae94"><td class="memItemLeft" align="right" valign="top"><a id="a2ec5c2aa1fe770f3f72e1ce71138ae94"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a2ec5c2aa1fe770f3f72e1ce71138ae94">start</a> ()=0</td></tr>
-<tr class="memdesc:a2ec5c2aa1fe770f3f72e1ce71138ae94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene Must be implemented by a concrete implementation of a scene. <br /></td></tr>
-<tr class="separator:a2ec5c2aa1fe770f3f72e1ce71138ae94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc3766fe5466a09e8ea7d7a2ebb4e66f"><td class="memItemLeft" align="right" valign="top"><a id="afc3766fe5466a09e8ea7d7a2ebb4e66f"></a>
+virtual API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#afc3766fe5466a09e8ea7d7a2ebb4e66f">onAttach</a> ()=0</td></tr>
+<tr class="memdesc:afc3766fe5466a09e8ea7d7a2ebb4e66f"><td class="mdescLeft">&#160;</td><td class="mdescRight">OnAttach is executed when a scene is "attached" to the current running context usually this is can be used to prime a level with relevant data before starting it. Must be implemented by a concrete implementation of a scene. <br /></td></tr>
+<tr class="separator:afc3766fe5466a09e8ea7d7a2ebb4e66f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a763f066c31b0770a0f541983fb93b914"><td class="memItemLeft" align="right" valign="top"><a id="a763f066c31b0770a0f541983fb93b914"></a>
+virtual API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a763f066c31b0770a0f541983fb93b914">start</a> (bool playSound)=0</td></tr>
+<tr class="memdesc:a763f066c31b0770a0f541983fb93b914"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene Must be implemented by a concrete implementation of a scene. <br /></td></tr>
+<tr class="separator:a763f066c31b0770a0f541983fb93b914"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2f8580712a38a425315f99d9e5be2b9"><td class="memItemLeft" align="right" valign="top"><a id="ac2f8580712a38a425315f99d9e5be2b9"></a>
 virtual API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#ac2f8580712a38a425315f99d9e5be2b9">onDetach</a> ()=0</td></tr>
 <tr class="memdesc:ac2f8580712a38a425315f99d9e5be2b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">OnDetach is called when a scene is destroyed/closed and is responsible for cleanup Must be implemented by a concrete implementation of a scene. <br /></td></tr>
 <tr class="separator:ac2f8580712a38a425315f99d9e5be2b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28ea04044a289e5f781811a41206b0c9"><td class="memItemLeft" align="right" valign="top"><a id="a28ea04044a289e5f781811a41206b0c9"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a28ea04044a289e5f781811a41206b0c9">onUpdate</a> ()=0</td></tr>
-<tr class="memdesc:a28ea04044a289e5f781811a41206b0c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">run is called in the main loop on the currentScene If any work needs to be done during a scene this is were to place it <br /></td></tr>
-<tr class="separator:a28ea04044a289e5f781811a41206b0c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb2ed971b11465980804ad4856a0fd66"><td class="memItemLeft" align="right" valign="top"><a id="abb2ed971b11465980804ad4856a0fd66"></a>
+virtual API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#abb2ed971b11465980804ad4856a0fd66">onUpdate</a> ()=0</td></tr>
+<tr class="memdesc:abb2ed971b11465980804ad4856a0fd66"><td class="mdescLeft">&#160;</td><td class="mdescRight">run is called in the main loop on the currentScene If any work needs to be done during a scene this is were to place it <br /></td></tr>
+<tr class="separator:abb2ed971b11465980804ad4856a0fd66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad28c2fd6c05278c2fbb6c3c2a5d8fb5a"><td class="memItemLeft" align="right" valign="top"><a id="ad28c2fd6c05278c2fbb6c3c2a5d8fb5a"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setSceneWidth</b> (const int width)</td></tr>
 <tr class="separator:ad28c2fd6c05278c2fbb6c3c2a5d8fb5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -131,6 +132,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>getSceneHeight</b> () 
 <tr class="memitem:ac86043cea6ee1590cd16f3f090a1500b"><td class="memItemLeft" align="right" valign="top"><a id="ac86043cea6ee1590cd16f3f090a1500b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setObjectToFollow</b> (<a class="el" href="class_object.html">Object</a> *obj)</td></tr>
 <tr class="separator:ac86043cea6ee1590cd16f3f090a1500b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a410092ae04e45dfa3159fa7f2667708a"><td class="memItemLeft" align="right" valign="top"><a id="a410092ae04e45dfa3159fa7f2667708a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>onKeyPressed</b> (const <a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
+<tr class="separator:a410092ae04e45dfa3159fa7f2667708a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd9d69a98c906f5bd8c1a8a18db1f67a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#abd9d69a98c906f5bd8c1a8a18db1f67a">getObjectToFollowID</a> () const</td></tr>
 <tr class="memdesc:abd9d69a98c906f5bd8c1a8a18db1f67a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the id of the object to follow.  <a href="class_scene.html#abd9d69a98c906f5bd8c1a8a18db1f67a">More...</a><br /></td></tr>
 <tr class="separator:abd9d69a98c906f5bd8c1a8a18db1f67a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -140,6 +144,40 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setObjectToFollow</b>
 <tr class="memitem:a4f06a5e001feb04ed82d23a7574779c5"><td class="memItemLeft" align="right" valign="top"><a id="a4f06a5e001feb04ed82d23a7574779c5"></a>
 API void&#160;</td><td class="memItemRight" valign="bottom"><b>removeObjectFromScene</b> (<a class="el" href="class_object.html">Object</a> *obj)</td></tr>
 <tr class="separator:a4f06a5e001feb04ed82d23a7574779c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb0274a49f1ca81274151e2d0dca9918"><td class="memItemLeft" align="right" valign="top"><a id="acb0274a49f1ca81274151e2d0dca9918"></a>
+API map&lt; int, <a class="el" href="struct_layer.html">Layer</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getLayers</b> () const</td></tr>
+<tr class="separator:acb0274a49f1ca81274151e2d0dca9918"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa392fe80866ceb24130d4a642834767"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#afa392fe80866ceb24130d4a642834767">createLayer</a> (const int zIndex, bool renderPhysics=false, bool alwaysDrawLayer=false)</td></tr>
+<tr class="memdesc:afa392fe80866ceb24130d4a642834767"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a layer on the active scene with the given zIndex.  <a href="class_scene.html#afa392fe80866ceb24130d4a642834767">More...</a><br /></td></tr>
+<tr class="separator:afa392fe80866ceb24130d4a642834767"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a24679777f42f8bf9a1dcb307dae155"><td class="memItemLeft" align="right" valign="top"><a id="a8a24679777f42f8bf9a1dcb307dae155"></a>
+<a class="el" href="class_event_dispatcher.html">EventDispatcher</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getEventDispatcher</b> ()</td></tr>
+<tr class="separator:a8a24679777f42f8bf9a1dcb307dae155"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1cc82a225bdfc93f69bdc853b6043c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#aa1cc82a225bdfc93f69bdc853b6043c2">createPopUpLayer</a> (float xPosition, float yPosition, string text)</td></tr>
+<tr class="memdesc:aa1cc82a225bdfc93f69bdc853b6043c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a basic <a class="el" href="class_pop_up.html" title="Class for PopUp drawable.">PopUp</a> with text.  <a href="class_scene.html#aa1cc82a225bdfc93f69bdc853b6043c2">More...</a><br /></td></tr>
+<tr class="separator:aa1cc82a225bdfc93f69bdc853b6043c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abda2d4c0fd1e55d66259a9a9f3ef22aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#abda2d4c0fd1e55d66259a9a9f3ef22aa">createPopUpLayer</a> (float xPosition, float yPosition, float width, float height, string text)</td></tr>
+<tr class="memdesc:abda2d4c0fd1e55d66259a9a9f3ef22aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extended <a class="el" href="class_pop_up.html" title="Class for PopUp drawable.">PopUp</a> creation.  <a href="class_scene.html#abda2d4c0fd1e55d66259a9a9f3ef22aa">More...</a><br /></td></tr>
+<tr class="separator:abda2d4c0fd1e55d66259a9a9f3ef22aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1878ccc870c5c05f6e2a57a355e5d417"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a1878ccc870c5c05f6e2a57a355e5d417">createPopUpLayer</a> (float xPosition, float yPosition, float width, float height, string text, <a class="el" href="class_sprite_object.html">SpriteObject</a> *spObject)</td></tr>
+<tr class="memdesc:a1878ccc870c5c05f6e2a57a355e5d417"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extended <a class="el" href="class_pop_up.html" title="Class for PopUp drawable.">PopUp</a> creation.  <a href="class_scene.html#a1878ccc870c5c05f6e2a57a355e5d417">More...</a><br /></td></tr>
+<tr class="separator:a1878ccc870c5c05f6e2a57a355e5d417"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbc87e679ccbd443ca6b1092acf34ba9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#abbc87e679ccbd443ca6b1092acf34ba9">createPopUpLayer</a> (float xPosition, float yPosition, float width, float height, <a class="el" href="class_sprite_object.html">SpriteObject</a> *spObject)</td></tr>
+<tr class="memdesc:abbc87e679ccbd443ca6b1092acf34ba9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extended <a class="el" href="class_pop_up.html" title="Class for PopUp drawable.">PopUp</a> creation.  <a href="class_scene.html#abbc87e679ccbd443ca6b1092acf34ba9">More...</a><br /></td></tr>
+<tr class="separator:abbc87e679ccbd443ca6b1092acf34ba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb211048face51d3fd02e6edb02e0b0f"><td class="memItemLeft" align="right" valign="top"><a id="afb211048face51d3fd02e6edb02e0b0f"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getHighestLayerIndex</b> ()</td></tr>
+<tr class="separator:afb211048face51d3fd02e6edb02e0b0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ff49eedec5b3b612edcc06e598892de"><td class="memItemLeft" align="right" valign="top"><a id="a7ff49eedec5b3b612edcc06e598892de"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a7ff49eedec5b3b612edcc06e598892de">removePopUpLayer</a> ()</td></tr>
+<tr class="memdesc:a7ff49eedec5b3b612edcc06e598892de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove <a class="el" href="class_pop_up.html" title="Class for PopUp drawable.">PopUp</a> layer. <br /></td></tr>
+<tr class="separator:a7ff49eedec5b3b612edcc06e598892de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:aa2070bf304b7a7c888668449cf39c020"><td class="memItemLeft" align="right" valign="top"><a id="aa2070bf304b7a7c888668449cf39c020"></a>
+<a class="el" href="class_event_dispatcher.html">EventDispatcher</a>&#160;</td><td class="memItemRight" valign="bottom"><b>dispatcher</b></td></tr>
+<tr class="separator:aa2070bf304b7a7c888668449cf39c020"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -158,6 +196,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneWidth</b> = WINDO
 <tr class="memitem:a2b2e7958dde96155ee77d6bb1f2f3d04"><td class="memItemLeft" align="right" valign="top"><a id="a2b2e7958dde96155ee77d6bb1f2f3d04"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneHeight</b> = WINDOW_HEIGHT</td></tr>
 <tr class="separator:a2b2e7958dde96155ee77d6bb1f2f3d04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0be385fc3943b57537a3c333ec18b0c"><td class="memItemLeft" align="right" valign="top"><a id="ad0be385fc3943b57537a3c333ec18b0c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasActivePopUp</b> = false</td></tr>
+<tr class="separator:ad0be385fc3943b57537a3c333ec18b0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_scene.html" title="Scene Class Contains all the objects that should be drawn in this scene.">Scene</a> Class Contains all the objects that should be drawn in this scene. </p>
@@ -204,8 +245,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneHeight</b> = WIND
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a37541de6ba38b1905683bfe6cd88b2b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a37541de6ba38b1905683bfe6cd88b2b4">&#9670;&nbsp;</a></span>addNewObjectToLayer()</h2>
+<a id="a7d7026062180c2f43eda8d1785ceb7d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d7026062180c2f43eda8d1785ceb7d8">&#9670;&nbsp;</a></span>addNewObjectToLayer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -226,7 +267,13 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneHeight</b> = WIND
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>renderPhysics</em> = <code>false</code>&#160;</td>
+          <td class="paramname"><em>renderPhysics</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>alwaysDrawLayer</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -271,6 +318,280 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneHeight</b> = WIND
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns true if <a class="el" href="class_object.html" title="Object class. Object is linked with a sprite id in SVI.">Object</a> is found in current scene else false. </dd></dl>
+
+</div>
+</div>
+<a id="afa392fe80866ceb24130d4a642834767"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa392fe80866ceb24130d4a642834767">&#9670;&nbsp;</a></span>createLayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Scene::createLayer </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>zIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>renderPhysics</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>alwaysDrawLayer</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create a layer on the active scene with the given zIndex. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">zIndex</td><td></td></tr>
+    <tr><td class="paramname">renderPhysics</td><td></td></tr>
+    <tr><td class="paramname">alwaysDrawLayer</td><td><br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abbc87e679ccbd443ca6b1092acf34ba9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbc87e679ccbd443ca6b1092acf34ba9">&#9670;&nbsp;</a></span>createPopUpLayer() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Scene::createPopUpLayer </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>xPosition</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>yPosition</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_sprite_object.html">SpriteObject</a> *&#160;</td>
+          <td class="paramname"><em>spObject</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Extended <a class="el" href="class_pop_up.html" title="Class for PopUp drawable.">PopUp</a> creation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xPosition</td><td></td></tr>
+    <tr><td class="paramname">yPosition</td><td></td></tr>
+    <tr><td class="paramname">width</td><td></td></tr>
+    <tr><td class="paramname">height</td><td></td></tr>
+    <tr><td class="paramname">spObject</td><td><br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abda2d4c0fd1e55d66259a9a9f3ef22aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abda2d4c0fd1e55d66259a9a9f3ef22aa">&#9670;&nbsp;</a></span>createPopUpLayer() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Scene::createPopUpLayer </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>xPosition</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>yPosition</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>text</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Extended <a class="el" href="class_pop_up.html" title="Class for PopUp drawable.">PopUp</a> creation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xPosition</td><td></td></tr>
+    <tr><td class="paramname">yPosition</td><td></td></tr>
+    <tr><td class="paramname">width</td><td></td></tr>
+    <tr><td class="paramname">height</td><td></td></tr>
+    <tr><td class="paramname">text</td><td><br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1878ccc870c5c05f6e2a57a355e5d417"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1878ccc870c5c05f6e2a57a355e5d417">&#9670;&nbsp;</a></span>createPopUpLayer() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Scene::createPopUpLayer </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>xPosition</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>yPosition</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_sprite_object.html">SpriteObject</a> *&#160;</td>
+          <td class="paramname"><em>spObject</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Extended <a class="el" href="class_pop_up.html" title="Class for PopUp drawable.">PopUp</a> creation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xPosition</td><td></td></tr>
+    <tr><td class="paramname">yPosition</td><td></td></tr>
+    <tr><td class="paramname">width</td><td></td></tr>
+    <tr><td class="paramname">height</td><td></td></tr>
+    <tr><td class="paramname">text</td><td></td></tr>
+    <tr><td class="paramname">spObject</td><td><br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa1cc82a225bdfc93f69bdc853b6043c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1cc82a225bdfc93f69bdc853b6043c2">&#9670;&nbsp;</a></span>createPopUpLayer() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Scene::createPopUpLayer </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>xPosition</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>yPosition</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>text</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a basic <a class="el" href="class_pop_up.html" title="Class for PopUp drawable.">PopUp</a> with text. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xPosition</td><td></td></tr>
+    <tr><td class="paramname">yPosition</td><td></td></tr>
+    <tr><td class="paramname">text</td><td><br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

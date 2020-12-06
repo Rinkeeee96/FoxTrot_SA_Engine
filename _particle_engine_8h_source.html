@@ -67,30 +67,35 @@ $(document).ready(function(){initNavTree('_particle_engine_8h_source.html',''); 
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Events/Event.h&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Events/Action/ActionEvent.h&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;ParticleAdapter.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_particle_engine.html">    8</a></span>&#160;<span class="keyword">class </span>API <a class="code" href="class_particle_engine.html">ParticleEngine</a></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_particle_engine.html">ParticleEngine</a>();</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    ~<a class="code" href="class_particle_engine.html">ParticleEngine</a>();</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">bool</span> onUpdate(<a class="code" href="class_event.html">Event</a>&amp; tickEvent);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="class_scene.html">Scene</a>** pointerToCurrentScene = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">void</span> checkIfObjectValueAndParticleValueMatch(<a class="code" href="class_particle_adapter.html">ParticleAdapter</a>&amp; particle);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;General/ISubsystem.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_particle_engine.html">    9</a></span>&#160;<span class="keyword">class </span>API <a class="code" href="class_particle_engine.html">ParticleEngine</a>: <span class="keyword">public</span> <a class="code" href="class_i_subsystem.html">ISubsystem</a></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="class_particle_engine.html">ParticleEngine</a>();</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    ~<a class="code" href="class_particle_engine.html">ParticleEngine</a>();</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">void</span> start(<a class="code" href="class_event_dispatcher.html">EventDispatcher</a>&amp; dispatcher) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">void</span> update() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> shutdown() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_scene.html">Scene</a>** pointerToCurrentScene = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> checkIfObjectValueAndParticleValueMatch(<a class="code" href="class_particle_adapter.html">ParticleAdapter</a>&amp; particle);</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_particle_adapter_html"><div class="ttname"><a href="class_particle_adapter.html">ParticleAdapter</a></div><div class="ttdoc">Particle Bridge that inherits from Object and ParticleInit(Cocos2dx Library)</div><div class="ttdef"><b>Definition:</b> ParticleAdapter.h:8</div></div>
-<div class="ttc" id="aclass_particle_engine_html"><div class="ttname"><a href="class_particle_engine.html">ParticleEngine</a></div><div class="ttdoc">Class to update Particle.</div><div class="ttdef"><b>Definition:</b> ParticleEngine.h:9</div></div>
-<div class="ttc" id="aclass_event_html"><div class="ttname"><a href="class_event.html">Event</a></div><div class="ttdef"><b>Definition:</b> Event.h:10</div></div>
-<div class="ttc" id="aclass_scene_html"><div class="ttname"><a href="class_scene.html">Scene</a></div><div class="ttdoc">Scene Class Contains all the objects that should be drawn in this scene.</div><div class="ttdef"><b>Definition:</b> Scene.h:12</div></div>
+<div class="ttc" id="aclass_particle_engine_html"><div class="ttname"><a href="class_particle_engine.html">ParticleEngine</a></div><div class="ttdoc">Class to update Particle.</div><div class="ttdef"><b>Definition:</b> ParticleEngine.h:10</div></div>
+<div class="ttc" id="aclass_scene_html"><div class="ttname"><a href="class_scene.html">Scene</a></div><div class="ttdoc">Scene Class Contains all the objects that should be drawn in this scene.</div><div class="ttdef"><b>Definition:</b> Scene.h:14</div></div>
+<div class="ttc" id="aclass_event_dispatcher_html"><div class="ttname"><a href="class_event_dispatcher.html">EventDispatcher</a></div><div class="ttdef"><b>Definition:</b> EventDispatcher.h:12</div></div>
+<div class="ttc" id="aclass_i_subsystem_html"><div class="ttname"><a href="class_i_subsystem.html">ISubsystem</a></div><div class="ttdef"><b>Definition:</b> ISubsystem.h:5</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

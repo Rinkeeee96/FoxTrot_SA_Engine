@@ -2,9 +2,11 @@ var class_video_facade =
 [
     [ "VideoFacade", "class_video_facade.html#a7f3bf7b126944096590b60516f93c96c", null ],
     [ "~VideoFacade", "class_video_facade.html#a3f976afeff890ec99b164f74b224b659", null ],
+    [ "clean", "class_video_facade.html#aca351f606045d14b99642e55f10a99bd", null ],
     [ "clearScreen", "class_video_facade.html#ae98c664027935e2a960ecf25dff1d4a8", null ],
-    [ "drawMessageAt", "class_video_facade.html#a67e20d2cd7a828c573bb5a3b30df103e", null ],
-    [ "drawParticle", "class_video_facade.html#af9bb053433b1bd931887c95fa2c8a548", null ],
+    [ "createRect", "class_video_facade.html#a569ca1161f3f70619dad1def4628bfbf", null ],
+    [ "drawMessageAt", "class_video_facade.html#afa8cfa2158d507d92a9313c79267a8b7", null ],
+    [ "drawParticle", "class_video_facade.html#a6a3f8e2910d6322efe124e81709959e8", null ],
     [ "drawScreen", "class_video_facade.html#ab90d16a2784490d00753d26262472d68", null ],
     [ "getXCameraOffset", "class_video_facade.html#aa32af56b1322c3de2dad691c41f6734c", null ],
     [ "getYCameraOffset", "class_video_facade.html#abc08e3fe9377666f846917d4ad234d24", null ],
