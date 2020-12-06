@@ -22,6 +22,13 @@ Engine::~Engine()
 }
 
 /// @brief 
+/// Override the default invoker with a custom one from the application
+void Engine::useCustomCommandInvoker(KeypressInvoker* newInvoker)
+{
+	this->keypressInvoker = newInvoker;
+}
+
+/// @brief 
 /// Set the current Scene in the scenemanager. Called from game to switch screens.
 /// @param sceneID 
 /// SceneID to set the currentSceneID to

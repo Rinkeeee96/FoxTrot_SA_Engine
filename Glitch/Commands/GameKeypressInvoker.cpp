@@ -4,6 +4,11 @@
 #include "Game/characters/Player/Player.h"
 unordered_map<KeyCode, string>& GameKeypressInvoker::getPlayerCommands() { return this->playerCommands; }
 
+/// @brief
+/// update a collection within the gamekeypressinvoker
+/// @param commandList the list with commands
+/// @param code the new keycode for a command
+/// @param command the command to update
 void GameKeypressInvoker::updateCollection(unordered_map<KeyCode, string>& commandList, KeyCode code, ICommand* command) {
 	for (auto commandIt = commandList.begin(); commandIt->second != command->getIdentifier(); ++commandIt)
 	{
@@ -15,10 +20,11 @@ void GameKeypressInvoker::updateCollection(unordered_map<KeyCode, string>& comma
 			commandList[code] = command->getIdentifier();
 			commandIt->second = oldCommand;
 
-			KeypressInvoker::updateCommand(code, command);
-			return;
+			continue;
 		}
 	}
+
+	KeypressInvoker::updateCommand(code, command);
 }
 
 void GameKeypressInvoker::updatePlayerCommand(KeyCode code, ICharacterCommand* command)

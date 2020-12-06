@@ -23,6 +23,10 @@ void InputEngine::start(EventDispatcher& dispatcher) {
 	dispatcher.setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(InputEngine::onKeyPressed));
 };
 
+/// @brief
+/// handles the updates for the input engine, pretty self explainatory
+/// polls the events from the facade and if a keypressinvoker is set when using the command pattern, 
+/// it handles the commands placed in queue each frame
 void InputEngine::update() { 
 	if(inputFacade)
 		inputFacade->pollEvents();

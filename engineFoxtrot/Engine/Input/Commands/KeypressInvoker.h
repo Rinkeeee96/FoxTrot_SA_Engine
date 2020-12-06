@@ -28,7 +28,7 @@ public:
 	API void deleteCommandThatBelongsTo(const KeyCode& code);
 
 	/// @brief
-	/// Queue a command for execution by the engine
+	/// Handle commands placed in the command queue each frame
 	API void executeCommandQueue(EventDispatcher& dispatcher);
 
 	/// @brief

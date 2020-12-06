@@ -25,9 +25,7 @@ public:
 	API Engine();
 	API ~Engine();
 
-	void useCustomCommandInvoker(KeypressInvoker* newInvoker) {
-		this->keypressInvoker = newInvoker;
-	}
+	void useCustomCommandInvoker(KeypressInvoker* newInvoker);
 
 	//SceneManager calls
 	API void setCurrentScene(const int sceneID);
