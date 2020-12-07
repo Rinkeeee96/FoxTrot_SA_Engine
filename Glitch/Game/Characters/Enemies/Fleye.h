@@ -7,10 +7,14 @@
 /// Slime class with correspondending AI logic
 class Fleye : public IEnemy {
 public:
-	Fleye(EventDispatcher& _dispatcher) : IEnemy(_dispatcher) { this->setGravity(0); }
+	Fleye(EventDispatcher& _dispatcher) : IEnemy(_dispatcher) { 
+		this->setGravity(0);
+		this->damage = 2;
+	}
 	Fleye(const int id, EventDispatcher& _dispatcher) : IEnemy(id, _dispatcher) {
 		_dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Fleye::onCollisionBeginEvent));
 		this->setGravity(0);
+		this->damage = 2;
 	}
 
 	bool onCollisionBeginEvent(const Event& event) {
@@ -28,14 +32,14 @@ public:
 				Object& otherE = collisionEvent.getObjectTwo();
 
 				if (this->player->getObjectId() == otherE.getObjectId()) {
-					this->player->setCurrentHealth(this->player->getCurrentHealth() - 1);
+					this->player->removeHealth(this->damage);
 				}
 			}
 			else if (collisionEvent.getObjectTwo().getObjectId() == this->getObjectId()) {
 				Object& otherEntity = collisionEvent.getObjectOne();
 
 				if (this->player->getObjectId() == otherEntity.getObjectId()) {
-					this->player->setCurrentHealth(this->player->getCurrentHealth() - 1);
+					this->player->removeHealth(this->damage);
 				}
 			}
 		}

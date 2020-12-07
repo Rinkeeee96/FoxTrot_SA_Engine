@@ -1,6 +1,7 @@
 #pragma once
 #include "Game/Characters/Player/Player.h"
 #include "Game/Scenes/GameScene.h"
+#include "Game/States/Player/GodState.h"
 /// @brief 
 /// Level class. Level has all the information. 
 class Level : public GameScene
@@ -18,6 +19,7 @@ public:
 
 	void addHuds();
 
+	bool onKeyPressed(const Event& event);
 	void setWin(const bool val) { this->win = val; }
 private:
 	void addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, SpriteObject* HUD);

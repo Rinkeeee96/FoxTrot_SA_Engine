@@ -2,9 +2,37 @@
 #include "Level.h"
 #include "Game/Game.h"
 
-Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, Engine& engine, SceneStateMachine& _stateMachine) : GameScene::GameScene(id, _sceneHeight, _sceneWidth, engine, _stateMachine)
+Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, Engine& engine, SceneStateMachine& _stateMachine) 
+				: GameScene::GameScene(id, _sceneHeight, _sceneWidth, engine, _stateMachine)
 {
+	this->dispatcher.setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Level::onKeyPressed));
+}
 
+bool Level::onKeyPressed(const Event& event) {
+	if (this->win || this->player->getIsDead()) return false;
+
+	auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
+	// TODO command pattern
+	switch (keyPressedEvent.GetKeyCode())
+	{
+	case KeyCode::KEY_P:
+		if (!hasActivePopUp) {
+			createPopUpLayer(WINDOW_WIDTH_CENTER, WINDOW_HEIGHT_CENTER, "Paused");
+			this->paused = true;
+		}
+		else {
+			removePopUpLayer();
+			this->paused = false;
+		}
+		break;
+	case KeyCode::KEY_G:
+		if (this->player != nullptr && typeid(this->player->getStateMachine().getCurrentState()).name() != typeid(GodState).name()) this->player->getStateMachine().setCurrentState(new GodState, this->player);
+		else this->player->getStateMachine().setCurrentState(new NormalState, this->player);
+		break;
+	default:
+		break;
+	}
+	return false;
 }
 
 // @brief 
@@ -97,7 +125,6 @@ void Level::start(bool playSound) {
 			engine.soundEngine.onStartBackgroundMusicEvent(s.first);
 		}
 	}
-
 }
 
 void Level::onUpdate() {
@@ -144,4 +171,4 @@ void Level::pause() {
 void Level::onDetach() 
 {
 	Scene::onDetach();
-}//cleaup buffer
+}

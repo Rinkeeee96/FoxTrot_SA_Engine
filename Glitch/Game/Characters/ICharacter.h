@@ -27,6 +27,7 @@ public:
 		if (currentHealth > totalHealth) totalHealth = currentHealth;
 	}
 	void removeHealth(int val) { 
+		if (!canHit) return;
 		this->currentHealth -= val;
 		if (this->currentHealth <= 0) {
 			this->kill();
@@ -40,10 +41,12 @@ public:
     void respawn() { this->setPositionX(spawnX); this->setPositionY(spawnY); }
 	bool getIsDead() const { return this->currentHealth == 0; }
 
+	void setCanHit(const bool canHit) { this->canHit = canHit; }
 	virtual ICharacter* clone(int id) = 0;
 protected:
 	int currentHealth = 0;
 	int totalHealth = 0;
+	bool canHit = true;
 	bool canJump = false;
 	float spawnX = 0;
 	float spawnY = 0;
