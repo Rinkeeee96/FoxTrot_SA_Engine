@@ -41,6 +41,11 @@ public:
     void respawn() { this->setPositionX(spawnX); this->setPositionY(spawnY); }
 	bool getIsDead() const { return this->currentHealth == 0; }
 
+	/// @brief
+	/// Builds the spritemap for an object, should be implemented when overriding this
+	/// @param textureId
+	/// The current texture id, required to be able to assign a unique id to all textures
+	/// @returns map<SpriteState, SpriteObject*>
 	virtual map<SpriteState, SpriteObject*> buildSpritemap(int textureId) = 0;
 
 	virtual ICharacter* clone(int id) = 0;

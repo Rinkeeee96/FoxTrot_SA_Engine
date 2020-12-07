@@ -11,7 +11,7 @@
 #define JUMP_ANIMATION_TIME 50
 
 /// @brief 
-/// Slime class with correspondending AI logic
+/// BaseEnemy class; Unites the onCollisionEvent for every enemy
 class BaseEnemy : public IEnemy {
 public:
 	BaseEnemy(EventDispatcher& _dispatcher) : IEnemy(_dispatcher) {}

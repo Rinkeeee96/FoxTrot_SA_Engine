@@ -1,7 +1,11 @@
 #include "pch.h"
-#include "Slime.h"
 #include "BaseEnemy.h"
 
+/// @brief
+/// Checks if the enemy collides with anything and acts accordingly (dies if a player jumps on it, or remove player health for any other collision direction)
+/// @param event
+/// The actual collision event
+/// @returns bool
 bool BaseEnemy::onCollisionBeginEvent(const Event& event) {
 	auto collisionEvent = static_cast<const OnCollisionBeginEvent&>(event);
 	if (collisionEvent.getObjectOne().getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo().getObjectId() != this->getObjectId()) return false;
