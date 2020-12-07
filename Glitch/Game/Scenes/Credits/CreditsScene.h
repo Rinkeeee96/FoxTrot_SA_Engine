@@ -17,7 +17,7 @@ public:
 	// Inherited via Scene
 	void onAttach() override;
 	void onDetach() override;
-	void start() override;
+	void start(bool playSound) override;
 	void onUpdate() override;
 private:
 

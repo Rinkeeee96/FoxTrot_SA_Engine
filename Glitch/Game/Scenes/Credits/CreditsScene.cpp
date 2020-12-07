@@ -21,13 +21,13 @@ void CreditsScene::onAttach()
 /// @brief 
 /// Create all text for this scene
 void CreditsScene::loadText() {
-	auto* name1 = new Text(4, new ColoredText("Lars Jansen", Color(0, 0, 0)), SHORT_NAME_WIDTH, TEXT_HEIGHT, CENTER_X - LEFT_X_CENTER, CENTER_Y - 150);
-	auto* name2 = new Text(5, new ColoredText("Max van Nistelrooij", Color(0, 0, 0)), LONG_NAME_WIDTH, TEXT_HEIGHT, CENTER_X - LEFT_X_CENTER, CENTER_Y + 50);
-	auto* name3 = new Text(6, new ColoredText("Thijs de leeuw", Color(0, 0, 0)), SHORT_NAME_WIDTH, TEXT_HEIGHT, CENTER_X - LEFT_X_CENTER, CENTER_Y + 250);
-	auto* name4 = new Text(7, new ColoredText("Rinke de Vries", Color(0, 0, 0)), SHORT_NAME_WIDTH, TEXT_HEIGHT, CENTER_X + RIGHT_X_CENTER, CENTER_Y - 150);
-	auto* name5 = new Text(8, new ColoredText("William Ross", Color(0, 0, 0)), SHORT_NAME_WIDTH, TEXT_HEIGHT, CENTER_X + RIGHT_X_CENTER, CENTER_Y + 50);
-	auto* name6 = new Text(9, new ColoredText("Wouter van Hees", Color(0, 0, 0)), LONG_NAME_WIDTH, TEXT_HEIGHT, CENTER_X + RIGHT_X_CENTER, CENTER_Y + 250);
-	auto* name7 = new Text(10, new ColoredText("Foxtrot", Color(0, 0, 0)), 500, 75, CENTER_X - 350, CENTER_Y + 650);
+	auto* name1 = new Text(4, new ColoredText("Lars Jansen", Color(0, 0, 0), false), SHORT_NAME_WIDTH, TEXT_HEIGHT, CENTER_X - LEFT_X_CENTER, CENTER_Y - 150);
+	auto* name2 = new Text(5, new ColoredText("Max van Nistelrooij", Color(0, 0, 0), false), LONG_NAME_WIDTH, TEXT_HEIGHT, CENTER_X - LEFT_X_CENTER, CENTER_Y + 50);
+	auto* name3 = new Text(6, new ColoredText("Thijs de leeuw", Color(0, 0, 0), false), SHORT_NAME_WIDTH, TEXT_HEIGHT, CENTER_X - LEFT_X_CENTER, CENTER_Y + 250);
+	auto* name4 = new Text(7, new ColoredText("Rinke de Vries", Color(0, 0, 0), false), SHORT_NAME_WIDTH, TEXT_HEIGHT, CENTER_X + RIGHT_X_CENTER, CENTER_Y - 150);
+	auto* name5 = new Text(8, new ColoredText("William Ross", Color(0, 0, 0), false), SHORT_NAME_WIDTH, TEXT_HEIGHT, CENTER_X + RIGHT_X_CENTER, CENTER_Y + 50);
+	auto* name6 = new Text(9, new ColoredText("Wouter van Hees", Color(0, 0, 0), false), LONG_NAME_WIDTH, TEXT_HEIGHT, CENTER_X + RIGHT_X_CENTER, CENTER_Y + 250);
+	auto* name7 = new Text(10, new ColoredText("Foxtrot", Color(0, 0, 0), false), 500, 75, CENTER_X - 350, CENTER_Y + 650);
 	this->text.push_back(name1);
 	this->text.push_back(name2);
 	this->text.push_back(name3);
@@ -100,9 +100,9 @@ void CreditsScene::loadMusic() {
 
 /// @brief 
 /// Create the sounds for this scene
-void CreditsScene::start()
+void CreditsScene::start(bool playSound)
 {
-	engine.soundEngine.onStartBackgroundMusicEvent("WIN_SOUND");
+	if(playSound)engine.soundEngine.onStartBackgroundMusicEvent("WIN_SOUND");
 }
 
 void CreditsScene::onUpdate()

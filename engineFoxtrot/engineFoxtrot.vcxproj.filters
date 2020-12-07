@@ -32,6 +32,7 @@
     <ClCompile Include="Engine\SceneManager\Objects\SpriteObject.cpp" />
     <ClCompile Include="Engine\SceneManager\Objects\Drawable.cpp" />
     <ClCompile Include="Engine\SceneManager\Objects\Button.cpp" />
+    <ClCompile Include="Engine\SceneManager\Objects\PopUp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Engine.cpp">
@@ -169,6 +170,7 @@
     <ClInclude Include="Engine\Events\Action\ObjectStopEvent.h" />
     <ClInclude Include="Engine\Events\EventDispatcher.h" />
     <ClInclude Include="Engine\General\ISubsystem.h" />
+    <ClInclude Include="Engine\SceneManager\Objects\PopUp.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

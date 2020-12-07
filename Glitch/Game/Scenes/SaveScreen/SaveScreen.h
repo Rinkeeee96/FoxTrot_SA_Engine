@@ -13,7 +13,7 @@ public:
 	// Inherited via Scene
 	void onAttach() override;
 	void onDetach() override;
-	void start() override;
+	void start(bool playSound) override;
 	void onUpdate() override;
 
 private:
@@ -26,6 +26,12 @@ private:
 	void onSave2BtnClick();
 	void onSave3BtnClick();
 	void onStopBtnClick();
+
+	void onSave1ExtraBtnClick();
+	void onSave2ExtraBtnClick();
+	void onSave3ExtraBtnClick();
+
+	void resetOrSaveSaveGame(const int id);
 
 };
 
