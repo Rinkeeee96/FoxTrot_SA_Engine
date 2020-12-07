@@ -7,6 +7,6 @@ public:
 	PauseCommand(string identifier) : ICommand(identifier) {};
 	// Inherited via ICommand
 	virtual void execute(EventDispatcher& dispatcher) override {
-
+		cout << "heloooooooooooooooooooooooooooooooooooooooooooooooooo" << endl;
 	}
 };

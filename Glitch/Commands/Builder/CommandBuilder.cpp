@@ -23,7 +23,7 @@
 CommandBuilder::CommandBuilder()
 {
 	initCharacterFactory();
-	//initGlobalFactory();
+	initGlobalFactory();
 }
 
 // TODO read keybinds from file
@@ -76,7 +76,7 @@ void CommandBuilder::initGlobalFactory()
 	generalCommandFactory = std::shared_ptr<CommandFactory>();
 	auto* pauseCommand = new CommandCreator<PauseCommand>("pause");
 
-	//pauseCommand->registerClass(generalCommandFactory);
+	pauseCommand->registerClass(generalCommandFactory);
 }
 
 
