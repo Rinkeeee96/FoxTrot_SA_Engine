@@ -121,21 +121,18 @@ void Overworld::onDetach()
 /// @brief 
 void Overworld::onLevel1BtnClick()
 {
-	cout << "Level1 BTN" << endl;
 	stateMachine.switchToScene("Level_1", true);
 }
 
 /// @brief 
 void Overworld::onLevel2BtnClick()
 {
-	cout << "Level2 BTN" << endl;
 	stateMachine.switchToScene("Level_2", true);
 }
 
 /// @brief 
 void Overworld::onLevel3BtnClick()
 {
-	cout << "Level3 BTN" << endl;
 	stateMachine.switchToScene("Level_3", true);
 }
 
