@@ -88,9 +88,9 @@ void MainMenu::loadMusic() {
 
 /// @brief 
 /// Create the sounds for this scene
-void MainMenu::start()
+void MainMenu::start(bool playSound)
 {
-	engine.soundEngine.onStartBackgroundMusicEvent("MENU_SOUND");
+	if(playSound)engine.soundEngine.onStartBackgroundMusicEvent("MENU_SOUND");
 }
 
 void MainMenu::onUpdate()

@@ -29,7 +29,7 @@ public:
 
 	void drawParticle(const ParticleAdapter& part);
 
-	void drawMessageAt(const ColoredText& message, const Position& pos, const ObjectSize& target);
+	void drawMessageAt(const ColoredText& message, const Position& pos, const ObjectSize& target, bool fromText = false);
 
 	void clean();
 	unordered_map<int, SDL_Texture*> textureMap;

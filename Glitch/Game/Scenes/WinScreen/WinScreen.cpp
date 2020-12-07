@@ -85,15 +85,16 @@ void WinScreen::LoadBackground() {
 /// @brief 
 /// Load the sounds for this scene
 void WinScreen::LoadMusic() {
+
 	engine.soundEngine.onLoadBackgroundMusicEvent("WIN_SOUND", "Assets/Sound/TremLoadingloopl.wav");
 }
 
 
 /// @brief 
 /// Create the sounds for this scene
-void WinScreen::start()
+void WinScreen::start(bool playSound)
 {
-	engine.soundEngine.onStartBackgroundMusicEvent("WIN_SOUND");
+	if(playSound)engine.soundEngine.onStartBackgroundMusicEvent("WIN_SOUND");
 }
 
 void WinScreen::onDetach()

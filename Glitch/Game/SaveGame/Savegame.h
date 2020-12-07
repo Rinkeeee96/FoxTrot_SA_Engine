@@ -1,5 +1,6 @@
 #pragma once
 #include <nlohmann\json.hpp>
+#include "Game/General/GeneralGameDefines.h"
 
 struct Item
 {
@@ -29,24 +30,30 @@ struct SaveGameData
 {
 	int saveGameTimeStamp = 0;
 	string saveGameName = "";
-	int overWorldProgress = 0;
-
 	int totalScore = 0;
 
-	map<int,LevelData> levelData;
+	LevelData levelData[MAX_AMOUNT_OF_LEVELS];
 	vector<Achievement> achievements;
 	CharacterData characterData;
+
+	int getOverWorldProgress()
+	{
+		double progress = 0;
+		for (auto data : levelData)
+		{
+			if (data.completed) progress++;
+		}
+		return (int)((progress / MAX_AMOUNT_OF_LEVELS) * 100);
+	}
 };
 
+/// @brief 
+/// Class used for all savegame handling
 class Savegame
 {
 public:
-	static Savegame& get_instance() { return instance; }
-	// prohibit copy & move
-	Savegame(const Savegame&) = delete;
-	Savegame(Savegame&&) = delete;
-	Savegame& operator=(const Savegame&) = delete;
-	Savegame& operator=(Savegame&&) = delete;
+	Savegame() {};
+	~Savegame() {};
 
 	// Loading and parsing savegamedata etc
 	// Call at end of Game
@@ -58,11 +65,30 @@ public:
 	SaveGameData getCurrentGameData();
 	void saveCurrentGameData(SaveGameData saveGame);
 	
+	void addSaveGameData(const int id, SaveGameData savegame)
+	{
+		saveGameDataMap[id] = savegame;
+	}
+	void deleteSaveGameData(const int id)
+	{
+		saveGameDataMap.erase(id);
+	}
+
+	bool isSaveGameDataEmpty(const int id)
+	{
+		return saveGameDataMap.count(id) == 0;
+	}
+
+	SaveGameData getSaveGameData(const int id) 
+	{ 
+		if (!isSaveGameDataEmpty(id))
+		{
+			return saveGameDataMap[id];
+		}
+		throw exception("Trying to get unknown SaveGame");
+	}
 
 private:
-	static Savegame instance;
-	Savegame() {};
-
 	FileLoader fileLoader;
 	map<int, SaveGameData> saveGameDataMap;
 	int currentSaveGame = 0;

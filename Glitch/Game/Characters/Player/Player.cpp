@@ -39,7 +39,6 @@ bool Player::onCollisionBeginEvent(const Event& event) {
 		auto collidedDirection = map[this->getObjectId()];
 
 		if (std::find(collidedDirection.begin(), collidedDirection.end(), Direction::DOWN) != collidedDirection.end()) {
-			this->canJump = true;
 			if (this->getXAxisVelocity() == 0)
 				this->changeToState(SpriteState::DEFAULT);
 			else if (this->getXAxisVelocity() > 0)
@@ -79,7 +78,6 @@ void Player::setXAxisVelocity(const float val) {
 }
 
 void Player::setYAxisVelocity(const float val) {
-
 	if (!canJump) {
 		if (val > RESTITUTION_CORRECTION && !changed) {
 			if (this->getXAxisVelocity() > 0 || this->currentSpriteState == SpriteState::AIR_JUMP_RIGHT)
@@ -91,6 +89,7 @@ void Player::setYAxisVelocity(const float val) {
 
 	if (val == 0) {
 		changed = false;
+		this->canJump = true;
 	}
 
 	Object::setYAxisVelocity(val);

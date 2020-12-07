@@ -83,9 +83,9 @@ void DeathScreen::loadMusic() {
 
 /// @brief 
 /// Create the sounds for this scene
-void DeathScreen::start()
+void DeathScreen::start(bool playSound)
 {
-	engine.soundEngine.onStartBackgroundMusicEvent("DEAD_SOUND");
+	if(playSound)engine.soundEngine.onStartBackgroundMusicEvent("DEAD_SOUND");
 }
 
 void DeathScreen::onUpdate()

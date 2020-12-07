@@ -1,8 +1,11 @@
 #pragma once
+class Savegame;
+
 class SceneStateMachine;
 class Engine;
 class ICharacter;
 #include "Engine/SceneManager/Scene.h"
+
 
 class GameScene : public Scene
 {
@@ -14,11 +17,15 @@ public:
 
 	// register base events
 	virtual void onAttach() override = 0;
-	virtual void start() override = 0;
+	virtual void start(bool playSound) override = 0;
 	virtual void onUpdate() override = 0;
 	virtual void onDetach() override = 0;
+
+	void registerSavegame(shared_ptr<Savegame> _savegame);
 protected:
 	SceneStateMachine& stateMachine;
 	Engine& engine;
+	shared_ptr<Savegame> savegame;
+
 };
 

@@ -22,6 +22,6 @@
 
 #include "SceneManager/Objects/Button.h"
 #include "Game/SaveGame/Savegame.h"
-
+#include "Game/General/GeneralGameDefines.h"
 
 using namespace std;

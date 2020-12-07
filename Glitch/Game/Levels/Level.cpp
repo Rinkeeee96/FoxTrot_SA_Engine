@@ -83,7 +83,7 @@ void Level::addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, 
 
 /// @brief
 /// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
-void Level::start() {
+void Level::start(bool playSound) {
 	player->respawn();
 	player->setCurrentHealth(3);
 	player->setTotalHealth(3);
@@ -91,9 +91,13 @@ void Level::start() {
 	this->win = false;
 
 	this->setObjectToFollow(this->follow);
-	for (const auto& s : sounds) {
-		engine.soundEngine.onStartBackgroundMusicEvent(s.first);
+	if (playSound)
+	{
+		for (const auto& s : sounds) {
+			engine.soundEngine.onStartBackgroundMusicEvent(s.first);
+		}
 	}
+
 }
 
 void Level::onUpdate() {
@@ -101,6 +105,9 @@ void Level::onUpdate() {
 
 	if (this->win) {
 		player->kill();
+		SaveGameData save = savegame->getCurrentGameData();
+		save.levelData[stateMachine.levelToBuild -1].completed = true;
+		savegame->saveCurrentGameData(save);
 		stateMachine.switchToScene("WinScreen", false);
 		return;
 	}
