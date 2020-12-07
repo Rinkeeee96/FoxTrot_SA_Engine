@@ -1,19 +1,16 @@
 #pragma once
-#include "Game/Characters/Enemies/IEnemy.h"
+#include "Game/Characters/Enemies/BaseEnemy.h"
 
 #define RANGE 900
 
 /// @brief 
 /// Fleye class with correspondending AI logic
-class Fleye : public IEnemy {
+class Fleye : public BaseEnemy {
 public:
-	Fleye(EventDispatcher& _dispatcher) : IEnemy(_dispatcher) { this->setGravity(0); }
-	Fleye(const int id, EventDispatcher& _dispatcher) : IEnemy(id, _dispatcher) {
-		_dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Fleye::onCollisionBeginEvent));
+	Fleye(EventDispatcher& _dispatcher) : BaseEnemy(_dispatcher) { this->setGravity(0); }
+	Fleye(const int id, EventDispatcher& _dispatcher) : BaseEnemy(id, _dispatcher) {
 		this->setGravity(0);
 	}
-
-	bool onCollisionBeginEvent(const Event& event);
 
 	void onUpdate() override;
 

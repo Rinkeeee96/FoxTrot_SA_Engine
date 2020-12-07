@@ -1,35 +1,6 @@
 #include "pch.h"
 #include "Jumpkin.h"
 
-bool Jumpkin::onCollisionBeginEvent(const Event& event) {
-	auto collisionEvent = static_cast<const OnCollisionBeginEvent&>(event);
-	if (collisionEvent.getObjectOne().getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo().getObjectId() != this->getObjectId()) return false;
-
-	auto map = collisionEvent.getDirectionMap();
-	auto collidedDirection = map[this->getObjectId()];
-
-	if (std::find(collidedDirection.begin(), collidedDirection.end(), Direction::UP) != collidedDirection.end()) {
-		this->kill();
-	}
-	else {
-		if (collisionEvent.getObjectOne().getObjectId() == this->getObjectId()) {
-			Object& otherE = collisionEvent.getObjectTwo();
-
-			if (this->player->getObjectId() == otherE.getObjectId()) {
-				this->player->setCurrentHealth(this->player->getCurrentHealth() - 1);
-			}
-		}
-		else if (collisionEvent.getObjectTwo().getObjectId() == this->getObjectId()) {
-			Object& otherEntity = collisionEvent.getObjectOne();
-
-			if (this->player->getObjectId() == otherEntity.getObjectId()) {
-				this->player->setCurrentHealth(this->player->getCurrentHealth() - 1);
-			}
-		}
-	}
-	return false;
-}
-
 void Jumpkin::onUpdate() {
 	float xDiff = player->getPositionX() - this->getPositionX();
 	float yDiff = player->getPositionY() - this->getPositionY();
@@ -68,13 +39,13 @@ void Jumpkin::onUpdate() {
 map<SpriteState, SpriteObject*> Jumpkin::buildSpritemap(int textureId) {
 	std::map<SpriteState, SpriteObject*> spriteMap;
 
-	auto jumpkinDefault = new SpriteObject(textureId++, 43, 32, 1, 200, "Assets/Sprites/Enemies/Jumpkin/Jumpkin_idle.png");
-	auto jumpkinActionLeft1 = new SpriteObject(textureId++, 43, 32, 1, 400, "Assets/Sprites/Enemies/Jumpkin/Jumpkin_left_1.png");
-	auto jumpkinActionLeft2 = new SpriteObject(textureId++, 43, 30, 1, 400, "Assets/Sprites/Enemies/Jumpkin/Jumpkin_left_2.png");
-	auto jumpkinActionLeft3 = new SpriteObject(textureId++, 43, 30, 1, 400, "Assets/Sprites/Enemies/Jumpkin/Jumpkin_left_3.png");
-	auto jumpkinActionRight1 = new SpriteObject(textureId++, 43, 32, 1, 400, "Assets/Sprites/Enemies/Jumpkin/Jumpkin_right_1.png");
-	auto jumpkinActionRight2 = new SpriteObject(textureId++, 43, 30, 1, 400, "Assets/Sprites/Enemies/Jumpkin/Jumpkin_right_2.png");
-	auto jumpkinActionRight3 = new SpriteObject(textureId++, 43, 30, 1, 400, "Assets/Sprites/Enemies/Jumpkin/Jumpkin_right_3.png");
+	auto jumpkinDefault = new SpriteObject(textureId++, JUMPKIN_SPRITE_HEIGHT, JUMPKIN_SPRITE_WIDTH, 1, 200, "Assets/Sprites/Enemies/Jumpkin/Jumpkin_default.png");
+	auto jumpkinActionLeft1 = new SpriteObject(textureId++, JUMPKIN_SPRITE_HEIGHT, JUMPKIN_SPRITE_WIDTH, 1, 400, "Assets/Sprites/Enemies/Jumpkin/Jumpkin_action_left_1.png");
+	auto jumpkinActionLeft2 = new SpriteObject(textureId++, JUMPKIN_SPRITE_HEIGHT, JUMPKIN_SPRITE_WIDTH_SHORT, 1, 400, "Assets/Sprites/Enemies/Jumpkin/Jumpkin_action_left_2.png");
+	auto jumpkinActionLeft3 = new SpriteObject(textureId++, JUMPKIN_SPRITE_HEIGHT, JUMPKIN_SPRITE_WIDTH_SHORT, 1, 400, "Assets/Sprites/Enemies/Jumpkin/Jumpkin_action_left_3.png");
+	auto jumpkinActionRight1 = new SpriteObject(textureId++, JUMPKIN_SPRITE_HEIGHT, JUMPKIN_SPRITE_WIDTH, 1, 400, "Assets/Sprites/Enemies/Jumpkin/Jumpkin_action_right_1.png");
+	auto jumpkinActionRight2 = new SpriteObject(textureId++, JUMPKIN_SPRITE_HEIGHT, JUMPKIN_SPRITE_WIDTH_SHORT, 1, 400, "Assets/Sprites/Enemies/Jumpkin/Jumpkin_action_right_2.png");
+	auto jumpkinActionRight3 = new SpriteObject(textureId++, JUMPKIN_SPRITE_HEIGHT, JUMPKIN_SPRITE_WIDTH_SHORT, 1, 400, "Assets/Sprites/Enemies/Jumpkin/Jumpkin_action_right_3.png");
 
 	spriteMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, jumpkinDefault));
 	spriteMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::ACTION_LEFT_1, jumpkinActionLeft1));

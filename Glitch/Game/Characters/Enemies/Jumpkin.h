@@ -1,22 +1,22 @@
 #pragma once
-#include "Game/Characters/Enemies/IEnemy.h"
+#include "Game/Characters/Enemies/BaseEnemy.h"
 
 #define HORIZONTAL_RANGE 900
 #define VERTICAL_RANGE 150
+
+#define JUMPKIN_SPRITE_HEIGHT 43
+#define JUMPKIN_SPRITE_WIDTH 32
+#define JUMPKIN_SPRITE_WIDTH_SHORT 30
 
 //TODO Use deltaTime
 #define JUMP_ANIMATION_TIME 100
 
 /// @brief 
 /// Jumpkin class with correspondending AI logic
-class Jumpkin : public IEnemy {
+class Jumpkin : public BaseEnemy {
 public:
-	Jumpkin(EventDispatcher& _dispatcher) : IEnemy(_dispatcher) {}
-	Jumpkin(const int id, EventDispatcher& _dispatcher) : IEnemy(id, _dispatcher) {
-		_dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Jumpkin::onCollisionBeginEvent));
-	}
-
-	bool onCollisionBeginEvent(const Event& event);
+	Jumpkin(EventDispatcher& _dispatcher) : BaseEnemy(_dispatcher) {}
+	Jumpkin(const int id, EventDispatcher& _dispatcher) : BaseEnemy(id, _dispatcher) {}
 
 	void onUpdate() override;
 
