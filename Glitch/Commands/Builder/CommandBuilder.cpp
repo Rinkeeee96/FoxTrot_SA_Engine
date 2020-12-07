@@ -1,7 +1,11 @@
 #include "pch.h"
 #include "CommandBuilder.h"
-#include "Commands/Factory/CharacterCommandCreator.h"
-#include "Commands/Factory/CharacterCommandFactory.h"
+
+#include "Commands/Creator/GlobalCommands/CommandCreator.h"
+#include "Commands/Creator/GlobalCommands/CommandFactory.h"
+
+#include "Commands/Creator/CharacterCommands/CharacterCommandFactory.h"
+#include "Commands/Creator/CharacterCommands/CharacterCommandCreator.h"
 
 #include "Game/Characters/Player/Player.h"
 
@@ -10,13 +14,16 @@
 #include "Commands/CharacterCommands/JumpCommand.h"
 #include "Commands/CharacterCommands/StopMovementCommand.h"
 
+#include "Commands/GlobalCommands/PauseCommand.h"
+
 #include "Commands/exceptions/unknownCommandException.h"
 
 #include "Commands/GameKeypressInvoker.h"
 
 CommandBuilder::CommandBuilder()
 {
-	initFactory();
+	initCharacterFactory();
+	//initGlobalFactory();
 }
 
 // TODO read keybinds from file
@@ -51,7 +58,7 @@ GameKeypressInvoker* CommandBuilder::readBindingsAndCreateInvoker() {
 	return new GameKeypressInvoker(playerBindings, globalBindings);
 }
 
-void CommandBuilder::initFactory()
+void CommandBuilder::initCharacterFactory()
 {
 	characterCommandFactory = std::shared_ptr<CharacterCommandFactory>(new CharacterCommandFactory());
 
@@ -62,6 +69,36 @@ void CommandBuilder::initFactory()
 	jumpCommand->registerClass(characterCommandFactory);
 	moveLeftCommand->registerClass(characterCommandFactory);
 	moveRightCommand->registerClass(characterCommandFactory);
+}
+
+void CommandBuilder::initGlobalFactory()
+{
+	generalCommandFactory = std::shared_ptr<CommandFactory>();
+	auto* pauseCommand = new CommandCreator<PauseCommand>("pause");
+
+	//pauseCommand->registerClass(generalCommandFactory);
+}
+
+
+void CommandBuilder::buildGlobalCommands(GameKeypressInvoker* invoker)
+{
+	// first = keycode, second = identifier
+	for (auto pair = invoker->getGlobalCommands().begin(); pair != invoker->getGlobalCommands().end(); ++pair)
+	{
+		try
+		{
+			invoker->registerCommand(
+				pair->first,
+				generalCommandFactory->create(pair->second)
+			);
+		}
+		catch (const unknownCommandException& e)
+		{
+			// TODO throw up further and create a popup for missparsed bindings
+			if (DEBUG_COMMAND_BUILDER) cout << e.what();
+			++pair;
+		}
+	}
 }
 
 void CommandBuilder::buildPlayerCommands(Player& player, GameKeypressInvoker* invoker)
@@ -83,6 +120,6 @@ void CommandBuilder::buildPlayerCommands(Player& player, GameKeypressInvoker* in
 			++pair;
 		}
 
-		player.registerKeypressInvoker(invoker);
 	}
+	player.registerKeypressInvoker(invoker);
 };

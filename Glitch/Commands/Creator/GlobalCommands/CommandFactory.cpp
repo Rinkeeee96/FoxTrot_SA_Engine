@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "pch.h"
 #include "CommandFactory.h"
 #include "CommandCreator.h"
 #include "Input/Commands/exceptions/unknownCommandException.h"

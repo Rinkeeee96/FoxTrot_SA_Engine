@@ -12,6 +12,6 @@ public:
 	/// Function for registrating a command creator
 	/// a command is created by this creator upon request with its registered classname
 	void registerit(const std::string& classname, ICommandCreator* creator);
-protected:
+private:
 	std::map<std::string, ICommandCreator*> table;
 };

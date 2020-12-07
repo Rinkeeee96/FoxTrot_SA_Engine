@@ -24,8 +24,9 @@
     <ClCompile Include="Game\Scenes\DeathScreen\DeathScreen.cpp" />
     <ClCompile Include="Game\Scenes\Statemachine\SceneStateMachine.cpp" />
     <ClCompile Include="Commands\GameKeypressInvoker.cpp" />
-    <ClCompile Include="Commands\Factory\CharacterCommandFactory.cpp" />
     <ClCompile Include="Commands\Builder\CommandBuilder.cpp" />
+    <ClCompile Include="Commands\Creator\GlobalCommands\CommandFactory.cpp" />
+    <ClCompile Include="Commands\Creator\CharacterCommands\CharacterCommandFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
@@ -61,7 +62,6 @@
     <ClInclude Include="Game\SaveGame\Savegame.h" />
     <ClInclude Include="Game\Scenes\SaveScreen\SaveScreen.h" />
     <ClInclude Include="Game\Scenes\Overworld\Overworld.h" />
-    <ClInclude Include="Commands\ICharacterCommand.h" />
     <ClInclude Include="Game\Scenes\Credits\CreditsScene.h" />
     <ClInclude Include="Game\Scenes\GameScene.h" />
     <ClInclude Include="Game\Scenes\Factory\Creator.h" />
@@ -77,10 +77,15 @@
     <ClInclude Include="Commands\CharacterCommands\MoveLeftCommand.h" />
     <ClInclude Include="Commands\CharacterCommands\MoveRightCommand.h" />
     <ClInclude Include="Commands\CharacterCommands\StopMovementCommand.h" />
-    <ClInclude Include="Commands\Factory\ICharacterCommandCreator.h" />
-    <ClInclude Include="Commands\Factory\CharacterCommandFactory.h" />
-    <ClInclude Include="Commands\Factory\CharacterCommandCreator.h" />
     <ClInclude Include="Commands\Builder\CommandBuilder.h" />
     <ClInclude Include="Commands\Builder\ICommandBuilder.h" />
+    <ClInclude Include="Commands\GlobalCommands\PauseCommand.h" />
+    <ClInclude Include="Commands\Creator\GlobalCommands\CommandCreator.h" />
+    <ClInclude Include="Commands\Creator\GlobalCommands\CommandFactory.h" />
+    <ClInclude Include="Commands\Creator\GlobalCommands\ICommandCreator.h" />
+    <ClInclude Include="Commands\Creator\CharacterCommands\CharacterCommandCreator.h" />
+    <ClInclude Include="Commands\Creator\CharacterCommands\CharacterCommandFactory.h" />
+    <ClInclude Include="Commands\Creator\CharacterCommands\ICharacterCommandCreator.h" />
+    <ClInclude Include="Commands\ICharacterCommand.h" />
   </ItemGroup>
 </Project>

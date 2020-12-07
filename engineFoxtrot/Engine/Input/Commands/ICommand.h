@@ -3,14 +3,14 @@ class EventDispatcher;
 class ICommand
 {
 public:
-	ICommand(string _identifier) : identifier{ _identifier } {}
+	API ICommand(string _identifier) : identifier{ _identifier } {}
 
 	/// @brief
 	/// Execute the command 
 	/// @param dispatcher 
 	/// the current dispatcher assigned to a scene
-	virtual void execute(EventDispatcher& dispatcher) = 0;
-	const string& getIdentifier() { return identifier; }
+	API virtual void execute(EventDispatcher& dispatcher) = 0;
+	API const string& getIdentifier() { return identifier; }
 private:
 	/// @brief
 	/// the identifier given to this command by the builder

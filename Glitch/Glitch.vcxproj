@@ -164,11 +164,15 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Commands\Builder\CommandBuilder.h" />
-    <ClInclude Include="Commands\Factory\CharacterCommandFactory.h" />
-    <ClInclude Include="Commands\Factory\ICharacterCommandCreator.h" />
-    <ClInclude Include="Commands\Factory\CharacterCommandCreator.h" />
+    <ClInclude Include="Commands\Creator\GlobalCommands\CommandCreator.h" />
+    <ClInclude Include="Commands\Creator\GlobalCommands\CommandFactory.h" />
+    <ClInclude Include="Commands\Creator\GlobalCommands\ICommandCreator.h" />
+    <ClInclude Include="Commands\Creator\CharacterCommands\CharacterCommandFactory.h" />
+    <ClInclude Include="Commands\Creator\CharacterCommands\ICharacterCommandCreator.h" />
+    <ClInclude Include="Commands\Creator\CharacterCommands\CharacterCommandCreator.h" />
     <ClInclude Include="Commands\Builder\ICommandBuilder.h" />
     <ClInclude Include="Commands\GameKeypressInvoker.h" />
+    <ClInclude Include="Commands\GlobalCommands\PauseCommand.h" />
     <ClInclude Include="Commands\ICharacterCommand.h" />
     <ClInclude Include="Commands\CharacterCommands\JumpCommand.h" />
     <ClInclude Include="Commands\CharacterCommands\MoveLeftCommand.h" />
@@ -220,7 +224,8 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Commands\Builder\CommandBuilder.cpp" />
-    <ClCompile Include="Commands\Factory\CharacterCommandFactory.cpp" />
+    <ClCompile Include="Commands\Creator\GlobalCommands\CommandFactory.cpp" />
+    <ClCompile Include="Commands\Creator\CharacterCommands\CharacterCommandFactory.cpp" />
     <ClCompile Include="Commands\GameKeypressInvoker.cpp" />
     <ClCompile Include="Game\Characters\Enemies\IEnemy.h" />
     <ClCompile Include="Game\Factories\CharacterFactory.cpp" />
