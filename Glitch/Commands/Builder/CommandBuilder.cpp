@@ -1,14 +1,14 @@
 #include "pch.h"
 #include "CommandBuilder.h"
-#include "Commands/Factory/CommandCreator.h"
-#include "Commands/Factory/CommandFactory.h"
+#include "Commands/Factory/CharacterCommandCreator.h"
+#include "Commands/Factory/CharacterCommandFactory.h"
 
 #include "Game/Characters/Player/Player.h"
 
-#include "Commands/Character_commands/MoveLeftCommand.h"
-#include "Commands/Character_commands/MoveRightcommand.h"
-#include "Commands/Character_commands/JumpCommand.h"
-#include "Commands/Character_commands/StopMovementCommand.h"
+#include "Commands/CharacterCommands/MoveLeftCommand.h"
+#include "Commands/CharacterCommands/MoveRightcommand.h"
+#include "Commands/CharacterCommands/JumpCommand.h"
+#include "Commands/CharacterCommands/StopMovementCommand.h"
 
 #include "Commands/exceptions/unknownCommandException.h"
 
@@ -53,15 +53,15 @@ GameKeypressInvoker* CommandBuilder::readBindingsAndCreateInvoker() {
 
 void CommandBuilder::initFactory()
 {
-	commandFactory = std::shared_ptr<CommandFactory>(new CommandFactory());
+	characterCommandFactory = std::shared_ptr<CharacterCommandFactory>(new CharacterCommandFactory());
 
-	auto* jumpCommand = new CommandCreator<JumpCommand>("jump");
-	auto* moveLeftCommand = new CommandCreator<MoveLeftCommand>("moveLeft");
-	auto* moveRightCommand = new CommandCreator<MoveRightCommand>("moveRight");
+	auto* jumpCommand = new CharacterCommandCreator<JumpCommand>("jump");
+	auto* moveLeftCommand = new CharacterCommandCreator<MoveLeftCommand>("moveLeft");
+	auto* moveRightCommand = new CharacterCommandCreator<MoveRightCommand>("moveRight");
 
-	jumpCommand->registerClass(commandFactory);
-	moveLeftCommand->registerClass(commandFactory);
-	moveRightCommand->registerClass(commandFactory);
+	jumpCommand->registerClass(characterCommandFactory);
+	moveLeftCommand->registerClass(characterCommandFactory);
+	moveRightCommand->registerClass(characterCommandFactory);
 }
 
 void CommandBuilder::buildPlayerCommands(Player& player, GameKeypressInvoker* invoker)
@@ -73,7 +73,7 @@ void CommandBuilder::buildPlayerCommands(Player& player, GameKeypressInvoker* in
 		{
 			invoker->registerCommand(
 				pair->first, 
-				commandFactory->createCharacterCommand(pair->second, player)
+				characterCommandFactory->createCharacterCommand(pair->second, player)
 			);
 		}
 		catch (const unknownCommandException& e)

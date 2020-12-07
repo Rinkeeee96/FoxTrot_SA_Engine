@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "Game.h"
-#include "Commands/CommandBuilder.h"
+#include "Commands/Builder/CommandBuilder.h"
 Game::Game()
 {
 	commandBuilder = new CommandBuilder();

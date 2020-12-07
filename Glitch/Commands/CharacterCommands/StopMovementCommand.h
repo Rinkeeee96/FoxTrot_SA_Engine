@@ -8,8 +8,7 @@ public:
 	void execute(EventDispatcher& dispatcher) override {
 		if (character.getCanJump() || character.getYAxisVelocity() == 0)
 		{
-		dispatcher.dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(character.getObjectId()));
-
+			dispatcher.dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(character.getObjectId()));
 		}
 	}	
 };

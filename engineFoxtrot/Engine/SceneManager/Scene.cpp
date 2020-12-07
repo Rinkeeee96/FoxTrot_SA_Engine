@@ -249,6 +249,11 @@ void Scene::createPopUpLayer(float xPosition, float yPosition, float width, floa
 	PopUp* popUp = new PopUp(-6487, width, height, (xPosition - width / 2), (yPosition + height / 2), ColoredText(text, Color(0, 0, 0)));
 
 	addNewObjectToLayer(zIndex, popUp, false, true);
+	// return popup layer
+		// Level
+		// auto Layer = this.createPopupLayer();
+		// layer.add(button);
+		// Etc
 }
 
 /// @brief Extended PopUp creation

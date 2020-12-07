@@ -1,15 +1,11 @@
 #pragma once
-class ICommand;
 class ICharacter;
 class ICharacterCommand;
 
-class ICommandCreator
+class ICharacterCommandCreator
 {
 public:
-	ICommandCreator() {};
-	~ICommandCreator() {};
-
-	/// <summary>
+	/// @brief
 	/// Create an instance of a character command class 
 	/// @param character
 	/// the character that needs to be bound to the command

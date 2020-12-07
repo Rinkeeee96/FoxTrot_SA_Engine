@@ -163,6 +163,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Engine\Input\Commands\Creator\CommandFactory.cpp" />
     <ClCompile Include="Engine\Input\Commands\KeypressInvoker.cpp" />
     <ClCompile Include="Engine\SceneManager\Objects\Drawable.cpp" />
     <ClCompile Include="Engine\Engine.cpp" />
@@ -202,6 +203,10 @@
     <ClInclude Include="Engine\Events\InputMapping\ReleaseInputEvent.h" />
     <ClInclude Include="Engine\Events\EventDispatcher.h" />
     <ClInclude Include="Engine\General\ISubsystem.h" />
+    <ClInclude Include="Engine\Input\Commands\Creator\CommandCreator.h" />
+    <ClInclude Include="Engine\Input\Commands\Creator\CommandFactory.h" />
+    <ClInclude Include="Engine\Input\Commands\Creator\ICommandCreator.h" />
+    <ClInclude Include="Engine\Input\Commands\exceptions\unknownCommandException.h" />
     <ClInclude Include="Engine\Input\Commands\ICommand.h" />
     <ClInclude Include="Engine\Input\Commands\KeypressInvoker.h" />
     <ClInclude Include="Engine\SceneManager\Objects\Drawable.h" />

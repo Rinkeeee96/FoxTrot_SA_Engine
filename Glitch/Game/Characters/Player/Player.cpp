@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "Player.h"
-#include <Commands\Character_commands\StopMovementCommand.h>
+#include "Commands\CharacterCommands\StopMovementCommand.h"
 
 Player::Player(const int id, EventDispatcher& _dispatcher) : ICharacter(id, _dispatcher) {
 	this->setHeight(80);
@@ -104,7 +104,6 @@ bool Player::onKeyPressed(const Event& event) {
 		invoker->executeCommand(keyPressedEvent.GetKeyCode());
 		// reset release key each time we press one
 		releasedKeyLastFrame = false;
-		//pressedKeys.push_back(keyPressedEvent.GetKeyCode());
 	}
 	return false;
 }

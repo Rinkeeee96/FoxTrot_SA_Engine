@@ -163,18 +163,17 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Commands\CommandBuilder.h" />
-    <ClInclude Include="Commands\exceptions\unknownCommandException.h" />
-    <ClInclude Include="Commands\Factory\CommandFactory.h" />
-    <ClInclude Include="Commands\Factory\ICommandCreator.h" />
-    <ClInclude Include="Commands\Factory\CommandCreator.h" />
-    <ClInclude Include="Commands\ICommandBuilder.h" />
+    <ClInclude Include="Commands\Builder\CommandBuilder.h" />
+    <ClInclude Include="Commands\Factory\CharacterCommandFactory.h" />
+    <ClInclude Include="Commands\Factory\ICharacterCommandCreator.h" />
+    <ClInclude Include="Commands\Factory\CharacterCommandCreator.h" />
+    <ClInclude Include="Commands\Builder\ICommandBuilder.h" />
     <ClInclude Include="Commands\GameKeypressInvoker.h" />
     <ClInclude Include="Commands\ICharacterCommand.h" />
-    <ClInclude Include="Commands\Character_commands\JumpCommand.h" />
-    <ClInclude Include="Commands\Character_commands\MoveLeftCommand.h" />
-    <ClInclude Include="Commands\Character_commands\MoveRightCommand.h" />
-    <ClInclude Include="Commands\Character_commands\StopMovementCommand.h" />
+    <ClInclude Include="Commands\CharacterCommands\JumpCommand.h" />
+    <ClInclude Include="Commands\CharacterCommands\MoveLeftCommand.h" />
+    <ClInclude Include="Commands\CharacterCommands\MoveRightCommand.h" />
+    <ClInclude Include="Commands\CharacterCommands\StopMovementCommand.h" />
     <ClInclude Include="Game\Characters\Enemies\Fleye.h" />
     <ClInclude Include="Game\Characters\Enemies\Jumpkin.h" />
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
@@ -220,8 +219,8 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Scenes\Statemachine\SceneStateMachine.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Commands\CommandBuilder.cpp" />
-    <ClCompile Include="Commands\Factory\CommandFactory.cpp" />
+    <ClCompile Include="Commands\Builder\CommandBuilder.cpp" />
+    <ClCompile Include="Commands\Factory\CharacterCommandFactory.cpp" />
     <ClCompile Include="Commands\GameKeypressInvoker.cpp" />
     <ClCompile Include="Game\Characters\Enemies\IEnemy.h" />
     <ClCompile Include="Game\Factories\CharacterFactory.cpp" />

@@ -1,8 +1,8 @@
 #pragma once
-#include "Commands/ICommandBuilder.h"
+#include "Commands/Builder/ICommandBuilder.h"
 class GameKeypressInvoker;
 class Player;
-class CommandFactory;
+class CharacterCommandFactory;
 
 class CommandBuilder : public ICommandBuilder
 {
@@ -12,7 +12,7 @@ public:
 	GameKeypressInvoker* readBindingsAndCreateInvoker() override;
 	void buildPlayerCommands(Player& player, GameKeypressInvoker* invoker) override;
 private:
-	shared_ptr<CommandFactory> commandFactory;
+	shared_ptr<CharacterCommandFactory> characterCommandFactory;
 
 	// Inherited via ICommandBuilder
 	virtual void initFactory() override;

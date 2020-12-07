@@ -18,14 +18,14 @@
     <ClCompile Include="Game\SaveGame\Savegame.cpp" />
     <ClCompile Include="Game\Scenes\SaveScreen\SaveScreen.cpp" />
     <ClCompile Include="Game\Scenes\Overworld\Overworld.cpp" />
-    <ClCompile Include="Commands\Factory\CommandFactory.cpp" />
-    <ClCompile Include="Commands\CommandBuilder.cpp" />
     <ClCompile Include="Game\Scenes\Credits\CreditsScene.cpp" />
     <ClCompile Include="Game\Scenes\GameScene.cpp" />
     <ClCompile Include="Game\Scenes\Factory\FactoryMethod.cpp" />
     <ClCompile Include="Game\Scenes\DeathScreen\DeathScreen.cpp" />
     <ClCompile Include="Game\Scenes\Statemachine\SceneStateMachine.cpp" />
     <ClCompile Include="Commands\GameKeypressInvoker.cpp" />
+    <ClCompile Include="Commands\Factory\CharacterCommandFactory.cpp" />
+    <ClCompile Include="Commands\Builder\CommandBuilder.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
@@ -61,14 +61,7 @@
     <ClInclude Include="Game\SaveGame\Savegame.h" />
     <ClInclude Include="Game\Scenes\SaveScreen\SaveScreen.h" />
     <ClInclude Include="Game\Scenes\Overworld\Overworld.h" />
-    <ClInclude Include="Commands\Character_commands\JumpCommand.h" />
-    <ClInclude Include="Commands\Character_commands\MoveLeftCommand.h" />
-    <ClInclude Include="Commands\Character_commands\MoveRightCommand.h" />
-    <ClInclude Include="Commands\Character_commands\StopMovementCommand.h" />
-    <ClInclude Include="Commands\Factory\CommandFactory.h" />
     <ClInclude Include="Commands\ICharacterCommand.h" />
-    <ClInclude Include="Commands\CommandBuilder.h" />
-    <ClInclude Include="Commands\ICommandBuilder.h" />
     <ClInclude Include="Game\Scenes\Credits\CreditsScene.h" />
     <ClInclude Include="Game\Scenes\GameScene.h" />
     <ClInclude Include="Game\Scenes\Factory\Creator.h" />
@@ -76,12 +69,18 @@
     <ClInclude Include="Game\Scenes\Factory\FactoryMethod.h" />
     <ClInclude Include="Game\Scenes\DeathScreen\DeathScreen.h" />
     <ClInclude Include="Game\Scenes\Statemachine\SceneStateMachine.h" />
-    <ClInclude Include="Commands\Factory\CommandCreator.h" />
-    <ClInclude Include="Commands\Factory\ICommandCreator.h" />
     <ClInclude Include="Commands\GameKeypressInvoker.h" />
-    <ClInclude Include="Commands\exceptions\unknownCommandException.h" />
     <ClInclude Include="Game\Characters\Enemies\Fleye.h" />
     <ClInclude Include="Game\Characters\Enemies\Jumpkin.h" />
     <ClInclude Include="Game\General\GeneralGameDefines.h" />
+    <ClInclude Include="Commands\CharacterCommands\JumpCommand.h" />
+    <ClInclude Include="Commands\CharacterCommands\MoveLeftCommand.h" />
+    <ClInclude Include="Commands\CharacterCommands\MoveRightCommand.h" />
+    <ClInclude Include="Commands\CharacterCommands\StopMovementCommand.h" />
+    <ClInclude Include="Commands\Factory\ICharacterCommandCreator.h" />
+    <ClInclude Include="Commands\Factory\CharacterCommandFactory.h" />
+    <ClInclude Include="Commands\Factory\CharacterCommandCreator.h" />
+    <ClInclude Include="Commands\Builder\CommandBuilder.h" />
+    <ClInclude Include="Commands\Builder\ICommandBuilder.h" />
   </ItemGroup>
 </Project>

@@ -12,8 +12,7 @@ public:
 		factory->registerit(key, this); 
 	};
 	// Inherited via ICommandCreator
-	//ICommand* create() { return new T(key); }
-	ICharacterCommand* createCharacterCommand(ICharacter& character) { return new T(character, key); }
+	ICommand* create() { return new T(key); }
 private:
 	string key;
 };
