@@ -134,7 +134,7 @@
                           "properties": {
                             "name": {
                               "type": "string",
-                              "const": [ "type" ]
+                              "enum": [ "type" ]
                             },
                             "value": {
                               "type": "string",
@@ -296,9 +296,7 @@
                       "properties": {
                         "name": {
                           "type": "string",
-                          "const": [
-                            "type"
-                          ]
+                          "enum": [ "type" ]
                         },
                         "value": {
                           "type": "number",
