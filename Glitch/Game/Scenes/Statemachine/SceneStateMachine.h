@@ -15,7 +15,7 @@ public:
 	void updateCurrentScene()
 	{
 		if (currentScene)currentScene->onUpdate();
-	}
+	};
 
 	string& getCurrentLevelIdentifier();
 
