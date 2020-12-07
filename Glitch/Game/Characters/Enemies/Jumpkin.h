@@ -9,7 +9,7 @@
 #define JUMPKIN_SPRITE_WIDTH_SHORT 30
 
 //TODO Use deltaTime
-#define JUMP_ANIMATION_TIME 100
+#define JUMPKIN_JUMP_ANIMATION_TIME 100
 
 /// @brief 
 /// Jumpkin class with correspondending AI logic

@@ -17,13 +17,13 @@ void Slime::onUpdate() {
 
 	if (jumping) {
 		jumpTimer++;
-		if (jumpTimer < JUMP_ANIMATION_TIME / 2) {
+		if (jumpTimer < SLIME_JUMP_ANIMATION_TIME / 2) {
 			changeToState(SpriteState::ACTION_2);
 		}
-		else if (jumpTimer == JUMP_ANIMATION_TIME / 2) {
+		else if (jumpTimer == SLIME_JUMP_ANIMATION_TIME / 2) {
 			changeToState(SpriteState::ACTION_1);
 		}
-		else if (jumpTimer == JUMP_ANIMATION_TIME) {
+		else if (jumpTimer == SLIME_JUMP_ANIMATION_TIME) {
 			changeToState(SpriteState::ACTION_3);
 			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
 			jumpTimer = 0;

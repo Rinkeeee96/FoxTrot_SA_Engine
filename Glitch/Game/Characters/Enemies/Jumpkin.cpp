@@ -18,10 +18,10 @@ void Jumpkin::onUpdate() {
 
 	if (jumping) {
 		jumpTimer++;
-		if (jumpTimer == JUMP_ANIMATION_TIME / 2) {
+		if (jumpTimer == JUMPKIN_JUMP_ANIMATION_TIME / 2) {
 			changeToState(direction == Direction::LEFT ? SpriteState::ACTION_LEFT_1 : SpriteState::ACTION_RIGHT_1);
 		}
-		if (jumpTimer == JUMP_ANIMATION_TIME) {
+		if (jumpTimer == JUMPKIN_JUMP_ANIMATION_TIME) {
 			changeToState(direction == Direction::LEFT ? SpriteState::ACTION_LEFT_3 : SpriteState::ACTION_RIGHT_3);
 			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
 			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(direction, this->getObjectId()));
