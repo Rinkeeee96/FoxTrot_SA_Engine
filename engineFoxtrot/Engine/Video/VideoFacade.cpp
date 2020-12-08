@@ -126,7 +126,12 @@ void VideoFacade::renderCopy(Drawable& object)
 	}
 	//generate image 
 	Uint32 ticks = SDL_GetTicks();
-	Uint32 seconds = ticks / sprite.getAnimationDelay();
+	Uint32 seconds = 0;
+	if (sprite.getAnimationDelay() == 0)
+		seconds = 0;
+	else
+		seconds = ticks / sprite.getAnimationDelay();
+
 	float leftpos = sprite.getLeftPos(seconds);
 	int top = 0;
 
