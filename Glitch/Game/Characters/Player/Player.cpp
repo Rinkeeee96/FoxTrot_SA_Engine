@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "Player.h"
-#include "Game/Commands/CharacterCommands/StopMovementCommand.h"
 
 Player::Player(const int id, EventDispatcher& _dispatcher) : ICharacter(id, _dispatcher) {
 	this->setHeight(80);
@@ -24,8 +23,6 @@ Player::Player(const int id, EventDispatcher& _dispatcher) : ICharacter(id, _dis
 
 	dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Player::onCollisionBeginEvent));
 	dispatcher.setEventCallback<OnCollisionEndEvent>(BIND_EVENT_FN(Player::onCollisionEndEvent));
-	dispatcher.setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Player::onKeyPressed));
-	dispatcher.setEventCallback<KeyReleasedEvent>(BIND_EVENT_FN(Player::onKeyReleased));
 }
 
 /// @brief 
@@ -97,23 +94,6 @@ void Player::setYAxisVelocity(const float val) {
 }
 
 /// @brief 
-/// Handles when an key pressed event happend, Player can move right, left and jump
-bool Player::onKeyPressed(const Event& event) {
-	if (!getIsDead()) {
-		auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
-		invoker->executeCommand(keyPressedEvent.GetKeyCode());
-		// reset release key each time we press one
-		releasedKeyLastFrame = false;
-	}
-	return false;
-}
-
-bool Player::onKeyReleased(const Event& event)
-{
-	releasedKeyLastFrame = true;
-	return false;
-}
-/// @brief 
 /// Handles registration of a custom gamekeypressinvoker
 void Player::registerKeypressInvoker(GameKeypressInvoker* _invoker)
 {
@@ -122,8 +102,7 @@ void Player::registerKeypressInvoker(GameKeypressInvoker* _invoker)
 
 void Player::onUpdate()
 {
-	if (releasedKeyLastFrame)
-		StopMovementCommand(*this, "stopMovement").execute(this->dispatcher);
+	
 }
 
 ICharacter* Player::clone(int id) { 

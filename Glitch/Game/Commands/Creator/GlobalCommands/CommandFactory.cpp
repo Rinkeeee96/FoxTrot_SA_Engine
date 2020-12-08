@@ -9,7 +9,7 @@ void CommandFactory::registerit(const std::string& classname, ICommandCreator* c
 
 ICommand* CommandFactory::create(const std::string& classname)
 {
-	std::map<std::string, ICommandCreator*>::iterator i;
+	map<string, ICommandCreator*>::iterator i;
 	i = table.find(classname);
 
 	if (i != table.end())

@@ -30,15 +30,13 @@ public:
 	//SceneManager calls
 	API void setCurrentScene(const int sceneID);
 	API Scene* getCurrentScene();
-	bool onKeyPressed(const Event& event);
+
 	API void insertScene(Scene * scene);
 	API void deregisterScene(const int id);
 
 	// Sound calls
 	API void loadSound(const string& identifier, const string& path);
 	API void loadSound(map<string, string> sounds);
-
-	bool getPhysicsPaused();
 
 	API void onUpdate();
 
@@ -55,6 +53,7 @@ public:
 	//API EventDispatcher& getDispatcher() { return *eventDispatcher; }
 	SoundEngine soundEngine;
 
+	void pauseUnpause() { engineIsPaused = !engineIsPaused; }
 private:
 	EventDispatcher* eventDispatcher;
 	bool running = false;

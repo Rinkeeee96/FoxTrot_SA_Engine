@@ -42,6 +42,10 @@ void InputEngine::shutdown() {
 
 bool InputEngine::onKeyPressed(const Event& event) {
 	auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
+
+	if(keypressInvoker)
+		keypressInvoker->executeCommand(keyPressedEvent.GetKeyCode());
+		
 	// TODO Send events instead of calling engine directly
 	switch (keyPressedEvent.GetKeyCode())
 	{
@@ -51,6 +55,10 @@ bool InputEngine::onKeyPressed(const Event& event) {
 	}
 	case KeyCode::KEY_F4: {
 		engine.setEngineRunning(false);
+		return true;
+	}
+	case KeyCode::KEY_P: {
+		engine.pauseUnpause();
 		return true;
 	}
 	default:

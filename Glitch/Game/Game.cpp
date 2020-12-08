@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "Game.h"
 #include "Commands/Builder/CommandBuilder.h"
+#include "Game/Commands/CharacterCommands/StopMovementCommand.h"
+
 Game::Game()
 {
 	commandBuilder = new CommandBuilder();
@@ -8,10 +10,15 @@ Game::Game()
 	stateMachine = shared_ptr<SceneStateMachine>(new SceneStateMachine{ engine,savegame });
 }
 
+
 int Game::run() {
 
 	try {
 		engine.useCustomCommandInvoker(commandBuilder->readBindingsAndCreateInvoker());
+
+		if (GameKeypressInvoker* e = dynamic_cast<GameKeypressInvoker*>(engine.getKeypressedInvoker())) {
+			commandBuilder->buildGlobalCommands(e);
+		}
 
 		stateMachine->switchToScene("MainMenu", false);
 		string path = "Assets/SaveGame/saveGameData.json";
@@ -22,6 +29,8 @@ int Game::run() {
 
 		while (engine.getEngineRunning())
 		{
+			//if (releasedKeyLastFrame)
+				//StopMovementCommand(*this, "stopMovement").execute(engine.getCurrentScene()->getEventDispatcher());
 			engine.updateFps();
 			engine.onUpdate();
 			// TODO get only the non static objects, without looping thru them again and again
