@@ -7,7 +7,7 @@
 /// The actual collision event
 /// @returns bool
 bool BaseEnemy::onCollisionBeginEvent(const Event& event) {
-	auto collisionEvent = static_cast<const OnCollisionBeginEvent&>(event);
+	OnCollisionBeginEvent collisionEvent = static_cast<const OnCollisionBeginEvent&>(event);
 	if (collisionEvent.getObjectOne().getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo().getObjectId() != this->getObjectId()) return false;
 
 	auto map = collisionEvent.getDirectionMap();

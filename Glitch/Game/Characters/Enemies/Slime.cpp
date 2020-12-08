@@ -3,9 +3,9 @@
 
 void Slime::onUpdate() {
 	bool positionedOnGround = this->getYAxisVelocity() == 0;
-	float slimeMiddleX = this->getPositionX() + (this->getWidth() / 2);
+	float slimeMiddleXPosition = this->getPositionX() + (this->getWidth() / 2);
 	bool playerIsLowerThanMe = this->getPositionY() < player->getPositionY();
-	bool playerIsWithinXLevelRange = (slimeMiddleX >= player->getPositionX()) && (slimeMiddleX <= (player->getPositionX() + player->getWidth()));
+	bool playerIsWithinXLevelRange = (slimeMiddleXPosition >= player->getPositionX()) && (slimeMiddleXPosition <= (player->getPositionX() + player->getWidth()));
 
 	if (positionedOnGround && !jumping) {
 		jumping = true;

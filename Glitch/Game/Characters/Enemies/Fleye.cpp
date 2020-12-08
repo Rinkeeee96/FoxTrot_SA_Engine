@@ -7,18 +7,18 @@ void Fleye::onUpdate() {
 		setup = false;
 	}
 
-	float fleyeMiddleX = this->getPositionX() + this->getWidth() / 2;
+	float fleyeMiddleXPosition = this->getPositionX() + this->getWidth() / 2;
 
 	// Differences are calculated from the middle position of the object
-	float xDiff = abs((player->getPositionX() + player->getWidth() / 2) - fleyeMiddleX);
-	float yDiff = abs((player->getPositionY() + player->getHeight() / 2) - (this->getPositionY() + this->getHeight() / 2));
+	float xPositionDifference = abs((player->getPositionX() + player->getWidth() / 2) - fleyeMiddleXPosition);
+	float yPositionDifference = abs((player->getPositionY() + player->getHeight() / 2) - (this->getPositionY() + this->getHeight() / 2));
 
 	// Distance is calculated using the Pythagorean theorem from the middle of both objects
-	float distance = sqrt(abs(pow(xDiff, 2) - pow(yDiff, 2)));
+	float distanceFromPlayer = sqrt(abs(pow(xPositionDifference, 2) - pow(yPositionDifference, 2)));
 
-	bool playerIsInRange = distance <= FLEYE_RANGE;
+	bool playerIsInRange = distanceFromPlayer <= FLEYE_RANGE;
 	bool playerIsLowerThanMe = this->getPositionY() < player->getPositionY();
-	bool playerIsWithinXLevelRange = (fleyeMiddleX >= player->getPositionX()) && (fleyeMiddleX <= (player->getPositionX() + player->getWidth()));
+	bool playerIsWithinXLevelRange = (fleyeMiddleXPosition >= player->getPositionX()) && (fleyeMiddleXPosition <= (player->getPositionX() + player->getWidth()));
 
 	Direction direction = player->getPositionX() < this->positionX ? Direction::LEFT : Direction::RIGHT;
 

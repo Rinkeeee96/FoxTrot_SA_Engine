@@ -14,7 +14,7 @@ void CharacterFactory::registerCharacter(string name, ICharacter* character, int
 	if (characterMap.count(name) == 0) {
 		characterMap.insert(pair<string&, ICharacter*>(name, character));
 		map<SpriteState, SpriteObject*> spriteMap = character->buildSpritemap(*textureID);
-		*textureID += spriteMap.size();
+		*textureID += static_cast<int>(spriteMap.size());
 		spriteObjectMap.insert(pair<string, map<SpriteState, SpriteObject*>>(name, spriteMap));
 	}
 }

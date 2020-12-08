@@ -3,15 +3,15 @@
 
 void Jumpkin::onUpdate() {
 	// Differences are calculated from the middle position of the object
-	float xDiff = abs((player->getPositionX() + player->getWidth() / 2) - (this->getPositionX() + this->getWidth() / 2));
-	float yDiff = abs((player->getPositionY() + player->getHeight() / 2) - (this->getPositionY() + this->getHeight() / 2));
+	float xPositionDifference = abs((player->getPositionX() + player->getWidth() / 2) - (this->getPositionX() + this->getWidth() / 2));
+	float yPositionDifference = abs((player->getPositionY() + player->getHeight() / 2) - (this->getPositionY() + this->getHeight() / 2));
 
 	// Distance is calculated using the Pythagorean theorem from the middle of both objects
-	float distance = sqrt(abs(pow(xDiff, 2) - pow(yDiff, 2)));
+	float distanceFromPlayer = sqrt(abs(pow(xPositionDifference, 2) - pow(yPositionDifference, 2)));
 
 	// Jumpkin's vertical range is calculated separately from distance to ensure it doesn't follow the player when there are multiple layers of height to the level (lvl3)
-	bool playerIsInRange = distance <= JUMPKIN_HORIZONTAL_RANGE;
-	bool playerIsInRangeVertically = (yDiff < JUMPKIN_VERTICAL_RANGE && yDiff >(JUMPKIN_VERTICAL_RANGE * -1));
+	bool playerIsInRange = distanceFromPlayer <= JUMPKIN_HORIZONTAL_RANGE;
+	bool playerIsInRangeVertically = (yPositionDifference < JUMPKIN_VERTICAL_RANGE && yPositionDifference >(JUMPKIN_VERTICAL_RANGE * -1));
 	Direction direction = player->getPositionX() < this->positionX ? Direction::LEFT : Direction::RIGHT;
 	bool positionedOnGround = this->getYAxisVelocity() == 0;
 
