@@ -3,6 +3,7 @@
 #include "Game/SpriteState.h"
 #include "Game/Buttons/PrimaryButton.h"
 #include "Game/Buttons/SecondaryButton.h"
+#include "Game/Game.h"
 
 #define BIND_FN(function) std::bind(&MainMenu::function, *this)
 
@@ -11,6 +12,7 @@
 
 void MainMenu::onAttach()
 {
+	
 	loadButtons();
 	loadBackground();
 	loadMusic();
@@ -20,29 +22,22 @@ void MainMenu::onAttach()
 /// Create all buttons for this scene
 void MainMenu::loadButtons() {
 
-	startBtn = new PrimaryButton(10, "Start", BIND_FN(onStartBtnClick));
+	auto* startBtn = new PrimaryButton(10, "Start", BIND_FN(onStartBtnClick), this->dispatcher);
 	startBtn->setPositionX(CENTER_X - startBtn->getWidth() / 2);
 	startBtn->setPositionY(CENTER_Y - startBtn->getHeight() / 2);
 
-	
-	/*Button* loadBtn = new PrimaryButton(3, "Load save", BIND_FN(onLoadBtnClick));
-	/*Button* loadBtn = new PrimaryButton(3, "Load", BIND_FN(onLoadBtnClick));
-	loadBtn->setPositionX(CENTER_X - loadBtn->getWidth() / 2);
-	loadBtn->setPositionY(CENTER_Y - loadBtn->getHeight() / 2 + 100);
-
-	Button* creditsBtn = new PrimaryButton(12, "Credits", BIND_FN(onCreditsBtnClick));
+	auto* creditsBtn = new PrimaryButton(12, "Credits", BIND_FN(onCreditsBtnClick), this->dispatcher);
 	creditsBtn->setPositionX(CENTER_X - creditsBtn->getWidth() / 2);
 	creditsBtn->setPositionY(CENTER_Y - creditsBtn->getHeight() / 2 + 200);
-	creditsBtn->disable();*/
 
-	stopBtn = new SecondaryButton(13, "Stop", BIND_FN(onStopBtnClick));
+	auto* stopBtn = new SecondaryButton(13, "Stop", BIND_FN(onStopBtnClick), this->dispatcher);
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
+
 	addNewObjectToLayer(3, startBtn);
 	addNewObjectToLayer(3, stopBtn);
-	//addNewObjectToLayer(3, loadBtn);
-	//addNewObjectToLayer(3, creditsBtn);
+	addNewObjectToLayer(3, creditsBtn);
 }
 
 /// @brief 
@@ -70,7 +65,7 @@ void MainMenu::loadBackground() {
 	animation->registerSprite(SpriteState::DEFAULT, BG_LAYER_ADVENTRUE);
 	animation->changeToState(SpriteState::DEFAULT);
 	animation->setScalable(false);
-
+	
 	auto* layer2 = new Drawable(16);
 	layer2->setStatic(true);
 	layer2->setPositionX(1);
@@ -80,24 +75,22 @@ void MainMenu::loadBackground() {
 	layer2->registerSprite(SpriteState::DEFAULT, BG_LAYER_2);
 	layer2->changeToState(SpriteState::DEFAULT);
 
-	addNewObjectToLayer(0, layer0, false);
-	addNewObjectToLayer(1, animation, false);
-	addNewObjectToLayer(2, layer2, false);
+	addNewObjectToLayer(0, layer0, false, true);
+	addNewObjectToLayer(1, animation, false, true);
+	addNewObjectToLayer(2, layer2, false, true);
 }
 
 /// @brief 
 /// Load the sounds for this scene
 void MainMenu::loadMusic() {
-	EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent("MENU_SOUND", "Assets/Sound/file_example_WAV_1MG.wav"));
+	engine.soundEngine.onLoadBackgroundMusicEvent("MENU_SOUND", "Assets/Sound/file_example_WAV_1MG.wav");
 }
 
 /// @brief 
 /// Create the sounds for this scene
-void MainMenu::start()
+void MainMenu::start(bool playSound)
 {
-	startBtn->reset();
-	stopBtn->reset();
-	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("MENU_SOUND"));
+	if(playSound)engine.soundEngine.onStartBackgroundMusicEvent("MENU_SOUND");
 }
 
 void MainMenu::onUpdate()
@@ -108,7 +101,7 @@ void MainMenu::onUpdate()
 /// Remove the sounds of the soundengine
 void MainMenu::onDetach()
 {
-	EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent("MENU_SOUND"));
+	engine.soundEngine.onStartBackgroundMusicEvent("MENU_SOUND");
 	Scene::onDetach();
 }
 
@@ -118,7 +111,7 @@ void MainMenu::onDetach()
 /// Start transition scene to OVERWORLD
 void MainMenu::onStartBtnClick()
 {
-	SceneSwitcher::get_instance().switchToScene("LOADSCREEN", false);
+	stateMachine.switchToScene("SaveScreen", false);
 }
 
 
@@ -126,8 +119,7 @@ void MainMenu::onStartBtnClick()
 /// A callback function for stopBTN
 /// Stop the application
 void MainMenu::onStopBtnClick() {
-	WindowCloseEvent event;
-	EventSingleton::get_instance().dispatchEvent<WindowCloseEvent>(event);
+	engine.setEngineRunning(false);
 }
 
 
@@ -135,6 +127,7 @@ void MainMenu::onStopBtnClick() {
 /// A callback function for creditsBTN
 /// Start transition scene to DEAD_SCREEN
 void MainMenu::onCreditsBtnClick() {
+	stateMachine.switchToScene("CreditsSreen", false);
 }
 
 

@@ -1,24 +1,28 @@
 #pragma once
-#include "Game\Characters\Player\Player.h"
-
+#include "Game/Characters/Player/Player.h"
+#include "Game/Scenes/GameScene.h"
 /// @brief 
 /// Level class. Level has all the information. 
-class Level : public Scene
+class Level : public GameScene
 {
 public:
-	Level(const int id, const int _sceneHeight, const int _sceneWidth, map<string, string> _sounds);
-	Level(const int id, const int _sceneHeight, const int _sceneWidth);
+	Level(const int id, const int _sceneHeight, const int _sceneWidth, Engine& engine, SceneStateMachine& _stateMachine);
 
 	void setPlayer(Object* object);
-	virtual void setSound(map<string, string> sounds);
-	virtual void onAttach() override;
-	virtual void start() override;
-	virtual void pause();
-	virtual void onDetach() override;
-	virtual void onUpdate() override;
+	void setSound(map<string, string> sounds);
+	void onAttach() override;
+	void start(bool playSound) override;
+	void pause();
+	void onDetach() override;
+	void onUpdate() override;
+
+	void addHuds();
 
 	void setWin(const bool val) { this->win = val; }
 private:
+	void addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, SpriteObject* HUD);
+	vector<Drawable*> huds;
+
 	map<string, string> sounds;
 	Object* follow = nullptr;
 	Player* player = nullptr;

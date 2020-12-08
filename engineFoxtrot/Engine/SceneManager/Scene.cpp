@@ -1,17 +1,30 @@
 #include "stdafx.h"
 #include "Scene.h"
 #include "SceneManager\Objects\Drawable.h"
+#include "Objects/PopUp.h"
+#include "Events/Key/KeyPressed.h"
+
+#define POP_UP_DEFAULT_WIDTH	400
+#define POP_UP_DEFAULT_HEIGHT	150
 
 /// @brief 
 /// @param sceneID 
-Scene::Scene(const int _sceneID, const int _sceneHeight, const int _sceneWidth) : sceneID(_sceneID), sceneHeight(_sceneHeight), sceneWidth(_sceneWidth)
+Scene::Scene(const int _sceneID, const int _sceneHeight, const int _sceneWidth) : 
+	sceneID(_sceneID), sceneHeight(_sceneHeight), sceneWidth(_sceneWidth)
 {
-
+	dispatcher.setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Scene::onKeyPressed));
 }
 
 /// @brief 
 Scene::~Scene()
 {
+	//for (auto layer : layers)
+	//{
+	//	for (auto obj : layer.second->objects)
+	//	{
+	//		delete obj.second;
+	//	}
+	//}
 }
 
 /// @brief 
@@ -107,7 +120,7 @@ vector <Object*> Scene::getAllObjectsInSceneRenderPhysics()
 /// Zindex of the layer that the object should be added to
 /// @param object 
 /// Pointer to the object
-const void Scene::addNewObjectToLayer(const int zIndex, Object* object, bool renderPhysics)
+const void Scene::addNewObjectToLayer(const int zIndex, Object* object, bool renderPhysics, bool alwaysDrawLayer)
 {
 	if (object == nullptr) throw ERROR_CODE_SCENE_NO_OBJECT_FOUND;
 
@@ -120,6 +133,7 @@ const void Scene::addNewObjectToLayer(const int zIndex, Object* object, bool ren
 		layers[zIndex] = new Layer();
 		layers[zIndex]->renderPhysics = renderPhysics;
 		layers[zIndex]->objects[object->getObjectId()] = object;
+		layers[zIndex]->alwaysVisible = alwaysDrawLayer;
 	}
 }
 
@@ -155,6 +169,26 @@ void Scene::onDetach()
 	layers.clear();
 }
 
+// TODO remove after command pattern is implemented
+bool Scene::onKeyPressed(const Event& event) {	
+	auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
+	// TODO command pattern
+	switch (keyPressedEvent.GetKeyCode())
+	{
+	case KeyCode::KEY_P:
+		if (!hasActivePopUp) {
+			createPopUpLayer(WINDOW_WIDTH_CENTER, WINDOW_HEIGHT_CENTER, "Paused");
+		}
+		else {
+			removePopUpLayer();
+		}
+		break;
+	default:
+		return false;
+	}
+	return false;
+}
+
 void Scene::removeObjectFromScene(Object* obj)
 {
 	for (auto lay : layers) {
@@ -163,7 +197,104 @@ void Scene::removeObjectFromScene(Object* obj)
 			lay.second->objects.erase(it);
 			obj->setIsRemoved(true);
 			return;
-			//delete obj;
 		}
 	}
+}
+
+map<int, Layer*> Scene::getLayers() const
+{
+	return layers;
+}
+
+/// @brief Create a layer on the active scene with the given zIndex
+/// @param zIndex 
+/// @param renderPhysics 
+/// @param alwaysDrawLayer 
+void Scene::createLayer(const int zIndex, bool renderPhysics, bool alwaysDrawLayer)
+{
+	layers[zIndex] = new Layer();
+	layers[zIndex]->renderPhysics = renderPhysics;
+	layers[zIndex]->alwaysVisible = alwaysDrawLayer;
+}
+
+int Scene::getHighestLayerIndex() {
+	int zIndex = 0;
+
+	// Get highest zIndex
+	for (auto layer : layers) {
+		if (zIndex < layer.first)
+			zIndex = layer.first;
+	}
+	return zIndex;
+}
+
+/// @brief Creates a basic PopUp with text
+/// @param xPosition 
+/// @param yPosition 
+/// @param text 
+void Scene::createPopUpLayer(float xPosition, float yPosition, string text) {
+	createPopUpLayer(xPosition, yPosition, POP_UP_DEFAULT_WIDTH, POP_UP_DEFAULT_HEIGHT, text);
+}
+
+/// @brief Extended PopUp creation
+/// @param xPosition 
+/// @param yPosition 
+/// @param width 
+/// @param height 
+/// @param text 
+void Scene::createPopUpLayer(float xPosition, float yPosition, float width, float height, string text) {
+	hasActivePopUp = true;
+	int zIndex = getHighestLayerIndex() + 2;
+
+	PopUp* popUp = new PopUp(-6487, width, height, (xPosition - width / 2), (yPosition + height / 2), ColoredText(text, Color(0, 0, 0)));
+
+	addNewObjectToLayer(zIndex, popUp, false, true);
+}
+
+/// @brief Extended PopUp creation
+/// @param xPosition 
+/// @param yPosition 
+/// @param width 
+/// @param height 
+/// @param text 
+/// @param spObject 
+void Scene::createPopUpLayer(float xPosition, float yPosition, float width, float height, string text, SpriteObject* spObject) {
+	hasActivePopUp = true;
+	int zIndex = getHighestLayerIndex() + 2;
+
+	PopUp* popUp = new PopUp(-6487, width, height, (xPosition - width / 2), (yPosition + height / 2), ColoredText(text, Color(0, 0, 0)), spObject);
+
+	addNewObjectToLayer(zIndex, popUp, false, true);
+}
+
+/// @brief Extended PopUp creation
+/// @param xPosition 
+/// @param yPosition 
+/// @param width 
+/// @param height 
+/// @param spObject 
+void Scene::createPopUpLayer(float xPosition, float yPosition, float width, float height, SpriteObject* spObject) {
+	hasActivePopUp = true;
+	int zIndex = getHighestLayerIndex() + 2;
+
+	PopUp* popUp = new PopUp(-6487, width, height, (xPosition - width / 2), (yPosition + height / 2), spObject);
+
+	addNewObjectToLayer(zIndex, popUp, false, true);
+}
+
+/// @brief Remove PopUp layer
+void Scene::removePopUpLayer() {
+	int zIndex = 0;
+	if (hasActivePopUp) {
+		for (auto layer : layers) {
+			if (zIndex < layer.first)
+				zIndex = layer.first;
+		}
+	}
+	else {
+		return;
+	}
+
+	layers.erase(zIndex);
+	hasActivePopUp = false;
 }

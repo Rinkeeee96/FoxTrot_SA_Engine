@@ -1,16 +1,8 @@
 #pragma once
 #include "Game/SpriteState.h"
 #include "Game/Characters/Player/Player.h"
-#include "SceneSwitcher/SceneSwitcher.h"
-#include "Game/Scenes/MainMenu/MainMenu.h"
-#include "Game/Scenes/Transitions/GeneralTransition/GeneralTransition.h"
-#include "Game\Scenes\Overworld\Overworld.h"
-#include "Game/Scenes/DeathScreen/DeadScreen.h"
-#include "Game/Scenes/WinScreen/WinScreen.h"
-#include "Game/Scenes/Scenes.h"
-
-#define EXIT_SUCCES 0
-#define EXIT_FAILURE -1
+#include "Game/Scenes/Statemachine/SceneStateMachine.h"
+#include "Game/SaveGame/Savegame.h"
 
 /// @brief 
 /// Game class runs the game
@@ -19,11 +11,13 @@ class Game
 public:
 	Game();
 	int run();
-	bool stopRun(Event& event);
 
 private:
 	Engine engine;
+	shared_ptr<Savegame> savegame;
+
+	shared_ptr<SceneStateMachine> stateMachine;
+
 	bool gameRunning = true;
-	int sceneId = 0;
 };
 

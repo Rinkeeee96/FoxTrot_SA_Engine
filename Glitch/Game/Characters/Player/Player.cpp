@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Player.h"
 
-Player::Player(const int id) : ICharacter(id) {
+Player::Player(const int id, EventDispatcher& _dispatcher) : ICharacter(id, _dispatcher) {
 	this->setHeight(80);
 	this->setWidth(80);
 	this->setPositionX(100);
@@ -12,32 +12,33 @@ Player::Player(const int id) : ICharacter(id) {
 	this->setDensity(10);
 	this->setFriction(0);
 	this->setRestitution(0.1f);
+	this->setTotalHealth(3);
 	this->setStatic(false);
 	this->setRotatable(false);
 
-	this->setHealth(3);
+	this->setCurrentHealth(3);
+	this->setTotalHealth(3);
 	this->setScalable(true);
 	this->setScale(2);
 
-	EventSingleton::get_instance().setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Player::onCollisionBeginEvent));
-	EventSingleton::get_instance().setEventCallback<OnCollisionEndEvent>(BIND_EVENT_FN(Player::onCollisionEndEvent));
-	EventSingleton::get_instance().setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Player::onKeyPressed));
-	EventSingleton::get_instance().setEventCallback<KeyReleasedEvent>(BIND_EVENT_FN(Player::onKeyReleased));
+	dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Player::onCollisionBeginEvent));
+	dispatcher.setEventCallback<OnCollisionEndEvent>(BIND_EVENT_FN(Player::onCollisionEndEvent));
+	dispatcher.setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Player::onKeyPressed));
+	dispatcher.setEventCallback<KeyReleasedEvent>(BIND_EVENT_FN(Player::onKeyReleased));
 }
 
 /// @brief 
 /// Handles when an collision event begins, when the direction of the collision happend on the bottom side of the player object, 
 /// set can jump true
-bool Player::onCollisionBeginEvent(Event& event) {
+bool Player::onCollisionBeginEvent(const Event& event) {
 	if (!getIsDead()) {
-		auto collisionEvent = static_cast<OnCollisionBeginEvent&>(event);
+		auto collisionEvent = static_cast<const OnCollisionBeginEvent&>(event);
 		if (collisionEvent.getObjectOne().getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo().getObjectId() != this->getObjectId()) return false;
 
 		auto map = collisionEvent.getDirectionMap();
 		auto collidedDirection = map[this->getObjectId()];
 
 		if (std::find(collidedDirection.begin(), collidedDirection.end(), Direction::DOWN) != collidedDirection.end()) {
-			this->canJump = true;
 			if (this->getXAxisVelocity() == 0)
 				this->changeToState(SpriteState::DEFAULT);
 			else if (this->getXAxisVelocity() > 0)
@@ -51,9 +52,9 @@ bool Player::onCollisionBeginEvent(Event& event) {
 
 /// @brief 
 /// Handles when an collision event ends, when the direction of the collision happend on the bottom side of the player object, set can jump false
-bool Player::onCollisionEndEvent(Event& event) {
+bool Player::onCollisionEndEvent(const Event& event) {
 	if (!getIsDead()) {
-		auto collisionEvent = static_cast<OnCollisionEndEvent&>(event);
+		auto collisionEvent = static_cast<const OnCollisionEndEvent&>(event);
 		if (collisionEvent.getObjectOne().getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo().getObjectId() != this->getObjectId()) return false;
 
 		auto map = collisionEvent.getDirectionMap();
@@ -77,7 +78,6 @@ void Player::setXAxisVelocity(const float val) {
 }
 
 void Player::setYAxisVelocity(const float val) {
-
 	if (!canJump) {
 		if (val > RESTITUTION_CORRECTION && !changed) {
 			if (this->getXAxisVelocity() > 0 || this->currentSpriteState == SpriteState::AIR_JUMP_RIGHT)
@@ -89,6 +89,7 @@ void Player::setYAxisVelocity(const float val) {
 
 	if (val == 0) {
 		changed = false;
+		this->canJump = true;
 	}
 
 	Object::setYAxisVelocity(val);
@@ -96,14 +97,14 @@ void Player::setYAxisVelocity(const float val) {
 
 /// @brief 
 /// Handles when an key pressed event happend, Player can move right, left and jump
-bool Player::onKeyPressed(Event& event) {
+bool Player::onKeyPressed(const Event& event) {
 	if (!getIsDead()) {
-		auto keyPressedEvent = static_cast<KeyPressedEvent&>(event);
+		auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
 		// TODO command pattern
 		switch (keyPressedEvent.GetKeyCode())
 		{
 		case KeyCode::KEY_A:
-			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::LEFT, this->getObjectId()));
+			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::LEFT, this->getObjectId()));
 			if (canJump)
 				this->changeToState(SpriteState::RUN_LEFT);
 			else if (this->getYAxisVelocity() > 0)
@@ -112,7 +113,7 @@ bool Player::onKeyPressed(Event& event) {
 				this->changeToState(SpriteState::AIR_JUMP_LEFT);
 			break;
 		case KeyCode::KEY_D:
-			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::RIGHT, this->getObjectId()));
+			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::RIGHT, this->getObjectId()));
 			if (canJump) {
 				this->changeToState(SpriteState::RUN_RIGHT);
 			}
@@ -127,7 +128,7 @@ bool Player::onKeyPressed(Event& event) {
 					this->changeToState(SpriteState::AIR_JUMP_RIGHT);
 				else
 					this->changeToState(SpriteState::AIR_JUMP_LEFT);
-				EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
+				dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
 			}
 			break;
 		default:
@@ -138,15 +139,15 @@ bool Player::onKeyPressed(Event& event) {
 	return false;
 }
 
-bool Player::onKeyReleased(Event& event)
+bool Player::onKeyReleased(const Event& event)
 {
 	if (!getIsDead()) {
-		auto keyReleasedEvent = static_cast<KeyReleasedEvent&>(event);
+		auto keyReleasedEvent = static_cast<const KeyReleasedEvent&>(event);
 
 		switch (keyReleasedEvent.GetKeyCode()) {
 		case KeyCode::KEY_A:
 		case KeyCode::KEY_D:
-			EventSingleton::get_instance().dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->objectId));
+			dispatcher.dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->objectId));
 		}
 
 		return false;
@@ -154,4 +155,6 @@ bool Player::onKeyReleased(Event& event)
 	return false;
 }
 
-ICharacter* Player::clone(int id) { return new Player(id); }
+ICharacter* Player::clone(int id) { 
+	return new Player(id, this->dispatcher); 
+}

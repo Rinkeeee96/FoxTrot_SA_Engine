@@ -1,21 +1,19 @@
 #pragma once
 
-#include "SceneSwitcher/SceneSwitcher.h"
+#include "Game/Scenes/GameScene.h"
 #include "Game/Buttons/PrimaryButton.h"
 #include "Game/Buttons/SecondaryButton.h"
 
-
-
-class SaveScreen : public Scene
+class SaveScreen : public GameScene
 {
 public:
-	SaveScreen(const int id) : Scene(id, WINDOW_HEIGHT, WINDOW_WIDTH) {};
+	SaveScreen(const int id, Engine& engine, SceneStateMachine& _statemachine) : GameScene(id, engine, _statemachine) {};
 	~SaveScreen() {};
 
 	// Inherited via Scene
 	void onAttach() override;
 	void onDetach() override;
-	void start() override;
+	void start(bool playSound) override;
 	void onUpdate() override;
 
 private:
@@ -29,10 +27,11 @@ private:
 	void onSave3BtnClick();
 	void onStopBtnClick();
 
-	Button* save1 = nullptr;
-	Button* save2 = nullptr;
-	Button* save3 = nullptr;
-	Button* stopBtn = nullptr;
+	void onSave1ExtraBtnClick();
+	void onSave2ExtraBtnClick();
+	void onSave3ExtraBtnClick();
+
+	void resetOrSaveSaveGame(const int id);
 
 };
 

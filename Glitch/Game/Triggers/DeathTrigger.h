@@ -4,19 +4,19 @@
 class DeathTrigger : public BaseTrigger
 {
 public:
-	DeathTrigger() : BaseTrigger() { }
-	DeathTrigger(const int _id) : BaseTrigger(_id) { }
+	DeathTrigger(EventDispatcher& _dispatcher) : BaseTrigger(_dispatcher) { }
+	DeathTrigger(const int _id, EventDispatcher& _dispatcher) : BaseTrigger(_id, _dispatcher) { }
 
-	virtual BaseTrigger* clone(const int id) override { return new DeathTrigger(id); }
+	virtual BaseTrigger* clone(const int id) override { return new DeathTrigger(id, dispatcher); }
 
 	void onUpdate() override {}
 
-	virtual bool onCollisionBegin(Event& event) override {
-		auto collisionEvent = static_cast<OnCollisionBeginEvent&>(event);
+	virtual bool onCollisionBegin(const Event& event) override {
+		auto collisionEvent = static_cast<const OnCollisionBeginEvent&>(event);
 		if (collisionEvent.getObjectOne().getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo().getObjectId() != this->getObjectId()) return false;
 
 		if (ICharacter* character = dynamic_cast<ICharacter*>(&collisionEvent.getObjectOne())) character->kill();
 		else if (ICharacter* character = dynamic_cast<ICharacter*>(&collisionEvent.getObjectTwo())) character->kill();
-		return true;
+		return false;
 	}
 };

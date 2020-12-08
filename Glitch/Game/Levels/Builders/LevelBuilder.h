@@ -23,7 +23,6 @@
 /// @brief 
 /// Builder class for creating a level
 class LevelBuilder : public AbstractLevelBuilder {
-
 private:
 	TriggerFactory triggerFactory;
 	std::unique_ptr<CharacterFactory> characterFactory;
@@ -34,13 +33,15 @@ private:
 	// TODO Fix tileId in tilesets
 	Level* bLevel;
 
-	int currentTileId = 999;
+	bool getAlwaysDrawFromJson(nlohmann::json layerValue);
+
+	int currentTileId = 0;
 	int mapTileWidth = 16;
 	int mapTileHeight = 16;
 	int textureId = 0;
 	int id = 0;
 public:
-	LevelBuilder(Engine& _engine, int levelId);
+	LevelBuilder(Engine& _engine, int levelId, SceneStateMachine& _statemachine);
 
 	void createLevel(nlohmann::json json) override;
 	void createEntities(nlohmann::json layerValue) override;
@@ -51,5 +52,6 @@ public:
 	void loadTileSets(nlohmann::json json) override;
 	void createTriggers(nlohmann::json json) override;
 	void initFactory() override;
+
 	virtual void create() override;
 };

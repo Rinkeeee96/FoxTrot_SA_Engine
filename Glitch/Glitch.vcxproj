@@ -163,12 +163,15 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Game\Characters\Enemies\Fleye.h" />
+    <ClInclude Include="Game\Characters\Enemies\Jumpkin.h" />
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
     <ClInclude Include="Game\Characters\ICharacter.h" />
     <ClInclude Include="Game\Factories\CharacterFactory.h" />
     <ClInclude Include="Game\Factories\TriggerFactory.h" />
     <ClInclude Include="Game\Game.h" />
     <ClInclude Include="Game\General\GameErrorCodes.h" />
+    <ClInclude Include="Game\General\GeneralGameDefines.h" />
     <ClInclude Include="Game\IGameObject.h" />
     <ClInclude Include="Game\Levels\Builders\AbstractLevelBuilder.h" />
     <ClInclude Include="Game\Characters\Player\Player.h" />
@@ -178,18 +181,22 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Buttons\PrimaryButton.h" />
     <ClInclude Include="Game\Buttons\SecondaryButton.h" />
     <ClInclude Include="Game\SaveGame\Savegame.h" />
+    <ClInclude Include="Game\Scenes\Credits\CreditsScene.h" />
+    <ClInclude Include="Game\Scenes\Factory\Creator.h" />
+    <ClInclude Include="Game\Scenes\Factory\CreatorImpl.h" />
+    <ClInclude Include="Game\Scenes\Factory\FactoryMethod.h" />
+    <ClInclude Include="Game\Scenes\GameScene.h" />
     <ClInclude Include="Game\Scenes\MainMenu\MainMenu.h" />
     <ClInclude Include="Game\Scenes\SaveScreen\SaveScreen.h" />
     <ClInclude Include="Game\Scenes\Scenes.h" />
     <ClInclude Include="Game\Scenes\Transitions\GeneralTransition\GeneralTransition.h" />
     <ClInclude Include="Game\Scenes\Transitions\Transitions.h" />
-    <ClInclude Include="Game\Scenes\DeathScreen\DeadScreen.h" />
+    <ClInclude Include="Game\Scenes\DeathScreen\DeathScreen.h" />
     <ClInclude Include="Game\Scenes\WinScreen\WinScreen.h" />
     <ClInclude Include="Glitch.h" />
     <ClInclude Include="Game\Scenes\Overworld\Overworld.h" />
     <ClInclude Include="Game\Levels\Level.h" />
     <ClInclude Include="Game\SpriteState.h" />
-    <ClInclude Include="SceneSwitcher\SceneSwitcher.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Game\Levels\Builders\ILevelBuilder.h" />
     <ClInclude Include="Game\Levels\Builders\LevelBuilderDirector.h" />
@@ -198,6 +205,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Triggers\BaseTrigger.h" />
     <ClInclude Include="Game\Triggers\DeathTrigger.h" />
     <ClInclude Include="Game\Triggers\WinTrigger.h" />
+    <ClInclude Include="Game\Scenes\Statemachine\SceneStateMachine.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Characters\Enemies\IEnemy.h" />
@@ -206,19 +214,22 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="Game\Characters\Player\Player.cpp" />
     <ClCompile Include="Game\Levels\LoadLevelFacade.cpp" />
+    <ClCompile Include="Game\Scenes\Credits\CreditsScene.cpp" />
+    <ClCompile Include="Game\Scenes\Factory\FactoryMethod.cpp" />
+    <ClCompile Include="Game\Scenes\GameScene.cpp" />
     <ClCompile Include="Game\Scenes\Overworld\Overworld.cpp" />
     <ClCompile Include="Game\SaveGame\Savegame.cpp" />
     <ClCompile Include="Game\Scenes\MainMenu\MainMenu.cpp" />
     <ClCompile Include="Game\Scenes\SaveScreen\SaveScreen.cpp" />
     <ClCompile Include="Game\Scenes\Transitions\GeneralTransition\GeneralTransition.cpp" />
-    <ClCompile Include="Game\Scenes\DeathScreen\DeadScreen.cpp" />
+    <ClCompile Include="Game\Scenes\DeathScreen\DeathScreen.cpp" />
     <ClCompile Include="Game\Scenes\WinScreen\WinScreen.cpp" />
     <ClCompile Include="Glitch.cpp" />
-    <ClCompile Include="SceneSwitcher\SceneSwitcher.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="Game\Levels\Level.cpp" />
     <ClCompile Include="Game\Levels\Builders\LevelBuilderDirector.cpp" />
     <ClCompile Include="Game\Levels\Builders\LevelBuilder.cpp" />
+    <ClCompile Include="Game\Scenes\Statemachine\SceneStateMachine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\engineFoxtrot\engineFoxtrot.vcxproj">

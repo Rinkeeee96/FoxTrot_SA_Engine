@@ -3,6 +3,8 @@
 #include "Game/SpriteState.h"
 #include "Game/Characters/Player/Player.h"
 #include "Game/Characters/Enemies/Slime.h"
+#include "Game/Characters/Enemies/Fleye.h"
+#include "Game/Characters/Enemies/Jumpkin.h"
 #include "Game/Ground/BaseGround.h"
 #include <nlohmann\json.hpp>
 
@@ -13,7 +15,7 @@ class ILevelBuilder
 protected:
 	std::unique_ptr<Level> level;
 public:
-	virtual Level* getLevel() = 0;
+	virtual unique_ptr<Level> getLevel() = 0;
 	virtual void create() = 0;
 	virtual void createLevel(nlohmann::json json) = 0;
 	virtual void createEntities(nlohmann::json layerValue) = 0;

@@ -1,18 +1,19 @@
 #pragma once
+#include "Game/Scenes/GameScene.h"
 
 #define TRANSITION_SCENE_DURATION_S		3
 
 /// @brief 
-class GeneralTransition : public Scene
+class GeneralTransition : public GameScene
 {
 public:
-	GeneralTransition(const int id) : Scene(id, WINDOW_HEIGHT, WINDOW_WIDTH) {};
+	GeneralTransition(const int id, Engine& engine, SceneStateMachine& _statemachine) : GameScene(id, engine, _statemachine) {};
 	~GeneralTransition() {};
 
 	// Inherited via Scene
 	virtual void onAttach() override;
 	virtual void onDetach() override;
-	virtual void start() override;
+	virtual void start(bool playSound) override;
 	virtual void onUpdate() override;
 
 	void setNextScene(string const identifier);

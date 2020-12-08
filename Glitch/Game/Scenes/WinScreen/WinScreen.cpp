@@ -4,6 +4,7 @@
 #include "Game/SpriteState.h"
 #include "Game/Buttons/PrimaryButton.h"
 #include "Game/Buttons/SecondaryButton.h"
+#include "Game/Game.h"
 
 #define BIND_FN(function) std::bind(&WinScreen::function, *this)
 
@@ -22,19 +23,13 @@ void WinScreen::onAttach()
 void WinScreen::LoadButtons() {
 	auto mainSprite = new SpriteObject(-602, 40, 116, 1, 300, "Assets/Buttons/btn_gray_round.png");
 
-	overBtn = new Button(-700, ColoredText("Overworld", Color(0, 0, 0)), BIND_FN(onOverworldBtnClick));
+	auto* overBtn = new Button(-700, ColoredText("Overworld", Color(0, 0, 0)), BIND_FN(onOverworldBtnClick), mainSprite, this->dispatcher);
 	overBtn->setPositionX(CENTER_X - overBtn->getWidth() / 2);
 	overBtn->setPositionY(CENTER_Y - overBtn->getHeight() / 2);
-	overBtn->setSize(200, 50);
-	overBtn->registerSprite(SpriteState::DEFAULT, mainSprite);
-	overBtn->changeToState(SpriteState::DEFAULT);
 
-	mainBtn = new Button(-701, ColoredText("Hoofdmenu", Color(0, 0, 0)), BIND_FN(OnMainBtnClick));
+	auto* mainBtn = new Button(-701, ColoredText("Hoofdmenu", Color(0, 0, 0)), BIND_FN(OnMainBtnClick), mainSprite, this->dispatcher);
 	mainBtn->setPositionX(CENTER_X - mainBtn->getWidth() / 2);
 	mainBtn->setPositionY(CENTER_Y - mainBtn->getHeight() / 2 + 200);
-	mainBtn->setSize(200, 50);
-	mainBtn->registerSprite(SpriteState::DEFAULT, mainSprite);
-	mainBtn->changeToState(SpriteState::DEFAULT);
 
 	addNewObjectToLayer(3, overBtn);
 	addNewObjectToLayer(3, mainBtn);
@@ -82,34 +77,29 @@ void WinScreen::LoadBackground() {
 	confetti->setEndSpin(90);
 	confetti->setStartSpinVar(90);
 
-	addNewObjectToLayer(0, layer0);
+	addNewObjectToLayer(0, layer0, false, true);
 	addNewObjectToLayer(1, animation);
-	addNewObjectToLayer(2, confetti);
+	addNewObjectToLayer(2, confetti, false, true);
 }
 
 /// @brief 
 /// Load the sounds for this scene
 void WinScreen::LoadMusic() {
 
-	//EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent("APPLAUSE_SOUND", "Assets/Sound/applause.wav"));
-	EventSingleton::get_instance().dispatchEvent<SoundAttachEvent>((Event&)SoundAttachEvent("WIN_SOUND", "Assets/Sound/TremLoadingloopl.wav"));
+	engine.soundEngine.onLoadBackgroundMusicEvent("WIN_SOUND", "Assets/Sound/TremLoadingloopl.wav");
 }
 
 
 /// @brief 
 /// Create the sounds for this scene
-void WinScreen::start()
+void WinScreen::start(bool playSound)
 {
-	overBtn->reset();
-	mainBtn->reset();
-	//EventSingleton::get_instance().dispatchEvent<PlaySoundEffectEvent>((Event&)PlaySoundEffectEvent("APPLAUSE_SOUND"));
-	EventSingleton::get_instance().dispatchEvent<OnMusicStartEvent>((Event&)OnMusicStartEvent("WIN_SOUND"));
+	if(playSound)engine.soundEngine.onStartBackgroundMusicEvent("WIN_SOUND");
 }
 
 void WinScreen::onDetach()
 {
-	//EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent("APPLAUSE_SOUND"));
-	EventSingleton::get_instance().dispatchEvent<OnMusicStopEvent>((Event&)OnMusicStopEvent("WIN_SOUND"));
+	engine.soundEngine.onStartBackgroundMusicEvent("WIN_SOUND");
 	Scene::onDetach();
 }
 
@@ -117,14 +107,14 @@ void WinScreen::onDetach()
 /// Remove the sounds of the soundengine
 void WinScreen::OnMainBtnClick()
 {
-	SceneSwitcher::get_instance().switchToScene("MAIN_MENU", false);
+	stateMachine.switchToScene("MainMenu", false);
 }
 
 /// @brief 
 /// A callback function for overworldBTN
 /// Start transition scene to overworld
 void WinScreen::onOverworldBtnClick() {
-	SceneSwitcher::get_instance().switchToScene("OVERWORLD", false);
+	stateMachine.switchToScene("Overworld", false);
 }
 
 /// @brief 

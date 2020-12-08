@@ -2,6 +2,8 @@
 #include "core.h"
 #include "SpriteObject.h"
 
+#define BASE_GRAVITY 1
+
 /// @brief 
 /// Object class. Object is linked with a sprite id in SVI. 
 class Object
@@ -9,7 +11,7 @@ class Object
 public:
 	API Object(const int id, const bool isParticle);
 	API Object();
-	API ~Object();
+	API virtual ~Object();
 
 	API void setPositionX(const float);
 	API float getPositionX() const;
@@ -45,6 +47,9 @@ public:
 	
 	API void setSpeed(const float val);
 	API float getSpeed() const;
+
+	API void setGravity(const float val);
+	API float getGravity() const;
 	
 	API void setJumpHeight(const float val);
 	API float getJumpHeight() const;
@@ -93,6 +98,7 @@ protected:
 	float friction = 0;
 	float restitution = 0;
 	bool staticObject = false;
+	float gravity = BASE_GRAVITY;
 	// ----------------
 	// unknown
 	bool changed = false;
