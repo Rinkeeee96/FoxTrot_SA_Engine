@@ -1,15 +1,15 @@
 #include "pch.h"
-#include "InvinsibleState.h"
+#include "DamageCooldownState.h"
 #include "Game/Characters/Player/Player.h"
 #include "NormalState.h"
 
-void InvinsibleState::entry(Player* entity) {
+void DamageCooldownState::entry(Player* entity) {
 	entity->setCanHit(false); 
 	startTime = chrono::high_resolution_clock::now();
 	entity->setTint(255, 0, 43);
 };
 
-void InvinsibleState::execute(Player* entity) {
+void DamageCooldownState::execute(Player* entity) {
 	chrono::high_resolution_clock::time_point endTime = chrono::high_resolution_clock::now();
 	chrono::seconds seconds = std::chrono::duration_cast<chrono::seconds>(endTime - startTime);
 
@@ -18,6 +18,6 @@ void InvinsibleState::execute(Player* entity) {
 	}
 };
 
-void InvinsibleState::exit(Player* entity) {
+void DamageCooldownState::exit(Player* entity) {
 	entity->removeTint();
 };

@@ -26,7 +26,7 @@
     <ClCompile Include="Game\States\Player\GodState.cpp" />
     <ClCompile Include="Game\States\Player\NormalState.cpp" />
     <ClCompile Include="Game\States\Player\PlayerGlobalState.cpp" />
-    <ClCompile Include="Game\States\Player\InvinsibleState.cpp" />
+    <ClCompile Include="Game\States\Player\DamageCooldownState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
@@ -78,6 +78,6 @@
     <ClInclude Include="Game\States\IGlobalState.h" />
     <ClInclude Include="Game\States\IState.h" />
     <ClInclude Include="Game\States\StateMachine.h" />
-    <ClInclude Include="Game\States\Player\InvinsibleState.h" />
+    <ClInclude Include="Game\States\Player\DamageCooldownState.h" />
   </ItemGroup>
 </Project>

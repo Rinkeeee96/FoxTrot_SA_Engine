@@ -196,7 +196,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\States\IGlobalState.h" />
     <ClInclude Include="Game\States\IState.h" />
     <ClInclude Include="Game\States\Player\GodState.h" />
-    <ClInclude Include="Game\States\Player\InvinsibleState.h" />
+    <ClInclude Include="Game\States\Player\DamageCooldownState.h" />
     <ClInclude Include="Game\States\Player\NormalState.h" />
     <ClInclude Include="Game\States\Player\PlayerGlobalState.h" />
     <ClInclude Include="Game\States\StateMachine.h" />
@@ -232,7 +232,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClCompile Include="Game\Scenes\DeathScreen\DeathScreen.cpp" />
     <ClCompile Include="Game\Scenes\WinScreen\WinScreen.cpp" />
     <ClCompile Include="Game\States\Player\GodState.cpp" />
-    <ClCompile Include="Game\States\Player\InvinsibleState.cpp" />
+    <ClCompile Include="Game\States\Player\DamageCooldownState.cpp" />
     <ClCompile Include="Game\States\Player\NormalState.cpp" />
     <ClCompile Include="Game\States\Player\PlayerGlobalState.cpp" />
     <ClCompile Include="Glitch.cpp" />

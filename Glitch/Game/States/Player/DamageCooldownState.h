@@ -6,10 +6,10 @@
 
 class Player;
 
-class InvinsibleState : public IState<Player>
+class DamageCooldownState : public IState<Player>
 {
 public:
-    virtual ~InvinsibleState() {}
+    virtual ~DamageCooldownState() {}
 
     void entry(Player* entity) override;
     void execute(Player* entity) override;

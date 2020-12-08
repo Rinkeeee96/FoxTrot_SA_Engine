@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "NormalState.h"
-#include "InvinsibleState.h"
+#include "DamageCooldownState.h"
 #include "Game/Characters/Player/Player.h"
 
 void NormalState::entry(Player* entity) {
@@ -10,7 +10,7 @@ void NormalState::entry(Player* entity) {
 
 void NormalState::execute(Player* entity) {
 	if (entity->getCurrentHealth() != currentHealth) {
-		entity->getStateMachine().changeState(new InvinsibleState, entity);
+		entity->getStateMachine().changeState(new DamageCooldownState, entity);
 	}
 };
 
