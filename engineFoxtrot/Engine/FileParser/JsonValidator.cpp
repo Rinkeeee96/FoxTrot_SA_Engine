@@ -20,7 +20,7 @@ JsonValidator::JsonValidator(string path, string validationPath) : IFileValidato
 /// load a jsonfile to a document
 /// @param path to the file
 /// @param document reference
-void JsonValidator::loadDocument(string path, rapidjson::Document& document) {
+void JsonValidator::loadDocument(string path, JsonDocument& document) {
 	if (!valijson::utils::loadDocument(path, document)) {
 		throw exception("Failed to load schema document");
 	}
