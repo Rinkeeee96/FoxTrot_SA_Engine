@@ -38,7 +38,7 @@ unique_ptr<Scene> SceneStateMachine::loadLevel(const string& identifier) {
 	LoadLevelFacade levelLoader{ engine };
 
 	levelToBuild = stoi(identifier.substr(6));
-	cout << "Level to build: " << levelToBuild << endl;
+	if (DEBUG_MAIN) cout << "Level to build: " << levelToBuild << endl;
 
 	LevelBuilder levelOneBuilder{ engine, sceneId++, *this };
 
