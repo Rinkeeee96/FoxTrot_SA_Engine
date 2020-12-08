@@ -1,5 +1,5 @@
 #pragma once
-#include "Commands/ICharacterCommand.h"
+#include "Game/Commands/ICharacterCommand.h"
 class StopMovementCommand : public ICharacterCommand
 {
 public:

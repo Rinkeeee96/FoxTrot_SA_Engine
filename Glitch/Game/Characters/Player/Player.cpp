@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "Player.h"
-#include "Commands\CharacterCommands\StopMovementCommand.h"
+#include "Game/Commands/CharacterCommands/StopMovementCommand.h"
 
 Player::Player(const int id, EventDispatcher& _dispatcher) : ICharacter(id, _dispatcher) {
 	this->setHeight(80);

@@ -13,5 +13,5 @@ public:
 	/// a command is created by this creator upon request with its registered classname
 	void registerit(const std::string& classname, ICommandCreator* creator);
 private:
-	std::map<std::string, ICommandCreator*> table;
+	map<string, ICommandCreator*> table;
 };

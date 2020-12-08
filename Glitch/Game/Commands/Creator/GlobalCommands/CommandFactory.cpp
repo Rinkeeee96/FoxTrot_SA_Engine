@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "CommandFactory.h"
 #include "CommandCreator.h"
-#include "Input/Commands/exceptions/unknownCommandException.h"
 
 void CommandFactory::registerit(const std::string& classname, ICommandCreator* creator)
 {
@@ -16,5 +15,5 @@ ICommand* CommandFactory::create(const std::string& classname)
 	if (i != table.end())
 		return i->second->create();
 	else
-		throw unknownCommandException("Unknown command " + classname);
+		throw exception(string("Unknown command " + classname).c_str());
 }

@@ -1,5 +1,5 @@
 #pragma once
-#include "Commands/ICharacterCommand.h"
+#include "Game/Commands/ICharacterCommand.h"
 #include "Engine/Input/Commands/KeypressInvoker.h"
 class Player;
 class GameKeypressInvoker : public KeypressInvoker
