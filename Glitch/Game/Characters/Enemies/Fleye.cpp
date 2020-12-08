@@ -14,7 +14,7 @@ void Fleye::onUpdate() {
 	float yPositionDifference = abs((player->getPositionY() + player->getHeight() / 2) - (this->getPositionY() + this->getHeight() / 2));
 
 	// Distance is calculated using the Pythagorean theorem from the middle of both objects
-	float distanceFromPlayer = sqrt(abs(pow(xPositionDifference, 2) - pow(yPositionDifference, 2)));
+	float distanceFromPlayer = sqrt(abs(pow(xPositionDifference, 2) + pow(yPositionDifference, 2)));
 
 	bool playerIsInRange = distanceFromPlayer <= FLEYE_RANGE;
 	bool playerIsLowerThanMe = this->getPositionY() < player->getPositionY();
