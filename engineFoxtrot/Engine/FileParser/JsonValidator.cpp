@@ -7,6 +7,10 @@
 #include <valijson/schema_parser.hpp>
 #include <valijson/validator.hpp>
 
+/// @brief
+/// load the documents for validation
+/// @param path to document that needs a validation
+/// @param path to document that is the validation schema
 JsonValidator::JsonValidator(string path, string validationPath) : IFileValidator(path, validationPath) {
 	loadDocument(path, document);
 	loadDocument(validationPath, validationDocument);
