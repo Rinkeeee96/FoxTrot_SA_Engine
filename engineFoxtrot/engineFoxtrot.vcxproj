@@ -127,10 +127,11 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;BUILD_WINDOWS;BUILD_DLL;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\SDL2\include;$(projectDir)..\box2d-master\include;$(projectDir)Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\SDL2\include;$(projectDir)..\box2d-master\include;$(projectDir)Engine;$(SolutionDir)RapidJson\include;$(SolutionDir)Valijson\include;$(SolutionDir)Nlohmann\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName)_$(PlatformTarget).pch</PrecompiledHeaderOutputFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalOptions>/D _SILENCE_ALL_CXX17_DEPRECATION_WARNINGS %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
