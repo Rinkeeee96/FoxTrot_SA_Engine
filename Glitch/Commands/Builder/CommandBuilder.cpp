@@ -73,7 +73,7 @@ void CommandBuilder::initCharacterFactory()
 
 void CommandBuilder::initGlobalFactory()
 {
-	generalCommandFactory = std::shared_ptr<CommandFactory>();
+	generalCommandFactory = std::shared_ptr<CommandFactory>(new CommandFactory());
 	auto* pauseCommand = new CommandCreator<PauseCommand>("pause");
 
 	pauseCommand->registerClass(generalCommandFactory);
