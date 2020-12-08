@@ -2,6 +2,10 @@
 
 class EventDispatcher;
 
+/// <summary>
+/// ISybsystem is a class containing the enforced methods where startup/shutdown boilerplate is desired
+/// each method represents an action each subsequent subsystem must implement.
+/// </summary>
 class ISubsystem {
 public:
 	virtual void start(EventDispatcher& dispatcher) = 0; // set dispatcher
