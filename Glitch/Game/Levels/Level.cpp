@@ -26,8 +26,14 @@ bool Level::onKeyPressed(const Event& event) {
 		}
 		break;
 	case KeyCode::KEY_G:
-		if (this->player != nullptr && typeid(this->player->getStateMachine().getCurrentState()).name() != typeid(GodState).name()) this->player->getStateMachine().setCurrentState(new GodState, this->player);
-		else this->player->getStateMachine().setCurrentState(new NormalState, this->player);
+		if (this->player != nullptr && 
+			typeid(this->player->getStateMachine().getCurrentState()).name() != typeid(GodState).name()) 
+		{
+			this->player->getStateMachine().changeState(new GodState, this->player);
+		}
+		else {
+			this->player->getStateMachine().changeState(new NormalState, this->player);
+		}
 		break;
 	default:
 		break;

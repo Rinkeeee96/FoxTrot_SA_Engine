@@ -20,9 +20,7 @@ public:
 	/// @brief 
 	/// Handles when an collision event ends, when the direction of the collision happend on the bottom side of the player object, set can jump false
 	bool onCollisionEndEvent(const Event& event);
-	
 	void setYAxisVelocity(const float val) override;
-
 	void setXAxisVelocity(const float val) override;
 
 	/// @brief 

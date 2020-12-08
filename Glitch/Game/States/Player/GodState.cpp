@@ -4,6 +4,7 @@
 
 void GodState::entry(Player* entity) {
 	entity->setCanHit(false);
+	entity->setTint(255, 251, 135);
 };
 
 void GodState::execute(Player* entity) {
@@ -13,5 +14,5 @@ void GodState::execute(Player* entity) {
 };
 
 void GodState::exit(Player* entity) {
-
+	entity->removeTint();
 };

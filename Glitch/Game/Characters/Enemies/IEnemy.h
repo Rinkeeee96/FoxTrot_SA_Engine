@@ -14,9 +14,8 @@ public:
 	IEnemy(const int id, EventDispatcher& dispatcher) : ICharacter(id, dispatcher) {}
 	virtual ~IEnemy() {}
 
-	void setPlayer(Player* player) {
-		this->player = player;
-	}
+	void setPlayer(Player* player) { this->player = player; }
+	void doDamage() { this->player->removeHealth(this->damage); }
 
 	virtual void onUpdate() = 0;
 	virtual ICharacter* clone(int id) = 0;

@@ -6,6 +6,7 @@
 void InvinsibleState::entry(Player* entity) {
 	entity->setCanHit(false); 
 	startTime = chrono::high_resolution_clock::now();
+	entity->setTint(255, 0, 43);
 };
 
 void InvinsibleState::execute(Player* entity) {
@@ -13,10 +14,10 @@ void InvinsibleState::execute(Player* entity) {
 	chrono::seconds seconds = std::chrono::duration_cast<chrono::seconds>(endTime - startTime);
 
 	if (seconds == std::chrono::seconds(TIME_OUT_IN_SECONDS)) {
-		entity->getStateMachine().setCurrentState(new NormalState, entity);
+		entity->getStateMachine().changeState(new NormalState, entity);
 	}
 };
 
 void InvinsibleState::exit(Player* entity) {
-
+	entity->removeTint();
 };

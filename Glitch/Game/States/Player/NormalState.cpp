@@ -10,7 +10,7 @@ void NormalState::entry(Player* entity) {
 
 void NormalState::execute(Player* entity) {
 	if (entity->getCurrentHealth() != currentHealth) {
-		entity->getStateMachine().setCurrentState(new InvinsibleState, entity);
+		entity->getStateMachine().changeState(new InvinsibleState, entity);
 	}
 };
 
