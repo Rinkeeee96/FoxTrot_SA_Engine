@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "FileLoader.h"
+#include <FileParser\JsonValidator.h>
 
-#include <FileParser\ValiJsonAdapter.h>
 /// @brief 
 /// Reads a file and returns the stream, strem should be closed
 /// @param path to the file
@@ -21,8 +21,14 @@ ifstream FileLoader::readFile(string path) {
 /// @param path to the file
 /// @param path to the validation file
 /// @return boolean
-bool FileLoader::validateJSON(string path, string validationPath) {
-	ValiJsonAdapter valiJsonAdapter(path, validationPath);
+bool FileLoader::validateDocument(string path, string validationPath) {
+	auto fileType = path.substr(path.find_last_of(".") + 1);
 
-	return valiJsonAdapter.documentIsValid();
+	if (fileType == "json") {
+		JsonValidator valiJsonAdapter(path, validationPath);
+		return valiJsonAdapter.documentIsValid();
+	}else{
+		throw exception("unsupported file type");
+	}
+	return false;
 }

@@ -15,5 +15,4 @@ private:
 	LevelBuilderDirector builderDirector;
 	Engine& engine;
 	FileLoader fileLoader;
-	void validateLevel(string path);
 };

@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "ValiJsonAdapter.h"
+#include "JsonValidator.h"
 
 #include <valijson/adapters/rapidjson_adapter.hpp>
 #include <valijson/utils/rapidjson_utils.hpp>
@@ -7,16 +7,16 @@
 #include <valijson/schema_parser.hpp>
 #include <valijson/validator.hpp>
 
-ValiJsonAdapter::ValiJsonAdapter(string path, string validationPath) {
-	loadJsonDocument(path, document);
-	loadJsonDocument(validationPath, validationDocument);
+JsonValidator::JsonValidator(string path, string validationPath) : IFileValidator(path, validationPath) {
+	loadDocument(path, document);
+	loadDocument(validationPath, validationDocument);
 }
 
 /// @brief 
 /// load a jsonfile to a document
 /// @param path to the file
 /// @param document reference
-void ValiJsonAdapter::loadJsonDocument(string path, rapidjson::Document& document) {
+void JsonValidator::loadDocument(string path, rapidjson::Document& document) {
 	if (!valijson::utils::loadDocument(path, document)) {
 		throw exception("Failed to load schema document");
 	}
@@ -25,7 +25,7 @@ void ValiJsonAdapter::loadJsonDocument(string path, rapidjson::Document& documen
 /// @brief 
 /// check of the current document is valid by the json schema.
 /// @return boolean
-bool ValiJsonAdapter::documentIsValid() {
+bool JsonValidator::documentIsValid() {
 	valijson::Schema schema;
 	valijson::SchemaParser parser;
 	valijson::adapters::RapidJsonAdapter schemaAdapter(validationDocument);
@@ -44,13 +44,13 @@ bool ValiJsonAdapter::documentIsValid() {
 /// @brief 
 /// validate a json file
 /// @param path to the file
-void ValiJsonAdapter::loadNewDocument(string path) {
-	loadJsonDocument(path, document);
+void JsonValidator::loadNewDocument(string path) {
+	loadDocument(path, document);
 }
 
 /// @brief 
 /// validate a new validation file
 /// @param path to the file
-void ValiJsonAdapter::loadNewValidationFile(string path) {
-	loadJsonDocument(path, validationDocument);
+void JsonValidator::loadNewValidationFile(string path) {
+	loadDocument(path, validationDocument);
 }

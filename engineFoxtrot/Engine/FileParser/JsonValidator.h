@@ -2,17 +2,19 @@
 #include <fstream> 
 
 #include <rapidjson/document.h>
+#include "IFileValidator.h"
 
 /// @brief 
 /// ValiJson adapter
-class API ValiJsonAdapter
+class API JsonValidator : public IFileValidator
 {
 private:
-	void loadJsonDocument(string path, rapidjson::Document& document);
+	void loadDocument(string path, rapidjson::Document& document);
 	rapidjson::Document validationDocument;
 	rapidjson::Document document; 
 public:
-	ValiJsonAdapter(string path, string validationPath);
+	JsonValidator(string path, string validationPath);
+
 	bool documentIsValid();
 
 	void loadNewDocument(string path);

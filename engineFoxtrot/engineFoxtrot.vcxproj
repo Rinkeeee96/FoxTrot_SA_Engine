@@ -164,7 +164,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Engine\FileParser\ValiJsonAdapter.cpp" />
+    <ClCompile Include="Engine\FileParser\JsonValidator.cpp" />
     <ClCompile Include="Engine\SceneManager\Objects\Drawable.cpp" />
     <ClCompile Include="Engine\Engine.cpp" />
     <ClCompile Include="Engine\FileParser\FileLoader.cpp" />
@@ -200,7 +200,8 @@
   <ItemGroup>
     <ClInclude Include="api.h" />
     <ClInclude Include="Engine\Events\EventDispatcher.h" />
-    <ClInclude Include="Engine\FileParser\ValiJsonAdapter.h" />
+    <ClInclude Include="Engine\FileParser\IFileValidator.h" />
+    <ClInclude Include="Engine\FileParser\JsonValidator.h" />
     <ClInclude Include="Engine\General\ISubsystem.h" />
     <ClInclude Include="Engine\SceneManager\Objects\Drawable.h" />
     <ClInclude Include="Engine\core.h" />

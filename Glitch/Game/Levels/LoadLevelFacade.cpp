@@ -12,7 +12,7 @@ LoadLevelFacade::LoadLevelFacade(Engine& _engine) : engine(_engine)
 /// @param levelbuilder to use 
 void LoadLevelFacade::load(string path, ILevelBuilder* levelBuilder) {
 	FileLoader fileLoader;
-	bool validLevel = fileLoader.validateJSON(path, "Game/Levels/level-validation-schema.json");
+	bool validLevel = fileLoader.validateDocument(path, "Game/Levels/level-validation-schema.json");
 	if (validLevel) {
 		nlohmann::json json;
 		builderDirector = LevelBuilderDirector();
