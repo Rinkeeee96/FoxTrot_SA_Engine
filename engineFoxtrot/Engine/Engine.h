@@ -35,6 +35,9 @@ public:
 	// Sound calls
 	API void loadSound(const string& identifier, const string& path);
 	API void loadSound(map<string, string> sounds);
+	API void startSound(const string& identifier);
+	API void stopSound(const string& identifier);
+	API void stopLoopEffect(const string& identifier);
 
 	bool getPhysicsPaused();
 
@@ -51,9 +54,6 @@ public:
 
 	API void restartPhysicsWorld();
 
-	//API EventDispatcher& getDispatcher() { return *eventDispatcher; }
-	SoundEngine soundEngine;
-
 private:
 	EventDispatcher* eventDispatcher;
 	bool running = false;
@@ -63,6 +63,7 @@ private:
 	SceneManager sceneManager;
 	ParticleEngine particleEngine;
 	PhysicsEngine physicsEngine;
+	SoundEngine soundEngine;
 
 	VideoEngine videoEngine{ frameData };
 	InputEngine inputEngine{ *this };
