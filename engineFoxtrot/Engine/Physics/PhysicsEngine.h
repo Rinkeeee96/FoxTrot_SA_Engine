@@ -5,10 +5,12 @@
 #include "SceneManager/Scene.h"
 #include "General/ISubsystem.h"
 
+#include "Fps/FrameData.h"
+
 class API PhysicsEngine : public ISubsystem
 {
 public:
-	PhysicsEngine();
+	PhysicsEngine(FrameData& _frameData) : frameData{ _frameData } {};
 	~PhysicsEngine();
 
 	void registerObjectInCurrentVectorWithPhysicsEngine();
@@ -27,6 +29,7 @@ private:
 	void clean();
 	IPhysicsFacade* physicsFacade;
 	EventDispatcher* dispatcher;
+	FrameData& frameData;
 
 	// CurrentScene is stored because if this changes then the objects need to be reset.
 	int currentSceneID = 0;

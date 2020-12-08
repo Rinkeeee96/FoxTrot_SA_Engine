@@ -4,21 +4,13 @@
 #include "Events\Action\ObjectStopEvent.h"
 #include "Events/Key/KeyPressed.h"
 
-
-/// @brief Constructor
-PhysicsEngine::PhysicsEngine()
-{
-}
-
 void PhysicsEngine::start(EventDispatcher& dispatcher) {
 	this->dispatcher = &dispatcher;
-	physicsFacade = new PhysicsFacade(dispatcher);
+	physicsFacade = new PhysicsFacade(dispatcher, frameData);
 
 	dispatcher.setEventCallback<ActionEvent>(BIND_EVENT_FN(PhysicsEngine::handleAction));
 	dispatcher.setEventCallback<ObjectStopEvent>(BIND_EVENT_FN(PhysicsEngine::stopObject));
 };
-
-
 
 void PhysicsEngine::update() {
 	if (currentSceneID != (*pointerToCurrentScene)->getSceneID())

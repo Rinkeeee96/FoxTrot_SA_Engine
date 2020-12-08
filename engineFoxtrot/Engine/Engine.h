@@ -62,7 +62,7 @@ private:
 	
 	SceneManager sceneManager;
 	ParticleEngine particleEngine;
-	PhysicsEngine physicsEngine;
+	PhysicsEngine physicsEngine{ frameData };
 
 	VideoEngine videoEngine{ frameData };
 	InputEngine inputEngine{ *this };
