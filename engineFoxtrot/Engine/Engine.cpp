@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Engine.h"
+#include "Input/Commands/Engine/PauseCommand.h"
 
 
 /// @brief 
@@ -10,7 +11,8 @@ Engine::Engine()
 	particleEngine.pointerToCurrentScene = &sceneManager.currentScene;
 
 	// register default invoker
-	keypressInvoker = new KeypressInvoker();
+	useCustomCommandInvoker(new KeypressInvoker());
+	constructDefaultCommands(keypressInvoker);
 
 	videoEngine.start(*this->eventDispatcher);
 }
@@ -21,10 +23,21 @@ Engine::~Engine()
 	videoEngine.shutdown();
 }
 
+void Engine::constructDefaultCommands(KeypressInvoker* invoker) {
+
+	invoker->registerCommand(KeyCode::KEY_P, new PauseCommand({
+		&this->inputEngine,
+		&this->videoEngine,
+		&this->physicsEngine
+		})
+	);
+}
+
 /// @brief 
 /// Override the default invoker with a custom one from the application
 void Engine::useCustomCommandInvoker(KeypressInvoker* newInvoker)
 {
+	constructDefaultCommands(newInvoker);
 	this->keypressInvoker = newInvoker;
 }
 

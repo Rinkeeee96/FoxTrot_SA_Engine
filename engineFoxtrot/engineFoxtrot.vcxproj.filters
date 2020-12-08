@@ -34,6 +34,7 @@
     <ClCompile Include="Engine\SceneManager\Objects\Button.cpp" />
     <ClCompile Include="Engine\Input\Commands\KeypressInvoker.cpp" />
     <ClCompile Include="Engine\SceneManager\Objects\PopUp.cpp" />
+    <ClCompile Include="Engine\Input\Commands\Engine\PauseCommand.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Engine.cpp">

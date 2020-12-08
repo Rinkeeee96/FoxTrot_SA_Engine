@@ -25,6 +25,12 @@ public:
 	API Engine();
 	API ~Engine();
 
+	/// @brief
+	/// The engine's keypress invoker contains 'default' engine commands and keybindings for them, these are to always exist
+	/// and are thus created in this function, this method is called each time an invoker is assigned. 
+	/// Due to the way the invoker is setup, these cannot be overriden by default, only the bindings can be modified.
+	void constructDefaultCommands(KeypressInvoker* invoker);
+
 	API void useCustomCommandInvoker(KeypressInvoker* newInvoker);
 
 	//SceneManager calls
