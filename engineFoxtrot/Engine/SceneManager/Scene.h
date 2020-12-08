@@ -84,13 +84,9 @@ public:
 	API void createLayer(const int zIndex, bool renderPhysics = false, bool alwaysDrawLayer = false);
 
 	EventDispatcher& getEventDispatcher() { return dispatcher; };
-	
-	void createPopUpLayer(float xPosition, float yPosition, string text);
-	void createPopUpLayer(float xPosition, float yPosition, float width, float height, string text);
-	void createPopUpLayer(float xPosition, float yPosition, float width, float height, string text, SpriteObject* spObject);
-	void createPopUpLayer(float xPosition, float yPosition, float width, float height, SpriteObject* spObject);
 
 	int getHighestLayerIndex();
+	void addLayer(Layer _layer);
 	void removePopUpLayer();
 
 protected:
