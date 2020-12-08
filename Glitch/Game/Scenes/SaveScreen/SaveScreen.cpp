@@ -23,7 +23,7 @@ void SaveScreen::onDetach()
 
 void SaveScreen::start(bool playSound)
 {
-	if(playSound)engine.soundEngine.onStartBackgroundMusicEvent("MENU_SOUND");
+	if(playSound)engine.getSoundEngine().onStartBackgroundMusicEvent("MENU_SOUND");
 }
 
 void SaveScreen::onUpdate()
@@ -71,7 +71,7 @@ void SaveScreen::loadBackground()
 
 void SaveScreen::loadMusic()
 {
-	engine.soundEngine.onLoadBackgroundMusicEvent("MENU_SOUND", "Assets/Sound/file_example_WAV_1MG.wav");
+	engine.getSoundEngine().onLoadBackgroundMusicEvent("MENU_SOUND", "Assets/Sound/file_example_WAV_1MG.wav");
 }
 
 void SaveScreen::loadButtons()

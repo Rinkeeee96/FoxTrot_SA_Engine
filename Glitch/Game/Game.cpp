@@ -17,13 +17,13 @@ int Game::run() {
 
 		while (engine.getEngineRunning())
 		{
-			engine.updateFps();
+			engine.getFrameData().updateFps();
 			engine.onUpdate();
 			// TODO get only the non static objects, without looping thru them again and again
 			stateMachine->updateCurrentScene();
 
 			this_thread::sleep_for(chrono::milliseconds(10));
-			engine.updateFps();
+			engine.getFrameData().updateFps();
 		}
 		savegame->saveGameDataToJsonFile();
 	}

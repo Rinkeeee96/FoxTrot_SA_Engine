@@ -32,38 +32,26 @@ public:
 	API void insertScene(Scene * scene);
 	API void deregisterScene(const int id);
 
-	// Sound calls
-	API void loadSound(const string& identifier, const string& path);
-	API void loadSound(map<string, string> sounds);
-
-	bool getPhysicsPaused();
-
-	// Input calls
-	API void pollEvents();
-
 	API void onUpdate();
-
-	API void updateFps();
-	API void toggleFps();
 
 	API bool getEngineRunning() { return running; };
 	API void setEngineRunning(bool run) { running = run; }
 
-	API void restartPhysicsWorld();
-
-	//API EventDispatcher& getDispatcher() { return *eventDispatcher; }
-	SoundEngine soundEngine;
+	SoundEngine& getSoundEngine() { return soundEngine; };
+	VideoEngine& getVideoEngine() { return videoEngine; };
+	PhysicsEngine& getPhysicsEngine() { return physicsEngine; }
+	FrameData& getFrameData() { return frameData; }
 
 private:
 	EventDispatcher* eventDispatcher;
 	bool running = false;
 
 	FrameData frameData;
-	
+
+	SoundEngine soundEngine;
 	SceneManager sceneManager;
 	ParticleEngine particleEngine;
 	PhysicsEngine physicsEngine;
-
 	VideoEngine videoEngine{ frameData };
 	InputEngine inputEngine{ *this };
 
