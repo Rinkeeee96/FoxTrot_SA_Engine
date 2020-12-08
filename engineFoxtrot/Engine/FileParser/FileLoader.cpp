@@ -13,6 +13,7 @@ ifstream FileLoader::readFile(string path) {
 		ifstream ifstream(path);
 		return ifstream;
 	}
+
 	throw exception("file not found exception");
 }
 

@@ -12,15 +12,16 @@ LoadLevelFacade::LoadLevelFacade(Engine& _engine) : engine(_engine)
 /// @param levelbuilder to use 
 void LoadLevelFacade::load(string path, ILevelBuilder* levelBuilder) {
 	FileLoader fileLoader;
-	bool validLevel = fileLoader.validateDocument(path, "Game/Levels/level-validation-schema.json");
-	if (validLevel) {
-		nlohmann::json json;
-		builderDirector = LevelBuilderDirector();
-		try {
-			auto filestream = fileLoader.readFile(path);
-			filestream >> json;
-			filestream.close();
+	nlohmann::json json;
+	builderDirector = LevelBuilderDirector();
+	try {
+		auto filestream = fileLoader.readFile(path);
+		filestream >> json;
+		filestream.close();
 
+		bool validLevel = fileLoader.validateDocument(path, "Game/Levels/level-validation-schema.json");
+
+		if (validLevel){
 			try {
 				builderDirector.construct(json, levelBuilder);
 			}
@@ -30,13 +31,13 @@ void LoadLevelFacade::load(string path, ILevelBuilder* levelBuilder) {
 				throw exc;
 			}
 		}
-		catch (exception exc) {
-			cout << "Something went wrong opening file, make sure the file exists" << "\n";
-			cout << exc.what() << "\n";
-			throw exc;
+		else{
+			throw exception("Something went wrong validating file, make sure the file is correct");
 		}
 	}
-	else {
-		throw exception("Something went wrong validating file, make sure the file is correct");
+	catch (exception exc) {
+		cout << "Something went wrong opening file, make sure the file exists" << "\n";
+		cout << exc.what() << "\n";
+		throw exc;
 	}
 }
