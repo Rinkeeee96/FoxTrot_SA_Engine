@@ -23,10 +23,10 @@
     <ClCompile Include="Game\Scenes\Factory\FactoryMethod.cpp" />
     <ClCompile Include="Game\Scenes\DeathScreen\DeathScreen.cpp" />
     <ClCompile Include="Game\Scenes\Statemachine\SceneStateMachine.cpp" />
-    <ClCompile Include="Commands\GameKeypressInvoker.cpp" />
-    <ClCompile Include="Commands\Builder\CommandBuilder.cpp" />
-    <ClCompile Include="Commands\Creator\GlobalCommands\CommandFactory.cpp" />
-    <ClCompile Include="Commands\Creator\CharacterCommands\CharacterCommandFactory.cpp" />
+    <ClCompile Include="Game\Commands\Builder\CommandBuilder.cpp" />
+    <ClCompile Include="Game\Commands\Creator\CharacterCommands\CharacterCommandFactory.cpp" />
+    <ClCompile Include="Game\Commands\Creator\GlobalCommands\CommandFactory.cpp" />
+    <ClCompile Include="Game\Commands\GameKeypressInvoker.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
@@ -69,23 +69,23 @@
     <ClInclude Include="Game\Scenes\Factory\FactoryMethod.h" />
     <ClInclude Include="Game\Scenes\DeathScreen\DeathScreen.h" />
     <ClInclude Include="Game\Scenes\Statemachine\SceneStateMachine.h" />
-    <ClInclude Include="Commands\GameKeypressInvoker.h" />
     <ClInclude Include="Game\Characters\Enemies\Fleye.h" />
     <ClInclude Include="Game\Characters\Enemies\Jumpkin.h" />
     <ClInclude Include="Game\General\GeneralGameDefines.h" />
-    <ClInclude Include="Commands\CharacterCommands\JumpCommand.h" />
-    <ClInclude Include="Commands\CharacterCommands\MoveLeftCommand.h" />
-    <ClInclude Include="Commands\CharacterCommands\MoveRightCommand.h" />
-    <ClInclude Include="Commands\CharacterCommands\StopMovementCommand.h" />
-    <ClInclude Include="Commands\Builder\CommandBuilder.h" />
-    <ClInclude Include="Commands\Builder\ICommandBuilder.h" />
-    <ClInclude Include="Commands\GlobalCommands\PauseCommand.h" />
-    <ClInclude Include="Commands\Creator\GlobalCommands\CommandCreator.h" />
-    <ClInclude Include="Commands\Creator\GlobalCommands\CommandFactory.h" />
-    <ClInclude Include="Commands\Creator\GlobalCommands\ICommandCreator.h" />
-    <ClInclude Include="Commands\Creator\CharacterCommands\CharacterCommandCreator.h" />
-    <ClInclude Include="Commands\Creator\CharacterCommands\CharacterCommandFactory.h" />
-    <ClInclude Include="Commands\Creator\CharacterCommands\ICharacterCommandCreator.h" />
-    <ClInclude Include="Commands\ICharacterCommand.h" />
+    <ClInclude Include="Game\Commands\Builder\CommandBuilder.h" />
+    <ClInclude Include="Game\Commands\Builder\ICommandBuilder.h" />
+    <ClInclude Include="Game\Commands\CharacterCommands\JumpCommand.h" />
+    <ClInclude Include="Game\Commands\CharacterCommands\MoveLeftCommand.h" />
+    <ClInclude Include="Game\Commands\CharacterCommands\MoveRightCommand.h" />
+    <ClInclude Include="Game\Commands\CharacterCommands\StopMovementCommand.h" />
+    <ClInclude Include="Game\Commands\Creator\CharacterCommands\CharacterCommandCreator.h" />
+    <ClInclude Include="Game\Commands\Creator\CharacterCommands\CharacterCommandFactory.h" />
+    <ClInclude Include="Game\Commands\Creator\CharacterCommands\ICharacterCommandCreator.h" />
+    <ClInclude Include="Game\Commands\Creator\GlobalCommands\CommandCreator.h" />
+    <ClInclude Include="Game\Commands\Creator\GlobalCommands\CommandFactory.h" />
+    <ClInclude Include="Game\Commands\Creator\GlobalCommands\ICommandCreator.h" />
+    <ClInclude Include="Game\Commands\GlobalCommands\PauseCommand.h" />
+    <ClInclude Include="Game\Commands\GameKeypressInvoker.h" />
+    <ClInclude Include="Game\Commands\ICharacterCommand.h" />
   </ItemGroup>
 </Project>

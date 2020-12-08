@@ -1,5 +1,5 @@
 #pragma once
-#include "Commands/Builder/ICommandBuilder.h"
+#include "Game/Commands/Builder/ICommandBuilder.h"
 class GameKeypressInvoker;
 class Player;
 

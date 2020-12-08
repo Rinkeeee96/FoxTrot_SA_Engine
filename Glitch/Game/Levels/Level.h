@@ -1,6 +1,6 @@
 #pragma once
 #include "Game/Scenes/GameScene.h"
-#include "Commands/Builder/ICommandBuilder.h"
+#include "Game/Commands/Builder/ICommandBuilder.h"
 
 class Player;
 /// @brief 

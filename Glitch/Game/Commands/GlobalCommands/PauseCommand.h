@@ -1,6 +1,7 @@
 #pragma once
 #include "Input/Commands/ICommand.h"
 #include <string>
+
 class PauseCommand : public ICommand
 {
 public:

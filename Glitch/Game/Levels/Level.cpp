@@ -1,8 +1,8 @@
 #include "pch.h"
-#include "Commands/Builder/CommandBuilder.h"
 #include "Level.h"
 #include "Game/Characters/Player/Player.h"
 #include "Game/Scenes/Statemachine/SceneStateMachine.h"
+#include "Game/Commands/Builder/CommandBuilder.h"
 
 Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, Engine& engine, SceneStateMachine& _stateMachine) : 
 	commandBuilder{ new CommandBuilder() },

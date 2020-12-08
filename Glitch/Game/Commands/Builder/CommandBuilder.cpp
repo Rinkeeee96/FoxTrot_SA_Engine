@@ -1,24 +1,22 @@
 #include "pch.h"
 #include "CommandBuilder.h"
 
-#include "Commands/Creator/GlobalCommands/CommandCreator.h"
-#include "Commands/Creator/GlobalCommands/CommandFactory.h"
+#include "Game/Commands/Creator/GlobalCommands/CommandCreator.h"
+#include "Game/Commands/Creator/GlobalCommands/CommandFactory.h"
 
-#include "Commands/Creator/CharacterCommands/CharacterCommandFactory.h"
-#include "Commands/Creator/CharacterCommands/CharacterCommandCreator.h"
+#include "Game/Commands/Creator/CharacterCommands/CharacterCommandFactory.h"
+#include "Game/Commands/Creator/CharacterCommands/CharacterCommandCreator.h"
 
 #include "Game/Characters/Player/Player.h"
 
-#include "Commands/CharacterCommands/MoveLeftCommand.h"
-#include "Commands/CharacterCommands/MoveRightcommand.h"
-#include "Commands/CharacterCommands/JumpCommand.h"
-#include "Commands/CharacterCommands/StopMovementCommand.h"
+#include "Game/Commands/CharacterCommands/MoveLeftCommand.h"
+#include "Game/Commands/CharacterCommands/MoveRightcommand.h"
+#include "Game/Commands/CharacterCommands/JumpCommand.h"
+#include "Game/Commands/CharacterCommands/StopMovementCommand.h"
 
-#include "Commands/GlobalCommands/PauseCommand.h"
+#include "Game/Commands/GlobalCommands/PauseCommand.h"
 
-#include "Commands/exceptions/unknownCommandException.h"
-
-#include "Commands/GameKeypressInvoker.h"
+#include "Game/Commands/GameKeypressInvoker.h"
 
 CommandBuilder::CommandBuilder()
 {
@@ -92,7 +90,7 @@ void CommandBuilder::buildGlobalCommands(GameKeypressInvoker* invoker)
 				generalCommandFactory->create(pair->second)
 			);
 		}
-		catch (const unknownCommandException& e)
+		catch (const exception& e)
 		{
 			// TODO throw up further and create a popup for missparsed bindings
 			if (DEBUG_COMMAND_BUILDER) cout << e.what();
@@ -113,7 +111,7 @@ void CommandBuilder::buildPlayerCommands(Player& player, GameKeypressInvoker* in
 				characterCommandFactory->createCharacterCommand(pair->second, player)
 			);
 		}
-		catch (const unknownCommandException& e)
+		catch (const exception& e)
 		{
 			// TODO throw up further and create a popup for missparsed bindings
 			if (DEBUG_COMMAND_BUILDER) cout << e.what();

@@ -17,5 +17,5 @@ ICharacterCommand* CharacterCommandFactory::createCharacterCommand(const std::st
 	if (i != table.end())
 		return i->second->createCharacterCommand(character);
 	else
-		throw unknownCommandException("Unknown command " + classname);
+		throw exception(string("Unknown command " + classname).c_str());
 }

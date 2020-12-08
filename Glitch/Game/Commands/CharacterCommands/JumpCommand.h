@@ -1,5 +1,5 @@
 #pragma once
-#include "Commands/ICharacterCommand.h"
+#include "Game/Commands/ICharacterCommand.h"
 class JumpCommand : public ICharacterCommand
 {
 public:

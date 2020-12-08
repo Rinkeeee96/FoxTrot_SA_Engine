@@ -13,5 +13,5 @@ public:
 
 	ICharacterCommand* createCharacterCommand(const std::string& classname, ICharacter& character);
 private:
-	std::map<std::string, ICharacterCommandCreator*> table;
+	map<string, ICharacterCommandCreator*> table;
 };
