@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "Scene.h"
 #include "SceneManager\Objects\Drawable.h"
-#include "Objects/PopUp.h"
 #include "Events/Key/KeyPressed.h"
 
 #define POP_UP_DEFAULT_WIDTH	400
@@ -180,7 +179,7 @@ bool Scene::onKeyPressed(const Event& event) {
 			//createPopUpLayer(WINDOW_WIDTH_CENTER, WINDOW_HEIGHT_CENTER, "Paused");
 		}
 		else {
-			removePopUpLayer();
+			removeLayer();
 		}
 		break;
 	default:
@@ -227,7 +226,7 @@ int Scene::getHighestLayerIndex() {
 	return zIndex;
 }
 
-/// @brief Creates a basic PopUp with text
+/// @brief Creates a basic l with text
 /// @param xPosition 
 /// @param yPosition 
 /// @param text 
@@ -237,21 +236,16 @@ void Scene::addLayer(Layer _layer) {
 	layers[zIndex] = &_layer;
 }
 
+/// @brief remove layer
+/// @param _zIndex no value means top layer.
+void Scene::removeLayer(int _zIndex) {
+	if (_zIndex == -1) {
+		int zIndex = 0;
 
-
-/// @brief Remove PopUp layer
-void Scene::removePopUpLayer() {
-	int zIndex = 0;
-	if (hasActivePopUp) {
-		for (auto layer : layers) {
-			if (zIndex < layer.first)
-				zIndex = layer.first;
-		}
+		zIndex = getHighestLayerIndex();
+		layers.erase(zIndex);
 	}
 	else {
-		return;
+		layers.erase(_zIndex);
 	}
-
-	layers.erase(zIndex);
-	hasActivePopUp = false;
 }

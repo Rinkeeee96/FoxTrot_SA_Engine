@@ -7,31 +7,31 @@ public:
 	Layer() {};
 	~Layer() {};
 
-	void setVisible(bool value) { visible = value; }
-	bool getVisible() const { return visible; }
+	API void setVisible(bool value) { visible = value; }
+	API bool getVisible() const { return visible; }
 
-	void setRender(bool value) { render = value; }
-	bool getRender() const { return render; }
+	API void setRender(bool value) { render = value; }
+	API bool getRender() const { return render; }
 
-	void setAlwaysVisible(bool value) { alwaysVisible = value; }
-	bool getAlwaysVisible() const { return alwaysVisible; }
+	API void setAlwaysVisible(bool value) { alwaysVisible = value; }
+	API bool getAlwaysVisible() const { return alwaysVisible; }
 
-	void setRenderPhysics(bool value) { renderPhysics = value; }
-	bool getRenderPhysics() const { return renderPhysics; }
+	API void setRenderPhysics(bool value) { renderPhysics = value; }
+	API bool getRenderPhysics() const { return renderPhysics; }
 
-	map<int, Object*> getObjectsInLayer() { return objects; }
-	Object* getSpecificObjectInLayer(int objectID) { return objects[objectID]; }
-	void addObjectToLayer(int objectID, Object* obj) { objects[objectID] = obj; }
+	API map<int, Object*> getObjectsInLayer() { return objects; }
+	API Object* getSpecificObjectInLayer(int objectID) { return objects[objectID]; }
+	API void addObjectToLayer(int objectID, Object* obj) { if(!objectExists(objectID))objects[objectID] = obj; }
 
-	bool objectExists(int objectID) {
+	API bool objectExists(int objectID) {
 		if (objects.find(objectID) != objects.end()) {
 			return true;
 		}
 		return false;
 	}
 
-	void removeObject(int objectID) { objects.erase(objectID); }
-	void clearObjects() { objects.clear(); }
+	API void removeObject(int objectID) { objects.erase(objectID); }
+	API void clearObjects() { objects.clear(); }
 
 
 protected:

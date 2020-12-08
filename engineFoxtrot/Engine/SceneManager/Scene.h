@@ -87,7 +87,7 @@ public:
 
 	int getHighestLayerIndex();
 	void addLayer(Layer _layer);
-	void removePopUpLayer();
+	void removeLayer(int _zIndex = -1);
 
 protected:
 	EventDispatcher dispatcher;
