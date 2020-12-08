@@ -11,12 +11,12 @@ public:
 	/// @brief
 	/// RepeatCount
 	/// @return the times pressed
-	uint16_t GetRepeatCount() const { return repeatCount; }
+	uint16_t getRepeatCount() const { return repeatCount; }
 
 	/// @brief
 	/// KeyReleasedEvent to string
 	/// @return string with key code released
-	string ToString() const override
+	string toString() const override
 	{
 		stringstream stream;
 		stream << "KeyPressedEvent: " << (int)keycode << " (" << repeatCount << " repeats)";

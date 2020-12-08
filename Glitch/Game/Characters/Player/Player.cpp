@@ -101,7 +101,7 @@ bool Player::onKeyPressed(const Event& event) {
 	if (!getIsDead()) {
 		auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
 		// TODO command pattern
-		switch (keyPressedEvent.GetKeyCode())
+		switch (keyPressedEvent.getKeyCode())
 		{
 		case KeyCode::KEY_A:
 			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::LEFT, this->getObjectId()));
@@ -144,7 +144,7 @@ bool Player::onKeyReleased(const Event& event)
 	if (!getIsDead()) {
 		auto keyReleasedEvent = static_cast<const KeyReleasedEvent&>(event);
 
-		switch (keyReleasedEvent.GetKeyCode()) {
+		switch (keyReleasedEvent.getKeyCode()) {
 		case KeyCode::KEY_A:
 		case KeyCode::KEY_D:
 			dispatcher.dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->objectId));

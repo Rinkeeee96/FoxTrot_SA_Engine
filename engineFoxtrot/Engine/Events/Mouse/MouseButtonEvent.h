@@ -14,13 +14,13 @@ public:
 	/// @return the MouseCode enum
 	const MouseCode GetButton() { return button; }
 
-	virtual const char* GetName() const override { return "keyPressed event"; };
+	virtual const char* getName() const override { return "keyPressed event"; };
 
 	/// @brief
 	/// Returns the name of the event
-	virtual string ToString() const { return GetName(); }
+	virtual string ToString() const { return getName(); }
 
-	EventType GetEventType() const override { return EventType::MouseButtonReleased; }
+	EventType getEventType() const override { return EventType::MouseButtonReleased; }
 protected:
 	MouseCode button;
 };

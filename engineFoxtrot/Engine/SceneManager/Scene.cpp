@@ -173,7 +173,7 @@ void Scene::onDetach()
 bool Scene::onKeyPressed(const Event& event) {	
 	auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
 	// TODO command pattern
-	switch (keyPressedEvent.GetKeyCode())
+	switch (keyPressedEvent.getKeyCode())
 	{
 	case KeyCode::KEY_P:
 		if (!hasActivePopUp) {
