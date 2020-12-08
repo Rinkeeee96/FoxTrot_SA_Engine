@@ -1,8 +1,12 @@
 #pragma once
 #include "Objects/Object.h"
 
-struct Layer
+class Layer
 {
+public:
+	Layer() {};
+	~Layer() {};
+
 	bool visible = true;
 	bool render = false;
 	bool alwaysVisible = false;
