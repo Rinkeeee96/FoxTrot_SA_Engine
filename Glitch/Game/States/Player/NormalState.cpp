@@ -4,7 +4,7 @@
 #include "Game/Characters/Player/Player.h"
 
 void NormalState::entry(Player* entity) {
-	entity->setCanHit(true);
+	entity->setInvincible(false);
 	this->currentHealth = entity->getCurrentHealth();
 };
 

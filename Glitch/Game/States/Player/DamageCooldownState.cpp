@@ -4,7 +4,7 @@
 #include "NormalState.h"
 
 void DamageCooldownState::entry(Player* entity) {
-	entity->setCanHit(false); 
+	entity->setInvincible(true); 
 	startTime = chrono::high_resolution_clock::now();
 	entity->setTint(255, 0, 43);
 };

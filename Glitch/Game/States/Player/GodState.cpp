@@ -3,7 +3,7 @@
 #include "Game/Characters/Player/Player.h"
 
 void GodState::entry(Player* entity) {
-	entity->setCanHit(false);
+	entity->setInvincible(true);
 	entity->setTint(255, 251, 135);
 };
 

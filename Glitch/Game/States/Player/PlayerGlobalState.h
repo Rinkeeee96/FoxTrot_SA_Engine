@@ -8,5 +8,7 @@ class PlayerGlobalState : public IGlobalState<Player>
 private:
     int health;
 public:
+    /// @brief 
+    /// execute
     void execute(Player* entity) override;
 };
