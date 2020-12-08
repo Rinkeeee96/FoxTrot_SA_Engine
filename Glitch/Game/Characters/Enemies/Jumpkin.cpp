@@ -2,14 +2,20 @@
 #include "Jumpkin.h"
 
 void Jumpkin::onUpdate() {
-	float xDiff = player->getPositionX() - this->getPositionX();
-	float yDiff = player->getPositionY() - this->getPositionY();
-	bool playerIsInRangeHorizontally = (xDiff < HORIZONTAL_RANGE&& xDiff >(HORIZONTAL_RANGE * -1));
-	bool playerIsInRangeVertically = (yDiff < VERTICAL_RANGE&& yDiff >(VERTICAL_RANGE * -1));
+	// Differences are calculated from the middle position of the object
+	float xDiff = abs((player->getPositionX() + player->getWidth() / 2) - (this->getPositionX() + this->getWidth() / 2));
+	float yDiff = abs((player->getPositionY() + player->getHeight() / 2) - (this->getPositionY() + this->getHeight() / 2));
+
+	// Distance is calculated using the Pythagorean theorem from the middle of both objects
+	float distance = sqrt(abs(pow(xDiff, 2) - pow(yDiff, 2)));
+
+	// Jumpkin's vertical range is calculated separately from distance to ensure it doesn't follow the player when there are multiple layers of height to the level (lvl3)
+	bool playerIsInRange = distance <= JUMPKIN_HORIZONTAL_RANGE;
+	bool playerIsInRangeVertically = (yDiff < JUMPKIN_VERTICAL_RANGE && yDiff >(JUMPKIN_VERTICAL_RANGE * -1));
 	Direction direction = player->getPositionX() < this->positionX ? Direction::LEFT : Direction::RIGHT;
 	bool positionedOnGround = this->getYAxisVelocity() == 0;
 
-	if (positionedOnGround && playerIsInRangeHorizontally && playerIsInRangeVertically) {
+	if (positionedOnGround && playerIsInRange && playerIsInRangeVertically) {
 		if (!jumping) {
 			dispatcher.dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->getObjectId(), false));
 			jumping = true;
@@ -30,7 +36,7 @@ void Jumpkin::onUpdate() {
 		}
 	}
 
-	if (!playerIsInRangeHorizontally) {
+	if (!playerIsInRange) {
 		changeToState(SpriteState::DEFAULT);
 		dispatcher.dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->getObjectId(), false));
 	}

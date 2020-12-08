@@ -1,8 +1,8 @@
 #pragma once
 #include "Game/Characters/Enemies/BaseEnemy.h"
 
-#define HORIZONTAL_RANGE 900
-#define VERTICAL_RANGE 150
+#define JUMPKIN_HORIZONTAL_RANGE 900
+#define JUMPKIN_VERTICAL_RANGE 150
 
 #define JUMPKIN_SPRITE_HEIGHT 43
 #define JUMPKIN_SPRITE_WIDTH 32

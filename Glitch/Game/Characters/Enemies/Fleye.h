@@ -1,7 +1,7 @@
 #pragma once
 #include "Game/Characters/Enemies/BaseEnemy.h"
 
-#define RANGE 900
+#define FLEYE_RANGE 900
 
 /// @brief 
 /// Fleye class with correspondending AI logic
