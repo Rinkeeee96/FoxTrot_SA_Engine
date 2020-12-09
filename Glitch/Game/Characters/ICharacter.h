@@ -27,6 +27,7 @@ public:
 		if (currentHealth > totalHealth) totalHealth = currentHealth;
 	}
 	void removeHealth(int val) { 
+		if (invincible) return;
 		this->currentHealth -= val;
 		if (this->currentHealth <= 0) {
 			this->kill();
@@ -40,10 +41,12 @@ public:
     void respawn() { this->setPositionX(spawnX); this->setPositionY(spawnY); }
 	bool getIsDead() const { return this->currentHealth == 0; }
 
+	void setInvincible(const bool invincible) { this->invincible = invincible; }
 	virtual ICharacter* clone(int id) = 0;
 protected:
 	int currentHealth = 0;
 	int totalHealth = 0;
+	bool invincible = true;
 	bool canJump = false;
 	float spawnX = 0;
 	float spawnY = 0;

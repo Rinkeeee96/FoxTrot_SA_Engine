@@ -33,8 +33,6 @@ void Engine::setCurrentScene(const int sceneID)
 	inputEngine.start(*this->eventDispatcher);
 	physicsEngine.start(*this->eventDispatcher);
 
-	eventDispatcher->setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Engine::onKeyPressed));
-
 	sceneManager.getSceneWithID(sceneID)->onAttach();
 	sceneManager.getSceneWithID(sceneID)->onAttach();
 }
@@ -58,7 +56,6 @@ bool Engine::onKeyPressed(const Event& event) {
 	}
 	return true;
 }
-
 /// @brief 
 /// @param scene
 void Engine::insertScene(Scene* scene)
@@ -121,7 +118,7 @@ void Engine::stopLoopEffect(const string& identifier) {
 void Engine::onUpdate()
 {
 	// TODO change after command pattern is implemented
-	if (!engineIsPaused) { 
+	if (!this->sceneManager.currentScene->getIsPaused()) { 
 		particleEngine.update();
 		physicsEngine.update();
 	}

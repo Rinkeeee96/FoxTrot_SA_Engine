@@ -11,7 +11,6 @@ class Game
 public:
 	Game();
 	int run();
-
 private:
 	Engine engine;
 	shared_ptr<Savegame> savegame;

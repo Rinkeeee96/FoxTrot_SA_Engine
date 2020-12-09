@@ -28,7 +28,6 @@ public:
 	//SceneManager calls
 	API void setCurrentScene(const int sceneID);
 	API Scene* getCurrentScene();
-	bool onKeyPressed(const Event& event);
 	API void insertScene(Scene * scene);
 	API void deregisterScene(const int id);
 
@@ -38,11 +37,6 @@ public:
 	API void startSound(const string& identifier);
 	API void stopSound(const string& identifier);
 	API void stopLoopEffect(const string& identifier);
-
-	bool getPhysicsPaused();
-
-	// Input calls
-	API void pollEvents();
 
 	API void onUpdate();
 

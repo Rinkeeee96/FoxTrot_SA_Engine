@@ -12,7 +12,6 @@
 Scene::Scene(const int _sceneID, const int _sceneHeight, const int _sceneWidth) : 
 	sceneID(_sceneID), sceneHeight(_sceneHeight), sceneWidth(_sceneWidth)
 {
-	dispatcher.setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Scene::onKeyPressed));
 }
 
 /// @brief 
