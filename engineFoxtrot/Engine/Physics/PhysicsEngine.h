@@ -5,12 +5,10 @@
 #include "SceneManager/Scene.h"
 #include "General/ISubsystem.h"
 
-#include "Fps/FrameData.h"
-
 class API PhysicsEngine : public ISubsystem
 {
 public:
-	PhysicsEngine() {};
+	PhysicsEngine();
 	~PhysicsEngine();
 
 	void registerObjectInCurrentVectorWithPhysicsEngine();

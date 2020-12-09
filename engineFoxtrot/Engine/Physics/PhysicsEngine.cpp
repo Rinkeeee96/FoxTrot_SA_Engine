@@ -4,6 +4,9 @@
 #include "Events\Action\ObjectStopEvent.h"
 #include "Events/Key/KeyPressed.h"
 
+/// @brief Constructor	
+PhysicsEngine::PhysicsEngine() {}
+
 void PhysicsEngine::start(EventDispatcher& dispatcher) {
 	this->dispatcher = &dispatcher;
 	physicsFacade = new PhysicsFacade(dispatcher);
