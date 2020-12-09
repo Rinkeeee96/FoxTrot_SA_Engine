@@ -194,6 +194,13 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Scenes\Transitions\Transitions.h" />
     <ClInclude Include="Game\Scenes\DeathScreen\DeathScreen.h" />
     <ClInclude Include="Game\Scenes\WinScreen\WinScreen.h" />
+    <ClInclude Include="Game\States\IGlobalState.h" />
+    <ClInclude Include="Game\States\IState.h" />
+    <ClInclude Include="Game\States\Player\GodState.h" />
+    <ClInclude Include="Game\States\Player\DamageCooldownState.h" />
+    <ClInclude Include="Game\States\Player\NormalState.h" />
+    <ClInclude Include="Game\States\Player\PlayerGlobalState.h" />
+    <ClInclude Include="Game\States\StateMachine.h" />
     <ClInclude Include="Glitch.h" />
     <ClInclude Include="Game\Scenes\Overworld\Overworld.h" />
     <ClInclude Include="Game\Levels\Level.h" />
@@ -225,6 +232,10 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClCompile Include="Game\Scenes\Transitions\GeneralTransition\GeneralTransition.cpp" />
     <ClCompile Include="Game\Scenes\DeathScreen\DeathScreen.cpp" />
     <ClCompile Include="Game\Scenes\WinScreen\WinScreen.cpp" />
+    <ClCompile Include="Game\States\Player\GodState.cpp" />
+    <ClCompile Include="Game\States\Player\DamageCooldownState.cpp" />
+    <ClCompile Include="Game\States\Player\NormalState.cpp" />
+    <ClCompile Include="Game\States\Player\PlayerGlobalState.cpp" />
     <ClCompile Include="Glitch.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="Game\Levels\Level.cpp" />
