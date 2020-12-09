@@ -58,7 +58,7 @@ private:
 	
 	SceneManager sceneManager;
 	ParticleEngine particleEngine;
-	PhysicsEngine physicsEngine;
+	PhysicsEngine physicsEngine{ frameData };
 	SoundEngine soundEngine;
 
 	VideoEngine videoEngine{ frameData };
