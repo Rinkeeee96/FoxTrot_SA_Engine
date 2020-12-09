@@ -43,6 +43,8 @@ public:
 	API void updateFps();
 	API void toggleFps();
 
+	bool onKeyPressed(const Event& event);
+
 	API bool getEngineRunning() { return running; };
 	API void setEngineRunning(bool run) { running = run; }
 
