@@ -21,7 +21,7 @@ public:
 
 	API map<int, Object*> getObjectsInLayer() { return objects; }
 	API Object* getSpecificObjectInLayer(int objectID) { return objects[objectID]; }
-	API void addObjectInLayer(int objectID, Object* obj) { if(!objectExists(objectID))objects[objectID] = obj; }
+	API void addObjectInLayer(int objectID, Object* obj) { if (!objectExists(objectID))objects[objectID] = obj; }
 
 	API bool objectExists(int objectID) {
 		if (objects.find(objectID) != objects.end()) {
@@ -41,8 +41,6 @@ private:
 	bool render = false;
 	bool alwaysVisible = false;
 	bool renderPhysics = false;
-
 	// TODO clear on scene detach in destructor
 	map<int, Object*> objects;
-
 };

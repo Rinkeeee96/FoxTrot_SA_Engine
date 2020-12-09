@@ -218,8 +218,8 @@ void Scene::addPopUpLayer(Layer* _layer) {
 /// @brief remove layer
 /// @param _zIndex no value means top layer.
 void Scene::removePopUpLayer() {
-		int zIndex = 0;
+	int zIndex = 0;
 
-		zIndex = getHighestLayerIndex();
-		layers.erase(zIndex);
+	zIndex = getHighestLayerIndex();
+	layers.erase(zIndex);
 }
