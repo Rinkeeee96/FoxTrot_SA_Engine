@@ -188,7 +188,7 @@ map<int, Layer*> Scene::getLayers() const
 void Scene::createLayer(const int zIndex, bool renderPhysics, bool alwaysDrawLayer)
 {
 	layers[zIndex] = new Layer();
-	layers[zIndex]->setRender(renderPhysics);
+	layers[zIndex]->setRenderPhysics(renderPhysics);
 	layers[zIndex]->setAlwaysVisible(alwaysDrawLayer);
 }
 
