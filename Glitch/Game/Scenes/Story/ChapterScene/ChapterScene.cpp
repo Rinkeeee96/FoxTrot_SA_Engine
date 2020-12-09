@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "ChapterScene.h"-
+#include "ChapterScene.h"
 #include "Game/Buttons/PrimaryButton.h"
 #include "Game/Buttons/SecondaryButton.h"
 #include "Game/Game.h"
@@ -41,7 +41,6 @@ vector<string> ChapterScene::splitToLines(string stringToSplit, int maximumLineL
 			ret.push_back(token + delimiter);
 		}
 		else {
-			int x = ret[ret.size() - 1].length();
 			if (ret[ret.size() - 1].length() < maximumLineLength) {
 				ret[ret.size() - 1] = ret[ret.size() - 1] + token + delimiter;
 			}
@@ -71,13 +70,12 @@ vector<Text*> ChapterScene::splitText(string text) {
 		for (size_t i = 0; i < result.size(); i++)
 		{
 			startingPos = startingPos + TEXT_HEIGHT;
-			ret.push_back(new Text(startingId++, new ColoredText(result[i], Color(255, 255, 255), false), (WINDOW_WIDTH / 80) * result[i].length(), TEXT_HEIGHT, 25, WINDOW_HEIGHT + startingPos));
+			ret.push_back(new Text(startingId++, new ColoredText(result[i], Color(255, 255, 255), false), ((float)WINDOW_WIDTH / 80) * result[i].length(), TEXT_HEIGHT, 25, (float)(WINDOW_HEIGHT + startingPos)));
 		}
 		text.erase(0, pos + delimiter.length());
 	}
 	return ret;
 }
-
 
 /// @brief 
 /// Create all buttons for this scene
