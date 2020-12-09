@@ -1,20 +1,19 @@
+#include "stdafx.h"
 #include "Input/Commands/ICommand.h"
 #include "General/ISubsystem.h"
 
 class PauseCommand : public ICommand
 {
 public:
-	PauseCommand(const vector<const ISubsystem*> systems) : systemsToPause{systems}, ICommand("pause") {}
+	PauseCommand(const vector<ISubsystem*> systems) : systemsToPause{systems}, ICommand("pause") {}
 private:
-	const vector<const ISubsystem*> systemsToPause;
+	const vector<ISubsystem*> systemsToPause;
 
 	// Inherited via ICommand
-	virtual void execute(EventDispatcher& dispatcher) override;
+	void execute(EventDispatcher& dispatcher) override
+	{
+		for_each(systemsToPause.begin(), systemsToPause.end(), [](ISubsystem* system) {
+			system->pause();
+		});
+	}
 };
-
-void PauseCommand::execute(EventDispatcher& dispatcher)
-{
-	for_each(systemsToPause.begin(), systemsToPause.end(), [](ISubsystem& system) {
-		system.pause();
-	});
-}

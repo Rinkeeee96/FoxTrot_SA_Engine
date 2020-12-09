@@ -24,7 +24,7 @@ Engine::~Engine()
 }
 
 void Engine::constructDefaultCommands(KeypressInvoker* invoker) {
-
+	// TODO Maybe make it so systems are always stored in a vector?
 	invoker->registerCommand(KeyCode::KEY_P, new PauseCommand({
 		&this->inputEngine,
 		&this->videoEngine,

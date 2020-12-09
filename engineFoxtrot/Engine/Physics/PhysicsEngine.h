@@ -22,6 +22,7 @@ public:
 	void start(EventDispatcher& dispatcher) override;
 	void update() override;
 	void shutdown() override;
+	void pause() override;
 
 private:
 	void clean();

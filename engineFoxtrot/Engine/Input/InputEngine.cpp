@@ -33,7 +33,7 @@ void InputEngine::update() {
 
 	if (keypressInvoker)
 		keypressInvoker->executeCommandQueue(*this->dispatcher);
-};
+}
 
 void InputEngine::shutdown() {
 	delete inputFacade;
