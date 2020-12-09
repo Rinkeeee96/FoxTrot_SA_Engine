@@ -7,6 +7,8 @@
 #define CENTER_X  (WINDOW_WIDTH / 2)
 #define CENTER_Y (WINDOW_HEIGHT / 2)
 
+/// @brief 
+/// Loads all buttons/backgrounds for the shop scene
 void Shop::onAttach()
 {
 
@@ -16,20 +18,25 @@ void Shop::onAttach()
 
 }
 
+/// @brief 
 void Shop::onDetach()
 {
 	Scene::onDetach();
 }
 
+/// @brief 
+/// @param playSound 
 void Shop::start(bool playSound)
 {
 	if (playSound)engine.startSound("MENU_SOUND");
 }
 
+/// @brief 
 void Shop::onUpdate()
 {
 }
 
+/// @brief 
 void Shop::loadBackground()
 {
 	SpriteObject* BG_LAYER_0 = new SpriteObject(-1500, 1080, 1920, 1, 0, "Assets/Shop/Shop.png");
@@ -61,11 +68,13 @@ void Shop::loadBackground()
 	addNewObjectToLayer(1, dialogBox, false, true);
 }
 
+/// @brief 
 void Shop::loadMusic()
 {
 	engine.loadSound("MENU_SOUND", "Assets/Sound/file_example_WAV_1MG.wav");
 }
 
+/// @brief 
 void Shop::loadButtons()
 {
 	auto* stopBtn = new SecondaryButton(-993, "To Overworld", BIND_FN(onStopBtnClick), this->dispatcher);
@@ -75,6 +84,7 @@ void Shop::loadButtons()
 	addNewObjectToLayer(3, stopBtn);
 }
 
+/// @brief 
 void Shop::onStopBtnClick() {
 	stateMachine.switchToScene("Overworld", false);
 }

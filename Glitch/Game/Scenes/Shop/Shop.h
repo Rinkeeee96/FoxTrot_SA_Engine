@@ -1,6 +1,9 @@
 #pragma once
 #include "Game/Scenes/GameScene.h"
 
+
+/// @brief 
+/// Shop class
 class Shop : public GameScene
 {
 public:

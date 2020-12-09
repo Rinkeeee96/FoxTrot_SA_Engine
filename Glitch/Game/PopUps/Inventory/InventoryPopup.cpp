@@ -14,7 +14,7 @@ InventoryPopup::~InventoryPopup()
 {
 }
 
-/// @brief Setup the Pause Pop Up.
+/// @brief Setup for the popup inventory layer
 void InventoryPopup::setupPopUp()
 {
 	SpriteObject* rightInven = new SpriteObject(-40000, 343, 614, 1, 1, "Assets/Inventory/Right.png");

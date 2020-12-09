@@ -3,7 +3,7 @@
 
 
 
-/// @brief Pause Pop Up
+/// @brief Inventory popup class
 class InventoryPopup : public Layer
 {
 public:
