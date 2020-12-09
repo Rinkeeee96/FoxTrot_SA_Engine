@@ -9,6 +9,8 @@ ChapterScene::ChapterScene(const int id, Engine& _engine, SceneStateMachine& _st
 	dispatcher.setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(ChapterScene::onKeyPressed));
 }
 
+/// @brief 
+/// Handles key pressed, moves the text faster or slower based on KeyPressed
 bool ChapterScene::onKeyPressed(const Event& event)
 {
 	auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
@@ -27,6 +29,10 @@ bool ChapterScene::onKeyPressed(const Event& event)
 	return false;
 }
 
+/// @brief 
+/// Splits lines based on line length without cutting words in half
+/// @param String to split
+/// @param The maximum length of line string
 vector<string> ChapterScene::splitToLines(string stringToSplit, int maximumLineLength)
 {
 	vector<string> ret;
@@ -53,9 +59,12 @@ vector<string> ChapterScene::splitToLines(string stringToSplit, int maximumLineL
 	return ret;
 }
 
+/// @brief 
+/// Splits text on \n 
+/// @param the text
 vector<Text*> ChapterScene::splitText(string text) {
 	auto startingId = 4;
-	auto startingPos = -200;
+	auto startingPos = START_Y_POS;
 
 	vector<Text*> ret;
 	std::string delimiter = "\n";
@@ -65,11 +74,11 @@ vector<Text*> ChapterScene::splitText(string text) {
 	while ((pos = text.find(delimiter)) != std::string::npos) {
 		token = text.substr(0, pos);
 
-		auto result = splitToLines(token, 70);
+		auto result = splitToLines(token, NUMBER_OF_CHARACTERS_ON_LINE);
 		for (size_t i = 0; i < result.size(); i++)
 		{
 			startingPos = startingPos + TEXT_HEIGHT;
-			ret.push_back(new Text(startingId++, new ColoredText(result[i], Color(255, 255, 255), false), ((float)WINDOW_WIDTH / 80) * result[i].length(), TEXT_HEIGHT, 25, (float)(WINDOW_HEIGHT + startingPos)));
+			ret.push_back(new Text(startingId++, new ColoredText(result[i], Color(255, 255, 255), false), ((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER) * result[i].length(), TEXT_HEIGHT, 25, (float)(WINDOW_HEIGHT + startingPos)));
 		}
 		text.erase(0, pos + delimiter.length());
 	}
@@ -87,6 +96,8 @@ void ChapterScene::loadButtons() {
 	addNewObjectToLayer(4, backBtn);
 }
 
+/// @brief 
+/// Creates text to parse from .txt
 void ChapterScene::setTextFromFile(string path) {
 	auto stream = fileLoader.readFile(path);
 	string appendString;
@@ -98,6 +109,8 @@ void ChapterScene::setTextFromFile(string path) {
 	this->text = splitText(appendString);
 }
 
+/// @brief 
+/// Moves text in screen by speed
 void ChapterScene::onUpdate()
 {
 	for (size_t i = 0; i < this->text.size(); i++)
@@ -106,7 +119,6 @@ void ChapterScene::onUpdate()
 		if (text[this->text.size() - 1]->getPositionY() < 0) stateMachine.switchToScene("Overworld", false);
 	}
 }
-
 
 /// @brief 
 /// A callback function for overworldBTN

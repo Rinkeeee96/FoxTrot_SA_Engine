@@ -28,21 +28,21 @@ void Overworld::loadButtons() {
 	auto* level1Btn = new Button(1, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel1BtnClick), defaultBtnSprite, this->dispatcher);
 	level1Btn->setWidth(32);
 	level1Btn->setHeight(32);
-	level1Btn->setPositionX(295);
-	level1Btn->setPositionY(363);
+	level1Btn->setPositionX(955);
+	level1Btn->setPositionY(320);
 	level1Btn->registerHoverSprite(hoverBtnSprite);
 
 	auto* level1TextBtn = new Button(2, ColoredText("Level 1, Score: " + to_string(savegame->getCurrentGameData().levelData[0].score), Color(0, 0, 0)), BIND_FN(onLevel1BtnClick), transSprite, this->dispatcher);
 	level1TextBtn->setWidth(32);
 	level1TextBtn->setHeight(20);
-	level1TextBtn->setPositionX(295);
-	level1TextBtn->setPositionY(383);
+	level1TextBtn->setPositionX(955);
+	level1TextBtn->setPositionY(340);
 
 	auto* level2Btn = new Button(3, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel2BtnClick), defaultBtnSprite, this->dispatcher);
 	level2Btn->setWidth(32);
 	level2Btn->setHeight(32);
-	level2Btn->setPositionX(955);
-	level2Btn->setPositionY(320);
+	level2Btn->setPositionX(795);
+	level2Btn->setPositionY(850);
 	level2Btn->registerHoverSprite(hoverBtnSprite);
 
 	string level2Name = "Locked";
@@ -53,8 +53,8 @@ void Overworld::loadButtons() {
 	auto* level2TextBtn = new Button(4, ColoredText(level2Name, Color(0, 0, 0)), BIND_FN(onLevel2BtnClick), transSprite, this->dispatcher);
 	level2TextBtn->setWidth(32);
 	level2TextBtn->setHeight(20);
-	level2TextBtn->setPositionX(955);
-	level2TextBtn->setPositionY(340);
+	level2TextBtn->setPositionX(795);
+	level2TextBtn->setPositionY(870);
 	if (!savegame->getCurrentGameData().levelData[0].completed)
 	{
 		level2Btn->disable();
@@ -69,15 +69,15 @@ void Overworld::loadButtons() {
     auto* level3Btn = new Button(5, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel3BtnClick), defaultBtnSprite, this->dispatcher);
 	level3Btn->setWidth(32);
 	level3Btn->setHeight(32);
-	level3Btn->setPositionX(795);
-	level3Btn->setPositionY(850);
+	level3Btn->setPositionX(1500);
+	level3Btn->setPositionY(880);
 	level3Btn->registerHoverSprite(hoverBtnSprite);
 
 	auto* level3TextBtn = new Button(6, ColoredText(level3Name, Color(0, 0, 0)), BIND_FN(onLevel3BtnClick), transSprite, this->dispatcher);
 	level3TextBtn->setWidth(32);
 	level3TextBtn->setHeight(20);
-	level3TextBtn->setPositionX(795);
-	level3TextBtn->setPositionY(870);
+	level3TextBtn->setPositionX(1500);
+	level3TextBtn->setPositionY(890);
 	if (!savegame->getCurrentGameData().levelData[1].completed)
 	{
 		level3Btn->disable();
@@ -88,14 +88,17 @@ void Overworld::loadButtons() {
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
-	auto* chapterOne = new PrimaryButton(8, "ChapterOne", BIND_FN(onChapterOneClick), this->dispatcher);
-	chapterOne->setWidth(150);
-	chapterOne->setHeight(75);
-	chapterOne->setPositionX(25);
-	chapterOne->setPositionY(100);
+	auto* chapterOne = new Button(8, ColoredText("", Color(0, 0, 0)), BIND_FN(onChapterOneClick), defaultBtnSprite, this->dispatcher);
+	chapterOne->setWidth(50);
+	chapterOne->setHeight(50);
+	chapterOne->setPositionX(295);
+	chapterOne->setPositionY(363);
+	chapterOne->registerHoverSprite(hoverBtnSprite);
 
+	auto* chapterOneTxt = new Text(9, new ColoredText("chapter one", Color(0, 0, 0), false), 100, 50, 295 - 25, 393);
 
 	addNewObjectToLayer(3, chapterOne);
+	addNewObjectToLayer(3, chapterOneTxt);
 	addNewObjectToLayer(3, level1Btn);
 	addNewObjectToLayer(3, level1TextBtn);
 	addNewObjectToLayer(3, level2Btn);

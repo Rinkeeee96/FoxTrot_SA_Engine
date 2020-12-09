@@ -2,8 +2,10 @@
 #include "api.h"
 #include "SceneManager/Objects/Button.h"
 #include "Game/Scenes/GameScene.h"
-#include <string>
-#include "Engine/SceneManager/Objects/Object.h"
+
+#define NUMBER_OF_CHARACTERS_ON_LINE 70
+#define TEXT_SIZE_DIVIDER 80
+#define START_Y_POS -200
 
 class ChapterScene : public GameScene
 {
