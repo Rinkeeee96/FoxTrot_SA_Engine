@@ -10,7 +10,7 @@
 class API PhysicsEngine : public ISubsystem
 {
 public:
-	PhysicsEngine(FrameData& _frameData) : frameData{ _frameData } {};
+	PhysicsEngine() {};
 	~PhysicsEngine();
 
 	void registerObjectInCurrentVectorWithPhysicsEngine();
@@ -29,7 +29,6 @@ private:
 	void clean();
 	IPhysicsFacade* physicsFacade;
 	EventDispatcher* dispatcher;
-	FrameData& frameData;
 
 	// CurrentScene is stored because if this changes then the objects need to be reset.
 	int currentSceneID = 0;

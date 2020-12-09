@@ -2,7 +2,6 @@
 #include "IPhysicsFacade.h"
 #include "PhysicsBody.h"
 #include "Events/Action/OnCollisionEvent.h"
-#include "Fps/FrameData.h"
 
 #define PI 3.14159f
 #define TOTAL_DEGREES 180.0f
@@ -34,7 +33,7 @@ class b2Body;
 class PhysicsFacade : public IPhysicsFacade
 {
 public:
-	PhysicsFacade(EventDispatcher& _dispatcher, FrameData& _frameData);
+	PhysicsFacade(EventDispatcher& _dispatcher);
 	~PhysicsFacade();
 
 	void addStaticObject(PhysicsBody* object) override;
@@ -55,8 +54,7 @@ public:
 private:
 	EventDispatcher& dispatcher;
 	b2World * world;
-	float timeStep = TIMESTEP_SEC / TIMESTEP_FRAMES;
-	FrameData& frameData;
+	const float timeStep = TIMESTEP_SEC / TIMESTEP_FRAMES;
 
 	// TODO clear on scene detach
 	map <PhysicsBody*, b2Body*> bodies;
