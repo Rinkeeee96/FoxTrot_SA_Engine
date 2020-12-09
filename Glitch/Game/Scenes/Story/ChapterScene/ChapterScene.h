@@ -6,6 +6,7 @@
 #define NUMBER_OF_CHARACTERS_ON_LINE 70
 #define TEXT_SIZE_DIVIDER 80
 #define START_Y_POS -200
+#define MAX_SPEED 10
 
 class ChapterScene : public GameScene
 {

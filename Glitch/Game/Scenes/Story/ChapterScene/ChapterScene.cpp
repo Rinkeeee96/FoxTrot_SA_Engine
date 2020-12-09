@@ -18,9 +18,11 @@ bool ChapterScene::onKeyPressed(const Event& event)
 	switch (keyPressedEvent.getKeyCode())
 	{
 	case KeyCode::KEY_LEFT:
+		if (this->speed_ == MAX_SPEED * -1) break;
 		this->speed_ -= 1;
 		break;
 	case KeyCode::KEY_RIGHT:
+		if (this->speed_ == MAX_SPEED) break;
 		this->speed_ += 1;
 		break;
 	default:
