@@ -23,8 +23,7 @@ public:
 
 	API map<int, Object*> getObjectsInLayer() { return objects; }
 	API Object* getSpecificObjectInLayer(int objectID) { return objects[objectID]; }
-
-	API void addObjectInLayer(int objectID, Object* obj) { objects[objectID] = obj; }
+	API void addObjectInLayer(Object* obj) { objects[obj->getObjectId()] = obj; }
 
 	/// @brief Checks if object exists in the layer
 	/// @param objectID 
