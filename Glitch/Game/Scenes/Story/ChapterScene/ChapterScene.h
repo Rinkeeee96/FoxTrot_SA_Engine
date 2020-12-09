@@ -2,6 +2,8 @@
 #include "api.h"
 #include "SceneManager/Objects/Button.h"
 #include "Game/Scenes/GameScene.h"
+#include <string>
+#include "Engine/SceneManager/Objects/Object.h"
 
 class ChapterScene : public GameScene
 {
@@ -10,9 +12,9 @@ public:
 	virtual ~ChapterScene() { };
 	// Inherited via Scene
 	virtual void onAttach() override {};
-	virtual void onDetach() override {};
 	virtual void start(bool playSound) override {};
-	void onUpdate() override {};
+	virtual void onUpdate() override;
+	virtual void onDetach() override {};
 
 	bool onKeyPressed(const Event& event);
 protected:

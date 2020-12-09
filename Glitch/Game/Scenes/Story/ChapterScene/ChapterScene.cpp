@@ -90,6 +90,16 @@ void ChapterScene::loadButtons() {
 	addNewObjectToLayer(4, backBtn);
 }
 
+void ChapterScene::onUpdate()
+{
+	for (size_t i = 0; i < this->text.size(); i++)
+	{
+		this->text[i]->setPositionY(this->text[i]->getPositionY() - speed_);
+		if (text[this->text.size() - 1]->getPositionY() < 0) stateMachine.switchToScene("Overworld", false);
+	}
+}
+
+
 /// @brief 
 /// A callback function for overworldBTN
 /// Start transition scene to overworl

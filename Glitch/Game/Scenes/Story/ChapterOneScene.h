@@ -1,7 +1,7 @@
 #pragma once
 #include "api.h"
 #include "SceneManager/Objects/Button.h"
-#include "Game/Scenes/GameScene.h"
+#include "Game/Scenes/Story/ChapterScene/ChapterScene.h"
 
 #define SHORT_NAME_WIDTH 300
 #define LONG_NAME_WIDTH 350
@@ -9,28 +9,18 @@
 #define RIGHT_X_CENTER 50
 #define TEXT_HEIGHT 50
 
-class ChapterOneScene : public GameScene
+class ChapterOneScene : public ChapterScene
 {
 public:
-	ChapterOneScene(const int id, Engine& _engine, SceneStateMachine& _statemachine) : GameScene(id, _engine, _statemachine) {};
+	ChapterOneScene(const int id, Engine& _engine, SceneStateMachine& _statemachine) : ChapterScene(id, _engine, _statemachine) {};
 	~ChapterOneScene() { };
 	// Inherited via Scene
 	void onAttach() override;
-	void onDetach() override;
 	void start(bool playSound) override;
-	void onUpdate() override;
-	bool onKeyPressed(const Event& event);
-private:
-
-	vector<Text*> text;
-
-	void loadText();
-	void loadBackground();
-	void loadMusic();
-	void loadButtons();
-
-	int speed_ = 1;
-
-	//button functions
-	void onSkipClick();
+	void onUpdate() override { ChapterScene::onUpdate(); };
+	void onDetach() override;
+protected:
+	void loadText() override;
+	void loadBackground() override;
+	void loadMusic() override;
 };
