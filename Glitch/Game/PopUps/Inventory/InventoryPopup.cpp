@@ -17,8 +17,8 @@ InventoryPopup::~InventoryPopup()
 /// @brief Setup the Pause Pop Up.
 void InventoryPopup::setupPopUp()
 {
-	SpriteObject* rightInven = new SpriteObject(-564577, 343, 614, 1, 1, "Assets/Inventory/right_inventory.png");
-	SpriteObject* leftInven = new SpriteObject(-564578, 402, 255, 1, 1, "Assets/Inventory/left_inventory.png");
+	SpriteObject* rightInven = new SpriteObject(-564577, 343, 614, 1, 1, "Assets/Inventory/Right.png");
+	SpriteObject* leftInven = new SpriteObject(-564578, 402, 255, 1, 1, "Assets/Inventory/Left.png");
 
 	Drawable* leftInventory = new Drawable(-564579);
 	leftInventory->setHeight(600);
