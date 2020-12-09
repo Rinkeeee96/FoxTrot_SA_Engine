@@ -88,6 +88,14 @@ void Overworld::loadButtons() {
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
+	auto* chapterOne = new PrimaryButton(8, "ChapterOne", BIND_FN(onChapterOneClick), this->dispatcher);
+	chapterOne->setWidth(150);
+	chapterOne->setHeight(75);
+	chapterOne->setPositionX(25);
+	chapterOne->setPositionY(100);
+
+
+	addNewObjectToLayer(3, chapterOne);
 	addNewObjectToLayer(3, level1Btn);
 	addNewObjectToLayer(3, level1TextBtn);
 	addNewObjectToLayer(3, level2Btn);
@@ -173,6 +181,10 @@ void Overworld::onStopBtnClick() {
 /// @brief 
 void Overworld::onCreditsBtnClick() {
 	cout << "Start Credit" << endl;
+}
+/// @brief 
+void Overworld::onChapterOneClick() {
+	stateMachine.switchToScene("ChapterOne", false);
 }
 
 /// @brief 

@@ -9,17 +9,19 @@
 #define RIGHT_X_CENTER 50
 #define TEXT_HEIGHT 50
 
-class CreditsScene : public GameScene
+class ChapterOneScene : public GameScene
 {
 public:
-	CreditsScene(const int id, Engine& _engine, SceneStateMachine& _statemachine) : GameScene(id, _engine, _statemachine) {};
-	~CreditsScene() { };
+	ChapterOneScene(const int id, Engine& _engine, SceneStateMachine& _statemachine) : GameScene(id, _engine, _statemachine) {};
+	~ChapterOneScene() { };
 	// Inherited via Scene
 	void onAttach() override;
 	void onDetach() override;
 	void start(bool playSound) override;
 	void onUpdate() override;
+	bool onKeyPressed(const Event& event);
 private:
+
 	vector<Text*> text;
 
 	void loadText();
@@ -27,7 +29,8 @@ private:
 	void loadMusic();
 	void loadButtons();
 
+	int speed_ = 1;
+
 	//button functions
-	void onBackClick();
-	void empty();
+	void onSkipClick();
 };
