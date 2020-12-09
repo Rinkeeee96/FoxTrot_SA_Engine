@@ -76,6 +76,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0b07d49f6b19f4c1aef57978c6a7de4a"><td class="memItemLeft" align="right" valign="top">ifstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_loader.html#a0b07d49f6b19f4c1aef57978c6a7de4a">readFile</a> (string path)</td></tr>
 <tr class="memdesc:a0b07d49f6b19f4c1aef57978c6a7de4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a file and returns the stream, strem should be closed.  <a href="class_file_loader.html#a0b07d49f6b19f4c1aef57978c6a7de4a">More...</a><br /></td></tr>
 <tr class="separator:a0b07d49f6b19f4c1aef57978c6a7de4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a060dbc7e7a21bd8f14be92d47e10f17b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_loader.html#a060dbc7e7a21bd8f14be92d47e10f17b">validateDocument</a> (string path, string validationPath)</td></tr>
+<tr class="memdesc:a060dbc7e7a21bd8f14be92d47e10f17b"><td class="mdescLeft">&#160;</td><td class="mdescRight">validate a json file with a json schema  <a href="class_file_loader.html#a060dbc7e7a21bd8f14be92d47e10f17b">More...</a><br /></td></tr>
+<tr class="separator:a060dbc7e7a21bd8f14be92d47e10f17b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class responsible for opening files. </p>
@@ -109,6 +112,44 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a060dbc7e7a21bd8f14be92d47e10f17b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a060dbc7e7a21bd8f14be92d47e10f17b">&#9670;&nbsp;</a></span>validateDocument()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FileLoader::validateDocument </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>validationPath</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>validate a json file with a json schema </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>to the file </td></tr>
+    <tr><td class="paramname">path</td><td>to the validation file </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>boolean </dd></dl>
 
 </div>
 </div>

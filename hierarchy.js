@@ -31,6 +31,9 @@ var hierarchy =
     [ "EventDispatcher", "class_event_dispatcher.html", null ],
     [ "FileLoader", "class_file_loader.html", null ],
     [ "FrameData", "class_frame_data.html", null ],
+    [ "IFileValidator", "class_i_file_validator.html", [
+      [ "JsonValidator", "class_json_validator.html", null ]
+    ] ],
     [ "IInputFacade", "class_i_input_facade.html", [
       [ "InputFacade", "class_input_facade.html", null ]
     ] ],
