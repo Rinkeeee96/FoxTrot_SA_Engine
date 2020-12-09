@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Level.h"
 #include "Game/Game.h"
+#include "Game/PopUps/PausePopUp.h"
 
 Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, Engine& engine, SceneStateMachine& _stateMachine) 
 				: GameScene::GameScene(id, _sceneHeight, _sceneWidth, engine, _stateMachine)
@@ -16,8 +17,10 @@ bool Level::onKeyPressed(const Event& event) {
 	switch (keyPressedEvent.getKeyCode())
 	{
 	case KeyCode::KEY_P:
-		if (!hasActivePopUp) {
-			createPopUpLayer(WINDOW_WIDTH_CENTER, WINDOW_HEIGHT_CENTER, "Paused");
+		if (!paused) {
+			PausePopUp* pausePopUp = new PausePopUp(this->dispatcher, this->stateMachine);
+			pausePopUp->setupPopUp();
+			addPopUpLayer(pausePopUp);
 			this->paused = true;
 		}
 		else {
