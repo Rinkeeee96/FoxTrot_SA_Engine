@@ -44,11 +44,12 @@ public:
     /// @brief 
     /// change state
     void changeState(IState<T>* _state, T* entity) {
-        if (currentState != _state && _state) return;
-
-        currentState->exit(entity);
-        delete currentState;
-        currentState = _state;
-        currentState->entry(entity);
+        if (currentState != _state && _state)
+        {
+            currentState->exit(entity);
+            delete currentState;
+            currentState = _state;
+            currentState->entry(entity);
+        }
     };
 };
