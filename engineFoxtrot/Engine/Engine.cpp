@@ -117,11 +117,8 @@ void Engine::stopLoopEffect(const string& identifier) {
 
 void Engine::onUpdate()
 {
-	// TODO change after command pattern is implemented
-	if (!this->sceneManager.currentScene->getIsPaused()) { 
-		particleEngine.update();
-		physicsEngine.update();
-	}
+	particleEngine.update();
+	physicsEngine.update();
 	videoEngine.update();
 	inputEngine.update();
 }
