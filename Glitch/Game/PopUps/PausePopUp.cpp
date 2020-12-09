@@ -8,3 +8,8 @@ PausePopUp::PausePopUp()
 PausePopUp::~PausePopUp()
 {
 }
+
+void PausePopUp::setupPopUp()
+{
+	
+}

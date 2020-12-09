@@ -5,6 +5,8 @@ public:
 	PausePopUp();
 	~PausePopUp();
 
+	void setupPopUp();
+
 private:
 
 };
