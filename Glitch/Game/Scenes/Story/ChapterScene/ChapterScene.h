@@ -23,7 +23,7 @@ protected:
 	vector<Text*> text;
 	FileLoader fileLoader;
 
-	virtual void setTextFromFile(string path);
+	virtual void setTextFromFile(string path, int startingId);
 	virtual void loadText() {};
 	virtual void loadBackground() {};
 	virtual void loadMusic() {};
@@ -32,6 +32,6 @@ protected:
 	void onSkipClick();
 
 	vector<string> splitToLines(string stringToSplit, int maximumLineLength);
-	vector<Text*> splitText(string text);
+	vector<Text*> splitText(string text, int startingId);
 	int speed_ = 1;
 };

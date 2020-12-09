@@ -62,8 +62,7 @@ vector<string> ChapterScene::splitToLines(string stringToSplit, int maximumLineL
 /// @brief 
 /// Splits text on \n 
 /// @param the text
-vector<Text*> ChapterScene::splitText(string text) {
-	auto startingId = 4;
+vector<Text*> ChapterScene::splitText(string text, int startingId) {
 	auto startingPos = START_Y_POS;
 
 	vector<Text*> ret;
@@ -98,7 +97,7 @@ void ChapterScene::loadButtons() {
 
 /// @brief 
 /// Creates text to parse from .txt
-void ChapterScene::setTextFromFile(string path) {
+void ChapterScene::setTextFromFile(string path, int startingId) {
 	auto stream = fileLoader.readFile(path);
 	string appendString;
 	string currentString;
@@ -106,7 +105,7 @@ void ChapterScene::setTextFromFile(string path) {
 		appendString = appendString + currentString + "\n";
 	}
 	stream.close();
-	this->text = splitText(appendString);
+	this->text = splitText(appendString, startingId);
 }
 
 /// @brief 

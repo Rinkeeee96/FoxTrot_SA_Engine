@@ -20,7 +20,7 @@ void ChapterOneScene::onAttach()
 /// @brief 
 /// Create all text for this scene
 void ChapterOneScene::loadText() {
-	this->setTextFromFile("Assets/Levels/Story/ChapterOne.txt");
+	this->setTextFromFile("Assets/Levels/Story/ChapterOne.txt", 4);
 
 	for (size_t i = 0; i < this->text.size(); i++)
 	{
