@@ -11,6 +11,7 @@ public:
 	API void updateFps();
 	API void startTimer();
 	API const double getFps() { return fps; };
+	API const double getLastFrameFps() { return lastFrameFps; };
 
 private:
 
@@ -19,5 +20,6 @@ private:
 	list<chrono::duration<double>> frametimes;
 	chrono::high_resolution_clock::time_point startTime;
 	double framesPerSecond = 0;
+	double lastFrameFps = 0;
 	bool reset = true;
 };

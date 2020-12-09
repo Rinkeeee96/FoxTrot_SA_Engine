@@ -146,7 +146,7 @@ b2Body* PhysicsFacade::findBody(const int objectId) {
 /// The position is set to the bottom left
 void PhysicsFacade::update() {
 	if (!this->world) return;
-	timeStep = TIMESTEP_SEC / this->frameData.getFps();
+	timeStep = TIMESTEP_SEC / this->frameData.getLastFrameFps();
 	this->world->Step(timeStep, VELOCITY_ITERATIONS, POSITION_ITERATIONS);
 
 	for (auto& it : bodies)

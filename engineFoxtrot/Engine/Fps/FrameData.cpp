@@ -33,6 +33,7 @@ double FrameData::calculateAverageFps()
 
 	avgFps /= frametimes.size();
 
+	lastFrameFps = TIMESTEP / diff.count();
 	framesPerSecond = TIMESTEP / avgFps;
 	return framesPerSecond;
 }
