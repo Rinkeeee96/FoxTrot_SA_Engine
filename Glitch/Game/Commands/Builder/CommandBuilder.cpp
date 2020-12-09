@@ -9,10 +9,7 @@
 
 #include "Game/Characters/Player/Player.h"
 
-#include "Game/Commands/CharacterCommands/MoveLeftCommand.h"
-#include "Game/Commands/CharacterCommands/MoveRightcommand.h"
-#include "Game/Commands/CharacterCommands/JumpCommand.h"
-#include "Game/Commands/CharacterCommands/StopMovementCommand.h"
+#include "Game/Commands/CharacterCommands/CharacterCommands.h"
 
 #include "Game/Commands/GlobalCommands/PauseCommand.h"
 
@@ -46,6 +43,7 @@ GameKeypressInvoker* CommandBuilder::readBindingsAndCreateInvoker() {
 	unordered_map<KeyCode, string> playerBindings = {
 		{ KeyCode::KEY_A, "moveLeft" },
 		{ KeyCode::KEY_D, "moveRight" },
+		{ KeyCode::KEY_G, "godmode" },
 		{ KeyCode::KEY_SPACE, "jump" }
 	};
 
@@ -63,7 +61,9 @@ void CommandBuilder::initCharacterFactory()
 	auto* jumpCommand = new CharacterCommandCreator<JumpCommand>("jump");
 	auto* moveLeftCommand = new CharacterCommandCreator<MoveLeftCommand>("moveLeft");
 	auto* moveRightCommand = new CharacterCommandCreator<MoveRightCommand>("moveRight");
+	auto* godmodeCommand = new CharacterCommandCreator<GodmodeCommand>("godmode");
 
+	godmodeCommand->registerClass(characterCommandFactory);
 	jumpCommand->registerClass(characterCommandFactory);
 	moveLeftCommand->registerClass(characterCommandFactory);
 	moveRightCommand->registerClass(characterCommandFactory);
