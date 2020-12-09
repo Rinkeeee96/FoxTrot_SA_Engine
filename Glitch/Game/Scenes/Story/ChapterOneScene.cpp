@@ -47,7 +47,7 @@ void ChapterOneScene::loadBackground() {
 	foregroundBottomLayer->setPositionX(0);
 	foregroundBottomLayer->setPositionY(1080);
 	foregroundBottomLayer->setWidth(1920);
-	foregroundBottomLayer->setHeight(200);
+	foregroundBottomLayer->setHeight(176);
 	foregroundBottomLayer->registerSprite(SpriteState::DEFAULT, foregroundBottom);
 	foregroundBottomLayer->changeToState(SpriteState::DEFAULT);
 
@@ -55,9 +55,9 @@ void ChapterOneScene::loadBackground() {
 	auto* foregroundTopLayer = new Drawable(2);
 	foregroundTopLayer->setStatic(true);
 	foregroundTopLayer->setPositionX(0);
-	foregroundTopLayer->setPositionY(100);
+	foregroundTopLayer->setPositionY(124);
 	foregroundTopLayer->setWidth(1920);
-	foregroundTopLayer->setHeight(100);
+	foregroundTopLayer->setHeight(124);
 	foregroundTopLayer->registerSprite(SpriteState::DEFAULT, foregroundTop);
 	foregroundTopLayer->changeToState(SpriteState::DEFAULT);
 
