@@ -12,8 +12,13 @@
 /// @param path to document that needs a validation
 /// @param path to document that is the validation schema
 JsonValidator::JsonValidator(string path, string validationPath) : IFileValidator(path, validationPath) {
+
+	JsonDocument document; 
+	JsonDocument validationDocument;
+
 	loadDocument(path, document);
 	loadDocument(validationPath, validationDocument);
+	validate(document, validationDocument);
 }
 
 /// @brief 
@@ -27,9 +32,11 @@ void JsonValidator::loadDocument(string path, JsonDocument& document) {
 }
 
 /// @brief 
-/// check of the current document is valid by the json schema.
-/// @return boolean
-bool JsonValidator::documentIsValid() {
+/// check of the document is valid by the validationDocument.
+/// @param JsonDocument document
+/// @param JsonDocument jsonSchema
+/// @return 
+void JsonValidator::validate(JsonDocument& document, JsonDocument& validationDocument) {
 	valijson::Schema schema;
 	valijson::SchemaParser parser;
 	valijson::adapters::RapidJsonAdapter schemaAdapter(validationDocument);
@@ -39,22 +46,15 @@ bool JsonValidator::documentIsValid() {
 	valijson::adapters::RapidJsonAdapter validateAdapter(document);
 
 	if (!validator.validate(schema, validateAdapter, NULL)) {
-		return false;
+		docIsValid = false;
 	}
 
-	return true;
+	docIsValid = true;
 }
 
 /// @brief 
-/// validate a json file
-/// @param path to the file
-void JsonValidator::loadNewDocument(string path) {
-	loadDocument(path, document);
-}
-
-/// @brief 
-/// validate a new validation file
-/// @param path to the file
-void JsonValidator::loadNewValidationFile(string path) {
-	loadDocument(path, validationDocument);
+/// returns of the document is valid
+/// @return boolean
+bool JsonValidator::documentIsValid() {
+	return docIsValid;
 }
