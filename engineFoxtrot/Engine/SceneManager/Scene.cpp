@@ -230,10 +230,10 @@ int Scene::getHighestLayerIndex() {
 /// @param xPosition 
 /// @param yPosition 
 /// @param text 
-void Scene::addLayer(Layer _layer) {
+void Scene::addLayer(Layer* _layer) {
 	int zIndex = getHighestLayerIndex() + 1;
 
-	layers[zIndex] = &_layer;
+	layers[zIndex] = _layer;
 }
 
 /// @brief remove layer

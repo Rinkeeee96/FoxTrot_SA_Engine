@@ -85,9 +85,9 @@ public:
 
 	EventDispatcher& getEventDispatcher() { return dispatcher; };
 
-	int getHighestLayerIndex();
-	void addLayer(Layer _layer);
-	void removeLayer(int _zIndex = -1);
+	API int getHighestLayerIndex();
+	API void addLayer(Layer *_layer);
+	API void removeLayer(int _zIndex = -1);
 
 protected:
 	EventDispatcher dispatcher;

@@ -4,6 +4,8 @@
 #include "Game/Buttons/SecondaryButton.h"
 #include "Game/Game.h"
 
+#include "../../PopUps/PausePopUp.h"
+
 #define BIND_FN(function) std::bind(&Overworld::function, *this)
 
 /// @brief 
@@ -113,11 +115,16 @@ void Overworld::loadBackground() {
 	layer0->setScalable(false);
 
 	addNewObjectToLayer(1, layer0, false, true);
+
+	PausePopUp *pausePopUp = new PausePopUp();
+	pausePopUp->setupPopUp();
+	addLayer(pausePopUp);
 }
 
 /// @brief 
 void Overworld::loadMusic() {
 	engine.soundEngine.onLoadBackgroundMusicEvent("OVER_WORLD", "Assets/Sound/file_example_WAV_1MG.wav");
+
 }
 
 /// @brief 
