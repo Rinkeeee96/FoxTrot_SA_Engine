@@ -44,24 +44,7 @@ bool InputEngine::onKeyPressed(const Event& event) {
 	auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
 
 	if(keypressInvoker)
-		keypressInvoker->executeCommand(keyPressedEvent.GetKeyCode());
-		
-	// TODO Send events instead of calling engine directly
-	switch (keyPressedEvent.getKeyCode())
-	{
-	case KeyCode::KEY_F1: {
-		engine.toggleFps();
-		return true;
-	}
-	case KeyCode::KEY_F4: {
-		engine.setEngineRunning(false);
-		return true;
-	}
-	case KeyCode::KEY_P: {
-		engine.pauseUnpause();
-		return true;
-	}
-	default:
-		return false;
-	}
+		keypressInvoker->enqueueCommand(keyPressedEvent.getKeyCode());
+
+	return false;
 }

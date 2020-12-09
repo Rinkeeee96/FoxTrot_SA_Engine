@@ -26,7 +26,9 @@ Engine::~Engine()
 /// @brief 
 /// Create default engine commands that cannot be removed, only overriden by changing the keycode in the invoker
 void Engine::constructDefaultCommands(KeypressInvoker* invoker) {
+	invoker->registerCommand(KeyCode::KEY_F1, new ToggleFpsCommand(this->videoEngine));
 	invoker->registerCommand(KeyCode::KEY_P, new PauseCommand());
+	invoker->registerCommand(KeyCode::KEY_F4, new PauseCommand());
 }
 
 /// @brief 
