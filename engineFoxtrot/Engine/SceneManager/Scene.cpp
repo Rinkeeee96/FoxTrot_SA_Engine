@@ -33,14 +33,12 @@ Scene::~Scene()
 /// Returns true if Object is found in current scene else false.
 bool Scene::checkIfObjectExists(const int objectID)
 {
+	bool exists = false;
 	for (auto layer : layers)
 	{
-		if (layer.second->getObjectsInLayer().find(objectID) != layer.second->getObjectsInLayer().end())
-		{
-			return true;
-		}
+		exists = layer.second->objectExists(objectID);
 	}
-	return false;
+	return exists;
 }
 
 /// @brief 
