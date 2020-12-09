@@ -1,7 +1,5 @@
 var NAVTREEINDEX4 =
 {
-"struct_object_size.html#abe7ced62d7b06c7ffc130f675abf7fab":[1,0,33,1],
-"struct_object_size.html#ad0336a5bdc224e29d6d7c78fd9977274":[1,0,33,0],
 "struct_pointf.html":[1,0,47],
 "struct_pointf.html#a00964620f8c27d7ac7d67b065ec37196":[1,0,47,2],
 "struct_pointf.html#a2d528777edd1c3d03fbddedfd815dee1":[1,0,47,3],

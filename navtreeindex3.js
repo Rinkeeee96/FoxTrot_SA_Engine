@@ -1,7 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"class_scene_manager.html":[1,0,51],
-"class_scene_manager.html#a2bb376a85d29e85f47753e26c7539229":[1,0,51,1],
 "class_scene_manager.html#a35236665097d81e0581bb9b630feb6d3":[1,0,51,10],
 "class_scene_manager.html#a52085e6737c23b491c228e86781af808":[1,0,51,0],
 "class_scene_manager.html#a614c53d3e88e8755b387d2482bffb344":[1,0,51,5],
@@ -249,5 +247,7 @@ var NAVTREEINDEX3 =
 "struct_layer.html#af1faba9fe86728b21f83fbef7318f5ae":[1,0,26,0],
 "struct_layer.html#af6cf29dc19f963e16c516a3b2d5c30f9":[1,0,26,4],
 "struct_object_size.html":[1,0,33],
-"struct_object_size.html#a4cdc9e4ea8db55c2219102b7db09473f":[1,0,33,2]
+"struct_object_size.html#a4cdc9e4ea8db55c2219102b7db09473f":[1,0,33,2],
+"struct_object_size.html#abe7ced62d7b06c7ffc130f675abf7fab":[1,0,33,1],
+"struct_object_size.html#ad0336a5bdc224e29d6d7c78fd9977274":[1,0,33,0]
 };
