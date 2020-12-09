@@ -115,7 +115,7 @@ void Overworld::loadBackground() {
 
 	auto* layer0 = new Drawable(1);
 	layer0->setStatic(true);
-	layer0->setPositionX(1);
+	layer0->setPositionX(0);
 	layer0->setPositionY(1080);
 	layer0->setWidth(1920);
 	layer0->setHeight(1080);
