@@ -122,13 +122,13 @@ const void Scene::addNewObjectToLayer(const int zIndex, Object* object, bool ren
 
 	if (layers.find(zIndex) != layers.end())
 	{
-		layers[zIndex]->addObjectInLayer(object->getObjectId(), object);
+		layers[zIndex]->addObjectInLayer(object);
 	}
 	else
 	{
 		layers[zIndex] = new Layer();
 		layers[zIndex]->setRenderPhysics(renderPhysics);
-		layers[zIndex]->addObjectInLayer(object->getObjectId(), object);
+		layers[zIndex]->addObjectInLayer(object);
 		layers[zIndex]->setAlwaysVisible(alwaysDrawLayer);
 	}
 }

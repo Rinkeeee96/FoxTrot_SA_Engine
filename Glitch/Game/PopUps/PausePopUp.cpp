@@ -37,9 +37,9 @@ void PausePopUp::setupPopUp()
 	background->registerSprite(SpriteState::DEFAULT, backgroundSprite);
 	background->changeToState(SpriteState::DEFAULT);
 
-	addObjectInLayer(backButton->getObjectId() ,backButton);
-	addObjectInLayer(text->getObjectId(), text);
-	addObjectInLayer(background->getObjectId(), background);
+	addObjectInLayer(backButton);
+	addObjectInLayer(text);
+	addObjectInLayer(background);
 }
 
 void PausePopUp::onBackButtonClick()
