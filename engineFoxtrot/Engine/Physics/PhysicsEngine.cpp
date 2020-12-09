@@ -29,7 +29,7 @@ void PhysicsEngine::shutdown() {
 	delete physicsFacade;
 };
 
-void PhysicsEngine::removeObject() {
+void PhysicsEngine::reloadPhysicsObjects() {
 	physicsFacade->cleanMap();
 	registerObjectInCurrentVectorWithPhysicsEngine();
 }
@@ -47,8 +47,8 @@ void PhysicsEngine::clean()
 bool PhysicsEngine::handleAction(const Event& event) {
 	auto actionEvent = static_cast<const ActionEvent&>(event);
 
-	auto direction = actionEvent.GetDirection();
-	auto objectId = actionEvent.GetObjectId();
+	auto direction = actionEvent.getDirection();
+	auto objectId = actionEvent.getObjectId();
 	switch (direction)
 	{
 		case Direction::UP:
@@ -71,7 +71,7 @@ bool PhysicsEngine::handleAction(const Event& event) {
 
 bool PhysicsEngine::stopObject(const Event& event) {
 	ObjectStopEvent e = static_cast<const ObjectStopEvent&>(event);
-	physicsFacade->stopObject(e.GetObjectId(), e.GetStopVertical());
+	physicsFacade->stopObject(e.getObjectId(), e.getStopVertical());
 	return true;
 }
 

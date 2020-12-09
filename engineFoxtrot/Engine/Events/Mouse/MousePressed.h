@@ -11,7 +11,7 @@ public:
 	/// @brief
 	/// MouseButtonPressed to string
 	/// @return string with the realesed button
-	string ToString() const override
+	string toString() const override
 	{
 		stringstream stream;
 		stream << "MouseButtonPressedEvent: " << (int)button;

@@ -2,9 +2,9 @@
 #include "stdafx.h"
 struct Color
 {
-	const int red;
-	const int green;
-	const int blue;
+	int red;
+	int green;
+	int blue;
 
 	Color(int _red, int _green, int _blue) :
 		blue(_blue), red(_red), green(_green) {}

@@ -44,9 +44,6 @@ public:
 	bool onPlayEffect(const string& identifier, int volume, bool shouldLoop);
 	void onStopLoopedEffect(const string& identifier);
 
-	void onStartBackgroundMusicEvent(const string& identifier);
-	void onLoadBackgroundMusicEvent(const string& identifier, const string& fileName);
-
 private:
 	void onChangeBackgroundMusic(const string& identifier, const int volume);
 

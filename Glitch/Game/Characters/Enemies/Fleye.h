@@ -10,6 +10,7 @@ public:
 	Fleye(EventDispatcher& _dispatcher) : BaseEnemy(_dispatcher) { this->setGravity(0); }
 	Fleye(const int id, EventDispatcher& _dispatcher) : BaseEnemy(id, _dispatcher) {
 		this->setGravity(0);
+		this->damage = 2;
 	}
 
 	void onUpdate() override;
