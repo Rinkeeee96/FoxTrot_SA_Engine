@@ -31,7 +31,8 @@
     <ClCompile Include="Game\States\Player\NormalState.cpp" />
     <ClCompile Include="Game\States\Player\PlayerGlobalState.cpp" />
     <ClCompile Include="Game\States\Player\DamageCooldownState.cpp" />
-    <ClCompile Include="Game\PopUps\PausePopUp.cpp" />
+    <ClCompile Include="Game\PopUps\Pause\PausePopUp.cpp" />
+    <ClCompile Include="Game\PopUps\Inventory\InventoryPopup.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
@@ -101,5 +102,8 @@
     <ClInclude Include="Game\States\Player\DamageCooldownState.h" />
     <ClInclude Include="Game\Commands\CharacterCommands\GodmodeCommand.h" />
     <ClInclude Include="Game\Commands\CharacterCommands\CharacterCommands.h" />
+    <ClInclude Include="Game\PopUps\Pause\PausePopUp.h" />
+    <ClInclude Include="Game\PopUps\Popups.h" />
+    <ClInclude Include="Game\PopUps\Inventory\InventoryPopup.h" />
   </ItemGroup>
 </Project>

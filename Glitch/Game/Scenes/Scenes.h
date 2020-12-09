@@ -7,3 +7,4 @@
 #include "./Transitions/Transitions.h"
 #include "./WinScreen/WinScreen.h"
 #include "./Credits/CreditsScene.h"
+#include "./Shop/Shop.h"

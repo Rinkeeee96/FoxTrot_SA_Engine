@@ -5,7 +5,7 @@
 #include "Game/Commands/Builder/CommandBuilder.h"
 #include "Events/Action/TogglePause.h"
 #include "Game/Game.h"
-#include "Game/PopUps/PausePopUp.h"
+#include "Game/PopUps/Popups.h"
 
 Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, Engine& engine, SceneStateMachine& _stateMachine) 
 				: GameScene::GameScene(id, _sceneHeight, _sceneWidth, engine, _stateMachine), commandBuilder{new CommandBuilder()}
@@ -28,6 +28,47 @@ bool Level::onTogglePauseEvent(const Event &event)
 	} else {
 		removePopUpLayer();
 	}
+
+	// TODO inventory commands
+	/*
+	case KeyCode::KEY_P:
+		if (!paused && !inventoryOpen) {
+			PausePopUp* pausePopUp = new PausePopUp(this->dispatcher, this->stateMachine);
+			pausePopUp->setupPopUp();
+			addPopUpLayer(pausePopUp);
+			this->paused = true;
+		}
+		else if (!inventoryOpen) {
+			removePopUpLayer();
+			this->paused = false;
+		}
+		break;
+	case KeyCode::KEY_I:
+		if (!inventoryOpen && !paused) {
+			InventoryPopup* inventoryPopup = new InventoryPopup(this->dispatcher, this->stateMachine);
+			inventoryPopup->setupPopUp();
+			addPopUpLayer(inventoryPopup);
+			inventoryOpen = true;
+		}
+		else if (!paused) {
+			removePopUpLayer();
+			inventoryOpen = false;
+		}
+		break;
+	case KeyCode::KEY_G:
+		if (this->player != nullptr && 
+			typeid(this->player->getStateMachine().getCurrentState()).name() != typeid(GodState).name()) 
+		{
+			this->player->getStateMachine().changeState(new GodState, this->player);
+		}
+		else {
+			this->player->getStateMachine().changeState(new NormalState, this->player);
+		}
+		break;
+	default:
+		break;
+
+	*/
 	return false;
 }
 
