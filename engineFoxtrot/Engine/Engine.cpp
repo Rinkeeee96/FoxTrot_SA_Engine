@@ -23,14 +23,10 @@ Engine::~Engine()
 	videoEngine.shutdown();
 }
 
+/// @brief 
+/// Create default engine commands that cannot be removed, only overriden by changing the keycode in the invoker
 void Engine::constructDefaultCommands(KeypressInvoker* invoker) {
-	// TODO Maybe make it so systems are always stored in a vector?
-	invoker->registerCommand(KeyCode::KEY_P, new PauseCommand({
-		&this->inputEngine,
-		&this->videoEngine,
-		&this->physicsEngine
-		})
-	);
+	invoker->registerCommand(KeyCode::KEY_P, new PauseCommand(*this->eventDispatcher));
 }
 
 /// @brief 

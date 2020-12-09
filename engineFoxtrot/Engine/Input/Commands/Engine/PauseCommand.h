@@ -2,18 +2,33 @@
 #include "Input/Commands/ICommand.h"
 #include "General/ISubsystem.h"
 
+#include "Events/Action/TogglePause.h"
+
+class EventDispatcher;
+
 class PauseCommand : public ICommand
 {
 public:
-	PauseCommand(const vector<ISubsystem*> systems) : systemsToPause{systems}, ICommand("pause") {}
-private:
-	const vector<ISubsystem*> systemsToPause;
+	PauseCommand(EventDispatcher& dispatcher) : ICommand("pause") {
+		// force last pause state to be false to prevent errors 
+		// when this command is destroyed and recreated but still paused
+		dispatchPauseEvent(dispatcher, false);
+	}
+
+	void dispatchPauseEvent(EventDispatcher& dispatcher, bool state) {	
+		TogglePauseEvent pauseEvent(state);
+		dispatcher.dispatchEvent<TogglePauseEvent>(pauseEvent);
+
+		lastPauseState = state;
+	}
 
 	// Inherited via ICommand
 	void execute(EventDispatcher& dispatcher) override
 	{
-		for_each(systemsToPause.begin(), systemsToPause.end(), [](ISubsystem* system) {
-			system->pause();
-		});
+		bool shouldPause = !lastPauseState;
+		dispatchPauseEvent(dispatcher, shouldPause);
 	}
+
+private:
+	bool lastPauseState;
 };

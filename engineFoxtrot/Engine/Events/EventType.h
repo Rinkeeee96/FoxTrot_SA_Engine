@@ -4,6 +4,7 @@
 enum class EventType
 {
 	None = 0,
+	TogglePause,
 	// -- input capturing events ---
 	CaptureInput,
 	ReleaseInput,
