@@ -107,6 +107,17 @@ void Engine::loadSound(map<string, string> sounds)
 	this->soundEngine.setFiles(sounds);
 }
 
+void Engine::startSound(const string& identifier) {
+	this->soundEngine.playMusic(identifier, 15);
+}
+
+void Engine::stopSound(const string& identifier) {
+	this->soundEngine.stopMusic();
+}
+void Engine::stopLoopEffect(const string& identifier) {
+	this->soundEngine.onStopLoopedEffect(identifier);
+}
+
 void Engine::onUpdate()
 {
 	// TODO change after command pattern is implemented
