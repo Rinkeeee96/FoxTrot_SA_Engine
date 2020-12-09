@@ -88,14 +88,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a56939448fc3c4faa98e848a95c964d7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">load the documents for validation  <a href="class_json_validator.html#a56939448fc3c4faa98e848a95c964d7d">More...</a><br /></td></tr>
 <tr class="separator:a56939448fc3c4faa98e848a95c964d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0328a422b2d7602c269e2b5051816c4f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_json_validator.html#a0328a422b2d7602c269e2b5051816c4f">documentIsValid</a> ()</td></tr>
-<tr class="memdesc:a0328a422b2d7602c269e2b5051816c4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">check of the current document is valid by the json schema.  <a href="class_json_validator.html#a0328a422b2d7602c269e2b5051816c4f">More...</a><br /></td></tr>
+<tr class="memdesc:a0328a422b2d7602c269e2b5051816c4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns of the document is valid  <a href="class_json_validator.html#a0328a422b2d7602c269e2b5051816c4f">More...</a><br /></td></tr>
 <tr class="separator:a0328a422b2d7602c269e2b5051816c4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16eef6a10712bfce66143fbebad31dc8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_json_validator.html#a16eef6a10712bfce66143fbebad31dc8">loadNewDocument</a> (string path)</td></tr>
-<tr class="memdesc:a16eef6a10712bfce66143fbebad31dc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">validate a json file  <a href="class_json_validator.html#a16eef6a10712bfce66143fbebad31dc8">More...</a><br /></td></tr>
-<tr class="separator:a16eef6a10712bfce66143fbebad31dc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b21213f2f0d47d2d72ad3061916014e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_json_validator.html#a3b21213f2f0d47d2d72ad3061916014e">loadNewValidationFile</a> (string path)</td></tr>
-<tr class="memdesc:a3b21213f2f0d47d2d72ad3061916014e"><td class="mdescLeft">&#160;</td><td class="mdescRight">validate a new validation file  <a href="class_json_validator.html#a3b21213f2f0d47d2d72ad3061916014e">More...</a><br /></td></tr>
-<tr class="separator:a3b21213f2f0d47d2d72ad3061916014e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_i_file_validator"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_i_file_validator')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_i_file_validator.html">IFileValidator</a></td></tr>
 <tr class="memitem:a8d2cd2ca96c1c78422cc53c7211fa37f inherit pub_methods_class_i_file_validator"><td class="memItemLeft" align="right" valign="top"><a id="a8d2cd2ca96c1c78422cc53c7211fa37f"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>IFileValidator</b> (string path, string validationPath)</td></tr>
@@ -106,15 +100,15 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a8d76d1ffeed62b8290ac4d276b9dd387"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_json_validator.html#a8d76d1ffeed62b8290ac4d276b9dd387">loadDocument</a> (string path, JsonDocument &amp;document)</td></tr>
 <tr class="memdesc:a8d76d1ffeed62b8290ac4d276b9dd387"><td class="mdescLeft">&#160;</td><td class="mdescRight">load a jsonfile to a document  <a href="class_json_validator.html#a8d76d1ffeed62b8290ac4d276b9dd387">More...</a><br /></td></tr>
 <tr class="separator:a8d76d1ffeed62b8290ac4d276b9dd387"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ca5cebc866717f433ab435de3adaa1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_json_validator.html#a7ca5cebc866717f433ab435de3adaa1c">validate</a> (JsonDocument &amp;document, JsonDocument &amp;validationDocument)</td></tr>
+<tr class="memdesc:a7ca5cebc866717f433ab435de3adaa1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">check of the document is valid by the validationDocument.  <a href="class_json_validator.html#a7ca5cebc866717f433ab435de3adaa1c">More...</a><br /></td></tr>
+<tr class="separator:a7ca5cebc866717f433ab435de3adaa1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:ac421a75e25b8a23359de94aa46ebbbd1"><td class="memItemLeft" align="right" valign="top"><a id="ac421a75e25b8a23359de94aa46ebbbd1"></a>
-JsonDocument&#160;</td><td class="memItemRight" valign="bottom"><b>validationDocument</b></td></tr>
-<tr class="separator:ac421a75e25b8a23359de94aa46ebbbd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7a437f039d2430c115d4d50fa8bb588"><td class="memItemLeft" align="right" valign="top"><a id="af7a437f039d2430c115d4d50fa8bb588"></a>
-JsonDocument&#160;</td><td class="memItemRight" valign="bottom"><b>document</b></td></tr>
-<tr class="separator:af7a437f039d2430c115d4d50fa8bb588"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17783d75a9c277fdc3587c60576a21de"><td class="memItemLeft" align="right" valign="top"><a id="a17783d75a9c277fdc3587c60576a21de"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>docIsValid</b> = false</td></tr>
+<tr class="separator:a17783d75a9c277fdc3587c60576a21de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>ValiJson adapter. </p>
@@ -180,7 +174,7 @@ JsonDocument&#160;</td><td class="memItemRight" valign="bottom"><b>document</b><
 </table>
 </div><div class="memdoc">
 
-<p>check of the current document is valid by the json schema. </p>
+<p>returns of the document is valid </p>
 <dl class="section return"><dt>Returns</dt><dd>boolean </dd></dl>
 
 <p>Implements <a class="el" href="class_i_file_validator.html">IFileValidator</a>.</p>
@@ -232,55 +226,50 @@ JsonDocument&#160;</td><td class="memItemRight" valign="bottom"><b>document</b><
 
 </div>
 </div>
-<a id="a16eef6a10712bfce66143fbebad31dc8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16eef6a10712bfce66143fbebad31dc8">&#9670;&nbsp;</a></span>loadNewDocument()</h2>
+<a id="a7ca5cebc866717f433ab435de3adaa1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ca5cebc866717f433ab435de3adaa1c">&#9670;&nbsp;</a></span>validate()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void JsonValidator::loadNewDocument </td>
+          <td class="memname">void JsonValidator::validate </td>
           <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>path</em></td><td>)</td>
+          <td class="paramtype">JsonDocument &amp;&#160;</td>
+          <td class="paramname"><em>document</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">JsonDocument &amp;&#160;</td>
+          <td class="paramname"><em>validationDocument</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>validate a json file </p>
+<p>check of the document is valid by the validationDocument. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">path</td><td>to the file </td></tr>
+    <tr><td class="paramname">JsonDocument</td><td>document </td></tr>
+    <tr><td class="paramname">JsonDocument</td><td>jsonSchema </td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="a3b21213f2f0d47d2d72ad3061916014e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b21213f2f0d47d2d72ad3061916014e">&#9670;&nbsp;</a></span>loadNewValidationFile()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void JsonValidator::loadNewValidationFile </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>path</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>validate a new validation file </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">path</td><td>to the file </td></tr>
-  </table>
-  </dd>
-</dl>
+<dl class="section return"><dt>Returns</dt><dd><br  />
+ </dd></dl>
 
 </div>
 </div>
