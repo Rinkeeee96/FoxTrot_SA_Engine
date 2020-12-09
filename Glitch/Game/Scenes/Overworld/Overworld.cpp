@@ -32,7 +32,7 @@ void Overworld::loadButtons() {
 	shop->setPositionY(1000);
 	shop->registerHoverSprite(hoverBtnSprite);
 
-	auto* shopText = new Text(15, new ColoredText("Shop", Color(0, 0, 0)), 100, 100, 390, 1000);
+	auto* shopText = new Text(15, new ColoredText("Shop", Color(0, 0, 0)), 60, 50, 390, 1000);
 
 	auto* shop1 = new Button(11, ColoredText("", Color(255, 255, 255)), BIND_FN(onShopBtnClick), defaultBtnSprite, this->dispatcher);
 	shop1->setWidth(32);
@@ -195,4 +195,5 @@ void Overworld::onLoadBtnClick() {
 
 void Overworld::onShopBtnClick()
 {
+	stateMachine.switchToScene("Shop", false);
 }
