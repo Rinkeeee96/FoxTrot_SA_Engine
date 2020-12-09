@@ -22,10 +22,10 @@ public:
 	/// @brief
 	/// Returns the eventType of a specific event
 	/// @return EventType
-	API virtual EventType GetEventType() const override = 0;
+	API virtual EventType getEventType() const override = 0;
 	/// @brief
 	/// Returns the name of the event
-	API virtual const char* GetName() const override = 0;
+	API virtual const char* getName() const override = 0;
 
 	API map<int, vector<Direction>> getDirectionMap() { return directionMap; };
 protected:
@@ -41,8 +41,8 @@ public:
 	API OnCollisionEndEvent(Object& _objectOneId, Object& _objectTwoId, const map<int, vector<Direction>> _directionMap)
 		: OnCollisionEvent(_objectOneId, _objectTwoId, _directionMap) {};
 
-	API virtual const char* GetName() const override { return "Collision end Event"; }
-	API EventType GetEventType() const override { return EventType::CollisionEnd; }
+	API virtual const char* getName() const override { return "Collision end Event"; }
+	API EventType getEventType() const override { return EventType::CollisionEnd; }
 };
 
 /// @brief
@@ -52,6 +52,6 @@ public:
 	API OnCollisionBeginEvent(Object& _objectOneId, Object& _objectTwoId, const map<int, vector<Direction>> _directionMap)
 		: OnCollisionEvent(_objectOneId, _objectTwoId, _directionMap) {};
 
-	API virtual const char* GetName() const override { return "Collision begin Event"; }
-	API virtual EventType GetEventType() const override { return EventType::CollisionBegin; }
+	API virtual const char* getName() const override { return "Collision begin Event"; }
+	API virtual EventType getEventType() const override { return EventType::CollisionBegin; }
 };

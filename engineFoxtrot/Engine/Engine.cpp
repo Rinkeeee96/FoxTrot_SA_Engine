@@ -42,6 +42,20 @@ Scene* Engine::getCurrentScene()
 	return sceneManager.currentScene;
 }
 
+// TODO Remove after command pattern is implemented
+bool Engine::onKeyPressed(const Event& event) {
+	auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
+	// TODO command pattern
+	switch (keyPressedEvent.getKeyCode())
+	{
+	case KeyCode::KEY_P:
+		engineIsPaused = !engineIsPaused;
+		break;
+	default:
+		return false;
+	}
+	return true;
+}
 /// @brief 
 /// @param scene
 void Engine::insertScene(Scene* scene)
@@ -77,7 +91,7 @@ void Engine::toggleFps() {
 /// @brief 
 void Engine::restartPhysicsWorld()
 {
-	physicsEngine.removeObject();
+	physicsEngine.reloadPhysicsObjects();
 }
 
 void Engine::loadSound(const string& identifier, const string& path)
@@ -88,6 +102,17 @@ void Engine::loadSound(const string& identifier, const string& path)
 void Engine::loadSound(map<string, string> sounds)
 {
 	this->soundEngine.setFiles(sounds);
+}
+
+void Engine::startSound(const string& identifier) {
+	this->soundEngine.playMusic(identifier, 15);
+}
+
+void Engine::stopSound(const string& identifier) {
+	this->soundEngine.stopMusic();
+}
+void Engine::stopLoopEffect(const string& identifier) {
+	this->soundEngine.onStopLoopedEffect(identifier);
 }
 
 void Engine::onUpdate()

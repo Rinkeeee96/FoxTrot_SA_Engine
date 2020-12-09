@@ -16,15 +16,15 @@ class ActionEvent : public Event
 public:
 	ActionEvent(const Direction _direction, int _objectId) : direction{ _direction }, objectId{ _objectId } {};
 
-	Direction GetDirection() const { return direction; }
-	int GetObjectId() const { return objectId; }
+	Direction getDirection() const { return direction; }
+	int getObjectId() const { return objectId; }
 	/// @brief
 	/// Returns the eventType of a specific event
 	/// @return EventType
-	EventType GetEventType() const override { return EventType::Action; }
+	EventType getEventType() const override { return EventType::Action; }
 	/// @brief
 	/// Returns the name of the event
-	const char* GetName() const override { return "Action Event"; }
+	const char* getName() const override { return "Action Event"; }
 private:
 	int objectId;
 	Direction direction;

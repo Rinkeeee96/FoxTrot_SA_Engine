@@ -13,7 +13,7 @@ bool Level::onKeyPressed(const Event& event) {
 
 	auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
 	// TODO command pattern
-	switch (keyPressedEvent.GetKeyCode())
+	switch (keyPressedEvent.getKeyCode())
 	{
 	case KeyCode::KEY_P:
 		if (!hasActivePopUp) {
@@ -70,7 +70,7 @@ void Level::setSound(map<string, string> _sounds)
 void Level::onAttach() {
     for (const auto& s : sounds) {
 		if(DEBUG_MAIN)std::cout << s.first << " has value " << s.second << std::endl;
-        engine.soundEngine.onLoadBackgroundMusicEvent(s.first, s.second);
+        engine.loadSound(s.first, s.second);
     }
 }
 
@@ -128,7 +128,7 @@ void Level::start(bool playSound) {
 	if (playSound)
 	{
 		for (const auto& s : sounds) {
-			engine.soundEngine.onStartBackgroundMusicEvent(s.first);
+			engine.startSound(s.first);
 		}
 	}
 }
@@ -170,7 +170,7 @@ void Level::onUpdate() {
 /// Execute pause logic
 void Level::pause() {
 	for (const auto& s : sounds) {
-		engine.soundEngine.onStopLoopedEffect(s.first);
+		engine.stopLoopEffect(s.first);
 	}
 }
 

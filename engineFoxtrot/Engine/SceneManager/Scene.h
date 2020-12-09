@@ -29,6 +29,8 @@ public:
 
 	int API getSceneID() { return sceneID; }
 
+	bool onKeyPressed(const Event& event);
+
 	/// @brief
 	/// OnAttach is executed when a scene is "attached" to the current running context
 	/// usually this is can be used to prime a level with relevant data before starting it.
