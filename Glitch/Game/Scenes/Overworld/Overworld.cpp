@@ -25,6 +25,29 @@ void Overworld::loadButtons() {
 	auto hoverBtnSprite = new SpriteObject(101012, 11, 15, 1, 300, "Assets/Buttons/village_gray.png");
 	auto transSprite = new SpriteObject(101014, 10, 10, 1, 300, "Assets/transparant.png");
 
+	auto* shop = new Button(10, ColoredText("", Color(255, 255, 255)), BIND_FN(onShopBtnClick), defaultBtnSprite, this->dispatcher);
+	shop->setWidth(32);
+	shop->setHeight(32);
+	shop->setPositionX(305);
+	shop->setPositionY(1000);
+	shop->registerHoverSprite(hoverBtnSprite);
+
+	auto* shopText = new Text(15, new ColoredText("Shop", Color(0, 0, 0)), 60, 50, 390, 1000);
+
+	auto* shop1 = new Button(11, ColoredText("", Color(255, 255, 255)), BIND_FN(onShopBtnClick), defaultBtnSprite, this->dispatcher);
+	shop1->setWidth(32);
+	shop1->setHeight(32);
+	shop1->setPositionX(390);
+	shop1->setPositionY(990);
+	shop1->registerHoverSprite(hoverBtnSprite);
+
+	auto* shop2 = new Button(12, ColoredText("", Color(255, 255, 255)), BIND_FN(onShopBtnClick), defaultBtnSprite, this->dispatcher);
+	shop2->setWidth(32);
+	shop2->setHeight(32);
+	shop2->setPositionX(340);
+	shop2->setPositionY(1030);
+	shop2->registerHoverSprite(hoverBtnSprite);
+
 	auto* level1Btn = new Button(1, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel1BtnClick), defaultBtnSprite, this->dispatcher);
 	level1Btn->setWidth(32);
 	level1Btn->setHeight(32);
@@ -32,11 +55,7 @@ void Overworld::loadButtons() {
 	level1Btn->setPositionY(363);
 	level1Btn->registerHoverSprite(hoverBtnSprite);
 
-	auto* level1TextBtn = new Button(2, ColoredText("Level 1, Score: " + to_string(savegame->getCurrentGameData().levelData[0].score), Color(0, 0, 0)), BIND_FN(onLevel1BtnClick), transSprite, this->dispatcher);
-	level1TextBtn->setWidth(32);
-	level1TextBtn->setHeight(20);
-	level1TextBtn->setPositionX(295);
-	level1TextBtn->setPositionY(383);
+	auto* level1TextBtn = new Text(2, new ColoredText("Level 1, Score: " + to_string(savegame->getCurrentGameData().levelData[0].score), Color(0, 0, 0)), 120, 30, 190, 383);
 
 	auto* level2Btn = new Button(3, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel2BtnClick), defaultBtnSprite, this->dispatcher);
 	level2Btn->setWidth(32);
@@ -50,15 +69,11 @@ void Overworld::loadButtons() {
 	{
 		level2Name = "Level 2, Score: " + to_string(savegame->getCurrentGameData().levelData[1].score);
 	}
-	auto* level2TextBtn = new Button(4, ColoredText(level2Name, Color(0, 0, 0)), BIND_FN(onLevel2BtnClick), transSprite, this->dispatcher);
-	level2TextBtn->setWidth(32);
-	level2TextBtn->setHeight(20);
-	level2TextBtn->setPositionX(955);
-	level2TextBtn->setPositionY(340);
+	auto* level2TextBtn = new Text(4, new ColoredText(level2Name, Color(0, 0, 0)), 120, 30, 850, 340);
+
 	if (!savegame->getCurrentGameData().levelData[0].completed)
 	{
 		level2Btn->disable();
-		level2TextBtn->disable();
 	}
 
 	string level3Name = "Locked";
@@ -73,21 +88,20 @@ void Overworld::loadButtons() {
 	level3Btn->setPositionY(850);
 	level3Btn->registerHoverSprite(hoverBtnSprite);
 
-	auto* level3TextBtn = new Button(6, ColoredText(level3Name, Color(0, 0, 0)), BIND_FN(onLevel3BtnClick), transSprite, this->dispatcher);
-	level3TextBtn->setWidth(32);
-	level3TextBtn->setHeight(20);
-	level3TextBtn->setPositionX(795);
-	level3TextBtn->setPositionY(870);
+	auto* level3TextBtn = new Text(6, new ColoredText(level3Name, Color(0, 0, 0)), 120, 30, 690, 870);
 	if (!savegame->getCurrentGameData().levelData[1].completed)
 	{
 		level3Btn->disable();
-		level3TextBtn->disable();
 	}
 
 	auto* stopBtn = new SecondaryButton(7, "To Main Menu", BIND_FN(onStopBtnClick), this->dispatcher);
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
+	addNewObjectToLayer(3, shop);
+	addNewObjectToLayer(3, shopText);
+	addNewObjectToLayer(3, shop1);
+	addNewObjectToLayer(3, shop2);
 	addNewObjectToLayer(3, level1Btn);
 	addNewObjectToLayer(3, level1TextBtn);
 	addNewObjectToLayer(3, level2Btn);
@@ -177,4 +191,9 @@ void Overworld::onCreditsBtnClick() {
 /// @brief 
 void Overworld::onLoadBtnClick() {
 	cout << "Start Load game BTN" << endl;
+}
+
+void Overworld::onShopBtnClick()
+{
+	stateMachine.switchToScene("Shop", false);
 }

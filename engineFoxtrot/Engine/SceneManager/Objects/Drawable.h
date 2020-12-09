@@ -72,7 +72,7 @@ public:
 	}
 
 	~Text() {
-
+		delete color;
 	}
 
 	API virtual const ColoredText* toString() { return color; }
