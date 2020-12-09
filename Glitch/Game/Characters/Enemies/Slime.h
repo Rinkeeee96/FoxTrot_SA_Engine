@@ -25,9 +25,9 @@ public:
 		}
 		else {
 			if (collisionEvent.getObjectOne().getObjectId() == this->getObjectId()) {
-				Object& otherE = collisionEvent.getObjectTwo();
+				Object& otherEntity = collisionEvent.getObjectTwo();
 
-				if (this->player->getObjectId() == otherE.getObjectId()) {
+				if (this->player->getObjectId() == otherEntity.getObjectId()) {
 					this->doDamage();
 				}
 			}
