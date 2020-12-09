@@ -47,7 +47,7 @@ bool InputEngine::onKeyPressed(const Event& event) {
 		keypressInvoker->executeCommand(keyPressedEvent.GetKeyCode());
 		
 	// TODO Send events instead of calling engine directly
-	switch (keyPressedEvent.GetKeyCode())
+	switch (keyPressedEvent.getKeyCode())
 	{
 	case KeyCode::KEY_F1: {
 		engine.toggleFps();

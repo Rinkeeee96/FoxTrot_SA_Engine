@@ -36,18 +36,22 @@ public:
 	//SceneManager calls
 	API void setCurrentScene(const int sceneID);
 	API Scene* getCurrentScene();
-
 	API void insertScene(Scene * scene);
 	API void deregisterScene(const int id);
 
 	// Sound calls
 	API void loadSound(const string& identifier, const string& path);
 	API void loadSound(map<string, string> sounds);
+	API void startSound(const string& identifier);
+	API void stopSound(const string& identifier);
+	API void stopLoopEffect(const string& identifier);
 
 	API void onUpdate();
 
 	API void updateFps();
 	API void toggleFps();
+
+	bool onKeyPressed(const Event& event);
 
 	API bool getEngineRunning() { return running; };
 	API void setEngineRunning(bool run) { running = run; }
@@ -55,9 +59,6 @@ public:
 	KeypressInvoker* getKeypressedInvoker() { return keypressInvoker; }
 
 	API void restartPhysicsWorld();
-
-	//API EventDispatcher& getDispatcher() { return *eventDispatcher; }
-	SoundEngine soundEngine;
 
 private:
 	EventDispatcher* eventDispatcher;
@@ -69,6 +70,7 @@ private:
 	SceneManager sceneManager;
 	ParticleEngine particleEngine;
 	PhysicsEngine physicsEngine;
+	SoundEngine soundEngine;
 
 	VideoEngine videoEngine{ frameData };
 	InputEngine inputEngine{ *this };

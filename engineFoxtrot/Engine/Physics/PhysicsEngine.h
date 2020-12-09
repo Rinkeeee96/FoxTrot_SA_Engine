@@ -17,6 +17,7 @@ public:
 	bool stopObject(const Event& event);
 	bool onPauseEvent(const Event& event);
 	void removeObject();
+	void reloadPhysicsObjects();
 
 	Scene** pointerToCurrentScene = nullptr;
 

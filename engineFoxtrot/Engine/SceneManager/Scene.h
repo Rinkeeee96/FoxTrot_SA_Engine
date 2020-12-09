@@ -29,6 +29,8 @@ public:
 
 	int API getSceneID() { return sceneID; }
 
+	bool onKeyPressed(const Event& event);
+
 	/// @brief
 	/// OnAttach is executed when a scene is "attached" to the current running context
 	/// usually this is can be used to prime a level with relevant data before starting it.
@@ -56,9 +58,6 @@ public:
     
 	void setObjectToFollow(Object* obj) { objectToFollow = obj; }
 
-	bool onKeyPressed(const Event& event);
-
-
 	/// @brief 
 	/// Returns the id of the object to follow
 	/// @return 
@@ -83,26 +82,28 @@ public:
 
 	API void createLayer(const int zIndex, bool renderPhysics = false, bool alwaysDrawLayer = false);
 
-	EventDispatcher& getEventDispatcher() { return dispatcher; };
+	API EventDispatcher& getEventDispatcher() { return dispatcher; };
 	
-	void createPopUpLayer(float xPosition, float yPosition, string text);
-	void createPopUpLayer(float xPosition, float yPosition, float width, float height, string text);
-	void createPopUpLayer(float xPosition, float yPosition, float width, float height, string text, SpriteObject* spObject);
-	void createPopUpLayer(float xPosition, float yPosition, float width, float height, SpriteObject* spObject);
+	API void createPopUpLayer(float xPosition, float yPosition, string text);
+	API void createPopUpLayer(float xPosition, float yPosition, float width, float height, string text);
+	API void createPopUpLayer(float xPosition, float yPosition, float width, float height, string text, SpriteObject* spObject);
+	API void createPopUpLayer(float xPosition, float yPosition, float width, float height, SpriteObject* spObject);
 
-	int getHighestLayerIndex();
-	void removePopUpLayer();
-
+	API int getHighestLayerIndex();
+	API void removePopUpLayer();
+	bool getIsPaused() { return this->paused; };
 protected:
 	EventDispatcher dispatcher;
+
+	bool hasActivePopUp = false;
+	bool paused = false;
 private:
 	const int sceneID = 0;
 	map<int, Layer*> layers;
+
 
 	Object *objectToFollow = nullptr;
 
 	int sceneWidth = WINDOW_WIDTH;
 	int sceneHeight = WINDOW_HEIGHT;
-
-	bool hasActivePopUp = false;
 };

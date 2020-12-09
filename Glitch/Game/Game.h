@@ -10,7 +10,6 @@ class Game
 public:
 	Game();
 	int run();
-
 private:
 	Engine engine;
 	ICommandBuilder* commandBuilder;

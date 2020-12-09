@@ -1,6 +1,7 @@
 #pragma once
 #include "Game/Scenes/GameScene.h"
 #include "Game/Commands/Builder/ICommandBuilder.h"
+#include "Game/States/Player/GodState.h"
 
 class Player;
 /// @brief 
@@ -20,6 +21,7 @@ public:
 
 	void addHuds();
 
+	bool onKeyPressed(const Event& event);
 	void setWin(const bool val) { this->win = val; }
 private:
 	void addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, SpriteObject* HUD);

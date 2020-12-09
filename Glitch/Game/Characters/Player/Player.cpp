@@ -1,6 +1,10 @@
 #include "pch.h"
 #include "Player.h"
 
+Player::Player(EventDispatcher& _dispatcher) : ICharacter(_dispatcher) {
+	this->stateMachine.setCurrentState(new NormalState, this);
+	this->stateMachine.setGlobalState(new PlayerGlobalState);
+};
 Player::Player(const int id, EventDispatcher& _dispatcher) : ICharacter(id, _dispatcher) {
 	this->setHeight(80);
 	this->setWidth(80);
@@ -20,6 +24,9 @@ Player::Player(const int id, EventDispatcher& _dispatcher) : ICharacter(id, _dis
 	this->setTotalHealth(3);
 	this->setScalable(true);
 	this->setScale(2);
+
+	this->stateMachine.setCurrentState(new NormalState, this);
+	this->stateMachine.setGlobalState(new PlayerGlobalState);
 
 	dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Player::onCollisionBeginEvent));
 	dispatcher.setEventCallback<OnCollisionEndEvent>(BIND_EVENT_FN(Player::onCollisionEndEvent));
@@ -98,11 +105,6 @@ void Player::setYAxisVelocity(const float val) {
 void Player::registerKeypressInvoker(GameKeypressInvoker* _invoker)
 {
 	invoker = _invoker;
-}
-
-void Player::onUpdate()
-{
-	
 }
 
 ICharacter* Player::clone(int id) { 

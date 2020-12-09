@@ -4,11 +4,38 @@
 #include "Game/Scenes/Statemachine/SceneStateMachine.h"
 #include "Game/Commands/Builder/CommandBuilder.h"
 
-Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, Engine& engine, SceneStateMachine& _stateMachine) : 
-	commandBuilder{ new CommandBuilder() },
-	GameScene::GameScene(id, _sceneHeight, _sceneWidth, engine, _stateMachine)
+Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, Engine& engine, SceneStateMachine& _stateMachine) 
+				: GameScene::GameScene(id, _sceneHeight, _sceneWidth, engine, _stateMachine)
 {
 	gameInvoker = dynamic_cast<GameKeypressInvoker*>(engine.getKeypressedInvoker());
+	this->dispatcher.setEventCallback<TogglePauseEvent>(BIND_EVENT_FN(Level::onTogglePauseEvent));
+}
+
+bool Level::onTogglePauseEvent(const Event &event)
+{
+	if (this->win || this->player->getIsDead()) return false;
+
+	auto pauseEvent = static_cast<const TogglePauseEvent&>(event);
+	// TODO command pattern
+	if (keyPressedEvent.isPaused())
+	{
+		createPopUpLayer(WINDOW_WIDTH_CENTER, WINDOW_HEIGHT_CENTER, "Paused");
+	} else {
+		removePopUpLayer();
+	}
+	// TODO create godmode command
+	/*
+		if (this->player != nullptr && 
+			typeid(this->player->getStateMachine().getCurrentState()).name() != typeid(GodState).name()) 
+		{
+			this->player->getStateMachine().changeState(new GodState, this->player);
+		}
+		else {
+			this->player->getStateMachine().changeState(new NormalState, this->player);
+		}
+	*/
+	
+	return false;
 }
 
 // @brief 
@@ -43,7 +70,7 @@ void Level::setSound(map<string, string> _sounds)
 void Level::onAttach() {
     for (const auto& s : sounds) {
 		if(DEBUG_MAIN)std::cout << s.first << " has value " << s.second << std::endl;
-        engine.soundEngine.onLoadBackgroundMusicEvent(s.first, s.second);
+        engine.loadSound(s.first, s.second);
     }
 }
 
@@ -101,10 +128,9 @@ void Level::start(bool playSound) {
 	if (playSound)
 	{
 		for (const auto& s : sounds) {
-			engine.soundEngine.onStartBackgroundMusicEvent(s.first);
+			engine.startSound(s.first);
 		}
 	}
-
 }
 
 void Level::onUpdate() {
@@ -144,7 +170,7 @@ void Level::onUpdate() {
 /// Execute pause logic
 void Level::pause() {
 	for (const auto& s : sounds) {
-		engine.soundEngine.onStopLoopedEffect(s.first);
+		engine.stopLoopEffect(s.first);
 	}
 }
 
@@ -153,4 +179,4 @@ void Level::onDetach()
 	gameInvoker->destroyPlayercommands();
 
 	Scene::onDetach();
-}//cleaup buffer
+}

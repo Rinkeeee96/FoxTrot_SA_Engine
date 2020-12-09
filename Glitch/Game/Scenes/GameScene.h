@@ -26,6 +26,5 @@ protected:
 	SceneStateMachine& stateMachine;
 	Engine& engine;
 	shared_ptr<Savegame> savegame;
-
 };
 
