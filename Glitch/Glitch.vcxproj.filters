@@ -73,4 +73,7 @@
     <ClInclude Include="Game\Scenes\Story\ChapterOneScene.h" />
     <ClInclude Include="Game\Scenes\Story\ChapterScene\ChapterScene.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Assets\Levels\Story\ChapterOne.txt" />
+  </ItemGroup>
 </Project>

@@ -20,9 +20,8 @@ void ChapterOneScene::onAttach()
 /// @brief 
 /// Create all text for this scene
 void ChapterOneScene::loadText() {
-	auto comp = splitText(" Je wordt wakker in een vreemde wereld en je weet niet meer waar je je bevindt.... \n  Je hoort een bekende stem ... ... ... \n ... \n ... \n ... \n  \n Ah het is Bob van der Putten! \n  \n  Je kan Bob nog goed herinneren van de geweldige lessen die je op het Avans van hem hebt gehad. \n  \n Je vraag Bob wat er is gebeurd en zegt dat je je niks kan herrineren, het laatste wat je je kan herrineren was dat je bezig was voor je minor, een fantastische game ontwikkelen. \n   \n Bob; Helaas kan ik mij ook niks meer herrineren, ik ben al wat langer wakker en heb vast wat kunnen voor verkennen. In deze wereld begeven zich vreemde wezens en landen. \n  \n Om eruit te komen zullen wij op avontuur moeten gaan! \n Laten we beginnen bij het eerste gebied \n");
-	
-	this->text = comp;
+	this->setTextFromFile("Assets/Levels/Story/ChapterOne.txt");
+
 	for (size_t i = 0; i < this->text.size(); i++)
 	{
 		addNewObjectToLayer(2, this->text[i], false, true);

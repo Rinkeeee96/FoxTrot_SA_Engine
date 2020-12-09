@@ -66,12 +66,12 @@ vector<Text*> ChapterScene::splitText(string text) {
 	while ((pos = text.find(delimiter)) != std::string::npos) {
 		token = text.substr(0, pos);
 
-		auto result = splitToLines(token, 81);
+		auto result = splitToLines(token, 70);
 		int i = 0;
 		for (size_t i = 0; i < result.size(); i++)
 		{
 			startingPos = startingPos + TEXT_HEIGHT;
-			ret.push_back(new Text(startingId++, new ColoredText(result[i], Color(255, 255, 255), false), (WINDOW_WIDTH / 81) * result[i].length(), TEXT_HEIGHT, 0, WINDOW_HEIGHT + startingPos));
+			ret.push_back(new Text(startingId++, new ColoredText(result[i], Color(255, 255, 255), false), (WINDOW_WIDTH / 80) * result[i].length(), TEXT_HEIGHT, 25, WINDOW_HEIGHT + startingPos));
 		}
 		text.erase(0, pos + delimiter.length());
 	}
@@ -88,6 +88,17 @@ void ChapterScene::loadButtons() {
 	backBtn->setPositionY(WINDOW_HEIGHT - 10 - backBtn->getHeight());
 
 	addNewObjectToLayer(4, backBtn);
+}
+
+void ChapterScene::setTextFromFile(string path) {
+	auto stream = fileLoader.readFile(path);
+	string appendString;
+	string currentString;
+	while (getline(stream, currentString)) {
+		appendString = appendString + currentString + "\n";
+	}
+	stream.close();
+	this->text = splitText(appendString);
 }
 
 void ChapterScene::onUpdate()

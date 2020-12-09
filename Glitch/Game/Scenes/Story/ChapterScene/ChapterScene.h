@@ -19,7 +19,9 @@ public:
 	bool onKeyPressed(const Event& event);
 protected:
 	vector<Text*> text;
+	FileLoader fileLoader;
 
+	virtual void setTextFromFile(string path);
 	virtual void loadText() {};
 	virtual void loadBackground() {};
 	virtual void loadMusic() {};
