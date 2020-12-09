@@ -78,7 +78,7 @@ void Overworld::loadButtons() {
 	level3TextBtn->setHeight(20);
 	level3TextBtn->setPositionX(795);
 	level3TextBtn->setPositionY(870);
-	if (!savegame->getCurrentGameData().levelData[2].completed)
+	if (!savegame->getCurrentGameData().levelData[1].completed)
 	{
 		level3Btn->disable();
 		level3TextBtn->disable();
