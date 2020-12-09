@@ -9,11 +9,11 @@ private:
 	bool _isPaused;
 
 	// Inherited via Event
-	API EventType GetEventType() const override
+	API EventType getEventType() const override
 	{
 		return EventType::TogglePause;
 	}
-	API const char* GetName() const override {
+	API const char* getName() const override {
 		return "Toggle pause";
 	}
 };
