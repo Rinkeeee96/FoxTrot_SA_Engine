@@ -1,6 +1,8 @@
 #pragma once
 #include "Objects/Object.h"
 
+/// @brief Class for a layer in scene
+/// This contains all the objects in the layer
 class Layer
 {
 public:
