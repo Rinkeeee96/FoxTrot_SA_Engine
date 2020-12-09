@@ -66,7 +66,6 @@ vector<Text*> ChapterScene::splitText(string text) {
 		token = text.substr(0, pos);
 
 		auto result = splitToLines(token, 70);
-		int i = 0;
 		for (size_t i = 0; i < result.size(); i++)
 		{
 			startingPos = startingPos + TEXT_HEIGHT;
