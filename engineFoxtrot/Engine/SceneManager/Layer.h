@@ -21,7 +21,7 @@ public:
 	API void setRenderPhysics(bool value) { renderPhysics = value; }
 	API bool getRenderPhysics() const { return renderPhysics; }
 
-	API map<int, Object*> getObjectsInLayer() { return objects; }
+	//API map<int, Object*> getObjectsInLayer() { return objects; }
 	API Object* getSpecificObjectInLayer(int objectID) { return objects[objectID]; }
 	API void addObjectInLayer(Object* obj) { objects[obj->getObjectId()] = obj; }
 
@@ -38,6 +38,7 @@ public:
 	API void removeObject(int objectID) { objects.erase(objectID); }
 	API void clearObjects() { objects.clear(); }
 
+	map<int, Object*> objects;
 
 protected:
 
@@ -47,5 +48,4 @@ private:
 	bool alwaysVisible = false;
 	bool renderPhysics = false;
 	// TODO clear on scene detach in destructor
-	map<int, Object*> objects;
 };
