@@ -18,9 +18,5 @@ private:
 	shared_ptr<SceneStateMachine> stateMachine;
 
 	bool gameRunning = true;
-
-	bool releasedKeyLastFrame;
-	bool onKeyPressed(const Event& event);
-	bool onKeyReleased(const Event& event);
 };
 
