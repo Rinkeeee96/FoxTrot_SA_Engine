@@ -9,7 +9,7 @@
 #define JUMPKIN_SPRITE_WIDTH_SHORT 30
 
 //TODO Use deltaTime
-#define JUMPKIN_JUMP_ANIMATION_TIME 100
+#define JUMPKIN_JUMP_ANIMATION_TIME 6250
 
 /// @brief 
 /// Jumpkin class with correspondending AI logic
@@ -18,7 +18,7 @@ public:
 	Jumpkin(EventDispatcher& _dispatcher) : BaseEnemy(_dispatcher) {}
 	Jumpkin(const int id, EventDispatcher& _dispatcher) : BaseEnemy(id, _dispatcher) {}
 
-	void onUpdate() override;
+	void onUpdate(float deltaTime) override;
 
 	map<SpriteState, SpriteObject*> buildSpritemap(int textureId) override;
 

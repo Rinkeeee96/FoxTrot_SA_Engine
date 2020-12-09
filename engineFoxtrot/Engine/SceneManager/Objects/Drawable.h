@@ -33,7 +33,7 @@ public:
 
 	API virtual const ColoredText* toString() { return nullptr; }
 
-	virtual void onUpdate() override { }
+	virtual void onUpdate(float deltaTime) override { }
 
 	bool getIsText() const { return this->isText; }
 

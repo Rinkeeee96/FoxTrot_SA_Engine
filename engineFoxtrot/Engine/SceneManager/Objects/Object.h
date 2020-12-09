@@ -71,7 +71,7 @@ public:
 
 	API bool getIsParticle();
 
-	virtual void onUpdate() = 0;
+	virtual void onUpdate(float deltaTime) = 0;
 	
 protected:
 	// object base properties

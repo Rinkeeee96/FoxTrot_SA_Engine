@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Fleye.h"
 
-void Fleye::onUpdate() {
+void Fleye::onUpdate(float deltaTime) {
 	if (setup) {
 		startY = this->getPositionY();
 		setup = false;

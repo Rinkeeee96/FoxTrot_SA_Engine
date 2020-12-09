@@ -18,6 +18,8 @@
 #define	ENGINE_TICK60	 17
 #define ENGINE_TICK30	 33
 
+#define TIME_STEP 1
+
 /// @brief 
 class Engine
 {
@@ -52,6 +54,7 @@ public:
 	API void restartPhysicsWorld();
 
 	//API EventDispatcher& getDispatcher() { return *eventDispatcher; }
+	float deltaTime = 0;
 	SoundEngine soundEngine;
 
 private:

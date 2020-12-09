@@ -17,6 +17,6 @@ public:
 		this->player = player;
 	}
 
-	virtual void onUpdate() = 0;
+	virtual void onUpdate(float deltaTime) = 0;
 	virtual ICharacter* clone(int id) = 0;
 };

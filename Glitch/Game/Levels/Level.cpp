@@ -119,7 +119,7 @@ void Level::onUpdate() {
 	for (auto object : this->getAllObjectsInScene()) // TODO get only the non static objects, without looping thru them again and again
 	{
 		if (!object->getStatic()) {
-			object->onUpdate();
+			object->onUpdate(engine.deltaTime);
 
 			if (ICharacter* character = dynamic_cast<ICharacter*>(object)) {
 				if (character->getIsDead() && !character->getIsRemoved()) {

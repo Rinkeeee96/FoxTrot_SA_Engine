@@ -27,7 +27,7 @@ public:
 	/// Handles when an key released event happend, stop moving
 	bool onKeyReleased(const Event& event);
 
-	void onUpdate() override {};
+	void onUpdate(float deltaTime) override {};
 
 	map<SpriteState, SpriteObject*> buildSpritemap(int textureId) override;
 

@@ -17,7 +17,7 @@ public:
 	Slime(EventDispatcher& _dispatcher) : BaseEnemy(_dispatcher) {}
 	Slime(const int id, EventDispatcher& _dispatcher) : BaseEnemy(id, _dispatcher) {}
 
-	void onUpdate() override;
+	void onUpdate(float deltaTime) override;
 
 	map<SpriteState, SpriteObject*> buildSpritemap(int textureId) override;
 

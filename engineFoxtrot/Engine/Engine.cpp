@@ -83,6 +83,7 @@ void Engine::deregisterScene(const int id)
 /// Updates the fps counter
 void Engine::updateFps() {
 	frameData.updateFps();
+	deltaTime = TIME_STEP / frameData.getLastFrameFps();
 }
 
 /// @brief

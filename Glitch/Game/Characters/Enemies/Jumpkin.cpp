@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Jumpkin.h"
 
-void Jumpkin::onUpdate() {
+void Jumpkin::onUpdate(float deltaTime) {
 	// Differences are calculated from the middle position of the object
 	float xPositionDifference = abs((player->getPositionX() + player->getWidth() / 2) - (this->getPositionX() + this->getWidth() / 2));
 	float yPositionDifference = abs((player->getPositionY() + player->getHeight() / 2) - (this->getPositionY() + this->getHeight() / 2));
@@ -15,6 +15,8 @@ void Jumpkin::onUpdate() {
 	Direction direction = player->getPositionX() < this->positionX ? Direction::LEFT : Direction::RIGHT;
 	bool positionedOnGround = this->getYAxisVelocity() == 0;
 
+	int animationTimer = JUMPKIN_JUMP_ANIMATION_TIME * deltaTime;
+
 	if (positionedOnGround && playerIsInRange && playerIsInRangeVertically) {
 		if (!jumping) {
 			dispatcher.dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->getObjectId(), false));
@@ -24,10 +26,10 @@ void Jumpkin::onUpdate() {
 
 	if (jumping) {
 		jumpTimer++;
-		if (jumpTimer == JUMPKIN_JUMP_ANIMATION_TIME / 2) {
+		if (jumpTimer >= (animationTimer / 2) && jumpTimer <= animationTimer) {
 			changeToState(direction == Direction::LEFT ? SpriteState::ACTION_LEFT_1 : SpriteState::ACTION_RIGHT_1);
 		}
-		if (jumpTimer == JUMPKIN_JUMP_ANIMATION_TIME) {
+		if (jumpTimer >= animationTimer) {
 			changeToState(direction == Direction::LEFT ? SpriteState::ACTION_LEFT_3 : SpriteState::ACTION_RIGHT_3);
 			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
 			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(direction, this->getObjectId()));

@@ -12,7 +12,7 @@ public:
 		this->setGravity(0);
 	}
 
-	void onUpdate() override;
+	void onUpdate(float deltaTime) override;
 
 	map<SpriteState, SpriteObject*> buildSpritemap(int textureId) override;
 

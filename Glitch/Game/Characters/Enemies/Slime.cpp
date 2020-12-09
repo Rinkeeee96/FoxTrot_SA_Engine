@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Slime.h"
 
-void Slime::onUpdate() {
+void Slime::onUpdate(float deltaTime) {
 	bool positionedOnGround = this->getYAxisVelocity() == 0;
 	float slimeMiddleXPosition = this->getPositionX() + (this->getWidth() / 2);
 	bool playerIsLowerThanMe = this->getPositionY() < player->getPositionY();

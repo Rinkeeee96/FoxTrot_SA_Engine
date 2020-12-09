@@ -9,7 +9,7 @@ public:
 
 	virtual BaseTrigger* clone(const int id) override { return new DeathTrigger(id, dispatcher); }
 
-	void onUpdate() override {}
+	void onUpdate(float deltaTime) override {}
 
 	virtual bool onCollisionBegin(const Event& event) override {
 		auto collisionEvent = static_cast<const OnCollisionBeginEvent&>(event);
