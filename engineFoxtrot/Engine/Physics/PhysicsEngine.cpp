@@ -37,7 +37,7 @@ void PhysicsEngine::shutdown() {
 	delete physicsFacade;
 };
 
-void PhysicsEngine::reloadPhysicsObjects() {
+void PhysicsEngine::removeObject() {
 	physicsFacade->cleanMap();
 	registerObjectInCurrentVectorWithPhysicsEngine();
 }

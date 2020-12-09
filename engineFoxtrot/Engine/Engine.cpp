@@ -39,9 +39,6 @@ void Engine::setCurrentScene(const int sceneID)
 	sceneManager.getSceneWithID(sceneID)->onAttach();
 }
 
-/// @brief 
-/// Returns a pointer to the current Active Scene
-/// @return 
 Scene* Engine::getCurrentScene()
 {
 	return sceneManager.currentScene;
@@ -63,7 +60,6 @@ bool Engine::onKeyPressed(const Event& event) {
 }
 
 /// @brief 
-/// Insert a scene into the engine/Scene manager
 /// @param scene
 void Engine::insertScene(Scene* scene)
 {
@@ -83,8 +79,34 @@ void Engine::deregisterScene(const int id)
 	physicsEngine.shutdown();
 }
 
+/// @brief
+/// Updates the fps counter
+void Engine::updateFps() {
+	frameData.updateFps();
+}
+
+/// @brief
+/// Toggles fps visibility
+void Engine::toggleFps() {
+	videoEngine.toggleFps();
+}
+
 /// @brief 
-/// Call the onupdate in the mainloop of the game
+void Engine::restartPhysicsWorld()
+{
+	physicsEngine.removeObject();
+}
+
+void Engine::loadSound(const string& identifier, const string& path)
+{
+	this->soundEngine.addFile(identifier, path);
+}
+
+void Engine::loadSound(map<string, string> sounds)
+{
+	this->soundEngine.setFiles(sounds);
+}
+
 void Engine::onUpdate()
 {
 	// TODO change after command pattern is implemented

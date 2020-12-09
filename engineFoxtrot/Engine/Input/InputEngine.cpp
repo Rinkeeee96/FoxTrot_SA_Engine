@@ -33,7 +33,7 @@ bool InputEngine::onKeyPressed(const Event& event) {
 	switch (keyPressedEvent.getKeyCode())
 	{
 	case KeyCode::KEY_F1: {
-		engine.getVideoEngine().toggleFps();
+		engine.toggleFps();
 		return true;
 	}
 	case KeyCode::KEY_F4: {
