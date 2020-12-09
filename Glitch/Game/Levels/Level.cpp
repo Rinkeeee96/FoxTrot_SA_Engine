@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Level.h"
 #include "Game/Game.h"
-#include "Game/PopUps/Pause/PausePopUp.h"
+#include "Game/PopUps/Popups.h"
 
 Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, Engine& engine, SceneStateMachine& _stateMachine) 
 				: GameScene::GameScene(id, _sceneHeight, _sceneWidth, engine, _stateMachine)
@@ -26,6 +26,18 @@ bool Level::onKeyPressed(const Event& event) {
 		else {
 			removePopUpLayer();
 			this->paused = false;
+		}
+		break;
+	case KeyCode::KEY_I:
+		if (!inventoryOpen) {
+			InventoryPopup* inventoryPopup = new InventoryPopup(this->dispatcher, this->stateMachine);
+			inventoryPopup->setupPopUp();
+			addPopUpLayer(inventoryPopup);
+			inventoryOpen = true;
+		}
+		else {
+			removePopUpLayer();
+			inventoryOpen = false;
 		}
 		break;
 	case KeyCode::KEY_G:

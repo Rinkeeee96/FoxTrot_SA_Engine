@@ -16,6 +16,5 @@ private:
 	EventDispatcher& dispatcher;
 	SceneStateMachine& stateMachine;
 
-	void onBackButtonClick();
 };
 

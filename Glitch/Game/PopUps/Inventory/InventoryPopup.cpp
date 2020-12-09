@@ -17,35 +17,28 @@ InventoryPopup::~InventoryPopup()
 /// @brief Setup the Pause Pop Up.
 void InventoryPopup::setupPopUp()
 {
-	Drawable* background = new Drawable(-564574);
-	SpriteObject* backgroundSprite = new SpriteObject(-564577, 200, 500, 1, 1, "Assets/Sprites/PopUp/PopUpBlackBorder.png");
-	Text* text = new Text(-564573, new ColoredText("Paused", Color(0, 0, 0), false),
-		200, 50, WINDOW_WIDTH_CENTER - 100, WINDOW_HEIGHT_CENTER - 175);
+	SpriteObject* rightInven = new SpriteObject(-564577, 343, 614, 1, 1, "Assets/Inventory/right_inventory.png");
+	SpriteObject* leftInven = new SpriteObject(-564578, 402, 255, 1, 1, "Assets/Inventory/left_inventory.png");
 
-	PrimaryButton* backButton = new PrimaryButton(-564572, "Close", BIND_FN(onBackButtonClick), dispatcher);
-	backButton->setHeight(50);
-	backButton->setWidth(200);
-	backButton->setPositionX(WINDOW_WIDTH_CENTER - 100);
-	backButton->setPositionY(WINDOW_HEIGHT_CENTER - 100);
-	backButton->setDrawStatic(true);
+	Drawable* leftInventory = new Drawable(-564579);
+	leftInventory->setHeight(600);
+	leftInventory->setWidth(400);
+	leftInventory->setPositionX(WINDOW_WIDTH_CENTER - 600);
+	leftInventory->setPositionY(WINDOW_HEIGHT_CENTER + 200);
+	leftInventory->setDrawStatic(true);
+	leftInventory->registerSprite(SpriteState::DEFAULT, leftInven);
+	leftInventory->changeToState(SpriteState::DEFAULT);
 
-	background->setHeight(300);
-	background->setWidth(500);
-	background->setDrawStatic(true);
+	Drawable* rightInventory = new Drawable(-564574);
+	rightInventory->setHeight(400);
+	rightInventory->setWidth(600);
+	rightInventory->setDrawStatic(true);
+	rightInventory->setPositionX(WINDOW_WIDTH_CENTER);
+	rightInventory->setPositionY(WINDOW_HEIGHT_CENTER + 200);
+	rightInventory->registerSprite(SpriteState::DEFAULT, rightInven);
+	rightInventory->changeToState(SpriteState::DEFAULT);
 
-	background->setPositionX(WINDOW_WIDTH_CENTER - 250);
-	background->setPositionY(WINDOW_HEIGHT_CENTER);
+	addObjectInLayer(leftInventory);
+	addObjectInLayer(rightInventory);
 
-	background->registerSprite(SpriteState::DEFAULT, backgroundSprite);
-	background->changeToState(SpriteState::DEFAULT);
-
-	text->setDrawStatic(true);
-	addObjectInLayer(backButton);
-	addObjectInLayer(text);
-	addObjectInLayer(background);
-}
-
-void InventoryPopup::onBackButtonClick()
-{
-	stateMachine.switchToScene("Overworld", false);
 }
