@@ -98,6 +98,7 @@ void Engine::toggleFps() {
 void Engine::restartPhysicsWorld()
 {
 	physicsEngine.removeObject();
+	physicsEngine.reloadPhysicsObjects();
 }
 
 void Engine::loadSound(const string& identifier, const string& path)
