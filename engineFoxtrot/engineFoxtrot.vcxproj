@@ -208,6 +208,8 @@
     <ClInclude Include="Engine\FileParser\IFileValidator.h" />
     <ClInclude Include="Engine\FileParser\JsonValidator.h" />
     <ClInclude Include="Engine\General\ISubsystem.h" />
+    <ClInclude Include="Engine\Input\Commands\Engine\ShutdownCommand.h" />
+    <ClInclude Include="Engine\Input\Commands\Engine\ToggleFpsCommand.h" />
     <ClInclude Include="Engine\Input\Commands\ICommand.h" />
     <ClInclude Include="Engine\Input\Commands\KeypressInvoker.h" />
     <ClInclude Include="Engine\SceneManager\Objects\Drawable.h" />
