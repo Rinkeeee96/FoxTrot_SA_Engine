@@ -47,5 +47,5 @@ void PausePopUp::setupPopUp()
 
 void PausePopUp::onBackButtonClick()
 {
-	stateMachine.switchToScene("Overworld", true);
+	stateMachine.switchToScene("Overworld", false);
 }
