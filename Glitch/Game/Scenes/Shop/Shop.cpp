@@ -34,6 +34,10 @@ void Shop::loadBackground()
 {
 	SpriteObject* BG_LAYER_0 = new SpriteObject(-1500, 1080, 1920, 1, 0, "Assets/Shop/Shop.png");
 	SpriteObject* ShopKeeper = new SpriteObject(-1501, 888, 924, 1, 0, "Assets/Shop/Shopkeeper.png");
+	SpriteObject* DialogBox = new SpriteObject(-1502, 170, 455, 1, 0, "Assets/Shop/Dialogbox1.png");
+
+	auto* level1TextBtn = new Text(2, new ColoredText("How can i help you today?", Color(0, 0, 0)), 400, 100, 820, 840);
+
 
 	auto* layer0 = new Drawable(-992);
 	layer0->setStatic(true);
@@ -53,8 +57,19 @@ void Shop::loadBackground()
 	keeper->registerSprite(SpriteState::DEFAULT, ShopKeeper);
 	keeper->changeToState(SpriteState::DEFAULT);
 
+	auto* dialogBox = new Drawable(-994);
+	dialogBox->setStatic(true);
+	dialogBox->setPositionX(800);
+	dialogBox->setPositionY(950);
+	dialogBox->setWidth(800);
+	dialogBox->setHeight(200);
+	dialogBox->registerSprite(SpriteState::DEFAULT, DialogBox);
+	dialogBox->changeToState(SpriteState::DEFAULT);
+
 	addNewObjectToLayer(0, layer0, false, true);
+	addNewObjectToLayer(1, level1TextBtn, false, true);
 	addNewObjectToLayer(1, keeper, false, true);
+	addNewObjectToLayer(1, dialogBox, false, true);
 }
 
 void Shop::loadMusic()
