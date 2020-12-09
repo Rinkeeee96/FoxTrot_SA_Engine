@@ -47,7 +47,6 @@ void PhysicsEngine::clean()
 {
 	if (physicsFacade)
 		physicsFacade->cleanMap();
-
 }
 
 /// @brief 
@@ -59,21 +58,21 @@ bool PhysicsEngine::handleAction(const Event& event) {
 	auto objectId = actionEvent.getObjectId();
 	switch (direction)
 	{
-	case Direction::UP:
-		this->physicsFacade->Jump(objectId);
-		return true;
-	case Direction::LEFT:
-		this->physicsFacade->MoveLeft(objectId);
-		return true;
-	case Direction::RIGHT:
-		this->physicsFacade->MoveRight(objectId);
-		return true;
-	case Direction::DOWN:
-		this->physicsFacade->Fall(objectId);
-		return true;
-	default:
-		// TODO what should handle action do when it fails? does the eventhandler need to continue?
-		return false;
+		case Direction::UP:
+			this->physicsFacade->Jump(objectId);
+			return true;
+		case Direction::LEFT:
+			this->physicsFacade->MoveLeft(objectId);
+			return true;
+		case Direction::RIGHT:
+			this->physicsFacade->MoveRight(objectId);
+			return true;
+		case Direction::DOWN:
+			this->physicsFacade->Fall(objectId);
+			return true;
+		default:
+			// TODO what should handle action do when it fails? does the eventhandler need to continue?
+			return false;
 	}
 }
 
@@ -93,10 +92,10 @@ PhysicsEngine::~PhysicsEngine()
 /// A function to create all objects in the facade
 void PhysicsEngine::registerObjectInCurrentVectorWithPhysicsEngine()
 {
-	if (DEBUG_PHYSICS_ENGINE)cout << "Size pointertoObj: " << (*pointerToCurrentScene)->getAllObjectsInSceneRenderPhysics().size() << endl;
+	if(DEBUG_PHYSICS_ENGINE)cout << "Size pointertoObj: " << (*pointerToCurrentScene)->getAllObjectsInSceneRenderPhysics().size() << endl;
 	for (Object* object : (*pointerToCurrentScene)->getAllObjectsInSceneRenderPhysics())
 	{
-		PhysicsBody* phyObj = new PhysicsBody(object);
+		PhysicsBody * phyObj = new PhysicsBody(object);
 
 		if (DEBUG_PHYSICS_ENGINE)cout << "Registering object : " << phyObj->getObjectId() << endl;
 		if (object->getIsParticle()) continue;
