@@ -14,8 +14,8 @@ Game::Game()
 int Game::run() {
 
 	try {
-		engine.useCustomCommandInvoker(commandBuilder->readBindingsAndCreateInvoker());
 		engine.start();
+		engine.useCustomCommandInvoker(commandBuilder->readBindingsAndCreateInvoker());
 
 		if (GameKeypressInvoker* e = dynamic_cast<GameKeypressInvoker*>(engine.getKeypressedInvoker())) {
 			commandBuilder->buildGlobalCommands(e);

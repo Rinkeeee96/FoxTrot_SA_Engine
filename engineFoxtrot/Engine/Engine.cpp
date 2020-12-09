@@ -94,7 +94,6 @@ void Engine::start()
 
 	// register default invoker
 	useCustomCommandInvoker(new KeypressInvoker());
-	constructDefaultCommands(keypressInvoker);
 
 	videoEngine.start(*this->eventDispatcher);
 }

@@ -6,7 +6,7 @@
 #include "Events/Action/TogglePause.h"
 
 Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, Engine& engine, SceneStateMachine& _stateMachine) 
-				: GameScene::GameScene(id, _sceneHeight, _sceneWidth, engine, _stateMachine)
+				: GameScene::GameScene(id, _sceneHeight, _sceneWidth, engine, _stateMachine), commandBuilder{new CommandBuilder()}
 {
 	gameInvoker = dynamic_cast<GameKeypressInvoker*>(engine.getKeypressedInvoker());
 	this->dispatcher.setEventCallback<TogglePauseEvent>(BIND_EVENT_FN(Level::onTogglePauseEvent));

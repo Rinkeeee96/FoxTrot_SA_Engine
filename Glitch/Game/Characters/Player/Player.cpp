@@ -30,6 +30,17 @@ Player::Player(const int id, EventDispatcher& _dispatcher) : ICharacter(id, _dis
 
 	dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Player::onCollisionBeginEvent));
 	dispatcher.setEventCallback<OnCollisionEndEvent>(BIND_EVENT_FN(Player::onCollisionEndEvent));
+
+	dispatcher.setEventCallback<KeyPressedEvent>([this](const Event& event) -> bool {
+		releasedKeyLastFrame = false;
+		return false;
+	});
+
+	dispatcher.setEventCallback<KeyReleasedEvent>([this](const Event& event) -> bool {
+		releasedKeyLastFrame = true;
+		return false;
+	});
+
 }
 
 /// @brief 

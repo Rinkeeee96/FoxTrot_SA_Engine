@@ -6,9 +6,12 @@
 #include "Game/States/Player/PlayerGlobalState.h"
 #include "Game/States/Player/NormalState.h"
 
+#include "Game/Commands/CharacterCommands/StopMovementCommand.h"
+
 #define RESTITUTION_CORRECTION 1
 
 class Player : public ICharacter {
+	bool releasedKeyLastFrame;
 public:
 	Player(EventDispatcher& _dispatcher);
 	Player(const int id, EventDispatcher& dispatcher);
@@ -30,6 +33,10 @@ public:
 
 	void onUpdate() override {
 		stateMachine.update(this);
+		if (releasedKeyLastFrame)
+		{
+			StopMovementCommand(*this, "stopMovement").execute(this->dispatcher);
+		}
 	};
 	StateMachine<Player>& getStateMachine() { return this->stateMachine; }
 	ICharacter* clone(int id) override;
