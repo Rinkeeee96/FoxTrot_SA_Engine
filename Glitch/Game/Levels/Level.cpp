@@ -4,6 +4,8 @@
 #include "Game/Scenes/Statemachine/SceneStateMachine.h"
 #include "Game/Commands/Builder/CommandBuilder.h"
 #include "Events/Action/TogglePause.h"
+#include "Game/Game.h"
+#include "Game/PopUps/PausePopUp.h"
 
 Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, Engine& engine, SceneStateMachine& _stateMachine) 
 				: GameScene::GameScene(id, _sceneHeight, _sceneWidth, engine, _stateMachine), commandBuilder{new CommandBuilder()}
@@ -20,7 +22,9 @@ bool Level::onTogglePauseEvent(const Event &event)
 	// TODO command pattern
 	if (pauseEvent.isPaused())
 	{
-		createPopUpLayer(WINDOW_WIDTH_CENTER, WINDOW_HEIGHT_CENTER, "Paused");
+		PausePopUp* pausePopUp = new PausePopUp(this->dispatcher, this->stateMachine);
+		pausePopUp->setupPopUp();
+		addPopUpLayer(pausePopUp);
 	} else {
 		removePopUpLayer();
 	}

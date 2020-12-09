@@ -80,16 +80,12 @@ public:
 
 	API void createLayer(const int zIndex, bool renderPhysics = false, bool alwaysDrawLayer = false);
 
-	API EventDispatcher& getEventDispatcher() { return dispatcher; };
-	
-	API void createPopUpLayer(float xPosition, float yPosition, string text);
-	API void createPopUpLayer(float xPosition, float yPosition, float width, float height, string text);
-	API void createPopUpLayer(float xPosition, float yPosition, float width, float height, string text, SpriteObject* spObject);
-	API void createPopUpLayer(float xPosition, float yPosition, float width, float height, SpriteObject* spObject);
+	EventDispatcher& getEventDispatcher() { return dispatcher; };
 
 	API int getHighestLayerIndex();
+	API void addPopUpLayer(Layer *_layer);
 	API void removePopUpLayer();
-	bool getIsPaused() { return this->paused; };
+
 protected:
 	EventDispatcher dispatcher;
 

@@ -31,6 +31,7 @@
     <ClCompile Include="Game\States\Player\NormalState.cpp" />
     <ClCompile Include="Game\States\Player\PlayerGlobalState.cpp" />
     <ClCompile Include="Game\States\Player\DamageCooldownState.cpp" />
+    <ClCompile Include="Game\PopUps\PausePopUp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
@@ -91,6 +92,7 @@
     <ClInclude Include="Game\Commands\GlobalCommands\PauseCommand.h" />
     <ClInclude Include="Game\Commands\GameKeypressInvoker.h" />
     <ClInclude Include="Game\Commands\ICharacterCommand.h" />
+    <ClInclude Include="Game\PopUps\PausePopUp.h" />
     <ClInclude Include="Game\States\Player\GodState.h" />
     <ClInclude Include="Game\States\Player\NormalState.h" />
     <ClInclude Include="Game\States\Player\PlayerGlobalState.h" />
