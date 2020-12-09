@@ -2,7 +2,7 @@
 #include "Game/States/IState.h"
 #include <chrono>
 
-#define TIME_OUT_IN_SECONDS 2
+#define TIME_OUT_IN_SECONDS 1
 
 class Player;
 
