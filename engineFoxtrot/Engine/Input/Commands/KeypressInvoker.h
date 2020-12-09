@@ -36,7 +36,7 @@ public:
 	/// fails silently when no bind is registered to prevent unwanted exceptions
 	/// @param code
 	/// Keycode for the to execute command
-	API void executeCommand(const KeyCode& code);
+	API void enqueueCommand(const KeyCode& code);
 
 protected:
 	API bool isRegistered(const ICommand& command);

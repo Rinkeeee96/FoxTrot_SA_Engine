@@ -50,7 +50,7 @@ void KeypressInvoker::executeCommandQueue(EventDispatcher& dispatcher)
 	}
 };
 
-void KeypressInvoker::executeCommand(const KeyCode& code) {
+void KeypressInvoker::enqueueCommand(const KeyCode& code) {
 	if (isRegistered(code))
 		executionQueue.push(code);
 };
