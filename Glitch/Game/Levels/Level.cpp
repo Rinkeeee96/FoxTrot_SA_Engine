@@ -20,11 +20,11 @@ bool Level::onKeyPressed(const Event& event) {
 		if (!paused) {
 			PausePopUp* pausePopUp = new PausePopUp(this->dispatcher, this->stateMachine);
 			pausePopUp->setupPopUp();
-			addLayer(pausePopUp);
+			addPopUpLayer(pausePopUp);
 			this->paused = true;
 		}
 		else {
-			removeLayer();
+			removePopUpLayer();
 			this->paused = false;
 		}
 		break;
