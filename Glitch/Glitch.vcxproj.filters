@@ -98,5 +98,7 @@
     <ClInclude Include="Game\States\IState.h" />
     <ClInclude Include="Game\States\StateMachine.h" />
     <ClInclude Include="Game\States\Player\DamageCooldownState.h" />
+    <ClInclude Include="Game\Commands\CharacterCommands\GodmodeCommand.h" />
+    <ClInclude Include="Game\Commands\CharacterCommands\CharacterCommands.h" />
   </ItemGroup>
 </Project>
