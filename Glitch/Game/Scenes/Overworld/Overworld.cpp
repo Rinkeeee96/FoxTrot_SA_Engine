@@ -117,13 +117,13 @@ void Overworld::loadBackground() {
 
 /// @brief 
 void Overworld::loadMusic() {
-	engine.soundEngine.onLoadBackgroundMusicEvent("OVER_WORLD", "Assets/Sound/file_example_WAV_1MG.wav");
+	engine.loadSound("OVER_WORLD", "Assets/Sound/file_example_WAV_1MG.wav");
 }
 
 /// @brief 
 void Overworld::start(bool playSound)
 {
-	if(playSound)engine.soundEngine.onStartBackgroundMusicEvent("OVER_WORLD");
+	if(playSound)engine.startSound("OVER_WORLD");
 }
 
 /// @brief 
@@ -134,7 +134,6 @@ void Overworld::onUpdate()
 /// @brief 
 void Overworld::onDetach()
 {
-	engine.soundEngine.onStartBackgroundMusicEvent("OVER_WORLD");
 	Scene::onDetach();
 }
 

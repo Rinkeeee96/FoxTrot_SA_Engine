@@ -126,7 +126,10 @@ void VideoFacade::renderCopy(Drawable& object)
 	}
 	//generate image 
 	Uint32 ticks = SDL_GetTicks();
-	Uint32 seconds = ticks / sprite.getAnimationDelay();
+	Uint32 seconds = 0;
+	if (sprite.getAnimationDelay() != 0)
+		seconds = ticks / sprite.getAnimationDelay();
+
 	float leftpos = sprite.getLeftPos(seconds);
 	int top = 0;
 
@@ -153,6 +156,7 @@ void VideoFacade::renderCopy(Drawable& object)
 	destination.w = (int)object.getWidth();
 	destination.h = (int)object.getHeight();
 
+	SDL_SetTextureColorMod(textureMap[sprite.getTextureID()], object.getTint().red, object.getTint().green, object.getTint().blue);
 	SDL_RenderCopyEx(renderer, textureMap[sprite.getTextureID()], &rect, &destination, object.getRotation(), NULL, SDL_FLIP_NONE);
 	// crude fix to draw text on top of a drawable, maybe fix with a callback function in the future, or a visitor?
 	if (object.toString() != nullptr)
