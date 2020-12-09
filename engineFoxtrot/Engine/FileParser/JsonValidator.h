@@ -11,14 +11,11 @@ using JsonDocument = rapidjson::Document;
 class API JsonValidator : public IFileValidator
 {
 private:
-	void loadDocument(string path, JsonDocument& document);
-	JsonDocument validationDocument;
-	JsonDocument document;
+	void loadDocument(string path, JsonDocument& document); 
+	void validate(JsonDocument& document, JsonDocument& validationDocument);
+	bool docIsValid = false;
 public:
 	JsonValidator(string path, string validationPath);
 
 	bool documentIsValid();
-
-	void loadNewDocument(string path);
-	void loadNewValidationFile(string path);
 };
