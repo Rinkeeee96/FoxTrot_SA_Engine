@@ -31,39 +31,39 @@ void ChapterOneScene::loadText() {
 /// @brief 
 /// Create the background for this scene
 void ChapterOneScene::loadBackground() {
-	SpriteObject* bg0 = new SpriteObject(-33, 1080, 1920, 1, 300, "Assets/Backgrounds/dark_bg.png");
-	auto* bgLayer0 = new Drawable(0);
-	bgLayer0->setStatic(true);
-	bgLayer0->setPositionX(0);
-	bgLayer0->setPositionY(1080);
-	bgLayer0->setWidth(1920);
-	bgLayer0->setHeight(1080);
-	bgLayer0->registerSprite(SpriteState::DEFAULT, bg0);
-	bgLayer0->changeToState(SpriteState::DEFAULT);
+	SpriteObject* background = new SpriteObject(-33, 1080, 1920, 1, 300, "Assets/Backgrounds/dark_bg.png");
+	auto* backgroundLayer = new Drawable(0);
+	backgroundLayer->setStatic(true);
+	backgroundLayer->setPositionX(0);
+	backgroundLayer->setPositionY(1080);
+	backgroundLayer->setWidth(1920);
+	backgroundLayer->setHeight(1080);
+	backgroundLayer->registerSprite(SpriteState::DEFAULT, background);
+	backgroundLayer->changeToState(SpriteState::DEFAULT);
 
-	SpriteObject* fgB = new SpriteObject(-34, 1080, 1920, 1, 300, "Assets/Backgrounds/foreground_bottom.png");
-	auto* fgBLayer = new Drawable(1);
-	fgBLayer->setStatic(true);
-	fgBLayer->setPositionX(0);
-	fgBLayer->setPositionY(1080);
-	fgBLayer->setWidth(1920);
-	fgBLayer->setHeight(200);
-	fgBLayer->registerSprite(SpriteState::DEFAULT, fgB);
-	fgBLayer->changeToState(SpriteState::DEFAULT);
+	SpriteObject* foregroundBottom = new SpriteObject(-34, 1080, 1920, 1, 300, "Assets/Backgrounds/foreground_bottom.png");
+	auto* foregroundBottomLayer = new Drawable(1);
+	foregroundBottomLayer->setStatic(true);
+	foregroundBottomLayer->setPositionX(0);
+	foregroundBottomLayer->setPositionY(1080);
+	foregroundBottomLayer->setWidth(1920);
+	foregroundBottomLayer->setHeight(200);
+	foregroundBottomLayer->registerSprite(SpriteState::DEFAULT, foregroundBottom);
+	foregroundBottomLayer->changeToState(SpriteState::DEFAULT);
 
-	SpriteObject* fgT = new SpriteObject(-35, 1080, 1920, 1, 300, "Assets/Backgrounds/foreground_top.png");
-	auto* fgTLayer = new Drawable(2);
-	fgTLayer->setStatic(true);
-	fgTLayer->setPositionX(0);
-	fgTLayer->setPositionY(100);
-	fgTLayer->setWidth(1920);
-	fgTLayer->setHeight(100);
-	fgTLayer->registerSprite(SpriteState::DEFAULT, fgT);
-	fgTLayer->changeToState(SpriteState::DEFAULT);
+	SpriteObject* foregroundTop = new SpriteObject(-35, 1080, 1920, 1, 300, "Assets/Backgrounds/foreground_top.png");
+	auto* foregroundTopLayer = new Drawable(2);
+	foregroundTopLayer->setStatic(true);
+	foregroundTopLayer->setPositionX(0);
+	foregroundTopLayer->setPositionY(100);
+	foregroundTopLayer->setWidth(1920);
+	foregroundTopLayer->setHeight(100);
+	foregroundTopLayer->registerSprite(SpriteState::DEFAULT, foregroundTop);
+	foregroundTopLayer->changeToState(SpriteState::DEFAULT);
 
-	addNewObjectToLayer(0, bgLayer0, false, true);
-	addNewObjectToLayer(3, fgTLayer, false, true);
-	addNewObjectToLayer(3, fgBLayer, false, true);
+	addNewObjectToLayer(0, backgroundLayer, false, true);
+	addNewObjectToLayer(3, foregroundTopLayer, false, true);
+	addNewObjectToLayer(3, foregroundBottomLayer, false, true);
 }
 
 /// @brief 
