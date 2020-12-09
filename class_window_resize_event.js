@@ -1,11 +1,11 @@
 var class_window_resize_event =
 [
     [ "WindowResizeEvent", "class_window_resize_event.html#a4bbcb192821b1ba82dfc1513ba890be9", null ],
-    [ "GetEventType", "class_window_resize_event.html#a60b310d95bea3bfa3b53ce70fb9a98f2", null ],
-    [ "GetHeight", "class_window_resize_event.html#af4462447097e161ddc9bf30652df55b3", null ],
-    [ "GetName", "class_window_resize_event.html#a9d554a62ceaac99ae571dbcaab87c6a7", null ],
-    [ "GetWidth", "class_window_resize_event.html#a5a65a50780415d88532a49780f780ad6", null ],
-    [ "ToString", "class_window_resize_event.html#a969392fb0f769798b7becd4a920971b0", null ],
+    [ "getEventType", "class_window_resize_event.html#aa7d49558eb68e6c9c678ba0821d06986", null ],
+    [ "getHeight", "class_window_resize_event.html#a6f4f2d920e1374d8df72989e61b53c6d", null ],
+    [ "getName", "class_window_resize_event.html#a94197e584dc1b692700f4ee2d45c18ba", null ],
+    [ "getWidth", "class_window_resize_event.html#ada4c29dd2fe98700a0a2c14def52b764", null ],
+    [ "toString", "class_window_resize_event.html#ac99a316570321154b46a30d7465eaff0", null ],
     [ "m_Height", "class_window_resize_event.html#aed8123066f81375e9019b9ab4cb1c82f", null ],
     [ "m_Width", "class_window_resize_event.html#ab65ec39e11d4bef9bd70cbee6b652461", null ]
 ];

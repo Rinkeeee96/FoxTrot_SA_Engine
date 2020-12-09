@@ -5,7 +5,7 @@ var class_physics_engine =
     [ "clean", "class_physics_engine.html#a1b8eb1b60b64196cab53e89bef06d21b", null ],
     [ "handleAction", "class_physics_engine.html#a934274d6d30baac10dd6d5142522d2f4", null ],
     [ "registerObjectInCurrentVectorWithPhysicsEngine", "class_physics_engine.html#a395053a3efe7baf0d5154a204b81b062", null ],
-    [ "removeObject", "class_physics_engine.html#a6fe197ed6df375d392407740ae20cc7c", null ],
+    [ "reloadPhysicsObjects", "class_physics_engine.html#a7ee00603461896b5ab57b9c61a29856b", null ],
     [ "shutdown", "class_physics_engine.html#a594c1e5e15be202e90e4584157df5b7d", null ],
     [ "start", "class_physics_engine.html#a1211e342e28078b0774a98e43599fcb7", null ],
     [ "stopObject", "class_physics_engine.html#a9c94fb9996654e0d495e3a680a431102", null ],
