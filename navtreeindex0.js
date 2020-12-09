@@ -45,12 +45,11 @@ var NAVTREEINDEX0 =
 "_physics_body_8h_source.html":[2,0,0,6,2],
 "_physics_engine_8h_source.html":[2,0,0,6,3],
 "_physics_facade_8h_source.html":[2,0,0,6,4],
-"_pop_up_8h_source.html":[2,0,0,7,0,3],
 "_scene_8h_source.html":[2,0,0,7,2],
 "_scene_manager_8h_source.html":[2,0,0,7,3],
 "_sound_engine_8h_source.html":[2,0,0,8,1],
 "_sound_facade_8h_source.html":[2,0,0,8,2],
-"_sprite_object_8h_source.html":[2,0,0,7,0,4],
+"_sprite_object_8h_source.html":[2,0,0,7,0,3],
 "_version_8h_source.html":[2,0,0,3,4],
 "_video_engine_8h_source.html":[2,0,0,10,1],
 "_video_facade_8h_source.html":[2,0,0,10,2],
@@ -249,5 +248,6 @@ var NAVTREEINDEX0 =
 "class_input_facade.html#a9a4cc7eb5efbab0039cca12c0ae2a298":[1,0,16,0],
 "class_input_facade.html#ab7f3ee2d79e245df65e5ea9a200ba505":[1,0,16,1],
 "class_json_validator.html":[1,0,21],
-"class_json_validator.html#a0328a422b2d7602c269e2b5051816c4f":[1,0,21,1]
+"class_json_validator.html#a0328a422b2d7602c269e2b5051816c4f":[1,0,21,1],
+"class_json_validator.html#a16eef6a10712bfce66143fbebad31dc8":[1,0,21,3]
 };

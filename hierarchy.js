@@ -53,12 +53,11 @@ var hierarchy =
     [ "IVideoFacade", "class_i_video_facade.html", [
       [ "VideoFacade", "class_video_facade.html", null ]
     ] ],
-    [ "Layer", "struct_layer.html", null ],
+    [ "Layer", "class_layer.html", null ],
     [ "Object", "class_object.html", [
       [ "Drawable", "class_drawable.html", [
         [ "Button", "class_button.html", null ],
         [ "ParticleAdapter", "class_particle_adapter.html", null ],
-        [ "PopUp", "class_pop_up.html", null ],
         [ "Text", "class_text.html", null ]
       ] ]
     ] ],
