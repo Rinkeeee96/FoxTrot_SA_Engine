@@ -13,11 +13,8 @@ public:
 	virtual void shutdown() = 0; // delete
 
 	// optional pause methods with them defaulting to a non pauseable state
-	virtual void pause() {
-		paused = false;
-	};
 	virtual bool isPaused() { return paused; }
 
 protected:
-	bool paused;
+	bool paused = false;
 };

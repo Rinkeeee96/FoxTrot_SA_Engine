@@ -177,6 +177,7 @@
     <ClInclude Include="Engine\Input\Commands\ICommand.h" />
     <ClInclude Include="Engine\Input\Commands\KeypressInvoker.h" />
     <ClInclude Include="Engine\SceneManager\Objects\PopUp.h" />
+    <ClInclude Include="Engine\Events\Action\TogglePause.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

@@ -26,7 +26,7 @@ Engine::~Engine()
 /// @brief 
 /// Create default engine commands that cannot be removed, only overriden by changing the keycode in the invoker
 void Engine::constructDefaultCommands(KeypressInvoker* invoker) {
-	invoker->registerCommand(KeyCode::KEY_P, new PauseCommand(*this->eventDispatcher));
+	invoker->registerCommand(KeyCode::KEY_P, new PauseCommand());
 }
 
 /// @brief 
@@ -111,10 +111,8 @@ void Engine::loadSound(map<string, string> sounds)
 void Engine::onUpdate()
 {
 	// TODO change after command pattern is implemented
-	if (!engineIsPaused) { 
-		particleEngine.update();
-		physicsEngine.update();
-	}
+	particleEngine.update();
+	physicsEngine.update();
 	videoEngine.update();
 	inputEngine.update();
 }

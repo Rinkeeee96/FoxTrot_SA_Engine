@@ -59,7 +59,6 @@ public:
 	//API EventDispatcher& getDispatcher() { return *eventDispatcher; }
 	SoundEngine soundEngine;
 
-	void pauseUnpause() { engineIsPaused = !engineIsPaused; }
 private:
 	EventDispatcher* eventDispatcher;
 	bool running = false;

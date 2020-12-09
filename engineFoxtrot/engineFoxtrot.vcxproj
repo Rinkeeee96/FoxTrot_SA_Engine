@@ -199,6 +199,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="api.h" />
+    <ClInclude Include="Engine\Events\Action\TogglePause.h" />
     <ClInclude Include="Engine\Events\InputMapping\CaptureInputEvent.h" />
     <ClInclude Include="Engine\Events\InputMapping\ReleaseInputEvent.h" />
     <ClInclude Include="Engine\Events\EventDispatcher.h" />
