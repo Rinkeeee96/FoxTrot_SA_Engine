@@ -168,26 +168,6 @@ void Scene::onDetach()
 	layers.clear();
 }
 
-// TODO remove after command pattern is implemented
-bool Scene::onKeyPressed(const Event& event) {	
-	auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
-	// TODO command pattern
-	switch (keyPressedEvent.getKeyCode())
-	{
-	case KeyCode::KEY_P:
-		if (!hasActivePopUp) {
-			createPopUpLayer(WINDOW_WIDTH_CENTER, WINDOW_HEIGHT_CENTER, "Paused");
-		}
-		else {
-			removePopUpLayer();
-		}
-		break;
-	default:
-		return false;
-	}
-	return false;
-}
-
 void Scene::removeObjectFromScene(Object* obj)
 {
 	for (auto lay : layers) {
