@@ -18,7 +18,7 @@ bool Level::onKeyPressed(const Event& event) {
 	{
 	case KeyCode::KEY_P:
 		if (!paused) {
-			PausePopUp* pausePopUp = new PausePopUp();
+			PausePopUp* pausePopUp = new PausePopUp(this->dispatcher, this->stateMachine);
 			pausePopUp->setupPopUp();
 			addLayer(pausePopUp);
 			this->paused = true;

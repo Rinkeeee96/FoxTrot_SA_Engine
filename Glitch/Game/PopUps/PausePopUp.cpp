@@ -1,7 +1,12 @@
 #include "pch.h"
 #include "PausePopUp.h"
+#include "Game/Buttons/PrimaryButton.h"
+#include "Game/SpriteState.h"
 
-PausePopUp::PausePopUp()
+#define BIND_FN(function) std::bind(&PausePopUp::function, *this)
+
+PausePopUp::PausePopUp(EventDispatcher &_dispatcher, SceneStateMachine& _stateMachine) : 
+	dispatcher(_dispatcher), stateMachine(_stateMachine)
 {
 }
 
@@ -17,17 +22,27 @@ void PausePopUp::setupPopUp()
 	Text* text = new Text(	-564573, new ColoredText("Paused", Color(0,0,0), false), 
 							200, 50, WINDOW_WIDTH_CENTER - 100, WINDOW_HEIGHT_CENTER - 175);
 
+	PrimaryButton *backButton = new PrimaryButton(-564572, "Back to Overworld", BIND_FN(onBackButtonClick), dispatcher);
+	backButton->setHeight(50);
+	backButton->setWidth(200);
+	backButton->setPositionX(WINDOW_WIDTH_CENTER - 100);
+	backButton->setPositionY(WINDOW_HEIGHT_CENTER - 100);
 
-
-	background->setHeight(200);
+	background->setHeight(300);
 	background->setWidth(500);
 
 	background->setPositionX(WINDOW_WIDTH_CENTER - 250);
-	background->setPositionY(WINDOW_HEIGHT_CENTER - 100);
+	background->setPositionY(WINDOW_HEIGHT_CENTER);
 
-	background->registerSprite(1 ,backgroundSprite);
-	background->changeToState(1);
+	background->registerSprite(SpriteState::DEFAULT, backgroundSprite);
+	background->changeToState(SpriteState::DEFAULT);
 
+	addObjectInLayer(backButton->getObjectId() ,backButton);
 	addObjectInLayer(text->getObjectId(), text);
 	addObjectInLayer(background->getObjectId(), background);
+}
+
+void PausePopUp::onBackButtonClick()
+{
+	stateMachine.switchToScene("Overworld", true);
 }

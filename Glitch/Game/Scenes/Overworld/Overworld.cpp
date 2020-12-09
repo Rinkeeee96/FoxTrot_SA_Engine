@@ -4,8 +4,6 @@
 #include "Game/Buttons/SecondaryButton.h"
 #include "Game/Game.h"
 
-#include "../../PopUps/PausePopUp.h"
-
 #define BIND_FN(function) std::bind(&Overworld::function, *this)
 
 /// @brief 
@@ -115,8 +113,6 @@ void Overworld::loadBackground() {
 	layer0->setScalable(false);
 
 	addNewObjectToLayer(1, layer0, false, true);
-
-	
 }
 
 /// @brief 
