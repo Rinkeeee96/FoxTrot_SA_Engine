@@ -29,6 +29,8 @@ public:
 
 	int API getSceneID() { return sceneID; }
 
+	bool onKeyPressed(const Event& event);
+
 	/// @brief
 	/// OnAttach is executed when a scene is "attached" to the current running context
 	/// usually this is can be used to prime a level with relevant data before starting it.
@@ -55,9 +57,6 @@ public:
 	int getSceneHeight() const { return sceneHeight; }
     
 	void setObjectToFollow(Object* obj) { objectToFollow = obj; }
-
-	bool onKeyPressed(const Event& event);
-
 
 	/// @brief 
 	/// Returns the id of the object to follow
@@ -91,14 +90,16 @@ public:
 
 protected:
 	EventDispatcher dispatcher;
+
+	bool hasActivePopUp = false;
+	bool paused = false;
 private:
 	const int sceneID = 0;
 	map<int, Layer*> layers;
+
 
 	Object *objectToFollow = nullptr;
 
 	int sceneWidth = WINDOW_WIDTH;
 	int sceneHeight = WINDOW_HEIGHT;
-
-	bool hasActivePopUp = false;
 };

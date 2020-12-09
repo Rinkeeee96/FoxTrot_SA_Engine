@@ -80,7 +80,7 @@ void Overworld::loadButtons() {
 	level3TextBtn->setHeight(20);
 	level3TextBtn->setPositionX(795);
 	level3TextBtn->setPositionY(870);
-	if (!savegame->getCurrentGameData().levelData[2].completed)
+	if (!savegame->getCurrentGameData().levelData[1].completed)
 	{
 		level3Btn->disable();
 		level3TextBtn->disable();
@@ -116,21 +116,18 @@ void Overworld::loadBackground() {
 
 	addNewObjectToLayer(1, layer0, false, true);
 
-	PausePopUp *pausePopUp = new PausePopUp();
-	pausePopUp->setupPopUp();
-	addLayer(pausePopUp);
+	
 }
 
 /// @brief 
 void Overworld::loadMusic() {
-	engine.soundEngine.onLoadBackgroundMusicEvent("OVER_WORLD", "Assets/Sound/file_example_WAV_1MG.wav");
-
+	engine.loadSound("OVER_WORLD", "Assets/Sound/file_example_WAV_1MG.wav");
 }
 
 /// @brief 
 void Overworld::start(bool playSound)
 {
-	if(playSound)engine.soundEngine.onStartBackgroundMusicEvent("OVER_WORLD");
+	if(playSound)engine.startSound("OVER_WORLD");
 }
 
 /// @brief 
@@ -141,7 +138,6 @@ void Overworld::onUpdate()
 /// @brief 
 void Overworld::onDetach()
 {
-	engine.soundEngine.onStartBackgroundMusicEvent("OVER_WORLD");
 	Scene::onDetach();
 }
 

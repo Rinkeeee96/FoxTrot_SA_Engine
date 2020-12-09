@@ -33,8 +33,6 @@ void Engine::setCurrentScene(const int sceneID)
 	inputEngine.start(*this->eventDispatcher);
 	physicsEngine.start(*this->eventDispatcher);
 
-	eventDispatcher->setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Engine::onKeyPressed));
-
 	sceneManager.getSceneWithID(sceneID)->onAttach();
 	sceneManager.getSceneWithID(sceneID)->onAttach();
 }
@@ -48,7 +46,7 @@ Scene* Engine::getCurrentScene()
 bool Engine::onKeyPressed(const Event& event) {
 	auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
 	// TODO command pattern
-	switch (keyPressedEvent.GetKeyCode())
+	switch (keyPressedEvent.getKeyCode())
 	{
 	case KeyCode::KEY_P:
 		engineIsPaused = !engineIsPaused;
@@ -58,7 +56,6 @@ bool Engine::onKeyPressed(const Event& event) {
 	}
 	return true;
 }
-
 /// @brief 
 /// @param scene
 void Engine::insertScene(Scene* scene)
@@ -94,7 +91,7 @@ void Engine::toggleFps() {
 /// @brief 
 void Engine::restartPhysicsWorld()
 {
-	physicsEngine.removeObject();
+	physicsEngine.reloadPhysicsObjects();
 }
 
 void Engine::loadSound(const string& identifier, const string& path)
@@ -107,13 +104,21 @@ void Engine::loadSound(map<string, string> sounds)
 	this->soundEngine.setFiles(sounds);
 }
 
+void Engine::startSound(const string& identifier) {
+	this->soundEngine.playMusic(identifier, 15);
+}
+
+void Engine::stopSound(const string& identifier) {
+	this->soundEngine.stopMusic();
+}
+void Engine::stopLoopEffect(const string& identifier) {
+	this->soundEngine.onStopLoopedEffect(identifier);
+}
+
 void Engine::onUpdate()
 {
-	// TODO change after command pattern is implemented
-	if (!engineIsPaused) { 
-		particleEngine.update();
-		physicsEngine.update();
-	}
+	particleEngine.update();
+	physicsEngine.update();
 	videoEngine.update();
 	inputEngine.update();
 }

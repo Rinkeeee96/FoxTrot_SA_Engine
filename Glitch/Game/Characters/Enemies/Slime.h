@@ -5,9 +5,12 @@
 /// Slime class with correspondending AI logic
 class Slime : public IEnemy {
 public:
-	Slime(EventDispatcher& _dispatcher) : IEnemy(_dispatcher) {}
+	Slime(EventDispatcher& _dispatcher) : IEnemy(_dispatcher) {
+		this->damage = 1;
+	}
 	Slime(const int id, EventDispatcher& _dispatcher) : IEnemy(id, _dispatcher) {
-		_dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Slime::onCollisionBeginEvent));
+		_dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Slime::onCollisionBeginEvent)); 
+		this->damage = 1;
 	}
 
 	bool onCollisionBeginEvent(const Event& event) {
@@ -22,17 +25,17 @@ public:
 		}
 		else {
 			if (collisionEvent.getObjectOne().getObjectId() == this->getObjectId()) {
-				Object& otherE = collisionEvent.getObjectTwo();
+				Object& otherEntity = collisionEvent.getObjectTwo();
 
-				if (this->player->getObjectId() == otherE.getObjectId()) {
-					this->player->setCurrentHealth(this->player->getCurrentHealth() - 1);
+				if (this->player->getObjectId() == otherEntity.getObjectId()) {
+					this->doDamage();
 				}
 			}
 			else if (collisionEvent.getObjectTwo().getObjectId() == this->getObjectId()) {
 				Object& otherEntity = collisionEvent.getObjectOne();
 
 				if (this->player->getObjectId() == otherEntity.getObjectId()) {
-					this->player->setCurrentHealth(this->player->getCurrentHealth() - 1);
+					this->doDamage();
 				}
 			}
 		}

@@ -23,6 +23,10 @@
     <ClCompile Include="Game\Scenes\Factory\FactoryMethod.cpp" />
     <ClCompile Include="Game\Scenes\DeathScreen\DeathScreen.cpp" />
     <ClCompile Include="Game\Scenes\Statemachine\SceneStateMachine.cpp" />
+    <ClCompile Include="Game\States\Player\GodState.cpp" />
+    <ClCompile Include="Game\States\Player\NormalState.cpp" />
+    <ClCompile Include="Game\States\Player\PlayerGlobalState.cpp" />
+    <ClCompile Include="Game\States\Player\DamageCooldownState.cpp" />
     <ClCompile Include="Game\PopUps\PausePopUp.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -70,5 +74,12 @@
     <ClInclude Include="Game\Characters\Enemies\Jumpkin.h" />
     <ClInclude Include="Game\General\GeneralGameDefines.h" />
     <ClInclude Include="Game\PopUps\PausePopUp.h" />
+    <ClInclude Include="Game\States\Player\GodState.h" />
+    <ClInclude Include="Game\States\Player\NormalState.h" />
+    <ClInclude Include="Game\States\Player\PlayerGlobalState.h" />
+    <ClInclude Include="Game\States\IGlobalState.h" />
+    <ClInclude Include="Game\States\IState.h" />
+    <ClInclude Include="Game\States\StateMachine.h" />
+    <ClInclude Include="Game\States\Player\DamageCooldownState.h" />
   </ItemGroup>
 </Project>

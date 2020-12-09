@@ -175,10 +175,3 @@ bool SoundEngine::identifierIsLoaded(const string& identifier)
 {
 	return soundFacade->identifierIsLoaded(identifier);
 }
-
-void SoundEngine::onStartBackgroundMusicEvent(const string& identifier) {
-	this->playMusic(identifier, 15);
-}
-void SoundEngine::onLoadBackgroundMusicEvent(const string& identifier, const string& fileName) {
-	this->addFile(identifier, fileName);
-}

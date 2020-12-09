@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Game.h"
+
 Game::Game()
 {
 	savegame = shared_ptr<Savegame>(new Savegame());

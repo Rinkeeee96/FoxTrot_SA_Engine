@@ -11,7 +11,6 @@
 Scene::Scene(const int _sceneID, const int _sceneHeight, const int _sceneWidth) : 
 	sceneID(_sceneID), sceneHeight(_sceneHeight), sceneWidth(_sceneWidth)
 {
-	dispatcher.setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Scene::onKeyPressed));
 }
 
 /// @brief 
@@ -172,7 +171,7 @@ void Scene::onDetach()
 bool Scene::onKeyPressed(const Event& event) {	
 	auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
 	// TODO command pattern
-	switch (keyPressedEvent.GetKeyCode())
+	switch (keyPressedEvent.getKeyCode())
 	{
 	case KeyCode::KEY_P:
 		if (!hasActivePopUp) {
