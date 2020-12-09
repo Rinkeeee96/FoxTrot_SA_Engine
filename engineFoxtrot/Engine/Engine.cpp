@@ -2,25 +2,17 @@
 #include "Engine.h"
 #include "Input/Commands/Engine/PauseCommand.h"
 
+#include "Input/Commands/Engine/ToggleFpsCommand.h"
 
 /// @brief 
 Engine::Engine()
 {
-	videoEngine.pointerToCurrentScene =	 &sceneManager.currentScene;
-	physicsEngine.pointerToCurrentScene = &sceneManager.currentScene;
-	particleEngine.pointerToCurrentScene = &sceneManager.currentScene;
-
-	// register default invoker
-	useCustomCommandInvoker(new KeypressInvoker());
-	constructDefaultCommands(keypressInvoker);
-
-	videoEngine.start(*this->eventDispatcher);
 }
 
 /// @brief 
 Engine::~Engine()
 {
-	videoEngine.shutdown();
+	this->shutdown();
 }
 
 /// @brief 
@@ -88,17 +80,41 @@ void Engine::updateFps() {
 	frameData.updateFps();
 }
 
-/// @brief
-/// Toggles fps visibility
-void Engine::toggleFps() {
-	videoEngine.toggleFps();
-}
-
 /// @brief 
 void Engine::restartPhysicsWorld()
 {
-	physicsEngine.removeObject();
 	physicsEngine.reloadPhysicsObjects();
+}
+
+void Engine::start()
+{
+	videoEngine.pointerToCurrentScene = &sceneManager.currentScene;
+	physicsEngine.pointerToCurrentScene = &sceneManager.currentScene;
+	particleEngine.pointerToCurrentScene = &sceneManager.currentScene;
+
+	// register default invoker
+	useCustomCommandInvoker(new KeypressInvoker());
+	constructDefaultCommands(keypressInvoker);
+
+	videoEngine.start(*this->eventDispatcher);
+}
+
+void Engine::update()
+{
+	particleEngine.update();
+	physicsEngine.update();
+	videoEngine.update();
+	inputEngine.update();
+}
+
+void Engine::shutdown()
+{
+	particleEngine.shutdown();
+	physicsEngine.shutdown();
+	videoEngine.shutdown();
+	inputEngine.shutdown();
+
+	this->setEngineRunning(false);
 }
 
 void Engine::loadSound(const string& identifier, const string& path)
@@ -111,11 +127,13 @@ void Engine::loadSound(map<string, string> sounds)
 	this->soundEngine.setFiles(sounds);
 }
 
-void Engine::onUpdate()
-{
-	// TODO change after command pattern is implemented
-	particleEngine.update();
-	physicsEngine.update();
-	videoEngine.update();
-	inputEngine.update();
+void Engine::startSound(const string& identifier) {
+	this->soundEngine.playMusic(identifier, 15);
+}
+
+void Engine::stopSound(const string& identifier) {
+	this->soundEngine.stopMusic();
+}
+void Engine::stopLoopEffect(const string& identifier) {
+	this->soundEngine.onStopLoopedEffect(identifier);
 }

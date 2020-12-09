@@ -25,12 +25,15 @@ public:
 	API Engine();
 	API ~Engine();
 
+	// Inherited via ISubsystem
+	API void start();
+	API void update();
+	API void shutdown();
+
 	/// @brief
 	/// The engine's keypress invoker contains 'default' engine commands and keybindings for them, these are to always exist
 	/// and are thus created in this function, this method is called each time an invoker is assigned. 
 	/// Due to the way the invoker is setup, these cannot be overriden by default, only the bindings can be modified.
-	void constructDefaultCommands(KeypressInvoker* invoker);
-
 	API void useCustomCommandInvoker(KeypressInvoker* newInvoker);
 
 	//SceneManager calls
@@ -46,12 +49,7 @@ public:
 	API void stopSound(const string& identifier);
 	API void stopLoopEffect(const string& identifier);
 
-	API void onUpdate();
-
 	API void updateFps();
-	API void toggleFps();
-
-	bool onKeyPressed(const Event& event);
 
 	API bool getEngineRunning() { return running; };
 	API void setEngineRunning(bool run) { running = run; }
@@ -59,8 +57,8 @@ public:
 	KeypressInvoker* getKeypressedInvoker() { return keypressInvoker; }
 
 	API void restartPhysicsWorld();
-
 private:
+	void constructDefaultCommands(KeypressInvoker* invoker);
 	EventDispatcher* eventDispatcher;
 	bool running = false;
 

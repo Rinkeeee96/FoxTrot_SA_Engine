@@ -7,6 +7,7 @@ Game::Game()
 {
 	commandBuilder = new CommandBuilder();
 	savegame = shared_ptr<Savegame>(new Savegame());
+	stateMachine = shared_ptr<SceneStateMachine>(new SceneStateMachine{ engine, savegame });
 }
 
 
@@ -14,6 +15,7 @@ int Game::run() {
 
 	try {
 		engine.useCustomCommandInvoker(commandBuilder->readBindingsAndCreateInvoker());
+		engine.start();
 
 		if (GameKeypressInvoker* e = dynamic_cast<GameKeypressInvoker*>(engine.getKeypressedInvoker())) {
 			commandBuilder->buildGlobalCommands(e);
@@ -28,12 +30,13 @@ int Game::run() {
 		while (engine.getEngineRunning())
 		{
 			engine.updateFps();
-			engine.onUpdate();
+			engine.update();
 			// TODO get only the non static objects, without looping thru them again and again
 			stateMachine->updateCurrentScene();
 			this_thread::sleep_for(chrono::milliseconds(10));
 			engine.updateFps();
 		}
+
 		savegame->saveGameDataToJsonFile();
 	}
 	catch (int e) {
