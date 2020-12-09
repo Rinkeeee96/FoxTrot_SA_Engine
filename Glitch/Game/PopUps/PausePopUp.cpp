@@ -27,15 +27,19 @@ void PausePopUp::setupPopUp()
 	backButton->setWidth(200);
 	backButton->setPositionX(WINDOW_WIDTH_CENTER - 100);
 	backButton->setPositionY(WINDOW_HEIGHT_CENTER - 100);
+	backButton->setDrawStatic(true);
 
 	background->setHeight(300);
 	background->setWidth(500);
+	background->setDrawStatic(true);
 
 	background->setPositionX(WINDOW_WIDTH_CENTER - 250);
 	background->setPositionY(WINDOW_HEIGHT_CENTER);
 
 	background->registerSprite(SpriteState::DEFAULT, backgroundSprite);
 	background->changeToState(SpriteState::DEFAULT);
+
+	text->setDrawStatic(true);
 
 	addObjectInLayer(backButton->getObjectId() ,backButton);
 	addObjectInLayer(text->getObjectId(), text);

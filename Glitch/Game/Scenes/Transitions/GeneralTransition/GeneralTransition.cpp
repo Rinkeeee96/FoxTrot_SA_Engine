@@ -94,7 +94,6 @@ void GeneralTransition::loadBackground()
 /// Also sets the loading bar. 
 void GeneralTransition::onUpdate()
 {
-	
 	chrono::duration<double> diffFromPreviousCall = chrono::duration_cast<chrono::duration<double>>(chrono::high_resolution_clock::now() - previousCallTime);
 
 	if (diffFromPreviousCall.count() > 0.5 && !moveCharacter)
@@ -105,11 +104,10 @@ void GeneralTransition::onUpdate()
 			return;
 		}
 
-
 		int generated = rand() % 685 + 1;
-		if (progressBarFiller->getWidth() + generated > 685)
+		if (progressBarFiller->getWidth() + generated > 688)
 		{
-			progressBarFiller->setWidth(685);
+			progressBarFiller->setWidth(688);
 			return;
 		}
 		else
@@ -127,7 +125,6 @@ void GeneralTransition::onUpdate()
 		{
 			stateMachine.switchToScene(nextScene,false);
 		}
-		
 	}
 }
 
