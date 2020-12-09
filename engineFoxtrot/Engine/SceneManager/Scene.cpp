@@ -209,7 +209,7 @@ int Scene::getHighestLayerIndex() {
 /// @param xPosition 
 /// @param yPosition 
 /// @param text 
-void Scene::addLayer(Layer* _layer) {
+void Scene::addPopUpLayer(Layer* _layer) {
 	int zIndex = getHighestLayerIndex() + 1;
 
 	layers[zIndex] = _layer;
@@ -217,14 +217,9 @@ void Scene::addLayer(Layer* _layer) {
 
 /// @brief remove layer
 /// @param _zIndex no value means top layer.
-void Scene::removeLayer(int _zIndex) {
-	if (_zIndex == -1) {
+void Scene::removePopUpLayer() {
 		int zIndex = 0;
 
 		zIndex = getHighestLayerIndex();
 		layers.erase(zIndex);
-	}
-	else {
-		layers.erase(_zIndex);
-	}
 }

@@ -29,8 +29,6 @@ public:
 
 	int API getSceneID() { return sceneID; }
 
-	bool onKeyPressed(const Event& event);
-
 	/// @brief
 	/// OnAttach is executed when a scene is "attached" to the current running context
 	/// usually this is can be used to prime a level with relevant data before starting it.
@@ -85,8 +83,8 @@ public:
 	EventDispatcher& getEventDispatcher() { return dispatcher; };
 
 	API int getHighestLayerIndex();
-	API void addLayer(Layer *_layer);
-	API void removeLayer(int _zIndex = -1);
+	API void addPopUpLayer(Layer *_layer);
+	API void removePopUpLayer();
 
 protected:
 	EventDispatcher dispatcher;
