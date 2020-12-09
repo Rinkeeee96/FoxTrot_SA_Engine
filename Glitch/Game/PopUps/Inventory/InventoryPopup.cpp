@@ -8,6 +8,7 @@
 InventoryPopup::InventoryPopup(EventDispatcher& _dispatcher, SceneStateMachine& _stateMachine) :
 	dispatcher(_dispatcher), stateMachine(_stateMachine)
 {
+	setAlwaysVisible(true);
 }
 
 InventoryPopup::~InventoryPopup()
