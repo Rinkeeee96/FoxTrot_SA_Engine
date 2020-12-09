@@ -15,6 +15,7 @@ public:
 
 	bool handleAction(const Event& event);
 	bool stopObject(const Event& event);
+	bool onPauseEvent(const Event& event);
 	void removeObject();
 
 	Scene** pointerToCurrentScene = nullptr;
@@ -22,7 +23,6 @@ public:
 	void start(EventDispatcher& dispatcher) override;
 	void update() override;
 	void shutdown() override;
-	void pause() override;
 
 private:
 	void clean();

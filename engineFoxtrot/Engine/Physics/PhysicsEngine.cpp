@@ -3,6 +3,7 @@
 #include "PhysicsEngine.h"
 #include "Events\Action\ObjectStopEvent.h"
 #include "Events/Key/KeyPressed.h"
+#include "Events/Action/TogglePause.h"
 
 
 /// @brief Constructor
@@ -16,12 +17,14 @@ void PhysicsEngine::start(EventDispatcher& dispatcher) {
 
 	dispatcher.setEventCallback<ActionEvent>(BIND_EVENT_FN(PhysicsEngine::handleAction));
 	dispatcher.setEventCallback<ObjectStopEvent>(BIND_EVENT_FN(PhysicsEngine::stopObject));
+
+	dispatcher.setEventCallback<TogglePauseEvent>(BIND_EVENT_FN(PhysicsEngine::onPauseEvent));
 };
 
 
 
 void PhysicsEngine::update() {
-	if (paused)	return;
+	if (isPaused())	return;
 
 	if (currentSceneID != (*pointerToCurrentScene)->getSceneID())
 	{
@@ -38,8 +41,6 @@ void PhysicsEngine::shutdown() {
 	clean();
 	delete physicsFacade;
 }
-
-void PhysicsEngine::pause(){ paused = !paused; };
 
 void PhysicsEngine::removeObject() {
 	physicsFacade->cleanMap();
@@ -85,6 +86,13 @@ bool PhysicsEngine::stopObject(const Event& event) {
 	ObjectStopEvent e = static_cast<const ObjectStopEvent&>(event);
 	physicsFacade->stopObject(e.GetObjectId(), e.GetStopVertical());
 	return true;
+}
+
+bool PhysicsEngine::onPauseEvent(const Event& event)
+{
+	auto pauseEvent = (TogglePauseEvent&)event;
+	paused = pauseEvent.isPaused();
+	return false;
 }
 
 /// @brief Destructor
