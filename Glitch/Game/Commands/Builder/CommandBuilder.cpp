@@ -11,8 +11,6 @@
 
 #include "Game/Commands/CharacterCommands/CharacterCommands.h"
 
-#include "Game/Commands/GlobalCommands/PauseCommand.h"
-
 #include "Game/Commands/GameKeypressInvoker.h"
 
 CommandBuilder::CommandBuilder()
@@ -72,9 +70,6 @@ void CommandBuilder::initCharacterFactory()
 void CommandBuilder::initGlobalFactory()
 {
 	generalCommandFactory = std::shared_ptr<CommandFactory>(new CommandFactory());
-	auto* pauseCommand = new CommandCreator<PauseCommand>("pause");
-
-	pauseCommand->registerClass(generalCommandFactory);
 }
 
 
@@ -94,7 +89,6 @@ void CommandBuilder::buildGlobalCommands(GameKeypressInvoker* invoker)
 		{
 			// TODO throw up further and create a popup for missparsed bindings
 			if (DEBUG_COMMAND_BUILDER) cout << e.what();
-			++pair;
 		}
 	}
 }

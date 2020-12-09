@@ -4,8 +4,6 @@
 class unknownCommandException : virtual public std::exception {
 
 protected:
-
-    //int error_number;               ///< Error number
     std::string error_message;      ///< Error message
 
 public:

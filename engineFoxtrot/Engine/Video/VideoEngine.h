@@ -61,7 +61,7 @@ private:
 	void clearScreen();
 	void drawScreen();
 
-	IVideoFacade* videoFacade;
+	IVideoFacade* videoFacade = nullptr;
 	
 	FrameData& frameData;
 	bool shouldDrawFps = false;

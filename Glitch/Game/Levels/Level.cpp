@@ -28,11 +28,6 @@ bool Level::onTogglePauseEvent(const Event &event)
 	} else {
 		removePopUpLayer();
 	}
-	// TODO create godmode command
-	/*
-	
-	*/
-	
 	return false;
 }
 

@@ -22,8 +22,8 @@
 class Engine
 {
 public:
-	API Engine();
-	API ~Engine();
+	API Engine() {};
+	API ~Engine() {};
 
 	// Inherited via ISubsystem
 	API void start();

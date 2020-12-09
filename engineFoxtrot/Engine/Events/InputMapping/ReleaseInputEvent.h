@@ -7,6 +7,6 @@ class ReleaseInputEvent : public Event
 {
 public:	
 	ReleaseInputEvent() = default;
-	EventType GetEventType() const override { return EventType::ReleaseInput; }
-	const char* GetName() const override { return "Release input"; }
+	EventType getEventType() const override { return EventType::ReleaseInput; }
+	const char* getName() const override { return "Release input"; }
 };

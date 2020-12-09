@@ -4,17 +4,6 @@
 #include "Input/Commands/Engine/ToggleFpsCommand.h"
 #include "Input/Commands/Engine/ShutdownCommand.h"
 /// @brief 
-Engine::Engine()
-{
-}
-
-/// @brief 
-Engine::~Engine()
-{
-	this->shutdown();
-}
-
-/// @brief 
 /// Create default engine commands that cannot be removed, only overriden by changing the keycode in the invoker
 void Engine::constructDefaultCommands(KeypressInvoker* invoker) {
 	invoker->registerCommand(KeyCode::KEY_F1, new ToggleFpsCommand(this->videoEngine));
@@ -107,11 +96,15 @@ void Engine::update()
 
 void Engine::shutdown()
 {
-	this->setEngineRunning(false);
-	particleEngine.shutdown();
-	videoEngine.shutdown();
-	physicsEngine.shutdown();
-	inputEngine.shutdown();
+	if (this->running)
+	{
+		this->setEngineRunning(false);
+		particleEngine.shutdown();
+		videoEngine.shutdown();
+		physicsEngine.shutdown();
+		inputEngine.shutdown();
+	}
+
 }
 
 void Engine::loadSound(const string& identifier, const string& path)

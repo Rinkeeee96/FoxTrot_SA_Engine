@@ -32,11 +32,11 @@ public:
 	void registerKeypressInvoker(GameKeypressInvoker* invoker);
 
 	void onUpdate() override {
-		stateMachine.update(this);
 		if (releasedKeyLastFrame)
 		{
 			StopMovementCommand(*this, "stopMovement").execute(this->dispatcher);
 		}
+		stateMachine.update(this);
 	};
 	StateMachine<Player>& getStateMachine() { return this->stateMachine; }
 	ICharacter* clone(int id) override;
