@@ -29,6 +29,7 @@ private:
 	void onCreditsBtnClick();
 	void onLoadBtnClick();
 	void onChapterOneClick();
+	void onShopBtnClick();
 };
 
 inline Overworld::~Overworld()

@@ -30,6 +30,8 @@
     <ClCompile Include="Game\PopUps\PausePopUp.cpp" />
     <ClCompile Include="Game\Scenes\Story\ChapterOneScene.cpp" />
     <ClCompile Include="Game\Scenes\Story\ChapterScene\ChapterScene.cpp" />
+    <ClCompile Include="Game\PopUps\Pause\PausePopUp.cpp" />
+    <ClCompile Include="Game\PopUps\Inventory\InventoryPopup.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
@@ -85,6 +87,9 @@
     <ClInclude Include="Game\States\IState.h" />
     <ClInclude Include="Game\States\StateMachine.h" />
     <ClInclude Include="Game\States\Player\DamageCooldownState.h" />
+    <ClInclude Include="Game\PopUps\Pause\PausePopUp.h" />
+    <ClInclude Include="Game\PopUps\Popups.h" />
+    <ClInclude Include="Game\PopUps\Inventory\InventoryPopup.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\Levels\Story\ChapterOne.txt" />

@@ -122,7 +122,7 @@ void VideoFacade::renderCopy(Drawable& object)
 		loadImage(sprite);
 	}
 	if (textureMap[sprite.getTextureID()] == NULL)  {
-		throw exception(ERRORCODES[ERROR_CODE_SVIFACADE_RENDERCOPY_SPRITE_ID_IS_NULL]);
+		throw exception("ERROR_CODE_SVIFACADE_RENDERCOPY_SPRITE_ID_IS_NULL");
 	}
 	//generate image 
 	Uint32 ticks = SDL_GetTicks();
@@ -184,7 +184,7 @@ void VideoFacade::drawParticle(const ParticleAdapter& part)
 		loadImage(sprite);
 	}
 	if (textureMap[sprite.getTextureID()] == NULL)
-		throw exception(ERRORCODES[ERROR_CODE_SVIFACADE_RENDERCOPY_SPRITE_ID_IS_NULL]);
+		throw exception("ERROR_CODE_SVIFACADE_RENDERCOPY_SPRITE_ID_IS_NULL_DRAW_PARTICLE");
 
 
 	vector<ParticleData> particleData = part.getParticleDataVector();

@@ -181,6 +181,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Levels\LoadLevelFacade.h" />
     <ClInclude Include="Game\Buttons\PrimaryButton.h" />
     <ClInclude Include="Game\Buttons\SecondaryButton.h" />
+    <ClInclude Include="Game\PopUps\Popups.h" />
     <ClInclude Include="Game\SaveGame\Savegame.h" />
     <ClInclude Include="Game\Scenes\Credits\CreditsScene.h" />
     <ClInclude Include="Game\Scenes\Factory\Creator.h" />
@@ -207,7 +208,8 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Scenes\Overworld\Overworld.h" />
     <ClInclude Include="Game\Levels\Level.h" />
     <ClInclude Include="Game\SpriteState.h" />
-    <ClInclude Include="Game\PopUps\PausePopUp.h" />
+    <ClInclude Include="Game\PopUps\Pause\PausePopUp.h" />
+    <ClInclude Include="Game\PopUps\Inventory\InventoryPopup.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Game\Levels\Builders\ILevelBuilder.h" />
     <ClInclude Include="Game\Levels\Builders\LevelBuilderDirector.h" />
@@ -217,6 +219,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Triggers\DeathTrigger.h" />
     <ClInclude Include="Game\Triggers\WinTrigger.h" />
     <ClInclude Include="Game\Scenes\Statemachine\SceneStateMachine.h" />
+    <ClInclude Include="Game\Scenes\Shop\Shop.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Characters\Enemies\IEnemy.h" />
@@ -242,12 +245,14 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClCompile Include="Game\States\Player\NormalState.cpp" />
     <ClCompile Include="Game\States\Player\PlayerGlobalState.cpp" />
     <ClCompile Include="Glitch.cpp" />
-    <ClCompile Include="Game\PopUps\PausePopUp.cpp" />
+    <ClCompile Include="Game\PopUps\Pause\PausePopUp.cpp" />
+    <ClCompile Include="Game\PopUps\Inventory\InventoryPopup.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="Game\Levels\Level.cpp" />
     <ClCompile Include="Game\Levels\Builders\LevelBuilderDirector.cpp" />
     <ClCompile Include="Game\Levels\Builders\LevelBuilder.cpp" />
     <ClCompile Include="Game\Scenes\Statemachine\SceneStateMachine.cpp" />
+    <ClCompile Include="Game\Scenes\Shop\Shop.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\engineFoxtrot\engineFoxtrot.vcxproj">

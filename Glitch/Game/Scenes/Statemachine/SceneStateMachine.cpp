@@ -29,6 +29,9 @@ SceneStateMachine::SceneStateMachine(Engine& _engine, shared_ptr<Savegame> _save
 
 	CreatorImpl <ChapterOneScene>* chap = new CreatorImpl <ChapterOneScene>();
 	chap->registerClass("ChapterOne", factory);
+	
+	CreatorImpl <Shop>* shop = new CreatorImpl <Shop>();
+	shop->registerClass("Shop", factory);
 }
 
 SceneStateMachine::~SceneStateMachine()
