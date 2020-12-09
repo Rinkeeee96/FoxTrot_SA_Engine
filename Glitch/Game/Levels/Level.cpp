@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Level.h"
 #include "Game/Game.h"
-#include "Game/PopUps/PausePopUp.h"
+#include "Game/PopUps/Pause/PausePopUp.h"
 
 Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, Engine& engine, SceneStateMachine& _stateMachine) 
 				: GameScene::GameScene(id, _sceneHeight, _sceneWidth, engine, _stateMachine)
