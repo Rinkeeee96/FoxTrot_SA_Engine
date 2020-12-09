@@ -25,6 +25,7 @@ private:
 	shared_ptr<Savegame> savegame;
 	shared_ptr<SceneFactory>  factory = nullptr;
 
+	unique_ptr<Scene> loadLevel(const string& identifier);
 	Engine& engine;
 
 	unique_ptr<Scene> currentScene;

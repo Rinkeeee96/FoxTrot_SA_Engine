@@ -13,7 +13,7 @@ bool ChapterScene::onKeyPressed(const Event& event)
 {
 	auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
 
-	switch (keyPressedEvent.GetKeyCode())
+	switch (keyPressedEvent.getKeyCode())
 	{
 	case KeyCode::KEY_LEFT:
 		this->speed_ -= 1;

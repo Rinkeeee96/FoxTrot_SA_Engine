@@ -118,10 +118,11 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;BUILD_WINDOWS;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)engineFoxtrot;$(SolutionDir)engineFoxtrot\Engine;$(SolutionDir)engineFoxtrot\Engine\SceneManager;$(SolutionDir)engineFoxtrot\Engine\Input;%(AdditionalIncludeDirectories);$(SolutionDir)Nlohmann\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)RapidJson\include;$(ProjectDir);$(SolutionDir)engineFoxtrot;$(SolutionDir)engineFoxtrot\Engine;$(SolutionDir)engineFoxtrot\Engine\SceneManager;$(SolutionDir)engineFoxtrot\Engine\Input;%(AdditionalIncludeDirectories);$(SolutionDir)Valijson\include;$(SolutionDir)Nlohmann\include</AdditionalIncludeDirectories>
       <PrecompiledHeader>Create</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalOptions>/D _SILENCE_ALL_CXX17_DEPRECATION_WARNINGS %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -195,10 +196,18 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Scenes\Transitions\Transitions.h" />
     <ClInclude Include="Game\Scenes\DeathScreen\DeathScreen.h" />
     <ClInclude Include="Game\Scenes\WinScreen\WinScreen.h" />
+    <ClInclude Include="Game\States\IGlobalState.h" />
+    <ClInclude Include="Game\States\IState.h" />
+    <ClInclude Include="Game\States\Player\GodState.h" />
+    <ClInclude Include="Game\States\Player\DamageCooldownState.h" />
+    <ClInclude Include="Game\States\Player\NormalState.h" />
+    <ClInclude Include="Game\States\Player\PlayerGlobalState.h" />
+    <ClInclude Include="Game\States\StateMachine.h" />
     <ClInclude Include="Glitch.h" />
     <ClInclude Include="Game\Scenes\Overworld\Overworld.h" />
     <ClInclude Include="Game\Levels\Level.h" />
     <ClInclude Include="Game\SpriteState.h" />
+    <ClInclude Include="Game\PopUps\PausePopUp.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Game\Levels\Builders\ILevelBuilder.h" />
     <ClInclude Include="Game\Levels\Builders\LevelBuilderDirector.h" />
@@ -228,7 +237,12 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClCompile Include="Game\Scenes\Transitions\GeneralTransition\GeneralTransition.cpp" />
     <ClCompile Include="Game\Scenes\DeathScreen\DeathScreen.cpp" />
     <ClCompile Include="Game\Scenes\WinScreen\WinScreen.cpp" />
+    <ClCompile Include="Game\States\Player\GodState.cpp" />
+    <ClCompile Include="Game\States\Player\DamageCooldownState.cpp" />
+    <ClCompile Include="Game\States\Player\NormalState.cpp" />
+    <ClCompile Include="Game\States\Player\PlayerGlobalState.cpp" />
     <ClCompile Include="Glitch.cpp" />
+    <ClCompile Include="Game\PopUps\PausePopUp.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="Game\Levels\Level.cpp" />
     <ClCompile Include="Game\Levels\Builders\LevelBuilderDirector.cpp" />

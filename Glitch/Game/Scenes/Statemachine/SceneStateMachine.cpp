@@ -36,6 +36,24 @@ SceneStateMachine::~SceneStateMachine()
 
 }
 
+unique_ptr<Scene> SceneStateMachine::loadLevel(const string& identifier) {
+	std::unique_ptr<Scene> newScene = nullptr;
+	LoadLevelFacade levelLoader{ engine };
+
+	levelToBuild = stoi(identifier.substr(6));
+	if (DEBUG_MAIN) cout << "Level to build: " << levelToBuild << endl;
+
+	LevelBuilder levelOneBuilder{ engine, sceneId++, *this };
+
+	string path;
+	path = "Assets/Levels/Maps/Level" + to_string(levelToBuild) + ".json";
+	levelLoader.load(path, &levelOneBuilder);
+	newScene = levelOneBuilder.getLevel();
+
+	this->currentLevelIdentifier = identifier;
+	return newScene;
+}
+
 void SceneStateMachine::switchToScene(string identifier, const bool _useTransitionScreen, bool playSound)
 {
 	bool useTransitionScreen = _useTransitionScreen;
@@ -59,19 +77,7 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	}
 	else
 	{
-		LoadLevelFacade levelLoader{ engine };
-
-		levelToBuild = stoi(identifier.substr(6));
-		cout << "Level to build: " << levelToBuild << endl;
-
-		LevelBuilder levelOneBuilder{ engine, sceneId++, *this };
-
-		string path;
-		path = "Assets/Levels/Maps/Level" + to_string(levelToBuild) + ".json";
-		levelLoader.load(path, &levelOneBuilder);
-		newScene = levelOneBuilder.getLevel();
-
-		this->currentLevelIdentifier = identifier;
+		newScene = this->loadLevel(identifier);
 	}
 
 	if (sceneId > 10) sceneId = 1;

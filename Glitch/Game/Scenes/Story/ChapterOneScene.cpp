@@ -69,14 +69,14 @@ void ChapterOneScene::loadBackground() {
 /// @brief 
 /// Load the sounds for this scene
 void ChapterOneScene::loadMusic() {
-	engine.soundEngine.onLoadBackgroundMusicEvent("WIN_SOUND", "Assets/Sound/TremLoadingloopl.wav");
+	engine.loadSound("WIN_SOUND", "Assets/Sound/TremLoadingloopl.wav");
 }
 
 /// @brief 
 /// Create the sounds for this scene
 void ChapterOneScene::start(bool playSound)
 {
-	if (playSound)engine.soundEngine.onStartBackgroundMusicEvent("WIN_SOUND");
+	if (playSound)engine.startSound("WIN_SOUND");
 	this->speed_ = 1;
 }
 
@@ -84,6 +84,6 @@ void ChapterOneScene::start(bool playSound)
 /// Remove the sounds of the soundengine
 void ChapterOneScene::onDetach()
 {
-	engine.soundEngine.onStartBackgroundMusicEvent("WIN_SOUND");
+	engine.startSound("WIN_SOUND");
 	Scene::onDetach();
 }

@@ -127,10 +127,11 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;BUILD_WINDOWS;BUILD_DLL;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\SDL2\include;$(projectDir)..\box2d-master\include;$(projectDir)Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\SDL2\include;$(projectDir)..\box2d-master\include;$(projectDir)Engine;$(SolutionDir)RapidJson\include;$(SolutionDir)Valijson\include;$(SolutionDir)Nlohmann\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName)_$(PlatformTarget).pch</PrecompiledHeaderOutputFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalOptions>/D _SILENCE_ALL_CXX17_DEPRECATION_WARNINGS %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -163,6 +164,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Engine\FileParser\JsonValidator.cpp" />
     <ClCompile Include="Engine\SceneManager\Objects\Drawable.cpp" />
     <ClCompile Include="Engine\Engine.cpp" />
     <ClCompile Include="Engine\FileParser\FileLoader.cpp" />
@@ -193,11 +195,12 @@
     <ClCompile Include="Engine\Video\VideoFacade.cpp" />
     <ClCompile Include="Engine\Sound\SoundFacade.cpp" />
     <ClCompile Include="Engine\Sound\SoundEngine.cpp" />
-    <ClCompile Include="Engine\SceneManager\Objects\PopUp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="api.h" />
     <ClInclude Include="Engine\Events\EventDispatcher.h" />
+    <ClInclude Include="Engine\FileParser\IFileValidator.h" />
+    <ClInclude Include="Engine\FileParser\JsonValidator.h" />
     <ClInclude Include="Engine\General\ISubsystem.h" />
     <ClInclude Include="Engine\SceneManager\Objects\Drawable.h" />
     <ClInclude Include="Engine\core.h" />
@@ -256,7 +259,6 @@
     <ClInclude Include="Engine\Sound\SoundEngine.h" />
     <ClInclude Include="Main\Level.h" />
     <ClInclude Include="Main\SpriteState.h" />
-    <ClInclude Include="Engine\SceneManager\Objects\PopUp.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Engine\Documentation\PointerUsage.md" />

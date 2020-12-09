@@ -12,7 +12,7 @@ public:
 	/// @brief
 	/// KeyReleasedEvent to string
 	/// @return string with key code released
-	string ToString() const override
+	string toString() const override
 	{
 		stringstream stream;
 		stream << "KeyPressedEvent: " << (int)keycode;

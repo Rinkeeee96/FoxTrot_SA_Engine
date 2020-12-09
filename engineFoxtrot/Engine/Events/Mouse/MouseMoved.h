@@ -11,17 +11,17 @@ public:
 	/// @brief
 	/// Gets the new X coords of the mouse relative to screen
 	/// @return float new X 
-	const float GetX() { return xPosition; }
+	const float getX() { return xPosition; }
 
 	/// @brief
 	/// Gets the new Y coords of the mouse relative to screen
 	/// @return float new Y 
-	const float GetY() { return yPosition; }
+	const float getY() { return yPosition; }
 
 	/// @brief
 	/// MouseButtonPressed to string
 	/// @return string with the realesed button
-	string ToString() const override
+	string toString() const override
 	{
 		stringstream stream;
 		stream << "MouseMovedEvent: " << xPosition << ", " << yPosition;
@@ -36,8 +36,8 @@ private:
 	/// @brief
 	/// Returns the eventType of a specific event
 	/// @return EventType
-	EventType GetEventType() const override { return EventType::MouseMoved; }
+	EventType getEventType() const override { return EventType::MouseMoved; }
 	/// @brief
 	/// Returns the name of the event
-	const char* GetName() const override { return "MouseMovedEvent"; }
+	const char* getName() const override { return "MouseMovedEvent"; }
 };
