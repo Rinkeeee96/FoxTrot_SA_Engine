@@ -24,6 +24,7 @@
     <ClCompile Include="Game\Scenes\DeathScreen\DeathScreen.cpp" />
     <ClCompile Include="Game\Scenes\Statemachine\SceneStateMachine.cpp" />
     <ClCompile Include="Game\Scenes\Story\ChapterOneScene.cpp" />
+    <ClCompile Include="Game\Scenes\Story\ChapterScene\ChapterScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
@@ -70,5 +71,6 @@
     <ClInclude Include="Game\Characters\Enemies\Jumpkin.h" />
     <ClInclude Include="Game\General\GeneralGameDefines.h" />
     <ClInclude Include="Game\Scenes\Story\ChapterOneScene.h" />
+    <ClInclude Include="Game\Scenes\Story\ChapterScene\ChapterScene.h" />
   </ItemGroup>
 </Project>

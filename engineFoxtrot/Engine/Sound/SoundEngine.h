@@ -4,7 +4,7 @@
 #include "Events/Event.h"
 #include "General/ISubsystem.h"
 
-#define MAX_VOLUME 128
+#define MAX_VOLUME 0
 
 /// @brief 
 /// SoundEngine is the Sound SDL2 wrapper

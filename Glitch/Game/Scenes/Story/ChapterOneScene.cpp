@@ -37,64 +37,75 @@ bool ChapterOneScene::onKeyPressed(const Event& event)
 	return false;
 }
 
+vector<string> splitToLines(string stringToSplit, int maximumLineLength)
+{
+	vector<string> ret;
+	std::string delimiter = " ";
+
+	size_t pos = 0;
+	std::string token;
+	while ((pos = stringToSplit.find(delimiter)) != std::string::npos) {
+		token = stringToSplit.substr(0, pos);
+
+		if (ret.size() == 0) {
+			ret.push_back(token + delimiter);
+		}
+		else {
+			int x = ret[ret.size() - 1].length();
+			if (ret[ret.size() - 1].length() < maximumLineLength) {
+				ret[ret.size() - 1] = ret[ret.size() - 1] + token + delimiter;
+			}
+			else {
+				ret.push_back(token + delimiter);
+			}
+		}
+		stringToSplit.erase(0, pos + delimiter.length());
+	}
+	return ret;
+}
+
+vector<Text*> splitText(string text) {
+	auto startingId = 4;
+	auto startingPos = -200;
+
+	vector<Text*> ret;
+	std::string delimiter = "\n";
+
+	size_t pos = 0;
+	std::string token;
+	while ((pos = text.find(delimiter)) != std::string::npos) {
+		token = text.substr(0, pos);
+
+		auto result = splitToLines(token, 81);
+		int i = 0;
+		for (size_t i = 0; i < result.size(); i++)
+		{
+			startingPos = startingPos + TEXT_HEIGHT;
+			ret.push_back(new Text(startingId++, new ColoredText(result[i], Color(255, 255, 255), false), (WINDOW_WIDTH / 81) * result[i].length(),
+				TEXT_HEIGHT, 0, WINDOW_HEIGHT + startingPos));
+		}
+		text.erase(0, pos + delimiter.length());
+	}
+	return ret;
+}
+
 /// @brief 
 /// Create all text for this scene
 void ChapterOneScene::loadText() {
-	auto* text4 = new Text(4, new ColoredText("Je wordt wakker in een vreemde wereld en je weet niet meer waar je je bevindt....", Color(255, 255, 255), false), WINDOW_WIDTH, TEXT_HEIGHT, 0, WINDOW_HEIGHT - 1100);
-	auto* text5 = new Text(5, new ColoredText("Je hoort een bekende stem ... ... ...", Color(255, 255, 255), false), WINDOW_WIDTH / 2, TEXT_HEIGHT, 0, WINDOW_HEIGHT);
-	auto* text6 = new Text(6, new ColoredText("...", Color(255, 255, 255), false), 50, TEXT_HEIGHT, 0, WINDOW_HEIGHT);
-	auto* text7 = new Text(7, new ColoredText("...", Color(255, 255, 255), false), 50, TEXT_HEIGHT, 0, WINDOW_HEIGHT);
-	auto* text8 = new Text(8, new ColoredText("...", Color(255, 255, 255), false), 50, TEXT_HEIGHT, 0, WINDOW_HEIGHT);
-	auto* text9 = new Text(9, new ColoredText("", Color(255, 255, 255), false), 100, TEXT_HEIGHT, 0, WINDOW_HEIGHT);
-	auto* text10 = new Text(10, new ColoredText("Ah het is Bob van der Putten!", Color(255, 255, 255), false), WINDOW_WIDTH / 2, TEXT_HEIGHT, 0, WINDOW_HEIGHT);
-	auto* text11 = new Text(11, new ColoredText("", Color(255, 255, 255), false), 50, TEXT_HEIGHT, 0, WINDOW_HEIGHT);
-	auto* text12 = new Text(12, new ColoredText("je kan Bob nog goed herinneren van de geweldige lessen die je op het Avans van ", Color(255, 255, 255), false), WINDOW_WIDTH, TEXT_HEIGHT, 0, WINDOW_HEIGHT);
-	auto* text13 = new Text(13, new ColoredText("hem hebt gehad.", Color(255, 255, 255), false), WINDOW_WIDTH / 4, TEXT_HEIGHT, 0, WINDOW_HEIGHT);
-
-	auto* text14 = new Text(14, new ColoredText("", Color(255, 255, 255), false), 50, TEXT_HEIGHT, 0, WINDOW_HEIGHT);
-	auto* text15 = new Text(15, new ColoredText("Je vraag Bob wat er is gebeurd en zegt dat je je niks kan herrineren, het laatste wat je", Color(255, 255, 255), false), WINDOW_WIDTH, TEXT_HEIGHT, 0, WINDOW_HEIGHT);
-	auto* text16 = new Text(16, new ColoredText("je kan herrineren was dat je bezig was voor je minor, een fantastische game ontwikkelen.", Color(255, 255, 255), false), WINDOW_WIDTH, TEXT_HEIGHT, 0, WINDOW_HEIGHT);
-	auto* text17 = new Text(17, new ColoredText("", Color(255, 255, 255), false), 50, TEXT_HEIGHT, 0, WINDOW_HEIGHT);
-	auto* text18 = new Text(18, new ColoredText("Bob; Helaas kan ik mij ook niks meer herrineren, ik ben al wat langer wakker dan jij", Color(255, 255, 255), false), WINDOW_WIDTH, TEXT_HEIGHT, 0, WINDOW_HEIGHT);
-	auto* text19 = new Text(19, new ColoredText("en heb vast wat kunnen voor verkennen. In deze wereld begeven zich vreemde wezens en landen.", Color(255, 255, 255), false), WINDOW_WIDTH, TEXT_HEIGHT, 0, WINDOW_HEIGHT);
-	auto* text20 = new Text(20, new ColoredText("", Color(255, 255, 255), false), 50, TEXT_HEIGHT, 0, WINDOW_HEIGHT);
-	auto* text21 = new Text(21, new ColoredText("Om eruit te komen zullen wij op avontuur moeten gaan!", Color(255, 255, 255), false), WINDOW_WIDTH /2, TEXT_HEIGHT, 0, WINDOW_HEIGHT);
-	auto* text22 = new Text(22, new ColoredText("", Color(255, 255, 255), false), 50, TEXT_HEIGHT, 0, WINDOW_HEIGHT);
-	auto* text23 = new Text(23, new ColoredText("Laten we beginnen bij het eerste gebied", Color(255, 255, 255), false), WINDOW_WIDTH / 3, TEXT_HEIGHT, 0, WINDOW_HEIGHT);
-
-	this->text.push_back(text4);
-	this->text.push_back(text5);
-	this->text.push_back(text6);
-	this->text.push_back(text7);
-	this->text.push_back(text8);
-	this->text.push_back(text9);
-	this->text.push_back(text10);
-	this->text.push_back(text11);
-	this->text.push_back(text12);
-	this->text.push_back(text13);
-	this->text.push_back(text14);
-	this->text.push_back(text15);
-	this->text.push_back(text16);
-	this->text.push_back(text17);
-	this->text.push_back(text18);
-	this->text.push_back(text19);
-	this->text.push_back(text20);
-	this->text.push_back(text21);
-	this->text.push_back(text22);
-	this->text.push_back(text23);
-
-	int YAdder = 200;
+	auto comp = splitText(" Je wordt wakker in een vreemde wereld en je weet niet meer waar je je bevindt.... \n Je hoort een bekende stem ... ... ... \n ... \n ... \n ... \n  \n Ah het is Bob van der Putten! \n  \n  Je kan Bob nog goed herinneren van de geweldige lessen die je op het Avans van hem hebt gehad. \n  \n Je vraag Bob wat er is gebeurd en zegt dat je je niks kan herrineren, het laatste wat je je kan herrineren was dat je bezig was voor je minor, een fantastische game ontwikkelen. \n   \n Bob; Helaas kan ik mij ook niks meer herrineren, ik ben al wat langer wakker en heb vast wat kunnen voor verkennen. In deze wereld begeven zich vreemde wezens en landen. \n  \n Om eruit te komen zullen wij op avontuur moeten gaan! \n Laten we beginnen bij het eerste gebied \n");
+	
+	this->text = comp;
 	for (size_t i = 0; i < this->text.size(); i++)
 	{
-		if(i!=0)this->text[i]->setPositionY(this->text[i - 1]->getPositionY() + TEXT_HEIGHT);
 		addNewObjectToLayer(2, this->text[i], false, true);
 	}
 }
+
 /// @brief 
 /// Create all buttons for this scene
 void ChapterOneScene::loadButtons() {
 	// Back button
-	auto* backBtn = new SecondaryButton(3, "Overworld", BIND_FN(onSkipClick), this->dispatcher);
+	auto* backBtn = new SecondaryButton(3, "Skip", BIND_FN(onSkipClick), this->dispatcher);
 	backBtn->setPositionX(WINDOW_WIDTH - 40 - backBtn->getWidth());
 	backBtn->setPositionY(WINDOW_HEIGHT - 10 - backBtn->getHeight());
 
@@ -113,7 +124,6 @@ void ChapterOneScene::loadBackground() {
 	bgLayer0->setHeight(1080);
 	bgLayer0->registerSprite(SpriteState::DEFAULT, bg0);
 	bgLayer0->changeToState(SpriteState::DEFAULT);
-
 
 	SpriteObject* fgB = new SpriteObject(-34, 1080, 1920, 1, 300, "Assets/Backgrounds/foreground_bottom.png");
 	auto* fgBLayer = new Drawable(1);
@@ -158,8 +168,8 @@ void ChapterOneScene::onUpdate()
 {
 	for (size_t i = 0; i < this->text.size(); i++)
 	{
-		//this->text[i]->setPositionY(this->text[i]->getPositionY() - 1);
 		this->text[i]->setPositionY(this->text[i]->getPositionY() - speed_);
+		if (text[this->text.size() - 1]->getPositionY() < 0) stateMachine.switchToScene("Overworld", false);
 	}
 }
 
@@ -175,5 +185,5 @@ void ChapterOneScene::onDetach()
 /// A callback function for overworldBTN
 /// Start transition scene to overworl
 void ChapterOneScene::onSkipClick() {
-	stateMachine.switchToScene("Overworld", true);
+	stateMachine.switchToScene("Overworld", false);
 }
