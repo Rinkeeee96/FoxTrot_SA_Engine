@@ -1,9 +1,8 @@
 #include "stdafx.h"
 #include "Engine.h"
 #include "Input/Commands/Engine/PauseCommand.h"
-
 #include "Input/Commands/Engine/ToggleFpsCommand.h"
-
+#include "Input/Commands/Engine/ShutdownCommand.h"
 /// @brief 
 Engine::Engine()
 {
@@ -20,7 +19,7 @@ Engine::~Engine()
 void Engine::constructDefaultCommands(KeypressInvoker* invoker) {
 	invoker->registerCommand(KeyCode::KEY_F1, new ToggleFpsCommand(this->videoEngine));
 	invoker->registerCommand(KeyCode::KEY_P, new PauseCommand());
-	invoker->registerCommand(KeyCode::KEY_F4, new PauseCommand());
+	invoker->registerCommand(KeyCode::KEY_F4, new ShutdownCommand(*this));
 }
 
 /// @brief 
@@ -108,12 +107,11 @@ void Engine::update()
 
 void Engine::shutdown()
 {
-	particleEngine.shutdown();
-	physicsEngine.shutdown();
-	videoEngine.shutdown();
-	inputEngine.shutdown();
-
 	this->setEngineRunning(false);
+	particleEngine.shutdown();
+	videoEngine.shutdown();
+	physicsEngine.shutdown();
+	inputEngine.shutdown();
 }
 
 void Engine::loadSound(const string& identifier, const string& path)

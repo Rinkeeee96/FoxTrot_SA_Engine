@@ -153,7 +153,10 @@ bool VideoEngine::checkObjectInScreen(const Object& obj) {
 /// @brief 
 void VideoEngine::clearVideoEngine()
 {
-	videoFacade->clean();
+	if (videoFacade)
+	{
+		videoFacade->clean();
+	}
 }
 
 void VideoEngine::start(EventDispatcher& dispatcher)

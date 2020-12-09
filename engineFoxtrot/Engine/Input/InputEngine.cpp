@@ -36,7 +36,10 @@ void InputEngine::update() {
 }
 
 void InputEngine::shutdown() {
-	delete inputFacade;
+	if (inputFacade)
+	{
+		delete inputFacade;
+	}
 };
 
 
