@@ -12,5 +12,3 @@ public:
 private:
 	void onBackButtonClick();
 };
-
-

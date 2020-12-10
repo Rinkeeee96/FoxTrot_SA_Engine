@@ -46,7 +46,8 @@ GameKeypressInvoker* CommandBuilder::readBindingsAndCreateInvoker() {
 	};
 
 	unordered_map<KeyCode, string> globalBindings = {
-		{ KeyCode::KEY_P, "pause" }
+		{ KeyCode::KEY_P, "pause" },
+		{ KeyCode::KEY_I, "inventory" }
 	};
 
 	return new GameKeypressInvoker(playerBindings, globalBindings);
@@ -71,7 +72,6 @@ void CommandBuilder::initGlobalFactory()
 {
 	generalCommandFactory = std::shared_ptr<CommandFactory>(new CommandFactory());
 }
-
 
 void CommandBuilder::buildGlobalCommands(GameKeypressInvoker* invoker)
 {

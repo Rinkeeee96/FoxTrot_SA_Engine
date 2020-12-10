@@ -1,13 +1,11 @@
 #include "stdafx.h"
 #include "Engine.h"
-#include "Input/Commands/Engine/PauseCommand.h"
 #include "Input/Commands/Engine/ToggleFpsCommand.h"
 #include "Input/Commands/Engine/ShutdownCommand.h"
 /// @brief 
 /// Create default engine commands that cannot be removed, only overriden by changing the keycode in the invoker
 void Engine::constructDefaultCommands(KeypressInvoker* invoker) {
 	invoker->registerCommand(KeyCode::KEY_F1, new ToggleFpsCommand(this->videoEngine));
-	invoker->registerCommand(KeyCode::KEY_P, new PauseCommand());
 	invoker->registerCommand(KeyCode::KEY_F4, new ShutdownCommand(*this));
 }
 
