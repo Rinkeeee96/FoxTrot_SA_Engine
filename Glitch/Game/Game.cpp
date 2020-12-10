@@ -26,7 +26,7 @@ int Game::run() {
 			this_thread::sleep_for(chrono::milliseconds(10));
 			engine.updateFps();
 		}
-		savegame->saveGameDataToJsonFile();
+		if(EXPORT_GAME_DATA) savegame->saveGameDataToJsonFile();
 	}
 	catch (int e) {
 		cout << ERRORCODES[e] << endl;
