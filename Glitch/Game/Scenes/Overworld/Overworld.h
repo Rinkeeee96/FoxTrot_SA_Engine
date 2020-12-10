@@ -23,6 +23,7 @@ private:
 	void loadMusic();
 	void loadButtons();
 	void loadSaveGame();
+	void loadAchievements();
 
 	//button functions
 	void onStartBtnClick();

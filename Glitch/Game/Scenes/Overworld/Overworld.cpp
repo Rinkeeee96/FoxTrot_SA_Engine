@@ -17,6 +17,7 @@ void Overworld::onAttach()
 	loadBackground();
 	loadMusic();
 	loadSaveGame();
+	loadAchievements();
 }
 
 /// @brief 
@@ -138,6 +139,26 @@ void Overworld::loadSaveGame()
 
 	addNewObjectToLayer(4,block1, false, true);
 	addNewObjectToLayer(4, achievements, false, true);
+}
+
+/// @brief 
+void Overworld::loadAchievements()
+{
+	int textIDCount = 0;
+
+	auto* text2 = new Text(textIDCount++, new ColoredText("Achievements", Color(0, 0, 0)), 120, 30, 8, 340);
+	addNewObjectToLayer(5, text2, false, true);
+
+	int linecount = 30;
+
+	for (auto achievement : savegame->getCurrentGameData().achievements)
+	{
+		auto* text2 = new Text(textIDCount++, new ColoredText(achievement, Color(0, 0, 0)), 120, 30, 5, 340 + linecount);
+		addNewObjectToLayer(5, text2, false, true);
+
+		linecount += 30;
+	}
+
 }
 
 /// @brief 
