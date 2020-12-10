@@ -25,12 +25,16 @@ private:
 	void addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, SpriteObject* HUD);
 	vector<Drawable*> huds;
 
+	void throwAchievement(Achievement achievement);
+
 	map<string, string> sounds;
 	Object* follow = nullptr;
 	Player* player = nullptr;
 	bool win = false;
 
 	bool inventoryOpen = false;
+	bool activeAchievementPopup = false;
+	chrono::high_resolution_clock::time_point timeAchievementPopupThrown;
 
 	float startPosPlayerX = 0;
 	float startPosPlayerY = 0;

@@ -130,6 +130,23 @@ void Level::addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, 
 	current++;
 }
 
+/// @brief 
+/// @param achievement 
+void Level::throwAchievement(Achievement achievement)
+{
+	AchievementPopup* achievementPopup = new AchievementPopup(this->dispatcher, this->stateMachine);
+	achievementPopup->setupPopUp(achievement);
+	addPopUpLayer(achievementPopup);
+
+	activeAchievementPopup = true;
+
+	SaveGameData temp = savegame->getCurrentGameData();
+	temp.achievements.push_back(achievement);
+	savegame->saveCurrentGameData(temp);
+
+	timeAchievementPopupThrown = chrono::high_resolution_clock::now();
+}
+
 /// @brief
 /// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
 void Level::start(bool playSound) {
@@ -150,6 +167,16 @@ void Level::start(bool playSound) {
 
 void Level::onUpdate() {
 	this->addHuds();
+
+	chrono::duration<double> diffFromPreviousCall = chrono::duration_cast<chrono::duration<double>>(chrono::high_resolution_clock::now() - timeAchievementPopupThrown);
+
+	if (diffFromPreviousCall.count() > 1 && activeAchievementPopup)
+	{
+		removePopUpLayer();
+		activeAchievementPopup = false;
+	}
+
+
 
 	if (this->win) {
 		player->kill();
@@ -175,6 +202,8 @@ void Level::onUpdate() {
 					object->setIsRemoved(true);
 					removeObjectFromScene(object);
 					engine.restartPhysicsWorld();
+
+					throwAchievement("First Kill");
 				}
 			}
 		}
