@@ -98,6 +98,7 @@
       <PreprocessorDefinitions>BUILD_WINDOWS</PreprocessorDefinitions>
       <UseFullPaths>true</UseFullPaths>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -150,6 +151,7 @@
       <PreprocessorDefinitions>BUILD_WINDOWS</PreprocessorDefinitions>
       <UseFullPaths>true</UseFullPaths>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -175,6 +177,9 @@
   <ItemGroup>
     <ProjectReference Include="..\engineFoxtrot\engineFoxtrot.vcxproj">
       <Project>{f1d99aff-84ec-467c-a5e9-d5ba5bb76acd}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Glitch\Glitch.vcxproj">
+      <Project>{fc8933d1-f260-4449-8b07-d18f9b6c3ebf}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
