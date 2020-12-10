@@ -38,6 +38,13 @@ public:
 	API void removeObject(int objectID) { objects.erase(objectID); }
 	API void clearObjects() { objects.clear(); }
 
+	/// @brief Optional method to override which is called when before a layer is loaded
+	/// by a scene
+	API virtual void onAttach() {}
+	/// @brief Optional method to override which is called when before a layer is unloaded
+	/// by a scene 
+	API virtual void onDetach() {}
+
 
 protected:
 

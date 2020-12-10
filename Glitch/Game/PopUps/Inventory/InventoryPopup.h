@@ -1,20 +1,13 @@
 #pragma once
-#include "Game/Scenes/Statemachine/SceneStateMachine.h"
-
-
+#include "Game/PopUps/BasePopup.h"
 
 /// @brief Inventory popup class
-class InventoryPopup : public Layer
+class InventoryPopup : public BasePopup
 {
 public:
-	InventoryPopup(EventDispatcher& _dispacther, SceneStateMachine& _stateMachine);
-	~InventoryPopup();
+	InventoryPopup(EventDispatcher& _dispatcher, SceneStateMachine& _stateMachine)
+		: BasePopup(_dispatcher, _stateMachine) {};
 
 	void setupPopUp();
-
-private:
-	EventDispatcher& dispatcher;
-	SceneStateMachine& stateMachine;
-
 };
 
