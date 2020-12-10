@@ -176,8 +176,6 @@ void Level::onUpdate() {
 		activeAchievementPopup = false;
 	}
 
-
-
 	if (this->win) {
 		player->kill();
 		SaveGameData save = savegame->getCurrentGameData();
