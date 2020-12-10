@@ -60,7 +60,9 @@ $(document).ready(function(){initNavTree('class_layer.html',''); initResizable()
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="class_layer-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Layer Class Reference</div>  </div>
@@ -98,9 +100,6 @@ API void&#160;</td><td class="memItemRight" valign="bottom"><b>setRenderPhysics<
 <tr class="memitem:a2f920e994117eb45a895d9bd6bec1e33"><td class="memItemLeft" align="right" valign="top"><a id="a2f920e994117eb45a895d9bd6bec1e33"></a>
 API bool&#160;</td><td class="memItemRight" valign="bottom"><b>getRenderPhysics</b> () const</td></tr>
 <tr class="separator:a2f920e994117eb45a895d9bd6bec1e33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf9c83d1de497eaa792da1d05cd35864"><td class="memItemLeft" align="right" valign="top"><a id="adf9c83d1de497eaa792da1d05cd35864"></a>
-API map&lt; int, <a class="el" href="class_object.html">Object</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getObjectsInLayer</b> ()</td></tr>
-<tr class="separator:adf9c83d1de497eaa792da1d05cd35864"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae96e6006b9ed746e5d4718267fcb7bdd"><td class="memItemLeft" align="right" valign="top"><a id="ae96e6006b9ed746e5d4718267fcb7bdd"></a>
 API <a class="el" href="class_object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getSpecificObjectInLayer</b> (int objectID)</td></tr>
 <tr class="separator:ae96e6006b9ed746e5d4718267fcb7bdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -117,6 +116,12 @@ API void&#160;</td><td class="memItemRight" valign="bottom"><b>removeObject</b> 
 API void&#160;</td><td class="memItemRight" valign="bottom"><b>clearObjects</b> ()</td></tr>
 <tr class="separator:a176b9625ca55c96865ce2396e530090c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a1f322d676e32f7e0ae0bc00b4dea120b"><td class="memItemLeft" align="right" valign="top"><a id="a1f322d676e32f7e0ae0bc00b4dea120b"></a>
+map&lt; int, <a class="el" href="class_object.html">Object</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>objects</b></td></tr>
+<tr class="separator:a1f322d676e32f7e0ae0bc00b4dea120b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:af6cf29dc19f963e16c516a3b2d5c30f9"><td class="memItemLeft" align="right" valign="top"><a id="af6cf29dc19f963e16c516a3b2d5c30f9"></a>
@@ -131,9 +136,15 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>alwaysVisible</b> = f
 <tr class="memitem:a4b1e44ad58e7eab5bf14fd12dce1ece5"><td class="memItemLeft" align="right" valign="top"><a id="a4b1e44ad58e7eab5bf14fd12dce1ece5"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>renderPhysics</b> = false</td></tr>
 <tr class="separator:a4b1e44ad58e7eab5bf14fd12dce1ece5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f322d676e32f7e0ae0bc00b4dea120b"><td class="memItemLeft" align="right" valign="top"><a id="a1f322d676e32f7e0ae0bc00b4dea120b"></a>
-map&lt; int, <a class="el" href="class_object.html">Object</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>objects</b></td></tr>
-<tr class="separator:a1f322d676e32f7e0ae0bc00b4dea120b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a032858ae1fe02d2d1170981c2af2d67c"><td class="memItemLeft" align="right" valign="top"><a id="a032858ae1fe02d2d1170981c2af2d67c"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>Scene</b></td></tr>
+<tr class="separator:a032858ae1fe02d2d1170981c2af2d67c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4da8568e7f555f1eae51d6f18d9ac5ba"><td class="memItemLeft" align="right" valign="top"><a id="a4da8568e7f555f1eae51d6f18d9ac5ba"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>VideoEngine</b></td></tr>
+<tr class="separator:a4da8568e7f555f1eae51d6f18d9ac5ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class for a layer in scene This contains all the objects in the layer. </p>
