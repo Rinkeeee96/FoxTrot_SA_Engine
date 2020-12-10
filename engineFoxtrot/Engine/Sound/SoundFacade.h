@@ -19,7 +19,7 @@ typedef struct _Mix_Music Mix_Music;
 
 /// @brief 
 /// SoundFacade is de Sound SDL2 facade
-class SoundFacade : public ISoundFacade
+class API SoundFacade : public ISoundFacade
 {
 public:
 	SoundFacade();
