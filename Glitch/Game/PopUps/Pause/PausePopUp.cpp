@@ -8,6 +8,7 @@
 PausePopUp::PausePopUp(EventDispatcher &_dispatcher, SceneStateMachine& _stateMachine) : 
 	dispatcher(_dispatcher), stateMachine(_stateMachine)
 {
+	setAlwaysVisible(true);
 }
 
 PausePopUp::~PausePopUp()
@@ -40,6 +41,7 @@ void PausePopUp::setupPopUp()
 	background->changeToState(SpriteState::DEFAULT);
 
 	text->setDrawStatic(true);
+
 	addObjectInLayer(backButton);
 	addObjectInLayer(text);
 	addObjectInLayer(background);

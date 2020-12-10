@@ -183,6 +183,8 @@
     <ClInclude Include="Engine\FileParser\IFileValidator.h" />
     <ClInclude Include="Engine\Input\Commands\Engine\ToggleFpsCommand.h" />
     <ClInclude Include="Engine\Input\Commands\Engine\ShutdownCommand.h" />
+    <ClInclude Include="Engine\FileParser\IFileValidator.h" />
+    <ClInclude Include="Engine\FileParser\JsonValidator.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
