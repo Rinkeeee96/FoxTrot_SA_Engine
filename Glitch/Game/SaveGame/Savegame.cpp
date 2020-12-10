@@ -13,9 +13,7 @@ bool Savegame::saveGameDataToJsonFile()
 	{
 		nlohmann::json saveGameJson;
 
-		// Get Timestamp
-		const auto p1 = std::chrono::system_clock::now();
-		saveGameJson["timestamp"] = std::chrono::duration_cast<std::chrono::seconds>(p1.time_since_epoch()).count();
+		saveGameJson["timestamp"] = saveGame.second.saveGameTimeStamp;
 
 		saveGameJson["savegamename"] = saveGame.second.saveGameName;
 		saveGameJson["savegameid"] = saveGame.first;
@@ -95,6 +93,7 @@ bool Savegame::readSaveGameDataFromJson(string& path)
 /// @param id 
 void Savegame::setCurrentGameData(const int id)
 {
+	generateTimeStamp(id);
 	currentSaveGame = id;
 }
 

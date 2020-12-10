@@ -4,6 +4,9 @@
 #include "Game/Buttons/PrimaryButton.h"
 #include "Game/Buttons/SecondaryButton.h"
 
+#define SPACING_INCREMENT 500
+
+
 class SaveScreen : public GameScene
 {
 public:
@@ -20,6 +23,7 @@ private:
 	void loadBackground();
 	void loadMusic();
 	void loadButtons();
+	void loadText();
 
 	//button functions
 	void onSave1BtnClick();
