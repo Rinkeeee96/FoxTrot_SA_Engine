@@ -32,6 +32,7 @@
     <ClCompile Include="Engine\SceneManager\Objects\SpriteObject.cpp" />
     <ClCompile Include="Engine\SceneManager\Objects\Drawable.cpp" />
     <ClCompile Include="Engine\SceneManager\Objects\Button.cpp" />
+    <ClCompile Include="Engine\FileParser\JsonValidator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Engine.cpp">
@@ -169,6 +170,8 @@
     <ClInclude Include="Engine\Events\Action\ObjectStopEvent.h" />
     <ClInclude Include="Engine\Events\EventDispatcher.h" />
     <ClInclude Include="Engine\General\ISubsystem.h" />
+    <ClInclude Include="Engine\FileParser\IFileValidator.h" />
+    <ClInclude Include="Engine\FileParser\JsonValidator.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
