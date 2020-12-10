@@ -9,6 +9,8 @@
 #define PLAYER_SPRITE_HEIGHT 37
 #define PLAYER_SPRITE_WIDTH 50
 
+/// @brief
+/// Handles player logic, stats and movement
 class Player : public ICharacter {
 public:
 	Player(EventDispatcher& _dispatcher);

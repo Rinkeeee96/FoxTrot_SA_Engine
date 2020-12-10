@@ -16,10 +16,16 @@ void Fleye::onUpdate() {
 	// Distance is calculated using the Pythagorean theorem from the middle of both objects
 	float distanceFromPlayer = sqrt(pow(xPositionDifference, 2) + pow(yPositionDifference, 2));
 
+	// Calculates if the enemy is in range of the player
 	bool playerIsInRange = distanceFromPlayer <= FLEYE_RANGE;
+
+	// Checks if the player is lower than the player
 	bool playerIsLowerThanMe = this->getPositionY() < player->getPositionY();
+
+	// Checks if the player is within the same X coords as the enemy
 	bool playerIsWithinXLevelRange = (fleyeMiddleXPosition >= player->getPositionX()) && (fleyeMiddleXPosition <= (player->getPositionX() + player->getWidth()));
 
+	// Direction is based on the x position of the player
 	Direction direction = player->getPositionX() < this->positionX ? Direction::LEFT : Direction::RIGHT;
 
 	bool positionedOnGround = this->getYAxisVelocity() == 0;

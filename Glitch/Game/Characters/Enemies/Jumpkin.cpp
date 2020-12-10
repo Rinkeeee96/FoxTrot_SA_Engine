@@ -11,8 +11,13 @@ void Jumpkin::onUpdate() {
 
 	// Jumpkin's vertical range is calculated separately from distance to ensure it doesn't follow the player when there are multiple layers of height to the level (lvl3)
 	bool playerIsInRange = distanceFromPlayer <= JUMPKIN_HORIZONTAL_RANGE;
+
+	// Checks if the Jumpkin in in range vertically
 	bool playerIsInRangeVertically = (yPositionDifference < JUMPKIN_VERTICAL_RANGE && yPositionDifference >(JUMPKIN_VERTICAL_RANGE * -1));
+	
+	// Direction is based on the x position of the player
 	Direction direction = player->getPositionX() < this->positionX ? Direction::LEFT : Direction::RIGHT;
+
 	bool positionedOnGround = this->getYAxisVelocity() == 0;
 
 	if (positionedOnGround && playerIsInRange && playerIsInRangeVertically) {

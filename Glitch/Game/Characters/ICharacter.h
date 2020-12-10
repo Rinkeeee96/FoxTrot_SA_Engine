@@ -4,7 +4,7 @@
 #include "Game/SpriteState.h"
 
 /// @brief 
-/// Character base class
+/// Character base class; guarantees several functions being implementen in extended classes
 class ICharacter : public IGameObject  {
 public:
 	ICharacter(EventDispatcher& _dispatcher) : dispatcher{ _dispatcher } {};
