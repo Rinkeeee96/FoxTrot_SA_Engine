@@ -19,35 +19,35 @@ typedef struct _Mix_Music Mix_Music;
 
 /// @brief 
 /// SoundFacade is de Sound SDL2 facade
-class API SoundFacade : public ISoundFacade
+class SoundFacade : public ISoundFacade
 {
 public:
-	SoundFacade();
-	~SoundFacade();
+	API SoundFacade();
+	API ~SoundFacade();
 
-	bool isMix_PlayingMusic();
+	API bool isMix_PlayingMusic();
 
-	void setFiles(map<string, string> files);
-	void addFile(const string& identifier, const string& file);
-	void playEffect(const string& identifier, const int volume);
-	void loadEffect(const string& identifier);
-	void unloadEffect(const string& identifier);
-	void startLoopedEffect(const string& effect, const int volume);
-	void stopLoopedEffect(const string& identifier);
-	void loadMusic(const string& identifier);
-	void playMusic(const int volume);
-	void playMusic(const string& identifier, const int volume);
-	void changeMusic(const string& identifier);
-	void fadeOutMusic(const int fadeTime);
-	void fadeInMusic(const int fadeTime);
-	void fadeInMusic(const string& identifier, const int fadeTime);
-	void rewindMusic();
-	void stopMusic();
-	void pauseMusic();
-	void resumeMusic();
-	void flush();
-	bool identifierExists(const string& identifier);
-	bool identifierIsLoaded(const string& identifier);
+	API void setFiles(map<string, string> files);
+	API void addFile(const string& identifier, const string& file);
+	API void playEffect(const string& identifier, const int volume);
+	API void loadEffect(const string& identifier);
+	API void unloadEffect(const string& identifier);
+	API void startLoopedEffect(const string& effect, const int volume);
+	API void stopLoopedEffect(const string& identifier);
+	API void loadMusic(const string& identifier);
+	API void playMusic(const int volume);
+	API void playMusic(const string& identifier, const int volume);
+	API void changeMusic(const string& identifier);
+	API void fadeOutMusic(const int fadeTime);
+	API void fadeInMusic(const int fadeTime);
+	API void fadeInMusic(const string& identifier, const int fadeTime);
+	API void rewindMusic();
+	API void stopMusic();
+	API void pauseMusic();
+	API void resumeMusic();
+	API void flush();
+	API bool identifierExists(const string& identifier);
+	API bool identifierIsLoaded(const string& identifier);
 private:
 	map<string, string> soundPaths;
 	map<string, int> loopChannels;

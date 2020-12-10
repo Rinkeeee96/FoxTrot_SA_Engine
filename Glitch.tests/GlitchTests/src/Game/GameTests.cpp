@@ -12,7 +12,7 @@ namespace Glitchtests
 
 		TEST_METHOD(TestMethod1)
 		{
-			//Game g;
+			Assert::IsTrue(true);
 		}
 	};
 }
