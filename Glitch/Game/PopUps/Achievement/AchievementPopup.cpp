@@ -18,23 +18,22 @@ AchievementPopup::~AchievementPopup()
 /// @brief Setup the Pause Pop Up.
 void AchievementPopup::setupPopUp(string& achievement)
 {
-	Drawable* background = new Drawable(-564574);
-	SpriteObject* backgroundSprite = new SpriteObject(-564577, 200, 500, 1, 1, "Assets/Sprites/PopUp/PopUpBlackBorder.png");
-	Text* text = new Text(-564573, new ColoredText(achievement, Color(0, 0, 0), false),
-		200, 50, WINDOW_WIDTH_CENTER - 100, WINDOW_HEIGHT_CENTER - 175);
+	SpriteObject* backgroundSprite = new SpriteObject(-12001, 200, 500, 1, 1, "Assets/Sprites/PopUp/PopUpGreenBorder.png");
 
-	background->setHeight(300);
+	Text* text = new Text(-12003, new ColoredText(achievement, Color(0, 0, 0), false),200, 50, WINDOW_WIDTH_CENTER - 220,200);
+	text->setDrawStatic(true);
+
+	Drawable* background = new Drawable(-12000);
+	background->setHeight(150);
 	background->setWidth(500);
 	background->setDrawStatic(true);
-
 	background->setPositionX(WINDOW_WIDTH_CENTER - 250);
-	background->setPositionY(WINDOW_HEIGHT_CENTER);
-
+	background->setPositionY(200);
 	background->registerSprite(SpriteState::DEFAULT, backgroundSprite);
 	background->changeToState(SpriteState::DEFAULT);
 
-	text->setDrawStatic(true);
-
 	addObjectInLayer(text);
+
 	addObjectInLayer(background);
+
 }
