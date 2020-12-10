@@ -33,6 +33,7 @@
     <ClCompile Include="Game\States\Player\DamageCooldownState.cpp" />
     <ClCompile Include="Game\PopUps\Pause\PausePopUp.cpp" />
     <ClCompile Include="Game\PopUps\Inventory\InventoryPopup.cpp" />
+    <ClCompile Include="Game\Scenes\Shop\Shop.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
@@ -90,5 +91,6 @@
     <ClInclude Include="Game\PopUps\Pause\PausePopUp.h" />
     <ClInclude Include="Game\PopUps\Popups.h" />
     <ClInclude Include="Game\PopUps\Inventory\InventoryPopup.h" />
+    <ClInclude Include="Game\Scenes\Shop\Shop.h" />
   </ItemGroup>
 </Project>
