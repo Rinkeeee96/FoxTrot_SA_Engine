@@ -41,6 +41,7 @@ public:
 
 
 protected:
+	// TODO clear on scene detach in destructor
 	map<int, Object*> objects;
 
 private:
@@ -48,7 +49,6 @@ private:
 	bool render = false;
 	bool alwaysVisible = false;
 	bool renderPhysics = false;
-	// TODO clear on scene detach in destructor
 
 	friend class Scene;
 	friend class VideoEngine;
