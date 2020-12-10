@@ -7,17 +7,6 @@
 #define CENTER_X  (WINDOW_WIDTH / 2)
 #define CENTER_Y (WINDOW_HEIGHT / 2)
 
-std::string timeStampToHReadble(const time_t rawtime)
-{
-	struct tm* dt = new tm();
-	localtime_s(dt,&rawtime);
-
-	stringstream transTime;
-	transTime << put_time(dt, "%Y-%m-%d %H:%M");
-	string myTime = transTime.str();
-	return myTime;
-}
-
 void SaveScreen::onAttach()
 {
 	
@@ -191,7 +180,7 @@ void SaveScreen::loadText()
 			text2 = new Text(textIDCount++, new ColoredText(text, Color(0, 0, 0)), 120, 30, 520 + (i * SPACING_INCREMENT), 460);
 			addNewObjectToLayer(5, text2, false, true);
 
-			text = "Last played: " + timeStampToHReadble(savegame->getSaveGameData(i + 1).saveGameTimeStamp);
+			text = "Last played: " + savegame->getSaveGameData(i + 1).getReadableTimeStamp();
 			text2 = new Text(textIDCount++, new ColoredText(text, Color(0, 0, 0)), 200, 30, 480 + (i * SPACING_INCREMENT), 500);
 			addNewObjectToLayer(5, text2, false, true);
 

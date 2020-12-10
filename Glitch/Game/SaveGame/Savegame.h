@@ -45,6 +45,18 @@ struct SaveGameData
 		}
 		return (int)((progress / MAX_AMOUNT_OF_LEVELS) * 100);
 	}
+
+	string getReadableTimeStamp()
+	{
+		time_t rawtime = saveGameTimeStamp;
+		struct tm* dt = new tm();
+		localtime_s(dt, &rawtime);
+
+		stringstream transTime;
+		transTime << put_time(dt, "%Y-%m-%d %H:%M");
+		string myTime = transTime.str();
+		return myTime;
+	}
 };
 
 /// @brief 

@@ -117,13 +117,12 @@ void Overworld::loadButtons() {
 void Overworld::loadSaveGame()
 {
 	SpriteObject* emptyBlock = new SpriteObject(-2500, 309, 253, 1, 300, "Assets/Inventory/empty_inventory.png");
-
 	auto* block1 = new Drawable(-2501);
 	block1->setStatic(true);
-	block1->setPositionX(1200);
-	block1->setPositionY(220);
-	block1->setWidth(700);
-	block1->setHeight(200);
+	block1->setPositionX(1600);
+	block1->setPositionY(120);
+	block1->setWidth(300);
+	block1->setHeight(100);
 	block1->registerSprite(SpriteState::DEFAULT, emptyBlock);
 	block1->changeToState(SpriteState::DEFAULT);
 
@@ -136,6 +135,14 @@ void Overworld::loadSaveGame()
 	achievements->setHeight(500);
 	achievements->registerSprite(SpriteState::DEFAULT, emptyBlock);
 	achievements->changeToState(SpriteState::DEFAULT);
+
+	int textIDCount = 100;
+
+	auto* text2 = new Text(textIDCount++, new ColoredText(savegame->getCurrentGameData().saveGameName + " " + savegame->getCurrentGameData().getReadableTimeStamp(), Color(0, 0, 0)), 200, 30, 1550, 40);
+	addNewObjectToLayer(5, text2, false, true);
+
+	text2 = new Text(textIDCount++, new ColoredText("TotalScore: " + to_string(savegame->getCurrentGameData().totalScore), Color(0, 0, 0)), 200, 30, 1550, 90);
+	addNewObjectToLayer(5, text2, false, true);
 
 	addNewObjectToLayer(4,block1, false, true);
 	addNewObjectToLayer(4, achievements, false, true);
