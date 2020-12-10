@@ -5,6 +5,7 @@ var class_layer =
     [ "addObjectInLayer", "class_layer.html#a1ce4aa7be769a843d5b4148b1023e037", null ],
     [ "clearObjects", "class_layer.html#a176b9625ca55c96865ce2396e530090c", null ],
     [ "getAlwaysVisible", "class_layer.html#a4096db66a8ad0ae34714fe2de5985f06", null ],
+    [ "getObjectsInLayer", "class_layer.html#adf9c83d1de497eaa792da1d05cd35864", null ],
     [ "getRender", "class_layer.html#ad979b2d13b5b182a535a00f8eb27f2fa", null ],
     [ "getRenderPhysics", "class_layer.html#a2f920e994117eb45a895d9bd6bec1e33", null ],
     [ "getSpecificObjectInLayer", "class_layer.html#ae96e6006b9ed746e5d4718267fcb7bdd", null ],
