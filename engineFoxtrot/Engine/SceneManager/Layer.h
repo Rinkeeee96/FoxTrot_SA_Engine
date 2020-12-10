@@ -21,7 +21,8 @@ public:
 	API void setRenderPhysics(bool value) { renderPhysics = value; }
 	API bool getRenderPhysics() const { return renderPhysics; }
 
-	//API map<int, Object*> getObjectsInLayer() { return objects; }
+	//In here for the not friend classes who might need the objects in a layer
+	API map<int, Object*> getObjectsInLayer() { return objects; }
 	API Object* getSpecificObjectInLayer(int objectID) { return objects[objectID]; }
 	API void addObjectInLayer(Object* obj) { objects[obj->getObjectId()] = obj; }
 
