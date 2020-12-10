@@ -85,5 +85,5 @@ void ChapterOneScene::start(bool playSound)
 void ChapterOneScene::onDetach()
 {
 	engine.startSound("WIN_SOUND");
-	Scene::onDetach();
+	ChapterScene::onDetach();
 }
