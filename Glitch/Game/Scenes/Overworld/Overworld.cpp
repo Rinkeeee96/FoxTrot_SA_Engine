@@ -16,6 +16,7 @@ void Overworld::onAttach()
 	loadButtons();
 	loadBackground();
 	loadMusic();
+	loadSaveGame();
 }
 
 /// @brief 
@@ -109,6 +110,34 @@ void Overworld::loadButtons() {
 	addNewObjectToLayer(3, level3Btn);
 	addNewObjectToLayer(3, level3TextBtn);
 	addNewObjectToLayer(3, stopBtn);
+}
+
+/// @brief 
+void Overworld::loadSaveGame()
+{
+	SpriteObject* emptyBlock = new SpriteObject(-2500, 309, 253, 1, 300, "Assets/Inventory/empty_inventory.png");
+
+	auto* block1 = new Drawable(-2501);
+	block1->setStatic(true);
+	block1->setPositionX(1200);
+	block1->setPositionY(220);
+	block1->setWidth(700);
+	block1->setHeight(200);
+	block1->registerSprite(SpriteState::DEFAULT, emptyBlock);
+	block1->changeToState(SpriteState::DEFAULT);
+
+
+	auto* achievements = new Drawable(-2502);
+	achievements->setStatic(true);
+	achievements->setPositionX(20);
+	achievements->setPositionY(800);
+	achievements->setWidth(200);
+	achievements->setHeight(500);
+	achievements->registerSprite(SpriteState::DEFAULT, emptyBlock);
+	achievements->changeToState(SpriteState::DEFAULT);
+
+	addNewObjectToLayer(4,block1, false, true);
+	addNewObjectToLayer(4, achievements, false, true);
 }
 
 /// @brief 
