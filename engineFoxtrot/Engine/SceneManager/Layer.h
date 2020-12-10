@@ -38,9 +38,9 @@ public:
 	API void removeObject(int objectID) { objects.erase(objectID); }
 	API void clearObjects() { objects.clear(); }
 
-	map<int, Object*> objects;
 
 protected:
+	map<int, Object*> objects;
 
 private:
 	bool visible = true;
@@ -48,4 +48,7 @@ private:
 	bool alwaysVisible = false;
 	bool renderPhysics = false;
 	// TODO clear on scene detach in destructor
+
+	friend class Scene;
+	friend class VideoEngine;
 };
