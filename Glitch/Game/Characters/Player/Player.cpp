@@ -166,6 +166,8 @@ ICharacter* Player::clone(int id) {
 	return new Player(id, this->dispatcher); 
 }
 
+/// @brief
+/// Builds the spritemap for the Player
 map<SpriteState, SpriteObject*> Player::buildSpritemap(int textureId) {
 	std::map<SpriteState, SpriteObject*> spriteMap;
 

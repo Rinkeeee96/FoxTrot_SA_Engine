@@ -1,6 +1,10 @@
 #include "pch.h"
 #include "Slime.h"
 
+/// @brief
+/// Checks if the player is within range and acts accordingly
+/// The Slime will jump if it is on the ground
+/// If the player is below the Slime, it will add a downwards velocity to reach the player faster
 void Slime::onUpdate() {
 	bool positionedOnGround = this->getYAxisVelocity() == 0;
 	float slimeMiddleXPosition = this->getPositionX() + (this->getWidth() / 2);
@@ -32,6 +36,8 @@ void Slime::onUpdate() {
 	}
 }
 
+/// @brief
+/// Builds the spritemap for the Slime
 map<SpriteState, SpriteObject*> Slime::buildSpritemap(int textureId) {
 	std::map<SpriteState, SpriteObject*> spriteMap;
 

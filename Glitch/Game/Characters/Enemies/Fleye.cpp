@@ -1,6 +1,9 @@
 #include "pch.h"
 #include "Fleye.h"
 
+/// @brief
+/// Checks if the player is within range and acts accordingly
+/// If the player is below the Fleye, it will swoop down towards the player
 void Fleye::onUpdate() {
 	if (setup) {
 		startY = this->getPositionY();
@@ -47,6 +50,8 @@ void Fleye::onUpdate() {
 	}
 }
 
+/// @brief
+/// Builds the spritemap for the Fleye
 map<SpriteState, SpriteObject*> Fleye::buildSpritemap(int textureId) {
 	std::map<SpriteState, SpriteObject*> spriteMap;
 
