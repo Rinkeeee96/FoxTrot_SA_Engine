@@ -9,7 +9,7 @@ public:
 	AchievementPopup(EventDispatcher& _dispacther, SceneStateMachine& _stateMachine);
 	~AchievementPopup();
 
-	void setupPopUp(string& achievement);
+	void setupPopUp(Achievement& achievement);
 
 private:
 	EventDispatcher& dispatcher;
