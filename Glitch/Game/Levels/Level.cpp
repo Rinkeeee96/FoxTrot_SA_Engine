@@ -23,20 +23,22 @@ void Level::onAttach() {
 		if (DEBUG_MAIN)std::cout << s.first << " has value " << s.second << std::endl;
 		engine.loadSound(s.first, s.second);
 	}
+}
+
+/// @brief
+/// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
+void Level::start(bool playSound) {
+
 	// TODO kan ik de inventory layers aanmaken in de onAttach?
 	inventoryPopupZIndex = this->getHighestLayerIndex();
-	pausePopupZIndex = this->getHighestLayerIndex() + 10;	
+	pausePopupZIndex = inventoryPopupZIndex + 10;
 
 	this->addLayerOnZIndex(inventoryPopupZIndex, new InventoryPopup(this->dispatcher, this->stateMachine));
 	this->addLayerOnZIndex(pausePopupZIndex, new PausePopUp(this->dispatcher, this->stateMachine));
 
 	commandBuilder->linkCommandToToggle(gameInvoker, inventoryPopupZIndex, "inventory");
 	commandBuilder->linkCommandToToggle(gameInvoker, pausePopupZIndex, "pause");
-}
 
-/// @brief
-/// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
-void Level::start(bool playSound) {
 	player->respawn();
 	player->setCurrentHealth(3);
 	player->setTotalHealth(3);
