@@ -119,19 +119,19 @@ void WinScreen::onOverworldBtnClick() {
 /// @brief 
 /// A function for a jump/fall animation
 void WinScreen::onUpdate(float deltaTime) {
-	animationTick++;
-	if (animationTick < 100) {
-		animation->setPositionY(animation->getPositionY() - 1);
-	}
-	else if (animationTick == 100) {
+	if (animation->getPositionY() < 800) {
 		animation->changeToState(SpriteState::AIR_FALL_RIGHT);
-		animation->setPositionY(animation->getPositionY() + 1);
+		falling = true;
 	}
-	else if (animationTick > 100 && animationTick < 200) {
-		animation->setPositionY(animation->getPositionY() + 1);
+	else if (animation->getPositionY() > 1080) {
+		animation->changeToState(SpriteState::AIR_JUMP_RIGHT);
+		falling = false;
+	}
+	
+	if (falling) {
+		animation->setPositionY(animation->getPositionY() + deltaTime * 300);
 	}
 	else {
-		animation->changeToState(SpriteState::AIR_JUMP_RIGHT);
-		animationTick = 0;
+		animation->setPositionY(animation->getPositionY() - deltaTime * 300);
 	}
 }

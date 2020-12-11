@@ -22,7 +22,7 @@ private:
 	void OnMainBtnClick();
 	void onOverworldBtnClick();
 
-	int animationTick = 0;
+	bool falling = false;
 	Drawable* animation = nullptr;
 };
 
