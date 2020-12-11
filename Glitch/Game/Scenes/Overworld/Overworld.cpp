@@ -141,11 +141,13 @@ void Overworld::loadBackground() {
 }
 
 /// @brief 
+/// Load the sounds for this scene
 void Overworld::loadMusic() {
 	engine.loadSound("OVER_WORLD", "Assets/Sound/file_example_WAV_1MG.wav");
 }
 
 /// @brief 
+/// Create the sounds for this scene
 void Overworld::start(bool playSound)
 {
 	if(playSound)engine.startSound("OVER_WORLD");
@@ -157,54 +159,53 @@ void Overworld::onUpdate()
 }
 
 /// @brief 
+/// Remove the sounds of the soundengine
 void Overworld::onDetach()
 {
 	Scene::onDetach();
 }
 
 /// @brief 
+/// A callback function for level1Btn
+/// Start transition scene to Level_1
 void Overworld::onLevel1BtnClick()
 {
 	stateMachine.switchToScene("Level_1", true);
 }
 
 /// @brief 
+/// A callback function for level2Btn
+/// Start transition scene to Level_2
 void Overworld::onLevel2BtnClick()
 {
 	stateMachine.switchToScene("Level_2", true);
 }
 
 /// @brief 
+/// A callback function for level3Btn
+/// Start transition scene to Level_3
 void Overworld::onLevel3BtnClick()
 {
 	stateMachine.switchToScene("Level_3", true);
 }
 
 /// @brief 
-void Overworld::onStartBtnClick()
-{
-	cout << "Start BTN" << endl;
-}
-
-/// @brief 
+/// A callback function for stopBtn
+/// Start transition scene to MainMenu 
 void Overworld::onStopBtnClick() {
 	stateMachine.switchToScene("MainMenu",true);
 }
 
 /// @brief 
-void Overworld::onCreditsBtnClick() {
-	cout << "Start Credit" << endl;
-}
-/// @brief 
+/// A callback function for chapterOneBtn
+/// Start transition scene to ChapterOne
 void Overworld::onChapterOneClick() {
 	stateMachine.switchToScene("ChapterOne", false);
 }
 
 /// @brief 
-void Overworld::onLoadBtnClick() {
-	cout << "Start Load game BTN" << endl;
-}
-
+/// A callback function for shopBtn
+/// Start transition scene to Shop
 void Overworld::onShopBtnClick()
 {
 	stateMachine.switchToScene("Shop", false);

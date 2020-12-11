@@ -3,6 +3,7 @@
 #include "Game/Characters/ICharacter.h"
 #include "Game/Characters/Player/Player.h"
 
+/// @brief Base class for triggers.
 class BaseTrigger : public Object
 {
 public:

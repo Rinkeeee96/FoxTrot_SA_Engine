@@ -10,6 +10,8 @@ PhysicsEngine::PhysicsEngine()
 {
 }
 
+/// @brief Connects the dispatcher, set the listeners for event callbacks
+/// @param dispatcher 
 void PhysicsEngine::start(EventDispatcher& dispatcher) {
 	this->dispatcher = &dispatcher;
 	physicsFacade = new PhysicsFacade(dispatcher);
@@ -19,7 +21,8 @@ void PhysicsEngine::start(EventDispatcher& dispatcher) {
 };
 
 
-
+/// @brief	Updates the physics world via the physicsFacade.
+///			If the currentScene changes the physics facade will be cleaned.
 void PhysicsEngine::update() {
 	if (currentSceneID != (*pointerToCurrentScene)->getSceneID())
 	{
@@ -32,17 +35,20 @@ void PhysicsEngine::update() {
 	physicsFacade->update();
 };
 
+/// @brief	Is called on physicsEngine shutdown.
+///			Cleans the physicsEngine en deletes the physicsFacade.
 void PhysicsEngine::shutdown() {
 	clean();
 	delete physicsFacade;
 };
 
+/// @brief Reloads the physicsFacade objects map.
 void PhysicsEngine::reloadPhysicsObjects() {
 	physicsFacade->cleanMap();
 	registerObjectInCurrentVectorWithPhysicsEngine();
 }
 
-/// @brief 
+/// @brief Cleans the physicsFacade map
 void PhysicsEngine::clean()
 {
 	if (physicsFacade)
@@ -76,13 +82,16 @@ bool PhysicsEngine::handleAction(const Event& event) {
 	}
 }
 
+/// @brief Stops the vertical movement of an object.
+/// @param event 
+/// @return 
 bool PhysicsEngine::stopObject(const Event& event) {
 	ObjectStopEvent e = static_cast<const ObjectStopEvent&>(event);
 	physicsFacade->stopObject(e.getObjectId(), e.getStopVertical());
 	return true;
 }
 
-/// @brief Destructor
+/// @brief Destructor calls the shutdown function
 PhysicsEngine::~PhysicsEngine()
 {
 	shutdown();
