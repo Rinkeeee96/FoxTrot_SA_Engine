@@ -36,6 +36,14 @@ struct SaveGameData
 	vector<Achievement> achievements;
 	CharacterData characterData;
 
+	bool isAchievementAchieved(Achievement achievement)
+	{
+		if (std::count(achievements.begin(), achievements.end(), achievement))
+			return true;
+		else 
+			return false;
+	}
+
 	int getOverWorldProgress()
 	{
 		double progress = 0;

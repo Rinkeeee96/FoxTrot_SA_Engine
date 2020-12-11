@@ -136,6 +136,7 @@ void Level::addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, 
 /// @param achievement 
 void Level::throwAchievement(Achievement achievement)
 {
+	if (savegame->getCurrentGameData().isAchievementAchieved(achievement)) return;
 	AchievementPopup* achievementPopup = new AchievementPopup(this->dispatcher, this->stateMachine);
 	achievementPopup->setupPopUp(achievement);
 	achievementZIndex = addLayerOnHighestZIndex(achievementPopup);
