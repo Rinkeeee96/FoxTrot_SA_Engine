@@ -68,18 +68,27 @@ bool Savegame::readSaveGameDataFromJson(string& path)
 	nlohmann::json json;
 
 	try {
-		auto filestream = fileLoader.readFile(path);
-		filestream >> json;
-		filestream.close();
+		
+		bool validLevel = fileLoader.validateDocument(path, "Game/Assets/Savegame/savegamedataschema.json");
 
-		try {
-			parseJsonToMap(json);
+		if (validLevel) {
+			try {
+				auto filestream = fileLoader.readFile(path);
+				filestream >> json;
+				parseJsonToMap(json);
+				filestream.close();
+			}
+			catch (exception exc) {
+				cout << "Something went wrong parsing the file, make sure the file is correctly structured" << "\n";
+				cout << exc.what() << "\n";
+				throw exc;
+			}
 		}
-		catch (exception exc) {
-			cout << "Something went wrong parsing the file, make sure the file is correctly structured" << "\n";
-			cout << exc.what() << "\n";
-			throw exc;
+		else {
+			throw exception("Something went wrong validating file, make sure the file is correct");
 		}
+
+		
 	}
 	catch (exception exc) {
 		// File doesnt exist. 
