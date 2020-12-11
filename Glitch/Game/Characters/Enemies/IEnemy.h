@@ -2,6 +2,7 @@
 #include "pch.h"
 #include "Game/Characters/ICharacter.h"
 #include "Game\Characters\Player\Player.h"
+#include "Game/General/GeneralEnemyDefines.h"
 
 /// @brief 
 /// Enemy base class

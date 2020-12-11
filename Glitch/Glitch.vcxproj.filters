@@ -31,7 +31,6 @@
     <ClCompile Include="Game\States\Player\NormalState.cpp" />
     <ClCompile Include="Game\States\Player\PlayerGlobalState.cpp" />
     <ClCompile Include="Game\States\Player\DamageCooldownState.cpp" />
-    <ClCompile Include="Game\PopUps\PausePopUp.cpp" />
     <ClCompile Include="Game\Scenes\Story\ChapterOneScene.cpp" />
     <ClCompile Include="Game\Scenes\Story\ChapterScene\ChapterScene.cpp" />
     <ClCompile Include="Game\PopUps\Pause\PausePopUp.cpp" />
@@ -84,7 +83,6 @@
     <ClInclude Include="Game\General\GeneralGameDefines.h" />
     <ClInclude Include="Game\Scenes\Story\ChapterOneScene.h" />
     <ClInclude Include="Game\Scenes\Story\ChapterScene\ChapterScene.h" />
-    <ClInclude Include="Game\PopUps\PausePopUp.h" />
     <ClInclude Include="Game\Characters\Enemies\BaseEnemy.h" />
     <ClInclude Include="Game\States\Player\GodState.h" />
     <ClInclude Include="Game\States\Player\NormalState.h" />
@@ -97,6 +95,7 @@
     <ClInclude Include="Game\PopUps\Popups.h" />
     <ClInclude Include="Game\PopUps\Inventory\InventoryPopup.h" />
     <ClInclude Include="Game\Scenes\Shop\Shop.h" />
+    <ClInclude Include="Game\General\GeneralEnemyDefines.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\Levels\Story\ChapterOne.txt" />

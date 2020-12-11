@@ -1,14 +1,6 @@
 #pragma once
 #include "Game/Characters/Enemies/BaseEnemy.h"
 
-#define SLIME_IDLE_SPRITE_WIDTH 31
-#define SLIME_IDLE_SPRITE_HEIGHT 23
-
-#define SLIME_ACTION_SPRITE_WIDTH 33
-#define SLIME_ACTION_SPRITE_HEIGHT 24
-
-#define SLIME_JUMP_ANIMATION_TIME 2
-
 /// @brief 
 /// Slime class with correspondending AI logic
 class Slime : public BaseEnemy {
