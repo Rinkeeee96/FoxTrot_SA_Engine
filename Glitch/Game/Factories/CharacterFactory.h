@@ -15,6 +15,6 @@ private:
 public:
 	CharacterFactory(Engine& _engine, Level& _level);
 
-	void registerCharacter(string name, ICharacter* character, map<SpriteState, SpriteObject*> _spriteObjectMap);
+	void registerCharacter(string name, ICharacter* character, int* textureId);
 	ICharacter* create(string name, int id);
 };

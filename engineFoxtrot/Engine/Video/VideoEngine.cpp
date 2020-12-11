@@ -201,7 +201,7 @@ void VideoEngine::updateScreen()
 	}
 
 	for (auto layer : (*pointerToCurrentScene)->getLayers()) {
-		for (auto obj : layer.second->getObjectsInLayer()) {
+		for (auto obj : layer.second->objects) {
 			if (obj.second && ((layer.second->getAlwaysVisible() && !obj.second->getIsRemoved()) || (checkObjectInScreen(*obj.second) && !obj.second->getIsRemoved()))) {
 				if (obj.second->getIsParticle()) {
 					drawParticle((ParticleAdapter*)obj.second);

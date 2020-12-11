@@ -60,19 +60,30 @@ bool Level::onTogglePauseEvent(const Event &event)
 	// TODO inventory commands
 	/*
 	case KeyCode::KEY_P:
-		if (!paused && !inventoryOpen) {
+		if (!paused) {
 			PausePopUp* pausePopUp = new PausePopUp(this->dispatcher, this->stateMachine);
 			pausePopUp->setupPopUp();
-			addPopUpLayer(pausePopUp);
+			pausePopupZIndex = addLayerOnHighestZIndex(pausePopUp);
 			this->paused = true;
 		}
-		else if (!inventoryOpen) {
-			removePopUpLayer();
+		else
+		{
+			removeLayer(pausePopupZIndex);
 			this->paused = false;
 		}
 		break;
 	case KeyCode::KEY_I:
-		
+		if (!inventoryOpen) {
+			InventoryPopup* inventoryPopup = new InventoryPopup(this->dispatcher, this->stateMachine);
+			inventoryPopup->setupPopUp();
+			inventoryPopupZIndex = addLayerOnHighestZIndex(inventoryPopup);
+			inventoryOpen = true;
+		}
+		else
+		{
+			removeLayer(inventoryPopupZIndex);
+			inventoryOpen = false;
+		}
 		break;
 	case KeyCode::KEY_G:
 		if (this->player != nullptr && 

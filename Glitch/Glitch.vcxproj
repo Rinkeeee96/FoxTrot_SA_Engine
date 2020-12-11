@@ -186,6 +186,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Commands\CharacterCommands\MoveLeftCommand.h" />
     <ClInclude Include="Game\Commands\CharacterCommands\MoveRightCommand.h" />
     <ClInclude Include="Game\Commands\CharacterCommands\StopMovementCommand.h" />
+    <ClInclude Include="Game\Characters\Enemies\BaseEnemy.h" />
     <ClInclude Include="Game\Characters\Enemies\Fleye.h" />
     <ClInclude Include="Game\Characters\Enemies\Jumpkin.h" />
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
@@ -214,6 +215,8 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Scenes\MainMenu\MainMenu.h" />
     <ClInclude Include="Game\Scenes\SaveScreen\SaveScreen.h" />
     <ClInclude Include="Game\Scenes\Scenes.h" />
+    <ClInclude Include="Game\Scenes\Story\ChapterOneScene.h" />
+    <ClInclude Include="Game\Scenes\Story\ChapterScene\ChapterScene.h" />
     <ClInclude Include="Game\Scenes\Transitions\GeneralTransition\GeneralTransition.h" />
     <ClInclude Include="Game\Scenes\Transitions\Transitions.h" />
     <ClInclude Include="Game\Scenes\DeathScreen\DeathScreen.h" />
@@ -250,6 +253,11 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClCompile Include="Game\Commands\GameKeypressInvoker.cpp" />
     <ClCompile Include="Game\Characters\Enemies\IEnemy.h" />
     <ClCompile Include="Game\Commands\IUICommand.h" />
+    <ClCompile Include="Game\Characters\Enemies\BaseEnemy.cpp" />
+    <ClCompile Include="Game\Characters\Enemies\Fleye.cpp" />
+    <ClCompile Include="Game\Characters\Enemies\IEnemy.h" />
+    <ClCompile Include="Game\Characters\Enemies\Jumpkin.cpp" />
+    <ClCompile Include="Game\Characters\Enemies\Slime.cpp" />
     <ClCompile Include="Game\Factories\CharacterFactory.cpp" />
     <ClCompile Include="Game\Factories\TriggerFactory.cpp" />
     <ClCompile Include="Game\Game.cpp" />
@@ -262,6 +270,8 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClCompile Include="Game\SaveGame\Savegame.cpp" />
     <ClCompile Include="Game\Scenes\MainMenu\MainMenu.cpp" />
     <ClCompile Include="Game\Scenes\SaveScreen\SaveScreen.cpp" />
+    <ClCompile Include="Game\Scenes\Story\ChapterOneScene.cpp" />
+    <ClCompile Include="Game\Scenes\Story\ChapterScene\ChapterScene.cpp" />
     <ClCompile Include="Game\Scenes\Transitions\GeneralTransition\GeneralTransition.cpp" />
     <ClCompile Include="Game\Scenes\DeathScreen\DeathScreen.cpp" />
     <ClCompile Include="Game\Scenes\WinScreen\WinScreen.cpp" />
@@ -285,6 +295,9 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ProjectReference Include="..\engineFoxtrot\engineFoxtrot.vcxproj">
       <Project>{f1d99aff-84ec-467c-a5e9-d5ba5bb76acd}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Assets\Levels\Story\ChapterOne.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

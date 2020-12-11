@@ -34,6 +34,10 @@ private:
 
 	ICommandBuilder* commandBuilder;
 	GameKeypressInvoker* gameInvoker;
+	int pausePopupZIndex = 0;
+	int inventoryPopupZIndex = 0;
+
+	bool inventoryOpen = false;
 
 	float startPosPlayerX = 0;
 	float startPosPlayerY = 0;

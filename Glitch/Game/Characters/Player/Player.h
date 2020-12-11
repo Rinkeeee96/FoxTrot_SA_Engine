@@ -9,7 +9,11 @@
 #include "Game/Commands/CharacterCommands/StopMovementCommand.h"
 
 #define RESTITUTION_CORRECTION 1
+#define PLAYER_SPRITE_HEIGHT 37
+#define PLAYER_SPRITE_WIDTH 50
 
+/// @brief
+/// Handles player logic, stats and movement
 class Player : public ICharacter {
 	bool releasedKeyLastFrame;
 public:
@@ -31,6 +35,8 @@ public:
 	/// Register the keypressinvoker from the builder to capture relevant keyevents and act on them accordingly
 	void registerKeypressInvoker(GameKeypressInvoker* invoker);
 
+	map<SpriteState, SpriteObject*> buildSpritemap(int textureId) override;
+
 	void onUpdate() override {
 		if (releasedKeyLastFrame)
 		{
@@ -38,6 +44,7 @@ public:
 		}
 		stateMachine.update(this);
 	};
+	
 	StateMachine<Player>& getStateMachine() { return this->stateMachine; }
 	ICharacter* clone(int id) override;
 private:

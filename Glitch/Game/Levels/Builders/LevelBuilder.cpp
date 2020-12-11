@@ -364,42 +364,14 @@ void LevelBuilder::loadTileSets(nlohmann::json json) {
 /// Creates the characterfactory and registers sprites by the object, cant be done within Tiled
 void LevelBuilder::initFactory() {
 	auto tileTop = new SpriteObject(textureId++, 16, 16, 1, 300, "Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png");
-	auto playerDefault = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 1, 200, "Assets/Sprites/Character/adventure.png");
-	auto playerAirAttack = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 4, 300, "Assets/Sprites/Character/adventure_air_attack1.png");
-	auto playerRunRight = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 6, 200, "Assets/Sprites/Character/adventure_run_right.png");
-	auto playerSlide = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_slide.png");
-	auto playerFallLeft = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_fall_left.png");
-	auto playerFallRight = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_fall_right.png");
-	auto playerJumpLeft = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_jump_left.png");
-	auto playerRunLeft = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 6, 200, "Assets/Sprites/Character/adventure_run_left.png");
-	auto playerJumpRight = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_jump_right.png");
-	auto slimeDefault = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 1, 200, "Assets/Levels/Tiles/slime_blue.png");
-	auto fleyeDefault = new SpriteObject(textureId++, 42, 42, 1, 200, "Assets/Sprites/Enemies/Fleye.png");
-	auto jumpkinDefault = new SpriteObject(textureId++, 40, 32, 1, 200, "Assets/Sprites/Enemies/Jumpkin.png");
 
-	std::map<SpriteState, SpriteObject*> playerMap;
-	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, playerDefault));
-	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::AIR_ATTACK, playerAirAttack));
-	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::RUN_RIGHT, playerRunRight));
-	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::SLIDE, playerSlide));
-	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::AIR_FALL_LEFT, playerFallLeft));
-	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::AIR_JUMP_LEFT, playerJumpLeft));
-	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::AIR_FALL_RIGHT, playerFallRight));
-	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::AIR_JUMP_RIGHT, playerJumpRight));
-	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::RUN_LEFT, playerRunLeft));
-	characterFactory->registerCharacter("player", new Player(bLevel->getEventDispatcher()), playerMap);
+	characterFactory->registerCharacter("player", new Player(bLevel->getEventDispatcher()), &textureId);
 
-	std::map<SpriteState, SpriteObject*> slimeMap;
-	slimeMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, slimeDefault));
-	characterFactory->registerCharacter("slime", new Slime(bLevel->getEventDispatcher()), slimeMap);
+	characterFactory->registerCharacter("slime", new Slime(bLevel->getEventDispatcher()), &textureId);
 
-	std::map<SpriteState, SpriteObject*> fleyeMap;
-	fleyeMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, fleyeDefault));
-	characterFactory->registerCharacter("fleye", new Fleye(bLevel->getEventDispatcher()), fleyeMap);
+	characterFactory->registerCharacter("fleye", new Fleye(bLevel->getEventDispatcher()), &textureId);
 
-	std::map<SpriteState, SpriteObject*> jumpkinMap;
-	jumpkinMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, jumpkinDefault));
-	characterFactory->registerCharacter("jumpkin", new Jumpkin(bLevel->getEventDispatcher()), jumpkinMap);
+	characterFactory->registerCharacter("jumpkin", new Jumpkin(bLevel->getEventDispatcher()), &textureId);
 
 	std::map<std::string, std::map<SpriteState, SpriteObject*>> spriteObjectMap;
 }

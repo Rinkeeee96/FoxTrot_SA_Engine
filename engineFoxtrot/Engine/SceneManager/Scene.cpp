@@ -68,7 +68,7 @@ vector <Drawable*> Scene::getAllDrawablesInScene()
 	vector <Drawable*> returnVector;
 	for (auto layer : layers)
 	{
-		for (auto obj : layer.second->getObjectsInLayer())
+		for (auto obj : layer.second->objects)
 		{
 			Drawable* drawable = dynamic_cast<Drawable*>(obj.second);
 			if (drawable != nullptr)
@@ -86,7 +86,7 @@ vector <Object*> Scene::getAllObjectsInScene()
 	vector <Object*> returnVector;
 	for (auto layer : layers)
 	{
-		for (auto obj : layer.second->getObjectsInLayer())
+		for (auto obj : layer.second->objects)
 		{
 			if (obj.second != nullptr)
 			{
@@ -102,7 +102,7 @@ vector <Object*> Scene::getAllObjectsInSceneRenderPhysics()
 	for (auto layer : layers)
 	{
 		if (layer.second->getRenderPhysics()) {
-			for (auto obj : layer.second->getObjectsInLayer()) {
+			for (auto obj : layer.second->objects) {
 				returnVector.push_back(obj.second);
 			}
 		}
@@ -156,8 +156,8 @@ void Scene::onDetach()
 	for (auto& layerContainer : layers)
 	{
 		Layer* layer = layerContainer.second;
-		for (const auto& [id, object] : layer->getObjectsInLayer())
-			layer->removeObject(id);
+		for (auto obj : layer->objects)
+			delete obj.second;
 
 		layer->clearObjects();
 		delete layer;
@@ -207,21 +207,27 @@ int Scene::getHighestLayerIndex() {
 /// @param xPosition 
 /// @param yPosition 
 /// @param text 
-void Scene::addPopUpLayer(Layer* _layer) {
-	if (!hasActivePopUp) {
-		int zIndex = getHighestLayerIndex() + 1;
-		layers[zIndex] = _layer;
-		hasActivePopUp = true;
-	}
+int Scene::addLayerOnHighestZIndex(Layer* _layer) 
+{
+	int zIndex = getHighestLayerIndex() + 1;
+	layers[zIndex] = _layer;
+	return zIndex;
+}
+
+/// @brief 
+/// @param zIndex 
+/// @param _layer 
+void Scene::addLayerOnZIndex(const int zIndex, Layer* _layer)
+{
+	layers[zIndex] = _layer;
 }
 
 /// @brief remove layer
 /// @param _zIndex no value means top layer.
-void Scene::removePopUpLayer() {
-	if (hasActivePopUp) {
-		int zIndex = 0;
-		zIndex = getHighestLayerIndex();
+void Scene::removeLayer(const int zIndex) 
+{
+	if (layers.count(zIndex) > 0)
+	{
 		layers.erase(zIndex);
-		hasActivePopUp = false;
 	}
 }

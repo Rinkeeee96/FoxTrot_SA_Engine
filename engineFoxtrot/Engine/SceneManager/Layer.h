@@ -21,6 +21,7 @@ public:
 	API void setRenderPhysics(bool value) { renderPhysics = value; }
 	API bool getRenderPhysics() const { return renderPhysics; }
 
+	//In here for the not friend classes who might need the objects in a layer
 	API map<int, Object*> getObjectsInLayer() { return objects; }
 	API Object* getSpecificObjectInLayer(int objectID) { return objects[objectID]; }
 	API void addObjectInLayer(Object* obj) { objects[obj->getObjectId()] = obj; }
@@ -47,12 +48,15 @@ public:
 
 
 protected:
+	// TODO clear on scene detach in destructor
+	map<int, Object*> objects;
 
 private:
 	bool visible = true;
 	bool render = false;
 	bool alwaysVisible = false;
 	bool renderPhysics = false;
-	// TODO clear on scene detach in destructor
-	map<int, Object*> objects;
+
+	friend class Scene;
+	friend class VideoEngine;
 };
