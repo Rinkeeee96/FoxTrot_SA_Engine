@@ -1,8 +1,8 @@
 #include "pch.h"
 #include "CommandBuilder.h"
 
-#include "Game/Commands/Creator/GlobalCommands/CommandCreator.h"
-#include "Game/Commands/Creator/GlobalCommands/CommandFactory.h"
+#include "Game/Commands/Creator/UICommands/UICommandCreator.h"
+#include "Game/Commands/Creator/UICommands/UICommandFactory.h"
 
 #include "Game/Commands/Creator/CharacterCommands/CharacterCommandFactory.h"
 #include "Game/Commands/Creator/CharacterCommands/CharacterCommandCreator.h"
@@ -12,6 +12,7 @@
 #include "Game/Commands/CharacterCommands/CharacterCommands.h"
 
 #include "Game/Commands/GameKeypressInvoker.h"
+#include <Game\Commands\GlobalCommands\ToggleLayerCommand.h>
 
 CommandBuilder::CommandBuilder()
 {
@@ -70,10 +71,12 @@ void CommandBuilder::initCharacterFactory()
 
 void CommandBuilder::initGlobalFactory()
 {
-	generalCommandFactory = std::shared_ptr<CommandFactory>(new CommandFactory());
+	uiCommandFactory = std::shared_ptr<UICommandFactory>(new UICommandFactory());
+	auto toggleLayerCommand = new UICommandCreator<ToggleLayerCommand>("toggleLayer");
+
 }
 
-void CommandBuilder::buildGlobalCommands(GameKeypressInvoker* invoker)
+void CommandBuilder::buildToggleCommands(GameKeypressInvoker* invoker, vector<int> layerIds)
 {
 	// first = keycode, second = identifier
 	for (auto pair = invoker->getGlobalCommands().begin(); pair != invoker->getGlobalCommands().end(); ++pair)
@@ -82,7 +85,7 @@ void CommandBuilder::buildGlobalCommands(GameKeypressInvoker* invoker)
 		{
 			invoker->registerCommand(
 				pair->first,
-				generalCommandFactory->create(pair->second)
+				uiCommandFactory->create(pair->second)
 			);
 		}
 		catch (const exception& e)

@@ -165,7 +165,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Engine\Input\Commands\Engine\PauseCommand.h" />
     <ClCompile Include="Engine\Input\Commands\KeypressInvoker.cpp" />
     <ClCompile Include="Engine\FileParser\JsonValidator.cpp" />
     <ClCompile Include="Engine\SceneManager\Objects\Drawable.cpp" />
@@ -201,6 +200,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="api.h" />
+    <ClInclude Include="Engine\Events\Action\ToggleEventLayer.h" />
     <ClInclude Include="Engine\Events\Action\TogglePause.h" />
     <ClInclude Include="Engine\Events\InputMapping\CaptureInputEvent.h" />
     <ClInclude Include="Engine\Events\InputMapping\ReleaseInputEvent.h" />

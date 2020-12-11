@@ -3,7 +3,7 @@
 #include "Game/Characters/Player/Player.h"
 #include "Game/Scenes/Statemachine/SceneStateMachine.h"
 #include "Game/Commands/Builder/CommandBuilder.h"
-#include "Events/Action/TogglePause.h"
+#include "Events/Action/ToggleEventLayer.h"
 #include "Game/Game.h"
 #include "Game/PopUps/Popups.h"
 
@@ -11,13 +11,41 @@ Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, Engine
 				: GameScene::GameScene(id, _sceneHeight, _sceneWidth, engine, _stateMachine), commandBuilder{new CommandBuilder()}
 {
 	gameInvoker = dynamic_cast<GameKeypressInvoker*>(engine.getKeypressedInvoker());
-	this->dispatcher.setEventCallback<TogglePauseEvent>(BIND_EVENT_FN(Level::onTogglePauseEvent));
+	this->dispatcher.setEventCallback<ToggleLayerEvent>(BIND_EVENT_FN(Level::onToggleLayerEvent));
+}
+
+bool Level::onToggleLayerEvent(const Event& event) {
+	auto layerEvent = dynamic_cast<const ToggleLayerEvent&>(event);
+
+	layerEvent.getLayerIndex();
+
+
+
 }
 
 bool Level::onTogglePauseEvent(const Event &event)
 {
 	if (this->win || this->player->getIsDead()) return false;
 
+	switch (toggleEvent.type) {
+	case Type::Pause:
+		if (!paused && !inventoryOpen) {
+			PausePopUp* pausePopUp = new PausePopUp(this->dispatcher, this->stateMachine);
+			pausePopUp->setupPopUp();
+			addPopUpLayer(pausePopUp);
+			this->paused = true;
+		}
+		else if (!inventoryOpen) {
+			removePopUpLayer();
+			this->paused = false;
+		}
+		break;
+	case KeyCode::Invent:
+
+		break;
+	default:
+		break;
+	}
 	auto pauseEvent = static_cast<const TogglePauseEvent&>(event);
 	// TODO command pattern
 	if (pauseEvent.isPaused())
@@ -44,16 +72,7 @@ bool Level::onTogglePauseEvent(const Event &event)
 		}
 		break;
 	case KeyCode::KEY_I:
-		if (!inventoryOpen && !paused) {
-			InventoryPopup* inventoryPopup = new InventoryPopup(this->dispatcher, this->stateMachine);
-			inventoryPopup->setupPopUp();
-			addPopUpLayer(inventoryPopup);
-			inventoryOpen = true;
-		}
-		else if (!paused) {
-			removePopUpLayer();
-			inventoryOpen = false;
-		}
+		
 		break;
 	case KeyCode::KEY_G:
 		if (this->player != nullptr && 

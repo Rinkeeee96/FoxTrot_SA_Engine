@@ -27,7 +27,7 @@ void GameKeypressInvoker::updateCollection(unordered_map<KeyCode, string>& comma
 	KeypressInvoker::updateCommand(code, command);
 }
 
-void GameKeypressInvoker::updatePlayerCommand(KeyCode code, ICharacterCommand* command)
+void GameKeypressInvoker::updatePlayerCommand(KeyCode code, ICommand* command)
 {
 	updateCollection(playerCommands, code, command);
 }

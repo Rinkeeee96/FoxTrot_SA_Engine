@@ -4,7 +4,8 @@ class GameKeypressInvoker;
 class Player;
 
 class CharacterCommandFactory;
-class CommandFactory;
+class UICommandFactory;
+class UICommand;
 
 class CommandBuilder : public ICommandBuilder
 {
@@ -15,10 +16,11 @@ public:
 
 	// Inherited via ICommandBuilder
 	void buildPlayerCommands(Player& player, GameKeypressInvoker* invoker) override;
-	void buildGlobalCommands(GameKeypressInvoker* invoker) override;
+	void linkCommandToToggle(GameKeypressInvoker* invoker, int layerId, UICommand* command);
+
 private:
 	shared_ptr<CharacterCommandFactory> characterCommandFactory;
-	shared_ptr<CommandFactory> generalCommandFactory;
+	shared_ptr<UICommandFactory> uiCommandFactory;
 
 	// Inherited via ICommandBuilder
 	void initCharacterFactory();

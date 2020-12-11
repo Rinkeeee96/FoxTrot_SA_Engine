@@ -13,7 +13,7 @@ public:
 	{}
 
 	unordered_map<KeyCode, string>& getPlayerCommands();
-	void updatePlayerCommand(KeyCode code, ICharacterCommand* command);
+	void updatePlayerCommand(KeyCode code, ICommand* command);
 	void destroyPlayercommands();
 
 	unordered_map<KeyCode, string>& getGlobalCommands();

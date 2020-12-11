@@ -21,7 +21,7 @@ public:
 
 	void addHuds();
 
-	bool onTogglePauseEvent(const Event& event);
+	bool onToggleLayerEvent(const Event& event);
 	void setWin(const bool val) { this->win = val; }
 private:
 	void addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, SpriteObject* HUD);
@@ -34,7 +34,6 @@ private:
 
 	ICommandBuilder* commandBuilder;
 	GameKeypressInvoker* gameInvoker;
-	bool inventoryOpen = false;
 
 	float startPosPlayerX = 0;
 	float startPosPlayerY = 0;

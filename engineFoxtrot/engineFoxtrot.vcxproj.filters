@@ -33,8 +33,6 @@
     <ClCompile Include="Engine\SceneManager\Objects\Drawable.cpp" />
     <ClCompile Include="Engine\SceneManager\Objects\Button.cpp" />
     <ClCompile Include="Engine\Input\Commands\KeypressInvoker.cpp" />
-    <ClCompile Include="Engine\SceneManager\Objects\PopUp.cpp" />
-    <ClCompile Include="Engine\Input\Commands\Engine\PauseCommand.h" />
     <ClCompile Include="Engine\FileParser\JsonValidator.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -177,7 +175,6 @@
     <ClInclude Include="Engine\General\ISubsystem.h" />
     <ClInclude Include="Engine\Input\Commands\ICommand.h" />
     <ClInclude Include="Engine\Input\Commands\KeypressInvoker.h" />
-    <ClInclude Include="Engine\SceneManager\Objects\PopUp.h" />
     <ClInclude Include="Engine\Events\Action\TogglePause.h" />
     <ClInclude Include="Engine\FileParser\JsonValidator.h" />
     <ClInclude Include="Engine\FileParser\IFileValidator.h" />
@@ -185,6 +182,7 @@
     <ClInclude Include="Engine\Input\Commands\Engine\ShutdownCommand.h" />
     <ClInclude Include="Engine\FileParser\IFileValidator.h" />
     <ClInclude Include="Engine\FileParser\JsonValidator.h" />
+    <ClInclude Include="Engine\Events\Action\ToggleEventLayer.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

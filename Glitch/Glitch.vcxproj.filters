@@ -34,6 +34,8 @@
     <ClCompile Include="Game\PopUps\Pause\PausePopUp.cpp" />
     <ClCompile Include="Game\PopUps\Inventory\InventoryPopup.cpp" />
     <ClCompile Include="Game\Scenes\Shop\Shop.cpp" />
+    <ClCompile Include="Game\Commands\Creator\UICommands\UICommandFactory.cpp" />
+    <ClCompile Include="Game\Commands\IUICommand.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
@@ -93,7 +95,6 @@
     <ClInclude Include="Game\Commands\Creator\GlobalCommands\ICommandCreator.h" />
     <ClInclude Include="Game\Commands\GameKeypressInvoker.h" />
     <ClInclude Include="Game\Commands\ICharacterCommand.h" />
-    <ClInclude Include="Game\PopUps\PausePopUp.h" />
     <ClInclude Include="Game\States\Player\GodState.h" />
     <ClInclude Include="Game\States\Player\NormalState.h" />
     <ClInclude Include="Game\States\Player\PlayerGlobalState.h" />
@@ -107,5 +108,10 @@
     <ClInclude Include="Game\PopUps\Popups.h" />
     <ClInclude Include="Game\PopUps\Inventory\InventoryPopup.h" />
     <ClInclude Include="Game\Scenes\Shop\Shop.h" />
+    <ClInclude Include="Game\Commands\Creator\UICommands\UICommandCreator.h" />
+    <ClInclude Include="Game\Commands\Creator\UICommands\UICommandFactory.h" />
+    <ClInclude Include="Game\Commands\Creator\UICommands\IUICommandCreator.h" />
+    <ClInclude Include="Game\PopUps\BasePopup.h" />
+    <ClInclude Include="Game\Commands\GlobalCommands\ToggleLayerCommand.h" />
   </ItemGroup>
 </Project>
