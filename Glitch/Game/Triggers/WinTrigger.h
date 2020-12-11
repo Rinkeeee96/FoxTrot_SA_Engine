@@ -9,11 +9,14 @@ public:
 	WinTrigger(Level& _level, EventDispatcher& _dispatcher) : BaseTrigger(_dispatcher), level(_level) { }
 	WinTrigger(const int _id, Level& _level, EventDispatcher& _dispatcher) : BaseTrigger(_id, _dispatcher), level(_level) { }
 
-	virtual BaseTrigger* clone(const int id) override { return new WinTrigger(id, level, dispatcher); }
+	BaseTrigger* clone(const int id) override { return new WinTrigger(id, level, dispatcher); }
 
 	void onUpdate() override {}
 
-	virtual bool onCollisionBegin(const Event& event) override {
+	/// @brief Is called when a player collides with a win trigger
+	/// @param event 
+	/// @return 
+	bool onCollisionBegin(const Event& event) override {
 		auto collisionEvent = static_cast<const OnCollisionBeginEvent&>(event);
 		if (collisionEvent.getObjectOne().getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo().getObjectId() != this->getObjectId()) return false;
 
