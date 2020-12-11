@@ -54,6 +54,13 @@ const bool Scene::toggleLayer(const int zIndex, bool render)
 {
 	if (layers.find(zIndex) != layers.end())
 	{
+		if (render)
+		{
+			layers[zIndex]->onAttach();
+		} else {
+			layers[zIndex]->onDetach();
+		}
+
 		layers[zIndex]->setRender(render);
 		return render;
 	}
