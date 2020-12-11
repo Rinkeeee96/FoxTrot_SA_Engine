@@ -1,5 +1,7 @@
 #pragma once
 
+/// @brief Interface class for a player state
+/// @tparam T 
 template <typename T>
 class IState
 {
