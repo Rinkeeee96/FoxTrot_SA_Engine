@@ -219,7 +219,7 @@ void VideoEngine::updateScreen()
 /// @brief
 /// Calls the drawFps method with parameters for all calculated Fps types
 void VideoEngine::drawFps() {
-	drawFps(frameData.getFps(), WINDOW_WIDTH, FPS_Y_POSITION_OFFSET, "Fps: ");
+	drawFps(frameData.getFps(), WINDOW_WIDTH, WINDOW_HEIGHT, "Fps: ");
 }
 
 /// @brief
