@@ -20,7 +20,6 @@ public:
 	void start(bool playSound) override;
 	void onUpdate() override;
 private:
-
 	vector<Text*> text;
 
 	void loadText();
