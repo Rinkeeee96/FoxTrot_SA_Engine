@@ -152,7 +152,7 @@ void Overworld::start(bool playSound)
 }
 
 /// @brief 
-void Overworld::onUpdate()
+void Overworld::onUpdate(float deltaTime)
 {
 }
 

@@ -77,7 +77,7 @@ void ChapterOneScene::loadMusic() {
 void ChapterOneScene::start(bool playSound)
 {
 	if (playSound)engine.startSound("WIN_SOUND");
-	this->speed_ = 1;
+	this->speed_ = BASE_TEXT_SPEED;
 }
 
 /// @brief 

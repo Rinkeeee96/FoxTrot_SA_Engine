@@ -26,7 +26,7 @@ void SaveScreen::start(bool playSound)
 	if(playSound)engine.startSound("MENU_SOUND");
 }
 
-void SaveScreen::onUpdate()
+void SaveScreen::onUpdate(float deltaTime)
 {
 }
 

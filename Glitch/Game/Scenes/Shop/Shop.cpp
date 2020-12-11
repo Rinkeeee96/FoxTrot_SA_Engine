@@ -32,7 +32,7 @@ void Shop::start(bool playSound)
 }
 
 /// @brief 
-void Shop::onUpdate()
+void Shop::onUpdate(float deltaTime)
 {
 }
 

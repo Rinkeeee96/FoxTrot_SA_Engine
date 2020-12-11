@@ -118,7 +118,7 @@ void WinScreen::onOverworldBtnClick() {
 
 /// @brief 
 /// A function for a jump/fall animation
-void WinScreen::onUpdate() {
+void WinScreen::onUpdate(float deltaTime) {
 	animationTick++;
 	if (animationTick < 100) {
 		animation->setPositionY(animation->getPositionY() - 1);

@@ -12,7 +12,7 @@ public:
 	void onAttach() override;
 	void onDetach() override;
 	void start(bool playSound) override;
-	void onUpdate() override;
+	void onUpdate(float deltaTime) override;
 private:
 	void loadBackground();
 	void loadMusic();

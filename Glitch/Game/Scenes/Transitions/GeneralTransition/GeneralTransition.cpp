@@ -92,7 +92,7 @@ void GeneralTransition::loadBackground()
 /// Runs the scene.
 /// Calculates every 0.5s and random nr between 1 and 150 to increase the loading bar with. 
 /// Also sets the loading bar. 
-void GeneralTransition::onUpdate()
+void GeneralTransition::onUpdate(float deltaTime)
 {
 	chrono::duration<double> diffFromPreviousCall = chrono::duration_cast<chrono::duration<double>>(chrono::high_resolution_clock::now() - previousCallTime);
 

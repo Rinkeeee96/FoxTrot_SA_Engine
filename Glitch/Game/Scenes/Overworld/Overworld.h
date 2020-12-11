@@ -16,7 +16,7 @@ public:
 	void onLevel2BtnClick();
 	void onLevel3BtnClick();
 	void start(bool playSound) override;
-	virtual void onUpdate() override;
+	virtual void onUpdate(float deltaTime) override;
 
 private:
 	void loadBackground();

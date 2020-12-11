@@ -93,7 +93,7 @@ void MainMenu::start(bool playSound)
 	if(playSound)engine.startSound("MENU_SOUND");
 }
 
-void MainMenu::onUpdate()
+void MainMenu::onUpdate(float deltaTime)
 {
 }
 

@@ -14,7 +14,7 @@ public:
 	virtual void onAttach() override;
 	virtual void onDetach() override;
 	virtual void start(bool playSound) override;
-	virtual void onUpdate() override;
+	virtual void onUpdate(float deltaTime) override;
 
 	void setNextScene(string const identifier);
 

@@ -15,7 +15,7 @@ public:
 	void start(bool playSound) override;
 	void pause();
 	void onDetach() override;
-	void onUpdate() override;
+	void onUpdate(float deltaTime) override;
 
 	void addHuds();
 

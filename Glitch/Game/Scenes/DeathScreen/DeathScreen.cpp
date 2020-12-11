@@ -88,7 +88,7 @@ void DeathScreen::start(bool playSound)
 	if(playSound)engine.startSound("DEAD_SOUND");
 }
 
-void DeathScreen::onUpdate()
+void DeathScreen::onUpdate(float deltaTime)
 {
 }
 

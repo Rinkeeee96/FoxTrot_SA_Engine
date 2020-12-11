@@ -150,7 +150,7 @@ void Level::start(bool playSound) {
 	}
 }
 
-void Level::onUpdate() {
+void Level::onUpdate(float deltaTime) {
 	this->addHuds();
 
 	if (this->win) {
