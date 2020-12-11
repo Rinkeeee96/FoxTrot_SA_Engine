@@ -147,6 +147,14 @@ void Level::throwAchievement(Achievement achievement)
 	timeAchievementPopupThrown = chrono::high_resolution_clock::now();
 }
 
+void Level::increaseTotalGameScore(const int amount)
+{
+	SaveGameData temp = savegame->getCurrentGameData();
+	temp.levelData[stateMachine.levelToBuild - 1].score += amount;
+	temp.totalScore += amount;
+	savegame->saveCurrentGameData(temp);
+}
+
 /// @brief
 /// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
 void Level::start(bool playSound) {
@@ -178,6 +186,7 @@ void Level::onUpdate() {
 
 	if (this->win) {
 		player->kill();
+		increaseTotalGameScore(100);
 		SaveGameData save = savegame->getCurrentGameData();
 		save.levelData[stateMachine.levelToBuild -1].completed = true;
 		savegame->saveCurrentGameData(save);
@@ -200,7 +209,7 @@ void Level::onUpdate() {
 					object->setIsRemoved(true);
 					removeObjectFromScene(object);
 					engine.restartPhysicsWorld();
-
+					increaseTotalGameScore(10);
 					throwAchievement("First Kill");
 				}
 			}

@@ -26,6 +26,7 @@ private:
 	vector<Drawable*> huds;
 
 	void throwAchievement(Achievement achievement);
+	void increaseTotalGameScore(const int amount);
 
 	map<string, string> sounds;
 	Object* follow = nullptr;
