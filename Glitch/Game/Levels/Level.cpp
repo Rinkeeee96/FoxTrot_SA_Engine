@@ -147,6 +147,8 @@ void Level::throwAchievement(Achievement achievement)
 	timeAchievementPopupThrown = chrono::high_resolution_clock::now();
 }
 
+/// @brief 
+/// @param amount 
 void Level::increaseTotalGameScore(const int amount)
 {
 	SaveGameData temp = savegame->getCurrentGameData();
