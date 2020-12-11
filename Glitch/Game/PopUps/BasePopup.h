@@ -12,6 +12,12 @@ public:
 	};
 
 	virtual void setupPopUp() = 0;
+	virtual void cleanPopUp() {
+		for (auto obj : objects)
+			delete obj.second;
+
+		this->clearObjects();
+	};
 
 	void onAttach() override
 	{
@@ -28,7 +34,7 @@ public:
 		dispatcher.dispatchEvent<TogglePauseEvent>(pauseEvent);
 		setAlwaysVisible(false);
 
-		this->clearObjects();
+		this->cleanPopUp();
 	}
 protected:
 	EventDispatcher& dispatcher;

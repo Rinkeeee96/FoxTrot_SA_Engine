@@ -8,6 +8,7 @@ public:
 	InventoryPopup(EventDispatcher& _dispatcher, SceneStateMachine& _stateMachine)
 		: BasePopup(_dispatcher, _stateMachine) {};
 
-	void setupPopUp();
+	// Inherited via BasePopup
+	void setupPopUp() override;
 };
 

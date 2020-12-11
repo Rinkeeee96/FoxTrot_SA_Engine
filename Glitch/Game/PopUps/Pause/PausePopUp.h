@@ -8,7 +8,7 @@ public:
 	PausePopUp(EventDispatcher& _dispacther, SceneStateMachine& _stateMachine)
 		: BasePopup(_dispacther, _stateMachine) {
 	};
-
+	// Inherited via BasePopup
 	void setupPopUp() override;
 private:
 	void onBackButtonClick();
