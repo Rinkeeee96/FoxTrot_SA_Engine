@@ -27,7 +27,7 @@ int Game::run() {
 
 			engine.updateFps();
 		}
-		savegame->saveGameDataToJsonFile();
+		if(EXPORT_GAME_DATA) savegame->saveGameDataToJsonFile();
 	}
 	catch (int e) {
 		cout << ERRORCODES[e] << endl;
