@@ -16,10 +16,6 @@ int Game::run() {
 	try {
 		engine.start();
 		engine.useCustomCommandInvoker(commandBuilder->readBindingsAndCreateInvoker());
-
-		if (GameKeypressInvoker* e = dynamic_cast<GameKeypressInvoker*>(engine.getKeypressedInvoker())) {
-			commandBuilder->buildGlobalCommands(e);
-		}
 		stateMachine->switchToScene("MainMenu", false);
 		string path = "Assets/SaveGame/saveGameData.json";
 		savegame->readSaveGameDataFromJson(path);
