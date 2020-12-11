@@ -28,6 +28,10 @@ private:
 	void throwAchievement(Achievement achievement);
 	void increaseTotalGameScore(const int amount);
 
+	Text* scoreText;
+	void loadScoreBoard();
+	void updateScoreBoard();
+
 	map<string, string> sounds;
 	Object* follow = nullptr;
 	Player* player = nullptr;

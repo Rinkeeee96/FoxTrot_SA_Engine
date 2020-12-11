@@ -75,6 +75,11 @@ public:
 		delete color;
 	}
 
+	API void changeText(string& text) 
+	{
+		this->color->text = text;
+	};
+
 	API virtual const ColoredText* toString() { return color; }
 };
 
