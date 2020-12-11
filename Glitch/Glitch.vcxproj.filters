@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+﻿﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Game\Characters\Enemies\IEnemy.h" />
@@ -113,5 +113,9 @@
     <ClInclude Include="Game\Commands\Creator\UICommands\IUICommandCreator.h" />
     <ClInclude Include="Game\PopUps\BasePopup.h" />
     <ClInclude Include="Game\Commands\GlobalCommands\ToggleLayerCommand.h" />
+    <ClInclude Include="Game\Scenes\Shop\Shop.h" />
+  </ItemGroup>
+    <ItemGroup>
+    <Text Include="Assets\Levels\Story\ChapterOne.txt" />
   </ItemGroup>
 </Project>

@@ -251,7 +251,6 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClCompile Include="Game\Commands\Creator\CharacterCommands\CharacterCommandFactory.cpp" />
     <ClCompile Include="Game\Commands\Creator\UICommands\UICommandFactory.cpp" />
     <ClCompile Include="Game\Commands\GameKeypressInvoker.cpp" />
-    <ClCompile Include="Game\Characters\Enemies\IEnemy.h" />
     <ClCompile Include="Game\Commands\IUICommand.h" />
     <ClCompile Include="Game\Characters\Enemies\BaseEnemy.cpp" />
     <ClCompile Include="Game\Characters\Enemies\Fleye.cpp" />
