@@ -5,6 +5,7 @@
 #include "SceneManager/Scene.h"
 #include "General/ISubsystem.h"
 
+/// @brief Physics Engine connected to the physics facade.
 class API PhysicsEngine : public ISubsystem
 {
 public:
