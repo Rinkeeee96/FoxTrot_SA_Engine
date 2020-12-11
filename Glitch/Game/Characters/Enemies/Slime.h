@@ -7,8 +7,7 @@
 #define SLIME_ACTION_SPRITE_WIDTH 33
 #define SLIME_ACTION_SPRITE_HEIGHT 24
 
-//TODO Use deltaTime
-#define SLIME_JUMP_ANIMATION_TIME 3125
+#define SLIME_JUMP_ANIMATION_TIME 2
 
 /// @brief 
 /// Slime class with correspondending AI logic
@@ -24,6 +23,6 @@ public:
 	ICharacter* clone(int id) override { return new Slime(id, this->dispatcher); }
 
 private:
-	int jumpTimer = 0;
+	float jumpTimer = 0;
 	bool jumping = false;
 };

@@ -22,7 +22,7 @@ int Game::run() {
 			// TODO get only the non static objects, without looping thru them again and again
 			stateMachine->updateCurrentScene();
 
-			this_thread::sleep_for(chrono::milliseconds(10));
+			//this_thread::sleep_for(chrono::milliseconds(10));
 			engine.updateFps();
 		}
 		savegame->saveGameDataToJsonFile();

@@ -15,8 +15,6 @@ void Jumpkin::onUpdate(float deltaTime) {
 	Direction direction = player->getPositionX() < this->positionX ? Direction::LEFT : Direction::RIGHT;
 	bool positionedOnGround = this->getYAxisVelocity() == 0;
 
-	int animationTimer = JUMPKIN_JUMP_ANIMATION_TIME * deltaTime;
-
 	if (positionedOnGround && playerIsInRange && playerIsInRangeVertically) {
 		if (!jumping) {
 			dispatcher.dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->getObjectId(), false));
@@ -25,11 +23,11 @@ void Jumpkin::onUpdate(float deltaTime) {
 	}
 
 	if (jumping) {
-		jumpTimer++;
-		if (jumpTimer >= (animationTimer / 2) && jumpTimer <= animationTimer) {
+		jumpTimer += deltaTime;
+		if (jumpTimer >= (JUMPKIN_JUMP_ANIMATION_TIME / 2) && jumpTimer <= JUMPKIN_JUMP_ANIMATION_TIME) {
 			changeToState(direction == Direction::LEFT ? SpriteState::ACTION_LEFT_1 : SpriteState::ACTION_RIGHT_1);
 		}
-		if (jumpTimer >= animationTimer) {
+		if (jumpTimer >= JUMPKIN_JUMP_ANIMATION_TIME) {
 			changeToState(direction == Direction::LEFT ? SpriteState::ACTION_LEFT_3 : SpriteState::ACTION_RIGHT_3);
 			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
 			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(direction, this->getObjectId()));

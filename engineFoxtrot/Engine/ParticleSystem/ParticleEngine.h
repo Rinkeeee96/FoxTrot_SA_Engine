@@ -10,7 +10,7 @@
 class API ParticleEngine: public ISubsystem
 {
 public:
-	ParticleEngine(float* deltaTime);
+	ParticleEngine(float& deltaTime);
 	~ParticleEngine();
 
 	void start(EventDispatcher& dispatcher) override;
@@ -21,7 +21,7 @@ public:
 
 private:
 	void checkIfObjectValueAndParticleValueMatch(ParticleAdapter& particle);
-	float* deltaTime;
+	float& deltaTime;
 };
 
 

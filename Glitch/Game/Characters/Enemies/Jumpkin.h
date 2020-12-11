@@ -8,8 +8,7 @@
 #define JUMPKIN_SPRITE_WIDTH 32
 #define JUMPKIN_SPRITE_WIDTH_SHORT 30
 
-//TODO Use deltaTime
-#define JUMPKIN_JUMP_ANIMATION_TIME 6250
+#define JUMPKIN_JUMP_ANIMATION_TIME 2
 
 /// @brief 
 /// Jumpkin class with correspondending AI logic
@@ -25,6 +24,6 @@ public:
 	ICharacter* clone(int id) override { return new Jumpkin(id, dispatcher); }
 
 private:
-	int jumpTimer = 0;
+	float jumpTimer = 0;
 	bool jumping = false;
 };
