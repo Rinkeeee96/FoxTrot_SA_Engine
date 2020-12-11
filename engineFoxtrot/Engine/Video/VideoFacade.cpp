@@ -165,17 +165,7 @@ void VideoFacade::renderCopy(Drawable& object)
 }
 
 /// @brief Function to draw Particles
-/// @param posX 
-/// @param startPosX 
-/// @param posY 
-/// @param startPosY 
-/// @param size 
-/// @param spriteID 
-/// @param colorR 
-/// @param colorG 
-/// @param colorB 
-/// @param colorA 
-/// @param rotation 
+/// @param part 
 void VideoFacade::drawParticle(const ParticleAdapter& part)
 {
 	SpriteObject& sprite = part.GetCurrentSprite();
