@@ -69,14 +69,16 @@ bool Savegame::readSaveGameDataFromJson(string& path)
 
 	try {
 		
+		auto filestream = fileLoader.readFile(path);
+
 		bool validLevel = fileLoader.validateDocument(path, "Assets/Savegame/savegamedataschema.json");
 
 		if (validLevel) {
 			try {
-				auto filestream = fileLoader.readFile(path);
+				
 				filestream >> json;
 				parseJsonToMap(json);
-				filestream.close();
+				
 			}
 			catch (exception exc) {
 				cout << "Something went wrong parsing the file, make sure the file is correctly structured" << "\n";
@@ -88,6 +90,7 @@ bool Savegame::readSaveGameDataFromJson(string& path)
 			throw exception("Something went wrong validating file, make sure the file is correct");
 		}
 
+		filestream.close();
 		
 	}
 	catch (exception exc) {
