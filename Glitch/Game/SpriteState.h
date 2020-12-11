@@ -1,4 +1,5 @@
 #pragma once
+/// @brief Enumaration for all the sprite states
 enum SpriteState {
 	DEFAULT,
 	AIR_FALL_RIGHT,
