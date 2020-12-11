@@ -121,12 +121,17 @@ $(document).ready(function(){initNavTree('_drawable_8h_source.html',''); initRes
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">delete</span> color;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    API <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="struct_colored_text.html">ColoredText</a>* toString() { <span class="keywordflow">return</span> color; }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="struct_colored_text.html">ColoredText</a>* color = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    API <span class="keywordtype">void</span> changeText(<span class="keywordtype">string</span>&amp; text) </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        this-&gt;color-&gt;text = text;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    };</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    API <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="struct_colored_text.html">ColoredText</a>* toString() { <span class="keywordflow">return</span> color; }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="struct_colored_text.html">ColoredText</a>* color = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_drawable_html_ac6f39d1322218d74357a619c56a2d826"><div class="ttname"><a href="class_drawable.html#ac6f39d1322218d74357a619c56a2d826">Drawable::registerSprite</a></div><div class="ttdeci">virtual API void registerSprite(int state, SpriteObject *spriteObject)</div><div class="ttdoc">register a new state or overwrite a existing state and dispatch an event that signals to load the spr...</div><div class="ttdef"><b>Definition:</b> Drawable.cpp:8</div></div>
