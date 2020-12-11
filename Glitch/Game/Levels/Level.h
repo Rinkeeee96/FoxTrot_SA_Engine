@@ -28,7 +28,7 @@ private:
 	void throwAchievement(Achievement achievement);
 	void increaseTotalGameScore(const int amount);
 
-	Text* scoreText;
+	Text* scoreText = nullptr;
 	void loadScoreBoard();
 	void updateScoreBoard();
 

@@ -171,7 +171,7 @@ void Overworld::loadAchievements()
 
 	for (auto achievement : savegame->getCurrentGameData().achievements)
 	{
-		auto* text2 = new Text(textIDCount++, new ColoredText(achievement, Color(0, 0, 0)), 120, 30, 5, 340 + linecount);
+		auto* text2 = new Text(textIDCount++, new ColoredText(achievement, Color(0, 0, 0)), 120, 30, 5, 340 + (float)linecount);
 		addNewObjectToLayer(5, text2, false, true);
 
 		linecount += 30;

@@ -175,27 +175,27 @@ void SaveScreen::loadText()
 			name = savegame->getSaveGameData(i + 1).saveGameName;
 
 			string text = "Progress: " + to_string(savegame->getSaveGameData(i + 1).getOverWorldProgress()) + " %";
-			auto* text2 = new Text(textIDCount++, new ColoredText(text, Color(0, 0, 0)), 120, 30, 520 + (i * SPACING_INCREMENT), 425);
+			auto* text2 = new Text(textIDCount++, new ColoredText(text, Color(0, 0, 0)), 120, 30, 520 + (float)(i * SPACING_INCREMENT), 425);
 			addNewObjectToLayer(5, text2, false, true);
 
 			text = "Achievements: " + to_string(savegame->getSaveGameData(i + 1).achievements.size());
-			text2 = new Text(textIDCount++, new ColoredText(text, Color(0, 0, 0)), 120, 30, 520 + (i * SPACING_INCREMENT), 460);
+			text2 = new Text(textIDCount++, new ColoredText(text, Color(0, 0, 0)), 120, 30, 520 + (float)(i * SPACING_INCREMENT), 460);
 			addNewObjectToLayer(5, text2, false, true);
 
 			text = "Last played: " + savegame->getSaveGameData(i + 1).getReadableTimeStamp();
-			text2 = new Text(textIDCount++, new ColoredText(text, Color(0, 0, 0)), 200, 30, 480 + (i * SPACING_INCREMENT), 500);
+			text2 = new Text(textIDCount++, new ColoredText(text, Color(0, 0, 0)), 200, 30, 480 + (float)(i * SPACING_INCREMENT), 500);
 			addNewObjectToLayer(5, text2, false, true);
 
 			text = "Totalscore: " + to_string(savegame->getSaveGameData(i + 1).totalScore);
-			text2 = new Text(textIDCount++, new ColoredText(text, Color(0, 0, 0)), 120, 30, 520 + (i * SPACING_INCREMENT), 540);
+			text2 = new Text(textIDCount++, new ColoredText(text, Color(0, 0, 0)), 120, 30, 520 + (float)(i * SPACING_INCREMENT), 540);
 			addNewObjectToLayer(5, text2, false, true);
 
 			text = "Total items: " + to_string(savegame->getSaveGameData(i + 1).characterData.inventory.items.size());
-			text2 = new Text(textIDCount++, new ColoredText(text, Color(0, 0, 0)), 120, 30, 520 + (i * SPACING_INCREMENT), 580);
+			text2 = new Text(textIDCount++, new ColoredText(text, Color(0, 0, 0)), 120, 30, 520 + (float)(i * SPACING_INCREMENT), 580);
 			addNewObjectToLayer(5, text2, false, true);
 
 		}
-		auto* text1 = new Text(textIDCount++, new ColoredText(name, Color(0, 0, 0)), 100, 60, 520 + (i* SPACING_INCREMENT), 380);
+		auto* text1 = new Text(textIDCount++, new ColoredText(name, Color(0, 0, 0)), 100, 60, 520 + (float)(i* SPACING_INCREMENT), 380);
 		addNewObjectToLayer(5, text1, false, true);
 	}
 }
