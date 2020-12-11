@@ -31,7 +31,7 @@ void Level::start(bool playSound) {
 
 	// TODO kan ik de inventory layers aanmaken in de onAttach?
 	inventoryPopupZIndex = this->getHighestLayerIndex();
-	pausePopupZIndex = inventoryPopupZIndex + 10;
+	pausePopupZIndex = inventoryPopupZIndex + 1;
 
 	this->addLayerOnZIndex(inventoryPopupZIndex, new InventoryPopup(this->dispatcher, this->stateMachine));
 	this->addLayerOnZIndex(pausePopupZIndex, new PausePopUp(this->dispatcher, this->stateMachine));
