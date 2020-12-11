@@ -47,7 +47,6 @@ void PhysicsEngine::clean()
 {
 	if (physicsFacade)
 		physicsFacade->cleanMap();
-	
 }
 
 /// @brief 
@@ -111,5 +110,3 @@ void PhysicsEngine::registerObjectInCurrentVectorWithPhysicsEngine()
 		}
 	}
 }
-
-

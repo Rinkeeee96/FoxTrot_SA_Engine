@@ -23,6 +23,10 @@
     <ClCompile Include="Game\Scenes\Factory\FactoryMethod.cpp" />
     <ClCompile Include="Game\Scenes\DeathScreen\DeathScreen.cpp" />
     <ClCompile Include="Game\Scenes\Statemachine\SceneStateMachine.cpp" />
+    <ClCompile Include="Game\Characters\Enemies\Slime.cpp" />
+    <ClCompile Include="Game\Characters\Enemies\Jumpkin.cpp" />
+    <ClCompile Include="Game\Characters\Enemies\Fleye.cpp" />
+    <ClCompile Include="Game\Characters\Enemies\BaseEnemy.cpp" />
     <ClCompile Include="Game\States\Player\GodState.cpp" />
     <ClCompile Include="Game\States\Player\NormalState.cpp" />
     <ClCompile Include="Game\States\Player\PlayerGlobalState.cpp" />
@@ -81,6 +85,7 @@
     <ClInclude Include="Game\Scenes\Story\ChapterOneScene.h" />
     <ClInclude Include="Game\Scenes\Story\ChapterScene\ChapterScene.h" />
     <ClInclude Include="Game\PopUps\PausePopUp.h" />
+    <ClInclude Include="Game\Characters\Enemies\BaseEnemy.h" />
     <ClInclude Include="Game\States\Player\GodState.h" />
     <ClInclude Include="Game\States\Player\NormalState.h" />
     <ClInclude Include="Game\States\Player\PlayerGlobalState.h" />
