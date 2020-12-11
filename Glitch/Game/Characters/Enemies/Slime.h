@@ -8,7 +8,7 @@
 #define SLIME_ACTION_SPRITE_HEIGHT 24
 
 //TODO Use deltaTime
-#define SLIME_JUMP_ANIMATION_TIME 50
+#define SLIME_JUMP_ANIMATION_TIME 3125
 
 /// @brief 
 /// Slime class with correspondending AI logic

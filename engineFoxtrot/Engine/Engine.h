@@ -53,11 +53,15 @@ public:
 
 	API void restartPhysicsWorld();
 
+	API float getDeltaTime();
+
 	//API EventDispatcher& getDispatcher() { return *eventDispatcher; }
-	float deltaTime = 0;
+	
 	SoundEngine soundEngine;
 
 private:
+	float deltaTime = 0;
+
 	EventDispatcher* eventDispatcher;
 	bool running = false;
 

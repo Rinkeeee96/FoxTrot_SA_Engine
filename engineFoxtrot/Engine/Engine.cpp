@@ -98,6 +98,11 @@ void Engine::restartPhysicsWorld()
 	physicsEngine.removeObject();
 }
 
+float Engine::getDeltaTime()
+{
+	return deltaTime;
+}
+
 void Engine::loadSound(const string& identifier, const string& path)
 {
 	this->soundEngine.addFile(identifier, path);

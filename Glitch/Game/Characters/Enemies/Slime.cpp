@@ -7,6 +7,8 @@ void Slime::onUpdate(float deltaTime) {
 	bool playerIsLowerThanMe = this->getPositionY() < player->getPositionY();
 	bool playerIsWithinXLevelRange = (slimeMiddleXPosition >= player->getPositionX()) && (slimeMiddleXPosition <= (player->getPositionX() + player->getWidth()));
 
+	int animationTimer = SLIME_JUMP_ANIMATION_TIME * deltaTime;
+
 	if (positionedOnGround && !jumping) {
 		jumping = true;
 	}
@@ -17,13 +19,13 @@ void Slime::onUpdate(float deltaTime) {
 
 	if (jumping) {
 		jumpTimer++;
-		if (jumpTimer < SLIME_JUMP_ANIMATION_TIME / 2) {
+		if (jumpTimer < (animationTimer / 2)) {
 			changeToState(SpriteState::ACTION_2);
 		}
-		else if (jumpTimer == SLIME_JUMP_ANIMATION_TIME / 2) {
+		else if (jumpTimer >= (animationTimer / 2) && jumpTimer < animationTimer) {
 			changeToState(SpriteState::ACTION_1);
 		}
-		else if (jumpTimer == SLIME_JUMP_ANIMATION_TIME) {
+		else if (jumpTimer >= animationTimer) {
 			changeToState(SpriteState::ACTION_3);
 			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
 			jumpTimer = 0;
