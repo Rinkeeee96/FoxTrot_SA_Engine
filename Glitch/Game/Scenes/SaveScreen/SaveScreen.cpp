@@ -17,6 +17,7 @@ void SaveScreen::onAttach()
 	loadButtons();
 	loadBackground();
 	loadMusic();
+	loadText();
 
 }
 
@@ -45,6 +46,7 @@ void SaveScreen::loadBackground()
 	SpriteObject* BG_LAYER_0 = new SpriteObject(-999, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_0.png");
 	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(-998, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png");
 	SpriteObject* BG_LAYER_2 = new SpriteObject(-997, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_2.png");
+	SpriteObject* emptyBlock = new SpriteObject(-996, 309, 253, 1, 300, "Assets/Inventory/text_background.png");
 
 	auto* layer0 = new Drawable(-992);
 	layer0->setStatic(true);
@@ -55,7 +57,34 @@ void SaveScreen::loadBackground()
 	layer0->registerSprite(SpriteState::DEFAULT, BG_LAYER_0);
 	layer0->changeToState(SpriteState::DEFAULT);
 
-	auto* animation = new Drawable(-991);
+	auto* block1 = new Drawable(-991);
+	block1->setStatic(true);
+	block1->setPositionX(550);
+	block1->setPositionY(825);
+	block1->setWidth(300);
+	block1->setHeight(500);
+	block1->registerSprite(SpriteState::DEFAULT, emptyBlock);
+	block1->changeToState(SpriteState::DEFAULT);
+
+	auto* block2 = new Drawable(-990);
+	block2->setStatic(true);
+	block2->setPositionX(1050);
+	block2->setPositionY(825);
+	block2->setWidth(300);
+	block2->setHeight(500);
+	block2->registerSprite(SpriteState::DEFAULT, emptyBlock);
+	block2->changeToState(SpriteState::DEFAULT);
+
+	auto* block3 = new Drawable(-989);
+	block3->setStatic(true);
+	block3->setPositionX(1550);
+	block3->setPositionY(825);
+	block3->setWidth(300);
+	block3->setHeight(500);
+	block3->registerSprite(SpriteState::DEFAULT, emptyBlock);
+	block3->changeToState(SpriteState::DEFAULT);
+
+	auto* animation = new Drawable(-988);
 	animation->setStatic(true);
 	animation->setPositionX(175);
 	animation->setPositionY(875);
@@ -65,7 +94,7 @@ void SaveScreen::loadBackground()
 	animation->changeToState(SpriteState::DEFAULT);
 	animation->setScalable(false);
 
-	auto* layer2 = new Drawable(-990);
+	auto* layer2 = new Drawable(-987);
 	layer2->setStatic(true);
 	layer2->setPositionX(0);
 	layer2->setPositionY(1080);
@@ -77,6 +106,9 @@ void SaveScreen::loadBackground()
 	addNewObjectToLayer(0, layer0, false, true);
 	addNewObjectToLayer(1, animation, false, true);
 	addNewObjectToLayer(2, layer2, false, true);
+	addNewObjectToLayer(3, block1, false, true);
+	addNewObjectToLayer(3, block2, false, true);
+	addNewObjectToLayer(3, block3, false, true);
 }
 
 /// @brief 
@@ -90,69 +122,96 @@ void SaveScreen::loadMusic()
 /// Loads all the buttons in the Overworld
 void SaveScreen::loadButtons()
 {
-	string nameBtn = "Empty";
 	string nameBtnExtra = "Create New";
 	if (!savegame->isSaveGameDataEmpty(1))
 	{
-		nameBtn = savegame->getSaveGameData(1).saveGameName + " Progress: " + to_string(savegame->getSaveGameData(1).getOverWorldProgress()) + " %";
+		auto* save1 = new PrimaryButton(-996, "Start!", BIND_FN(onSave1BtnClick), this->dispatcher);
+		save1->setPositionX(605);
+		save1->setPositionY(750);
+		addNewObjectToLayer(4, save1);
 		nameBtnExtra = "Delete";
 	}
 
-	auto* save1 = new PrimaryButton(-996, nameBtn, BIND_FN(onSave1BtnClick), this->dispatcher);
-	save1->setPositionX(CENTER_X - save1->getWidth() / 2 - 110);
-	save1->setPositionY(CENTER_Y - save1->getHeight() / 2);
-	if (savegame->isSaveGameDataEmpty(1)) save1->disable();
-
 	auto* delSave1 = new PrimaryButton(-992, nameBtnExtra, BIND_FN(onSave1ExtraBtnClick), this->dispatcher);
-	delSave1->setPositionX(CENTER_X - save1->getWidth() / 2 + 110);
-	delSave1->setPositionY(CENTER_Y - save1->getHeight() / 2);
+	delSave1->setPositionX(605);
+	delSave1->setPositionY(805);
 
-	string name1Btn = "Empty";
-	string name1BtnExtra = "Create New";
+	nameBtnExtra = "Create New";
 	if (!savegame->isSaveGameDataEmpty(2))
 	{
-		name1Btn = savegame->getSaveGameData(2).saveGameName + " Progress: " + to_string(savegame->getSaveGameData(2).getOverWorldProgress()) + " %";
-		name1BtnExtra = "Delete";
+		auto* save1 = new PrimaryButton(-995, "Start!", BIND_FN(onSave2BtnClick), this->dispatcher);
+		save1->setPositionX(605 + SPACING_INCREMENT);
+		save1->setPositionY(750);
+		addNewObjectToLayer(4, save1);
+		nameBtnExtra = "Delete";
 	}
 
-	auto* save2 = new PrimaryButton(-995, name1Btn, BIND_FN(onSave2BtnClick), this->dispatcher);
-	save2->setPositionX(CENTER_X - save2->getWidth() / 2 - 110);
-	save2->setPositionY(CENTER_Y - save2->getHeight() / 2 + 100);
-	if (savegame->isSaveGameDataEmpty(2)) save2->disable();
+	auto* delSave2 = new PrimaryButton(-991, nameBtnExtra, BIND_FN(onSave2ExtraBtnClick), this->dispatcher);
+	delSave2->setPositionX(605 + SPACING_INCREMENT);
+	delSave2->setPositionY(805);
 
-	auto* delSave2 = new PrimaryButton(-991, name1BtnExtra, BIND_FN(onSave2ExtraBtnClick), this->dispatcher);
-	delSave2->setPositionX(CENTER_X - save1->getWidth() / 2 + 110);
-	delSave2->setPositionY(CENTER_Y - save1->getHeight() / 2 + 100);
-
-	string name2Btn = "Empty";
-	string name3BtnExtra = "Create New";
+	nameBtnExtra = "Create New";
 	if (!savegame->isSaveGameDataEmpty(3))
 	{
-		name2Btn = savegame->getSaveGameData(3).saveGameName + " Progress: " + to_string(savegame->getSaveGameData(3).getOverWorldProgress()) + " %";
-		name3BtnExtra = "Delete";
+		auto* save1 = new PrimaryButton(-994, "Start!", BIND_FN(onSave3BtnClick), this->dispatcher);
+		save1->setPositionX(605 + SPACING_INCREMENT*2);
+		save1->setPositionY(750);
+		addNewObjectToLayer(4, save1);
+		nameBtnExtra = "Delete";
 	}
 
-	auto* save3 = new PrimaryButton(-994, name2Btn, BIND_FN(onSave3BtnClick), this->dispatcher);
-	save3->setPositionX(CENTER_X - save3->getWidth() / 2 - 110);
-	save3->setPositionY(CENTER_Y - save3->getHeight() / 2 + 200);
-	if (savegame->isSaveGameDataEmpty(3)) save3->disable();
-
-	auto* delSave3 = new PrimaryButton(-990, name3BtnExtra, BIND_FN(onSave3ExtraBtnClick), this->dispatcher);
-	delSave3->setPositionX(CENTER_X - save1->getWidth() / 2 + 110);
-	delSave3->setPositionY(CENTER_Y - save1->getHeight() / 2 + 200);
+	auto* delSave3 = new PrimaryButton(-990, nameBtnExtra, BIND_FN(onSave3ExtraBtnClick), this->dispatcher);
+	delSave3->setPositionX(605 + SPACING_INCREMENT*2);
+	delSave3->setPositionY(805);
 
 	auto* stopBtn = new SecondaryButton(-993, "To Main Menu", BIND_FN(onStopBtnClick), this->dispatcher);
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
-	addNewObjectToLayer(3, save1);
-	addNewObjectToLayer(3, delSave1);
-	addNewObjectToLayer(3, delSave2);
-	addNewObjectToLayer(3, delSave3);
+	
+	addNewObjectToLayer(4, delSave1);
+	addNewObjectToLayer(4, delSave2);
+	addNewObjectToLayer(4, delSave3);
 
-	addNewObjectToLayer(3, save2);
-	addNewObjectToLayer(3, save3);
-	addNewObjectToLayer(3, stopBtn);
+	addNewObjectToLayer(4, stopBtn);
+}
+
+/// @brief 
+/// Loads the text shown in the savescreen
+void SaveScreen::loadText()
+{
+	int textIDCount = 2;
+	for (int i = 0; i < 3; i++)
+	{
+		string name = "Empty";
+		if (!savegame->isSaveGameDataEmpty(i + 1))
+		{
+			name = savegame->getSaveGameData(i + 1).saveGameName;
+
+			string text = "Progress: " + to_string(savegame->getSaveGameData(i + 1).getOverWorldProgress()) + " %";
+			auto* text2 = new Text(textIDCount++, new ColoredText(text, Color(0, 0, 0)), 120, 30, 520 + (float)(i * SPACING_INCREMENT), 425);
+			addNewObjectToLayer(5, text2, false, true);
+
+			text = "Achievements: " + to_string(savegame->getSaveGameData(i + 1).achievements.size());
+			text2 = new Text(textIDCount++, new ColoredText(text, Color(0, 0, 0)), 120, 30, 520 + (float)(i * SPACING_INCREMENT), 460);
+			addNewObjectToLayer(5, text2, false, true);
+
+			text = "Last played: " + savegame->getSaveGameData(i + 1).getReadableTimeStamp();
+			text2 = new Text(textIDCount++, new ColoredText(text, Color(0, 0, 0)), 200, 30, 480 + (float)(i * SPACING_INCREMENT), 500);
+			addNewObjectToLayer(5, text2, false, true);
+
+			text = "Totalscore: " + to_string(savegame->getSaveGameData(i + 1).totalScore);
+			text2 = new Text(textIDCount++, new ColoredText(text, Color(0, 0, 0)), 120, 30, 520 + (float)(i * SPACING_INCREMENT), 540);
+			addNewObjectToLayer(5, text2, false, true);
+
+			text = "Total items: " + to_string(savegame->getSaveGameData(i + 1).characterData.inventory.items.size());
+			text2 = new Text(textIDCount++, new ColoredText(text, Color(0, 0, 0)), 120, 30, 520 + (float)(i * SPACING_INCREMENT), 580);
+			addNewObjectToLayer(5, text2, false, true);
+
+		}
+		auto* text1 = new Text(textIDCount++, new ColoredText(name, Color(0, 0, 0)), 100, 60, 520 + (float)(i* SPACING_INCREMENT), 380);
+		addNewObjectToLayer(5, text1, false, true);
+	}
 }
 
 /// @brief Called when Save 1 is clicked

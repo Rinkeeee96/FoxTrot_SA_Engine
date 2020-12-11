@@ -16,6 +16,8 @@ void Overworld::onAttach()
 	loadButtons();
 	loadBackground();
 	loadMusic();
+	loadSaveGame();
+	loadAchievements();
 }
 
 /// @brief 
@@ -65,19 +67,19 @@ void Overworld::loadButtons() {
 	level2Btn->registerHoverSprite(hoverBtnSprite);
 
 	string level2Name = "Locked";
-	if (savegame->getCurrentGameData().levelData[0].completed)
+	if (savegame->getCurrentGameData().levelData[1].completed)
 	{
 		level2Name = "Level 2, Score: " + to_string(savegame->getCurrentGameData().levelData[1].score);
 	}
 	auto* level2TextBtn = new Text(4, new ColoredText(level2Name, Color(0, 0, 0)), 120, 30, 795, 870);
 
-	if (!savegame->getCurrentGameData().levelData[0].completed)
+	if (!savegame->getCurrentGameData().levelData[1].completed)
 	{
 		level2Btn->disable();
 	}
 
 	string level3Name = "Locked";
-	if (savegame->getCurrentGameData().levelData[1].completed)
+	if (savegame->getCurrentGameData().levelData[2].completed)
 	{
 		level3Name = "Level 3, Score: " + to_string(savegame->getCurrentGameData().levelData[2].score);
 	}
@@ -89,7 +91,7 @@ void Overworld::loadButtons() {
 	level3Btn->registerHoverSprite(hoverBtnSprite);
 
 	auto* level3TextBtn = new Text(6, new ColoredText(level3Name, Color(0, 0, 0)), 120, 30, 1500, 890);
-	if (!savegame->getCurrentGameData().levelData[1].completed)
+	if (!savegame->getCurrentGameData().levelData[2].completed)
 	{
 		level3Btn->disable();
 	}
@@ -120,6 +122,61 @@ void Overworld::loadButtons() {
 	addNewObjectToLayer(3, shopText);
 	addNewObjectToLayer(3, shop1);
 	addNewObjectToLayer(3, shop2);
+}
+
+/// @brief 
+void Overworld::loadSaveGame()
+{
+	SpriteObject* emptyBlock = new SpriteObject(-2500, 309, 253, 1, 300, "Assets/Inventory/text_background.png");
+	auto* block1 = new Drawable(-2501);
+	block1->setStatic(true);
+	block1->setPositionX(1600);
+	block1->setPositionY(120);
+	block1->setWidth(300);
+	block1->setHeight(100);
+	block1->registerSprite(SpriteState::DEFAULT, emptyBlock);
+	block1->changeToState(SpriteState::DEFAULT);
+
+
+	auto* achievements = new Drawable(-2502);
+	achievements->setStatic(true);
+	achievements->setPositionX(20);
+	achievements->setPositionY(800);
+	achievements->setWidth(200);
+	achievements->setHeight(500);
+	achievements->registerSprite(SpriteState::DEFAULT, emptyBlock);
+	achievements->changeToState(SpriteState::DEFAULT);
+
+	int textIDCount = 100;
+
+	auto* text2 = new Text(textIDCount++, new ColoredText(savegame->getCurrentGameData().saveGameName + " " + savegame->getCurrentGameData().getReadableTimeStamp(), Color(0, 0, 0)), 200, 30, 1550, 40);
+	addNewObjectToLayer(5, text2, false, true);
+
+	text2 = new Text(textIDCount++, new ColoredText("TotalScore: " + to_string(savegame->getCurrentGameData().totalScore), Color(0, 0, 0)), 200, 30, 1550, 90);
+	addNewObjectToLayer(5, text2, false, true);
+
+	addNewObjectToLayer(4,block1, false, true);
+	addNewObjectToLayer(4, achievements, false, true);
+}
+
+/// @brief 
+void Overworld::loadAchievements()
+{
+	int textIDCount = 0;
+
+	auto* text2 = new Text(textIDCount++, new ColoredText("Achievements", Color(0, 0, 0)), 120, 30, 8, 340);
+	addNewObjectToLayer(5, text2, false, true);
+
+	int linecount = 30;
+
+	for (auto achievement : savegame->getCurrentGameData().achievements)
+	{
+		auto* text2 = new Text(textIDCount++, new ColoredText(achievement, Color(0, 0, 0)), 120, 30, 5, 340 + (float)linecount);
+		addNewObjectToLayer(5, text2, false, true);
+
+		linecount += 30;
+	}
+
 }
 
 /// @brief 

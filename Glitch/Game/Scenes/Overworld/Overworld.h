@@ -21,6 +21,8 @@ private:
 	void loadBackground();
 	void loadMusic();
 	void loadButtons();
+	void loadSaveGame();
+	void loadAchievements();
 
 	//button functions
 	void onStopBtnClick();

@@ -16,7 +16,7 @@ struct ColoredText
 {
 	ColoredText(const string _text, const Color _color, bool _centered = true)
 		: text{ _text }, color(_color), centered(_centered) {}
-	const string text;
+	string text;
 	const Color color;
 	bool centered;
 };

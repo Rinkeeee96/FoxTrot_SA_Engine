@@ -133,6 +133,73 @@ void Level::addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, 
 	current++;
 }
 
+/// @brief 
+/// Activates the achievement popup and adds the Achievement param to the Achievement vector. If a achievement is already given, it wont be added or shown.
+/// @param achievement 
+void Level::throwAchievement(Achievement achievement)
+{
+	if (savegame->getCurrentGameData().isAchievementAchieved(achievement)) return;
+	AchievementPopup* achievementPopup = new AchievementPopup(this->dispatcher, this->stateMachine);
+	achievementPopup->setupPopUp(achievement);
+	achievementZIndex = addLayerOnHighestZIndex(achievementPopup);
+
+	activeAchievementPopup = true;
+
+	SaveGameData temp = savegame->getCurrentGameData();
+	temp.achievements.push_back(achievement);
+	savegame->saveCurrentGameData(temp);
+
+	timeAchievementPopupThrown = chrono::high_resolution_clock::now();
+}
+
+/// @brief 
+/// Increases the total and level score by given amount
+/// @param amount 
+void Level::increaseTotalGameScore(const int amount)
+{
+	SaveGameData temp = savegame->getCurrentGameData();
+	temp.levelData[stateMachine.levelToBuild - 1].score += amount;
+	temp.totalScore += amount;
+	savegame->saveCurrentGameData(temp);
+}
+
+/// @brief 
+/// Loads the scoreboard located in the top right corner.
+void Level::loadScoreBoard()
+{
+	SpriteObject* emptyBlock = new SpriteObject(-2500, 309, 253, 1, 300, "Assets/Inventory/text_background.png");
+	auto* block1 = new Drawable(-2501);
+	block1->setStatic(true);
+	block1->setDrawStatic(true);
+	block1->setPositionX(1600);
+	block1->setPositionY(120);
+	block1->setWidth(300);
+	block1->setHeight(100);
+	block1->registerSprite(SpriteState::DEFAULT, emptyBlock);
+	block1->changeToState(SpriteState::DEFAULT);
+
+	int textIDCount = 100;
+
+	auto* text2 = new Text(textIDCount++, new ColoredText(savegame->getCurrentGameData().saveGameName + " " + savegame->getCurrentGameData().getReadableTimeStamp(), Color(0, 0, 0)), 200, 30, 1550, 40);
+	text2->setDrawStatic(true);
+	addNewObjectToLayer(5, text2, false, true);
+
+
+	scoreText = new Text(textIDCount++, new ColoredText("TotalScore: " + to_string(savegame->getCurrentGameData().totalScore), Color(0, 0, 0)), 200, 30, 1550, 90);
+	scoreText->setDrawStatic(true);
+	addNewObjectToLayer(5, scoreText, false, true);
+
+	addNewObjectToLayer(4, block1, false, true);
+}
+
+/// @brief 
+/// Updates the scoreboard
+void Level::updateScoreBoard()
+{
+	string text = "TotalScore: " + to_string(savegame->getCurrentGameData().totalScore);
+	scoreText->changeText(text);
+}
+
 /// @brief
 /// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
 void Level::start(bool playSound) {
@@ -140,6 +207,7 @@ void Level::start(bool playSound) {
 	player->setCurrentHealth(3);
 	player->setTotalHealth(3);
 	this->addHuds();
+	loadScoreBoard();
 	this->win = false;
 
 	this->setObjectToFollow(this->follow);
@@ -155,10 +223,22 @@ void Level::start(bool playSound) {
 void Level::onUpdate() {
 	this->addHuds();
 
+	updateScoreBoard();
+
+	chrono::duration<double> diffFromPreviousCall = chrono::duration_cast<chrono::duration<double>>(chrono::high_resolution_clock::now() - timeAchievementPopupThrown);
+
+	if (diffFromPreviousCall.count() > 1 && activeAchievementPopup)
+	{
+		removeLayer(achievementZIndex);
+		activeAchievementPopup = false;
+	}
+
 	if (this->win) {
 		player->kill();
+		increaseTotalGameScore(100);
+		throwAchievement("Level " + to_string(stateMachine.levelToBuild) + " completed!");
 		SaveGameData save = savegame->getCurrentGameData();
-		save.levelData[stateMachine.levelToBuild -1].completed = true;
+		save.levelData[stateMachine.levelToBuild].completed = true;
 		savegame->saveCurrentGameData(save);
 		stateMachine.switchToScene("WinScreen", false);
 		return;
@@ -179,6 +259,8 @@ void Level::onUpdate() {
 					object->setIsRemoved(true);
 					removeObjectFromScene(object);
 					engine.restartPhysicsWorld();
+					increaseTotalGameScore(10);
+					throwAchievement("First Kill");
 				}
 			}
 		}
