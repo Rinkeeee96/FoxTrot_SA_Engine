@@ -2,7 +2,7 @@
 #include "ParticleEngine.h"
 
 /// @brief Constructor
-ParticleEngine::ParticleEngine(float& _deltaTime) : deltaTime{_deltaTime} 
+ParticleEngine::ParticleEngine(FrameData& _frameData) : frameData{ _frameData }
 {
 }
 
@@ -22,7 +22,7 @@ void ParticleEngine::update()
 	{
 		if (particle != nullptr && particle->getIsParticle())
 		{
-			((ParticleAdapter*)particle)->update(deltaTime);
+			((ParticleAdapter*)particle)->update(frameData.calculateDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
 
 			checkIfObjectValueAndParticleValueMatch((ParticleAdapter&)particle);
 		}

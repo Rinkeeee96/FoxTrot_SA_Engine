@@ -2,6 +2,7 @@
 #include "IPhysicsFacade.h"
 #include "PhysicsBody.h"
 #include "Events/Action/OnCollisionEvent.h"
+#include "Fps/FrameData.h"
 
 #define PI 3.14159f
 #define TOTAL_DEGREES 180.0f
@@ -33,7 +34,7 @@ class b2Body;
 class PhysicsFacade : public IPhysicsFacade
 {
 public:
-	PhysicsFacade(EventDispatcher& _dispatcher, float& _deltaTime);
+	PhysicsFacade(EventDispatcher& _dispatcher, FrameData& _frameData);
 	~PhysicsFacade();
 
 	void addStaticObject(PhysicsBody* object) override;
@@ -60,5 +61,5 @@ private:
 	map <PhysicsBody*, b2Body*> bodies;
 	b2Body* findBody(const int objectId);
 
-	float& deltaTime;
+	FrameData& frameData;
 };

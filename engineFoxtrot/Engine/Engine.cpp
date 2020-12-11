@@ -97,19 +97,9 @@ void Engine::restartPhysicsWorld()
 /// @brief
 /// Returns the deltaTime from the frameData class using default physics timestep
 /// @returns float
-float Engine::getDeltaTimePhysics()
+float Engine::getDeltaTime(int timeStep)
 {
-	this->deltaTimePhysics = frameData.calculateDeltaTime(DELTATIME_TIMESTEP_PHYSICS);
-	return this->deltaTimePhysics;
-}
-
-/// @brief
-/// Returns the deltaTime from the frameData class using default render timestep
-/// @returns float
-float Engine::getDeltaTimeRender()
-{
-	this->deltaTimeRender = frameData.calculateDeltaTime(DELTATIME_TIMESTEP_RENDER);
-	return this->deltaTimeRender;
+	return frameData.calculateDeltaTime(DELTATIME_TIMESTEP_PHYSICS);
 }
 
 void Engine::loadSound(const string& identifier, const string& path)

@@ -169,7 +169,7 @@ void Level::onUpdate(float deltaTime) {
 	for (auto object : this->getAllObjectsInScene()) // TODO get only the non static objects, without looping thru them again and again
 	{
 		if (!object->getStatic()) {
-			object->onUpdate(engine.getDeltaTimePhysics());
+			object->onUpdate(engine.getDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
 
 			if (ICharacter* character = dynamic_cast<ICharacter*>(object)) {
 				if (character->getIsDead() && !character->getIsRemoved()) {

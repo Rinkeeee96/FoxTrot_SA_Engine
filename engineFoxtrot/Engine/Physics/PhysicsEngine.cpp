@@ -6,13 +6,13 @@
 
 
 /// @brief Constructor
-PhysicsEngine::PhysicsEngine(float& _deltaTime) : deltaTime{_deltaTime}
+PhysicsEngine::PhysicsEngine(FrameData& _frameData) : frameData{ _frameData }
 {
 }
 
 void PhysicsEngine::start(EventDispatcher& dispatcher) {
 	this->dispatcher = &dispatcher;
-	physicsFacade = new PhysicsFacade(dispatcher, deltaTime);
+	physicsFacade = new PhysicsFacade(dispatcher, frameData);
 
 	dispatcher.setEventCallback<ActionEvent>(BIND_EVENT_FN(PhysicsEngine::handleAction));
 	dispatcher.setEventCallback<ObjectStopEvent>(BIND_EVENT_FN(PhysicsEngine::stopObject));
