@@ -138,7 +138,7 @@ void Level::throwAchievement(Achievement achievement)
 {
 	AchievementPopup* achievementPopup = new AchievementPopup(this->dispatcher, this->stateMachine);
 	achievementPopup->setupPopUp(achievement);
-	addPopUpLayer(achievementPopup);
+	achievementZIndex = addLayerOnHighestZIndex(achievementPopup);
 
 	activeAchievementPopup = true;
 
@@ -184,7 +184,7 @@ void Level::onUpdate() {
 
 	if (diffFromPreviousCall.count() > 1 && activeAchievementPopup)
 	{
-		removePopUpLayer();
+		removeLayer(achievementZIndex);
 		activeAchievementPopup = false;
 	}
 
