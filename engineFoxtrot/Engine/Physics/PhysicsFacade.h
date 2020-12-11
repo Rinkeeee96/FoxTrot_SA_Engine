@@ -33,7 +33,7 @@ class b2Body;
 class PhysicsFacade : public IPhysicsFacade
 {
 public:
-	PhysicsFacade(EventDispatcher& _dispatcher);
+	PhysicsFacade(EventDispatcher& _dispatcher, float& _deltaTime);
 	~PhysicsFacade();
 
 	void addStaticObject(PhysicsBody* object) override;
@@ -59,4 +59,6 @@ private:
 	// TODO clear on scene detach
 	map <PhysicsBody*, b2Body*> bodies;
 	b2Body* findBody(const int objectId);
+
+	float& deltaTime;
 };

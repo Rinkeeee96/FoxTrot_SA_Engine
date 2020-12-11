@@ -8,7 +8,7 @@
 class API PhysicsEngine : public ISubsystem
 {
 public:
-	PhysicsEngine();
+	PhysicsEngine(float& _deltaTime);
 	~PhysicsEngine();
 
 	void registerObjectInCurrentVectorWithPhysicsEngine();
@@ -30,4 +30,5 @@ private:
 
 	// CurrentScene is stored because if this changes then the objects need to be reset.
 	int currentSceneID = 0;
+	float& deltaTime;
 };
