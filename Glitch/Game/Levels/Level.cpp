@@ -236,7 +236,7 @@ void Level::onUpdate() {
 		increaseTotalGameScore(100);
 		throwAchievement("Level " + to_string(stateMachine.levelToBuild) + " completed!");
 		SaveGameData save = savegame->getCurrentGameData();
-		save.levelData[stateMachine.levelToBuild - 1].completed = true;
+		save.levelData[stateMachine.levelToBuild].completed = true;
 		savegame->saveCurrentGameData(save);
 		stateMachine.switchToScene("WinScreen", false);
 		return;
