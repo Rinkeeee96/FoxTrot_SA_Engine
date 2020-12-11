@@ -157,7 +157,7 @@ void Level::throwAchievement(Achievement achievement)
 void Level::increaseTotalGameScore(const int amount)
 {
 	SaveGameData temp = savegame->getCurrentGameData();
-	temp.levelData[stateMachine.levelToBuild].score += amount;
+	temp.levelData[stateMachine.levelToBuild - 1].score += amount;
 	temp.totalScore += amount;
 	savegame->saveCurrentGameData(temp);
 }
