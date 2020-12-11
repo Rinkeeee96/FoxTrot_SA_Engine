@@ -102,13 +102,13 @@ public:
 	{
 		if (isSaveGameDataEmpty(id)) return;
 		const auto p1 = std::chrono::system_clock::now();
-		saveGameDataMap[id].saveGameTimeStamp = std::chrono::duration_cast<std::chrono::seconds>(p1.time_since_epoch()).count();
+		saveGameDataMap[id].saveGameTimeStamp = (int)std::chrono::duration_cast<std::chrono::seconds>(p1.time_since_epoch()).count();
 	}
 
 	void addSaveGameData(const int id, SaveGameData savegame)
 	{
 		const auto p1 = std::chrono::system_clock::now();
-		savegame.saveGameTimeStamp = std::chrono::duration_cast<std::chrono::seconds>(p1.time_since_epoch()).count();
+		savegame.saveGameTimeStamp = (int)std::chrono::duration_cast<std::chrono::seconds>(p1.time_since_epoch()).count();
 		saveGameDataMap[id] = savegame;
 	}
 	void deleteSaveGameData(const int id)
