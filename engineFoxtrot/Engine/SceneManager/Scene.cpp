@@ -214,6 +214,14 @@ int Scene::addLayerOnHighestZIndex(Layer* _layer)
 	return zIndex;
 }
 
+/// @brief 
+/// @param zIndex 
+/// @param _layer 
+void Scene::addLayerOnZIndex(const int zIndex, Layer* _layer)
+{
+	layers[zIndex] = _layer;
+}
+
 /// @brief remove layer
 /// @param _zIndex no value means top layer.
 void Scene::removeLayer(const int zIndex) 
