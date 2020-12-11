@@ -96,6 +96,8 @@ void Engine::restartPhysicsWorld()
 
 /// @brief
 /// Returns the deltaTime from the frameData class using default physics timestep
+/// @param timeStep
+/// Timestep to base deltaTime calculation on
 /// @returns float
 float Engine::getDeltaTime(int timeStep)
 {
