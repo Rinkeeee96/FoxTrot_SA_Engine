@@ -166,7 +166,7 @@ void Level::increaseTotalGameScore(const int amount)
 /// Loads the scoreboard located in the top right corner.
 void Level::loadScoreBoard()
 {
-	SpriteObject* emptyBlock = new SpriteObject(-2500, 309, 253, 1, 300, "Assets/Inventory/empty_inventory.png");
+	SpriteObject* emptyBlock = new SpriteObject(-2500, 309, 253, 1, 300, "Assets/Inventory/text_background.png");
 	auto* block1 = new Drawable(-2501);
 	block1->setStatic(true);
 	block1->setDrawStatic(true);

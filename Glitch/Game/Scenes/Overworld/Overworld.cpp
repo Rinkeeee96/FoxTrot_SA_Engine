@@ -127,7 +127,7 @@ void Overworld::loadButtons() {
 /// @brief 
 void Overworld::loadSaveGame()
 {
-	SpriteObject* emptyBlock = new SpriteObject(-2500, 309, 253, 1, 300, "Assets/Inventory/empty_inventory.png");
+	SpriteObject* emptyBlock = new SpriteObject(-2500, 309, 253, 1, 300, "Assets/Inventory/text_background.png");
 	auto* block1 = new Drawable(-2501);
 	block1->setStatic(true);
 	block1->setPositionX(1600);
