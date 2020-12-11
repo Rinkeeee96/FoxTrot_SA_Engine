@@ -130,6 +130,6 @@ void WinScreen::onUpdate(float deltaTime) {
 		falling = false;
 	}
 
-	int newY = animation->getPositionY() + falling ? deltaTime * 300 : deltaTime * -300;
+	float newY = animation->getPositionY() + falling ? deltaTime * 300 : deltaTime * -300;
 	animation->setPositionY(newY);
 }

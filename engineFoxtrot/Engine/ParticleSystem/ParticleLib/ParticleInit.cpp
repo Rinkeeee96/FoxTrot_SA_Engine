@@ -633,11 +633,11 @@ void ParticleInit::setStyle(ParticleStyle style)
 
         // Gravity Mode: radial
         setRadialAccel(0);
-        setRadialAccelVar(1.4);
+        setRadialAccelVar(1.4f);
 
         // Gravity Mode: tangential
         setTangentialAccel(0);
-        setTangentialAccelVar(1.4);
+        setTangentialAccelVar(1.4f);
 
         // Gravity Mode: speed of particles
         setSpeedParticle(-500);
