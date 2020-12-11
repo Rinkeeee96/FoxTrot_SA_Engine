@@ -31,5 +31,4 @@ void InventoryPopup::setupPopUp()
 
 	addObjectInLayer(leftInventory);
 	addObjectInLayer(rightInventory);
-
 }

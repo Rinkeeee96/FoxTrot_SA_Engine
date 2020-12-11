@@ -9,7 +9,6 @@ public:
 	BasePopup(EventDispatcher& _dispatcher, SceneStateMachine& _stateMachine) :
 		dispatcher(_dispatcher), stateMachine(_stateMachine) 
 	{
-		setAlwaysVisible(true);
 	};
 
 	virtual void setupPopUp() = 0;
@@ -18,12 +17,18 @@ public:
 	{
 		TogglePauseEvent pauseEvent(true);
 		dispatcher.dispatchEvent<TogglePauseEvent>(pauseEvent);
+		setAlwaysVisible(true);
+
+		this->setupPopUp();
 	}
 
 	void onDetach() override
 	{
 		TogglePauseEvent pauseEvent(false);
 		dispatcher.dispatchEvent<TogglePauseEvent>(pauseEvent);
+		setAlwaysVisible(false);
+
+		this->clearObjects();
 	}
 protected:
 	EventDispatcher& dispatcher;

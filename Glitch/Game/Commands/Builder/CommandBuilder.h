@@ -22,5 +22,5 @@ private:
 	shared_ptr<UICommandFactory> uiCommandFactory;
 
 	void initCharacterFactory();
-	void initGlobalFactory();
+	void initUICommandFactory();
 };

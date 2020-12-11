@@ -17,7 +17,7 @@
 CommandBuilder::CommandBuilder()
 {
 	initCharacterFactory();
-	initGlobalFactory();
+	initUICommandFactory();
 }
 
 // TODO read keybinds from file
@@ -69,11 +69,14 @@ void CommandBuilder::initCharacterFactory()
 	moveRightCommand->registerClass(characterCommandFactory);
 }
 
-void CommandBuilder::initGlobalFactory()
+void CommandBuilder::initUICommandFactory()
 {
 	uiCommandFactory = std::shared_ptr<UICommandFactory>(new UICommandFactory());
-	auto toggleLayerCommand = new UICommandCreator<ToggleLayerCommand>("toggleLayer");
+	auto toggleInventoryCommand = new UICommandCreator<ToggleLayerCommand>("inventory");
+	auto togglePauseCommand = new UICommandCreator<ToggleLayerCommand>("pause");
 
+	toggleInventoryCommand->registerClass(uiCommandFactory);
+	togglePauseCommand->registerClass(uiCommandFactory);
 }
 
 /// @brief
