@@ -98,55 +98,11 @@ bool Level::onToggleLayerEvent(const Event& event) {
 	auto layerEvent = dynamic_cast<const ToggleLayerEvent&>(event);
 
 	int layerIndex = layerEvent.getLayerIndex();
+	bool currentRenderstate = this->getLayers()[layerIndex]->getRender();
 
-	Layer* layer = this->getLayers()[layerIndex];
-	bool currentRenderState = layer->getRender();
-
-	this->toggleLayer(layerIndex, ! currentRenderState);
+	this->toggleLayer(layerIndex, ! currentRenderstate);
+	return true;
 }
-
-	// TODO inventory commands
-	/*
-	case KeyCode::KEY_P:
-		if (!paused) {
-			PausePopUp* pausePopUp = new PausePopUp(this->dispatcher, this->stateMachine);
-			pausePopUp->setupPopUp();
-			pausePopupZIndex = addLayerOnHighestZIndex(pausePopUp);
-			this->paused = true;
-		}
-		else
-		{
-			removeLayer(pausePopupZIndex);
-			this->paused = false;
-		}
-		break;
-	case KeyCode::KEY_I:
-		if (!inventoryOpen) {
-			InventoryPopup* inventoryPopup = new InventoryPopup(this->dispatcher, this->stateMachine);
-			inventoryPopup->setupPopUp();
-			inventoryPopupZIndex = addLayerOnHighestZIndex(inventoryPopup);
-			inventoryOpen = true;
-		}
-		else
-		{
-			removeLayer(inventoryPopupZIndex);
-			inventoryOpen = false;
-		}
-		break;
-	case KeyCode::KEY_G:
-		if (this->player != nullptr && 
-			typeid(this->player->getStateMachine().getCurrentState()).name() != typeid(GodState).name()) 
-		{
-			this->player->getStateMachine().changeState(new GodState, this->player);
-		}
-		else {
-			this->player->getStateMachine().changeState(new NormalState, this->player);
-		}
-		break;
-	default:
-		break;
-
-	*/
 
 // @brief 
 /// Sets player in the level the camera will follow this object
