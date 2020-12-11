@@ -3,6 +3,49 @@
 
 #include "Game/characters/Player/Player.h"
 unordered_map<KeyCode, string>& GameKeypressInvoker::getPlayerCommands() { return this->playerCommands; }
+unordered_map<KeyCode, string>& GameKeypressInvoker::getGlobalCommands() { return globalCommands; }
+
+/// @brief
+/// update a the playercommands
+/// @param code the new keycode for a command
+/// @param command the command to update
+void GameKeypressInvoker::updatePlayerCommand(KeyCode code, ICommand* command)
+{
+	updateCollection(playerCommands, code, command);
+}
+
+/// @brief
+/// update a the global commands
+/// @param code the new keycode for a command
+/// @param command the command to update
+void GameKeypressInvoker::updateGlobalCommand(KeyCode code, ICommand* command)
+{
+	updateCollection(globalCommands, code, command);
+}
+
+/// @brief
+/// Loops over all global commands and calls destruction method in base invoker
+void GameKeypressInvoker::destroyGlobalCommands()
+{
+	destroyCollection(globalCommands);
+}
+/// @brief
+/// Loops over all player commands and calls destruction method in base invoker
+void GameKeypressInvoker::destroyPlayercommands()
+{
+	destroyCollection(playerCommands);
+}
+
+/// @brief
+/// Loops over the given commands collection and calls destruction method in base invoker
+void GameKeypressInvoker::destroyCollection(unordered_map<KeyCode, string>& commandList)
+{
+	for (auto pair : commandList)
+	{
+		KeyCode keycode = pair.first;
+		deleteCommandThatBelongsTo(keycode);
+	}
+}
 
 /// @brief
 /// update a collection within the gamekeypressinvoker
@@ -27,31 +70,23 @@ void GameKeypressInvoker::updateCollection(unordered_map<KeyCode, string>& comma
 	KeypressInvoker::updateCommand(code, command);
 }
 
-void GameKeypressInvoker::updatePlayerCommand(KeyCode code, ICommand* command)
-{
-	updateCollection(playerCommands, code, command);
-}
-unordered_map<KeyCode, string>& GameKeypressInvoker::getGlobalCommands() { return globalCommands; }
-
-void GameKeypressInvoker::updateGlobalCommand(KeyCode code, ICommand* command)
-{
-	updateCollection(globalCommands, code, command);
-}
-
-void GameKeypressInvoker::destroyGlobalCommands()
+/// @brief
+/// Finds and returns the keycode with a given identifier
+/// throws exception if it does not exist
+/// @param identifier the given identifier string for the command
+const KeyCode& GameKeypressInvoker::getKeycodeFromIdentifier(const string& identifier)
 {
 	for (auto pair : globalCommands)
 	{
-		KeyCode keycode = pair.first;
-		deleteCommandThatBelongsTo(keycode);
+		if (identifier == pair.second)
+			return pair.first;
 	}
-}
 
-void GameKeypressInvoker::destroyPlayercommands()
-{
 	for (auto pair : playerCommands)
 	{
-		KeyCode keycode = pair.first;
-		deleteCommandThatBelongsTo(keycode);
+		if (identifier == pair.second)
+			return pair.first;
 	}
+
+	throw exception("no keycode registered for " + identifier);
 }

@@ -18,10 +18,11 @@ public:
 
 	unordered_map<KeyCode, string>& getGlobalCommands();
 	void updateGlobalCommand(KeyCode code, ICommand* command);
+	const KeyCode& getKeycodeFromIdentifier(const string& identifier);
 	void destroyGlobalCommands();
-
 private:
 	unordered_map<KeyCode, string> playerCommands;
 	unordered_map<KeyCode, string> globalCommands;
 	void updateCollection(unordered_map<KeyCode, string>& commandList, KeyCode code, ICommand* command);
+	void destroyCollection(unordered_map<KeyCode, string>& commandList);
 };
