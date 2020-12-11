@@ -156,11 +156,14 @@ void VideoEngine::clearVideoEngine()
 	videoFacade->clean();
 }
 
+/// @brief Creates the videoFacade
+/// @param dispatcher 
 void VideoEngine::start(EventDispatcher& dispatcher)
 {
 	videoFacade = new VideoFacade();
 }
 
+/// @brief Calls the functions to render a screen.
 void VideoEngine::update()
 {
 	clearScreen();
@@ -170,6 +173,7 @@ void VideoEngine::update()
 	drawScreen();
 }
 
+/// @brief Closes the videoFacade and clears the videoEngine
 void VideoEngine::shutdown()
 {
 	clearVideoEngine();
