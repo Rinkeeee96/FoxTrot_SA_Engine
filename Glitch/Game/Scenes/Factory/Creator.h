@@ -7,6 +7,7 @@
 class Engine;
 class SceneStateMachine;
 
+/// @brief Creator class for Scene's
 class Creator
 {
 public:

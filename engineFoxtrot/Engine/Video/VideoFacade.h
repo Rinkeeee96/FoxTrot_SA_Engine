@@ -6,6 +6,7 @@
 #define FONT_PATH "Assets/Fonts/Sans.ttf"
 #define FONT_POINT_SIZE 24
 
+// Forward declaration
 struct SDL_Renderer;
 struct SDL_Window;
 struct SDL_Texture;

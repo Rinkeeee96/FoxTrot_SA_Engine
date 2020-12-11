@@ -11,10 +11,14 @@ ParticleEngine::~ParticleEngine()
 {
 }
 
+/// @brief Does nothing. Needs to be here for syntax purpose
+/// @param dispatcher 
 void ParticleEngine::start(EventDispatcher& dispatcher)
 {
 }
 
+/// @brief  Update the particles postion. 
+///			Checks if the Particle Postion is the same as the ObjectPosition
 void ParticleEngine::update()
 {
 	if ((*pointerToCurrentScene)->getAllDrawablesInScene().size() == 0) return;
@@ -29,20 +33,26 @@ void ParticleEngine::update()
 	}
 }
 
+/// @brief Does nothing. Needs to be here for syntax purpose
+/// @param dispatcher 
 void ParticleEngine::shutdown()
 {
 }
 
+/// @brief	Checks if the postion of the Particle is the same as the position of the Object.
+///			If not equal they will be made equal.
+///			Particle position wil be updated to the object position 
+/// @param particle 
 void ParticleEngine::checkIfObjectValueAndParticleValueMatch(ParticleAdapter& particle)
 {
-	if (particle.getPositionX() != particle.getPositionX())
+	if (((Object&)particle).getPositionX() != particle.getPositionX())
 	{
-		particle.setPositionX(particle.getPositionX());
+		particle.setPositionX(((Object&)particle).getPositionX());
 	}
 
-	if (particle.getPositionY() != particle.getPositionY())
+	if (((Object&)particle).getPositionY() != particle.getPositionY())
 	{
-		particle.setPositionY(particle.getPositionY());
+		particle.setPositionY(((Object&)particle).getPositionY());
 	}
 }
 

@@ -1,6 +1,12 @@
 #include "pch.h"
 #include "LevelBuilder.h"
 
+LevelBuilder::LevelBuilder(Engine& _engine, int levelId, SceneStateMachine& _statemachine)
+	: AbstractLevelBuilder(_engine), bLevel(new Level(levelId, 0, 0, _engine, _statemachine)) {}
+
+/// @brief Gets the alwaysDraw objects from the json file
+/// @param layerValue 
+/// @return 
 bool LevelBuilder::getAlwaysDrawFromJson(nlohmann::json layerValue)
 {
 	for (auto& [objectKey, objectValue] : layerValue["properties"].items()) {
@@ -12,10 +18,7 @@ bool LevelBuilder::getAlwaysDrawFromJson(nlohmann::json layerValue)
 	return false;
 }
 
-LevelBuilder::LevelBuilder(Engine& _engine, int levelId, SceneStateMachine& _statemachine) : AbstractLevelBuilder(_engine), bLevel(new Level(levelId, 0, 0, _engine, _statemachine)) {
-	
-}
-
+/// @brief Creates a unique pointer for a level
 void LevelBuilder::create() {
 	level = unique_ptr<Level>(bLevel);
 }

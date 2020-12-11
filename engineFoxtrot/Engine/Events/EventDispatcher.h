@@ -54,6 +54,10 @@ public:
 private:
     map<string, vector<EventCallbackFn>> handlers;
 
+    /// @brief Returns if a handler exists
+    /// @tparam T 
+    /// @param name The handler to check
+    /// @return 
     template<typename T>
     bool handlerExists(string& name) {
         name = typeid(T).name();

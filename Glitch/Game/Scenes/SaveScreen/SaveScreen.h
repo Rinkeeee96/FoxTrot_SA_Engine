@@ -4,9 +4,10 @@
 #include "Game/Buttons/PrimaryButton.h"
 #include "Game/Buttons/SecondaryButton.h"
 
+
 #define SPACING_INCREMENT 500
 
-
+/// @brief Class for the loading saves screen
 class SaveScreen : public GameScene
 {
 public:

@@ -124,6 +124,17 @@ void Savegame::saveCurrentGameData(SaveGameData saveGame)
 {
 	saveGameDataMap[currentSaveGame] = saveGame;
 }
+/// @brief Returns saveGameDataMap when not empty
+/// @param id 
+/// @return 
+SaveGameData Savegame::getSaveGameData(const int id)
+{
+	if (!isSaveGameDataEmpty(id))
+	{
+		return saveGameDataMap[id];
+	}
+	throw exception("Trying to get unknown SaveGame");
+}
 
 /// @brief 
 /// Parses the json file into the map

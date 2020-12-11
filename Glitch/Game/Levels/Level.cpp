@@ -9,6 +9,7 @@ Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, Engine
 	this->dispatcher.setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Level::onKeyPressed));
 }
 
+// TODO redo after command pattern
 bool Level::onKeyPressed(const Event& event) {
 	if (this->win || this->player->getIsDead()) return false;
 
@@ -218,6 +219,7 @@ void Level::start(bool playSound) {
 	}
 }
 
+/// @brief Updates the level data such as objects that are removed or player is dead or won the level
 void Level::onUpdate() {
 	this->addHuds();
 
