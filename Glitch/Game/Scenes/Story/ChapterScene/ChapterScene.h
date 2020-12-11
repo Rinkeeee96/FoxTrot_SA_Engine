@@ -8,6 +8,7 @@
 #define START_Y_POS -200
 #define MAX_SPEED 10
 
+/// @brief Base class for the chapter screen
 class ChapterScene : public GameScene
 {
 public:
@@ -20,6 +21,7 @@ public:
 	virtual void onDetach() override { Scene::onDetach(); };
 
 	bool onKeyPressed(const Event& event);
+
 protected:
 	vector<Text*> text;
 	FileLoader fileLoader;

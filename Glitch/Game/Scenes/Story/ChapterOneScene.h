@@ -9,6 +9,7 @@
 #define RIGHT_X_CENTER 50
 #define TEXT_HEIGHT 50
 
+/// @brief Class for the chapter one screen
 class ChapterOneScene : public ChapterScene
 {
 public:

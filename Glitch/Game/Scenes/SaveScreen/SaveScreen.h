@@ -4,6 +4,7 @@
 #include "Game/Buttons/PrimaryButton.h"
 #include "Game/Buttons/SecondaryButton.h"
 
+/// @brief Class for the loading saves screen
 class SaveScreen : public GameScene
 {
 public:
