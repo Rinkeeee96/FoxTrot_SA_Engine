@@ -96,6 +96,9 @@ vector <Object*> Scene::getAllObjectsInScene()
 	}
 	return returnVector;
 }
+
+/// @brief Returns all objects in the scene with the renderPhysics value on true
+/// @return 
 vector <Object*> Scene::getAllObjectsInSceneRenderPhysics()
 {
 	vector <Object*> returnVector;
@@ -151,6 +154,7 @@ Object * Scene::getObject(const int objectID)
 	throw ERROR_CODE_SCENE_NO_OBJECT_FOUND;
 }
 
+/// @brief Deletes all objects in the scene when called.
 void Scene::onDetach()
 {
 	for (auto& layerContainer : layers)
@@ -165,6 +169,25 @@ void Scene::onDetach()
 	layers.clear();
 }
 
+/// @brief 
+/// Returns the id of the object to follow
+/// @return 
+/// If no ObjectToFollow will return -1
+int Scene::getObjectToFollowID() const
+{
+	if (objectToFollow != nullptr)
+	{
+		return objectToFollow->getObjectId();
+	}
+	else
+	{
+		return -1;
+	}
+
+}
+
+/// @brief Removes a specific object from the current scene
+/// @param obj 
 void Scene::removeObjectFromScene(Object* obj)
 {
 	for (auto lay : layers) {
@@ -176,6 +199,8 @@ void Scene::removeObjectFromScene(Object* obj)
 	}
 }
 
+/// @brief Returns the layers map in a scene
+/// @return 
 map<int, Layer*> Scene::getLayers() const
 {
 	return layers;
@@ -192,6 +217,8 @@ void Scene::createLayer(const int zIndex, bool renderPhysics, bool alwaysDrawLay
 	layers[zIndex]->setAlwaysVisible(alwaysDrawLayer);
 }
 
+/// @brief Finds the highest layer zIndex in the scene.
+/// @return 
 int Scene::getHighestLayerIndex() {
 	int zIndex = 0;
 
