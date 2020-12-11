@@ -1,4 +1,5 @@
 #pragma once
+#include "pch.h"
 #include "Input/Commands/ICommand.h"
 #include "Engine/SceneManager/Scene.h"
 class IUICommand : public ICommand

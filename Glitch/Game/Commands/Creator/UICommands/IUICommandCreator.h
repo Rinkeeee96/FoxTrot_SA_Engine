@@ -1,6 +1,6 @@
 #pragma once
 class Scene;
-class ICharacterCommand;
+class IUICommand;
 
 class IUICommandCreator
 {
