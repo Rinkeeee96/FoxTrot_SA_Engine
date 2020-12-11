@@ -27,6 +27,9 @@ SceneStateMachine::SceneStateMachine(Engine& _engine, shared_ptr<Savegame> _save
 	CreatorImpl <CreditsScene>* cred = new CreatorImpl <CreditsScene>();
 	cred->registerClass("CreditsSreen", factory);
 
+	CreatorImpl <ChapterOneScene>* chap = new CreatorImpl <ChapterOneScene>();
+	chap->registerClass("ChapterOne", factory);
+	
 	CreatorImpl <Shop>* shop = new CreatorImpl <Shop>();
 	shop->registerClass("Shop", factory);
 }
