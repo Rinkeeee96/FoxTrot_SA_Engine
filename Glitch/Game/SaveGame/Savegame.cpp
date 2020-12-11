@@ -45,7 +45,7 @@ bool Savegame::saveGameDataToJsonFile()
 			characterData["inventory"]["items"].push_back(itemJson);
 		}	
 		saveGameJson["characterdata"] = characterData;
-		json["saveGames"].push_back(saveGameJson);
+		json["savegames"].push_back(saveGameJson);
 	}
 	// Todo move to engine.
 	// Write Json data to file
