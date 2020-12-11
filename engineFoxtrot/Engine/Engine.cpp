@@ -37,6 +37,8 @@ void Engine::setCurrentScene(const int sceneID)
 	sceneManager.getSceneWithID(sceneID)->onAttach();
 }
 
+/// @brief Returns the currentScene
+/// @return 
 Scene* Engine::getCurrentScene()
 {
 	return sceneManager.currentScene;
@@ -56,14 +58,15 @@ bool Engine::onKeyPressed(const Event& event) {
 	}
 	return true;
 }
-/// @brief 
+
+/// @brief Insert a Scene into the current scene
 /// @param scene
 void Engine::insertScene(Scene* scene)
 {
 	sceneManager.insertScene(scene);
 }
 
-/// @brief 
+/// @brief Deregister a scene according to the given sceneID
 /// @param id 
 void Engine::deregisterScene(const int id)
 {
@@ -88,33 +91,46 @@ void Engine::toggleFps() {
 	videoEngine.toggleFps();
 }
 
-/// @brief 
+/// @brief Calls reloadPhysicsObject from the physicsEngine
 void Engine::restartPhysicsWorld()
 {
 	physicsEngine.reloadPhysicsObjects();
 }
 
+/// @brief Calls addFile from the sound engine.
+/// @param identifier 
+/// @param path 
 void Engine::loadSound(const string& identifier, const string& path)
 {
 	this->soundEngine.addFile(identifier, path);
 }
 
+/// @brief Calls setFile from the sound engine.
+/// @param sounds 
 void Engine::loadSound(map<string, string> sounds)
 {
 	this->soundEngine.setFiles(sounds);
 }
 
+/// @brief Calls playMusic from the sound engine.
+/// @param identifier 
 void Engine::startSound(const string& identifier) {
 	this->soundEngine.playMusic(identifier, 15);
 }
 
+/// @brief Calls stopMusic from the sound engine.
+/// @param identifier 
 void Engine::stopSound(const string& identifier) {
 	this->soundEngine.stopMusic();
 }
+
+/// @brief Calls onStopLoopedEffect from the sound engine.
+/// @param identifier 
 void Engine::stopLoopEffect(const string& identifier) {
 	this->soundEngine.onStopLoopedEffect(identifier);
 }
 
+/// @brief Calls the update function on all the subsystems
 void Engine::onUpdate()
 {
 	particleEngine.update();
