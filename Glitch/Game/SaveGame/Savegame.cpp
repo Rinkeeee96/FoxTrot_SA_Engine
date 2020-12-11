@@ -130,7 +130,7 @@ void Savegame::saveCurrentGameData(SaveGameData saveGame)
 /// @param json 
 void Savegame::parseJsonToMap(nlohmann::json json)
 {
-	for (auto jsonObject : json["saveGames"])
+	for (auto jsonObject : json["savegames"])
 	{
 		SaveGameData saveGameData;
 		if (!jsonObject.contains("timestamp")) throw exception("Timestamp unavailable in json file");

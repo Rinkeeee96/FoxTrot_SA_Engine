@@ -192,6 +192,7 @@ void Level::onUpdate() {
 	if (this->win) {
 		player->kill();
 		increaseTotalGameScore(100);
+		throwAchievement("Level " + to_string(stateMachine.levelToBuild -1) + " completed!");
 		SaveGameData save = savegame->getCurrentGameData();
 		save.levelData[stateMachine.levelToBuild -1].completed = true;
 		savegame->saveCurrentGameData(save);
