@@ -568,7 +568,7 @@ public:
     void setOpacityModifyRGB(bool opacityModifyRGB) { _opacityModifyRGB = opacityModifyRGB; }
     bool isOpacityModifyRGB() const { return _opacityModifyRGB; }
 
-    void update();
+    void update(float deltaTime);
 
     Particle();
     virtual ~Particle();

@@ -4,12 +4,13 @@
 #include "Events/Action/ActionEvent.h"
 #include "ParticleAdapter.h"
 #include "General/ISubsystem.h"
+#include "Fps/FrameData.h"
 
 /// @brief Class to update Particle
 class API ParticleEngine: public ISubsystem
 {
 public:
-	ParticleEngine();
+	ParticleEngine(float* deltaTime);
 	~ParticleEngine();
 
 	void start(EventDispatcher& dispatcher) override;
@@ -20,7 +21,7 @@ public:
 
 private:
 	void checkIfObjectValueAndParticleValueMatch(ParticleAdapter& particle);
-
+	float* deltaTime;
 };
 
 

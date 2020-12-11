@@ -12,6 +12,7 @@ public:
 	API void startTimer();
 	API const double getFps() { return fps; };
 	API const double getLastFrameFps() { return lastFrameFps; };
+	API const float getDeltaTime();
 
 private:
 

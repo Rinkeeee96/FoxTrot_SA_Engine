@@ -68,7 +68,7 @@ private:
 	FrameData frameData;
 	
 	SceneManager sceneManager;
-	ParticleEngine particleEngine;
+	ParticleEngine particleEngine{ &deltaTime };
 	PhysicsEngine physicsEngine{ frameData };
 
 	VideoEngine videoEngine{ frameData };

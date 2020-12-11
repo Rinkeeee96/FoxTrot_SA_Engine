@@ -219,9 +219,8 @@ bool Particle::isFull()
 }
 
 // ParticleSystem - MainLoop
-void Particle::update()
+void Particle::update(float deltaTime)
 {
-    float dt = (float)1.0 / 25;
     if (_isActive && _emissionRate)
     {
         float rate = 1.0f / _emissionRate;
@@ -229,7 +228,7 @@ void Particle::update()
 
         if (_particleCount < totalParticles)
         {
-            _emitCounter += dt;
+            _emitCounter += deltaTime;
             if (_emitCounter < 0.f)
             {
                 _emitCounter = 0.f;
@@ -240,7 +239,7 @@ void Particle::update()
         addParticles(emitCount);
         _emitCounter -= rate * emitCount;
 
-        _elapsed += dt;
+        _elapsed += deltaTime;
         if (_elapsed < 0.f)
         {
             _elapsed = 0.f;
@@ -253,7 +252,7 @@ void Particle::update()
 
     for (int i = 0; i < _particleCount; ++i)
     {
-        particle_data_[i].timeToLive -= dt;
+        particle_data_[i].timeToLive -= deltaTime;
 
         if (particle_data_[i].timeToLive <= 0.0f)
         {
@@ -286,15 +285,15 @@ void Particle::update()
             // (gravity + radial + tangential) * dt
             tmp.x = radial.x + tangential.x + modeA.gravity.x;
             tmp.y = radial.y + tangential.y + modeA.gravity.y;
-            tmp.x *= dt;
-            tmp.y *= dt;
+            tmp.x *= deltaTime;
+            tmp.y *= deltaTime;
 
             particle_data_[i].modeA.dirX += tmp.x;
             particle_data_[i].modeA.dirY += tmp.y;
 
             // this is cocos2d-x v3.0
-            tmp.x = particle_data_[i].modeA.dirX * dt * _yCoordFlipped;
-            tmp.y = particle_data_[i].modeA.dirY * dt * _yCoordFlipped;
+            tmp.x = particle_data_[i].modeA.dirX * deltaTime * _yCoordFlipped;
+            tmp.y = particle_data_[i].modeA.dirY * deltaTime * _yCoordFlipped;
             particle_data_[i].posx += tmp.x;
             particle_data_[i].posy += tmp.y;
         }
@@ -303,8 +302,8 @@ void Particle::update()
     {
         for (int i = 0; i < _particleCount; ++i)
         {
-            particle_data_[i].modeB.angle += particle_data_[i].modeB.degreesPerSecond * dt;
-            particle_data_[i].modeB.radius += particle_data_[i].modeB.deltaRadius * dt;
+            particle_data_[i].modeB.angle += particle_data_[i].modeB.degreesPerSecond * deltaTime;
+            particle_data_[i].modeB.radius += particle_data_[i].modeB.deltaRadius * deltaTime;
             particle_data_[i].posx = -cosf(particle_data_[i].modeB.angle) * particle_data_[i].modeB.radius;
             particle_data_[i].posy = -sinf(particle_data_[i].modeB.angle) * particle_data_[i].modeB.radius * _yCoordFlipped;
         }
@@ -313,13 +312,13 @@ void Particle::update()
     //color, size, rotation
     for (int i = 0; i < _particleCount; ++i)
     {
-        particle_data_[i].colorR += particle_data_[i].deltaColorR * dt;
-        particle_data_[i].colorG += particle_data_[i].deltaColorG * dt;
-        particle_data_[i].colorB += particle_data_[i].deltaColorB * dt;
-        particle_data_[i].colorA += particle_data_[i].deltaColorA * dt;
-        particle_data_[i].size += (particle_data_[i].deltaSize * dt);
+        particle_data_[i].colorR += particle_data_[i].deltaColorR * deltaTime;
+        particle_data_[i].colorG += particle_data_[i].deltaColorG * deltaTime;
+        particle_data_[i].colorB += particle_data_[i].deltaColorB * deltaTime;
+        particle_data_[i].colorA += particle_data_[i].deltaColorA * deltaTime;
+        particle_data_[i].size += (particle_data_[i].deltaSize * deltaTime);
         particle_data_[i].size = (std::max)(0.0f, particle_data_[i].size);
-        particle_data_[i].rotation += particle_data_[i].deltaRotation * dt;
+        particle_data_[i].rotation += particle_data_[i].deltaRotation * deltaTime;
     }
 }
 

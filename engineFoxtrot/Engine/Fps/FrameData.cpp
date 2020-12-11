@@ -14,6 +14,11 @@ void FrameData::startTimer() {
 	startTime = chrono::high_resolution_clock::now();
 }
 
+const float FrameData::getDeltaTime()
+{
+	return TIMESTEP / lastFrameFps;
+}
+
 /// @brief
 /// Calculates the average fps of the last few ticks
 double FrameData::calculateAverageFps()
