@@ -105,8 +105,7 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 		((GeneralTransition*)currentScene.get())->setNextScene(transition);
 
 
-
-	cout << "Setting current Scene to: " << typeid(*(engine.getCurrentScene())).name() << endl;
+	if (DEBUG_MAIN)cout << "Setting current Scene to: " << typeid(*(engine.getCurrentScene())).name() << endl;
 
 	currentScene->start(playSound);
 
