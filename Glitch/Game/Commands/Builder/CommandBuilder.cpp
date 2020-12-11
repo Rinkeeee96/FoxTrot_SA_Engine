@@ -76,26 +76,8 @@ void CommandBuilder::initGlobalFactory()
 
 }
 
-void CommandBuilder::buildToggleCommands(GameKeypressInvoker* invoker, vector<int> layerIds)
-{
-	// first = keycode, second = identifier
-	for (auto pair = invoker->getGlobalCommands().begin(); pair != invoker->getGlobalCommands().end(); ++pair)
-	{
-		try
-		{
-			invoker->registerCommand(
-				pair->first,
-				uiCommandFactory->create(pair->second)
-			);
-		}
-		catch (const exception& e)
-		{
-			// TODO throw up further and create a popup for missparsed bindings
-			if (DEBUG_COMMAND_BUILDER) cout << e.what();
-		}
-	}
-}
-
+/// @brief
+/// build the player commands
 void CommandBuilder::buildPlayerCommands(Player& player, GameKeypressInvoker* invoker)
 {
 	// first = keycode, second = identifier
@@ -118,6 +100,12 @@ void CommandBuilder::buildPlayerCommands(Player& player, GameKeypressInvoker* in
 	}
 	player.registerKeypressInvoker(invoker);
 }
+
+/// @brief
+/// Finds and links layers to a given identifier, bubbles exception thrown in invoker
+/// @param invoker the pointer to the currently active game invoker
+/// @param layerId the identifier for the given layer for the toggleCommand
+/// @param identifier the identifier for the command
 void CommandBuilder::linkCommandToToggle(GameKeypressInvoker* invoker, int layerId, const string& identifier)
 {
 	invoker->registerCommand(
