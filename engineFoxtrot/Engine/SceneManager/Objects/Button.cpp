@@ -8,8 +8,8 @@
 /// @return 
 bool Button::mouseOver(const Event& event) {
 	auto mouseOverEvent = static_cast<const MouseMovedEvent&>(event);
-	float mousePositionX = mouseOverEvent.GetX();
-	float mousePositionY = mouseOverEvent.GetY();
+	float mousePositionX = mouseOverEvent.getX();
+	float mousePositionY = mouseOverEvent.getY();
 
 	isMouseOver = (mousePositionX >= positionX &&
 				mousePositionX <= (positionX + width) &&

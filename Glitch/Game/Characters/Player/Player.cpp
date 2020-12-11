@@ -1,6 +1,10 @@
 #include "pch.h"
 #include "Player.h"
 
+Player::Player(EventDispatcher& _dispatcher) : ICharacter(_dispatcher) {
+	this->stateMachine.setCurrentState(new NormalState, this);
+	this->stateMachine.setGlobalState(new PlayerGlobalState);
+};
 Player::Player(const int id, EventDispatcher& _dispatcher) : ICharacter(id, _dispatcher) {
 	this->setHeight(80);
 	this->setWidth(80);
@@ -20,6 +24,9 @@ Player::Player(const int id, EventDispatcher& _dispatcher) : ICharacter(id, _dis
 	this->setTotalHealth(3);
 	this->setScalable(true);
 	this->setScale(2);
+
+	this->stateMachine.setCurrentState(new NormalState, this);
+	this->stateMachine.setGlobalState(new PlayerGlobalState);
 
 	dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Player::onCollisionBeginEvent));
 	dispatcher.setEventCallback<OnCollisionEndEvent>(BIND_EVENT_FN(Player::onCollisionEndEvent));
@@ -101,7 +108,7 @@ bool Player::onKeyPressed(const Event& event) {
 	if (!getIsDead()) {
 		auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
 		// TODO command pattern
-		switch (keyPressedEvent.GetKeyCode())
+		switch (keyPressedEvent.getKeyCode())
 		{
 		case KeyCode::KEY_A:
 			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::LEFT, this->getObjectId()));
@@ -144,7 +151,7 @@ bool Player::onKeyReleased(const Event& event)
 	if (!getIsDead()) {
 		auto keyReleasedEvent = static_cast<const KeyReleasedEvent&>(event);
 
-		switch (keyReleasedEvent.GetKeyCode()) {
+		switch (keyReleasedEvent.getKeyCode()) {
 		case KeyCode::KEY_A:
 		case KeyCode::KEY_D:
 			dispatcher.dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->objectId));
@@ -159,6 +166,8 @@ ICharacter* Player::clone(int id) {
 	return new Player(id, this->dispatcher); 
 }
 
+/// @brief
+/// Builds the spritemap for the Player
 map<SpriteState, SpriteObject*> Player::buildSpritemap(int textureId) {
 	std::map<SpriteState, SpriteObject*> spriteMap;
 

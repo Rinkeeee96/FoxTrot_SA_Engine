@@ -37,7 +37,7 @@ void GeneralTransition::loadBackground()
 
 	auto* layer0 = new Drawable(-505);
 	layer0->setStatic(true);
-	layer0->setPositionX(1);
+	layer0->setPositionX(0);
 	layer0->setPositionY(1080);
 	layer0->setWidth(1920);
 	layer0->setHeight(1080);
@@ -74,7 +74,7 @@ void GeneralTransition::loadBackground()
 
 	auto* layer2 = new Drawable(-509);
 	layer2->setStatic(true);
-	layer2->setPositionX(1);
+	layer2->setPositionX(0);
 	layer2->setPositionY(1080);
 	layer2->setWidth(1920);
 	layer2->setHeight(1080);
@@ -94,7 +94,6 @@ void GeneralTransition::loadBackground()
 /// Also sets the loading bar. 
 void GeneralTransition::onUpdate()
 {
-	
 	chrono::duration<double> diffFromPreviousCall = chrono::duration_cast<chrono::duration<double>>(chrono::high_resolution_clock::now() - previousCallTime);
 
 	if (diffFromPreviousCall.count() > 0.5 && !moveCharacter)
@@ -105,11 +104,10 @@ void GeneralTransition::onUpdate()
 			return;
 		}
 
-
 		int generated = rand() % 685 + 1;
-		if (progressBarFiller->getWidth() + generated > 685)
+		if (progressBarFiller->getWidth() + generated > 688)
 		{
-			progressBarFiller->setWidth(685);
+			progressBarFiller->setWidth(688);
 			return;
 		}
 		else
@@ -127,7 +125,6 @@ void GeneralTransition::onUpdate()
 		{
 			stateMachine.switchToScene(nextScene,false);
 		}
-		
 	}
 }
 

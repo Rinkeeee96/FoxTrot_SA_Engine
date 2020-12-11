@@ -30,23 +30,22 @@ public:
 	//SceneManager calls
 	API void setCurrentScene(const int sceneID);
 	API Scene* getCurrentScene();
-	bool onKeyPressed(const Event& event);
 	API void insertScene(Scene * scene);
 	API void deregisterScene(const int id);
 
 	// Sound calls
 	API void loadSound(const string& identifier, const string& path);
 	API void loadSound(map<string, string> sounds);
-
-	bool getPhysicsPaused();
-
-	// Input calls
-	API void pollEvents();
+	API void startSound(const string& identifier);
+	API void stopSound(const string& identifier);
+	API void stopLoopEffect(const string& identifier);
 
 	API void onUpdate();
 
 	API void updateFps();
 	API void toggleFps();
+
+	bool onKeyPressed(const Event& event);
 
 	API bool getEngineRunning() { return running; };
 	API void setEngineRunning(bool run) { running = run; }
@@ -54,11 +53,6 @@ public:
 	API void restartPhysicsWorld();
 
 	API float getDeltaTime();
-
-	//API EventDispatcher& getDispatcher() { return *eventDispatcher; }
-	
-	SoundEngine soundEngine;
-
 private:
 	float deltaTime = 0;
 
@@ -70,6 +64,7 @@ private:
 	SceneManager sceneManager;
 	ParticleEngine particleEngine{ deltaTime };
 	PhysicsEngine physicsEngine{ frameData };
+	SoundEngine soundEngine;
 
 	VideoEngine videoEngine{ frameData };
 	InputEngine inputEngine{ *this };

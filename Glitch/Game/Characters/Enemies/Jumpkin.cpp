@@ -1,6 +1,9 @@
 #include "pch.h"
 #include "Jumpkin.h"
 
+/// @brief
+/// Checks if the player is within range and acts accordingly
+/// If the player is in range horizontally and vertically, the Jumpkin will move towards the player by jumping
 void Jumpkin::onUpdate(float deltaTime) {
 	// Differences are calculated from the middle position of the object
 	float xPositionDifference = abs((player->getPositionX() + player->getWidth() / 2) - (this->getPositionX() + this->getWidth() / 2));
@@ -11,8 +14,13 @@ void Jumpkin::onUpdate(float deltaTime) {
 
 	// Jumpkin's vertical range is calculated separately from distance to ensure it doesn't follow the player when there are multiple layers of height to the level (lvl3)
 	bool playerIsInRange = distanceFromPlayer <= JUMPKIN_HORIZONTAL_RANGE;
+
+	// Checks if the Jumpkin in in range vertically
 	bool playerIsInRangeVertically = (yPositionDifference < JUMPKIN_VERTICAL_RANGE && yPositionDifference >(JUMPKIN_VERTICAL_RANGE * -1));
+	
+	// Direction is based on the x position of the player
 	Direction direction = player->getPositionX() < this->positionX ? Direction::LEFT : Direction::RIGHT;
+
 	bool positionedOnGround = this->getYAxisVelocity() == 0;
 
 	if (positionedOnGround && playerIsInRange && playerIsInRangeVertically) {
@@ -42,6 +50,8 @@ void Jumpkin::onUpdate(float deltaTime) {
 	}
 }
 
+/// @brief
+/// Builds the spritemap for the Jumpkin
 map<SpriteState, SpriteObject*> Jumpkin::buildSpritemap(int textureId) {
 	std::map<SpriteState, SpriteObject*> spriteMap;
 

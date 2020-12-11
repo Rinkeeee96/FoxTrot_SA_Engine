@@ -44,7 +44,7 @@ void DeathScreen::loadBackground() {
 
 	auto* layer0 = new Drawable(-602);
 	layer0->setStatic(true);
-	layer0->setPositionX(1);
+	layer0->setPositionX(0);
 	layer0->setPositionY(1080);
 	layer0->setWidth(1920);
 	layer0->setHeight(1080);
@@ -63,7 +63,7 @@ void DeathScreen::loadBackground() {
 
 	auto* layer2 = new Drawable(-603);
 	layer2->setStatic(true);
-	layer2->setPositionX(1);
+	layer2->setPositionX(0);
 	layer2->setPositionY(1080);
 	layer2->setWidth(1920);
 	layer2->setHeight(1080);
@@ -78,14 +78,14 @@ void DeathScreen::loadBackground() {
 /// @brief 
 /// Load the sounds for this scene
 void DeathScreen::loadMusic() {
-	engine.soundEngine.onLoadBackgroundMusicEvent("DEAD_SOUND", "Assets/Sound/game_over_looped.wav");
+	engine.loadSound("DEAD_SOUND", "Assets/Sound/game_over_looped.wav");
 }
 
 /// @brief 
 /// Create the sounds for this scene
 void DeathScreen::start(bool playSound)
 {
-	if(playSound)engine.soundEngine.onStartBackgroundMusicEvent("DEAD_SOUND");
+	if(playSound)engine.startSound("DEAD_SOUND");
 }
 
 void DeathScreen::onUpdate()
@@ -96,7 +96,6 @@ void DeathScreen::onUpdate()
 /// Remove the sounds of the soundengine
 void DeathScreen::onDetach()
 {
-	engine.soundEngine.onStartBackgroundMusicEvent("DEAD_SOUND");
 	Scene::onDetach();
 }
 

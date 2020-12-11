@@ -118,10 +118,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;BUILD_WINDOWS;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)engineFoxtrot;$(SolutionDir)engineFoxtrot\Engine;$(SolutionDir)engineFoxtrot\Engine\SceneManager;$(SolutionDir)engineFoxtrot\Engine\Input;%(AdditionalIncludeDirectories);$(SolutionDir)Nlohmann\include</AdditionalIncludeDirectories>
-      <PrecompiledHeader>Create</PrecompiledHeader>
+      <AdditionalIncludeDirectories>$(SolutionDir)RapidJson\include;$(ProjectDir);$(SolutionDir)engineFoxtrot;$(SolutionDir)engineFoxtrot\Engine;$(SolutionDir)engineFoxtrot\Engine\SceneManager;$(SolutionDir)engineFoxtrot\Engine\Input;%(AdditionalIncludeDirectories);$(SolutionDir)Valijson\include;$(SolutionDir)Nlohmann\include</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalOptions>/D _SILENCE_ALL_CXX17_DEPRECATION_WARNINGS %(AdditionalOptions)</AdditionalOptions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName)_$(PlatformTarget).pch</PrecompiledHeaderOutputFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -181,6 +184,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Levels\LoadLevelFacade.h" />
     <ClInclude Include="Game\Buttons\PrimaryButton.h" />
     <ClInclude Include="Game\Buttons\SecondaryButton.h" />
+    <ClInclude Include="Game\PopUps\Popups.h" />
     <ClInclude Include="Game\SaveGame\Savegame.h" />
     <ClInclude Include="Game\Scenes\Credits\CreditsScene.h" />
     <ClInclude Include="Game\Scenes\Factory\Creator.h" />
@@ -190,14 +194,25 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Scenes\MainMenu\MainMenu.h" />
     <ClInclude Include="Game\Scenes\SaveScreen\SaveScreen.h" />
     <ClInclude Include="Game\Scenes\Scenes.h" />
+    <ClInclude Include="Game\Scenes\Story\ChapterOneScene.h" />
+    <ClInclude Include="Game\Scenes\Story\ChapterScene\ChapterScene.h" />
     <ClInclude Include="Game\Scenes\Transitions\GeneralTransition\GeneralTransition.h" />
     <ClInclude Include="Game\Scenes\Transitions\Transitions.h" />
     <ClInclude Include="Game\Scenes\DeathScreen\DeathScreen.h" />
     <ClInclude Include="Game\Scenes\WinScreen\WinScreen.h" />
+    <ClInclude Include="Game\States\IGlobalState.h" />
+    <ClInclude Include="Game\States\IState.h" />
+    <ClInclude Include="Game\States\Player\GodState.h" />
+    <ClInclude Include="Game\States\Player\DamageCooldownState.h" />
+    <ClInclude Include="Game\States\Player\NormalState.h" />
+    <ClInclude Include="Game\States\Player\PlayerGlobalState.h" />
+    <ClInclude Include="Game\States\StateMachine.h" />
     <ClInclude Include="Glitch.h" />
     <ClInclude Include="Game\Scenes\Overworld\Overworld.h" />
     <ClInclude Include="Game\Levels\Level.h" />
     <ClInclude Include="Game\SpriteState.h" />
+    <ClInclude Include="Game\PopUps\Pause\PausePopUp.h" />
+    <ClInclude Include="Game\PopUps\Inventory\InventoryPopup.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Game\Levels\Builders\ILevelBuilder.h" />
     <ClInclude Include="Game\Levels\Builders\LevelBuilderDirector.h" />
@@ -207,6 +222,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Triggers\DeathTrigger.h" />
     <ClInclude Include="Game\Triggers\WinTrigger.h" />
     <ClInclude Include="Game\Scenes\Statemachine\SceneStateMachine.h" />
+    <ClInclude Include="Game\Scenes\Shop\Shop.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Characters\Enemies\BaseEnemy.cpp" />
@@ -226,20 +242,34 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClCompile Include="Game\SaveGame\Savegame.cpp" />
     <ClCompile Include="Game\Scenes\MainMenu\MainMenu.cpp" />
     <ClCompile Include="Game\Scenes\SaveScreen\SaveScreen.cpp" />
+    <ClCompile Include="Game\Scenes\Story\ChapterOneScene.cpp" />
+    <ClCompile Include="Game\Scenes\Story\ChapterScene\ChapterScene.cpp" />
     <ClCompile Include="Game\Scenes\Transitions\GeneralTransition\GeneralTransition.cpp" />
     <ClCompile Include="Game\Scenes\DeathScreen\DeathScreen.cpp" />
     <ClCompile Include="Game\Scenes\WinScreen\WinScreen.cpp" />
+    <ClCompile Include="Game\States\Player\GodState.cpp" />
+    <ClCompile Include="Game\States\Player\DamageCooldownState.cpp" />
+    <ClCompile Include="Game\States\Player\NormalState.cpp" />
+    <ClCompile Include="Game\States\Player\PlayerGlobalState.cpp" />
     <ClCompile Include="Glitch.cpp" />
-    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="Game\PopUps\Pause\PausePopUp.cpp" />
+    <ClCompile Include="Game\PopUps\Inventory\InventoryPopup.cpp" />
+    <ClCompile Include="pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="Game\Levels\Level.cpp" />
     <ClCompile Include="Game\Levels\Builders\LevelBuilderDirector.cpp" />
     <ClCompile Include="Game\Levels\Builders\LevelBuilder.cpp" />
     <ClCompile Include="Game\Scenes\Statemachine\SceneStateMachine.cpp" />
+    <ClCompile Include="Game\Scenes\Shop\Shop.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\engineFoxtrot\engineFoxtrot.vcxproj">
       <Project>{f1d99aff-84ec-467c-a5e9-d5ba5bb76acd}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Assets\Levels\Story\ChapterOne.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

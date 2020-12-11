@@ -23,7 +23,7 @@ void SaveScreen::onDetach()
 
 void SaveScreen::start(bool playSound)
 {
-	if(playSound)engine.soundEngine.onStartBackgroundMusicEvent("MENU_SOUND");
+	if(playSound)engine.startSound("MENU_SOUND");
 }
 
 void SaveScreen::onUpdate()
@@ -38,7 +38,7 @@ void SaveScreen::loadBackground()
 
 	auto* layer0 = new Drawable(-992);
 	layer0->setStatic(true);
-	layer0->setPositionX(1);
+	layer0->setPositionX(0);
 	layer0->setPositionY(1080);
 	layer0->setWidth(1920);
 	layer0->setHeight(1080);
@@ -57,7 +57,7 @@ void SaveScreen::loadBackground()
 
 	auto* layer2 = new Drawable(-990);
 	layer2->setStatic(true);
-	layer2->setPositionX(1);
+	layer2->setPositionX(0);
 	layer2->setPositionY(1080);
 	layer2->setWidth(1920);
 	layer2->setHeight(1080);
@@ -71,7 +71,7 @@ void SaveScreen::loadBackground()
 
 void SaveScreen::loadMusic()
 {
-	engine.soundEngine.onLoadBackgroundMusicEvent("MENU_SOUND", "Assets/Sound/file_example_WAV_1MG.wav");
+	engine.loadSound("MENU_SOUND", "Assets/Sound/file_example_WAV_1MG.wav");
 }
 
 void SaveScreen::loadButtons()

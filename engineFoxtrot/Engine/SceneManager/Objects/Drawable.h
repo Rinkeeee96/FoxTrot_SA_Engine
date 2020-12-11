@@ -34,6 +34,9 @@ public:
 	API virtual const ColoredText* toString() { return nullptr; }
 
 	virtual void onUpdate(float deltaTime) override { }
+	API virtual void setTint(int r, int g, int b) { this->tint = Color{ r, g, b }; }
+	API virtual void removeTint() { this->tint = Color{ 255, 255, 255 };}
+	API virtual Color getTint() { return this->tint; }
 
 	bool getIsText() const { return this->isText; }
 
@@ -42,6 +45,7 @@ public:
 protected:
 	// TODO	particle related things
 	bool isText = false;
+	Color tint{ 255, 255, 255 };
 protected:
 	// TODO	particle related things
 	bool drawStatic = false;
@@ -67,7 +71,7 @@ public:
 	}
 
 	~Text() {
-
+		delete color;
 	}
 
 	API virtual const ColoredText* toString() { return color; }

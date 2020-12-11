@@ -47,7 +47,7 @@ void WinScreen::LoadBackground() {
 
 	auto* layer0 = new Drawable(34);
 	layer0->setStatic(true);
-	layer0->setPositionX(1);
+	layer0->setPositionX(0);
 	layer0->setPositionY(1080);
 	layer0->setWidth(1920);
 	layer0->setHeight(1080);
@@ -86,7 +86,7 @@ void WinScreen::LoadBackground() {
 /// Load the sounds for this scene
 void WinScreen::LoadMusic() {
 
-	engine.soundEngine.onLoadBackgroundMusicEvent("WIN_SOUND", "Assets/Sound/TremLoadingloopl.wav");
+	engine.loadSound("WIN_SOUND", "Assets/Sound/TremLoadingloopl.wav");
 }
 
 
@@ -94,12 +94,11 @@ void WinScreen::LoadMusic() {
 /// Create the sounds for this scene
 void WinScreen::start(bool playSound)
 {
-	if(playSound)engine.soundEngine.onStartBackgroundMusicEvent("WIN_SOUND");
+	if(playSound)engine.startSound("WIN_SOUND");
 }
 
 void WinScreen::onDetach()
 {
-	engine.soundEngine.onStartBackgroundMusicEvent("WIN_SOUND");
 	Scene::onDetach();
 }
 

@@ -10,6 +10,8 @@ public:
 		_dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(BaseEnemy::onCollisionBeginEvent));
 	}
 
+	/// @brief
+	///  Event handler for handling collision after event
 	bool onCollisionBeginEvent(const Event& event);
 
 private:

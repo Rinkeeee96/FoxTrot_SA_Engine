@@ -4,7 +4,7 @@
 #include "box2d/box2d.h"
 
 /// @brief Constructor
-PhysicsFacade::PhysicsFacade(EventDispatcher& _dispatcher, FrameData& _frameData) : dispatcher{ _dispatcher }, frameData{_frameData}
+PhysicsFacade::PhysicsFacade(EventDispatcher& _dispatcher) : dispatcher{_dispatcher }
 {
 	world = new b2World(b2Vec2(GRAVITY_SCALE, GRAVITY_FALL));
 	world->SetContactListener(new ContactListenerAdapter(this, _dispatcher));

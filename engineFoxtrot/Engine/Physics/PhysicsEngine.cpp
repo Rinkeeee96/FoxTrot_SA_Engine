@@ -4,13 +4,21 @@
 #include "Events\Action\ObjectStopEvent.h"
 #include "Events/Key/KeyPressed.h"
 
+
+/// @brief Constructor
+PhysicsEngine::PhysicsEngine()
+{
+}
+
 void PhysicsEngine::start(EventDispatcher& dispatcher) {
 	this->dispatcher = &dispatcher;
-	physicsFacade = new PhysicsFacade(dispatcher, frameData);
+	physicsFacade = new PhysicsFacade(dispatcher);
 
 	dispatcher.setEventCallback<ActionEvent>(BIND_EVENT_FN(PhysicsEngine::handleAction));
 	dispatcher.setEventCallback<ObjectStopEvent>(BIND_EVENT_FN(PhysicsEngine::stopObject));
 };
+
+
 
 void PhysicsEngine::update() {
 	if (currentSceneID != (*pointerToCurrentScene)->getSceneID())
@@ -29,7 +37,7 @@ void PhysicsEngine::shutdown() {
 	delete physicsFacade;
 };
 
-void PhysicsEngine::removeObject() {
+void PhysicsEngine::reloadPhysicsObjects() {
 	physicsFacade->cleanMap();
 	registerObjectInCurrentVectorWithPhysicsEngine();
 }
@@ -39,7 +47,6 @@ void PhysicsEngine::clean()
 {
 	if (physicsFacade)
 		physicsFacade->cleanMap();
-	
 }
 
 /// @brief 
@@ -47,8 +54,8 @@ void PhysicsEngine::clean()
 bool PhysicsEngine::handleAction(const Event& event) {
 	auto actionEvent = static_cast<const ActionEvent&>(event);
 
-	auto direction = actionEvent.GetDirection();
-	auto objectId = actionEvent.GetObjectId();
+	auto direction = actionEvent.getDirection();
+	auto objectId = actionEvent.getObjectId();
 	switch (direction)
 	{
 		case Direction::UP:
@@ -71,7 +78,7 @@ bool PhysicsEngine::handleAction(const Event& event) {
 
 bool PhysicsEngine::stopObject(const Event& event) {
 	ObjectStopEvent e = static_cast<const ObjectStopEvent&>(event);
-	physicsFacade->stopObject(e.GetObjectId(), e.GetStopVertical());
+	physicsFacade->stopObject(e.getObjectId(), e.getStopVertical());
 	return true;
 }
 
@@ -103,5 +110,3 @@ void PhysicsEngine::registerObjectInCurrentVectorWithPhysicsEngine()
 		}
 	}
 }
-
-
