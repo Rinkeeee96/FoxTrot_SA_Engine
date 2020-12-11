@@ -18,26 +18,28 @@ bool Level::onKeyPressed(const Event& event) {
 	switch (keyPressedEvent.getKeyCode())
 	{
 	case KeyCode::KEY_P:
-		if (!paused && !inventoryOpen) {
+		if (!paused) {
 			PausePopUp* pausePopUp = new PausePopUp(this->dispatcher, this->stateMachine);
 			pausePopUp->setupPopUp();
-			addPopUpLayer(pausePopUp);
+			pausePopupZIndex = addLayerOnHighestZIndex(pausePopUp);
 			this->paused = true;
 		}
-		else if (!inventoryOpen) {
-			removePopUpLayer();
+		else
+		{
+			removeLayer(pausePopupZIndex);
 			this->paused = false;
 		}
 		break;
 	case KeyCode::KEY_I:
-		if (!inventoryOpen && !paused) {
+		if (!inventoryOpen) {
 			InventoryPopup* inventoryPopup = new InventoryPopup(this->dispatcher, this->stateMachine);
 			inventoryPopup->setupPopUp();
-			addPopUpLayer(inventoryPopup);
+			inventoryPopupZIndex = addLayerOnHighestZIndex(inventoryPopup);
 			inventoryOpen = true;
 		}
-		else if (!paused) {
-			removePopUpLayer();
+		else
+		{
+			removeLayer(inventoryPopupZIndex);
 			inventoryOpen = false;
 		}
 		break;
