@@ -78,7 +78,7 @@ Inheritance diagram for ParticleEngine:</div>
  <div class="center">
   <img src="class_particle_engine.png" usemap="#ParticleEngine_map" alt=""/>
   <map id="ParticleEngine_map" name="ParticleEngine_map">
-<area href="class_i_subsystem.html" alt="ISubsystem" shape="rect" coords="0,0,94,24"/>
+<area href="class_i_subsystem.html" title="Interface for Subsystems that use the eventDispatcher." alt="ISubsystem" shape="rect" coords="0,0,94,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -92,14 +92,15 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_engine.html#ae32558909cb0f915a726a9043c711424">~ParticleEngine</a> ()</td></tr>
 <tr class="memdesc:ae32558909cb0f915a726a9043c711424"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br /></td></tr>
 <tr class="separator:ae32558909cb0f915a726a9043c711424"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a4c49189fb7f110a891a7405bbcdbe7"><td class="memItemLeft" align="right" valign="top"><a id="a6a4c49189fb7f110a891a7405bbcdbe7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>start</b> (<a class="el" href="class_event_dispatcher.html">EventDispatcher</a> &amp;dispatcher) override</td></tr>
+<tr class="memitem:a6a4c49189fb7f110a891a7405bbcdbe7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_engine.html#a6a4c49189fb7f110a891a7405bbcdbe7">start</a> (<a class="el" href="class_event_dispatcher.html">EventDispatcher</a> &amp;dispatcher) override</td></tr>
+<tr class="memdesc:a6a4c49189fb7f110a891a7405bbcdbe7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does nothing. Needs to be here for syntax purpose.  <a href="class_particle_engine.html#a6a4c49189fb7f110a891a7405bbcdbe7">More...</a><br /></td></tr>
 <tr class="separator:a6a4c49189fb7f110a891a7405bbcdbe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91a39fce5340275279bcd10aa7db0add"><td class="memItemLeft" align="right" valign="top"><a id="a91a39fce5340275279bcd10aa7db0add"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> () override</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_engine.html#a91a39fce5340275279bcd10aa7db0add">update</a> () override</td></tr>
+<tr class="memdesc:a91a39fce5340275279bcd10aa7db0add"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the particles postion. Checks if the <a class="el" href="class_particle.html">Particle</a> Postion is the same as the ObjectPosition. <br /></td></tr>
 <tr class="separator:a91a39fce5340275279bcd10aa7db0add"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0ba51d971cec6147333fc8e5e6ddfff"><td class="memItemLeft" align="right" valign="top"><a id="ae0ba51d971cec6147333fc8e5e6ddfff"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>shutdown</b> () override</td></tr>
+<tr class="memitem:ae0ba51d971cec6147333fc8e5e6ddfff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_engine.html#ae0ba51d971cec6147333fc8e5e6ddfff">shutdown</a> () override</td></tr>
+<tr class="memdesc:ae0ba51d971cec6147333fc8e5e6ddfff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does nothing. Needs to be here for syntax purpose.  <a href="class_particle_engine.html#ae0ba51d971cec6147333fc8e5e6ddfff">More...</a><br /></td></tr>
 <tr class="separator:ae0ba51d971cec6147333fc8e5e6ddfff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -110,13 +111,122 @@ Public Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:ae3c9f2091e30e57f2ea5bd7d1e1fba42"><td class="memItemLeft" align="right" valign="top"><a id="ae3c9f2091e30e57f2ea5bd7d1e1fba42"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>checkIfObjectValueAndParticleValueMatch</b> (<a class="el" href="class_particle_adapter.html">ParticleAdapter</a> &amp;particle)</td></tr>
+<tr class="memitem:ae3c9f2091e30e57f2ea5bd7d1e1fba42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_engine.html#ae3c9f2091e30e57f2ea5bd7d1e1fba42">checkIfObjectValueAndParticleValueMatch</a> (<a class="el" href="class_particle_adapter.html">ParticleAdapter</a> &amp;particle)</td></tr>
+<tr class="memdesc:ae3c9f2091e30e57f2ea5bd7d1e1fba42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the postion of the <a class="el" href="class_particle.html">Particle</a> is the same as the position of the <a class="el" href="class_object.html" title="Object class. Object is linked with a sprite id in SVI.">Object</a>. If not equal they will be made equal. <a class="el" href="class_particle.html">Particle</a> position wil be updated to the object position.  <a href="class_particle_engine.html#ae3c9f2091e30e57f2ea5bd7d1e1fba42">More...</a><br /></td></tr>
 <tr class="separator:ae3c9f2091e30e57f2ea5bd7d1e1fba42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class to update <a class="el" href="class_particle.html">Particle</a>. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae3c9f2091e30e57f2ea5bd7d1e1fba42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3c9f2091e30e57f2ea5bd7d1e1fba42">&#9670;&nbsp;</a></span>checkIfObjectValueAndParticleValueMatch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ParticleEngine::checkIfObjectValueAndParticleValueMatch </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_particle_adapter.html">ParticleAdapter</a> &amp;&#160;</td>
+          <td class="paramname"><em>particle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the postion of the <a class="el" href="class_particle.html">Particle</a> is the same as the position of the <a class="el" href="class_object.html" title="Object class. Object is linked with a sprite id in SVI.">Object</a>. If not equal they will be made equal. <a class="el" href="class_particle.html">Particle</a> position wil be updated to the object position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">particle</td><td><br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae0ba51d971cec6147333fc8e5e6ddfff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0ba51d971cec6147333fc8e5e6ddfff">&#9670;&nbsp;</a></span>shutdown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ParticleEngine::shutdown </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Does nothing. Needs to be here for syntax purpose. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dispatcher</td><td><br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_i_subsystem.html">ISubsystem</a>.</p>
+
+</div>
+</div>
+<a id="a6a4c49189fb7f110a891a7405bbcdbe7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a4c49189fb7f110a891a7405bbcdbe7">&#9670;&nbsp;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ParticleEngine::start </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_event_dispatcher.html">EventDispatcher</a> &amp;&#160;</td>
+          <td class="paramname"><em>dispatcher</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Does nothing. Needs to be here for syntax purpose. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dispatcher</td><td><br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_i_subsystem.html">ISubsystem</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>Engine/ParticleSystem/<a class="el" href="_particle_engine_8h_source.html">ParticleEngine.h</a></li>
 <li>Engine/ParticleSystem/ParticleEngine.cpp</li>
 </ul>

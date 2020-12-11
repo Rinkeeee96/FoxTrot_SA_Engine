@@ -76,7 +76,7 @@ Inheritance diagram for ParticleAdapter:</div>
  <div class="center">
   <img src="class_particle_adapter.png" usemap="#ParticleAdapter_map" alt=""/>
   <map id="ParticleAdapter_map" name="ParticleAdapter_map">
-<area href="class_drawable.html" alt="Drawable" shape="rect" coords="0,56,100,80"/>
+<area href="class_drawable.html" title="Base class for all objects that can be drawn." alt="Drawable" shape="rect" coords="0,56,100,80"/>
 <area href="class_particle_init.html" alt="ParticleInit" shape="rect" coords="110,56,210,80"/>
 <area href="class_object.html" title="Object class. Object is linked with a sprite id in SVI." alt="Object" shape="rect" coords="0,0,100,24"/>
 <area href="class_particle.html" alt="Particle" shape="rect" coords="110,0,210,24"/>
@@ -120,17 +120,16 @@ API float&#160;</td><td class="memItemRight" valign="bottom"><b>getHeight</b> ()
 API&#160;</td><td class="memItemRight" valign="bottom"><b>Drawable</b> (const int _id, const bool _isParticle=false)</td></tr>
 <tr class="separator:a10295c56be278f5bb41341220055728c inherit pub_methods_class_drawable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2a312bcadb7eaca02fb943b0241399a inherit pub_methods_class_drawable"><td class="memItemLeft" align="right" valign="top"><a id="aa2a312bcadb7eaca02fb943b0241399a"></a>
-API <a class="el" href="class_sprite_object.html">SpriteObject</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_drawable.html#aa2a312bcadb7eaca02fb943b0241399a">GetCurrentSprite</a> () const</td></tr>
-<tr class="memdesc:aa2a312bcadb7eaca02fb943b0241399a inherit pub_methods_class_drawable"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the current active sprite reference of the drawable <br /></td></tr>
+API <a class="el" href="class_sprite_object.html">SpriteObject</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetCurrentSprite</b> () const</td></tr>
 <tr class="separator:aa2a312bcadb7eaca02fb943b0241399a inherit pub_methods_class_drawable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad57dab17a78a1cb92dead0988527e925 inherit pub_methods_class_drawable"><td class="memItemLeft" align="right" valign="top"><a id="ad57dab17a78a1cb92dead0988527e925"></a>
-virtual API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_drawable.html#ad57dab17a78a1cb92dead0988527e925">registerSprite</a> (int state, <a class="el" href="class_sprite_object.html">SpriteObject</a> *spriteObject)</td></tr>
-<tr class="memdesc:ad57dab17a78a1cb92dead0988527e925 inherit pub_methods_class_drawable"><td class="mdescLeft">&#160;</td><td class="mdescRight">register a new state or overwrite a existing state and dispatch an event that signals to load the sprite in memory register the spriteID link a state with a sprite <br /></td></tr>
-<tr class="separator:ad57dab17a78a1cb92dead0988527e925 inherit pub_methods_class_drawable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f2b45a5c9f05f9c4aad6b37e0c051a8 inherit pub_methods_class_drawable"><td class="memItemLeft" align="right" valign="top"><a id="a5f2b45a5c9f05f9c4aad6b37e0c051a8"></a>
-virtual API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_drawable.html#a5f2b45a5c9f05f9c4aad6b37e0c051a8">changeToState</a> (const int state)</td></tr>
-<tr class="memdesc:a5f2b45a5c9f05f9c4aad6b37e0c051a8 inherit pub_methods_class_drawable"><td class="mdescLeft">&#160;</td><td class="mdescRight">change the state change the textureID to the current state <br /></td></tr>
-<tr class="separator:a5f2b45a5c9f05f9c4aad6b37e0c051a8 inherit pub_methods_class_drawable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6f39d1322218d74357a619c56a2d826 inherit pub_methods_class_drawable"><td class="memItemLeft" align="right" valign="top"><a id="ac6f39d1322218d74357a619c56a2d826"></a>
+virtual API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_drawable.html#ac6f39d1322218d74357a619c56a2d826">registerSprite</a> (int state, <a class="el" href="class_sprite_object.html">SpriteObject</a> *spriteObject)</td></tr>
+<tr class="memdesc:ac6f39d1322218d74357a619c56a2d826 inherit pub_methods_class_drawable"><td class="mdescLeft">&#160;</td><td class="mdescRight">register a new state or overwrite a existing state and dispatch an event that signals to load the sprite in memory register the spriteID link a state with a sprite <br /></td></tr>
+<tr class="separator:ac6f39d1322218d74357a619c56a2d826 inherit pub_methods_class_drawable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c7a5ed9163633d454d78f215b311ea0 inherit pub_methods_class_drawable"><td class="memItemLeft" align="right" valign="top"><a id="a5c7a5ed9163633d454d78f215b311ea0"></a>
+virtual API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_drawable.html#a5c7a5ed9163633d454d78f215b311ea0">changeToState</a> (const int state)</td></tr>
+<tr class="memdesc:a5c7a5ed9163633d454d78f215b311ea0 inherit pub_methods_class_drawable"><td class="mdescLeft">&#160;</td><td class="mdescRight">change the state change the textureID to the current state <br /></td></tr>
+<tr class="separator:a5c7a5ed9163633d454d78f215b311ea0 inherit pub_methods_class_drawable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74ff5fd2c473a790d29756acc600f59c inherit pub_methods_class_drawable"><td class="memItemLeft" align="right" valign="top"><a id="a74ff5fd2c473a790d29756acc600f59c"></a>
 virtual API const <a class="el" href="struct_colored_text.html">ColoredText</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> ()</td></tr>
 <tr class="separator:a74ff5fd2c473a790d29756acc600f59c inherit pub_methods_class_drawable"><td class="memSeparator" colspan="2">&#160;</td></tr>

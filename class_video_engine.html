@@ -69,7 +69,7 @@ $(document).ready(function(){initNavTree('class_video_engine.html',''); initResi
 </div><!--header-->
 <div class="contents">
 
-<p>Video is the SDL2 wrapper.  
+<p><a class="el" href="class_video_engine.html" title="VideoEngine is the SDL2 wrapper.">VideoEngine</a> is the SDL2 wrapper.  
  <a href="class_video_engine.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_video_engine_8h_source.html">VideoEngine.h</a>&gt;</code></p>
@@ -79,7 +79,7 @@ Inheritance diagram for VideoEngine:</div>
  <div class="center">
   <img src="class_video_engine.png" usemap="#VideoEngine_map" alt=""/>
   <map id="VideoEngine_map" name="VideoEngine_map">
-<area href="class_i_subsystem.html" alt="ISubsystem" shape="rect" coords="0,0,84,24"/>
+<area href="class_i_subsystem.html" title="Interface for Subsystems that use the eventDispatcher." alt="ISubsystem" shape="rect" coords="0,0,84,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -110,14 +110,16 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a52ed0e17950337816665685391905608"><td class="memItemLeft" align="right" valign="top"><a id="a52ed0e17950337816665685391905608"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>clearVideoEngine</b> ()</td></tr>
 <tr class="separator:a52ed0e17950337816665685391905608"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac718582b05a84dd54a85c0cd16e67b28"><td class="memItemLeft" align="right" valign="top"><a id="ac718582b05a84dd54a85c0cd16e67b28"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>start</b> (<a class="el" href="class_event_dispatcher.html">EventDispatcher</a> &amp;dispatcher) override</td></tr>
+<tr class="memitem:ac718582b05a84dd54a85c0cd16e67b28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_engine.html#ac718582b05a84dd54a85c0cd16e67b28">start</a> (<a class="el" href="class_event_dispatcher.html">EventDispatcher</a> &amp;dispatcher) override</td></tr>
+<tr class="memdesc:ac718582b05a84dd54a85c0cd16e67b28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the videoFacade.  <a href="class_video_engine.html#ac718582b05a84dd54a85c0cd16e67b28">More...</a><br /></td></tr>
 <tr class="separator:ac718582b05a84dd54a85c0cd16e67b28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a448d04228db501c7aff197abe507423a"><td class="memItemLeft" align="right" valign="top"><a id="a448d04228db501c7aff197abe507423a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> () override</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_engine.html#a448d04228db501c7aff197abe507423a">update</a> () override</td></tr>
+<tr class="memdesc:a448d04228db501c7aff197abe507423a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls the functions to render a screen. <br /></td></tr>
 <tr class="separator:a448d04228db501c7aff197abe507423a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac19f44b6df0ee867895d7ba1ecef2333"><td class="memItemLeft" align="right" valign="top"><a id="ac19f44b6df0ee867895d7ba1ecef2333"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>shutdown</b> () override</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_engine.html#ac19f44b6df0ee867895d7ba1ecef2333">shutdown</a> () override</td></tr>
+<tr class="memdesc:ac19f44b6df0ee867895d7ba1ecef2333"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the videoFacade and clears the videoEngine. <br /></td></tr>
 <tr class="separator:ac19f44b6df0ee867895d7ba1ecef2333"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -161,7 +163,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>shouldDrawFps</b> = f
 <tr class="separator:a93c2c5c62c525777d014bcf3d189f0ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Video is the SDL2 wrapper. </p>
+<div class="textblock"><p><a class="el" href="class_video_engine.html" title="VideoEngine is the SDL2 wrapper.">VideoEngine</a> is the SDL2 wrapper. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a0cef84176474de6348509531f6276652"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0cef84176474de6348509531f6276652">&#9670;&nbsp;</a></span>calculateOffset()</h2>
@@ -371,6 +373,43 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>shouldDrawFps</b> = f
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ac718582b05a84dd54a85c0cd16e67b28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac718582b05a84dd54a85c0cd16e67b28">&#9670;&nbsp;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VideoEngine::start </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_event_dispatcher.html">EventDispatcher</a> &amp;&#160;</td>
+          <td class="paramname"><em>dispatcher</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates the videoFacade. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dispatcher</td><td><br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_i_subsystem.html">ISubsystem</a>.</p>
 
 </div>
 </div>

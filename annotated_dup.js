@@ -53,7 +53,6 @@ var annotated_dup =
     [ "SceneManager", "class_scene_manager.html", "class_scene_manager" ],
     [ "SoundEngine", "class_sound_engine.html", "class_sound_engine" ],
     [ "SoundFacade", "class_sound_facade.html", "class_sound_facade" ],
-    [ "Sprite", "struct_sprite.html", "struct_sprite" ],
     [ "SpriteObject", "class_sprite_object.html", "class_sprite_object" ],
     [ "Text", "class_text.html", "class_text" ],
     [ "VideoEngine", "class_video_engine.html", "class_video_engine" ],

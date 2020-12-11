@@ -68,13 +68,18 @@ $(document).ready(function(){initNavTree('class_physics_engine.html',''); initRe
 <div class="title">PhysicsEngine Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Physics <a class="el" href="class_engine.html" title="Engine interface class connecting the game to the engine.">Engine</a> connected to the physics facade.  
+ <a href="class_physics_engine.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_physics_engine_8h_source.html">PhysicsEngine.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for PhysicsEngine:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_physics_engine.png" usemap="#PhysicsEngine_map" alt=""/>
   <map id="PhysicsEngine_map" name="PhysicsEngine_map">
-<area href="class_i_subsystem.html" alt="ISubsystem" shape="rect" coords="0,0,95,24"/>
+<area href="class_i_subsystem.html" title="Interface for Subsystems that use the eventDispatcher." alt="ISubsystem" shape="rect" coords="0,0,95,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -86,7 +91,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7fc9180ea453680df0b863fa157c5b92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5f076ee99bbfdbc79ab2d27366d8476"><td class="memItemLeft" align="right" valign="top"><a id="ae5f076ee99bbfdbc79ab2d27366d8476"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#ae5f076ee99bbfdbc79ab2d27366d8476">~PhysicsEngine</a> ()</td></tr>
-<tr class="memdesc:ae5f076ee99bbfdbc79ab2d27366d8476"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br /></td></tr>
+<tr class="memdesc:ae5f076ee99bbfdbc79ab2d27366d8476"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor calls the shutdown function. <br /></td></tr>
 <tr class="separator:ae5f076ee99bbfdbc79ab2d27366d8476"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a395053a3efe7baf0d5154a204b81b062"><td class="memItemLeft" align="right" valign="top"><a id="a395053a3efe7baf0d5154a204b81b062"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a395053a3efe7baf0d5154a204b81b062">registerObjectInCurrentVectorWithPhysicsEngine</a> ()</td></tr>
@@ -96,20 +101,23 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a934274d6d30baac10dd6d5142522d2f4">handleAction</a> (const <a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
 <tr class="memdesc:a934274d6d30baac10dd6d5142522d2f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles a <a class="el" href="class_action_event.html" title="AppTickEvent is fired when a tick happened in the engine. Derived class of event.">ActionEvent</a> and according to the given direction moves the object. <br /></td></tr>
 <tr class="separator:a934274d6d30baac10dd6d5142522d2f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c94fb9996654e0d495e3a680a431102"><td class="memItemLeft" align="right" valign="top"><a id="a9c94fb9996654e0d495e3a680a431102"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>stopObject</b> (const <a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
+<tr class="memitem:a9c94fb9996654e0d495e3a680a431102"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a9c94fb9996654e0d495e3a680a431102">stopObject</a> (const <a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
+<tr class="memdesc:a9c94fb9996654e0d495e3a680a431102"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the vertical movement of an object.  <a href="class_physics_engine.html#a9c94fb9996654e0d495e3a680a431102">More...</a><br /></td></tr>
 <tr class="separator:a9c94fb9996654e0d495e3a680a431102"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ee00603461896b5ab57b9c61a29856b"><td class="memItemLeft" align="right" valign="top"><a id="a7ee00603461896b5ab57b9c61a29856b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>reloadPhysicsObjects</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a7ee00603461896b5ab57b9c61a29856b">reloadPhysicsObjects</a> ()</td></tr>
+<tr class="memdesc:a7ee00603461896b5ab57b9c61a29856b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reloads the physicsFacade objects map. <br /></td></tr>
 <tr class="separator:a7ee00603461896b5ab57b9c61a29856b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1211e342e28078b0774a98e43599fcb7"><td class="memItemLeft" align="right" valign="top"><a id="a1211e342e28078b0774a98e43599fcb7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>start</b> (<a class="el" href="class_event_dispatcher.html">EventDispatcher</a> &amp;dispatcher) override</td></tr>
+<tr class="memitem:a1211e342e28078b0774a98e43599fcb7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a1211e342e28078b0774a98e43599fcb7">start</a> (<a class="el" href="class_event_dispatcher.html">EventDispatcher</a> &amp;dispatcher) override</td></tr>
+<tr class="memdesc:a1211e342e28078b0774a98e43599fcb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connects the dispatcher, set the listeners for event callbacks.  <a href="class_physics_engine.html#a1211e342e28078b0774a98e43599fcb7">More...</a><br /></td></tr>
 <tr class="separator:a1211e342e28078b0774a98e43599fcb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5558246d687304435d45c5e04c3eb29f"><td class="memItemLeft" align="right" valign="top"><a id="a5558246d687304435d45c5e04c3eb29f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> () override</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a5558246d687304435d45c5e04c3eb29f">update</a> () override</td></tr>
+<tr class="memdesc:a5558246d687304435d45c5e04c3eb29f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the physics world via the physicsFacade. If the currentScene changes the physics facade will be cleaned. <br /></td></tr>
 <tr class="separator:a5558246d687304435d45c5e04c3eb29f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a594c1e5e15be202e90e4584157df5b7d"><td class="memItemLeft" align="right" valign="top"><a id="a594c1e5e15be202e90e4584157df5b7d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>shutdown</b> () override</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a594c1e5e15be202e90e4584157df5b7d">shutdown</a> () override</td></tr>
+<tr class="memdesc:a594c1e5e15be202e90e4584157df5b7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is called on physicsEngine shutdown. Cleans the physicsEngine en deletes the physicsFacade. <br /></td></tr>
 <tr class="separator:a594c1e5e15be202e90e4584157df5b7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -121,7 +129,8 @@ Public Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a1b8eb1b60b64196cab53e89bef06d21b"><td class="memItemLeft" align="right" valign="top"><a id="a1b8eb1b60b64196cab53e89bef06d21b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clean</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a1b8eb1b60b64196cab53e89bef06d21b">clean</a> ()</td></tr>
+<tr class="memdesc:a1b8eb1b60b64196cab53e89bef06d21b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cleans the physicsFacade map. <br /></td></tr>
 <tr class="separator:a1b8eb1b60b64196cab53e89bef06d21b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -136,6 +145,74 @@ Private Attributes</h2></td></tr>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>currentSceneID</b> = 0</td></tr>
 <tr class="separator:a858c48efe8067f869a2512301e609edc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Physics <a class="el" href="class_engine.html" title="Engine interface class connecting the game to the engine.">Engine</a> connected to the physics facade. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1211e342e28078b0774a98e43599fcb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1211e342e28078b0774a98e43599fcb7">&#9670;&nbsp;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PhysicsEngine::start </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_event_dispatcher.html">EventDispatcher</a> &amp;&#160;</td>
+          <td class="paramname"><em>dispatcher</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Connects the dispatcher, set the listeners for event callbacks. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dispatcher</td><td><br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_i_subsystem.html">ISubsystem</a>.</p>
+
+</div>
+</div>
+<a id="a9c94fb9996654e0d495e3a680a431102"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c94fb9996654e0d495e3a680a431102">&#9670;&nbsp;</a></span>stopObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PhysicsEngine::stopObject </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_event.html">Event</a> &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stops the vertical movement of an object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>Engine/Physics/<a class="el" href="_physics_engine_8h_source.html">PhysicsEngine.h</a></li>
 <li>Engine/Physics/PhysicsEngine.cpp</li>

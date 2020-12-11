@@ -92,8 +92,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2d0bba022bb38ac9a0a5de5df6787c3d"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_object.html">Object</a> * &gt; API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a2d0bba022bb38ac9a0a5de5df6787c3d">getAllObjectsInScene</a> ()</td></tr>
 <tr class="memdesc:a2d0bba022bb38ac9a0a5de5df6787c3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns pointers to all available objects in the whole scene.  <a href="class_scene.html#a2d0bba022bb38ac9a0a5de5df6787c3d">More...</a><br /></td></tr>
 <tr class="separator:a2d0bba022bb38ac9a0a5de5df6787c3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d99949d09c9958c60b934a417da5d81"><td class="memItemLeft" align="right" valign="top"><a id="a5d99949d09c9958c60b934a417da5d81"></a>
-vector&lt; <a class="el" href="class_object.html">Object</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getAllObjectsInSceneRenderPhysics</b> ()</td></tr>
+<tr class="memitem:a5d99949d09c9958c60b934a417da5d81"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_object.html">Object</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a5d99949d09c9958c60b934a417da5d81">getAllObjectsInSceneRenderPhysics</a> ()</td></tr>
+<tr class="memdesc:a5d99949d09c9958c60b934a417da5d81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns all objects in the scene with the renderPhysics value on true.  <a href="class_scene.html#a5d99949d09c9958c60b934a417da5d81">More...</a><br /></td></tr>
 <tr class="separator:a5d99949d09c9958c60b934a417da5d81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72486463c25db408ff5cf771bc6ba2b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_object.html">Object</a> API *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a72486463c25db408ff5cf771bc6ba2b1">getObject</a> (const int objectID)</td></tr>
 <tr class="memdesc:a72486463c25db408ff5cf771bc6ba2b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the object matched with the given objectID, if none are found an error is thrown.  <a href="class_scene.html#a72486463c25db408ff5cf771bc6ba2b1">More...</a><br /></td></tr>
@@ -102,20 +102,17 @@ vector&lt; <a class="el" href="class_object.html">Object</a> * &gt;&#160;</td><t
 int API&#160;</td><td class="memItemRight" valign="bottom"><b>getSceneID</b> ()</td></tr>
 <tr class="separator:ae3e629e67c6dc2e4dab696f63fd7fa9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc3766fe5466a09e8ea7d7a2ebb4e66f"><td class="memItemLeft" align="right" valign="top"><a id="afc3766fe5466a09e8ea7d7a2ebb4e66f"></a>
-virtual API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#afc3766fe5466a09e8ea7d7a2ebb4e66f">onAttach</a> ()=0</td></tr>
-<tr class="memdesc:afc3766fe5466a09e8ea7d7a2ebb4e66f"><td class="mdescLeft">&#160;</td><td class="mdescRight">OnAttach is executed when a scene is "attached" to the current running context usually this is can be used to prime a level with relevant data before starting it. Must be implemented by a concrete implementation of a scene. <br /></td></tr>
+virtual API void&#160;</td><td class="memItemRight" valign="bottom"><b>onAttach</b> ()=0</td></tr>
 <tr class="separator:afc3766fe5466a09e8ea7d7a2ebb4e66f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a763f066c31b0770a0f541983fb93b914"><td class="memItemLeft" align="right" valign="top"><a id="a763f066c31b0770a0f541983fb93b914"></a>
-virtual API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a763f066c31b0770a0f541983fb93b914">start</a> (bool playSound)=0</td></tr>
-<tr class="memdesc:a763f066c31b0770a0f541983fb93b914"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene Must be implemented by a concrete implementation of a scene. <br /></td></tr>
+virtual API void&#160;</td><td class="memItemRight" valign="bottom"><b>start</b> (bool playSound)=0</td></tr>
 <tr class="separator:a763f066c31b0770a0f541983fb93b914"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2f8580712a38a425315f99d9e5be2b9"><td class="memItemLeft" align="right" valign="top"><a id="ac2f8580712a38a425315f99d9e5be2b9"></a>
 virtual API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#ac2f8580712a38a425315f99d9e5be2b9">onDetach</a> ()=0</td></tr>
-<tr class="memdesc:ac2f8580712a38a425315f99d9e5be2b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">OnDetach is called when a scene is destroyed/closed and is responsible for cleanup Must be implemented by a concrete implementation of a scene. <br /></td></tr>
+<tr class="memdesc:ac2f8580712a38a425315f99d9e5be2b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes all objects in the scene when called. <br /></td></tr>
 <tr class="separator:ac2f8580712a38a425315f99d9e5be2b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb2ed971b11465980804ad4856a0fd66"><td class="memItemLeft" align="right" valign="top"><a id="abb2ed971b11465980804ad4856a0fd66"></a>
-virtual API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#abb2ed971b11465980804ad4856a0fd66">onUpdate</a> ()=0</td></tr>
-<tr class="memdesc:abb2ed971b11465980804ad4856a0fd66"><td class="mdescLeft">&#160;</td><td class="mdescRight">run is called in the main loop on the currentScene If any work needs to be done during a scene this is were to place it <br /></td></tr>
+virtual API void&#160;</td><td class="memItemRight" valign="bottom"><b>onUpdate</b> ()=0</td></tr>
 <tr class="separator:abb2ed971b11465980804ad4856a0fd66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad28c2fd6c05278c2fbb6c3c2a5d8fb5a"><td class="memItemLeft" align="right" valign="top"><a id="ad28c2fd6c05278c2fbb6c3c2a5d8fb5a"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setSceneWidth</b> (const int width)</td></tr>
@@ -138,11 +135,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setObjectToFollow</b>
 <tr class="memitem:ad7db814286fcad83a1368d54cfc53a86"><td class="memItemLeft" align="right" valign="top"><a id="ad7db814286fcad83a1368d54cfc53a86"></a>
 <a class="el" href="class_object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getObjectToFollow</b> ()</td></tr>
 <tr class="separator:ad7db814286fcad83a1368d54cfc53a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f06a5e001feb04ed82d23a7574779c5"><td class="memItemLeft" align="right" valign="top"><a id="a4f06a5e001feb04ed82d23a7574779c5"></a>
-API void&#160;</td><td class="memItemRight" valign="bottom"><b>removeObjectFromScene</b> (<a class="el" href="class_object.html">Object</a> *obj)</td></tr>
+<tr class="memitem:a4f06a5e001feb04ed82d23a7574779c5"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a4f06a5e001feb04ed82d23a7574779c5">removeObjectFromScene</a> (<a class="el" href="class_object.html">Object</a> *obj)</td></tr>
+<tr class="memdesc:a4f06a5e001feb04ed82d23a7574779c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a specific object from the current scene.  <a href="class_scene.html#a4f06a5e001feb04ed82d23a7574779c5">More...</a><br /></td></tr>
 <tr class="separator:a4f06a5e001feb04ed82d23a7574779c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb0274a49f1ca81274151e2d0dca9918"><td class="memItemLeft" align="right" valign="top"><a id="acb0274a49f1ca81274151e2d0dca9918"></a>
-API map&lt; int, <a class="el" href="class_layer.html">Layer</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getLayers</b> () const</td></tr>
+<tr class="memitem:acb0274a49f1ca81274151e2d0dca9918"><td class="memItemLeft" align="right" valign="top">API map&lt; int, <a class="el" href="class_layer.html">Layer</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#acb0274a49f1ca81274151e2d0dca9918">getLayers</a> () const</td></tr>
+<tr class="memdesc:acb0274a49f1ca81274151e2d0dca9918"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the layers map in a scene.  <a href="class_scene.html#acb0274a49f1ca81274151e2d0dca9918">More...</a><br /></td></tr>
 <tr class="separator:acb0274a49f1ca81274151e2d0dca9918"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa392fe80866ceb24130d4a642834767"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#afa392fe80866ceb24130d4a642834767">createLayer</a> (const int zIndex, bool renderPhysics=false, bool alwaysDrawLayer=false)</td></tr>
 <tr class="memdesc:afa392fe80866ceb24130d4a642834767"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a layer on the active scene with the given zIndex.  <a href="class_scene.html#afa392fe80866ceb24130d4a642834767">More...</a><br /></td></tr>
@@ -150,8 +147,8 @@ API map&lt; int, <a class="el" href="class_layer.html">Layer</a> * &gt;&#160;</t
 <tr class="memitem:a8a24679777f42f8bf9a1dcb307dae155"><td class="memItemLeft" align="right" valign="top"><a id="a8a24679777f42f8bf9a1dcb307dae155"></a>
 <a class="el" href="class_event_dispatcher.html">EventDispatcher</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getEventDispatcher</b> ()</td></tr>
 <tr class="separator:a8a24679777f42f8bf9a1dcb307dae155"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb211048face51d3fd02e6edb02e0b0f"><td class="memItemLeft" align="right" valign="top"><a id="afb211048face51d3fd02e6edb02e0b0f"></a>
-API int&#160;</td><td class="memItemRight" valign="bottom"><b>getHighestLayerIndex</b> ()</td></tr>
+<tr class="memitem:afb211048face51d3fd02e6edb02e0b0f"><td class="memItemLeft" align="right" valign="top">API int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#afb211048face51d3fd02e6edb02e0b0f">getHighestLayerIndex</a> ()</td></tr>
+<tr class="memdesc:afb211048face51d3fd02e6edb02e0b0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the highest layer zIndex in the scene.  <a href="class_scene.html#afb211048face51d3fd02e6edb02e0b0f">More...</a><br /></td></tr>
 <tr class="separator:afb211048face51d3fd02e6edb02e0b0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3940945ee21a86d900defb4d26c4312"><td class="memItemLeft" align="right" valign="top">API int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#aa3940945ee21a86d900defb4d26c4312">addLayerOnHighestZIndex</a> (<a class="el" href="class_layer.html">Layer</a> *_layer)</td></tr>
 <tr class="memdesc:aa3940945ee21a86d900defb4d26c4312"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a basic l with text.  <a href="class_scene.html#aa3940945ee21a86d900defb4d26c4312">More...</a><br /></td></tr>
@@ -465,6 +462,69 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneHeight</b> = WIND
 
 </div>
 </div>
+<a id="a5d99949d09c9958c60b934a417da5d81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d99949d09c9958c60b934a417da5d81">&#9670;&nbsp;</a></span>getAllObjectsInSceneRenderPhysics()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; <a class="el" href="class_object.html">Object</a> * &gt; Scene::getAllObjectsInSceneRenderPhysics </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns all objects in the scene with the renderPhysics value on true. </p>
+<dl class="section return"><dt>Returns</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="afb211048face51d3fd02e6edb02e0b0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb211048face51d3fd02e6edb02e0b0f">&#9670;&nbsp;</a></span>getHighestLayerIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Scene::getHighestLayerIndex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Finds the highest layer zIndex in the scene. </p>
+<dl class="section return"><dt>Returns</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="acb0274a49f1ca81274151e2d0dca9918"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb0274a49f1ca81274151e2d0dca9918">&#9670;&nbsp;</a></span>getLayers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">map&lt; int, <a class="el" href="class_layer.html">Layer</a> * &gt; Scene::getLayers </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the layers map in a scene. </p>
+<dl class="section return"><dt>Returns</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
 <a id="a72486463c25db408ff5cf771bc6ba2b1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a72486463c25db408ff5cf771bc6ba2b1">&#9670;&nbsp;</a></span>getObject()</h2>
 
@@ -497,9 +557,6 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneHeight</b> = WIND
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int Scene::getObjectToFollowID </td>
@@ -508,11 +565,6 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneHeight</b> = WIND
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Returns the id of the object to follow. </p>
@@ -540,6 +592,33 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneHeight</b> = WIND
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">_zIndex</td><td>no value means top layer. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4f06a5e001feb04ed82d23a7574779c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f06a5e001feb04ed82d23a7574779c5">&#9670;&nbsp;</a></span>removeObjectFromScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Scene::removeObjectFromScene </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_object.html">Object</a> *&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes a specific object from the current scene. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td><br  />
+ </td></tr>
   </table>
   </dd>
 </dl>

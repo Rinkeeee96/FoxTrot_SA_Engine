@@ -110,7 +110,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:afa8cfa2158d507d92a9313c79267a8b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the given text message at the given position.  <a href="class_video_facade.html#afa8cfa2158d507d92a9313c79267a8b7">More...</a><br /></td></tr>
 <tr class="separator:afa8cfa2158d507d92a9313c79267a8b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca351f606045d14b99642e55f10a99bd"><td class="memItemLeft" align="right" valign="top"><a id="aca351f606045d14b99642e55f10a99bd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clean</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_facade.html#aca351f606045d14b99642e55f10a99bd">clean</a> ()</td></tr>
+<tr class="memdesc:aca351f606045d14b99642e55f10a99bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cleans the videoFacade. <br /></td></tr>
 <tr class="separator:aca351f606045d14b99642e55f10a99bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98017417115e0b2c2560f21161413094"><td class="memItemLeft" align="right" valign="top"><a id="a98017417115e0b2c2560f21161413094"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setXCameraOffset</b> (int x) override</td></tr>
@@ -133,8 +134,8 @@ unordered_map&lt; int, SDL_Texture * &gt;&#160;</td><td class="memItemRight" val
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a569ca1161f3f70619dad1def4628bfbf"><td class="memItemLeft" align="right" valign="top"><a id="a569ca1161f3f70619dad1def4628bfbf"></a>
-SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><b>createRect</b> (<a class="el" href="class_drawable.html">Drawable</a> &amp;object)</td></tr>
+<tr class="memitem:a569ca1161f3f70619dad1def4628bfbf"><td class="memItemLeft" align="right" valign="top">SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_facade.html#a569ca1161f3f70619dad1def4628bfbf">createRect</a> (<a class="el" href="class_drawable.html">Drawable</a> &amp;object)</td></tr>
+<tr class="memdesc:a569ca1161f3f70619dad1def4628bfbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a SDL_rect acording to the object dimensions.  <a href="class_video_facade.html#a569ca1161f3f70619dad1def4628bfbf">More...</a><br /></td></tr>
 <tr class="separator:a569ca1161f3f70619dad1def4628bfbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -158,6 +159,42 @@ TTF_Font *&#160;</td><td class="memItemRight" valign="bottom"><b>Sans</b></td></
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_video_facade.html" title="VideoFacade is de SDL2 facade.">VideoFacade</a> is de SDL2 facade. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a569ca1161f3f70619dad1def4628bfbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a569ca1161f3f70619dad1def4628bfbf">&#9670;&nbsp;</a></span>createRect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Rect VideoFacade::createRect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_drawable.html">Drawable</a> &amp;&#160;</td>
+          <td class="paramname"><em>object</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a SDL_rect acording to the object dimensions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">object</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
 <a id="afa8cfa2158d507d92a9313c79267a8b7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afa8cfa2158d507d92a9313c79267a8b7">&#9670;&nbsp;</a></span>drawMessageAt()</h2>
 
@@ -209,7 +246,7 @@ TTF_Font *&#160;</td><td class="memItemRight" valign="bottom"><b>Sans</b></td></
   <table class="params">
     <tr><td class="paramname">message</td><td>A Message struct containing the message and the color of the message </td></tr>
     <tr><td class="paramname">pos</td><td></td></tr>
-    <tr><td class="paramname">target</td><td>the boundaries of the target that the text needs to be draw on top of A <a class="el" href="struct_position.html">Position</a> struct containing the position to draw the message at </td></tr>
+    <tr><td class="paramname">target</td><td>the boundaries of the target that the text needs to be draw on top of A <a class="el" href="struct_position.html" title="Postion struct containing the xPos and yPos.">Position</a> struct containing the position to draw the message at </td></tr>
   </table>
   </dd>
 </dl>
@@ -245,17 +282,7 @@ TTF_Font *&#160;</td><td class="memItemRight" valign="bottom"><b>Sans</b></td></
 <p>Function to draw Particles. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">posX</td><td></td></tr>
-    <tr><td class="paramname">startPosX</td><td></td></tr>
-    <tr><td class="paramname">posY</td><td></td></tr>
-    <tr><td class="paramname">startPosY</td><td></td></tr>
-    <tr><td class="paramname">size</td><td></td></tr>
-    <tr><td class="paramname">spriteID</td><td></td></tr>
-    <tr><td class="paramname">colorR</td><td></td></tr>
-    <tr><td class="paramname">colorG</td><td></td></tr>
-    <tr><td class="paramname">colorB</td><td></td></tr>
-    <tr><td class="paramname">colorA</td><td></td></tr>
-    <tr><td class="paramname">rotation</td><td><br  />
+    <tr><td class="paramname">part</td><td><br  />
  </td></tr>
   </table>
   </dd>

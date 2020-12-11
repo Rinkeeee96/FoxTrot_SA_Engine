@@ -108,14 +108,15 @@ $(document).ready(function(){initNavTree('_event_dispatcher_8h_source.html','');
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    map&lt;string, vector&lt;EventCallbackFn&gt;&gt; handlers;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">bool</span> handlerExists(<span class="keywordtype">string</span>&amp; name) {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        name = <span class="keyword">typeid</span>(T).name();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">return</span> handlers.count(name) &gt; 0;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;};</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="class_event_dispatcher.html#ae9697b5ca5c032cd9f79586d554d5df4">   62</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_event_dispatcher.html#ae9697b5ca5c032cd9f79586d554d5df4">handlerExists</a>(<span class="keywordtype">string</span>&amp; name) {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        name = <span class="keyword">typeid</span>(T).name();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">return</span> handlers.count(name) &gt; 0;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_event_dispatcher_html_ae9697b5ca5c032cd9f79586d554d5df4"><div class="ttname"><a href="class_event_dispatcher.html#ae9697b5ca5c032cd9f79586d554d5df4">EventDispatcher::handlerExists</a></div><div class="ttdeci">bool handlerExists(string &amp;name)</div><div class="ttdoc">Returns if a handler exists.</div><div class="ttdef"><b>Definition:</b> EventDispatcher.h:62</div></div>
 <div class="ttc" id="aclass_event_html"><div class="ttname"><a href="class_event.html">Event</a></div><div class="ttdef"><b>Definition:</b> Event.h:10</div></div>
 <div class="ttc" id="aclass_event_dispatcher_html"><div class="ttname"><a href="class_event_dispatcher.html">EventDispatcher</a></div><div class="ttdef"><b>Definition:</b> EventDispatcher.h:12</div></div>
 <div class="ttc" id="aclass_event_dispatcher_html_a2ac63ddebeac565df874d038d2b51b56"><div class="ttname"><a href="class_event_dispatcher.html#a2ac63ddebeac565df874d038d2b51b56">EventDispatcher::setEventCallback</a></div><div class="ttdeci">void setEventCallback(const EventCallbackFn &amp;callback)</div><div class="ttdoc">Register a callback for a specific Event. @template T is fired.</div><div class="ttdef"><b>Definition:</b> EventDispatcher.h:41</div></div>

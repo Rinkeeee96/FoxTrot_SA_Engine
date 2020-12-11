@@ -72,18 +72,20 @@ $(document).ready(function(){initNavTree('_json_validator_8h_source.html',''); i
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_json_validator.html">   11</a></span>&#160;<span class="keyword">class </span>API <a class="code" href="class_json_validator.html">JsonValidator</a> : <span class="keyword">public</span> <a class="code" href="class_i_file_validator.html">IFileValidator</a></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">void</span> loadDocument(<span class="keywordtype">string</span> path, JsonDocument&amp; document); </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">void</span> validate(JsonDocument&amp; document, JsonDocument&amp; validationDocument);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">bool</span> docIsValid = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_json_validator.html">JsonValidator</a>(<span class="keywordtype">string</span> path, <span class="keywordtype">string</span> validationPath);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">bool</span> documentIsValid();</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;};</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="class_json_validator.html">JsonValidator</a>(<span class="keywordtype">string</span> path, <span class="keywordtype">string</span> validationPath);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_i_file_validator.html#a73f497e335ba8c984a32af84fc111fea">documentIsValid</a>();</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> loadDocument(<span class="keywordtype">string</span> path, JsonDocument&amp; document);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">void</span> validate(JsonDocument&amp; document, JsonDocument&amp; validationDocument);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">bool</span> docIsValid = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_i_file_validator_html"><div class="ttname"><a href="class_i_file_validator.html">IFileValidator</a></div><div class="ttdoc">Interface class for Video facade.</div><div class="ttdef"><b>Definition:</b> IFileValidator.h:5</div></div>
+<div class="ttc" id="aclass_i_file_validator_html_a73f497e335ba8c984a32af84fc111fea"><div class="ttname"><a href="class_i_file_validator.html#a73f497e335ba8c984a32af84fc111fea">IFileValidator::documentIsValid</a></div><div class="ttdeci">virtual bool documentIsValid()=0</div><div class="ttdoc">Checks if document is valid.</div></div>
 <div class="ttc" id="aclass_json_validator_html"><div class="ttname"><a href="class_json_validator.html">JsonValidator</a></div><div class="ttdoc">ValiJson adapter.</div><div class="ttdef"><b>Definition:</b> JsonValidator.h:12</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

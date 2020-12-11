@@ -67,22 +67,27 @@ $(document).ready(function(){initNavTree('class_button.html',''); initResizable(
 <div class="title">Button Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Base class for buttons to be used in the game.  
+ <a href="class_button.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_button_8h_source.html">Button.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Button:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_button.png" usemap="#Button_map" alt=""/>
   <map id="Button_map" name="Button_map">
-<area href="class_drawable.html" alt="Drawable" shape="rect" coords="0,56,66,80"/>
+<area href="class_drawable.html" title="Base class for all objects that can be drawn." alt="Drawable" shape="rect" coords="0,56,66,80"/>
 <area href="class_object.html" title="Object class. Object is linked with a sprite id in SVI." alt="Object" shape="rect" coords="0,0,66,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad76a7c273a9cf338514d0b4ea82507f5"><td class="memItemLeft" align="right" valign="top"><a id="ad76a7c273a9cf338514d0b4ea82507f5"></a>
-API&#160;</td><td class="memItemRight" valign="bottom"><b>Button</b> (int id, <a class="el" href="struct_colored_text.html">ColoredText</a> _text, const function&lt; void(void)&gt; _onClick, <a class="el" href="class_sprite_object.html">SpriteObject</a> *_spriteObject, <a class="el" href="class_event_dispatcher.html">EventDispatcher</a> &amp;_dispatcher)</td></tr>
-<tr class="separator:ad76a7c273a9cf338514d0b4ea82507f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5df7754f98619e9fef17a42909de00d"><td class="memItemLeft" align="right" valign="top">API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_button.html#aa5df7754f98619e9fef17a42909de00d">Button</a> (int id, <a class="el" href="struct_colored_text.html">ColoredText</a> _text, const function&lt; void(void)&gt; _onClick, <a class="el" href="class_sprite_object.html">SpriteObject</a> *_spriteObject, <a class="el" href="class_event_dispatcher.html">EventDispatcher</a> &amp;_dispatcher)</td></tr>
+<tr class="memdesc:aa5df7754f98619e9fef17a42909de00d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the default values.  <a href="class_button.html#aa5df7754f98619e9fef17a42909de00d">More...</a><br /></td></tr>
+<tr class="separator:aa5df7754f98619e9fef17a42909de00d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a490a1a7deefc8f3c8cf0ac05d874eed7"><td class="memItemLeft" align="right" valign="top"><a id="a490a1a7deefc8f3c8cf0ac05d874eed7"></a>
 API const <a class="el" href="struct_colored_text.html">ColoredText</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> ()</td></tr>
 <tr class="separator:a490a1a7deefc8f3c8cf0ac05d874eed7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -92,9 +97,9 @@ API void&#160;</td><td class="memItemRight" valign="bottom"><b>disable</b> ()</t
 <tr class="memitem:a5867597842b62629c5861aeed1e12b36"><td class="memItemLeft" align="right" valign="top"><a id="a5867597842b62629c5861aeed1e12b36"></a>
 API void&#160;</td><td class="memItemRight" valign="bottom"><b>enable</b> ()</td></tr>
 <tr class="separator:a5867597842b62629c5861aeed1e12b36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef10efcb3e72d4d0dc117d6c38b6add8"><td class="memItemLeft" align="right" valign="top"><a id="aef10efcb3e72d4d0dc117d6c38b6add8"></a>
-API void&#160;</td><td class="memItemRight" valign="bottom"><b>setSize</b> (float width, float height)</td></tr>
-<tr class="separator:aef10efcb3e72d4d0dc117d6c38b6add8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4b7c1a0bb194a2ca3c6be5507fcb330"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_button.html#ad4b7c1a0bb194a2ca3c6be5507fcb330">setSize</a> (float width, float height)</td></tr>
+<tr class="memdesc:ad4b7c1a0bb194a2ca3c6be5507fcb330"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the width and height of the buttons object.  <a href="class_button.html#ad4b7c1a0bb194a2ca3c6be5507fcb330">More...</a><br /></td></tr>
+<tr class="separator:ad4b7c1a0bb194a2ca3c6be5507fcb330"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd54681e96d4238d45f8e462a190cb6c"><td class="memItemLeft" align="right" valign="top">API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_button.html#abd54681e96d4238d45f8e462a190cb6c">mouseOver</a> (const <a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
 <tr class="memdesc:abd54681e96d4238d45f8e462a190cb6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to check if a mouse is over a button.  <a href="class_button.html#abd54681e96d4238d45f8e462a190cb6c">More...</a><br /></td></tr>
 <tr class="separator:abd54681e96d4238d45f8e462a190cb6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -109,17 +114,16 @@ API void&#160;</td><td class="memItemRight" valign="bottom"><b>setSize</b> (floa
 API&#160;</td><td class="memItemRight" valign="bottom"><b>Drawable</b> (const int _id, const bool _isParticle=false)</td></tr>
 <tr class="separator:a10295c56be278f5bb41341220055728c inherit pub_methods_class_drawable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2a312bcadb7eaca02fb943b0241399a inherit pub_methods_class_drawable"><td class="memItemLeft" align="right" valign="top"><a id="aa2a312bcadb7eaca02fb943b0241399a"></a>
-API <a class="el" href="class_sprite_object.html">SpriteObject</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_drawable.html#aa2a312bcadb7eaca02fb943b0241399a">GetCurrentSprite</a> () const</td></tr>
-<tr class="memdesc:aa2a312bcadb7eaca02fb943b0241399a inherit pub_methods_class_drawable"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the current active sprite reference of the drawable <br /></td></tr>
+API <a class="el" href="class_sprite_object.html">SpriteObject</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetCurrentSprite</b> () const</td></tr>
 <tr class="separator:aa2a312bcadb7eaca02fb943b0241399a inherit pub_methods_class_drawable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad57dab17a78a1cb92dead0988527e925 inherit pub_methods_class_drawable"><td class="memItemLeft" align="right" valign="top"><a id="ad57dab17a78a1cb92dead0988527e925"></a>
-virtual API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_drawable.html#ad57dab17a78a1cb92dead0988527e925">registerSprite</a> (int state, <a class="el" href="class_sprite_object.html">SpriteObject</a> *spriteObject)</td></tr>
-<tr class="memdesc:ad57dab17a78a1cb92dead0988527e925 inherit pub_methods_class_drawable"><td class="mdescLeft">&#160;</td><td class="mdescRight">register a new state or overwrite a existing state and dispatch an event that signals to load the sprite in memory register the spriteID link a state with a sprite <br /></td></tr>
-<tr class="separator:ad57dab17a78a1cb92dead0988527e925 inherit pub_methods_class_drawable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f2b45a5c9f05f9c4aad6b37e0c051a8 inherit pub_methods_class_drawable"><td class="memItemLeft" align="right" valign="top"><a id="a5f2b45a5c9f05f9c4aad6b37e0c051a8"></a>
-virtual API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_drawable.html#a5f2b45a5c9f05f9c4aad6b37e0c051a8">changeToState</a> (const int state)</td></tr>
-<tr class="memdesc:a5f2b45a5c9f05f9c4aad6b37e0c051a8 inherit pub_methods_class_drawable"><td class="mdescLeft">&#160;</td><td class="mdescRight">change the state change the textureID to the current state <br /></td></tr>
-<tr class="separator:a5f2b45a5c9f05f9c4aad6b37e0c051a8 inherit pub_methods_class_drawable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6f39d1322218d74357a619c56a2d826 inherit pub_methods_class_drawable"><td class="memItemLeft" align="right" valign="top"><a id="ac6f39d1322218d74357a619c56a2d826"></a>
+virtual API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_drawable.html#ac6f39d1322218d74357a619c56a2d826">registerSprite</a> (int state, <a class="el" href="class_sprite_object.html">SpriteObject</a> *spriteObject)</td></tr>
+<tr class="memdesc:ac6f39d1322218d74357a619c56a2d826 inherit pub_methods_class_drawable"><td class="mdescLeft">&#160;</td><td class="mdescRight">register a new state or overwrite a existing state and dispatch an event that signals to load the sprite in memory register the spriteID link a state with a sprite <br /></td></tr>
+<tr class="separator:ac6f39d1322218d74357a619c56a2d826 inherit pub_methods_class_drawable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c7a5ed9163633d454d78f215b311ea0 inherit pub_methods_class_drawable"><td class="memItemLeft" align="right" valign="top"><a id="a5c7a5ed9163633d454d78f215b311ea0"></a>
+virtual API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_drawable.html#a5c7a5ed9163633d454d78f215b311ea0">changeToState</a> (const int state)</td></tr>
+<tr class="memdesc:a5c7a5ed9163633d454d78f215b311ea0 inherit pub_methods_class_drawable"><td class="mdescLeft">&#160;</td><td class="mdescRight">change the state change the textureID to the current state <br /></td></tr>
+<tr class="separator:a5c7a5ed9163633d454d78f215b311ea0 inherit pub_methods_class_drawable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6d178ebc12b84b6726a3f72e53614d6 inherit pub_methods_class_drawable"><td class="memItemLeft" align="right" valign="top"><a id="aa6d178ebc12b84b6726a3f72e53614d6"></a>
 virtual API void&#160;</td><td class="memItemRight" valign="bottom"><b>setTint</b> (int r, int g, int b)</td></tr>
 <tr class="separator:aa6d178ebc12b84b6726a3f72e53614d6 inherit pub_methods_class_drawable"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -370,6 +374,68 @@ const function&lt; void(void)&gt;&#160;</td><td class="memItemRight" valign="bot
 <a class="el" href="struct_colored_text.html">ColoredText</a>&#160;</td><td class="memItemRight" valign="bottom"><b>text</b></td></tr>
 <tr class="separator:adc279d28b2ea4f63bc808fc1e39f62e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Base class for buttons to be used in the game. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aa5df7754f98619e9fef17a42909de00d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5df7754f98619e9fef17a42909de00d">&#9670;&nbsp;</a></span>Button()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Button::Button </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_colored_text.html">ColoredText</a>&#160;</td>
+          <td class="paramname"><em>_text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const function&lt; void(void)&gt;&#160;</td>
+          <td class="paramname"><em>_onClick</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_sprite_object.html">SpriteObject</a> *&#160;</td>
+          <td class="paramname"><em>_spriteObject</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_event_dispatcher.html">EventDispatcher</a> &amp;&#160;</td>
+          <td class="paramname"><em>_dispatcher</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the default values. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td></td></tr>
+    <tr><td class="paramname">_text</td><td></td></tr>
+    <tr><td class="paramname">_onClick</td><td></td></tr>
+    <tr><td class="paramname">_spriteObject</td><td></td></tr>
+    <tr><td class="paramname">_dispatcher</td><td><br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a5ce777e27c53a61605397b1353819c6c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5ce777e27c53a61605397b1353819c6c">&#9670;&nbsp;</a></span>isClicked()</h2>
@@ -446,12 +512,50 @@ const function&lt; void(void)&gt;&#160;</td><td class="memItemRight" valign="bot
 <p>A function to register a hover effect over a btn. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_sprite_object.html">SpriteObject</a></td><td>The spriteobject with the hover effect. </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_sprite_object.html" title="Class for animated sprites.">SpriteObject</a></td><td>The spriteobject with the hover effect. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><br  />
  </dd></dl>
+
+</div>
+</div>
+<a id="ad4b7c1a0bb194a2ca3c6be5507fcb330"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4b7c1a0bb194a2ca3c6be5507fcb330">&#9670;&nbsp;</a></span>setSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Button::setSize </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the width and height of the buttons object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td></td></tr>
+    <tr><td class="paramname">height</td><td><br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

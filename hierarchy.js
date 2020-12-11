@@ -74,6 +74,5 @@ var hierarchy =
     [ "Position", "struct_position.html", null ],
     [ "Scene", "class_scene.html", null ],
     [ "SceneManager", "class_scene_manager.html", null ],
-    [ "Sprite", "struct_sprite.html", null ],
     [ "SpriteObject", "class_sprite_object.html", null ]
 ];

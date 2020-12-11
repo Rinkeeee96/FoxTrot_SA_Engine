@@ -17,8 +17,5 @@ var NAVTREEINDEX4 =
 "struct_position.html":[1,0,48],
 "struct_position.html#a34685fb34ef48c6f0eb2ca06816d95a9":[1,0,48,0],
 "struct_position.html#a82061780bf85528e6707b15d86ff9f36":[1,0,48,2],
-"struct_position.html#ae0445cc2a9568a55b0d2f2f99bc7d5be":[1,0,48,1],
-"struct_sprite.html":[1,0,53],
-"struct_sprite.html#a10639dd8e84e17a0fe376f90182228cd":[1,0,53,0],
-"struct_sprite.html#a1e66a1ccc7a1479a32934c051798a0f9":[1,0,53,1]
+"struct_position.html#ae0445cc2a9568a55b0d2f2f99bc7d5be":[1,0,48,1]
 };

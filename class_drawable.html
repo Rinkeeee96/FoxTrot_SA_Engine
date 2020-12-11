@@ -66,6 +66,11 @@ $(document).ready(function(){initNavTree('class_drawable.html',''); initResizabl
 <div class="title">Drawable Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Base class for all objects that can be drawn.  
+ <a href="class_drawable.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_drawable_8h_source.html">Drawable.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Drawable:</div>
 <div class="dyncontent">
@@ -73,9 +78,9 @@ Inheritance diagram for Drawable:</div>
   <img src="class_drawable.png" usemap="#Drawable_map" alt=""/>
   <map id="Drawable_map" name="Drawable_map">
 <area href="class_object.html" title="Object class. Object is linked with a sprite id in SVI." alt="Object" shape="rect" coords="110,0,210,24"/>
-<area href="class_button.html" alt="Button" shape="rect" coords="0,112,100,136"/>
+<area href="class_button.html" title="Base class for buttons to be used in the game." alt="Button" shape="rect" coords="0,112,100,136"/>
 <area href="class_particle_adapter.html" title="Particle Bridge that inherits from Object and ParticleInit(Cocos2dx Library)" alt="ParticleAdapter" shape="rect" coords="110,112,210,136"/>
-<area href="class_text.html" alt="Text" shape="rect" coords="220,112,320,136"/>
+<area href="class_text.html" title="Text class that should be drawn on the screen." alt="Text" shape="rect" coords="220,112,320,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -85,17 +90,16 @@ Public Member Functions</h2></td></tr>
 API&#160;</td><td class="memItemRight" valign="bottom"><b>Drawable</b> (const int _id, const bool _isParticle=false)</td></tr>
 <tr class="separator:a10295c56be278f5bb41341220055728c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2a312bcadb7eaca02fb943b0241399a"><td class="memItemLeft" align="right" valign="top"><a id="aa2a312bcadb7eaca02fb943b0241399a"></a>
-API <a class="el" href="class_sprite_object.html">SpriteObject</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_drawable.html#aa2a312bcadb7eaca02fb943b0241399a">GetCurrentSprite</a> () const</td></tr>
-<tr class="memdesc:aa2a312bcadb7eaca02fb943b0241399a"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the current active sprite reference of the drawable <br /></td></tr>
+API <a class="el" href="class_sprite_object.html">SpriteObject</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetCurrentSprite</b> () const</td></tr>
 <tr class="separator:aa2a312bcadb7eaca02fb943b0241399a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad57dab17a78a1cb92dead0988527e925"><td class="memItemLeft" align="right" valign="top"><a id="ad57dab17a78a1cb92dead0988527e925"></a>
-virtual API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_drawable.html#ad57dab17a78a1cb92dead0988527e925">registerSprite</a> (int state, <a class="el" href="class_sprite_object.html">SpriteObject</a> *spriteObject)</td></tr>
-<tr class="memdesc:ad57dab17a78a1cb92dead0988527e925"><td class="mdescLeft">&#160;</td><td class="mdescRight">register a new state or overwrite a existing state and dispatch an event that signals to load the sprite in memory register the spriteID link a state with a sprite <br /></td></tr>
-<tr class="separator:ad57dab17a78a1cb92dead0988527e925"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f2b45a5c9f05f9c4aad6b37e0c051a8"><td class="memItemLeft" align="right" valign="top"><a id="a5f2b45a5c9f05f9c4aad6b37e0c051a8"></a>
-virtual API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_drawable.html#a5f2b45a5c9f05f9c4aad6b37e0c051a8">changeToState</a> (const int state)</td></tr>
-<tr class="memdesc:a5f2b45a5c9f05f9c4aad6b37e0c051a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">change the state change the textureID to the current state <br /></td></tr>
-<tr class="separator:a5f2b45a5c9f05f9c4aad6b37e0c051a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6f39d1322218d74357a619c56a2d826"><td class="memItemLeft" align="right" valign="top"><a id="ac6f39d1322218d74357a619c56a2d826"></a>
+virtual API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_drawable.html#ac6f39d1322218d74357a619c56a2d826">registerSprite</a> (int state, <a class="el" href="class_sprite_object.html">SpriteObject</a> *spriteObject)</td></tr>
+<tr class="memdesc:ac6f39d1322218d74357a619c56a2d826"><td class="mdescLeft">&#160;</td><td class="mdescRight">register a new state or overwrite a existing state and dispatch an event that signals to load the sprite in memory register the spriteID link a state with a sprite <br /></td></tr>
+<tr class="separator:ac6f39d1322218d74357a619c56a2d826"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c7a5ed9163633d454d78f215b311ea0"><td class="memItemLeft" align="right" valign="top"><a id="a5c7a5ed9163633d454d78f215b311ea0"></a>
+virtual API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_drawable.html#a5c7a5ed9163633d454d78f215b311ea0">changeToState</a> (const int state)</td></tr>
+<tr class="memdesc:a5c7a5ed9163633d454d78f215b311ea0"><td class="mdescLeft">&#160;</td><td class="mdescRight">change the state change the textureID to the current state <br /></td></tr>
+<tr class="separator:a5c7a5ed9163633d454d78f215b311ea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74ff5fd2c473a790d29756acc600f59c"><td class="memItemLeft" align="right" valign="top"><a id="a74ff5fd2c473a790d29756acc600f59c"></a>
 virtual API const <a class="el" href="struct_colored_text.html">ColoredText</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> ()</td></tr>
 <tr class="separator:a74ff5fd2c473a790d29756acc600f59c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -324,8 +328,11 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>changed</b> = false</
 const bool&#160;</td><td class="memItemRight" valign="bottom"><b>isParticle</b> = false</td></tr>
 <tr class="separator:ae53c5e8de76b504ef4396e254c986309 inherit pro_attribs_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Base class for all objects that can be drawn. </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>Engine/SceneManager/Objects/<a class="el" href="_drawable_8h_source.html">Drawable.h</a></li>
+<li>Engine/SceneManager/Objects/Drawable.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

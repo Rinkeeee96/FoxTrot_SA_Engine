@@ -113,8 +113,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab04597a56a75b0c1c856ae8da958bf2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_facade.html#ab04597a56a75b0c1c856ae8da958bf2a">Fall</a> (const int objectId) override</td></tr>
 <tr class="memdesc:ab04597a56a75b0c1c856ae8da958bf2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to add a linearImpulse to a object for falling.  <a href="class_physics_facade.html#ab04597a56a75b0c1c856ae8da958bf2a">More...</a><br /></td></tr>
 <tr class="separator:ab04597a56a75b0c1c856ae8da958bf2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74487413c93e481b2b000b68f431e808"><td class="memItemLeft" align="right" valign="top"><a id="a74487413c93e481b2b000b68f431e808"></a>
-<a class="el" href="struct_collision_struct.html">CollisionStruct</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getObjectsByFixture</b> (b2Fixture *fixture1, b2Fixture *fixture2)</td></tr>
+<tr class="memitem:a74487413c93e481b2b000b68f431e808"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_collision_struct.html">CollisionStruct</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_facade.html#a74487413c93e481b2b000b68f431e808">getObjectsByFixture</a> (b2Fixture *fixture1, b2Fixture *fixture2)</td></tr>
+<tr class="memdesc:a74487413c93e481b2b000b68f431e808"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a struct with objects that collided.  <a href="class_physics_facade.html#a74487413c93e481b2b000b68f431e808">More...</a><br /></td></tr>
 <tr class="separator:a74487413c93e481b2b000b68f431e808"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a385afe67398479d31386edfc92371bd2"><td class="memItemLeft" align="right" valign="top"><a id="a385afe67398479d31386edfc92371bd2"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_facade.html#a385afe67398479d31386edfc92371bd2">update</a> () override</td></tr>
@@ -291,6 +291,45 @@ map&lt; <a class="el" href="class_physics_body.html">PhysicsBody</a> *, b2Body *
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a74487413c93e481b2b000b68f431e808"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74487413c93e481b2b000b68f431e808">&#9670;&nbsp;</a></span>getObjectsByFixture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_collision_struct.html">CollisionStruct</a> PhysicsFacade::getObjectsByFixture </td>
+          <td>(</td>
+          <td class="paramtype">b2Fixture *&#160;</td>
+          <td class="paramname"><em>fixture1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">b2Fixture *&#160;</td>
+          <td class="paramname"><em>fixture2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a struct with objects that collided. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fixture1</td><td></td></tr>
+    <tr><td class="paramname">fixture2</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><br  />
+ </dd></dl>
 
 </div>
 </div>
