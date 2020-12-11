@@ -1,8 +1,6 @@
 #pragma once
 #include "Game/Scenes/Statemachine/SceneStateMachine.h"
 
-
-
 /// @brief Inventory popup class
 class InventoryPopup : public Layer
 {

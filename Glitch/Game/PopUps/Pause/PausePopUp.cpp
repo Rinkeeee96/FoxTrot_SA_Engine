@@ -47,6 +47,7 @@ void PausePopUp::setupPopUp()
 	addObjectInLayer(background);
 }
 
+/// @brief Called when Back to overworld button is clicked.
 void PausePopUp::onBackButtonClick()
 {
 	stateMachine.switchToScene("Overworld", false);
