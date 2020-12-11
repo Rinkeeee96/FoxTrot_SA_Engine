@@ -67,19 +67,19 @@ void Overworld::loadButtons() {
 	level2Btn->registerHoverSprite(hoverBtnSprite);
 
 	string level2Name = "Locked";
-	if (savegame->getCurrentGameData().levelData[0].completed)
+	if (savegame->getCurrentGameData().levelData[1].completed)
 	{
 		level2Name = "Level 2, Score: " + to_string(savegame->getCurrentGameData().levelData[1].score);
 	}
 	auto* level2TextBtn = new Text(4, new ColoredText(level2Name, Color(0, 0, 0)), 120, 30, 795, 870);
 
-	if (!savegame->getCurrentGameData().levelData[0].completed)
+	if (!savegame->getCurrentGameData().levelData[1].completed)
 	{
 		level2Btn->disable();
 	}
 
 	string level3Name = "Locked";
-	if (savegame->getCurrentGameData().levelData[1].completed)
+	if (savegame->getCurrentGameData().levelData[2].completed)
 	{
 		level3Name = "Level 3, Score: " + to_string(savegame->getCurrentGameData().levelData[2].score);
 	}
@@ -91,7 +91,7 @@ void Overworld::loadButtons() {
 	level3Btn->registerHoverSprite(hoverBtnSprite);
 
 	auto* level3TextBtn = new Text(6, new ColoredText(level3Name, Color(0, 0, 0)), 120, 30, 1500, 890);
-	if (!savegame->getCurrentGameData().levelData[1].completed)
+	if (!savegame->getCurrentGameData().levelData[2].completed)
 	{
 		level3Btn->disable();
 	}
