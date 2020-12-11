@@ -4,6 +4,8 @@
 /// @brief
 /// Checks if the player is within range and acts accordingly
 /// If the player is in range horizontally and vertically, the Jumpkin will move towards the player by jumping
+/// @param deltaTime
+/// DeltaTime should be used when calculating timers/manual movements
 void Jumpkin::onUpdate(float deltaTime) {
 	// Differences are calculated from the middle position of the object
 	float xPositionDifference = abs((player->getPositionX() + player->getWidth() / 2) - (this->getPositionX() + this->getWidth() / 2));

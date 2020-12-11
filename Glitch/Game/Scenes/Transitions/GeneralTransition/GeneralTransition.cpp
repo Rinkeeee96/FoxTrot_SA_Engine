@@ -90,6 +90,8 @@ void GeneralTransition::loadBackground()
 /// Runs the scene.
 /// Calculates every 0.5s and random nr between 1 and 150 to increase the loading bar with. 
 /// Also sets the loading bar. 
+/// @param deltaTime
+/// DeltaTime should be used when calculating timers/manual movements
 void GeneralTransition::onUpdate(float deltaTime)
 {
 	timer += deltaTime;

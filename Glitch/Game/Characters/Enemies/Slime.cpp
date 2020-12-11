@@ -5,6 +5,8 @@
 /// Checks if the player is within range and acts accordingly
 /// The Slime will jump if it is on the ground
 /// If the player is below the Slime, it will add a downwards velocity to reach the player faster
+/// @param deltaTime
+/// DeltaTime should be used when calculating timers/manual movements
 void Slime::onUpdate(float deltaTime) {
 	bool positionedOnGround = this->getYAxisVelocity() == 0;
 	float slimeMiddleXPosition = this->getPositionX() + (this->getWidth() / 2);

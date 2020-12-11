@@ -26,6 +26,9 @@ void SaveScreen::start(bool playSound)
 	if(playSound)engine.startSound("MENU_SOUND");
 }
 
+/// @brief
+/// @param deltaTime
+/// DeltaTime should be used when calculating timers/manual movements
 void SaveScreen::onUpdate(float deltaTime)
 {
 }

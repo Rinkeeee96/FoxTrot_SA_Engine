@@ -32,6 +32,8 @@ void Shop::start(bool playSound)
 }
 
 /// @brief 
+/// @param deltaTime
+/// DeltaTime should be used when calculating timers/manual movements
 void Shop::onUpdate(float deltaTime)
 {
 }

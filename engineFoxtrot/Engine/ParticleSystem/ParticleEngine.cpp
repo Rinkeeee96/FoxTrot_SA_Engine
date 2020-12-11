@@ -2,6 +2,8 @@
 #include "ParticleEngine.h"
 
 /// @brief Constructor
+/// @param _frameData
+/// A reference to the frameData class owned by Engine, used for accessing deltaTime
 ParticleEngine::ParticleEngine(FrameData& _frameData) : frameData{ _frameData }
 {
 }

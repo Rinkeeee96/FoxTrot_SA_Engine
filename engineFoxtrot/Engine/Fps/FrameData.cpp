@@ -16,6 +16,8 @@ void FrameData::startTimer() {
 
 /// @brief
 /// returns the current deltaTime (1 / fps of the last frame)
+/// @param timeStep
+/// The timestep to use when calculating deltaTime
 /// @returns const float
 const float FrameData::calculateDeltaTime(int timeStep)
 {

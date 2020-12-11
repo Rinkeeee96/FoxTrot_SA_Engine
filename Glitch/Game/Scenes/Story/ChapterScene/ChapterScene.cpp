@@ -112,6 +112,8 @@ void ChapterScene::setTextFromFile(string path, int startingId) {
 
 /// @brief 
 /// Moves text in screen by speed
+/// @param deltaTime
+/// DeltaTime should be used when calculating timers/manual movements
 void ChapterScene::onUpdate(float deltaTime)
 {
 	for (size_t i = 0; i < this->text.size(); i++)

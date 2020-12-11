@@ -118,6 +118,8 @@ void WinScreen::onOverworldBtnClick() {
 
 /// @brief 
 /// A function for a jump/fall animation
+/// @param deltaTime
+/// DeltaTime should be used when calculating timers/manual movements
 void WinScreen::onUpdate(float deltaTime) {
 	if (animation->getPositionY() < 800) {
 		animation->changeToState(SpriteState::AIR_FALL_RIGHT);
@@ -127,11 +129,7 @@ void WinScreen::onUpdate(float deltaTime) {
 		animation->changeToState(SpriteState::AIR_JUMP_RIGHT);
 		falling = false;
 	}
-	
-	if (falling) {
-		animation->setPositionY(animation->getPositionY() + deltaTime * 300);
-	}
-	else {
-		animation->setPositionY(animation->getPositionY() - deltaTime * 300);
-	}
+
+	int newY = animation->getPositionY() + falling ? deltaTime * 300 : deltaTime * -300;
+	animation->setPositionY(newY);
 }
