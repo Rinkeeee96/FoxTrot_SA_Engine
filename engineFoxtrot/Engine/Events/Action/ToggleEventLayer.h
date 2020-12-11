@@ -6,10 +6,10 @@
 /// @brief
 /// A toggle layer event is fired when layers are shown/hidden with the given z-index 
 /// before modification.
-class ToggleEventLayer : public Event
+class ToggleLayerEvent : public Event
 {
 public:
-	ToggleEventLayer(int _layerIndex) : layerIndex{_layerIndex} {};
+	ToggleLayerEvent(int _layerIndex) : layerIndex{_layerIndex} {};
 
 	/// @brief
 	/// Returns the eventType of a specific event

@@ -117,4 +117,11 @@ void CommandBuilder::buildPlayerCommands(Player& player, GameKeypressInvoker* in
 
 	}
 	player.registerKeypressInvoker(invoker);
+}
+void CommandBuilder::linkCommandToToggle(GameKeypressInvoker* invoker, int layerId, const string& identifier)
+{
+	invoker->registerCommand(
+		invoker->getKeycodeFromIdentifier(identifier),
+		uiCommandFactory->createUICommand(identifier, layerId)
+	);
 };

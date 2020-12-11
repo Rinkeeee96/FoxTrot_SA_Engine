@@ -20,6 +20,7 @@ public:
 	void updateGlobalCommand(KeyCode code, ICommand* command);
 	const KeyCode& getKeycodeFromIdentifier(const string& identifier);
 	void destroyGlobalCommands();
+
 private:
 	unordered_map<KeyCode, string> playerCommands;
 	unordered_map<KeyCode, string> globalCommands;

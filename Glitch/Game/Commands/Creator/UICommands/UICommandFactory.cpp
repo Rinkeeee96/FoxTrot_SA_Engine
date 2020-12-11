@@ -10,12 +10,12 @@ void UICommandFactory::registerit(const std::string& classname, IUICommandCreato
 }
 
 
-IUICommand* UICommandFactory::createUICommand(const std::string& classname, Scene& scene)
+IUICommand* UICommandFactory::createUICommand(const std::string& classname, const int layerIndex)
 {
 	auto i = table.find(classname);
 
 	if (i != table.end())
-		return i->second->createUICommand(scene);
+		return i->second->createUICommand(layerIndex);
 	else
 		throw exception(string("Unknown command " + classname).c_str());
 }

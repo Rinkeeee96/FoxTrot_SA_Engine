@@ -11,9 +11,9 @@ public:
 	/// a command is created by this creator upon request with its registered classname
 	void registerit(const std::string& classname, IUICommandCreator* creator);
 	/// @brief
-	/// Function for creating ui commands and registering a scene with them
+	/// Function for creating ui commands and registering a layer id
 	/// a command is created by this creator upon request with its registered classname
-	IUICommand* createUICommand(const std::string& classname, Scene& scene);
+	IUICommand* createUICommand(const std::string& classname, const int layerIndex);
 private:
 	map<string, IUICommandCreator*> table;
 };
