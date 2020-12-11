@@ -15,6 +15,9 @@ void ContactListenerAdapter::BeginContact(b2Contact* contact) {
 	}
 }
 
+/// @brief This function gets te direction of the collision.
+/// @param result 
+/// @return 
 map<int, vector<Direction>> ContactListenerAdapter::getCollisionDirection(CollisionStruct result) {
 	map<int, vector<Direction>> direction;
 	auto object1minY = result.object1->getPositionY();

@@ -16,13 +16,16 @@ public:
 	/// @brief
 	/// The id of one of the objects where collision happend
 	API Object& getObjectOne() const { return objectOneId; }
+
 	/// @brief
 	/// The id of one of the objects where collision happend
 	API Object& getObjectTwo() const { return objectTwoId; }
+
 	/// @brief
 	/// Returns the eventType of a specific event
 	/// @return EventType
 	API virtual EventType getEventType() const override = 0;
+
 	/// @brief
 	/// Returns the name of the event
 	API virtual const char* getName() const override = 0;

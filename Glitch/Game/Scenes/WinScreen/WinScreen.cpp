@@ -11,6 +11,8 @@
 #define CENTER_X  (WINDOW_WIDTH / 2)
 #define CENTER_Y (WINDOW_HEIGHT / 2)
 
+/// @brief 
+/// Loads the background and sets the starttime of this scene;
 void WinScreen::onAttach()
 {
 	LoadButtons();

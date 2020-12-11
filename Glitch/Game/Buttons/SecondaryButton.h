@@ -2,6 +2,7 @@
 #include "SceneManager/Objects/Button.h"
 #include "Game/SpriteState.h"
 
+/// @brief Class for a red secondary button, derived from button base class
 class SecondaryButton : public Button
 {
 public:

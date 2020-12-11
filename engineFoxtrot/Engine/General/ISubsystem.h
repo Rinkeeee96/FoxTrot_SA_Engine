@@ -2,6 +2,7 @@
 
 class EventDispatcher;
 
+/// @brief Interface for Subsystems that use the eventDispatcher
 class ISubsystem {
 public:
 	virtual void start(EventDispatcher& dispatcher) = 0; // set dispatcher

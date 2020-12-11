@@ -7,6 +7,8 @@ public:
 	IFileValidator(string path, string validationPath) {};
 	~IFileValidator() {};
 
+	/// @brief Checks if document is valid.
+	/// @return 
 	virtual bool documentIsValid() = 0;
 private:
 

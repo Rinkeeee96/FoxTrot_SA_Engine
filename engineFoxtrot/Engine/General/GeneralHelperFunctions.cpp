@@ -1,15 +1,26 @@
 #include "stdafx.h"
 namespace {
+    /// @brief Calculate Degrees to Radians
+    /// @param a 
+    /// @return 
     float Degree2Radians(float a)
     {
         return a * DEGREE2RADIANS;
     }
 
+    /// @brief Calculate Radians to Degrees
+    /// @param a 
+    /// @return 
     float Radians2Degree(float a)
     {
         return a * RADIANS2DEGREE;
     }
 
+    /// @brief Checks if value is between min and max. Otherwise return the min or max.
+    /// @param value 
+    /// @param min_inclusive 
+    /// @param max_inclusive 
+    /// @return 
     float clampf(float value, float min_inclusive, float max_inclusive)
     {
         if (min_inclusive > max_inclusive)
@@ -19,9 +30,9 @@ namespace {
         return value < min_inclusive ? min_inclusive : value < max_inclusive ? value : max_inclusive;
     }
 
-    /**
-    A more effect random number getter function, get from ejoy2d.
-    */
+    /// @brief A more effective random number generator
+    /// @param seed 
+    /// @return 
     static float RANDOM_M11(unsigned int* seed)
     {
         *seed = *seed * 134775813 + 1;

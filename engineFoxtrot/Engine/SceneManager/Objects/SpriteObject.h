@@ -1,4 +1,6 @@
 #pragma once
+
+/// @brief Class for animated sprites
 class SpriteObject
 {
 public:

@@ -14,16 +14,10 @@ void GeneralTransition::onAttach()
 }
 
 /// @brief 
-void GeneralTransition::onDetach()
-{
-
-}
+void GeneralTransition::onDetach(){}
 
 /// @brief 
-void GeneralTransition::start(bool playSound)
-{
-
-}
+void GeneralTransition::start(bool playSound){}
 
 /// @brief 
 /// Loads all the sprites 
@@ -128,6 +122,8 @@ void GeneralTransition::onUpdate()
 	}
 }
 
+/// @brief Sets the next scene identifier
+/// @param identifier 
 void GeneralTransition::setNextScene(string const identifier)
 {
 	nextScene = identifier;

@@ -25,7 +25,7 @@ SoundFacade::~SoundFacade()
     SDL_FreeWAV(wavBuffer);*/
 }
 
-/// @brief 
+/// @brief returns if a song is playing
 /// @return 
 bool SoundFacade::isMix_PlayingMusic()
 {

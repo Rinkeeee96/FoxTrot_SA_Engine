@@ -15,6 +15,7 @@ public:
 	/// Returns the eventType of a specific event
 	/// @return EventType
 	EventType getEventType() const override { return EventType::ObjectStop; }
+
 	/// @brief
 	/// Returns the name of the event
 	const char* getName() const override { return "Object stop"; }
