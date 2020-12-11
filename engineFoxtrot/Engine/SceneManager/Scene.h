@@ -83,8 +83,9 @@ public:
 	EventDispatcher& getEventDispatcher() { return dispatcher; };
 
 	API int getHighestLayerIndex();
-	API void addPopUpLayer(Layer *_layer);
-	API void removePopUpLayer();
+	API int addLayerOnHighestZIndex(Layer *_layer);
+	API void removeLayer(const int zIndex);
+
 
 protected:
 	EventDispatcher dispatcher;
