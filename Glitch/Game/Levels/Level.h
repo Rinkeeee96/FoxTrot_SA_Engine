@@ -33,6 +33,9 @@ private:
 	Player* player = nullptr;
 	bool win = false;
 
+	int pausePopupZIndex = 0;
+	int inventoryPopupZIndex = 0;
+
 	bool inventoryOpen = false;
 	bool activeAchievementPopup = false;
 	chrono::high_resolution_clock::time_point timeAchievementPopupThrown;

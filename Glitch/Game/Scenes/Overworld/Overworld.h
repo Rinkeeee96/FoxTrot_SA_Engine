@@ -30,6 +30,7 @@ private:
 	void onStopBtnClick();
 	void onCreditsBtnClick();
 	void onLoadBtnClick();
+	void onChapterOneClick();
 	void onShopBtnClick();
 };
 

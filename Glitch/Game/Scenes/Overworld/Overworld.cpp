@@ -53,17 +53,17 @@ void Overworld::loadButtons() {
 	auto* level1Btn = new Button(1, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel1BtnClick), defaultBtnSprite, this->dispatcher);
 	level1Btn->setWidth(32);
 	level1Btn->setHeight(32);
-	level1Btn->setPositionX(295);
-	level1Btn->setPositionY(363);
+	level1Btn->setPositionX(955);
+	level1Btn->setPositionY(320);
 	level1Btn->registerHoverSprite(hoverBtnSprite);
 
-	auto* level1TextBtn = new Text(2, new ColoredText("Level 1, Score: " + to_string(savegame->getCurrentGameData().levelData[0].score), Color(0, 0, 0)), 120, 30, 190, 383);
+	auto* level1TextBtn = new Text(2, new ColoredText("Level 1, Score: " + to_string(savegame->getCurrentGameData().levelData[0].score), Color(0, 0, 0)), 120, 30, 955, 340);
 
 	auto* level2Btn = new Button(3, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel2BtnClick), defaultBtnSprite, this->dispatcher);
 	level2Btn->setWidth(32);
 	level2Btn->setHeight(32);
-	level2Btn->setPositionX(955);
-	level2Btn->setPositionY(320);
+	level2Btn->setPositionX(795);
+	level2Btn->setPositionY(850);
 	level2Btn->registerHoverSprite(hoverBtnSprite);
 
 	string level2Name = "Locked";
@@ -71,7 +71,7 @@ void Overworld::loadButtons() {
 	{
 		level2Name = "Level 2, Score: " + to_string(savegame->getCurrentGameData().levelData[1].score);
 	}
-	auto* level2TextBtn = new Text(4, new ColoredText(level2Name, Color(0, 0, 0)), 120, 30, 850, 340);
+	auto* level2TextBtn = new Text(4, new ColoredText(level2Name, Color(0, 0, 0)), 120, 30, 795, 870);
 
 	if (!savegame->getCurrentGameData().levelData[0].completed)
 	{
@@ -86,11 +86,11 @@ void Overworld::loadButtons() {
     auto* level3Btn = new Button(5, ColoredText("", Color(255, 255, 255)), BIND_FN(onLevel3BtnClick), defaultBtnSprite, this->dispatcher);
 	level3Btn->setWidth(32);
 	level3Btn->setHeight(32);
-	level3Btn->setPositionX(795);
-	level3Btn->setPositionY(850);
+	level3Btn->setPositionX(1500);
+	level3Btn->setPositionY(880);
 	level3Btn->registerHoverSprite(hoverBtnSprite);
 
-	auto* level3TextBtn = new Text(6, new ColoredText(level3Name, Color(0, 0, 0)), 120, 30, 690, 870);
+	auto* level3TextBtn = new Text(6, new ColoredText(level3Name, Color(0, 0, 0)), 120, 30, 1500, 890);
 	if (!savegame->getCurrentGameData().levelData[1].completed)
 	{
 		level3Btn->disable();
@@ -100,10 +100,17 @@ void Overworld::loadButtons() {
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
-	addNewObjectToLayer(3, shop);
-	addNewObjectToLayer(3, shopText);
-	addNewObjectToLayer(3, shop1);
-	addNewObjectToLayer(3, shop2);
+	auto* chapterOne = new Button(8, ColoredText("", Color(0, 0, 0)), BIND_FN(onChapterOneClick), defaultBtnSprite, this->dispatcher);
+	chapterOne->setWidth(50);
+	chapterOne->setHeight(50);
+	chapterOne->setPositionX(295);
+	chapterOne->setPositionY(363);
+	chapterOne->registerHoverSprite(hoverBtnSprite);
+
+	auto* chapterOneTxt = new Text(9, new ColoredText("chapter one", Color(0, 0, 0), false), 100, 50, 295 - 25, 393);
+
+	addNewObjectToLayer(3, chapterOne);
+	addNewObjectToLayer(3, chapterOneTxt);
 	addNewObjectToLayer(3, level1Btn);
 	addNewObjectToLayer(3, level1TextBtn);
 	addNewObjectToLayer(3, level2Btn);
@@ -111,6 +118,10 @@ void Overworld::loadButtons() {
 	addNewObjectToLayer(3, level3Btn);
 	addNewObjectToLayer(3, level3TextBtn);
 	addNewObjectToLayer(3, stopBtn);
+	addNewObjectToLayer(3, shop);
+	addNewObjectToLayer(3, shopText);
+	addNewObjectToLayer(3, shop1);
+	addNewObjectToLayer(3, shop2);
 }
 
 /// @brief 
@@ -175,7 +186,7 @@ void Overworld::loadBackground() {
 
 	auto* layer0 = new Drawable(1);
 	layer0->setStatic(true);
-	layer0->setPositionX(1);
+	layer0->setPositionX(0);
 	layer0->setPositionY(1080);
 	layer0->setWidth(1920);
 	layer0->setHeight(1080);
@@ -240,6 +251,10 @@ void Overworld::onStopBtnClick() {
 /// @brief 
 void Overworld::onCreditsBtnClick() {
 	cout << "Start Credit" << endl;
+}
+/// @brief 
+void Overworld::onChapterOneClick() {
+	stateMachine.switchToScene("ChapterOne", false);
 }
 
 /// @brief 
