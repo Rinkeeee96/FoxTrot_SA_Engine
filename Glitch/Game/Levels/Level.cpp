@@ -133,6 +133,7 @@ void Level::addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, 
 }
 
 /// @brief 
+/// Activates the achievement popup and adds the Achievement param to the Achievement vector. If a achievement is already given, it wont be added or shown.
 /// @param achievement 
 void Level::throwAchievement(Achievement achievement)
 {
@@ -151,6 +152,7 @@ void Level::throwAchievement(Achievement achievement)
 }
 
 /// @brief 
+/// Increases the total and level score by given amount
 /// @param amount 
 void Level::increaseTotalGameScore(const int amount)
 {

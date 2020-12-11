@@ -36,6 +36,10 @@ struct SaveGameData
 	vector<Achievement> achievements;
 	CharacterData characterData;
 
+	/// @brief 
+	/// Checks if the achievement is already in the vector
+	/// @param achievement 
+	/// @return 
 	bool isAchievementAchieved(Achievement achievement)
 	{
 		if (std::count(achievements.begin(), achievements.end(), achievement))
@@ -44,6 +48,8 @@ struct SaveGameData
 			return false;
 	}
 
+	/// @brief Returns the overworld progress calculated from the leveldata
+	/// @return 
 	int getOverWorldProgress()
 	{
 		double progress = 0;
@@ -54,6 +60,8 @@ struct SaveGameData
 		return (int)((progress / MAX_AMOUNT_OF_LEVELS) * 100);
 	}
 
+	/// @brief Returns the timestamp in readable format.
+	/// @return 
 	string getReadableTimeStamp()
 	{
 		time_t rawtime = saveGameTimeStamp;

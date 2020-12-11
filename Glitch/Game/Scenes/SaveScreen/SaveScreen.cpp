@@ -162,6 +162,8 @@ void SaveScreen::loadButtons()
 	addNewObjectToLayer(4, stopBtn);
 }
 
+/// @brief 
+/// Loads the text shown in the savescreen
 void SaveScreen::loadText()
 {
 	int textIDCount = 2;

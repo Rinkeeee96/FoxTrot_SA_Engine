@@ -15,7 +15,8 @@ AchievementPopup::~AchievementPopup()
 {
 }
 
-/// @brief Setup the Pause Pop Up.
+/// @brief Setup the Achievement popup
+/// @param achievement 
 void AchievementPopup::setupPopUp(string& achievement)
 {
 	SpriteObject* backgroundSprite = new SpriteObject(-564577, 200, 500, 1, 1, "Assets/Sprites/PopUp/PopUpGreenBorder.png");
