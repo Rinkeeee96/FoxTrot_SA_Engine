@@ -10,7 +10,8 @@ Game::Game()
 	stateMachine = shared_ptr<SceneStateMachine>(new SceneStateMachine{ engine, savegame });
 }
 
-
+/// @brief This function contains the game loop
+/// @return 
 int Game::run() {
 
 	try {

@@ -6,25 +6,11 @@
 #define DEFAULT_STATE				1
 #define HOVER_STATE					2
 
+/// @brief Base class for buttons to be used in the game
 class Button : public Drawable
 {
 public:
-	API Button(int id, ColoredText _text, const function<void(void)> _onClick, SpriteObject* _spriteObject, 
-		EventDispatcher& _dispatcher) :
-		Drawable(id), 
-		text(_text),
-		onClick(_onClick),
-		dispatcher{_dispatcher}
-	{
-		setSize(200, 50);
-		setStatic(true);
-
-		registerSprite(DEFAULT_STATE, _spriteObject);
-		changeToState(DEFAULT_STATE);
-
-		dispatcher.setEventCallback<MouseButtonPressed>(BIND_EVENT_FN(Button::isClicked));
-		dispatcher.setEventCallback<MouseMovedEvent>(BIND_EVENT_FN(Button::mouseOver));
-	}
+	API Button(int id, ColoredText _text, const function<void(void)> _onClick, SpriteObject* _spriteObject,	EventDispatcher& _dispatcher); 
 	virtual ~Button() {};
 
 	API const ColoredText* toString() { return &text; }
@@ -32,10 +18,7 @@ public:
 	API void disable() { isEnabled = false; }
 	API void enable() { isEnabled = true; }
 
-	API void setSize(float width, float height) {
-		setWidth(width);
-		setHeight(height);
-	}
+	API void setSize(float width, float height);
 
 	API bool mouseOver(const Event& event);
 	API bool isClicked(const Event& event);

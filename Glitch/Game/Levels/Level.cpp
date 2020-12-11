@@ -54,10 +54,13 @@ void Level::start(bool playSound) {
 	}
 }
 
-void Level::onUpdate() {
+/// @brief Updates the level data such as objects that are removed or player is dead or won the level
+void Level::onUpdate()
+{
 	this->addHuds();
 
-	if (this->win) {
+	if (this->win)
+	{
 		player->kill();
 		SaveGameData save = savegame->getCurrentGameData();
 		save.levelData[stateMachine.levelToBuild - 1].completed = true;
@@ -65,18 +68,22 @@ void Level::onUpdate() {
 		stateMachine.switchToScene("WinScreen", false);
 		return;
 	}
-	if (player->getIsDead()) {
+	if (player->getIsDead())
+	{
 		stateMachine.switchToScene("DeathScreen", false);
 		return;
 	}
 
-	// TODO get only the non static objects, without looping thru them again and again
-	for (auto object : this->getAllObjectsInScene()) 	{
-		if (!object->getStatic()) {
+	for (auto object : this->getAllObjectsInScene()) // TODO get only the non static objects, without looping thru them again and again
+	{
+		if (!object->getStatic())
+		{
 			object->onUpdate();
 
-			if (ICharacter* character = dynamic_cast<ICharacter*>(object)) {
-				if (character->getIsDead() && !character->getIsRemoved()) {
+			if (ICharacter *character = dynamic_cast<ICharacter *>(object))
+			{
+				if (character->getIsDead() && !character->getIsRemoved())
+				{
 					// TODO Death animation
 					object->setIsRemoved(true);
 					removeObjectFromScene(object);
@@ -87,6 +94,8 @@ void Level::onUpdate() {
 	}
 }
 
+/// @brief
+// Destroys player commands and calls scene base
 void Level::onDetach()
 {
 	gameInvoker->destroyPlayercommands();
@@ -173,8 +182,6 @@ void Level::addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, 
 	current++;
 }
 
-/// @brief
-/// Execute pause logic
 void Level::pause() {
 	for (const auto& s : sounds) {
 		engine.stopLoopEffect(s.first);

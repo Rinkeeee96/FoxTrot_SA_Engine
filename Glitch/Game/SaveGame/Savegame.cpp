@@ -45,7 +45,7 @@ bool Savegame::saveGameDataToJsonFile()
 			characterData["inventory"]["items"].push_back(itemJson);
 		}	
 		saveGameJson["characterdata"] = characterData;
-		json["saveGames"].push_back(saveGameJson);
+		json["savegames"].push_back(saveGameJson);
 	}
 	// Todo move to engine.
 	// Write Json data to file
@@ -68,18 +68,30 @@ bool Savegame::readSaveGameDataFromJson(string& path)
 	nlohmann::json json;
 
 	try {
+		
 		auto filestream = fileLoader.readFile(path);
-		filestream >> json;
-		filestream.close();
 
-		try {
-			parseJsonToMap(json);
+		bool validLevel = fileLoader.validateDocument(path, "Assets/Savegame/savegamedataschema.json");
+
+		if (validLevel) {
+			try {
+				
+				filestream >> json;
+				parseJsonToMap(json);
+				
+			}
+			catch (exception exc) {
+				cout << "Something went wrong parsing the file, make sure the file is correctly structured" << "\n";
+				cout << exc.what() << "\n";
+				throw exc;
+			}
 		}
-		catch (exception exc) {
-			cout << "Something went wrong parsing the file, make sure the file is correctly structured" << "\n";
-			cout << exc.what() << "\n";
-			throw exc;
+		else {
+			throw exception("Something went wrong validating file, make sure the file is correct");
 		}
+
+		filestream.close();
+		
 	}
 	catch (exception exc) {
 		// File doesnt exist. 
@@ -112,6 +124,17 @@ SaveGameData Savegame::getCurrentGameData()
 void Savegame::saveCurrentGameData(SaveGameData saveGame)
 {
 	saveGameDataMap[currentSaveGame] = saveGame;
+}
+/// @brief Returns saveGameDataMap when not empty
+/// @param id 
+/// @return 
+SaveGameData Savegame::getSaveGameData(const int id)
+{
+	if (!isSaveGameDataEmpty(id))
+	{
+		return saveGameDataMap[id];
+	}
+	throw exception("Trying to get unknown SaveGame");
 }
 
 /// @brief 

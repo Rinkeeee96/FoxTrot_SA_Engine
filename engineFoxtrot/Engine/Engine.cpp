@@ -35,6 +35,8 @@ void Engine::setCurrentScene(const int sceneID)
 	sceneManager.getSceneWithID(sceneID)->onAttach();
 }
 
+/// @brief Returns the currentScene
+/// @return 
 Scene* Engine::getCurrentScene()
 {
 	return sceneManager.currentScene;
@@ -47,7 +49,7 @@ void Engine::insertScene(Scene* scene)
 	sceneManager.insertScene(scene);
 }
 
-/// @brief 
+/// @brief Deregister a scene according to the given sceneID
 /// @param id 
 void Engine::deregisterScene(const int id)
 {
@@ -66,12 +68,19 @@ void Engine::updateFps() {
 	frameData.updateFps();
 }
 
-/// @brief 
+/// @brief
+/// Toggles fps visibility
+void Engine::toggleFps() {
+	videoEngine.toggleFps();
+}
+
+/// @brief Calls reloadPhysicsObject from the physicsEngine
 void Engine::restartPhysicsWorld()
 {
 	physicsEngine.reloadPhysicsObjects();
 }
 
+/// @brief The startup function for the engine is for setting the currentScene pointer and the general initialisation
 void Engine::start()
 {
 	videoEngine.pointerToCurrentScene = &sceneManager.currentScene;
@@ -84,6 +93,7 @@ void Engine::start()
 	videoEngine.start(*this->eventDispatcher);
 }
 
+/// @brief Calls the update function on all the subsystems
 void Engine::update()
 {
 	particleEngine.update();
@@ -92,6 +102,7 @@ void Engine::update()
 	inputEngine.update();
 }
 
+/// @brief Calls the shutdown function on all the subsystems
 void Engine::shutdown()
 {
 	if (this->running)
@@ -105,23 +116,35 @@ void Engine::shutdown()
 
 }
 
+/// @brief Calls addFile from the sound engine.
+/// @param identifier 
+/// @param path 
 void Engine::loadSound(const string& identifier, const string& path)
 {
 	this->soundEngine.addFile(identifier, path);
 }
 
+/// @brief Calls setFile from the sound engine.
+/// @param sounds 
 void Engine::loadSound(map<string, string> sounds)
 {
 	this->soundEngine.setFiles(sounds);
 }
 
+/// @brief Calls playMusic from the sound engine.
+/// @param identifier 
 void Engine::startSound(const string& identifier) {
 	this->soundEngine.playMusic(identifier, 15);
 }
 
+/// @brief Calls stopMusic from the sound engine.
+/// @param identifier 
 void Engine::stopSound(const string& identifier) {
 	this->soundEngine.stopMusic();
 }
+
+/// @brief Calls onStopLoopedEffect from the sound engine.
+/// @param identifier 
 void Engine::stopLoopEffect(const string& identifier) {
 	this->soundEngine.onStopLoopedEffect(identifier);
 }

@@ -18,7 +18,7 @@
 #define	ENGINE_TICK60	 17
 #define ENGINE_TICK30	 33
 
-/// @brief 
+/// @brief Engine interface class connecting the game to the engine
 class Engine
 {
 public:

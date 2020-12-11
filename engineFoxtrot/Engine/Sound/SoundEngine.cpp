@@ -4,115 +4,133 @@
 SoundEngine::SoundEngine() {}
 SoundEngine::~SoundEngine(){}
 
-/// @brief 
+/// @brief Calls setFile function in soundFacade
 /// @param files 
 void SoundEngine::setFiles(map<string, string> files)
 {
 	soundFacade->setFiles(files);
 }
-/// @brief 
+
+/// @brief Calls addFile function in soundFacade
 /// @param identifier 
 /// @param file 
 void SoundEngine::addFile(const string& identifier, const string& file)
 {
 	soundFacade->addFile(identifier, file);
 }
-/// @brief 
+
+/// @brief Calls playEffect function in soundFacade
 /// @param effect 
 /// @param volume 
 void SoundEngine::playEffect(const string& effect, int volume = MAX_VOLUME)
 {
 	soundFacade->playEffect(effect, volume);
 }
-/// @brief 
+
+/// @brief Calls loadEffect function in soundFacade
 /// @param identifier 
 void SoundEngine::loadEffect(const string& identifier)
 {
 	soundFacade->loadEffect(identifier);
 }
-/// @brief 
+
+/// @brief Calls unloadEffect function in soundFacade
 /// @param identifier 
 void SoundEngine::unloadEffect(const string& identifier)
 {
 	soundFacade->unloadEffect(identifier);
 }
-/// @brief 
+
+/// @brief Calls startLoopedEffect function in soundFacade
 /// @param effect 
 void SoundEngine::startLoopedEffect(const string& effect, int volume = MAX_VOLUME)
 {
 	soundFacade->startLoopedEffect(effect, volume);
 }
-/// @brief 
+
+/// @brief Calls stopLoopedEffect function in soundFacade
 /// @param identifier 
 void SoundEngine::stopLoopedEffect(const string& identifier)
 {
 	soundFacade->stopLoopedEffect(identifier);
 }
-/// @brief 
+
+/// @brief Calls loadMusic function in soundFacade
 /// @param identifier 
 void SoundEngine::loadMusic(const string& identifier)
 {
 	soundFacade->loadMusic(identifier);
 }
-/// @brief 
+
+/// @brief Calls playMusic function in soundFacade
 /// @param volume 
 void SoundEngine::playMusic(int volume = MAX_VOLUME)
 {
 	soundFacade->playMusic(volume);
 }
-/// @brief 
+
+/// @brief Calls playMusic function in soundFacade with identifier
 /// @param identifier 
 /// @param volume 
 void SoundEngine::playMusic(const string& identifier, int volume = MAX_VOLUME)
 {
 	soundFacade->playMusic(identifier, volume);
 }
-/// @brief 
+
+/// @brief Calls changedMusic function in soundFacade
 /// @param identifier 
 void SoundEngine::changeMusic(const string& identifier)
 {
 	soundFacade->changeMusic(identifier);
 }
-/// @brief 
+
+/// @brief Calls fadeOutMusic function in soundFacade
 /// @param fadeTime 
 void SoundEngine::fadeOutMusic(int fadeTime)
 {
 	soundFacade->fadeOutMusic(fadeTime);
 }
-/// @brief 
+
+/// @brief Calls fadeInMusic function in soundFacade
 /// @param fadeTime 
 void SoundEngine::fadeInMusic(int fadeTime)
 {
 	soundFacade->fadeInMusic(fadeTime);
 }
-/// @brief 
+
+/// @brief Calls setFile function in soundFacade with identifier
 /// @param identifier 
 /// @param fadeTime 
 void SoundEngine::fadeInMusic(const string& identifier, int fadeTime)
 {
 	soundFacade->fadeInMusic(identifier, fadeTime);
 }
-/// @brief 
+
+/// @brief Calls rewindMusic function in soundFacade
 void SoundEngine::rewindMusic()
 {
 	soundFacade->rewindMusic();
 }
-/// @brief 
+
+/// @brief Calls stopMusic function in soundFacade
 void SoundEngine::stopMusic()
 {
 	soundFacade->stopMusic();
 }
-/// @brief 
+
+/// @brief Calls pauseMusic function in soundFacade
 void SoundEngine::pauseMusic()
 {
 	soundFacade->pauseMusic();
 }
-/// @brief 
+
+/// @brief Calls resumeMusic function in soundFacade
 void SoundEngine::resumeMusic()
 {
 	soundFacade->resumeMusic();
 }
-/// @brief 
+
+/// @brief Calls flush function in soundFacade
 void SoundEngine::flush()
 {
 	soundFacade->flush();
@@ -160,7 +178,7 @@ bool SoundEngine::onPlayEffect(const string& identifier, int volume, bool should
 	return false;
 }
 
-/// @brief 
+/// @brief Calls identifierExists function in soundFacade
 /// @param identifier 
 /// @return 
 bool SoundEngine::identifierExists(const string& identifier)
@@ -168,7 +186,7 @@ bool SoundEngine::identifierExists(const string& identifier)
 	return soundFacade->identifierExists(identifier);
 }
 
-/// @brief 
+/// @brief Calls identifierIsLoaded function in soundFacade
 /// @param identifier 
 /// @return 
 bool SoundEngine::identifierIsLoaded(const string& identifier)

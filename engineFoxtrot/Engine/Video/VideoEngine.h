@@ -22,16 +22,8 @@
 #define FPS_MESSAGE_WIDTH 100
 #define FPS_MESSAGE_HEIGHT 50
 
-
-struct API Sprite
-{
-	int spriteID = 0;
-	const char* filename = "";
-};
-
 /// @brief 
-/// Video is the SDL2 wrapper
-
+/// VideoEngine is the SDL2 wrapper
 class API VideoEngine : public ISubsystem
 {
 public:
@@ -44,7 +36,6 @@ public:
 	bool drawParticle(ParticleAdapter* part);
 	void calculateOffset(Object& obj, int sceneWidth, int sceneHeight);
 
-
 	bool checkObjectInScreen(const Object& obj);
 
 	void clearVideoEngine();
@@ -54,6 +45,7 @@ public:
 	void shutdown() override;
 
 	Scene** pointerToCurrentScene = nullptr;
+
 private:
 	void drawFps();
 	void drawFps(double fps, int xPos, int yPos, const string& prefix);

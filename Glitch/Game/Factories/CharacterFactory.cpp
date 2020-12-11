@@ -2,11 +2,11 @@
 #include "CharacterFactory.h"
 #include "Game/Levels/Level.h"
 
-// @brief 
+/// @brief 
 /// Constructor
 CharacterFactory::CharacterFactory(Engine& _engine, Level& _level) : engine{ _engine }, level{_level} {}
 
-// @brief 
+/// @brief 
 /// Register object with its name in factory for later cloning
 /// @param name 
 /// @param character 
@@ -20,7 +20,7 @@ void CharacterFactory::registerCharacter(string name, ICharacter* character, int
 	}
 }
 
-// @brief 
+/// @brief 
 /// Creates an empty objects and registerd sprites
 /// @param name 
 /// @param id 

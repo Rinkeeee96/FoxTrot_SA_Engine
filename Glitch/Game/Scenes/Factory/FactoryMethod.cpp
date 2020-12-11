@@ -2,11 +2,20 @@
 #include "FactoryMethod.h"
 #include "Creator.h"
 
+/// @brief Register a scene to the table
+/// @param classname 
+/// @param creator 
 void SceneFactory::registerit(const std::string& classname, Creator* creator)
 {
 	table[classname] = creator;
 }
 
+/// @brief Creates the scene from the table
+/// @param classname 
+/// @param id 
+/// @param engine 
+/// @param _stateMachine 
+/// @return 
 unique_ptr<Scene> SceneFactory::create(const std::string& classname, const int id, Engine& engine, SceneStateMachine& _stateMachine)
 {
 	std::map<std::string, Creator*>::iterator i;

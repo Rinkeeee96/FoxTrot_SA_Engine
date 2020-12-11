@@ -23,6 +23,7 @@ public:
 
 	bool onToggleLayerEvent(const Event& event);
 	void setWin(const bool val) { this->win = val; }
+
 private:
 	void addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, SpriteObject* HUD);
 	vector<Drawable*> huds;

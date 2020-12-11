@@ -1,7 +1,9 @@
 #include "pch.h"
 #include "SceneStateMachine.h"
 
-
+/// @brief Creates all scene states
+/// @param _engine 
+/// @param _savegame 
 SceneStateMachine::SceneStateMachine(Engine& _engine, shared_ptr<Savegame> _savegame) : engine(_engine), savegame(_savegame)
 {
 	factory = shared_ptr<SceneFactory>(new  SceneFactory());
@@ -34,11 +36,11 @@ SceneStateMachine::SceneStateMachine(Engine& _engine, shared_ptr<Savegame> _save
 	shop->registerClass("Shop", factory);
 }
 
-SceneStateMachine::~SceneStateMachine()
-{
+SceneStateMachine::~SceneStateMachine(){}
 
-}
-
+/// @brief Load level according to the identifier
+/// @param identifier 
+/// @return 
 unique_ptr<Scene> SceneStateMachine::loadLevel(const string& identifier) {
 	std::unique_ptr<Scene> newScene = nullptr;
 	LoadLevelFacade levelLoader{ engine };
@@ -57,6 +59,10 @@ unique_ptr<Scene> SceneStateMachine::loadLevel(const string& identifier) {
 	return newScene;
 }
 
+/// @brief Switch to the scene according the the identifier
+/// @param identifier 
+/// @param _useTransitionScreen 
+/// @param playSound 
 void SceneStateMachine::switchToScene(string identifier, const bool _useTransitionScreen, bool playSound)
 {
 	bool useTransitionScreen = _useTransitionScreen;
@@ -112,6 +118,14 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 
 }
 
+/// @brief Calls current scene onUpdate function
+void SceneStateMachine::updateCurrentScene()
+{
+	if (currentScene)currentScene->onUpdate();
+};
+
+/// @brief Returns currentLevelIdentifier
+/// @return 
 string& SceneStateMachine::getCurrentLevelIdentifier()
 {
 	return this->currentLevelIdentifier;

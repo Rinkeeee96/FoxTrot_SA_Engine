@@ -20,8 +20,6 @@ VideoFacade::~VideoFacade()
 	SDL_DestroyWindow(window);
 }
 
-// Tips:
-// http://lazyfoo.net/tutorials/SDL/07_texture_loading_and_rendering/index.php
 /// @brief 
 /// Inits SDL2
 void VideoFacade::initSDL()
@@ -95,6 +93,9 @@ void VideoFacade::loadImage(const SpriteObject& spriteObject) {
 	SDL_FreeSurface(surface);
 }
 
+/// @brief Creates a SDL_rect acording to the object dimensions
+/// @param object 
+/// @return 
 SDL_Rect VideoFacade::createRect(Drawable& object) {
 	SDL_Rect destination;
 	int x = object.getDrawStatic() ? (int)object.getPositionX() : (int)object.getPositionX() - xCameraOffset;
@@ -164,17 +165,7 @@ void VideoFacade::renderCopy(Drawable& object)
 }
 
 /// @brief Function to draw Particles
-/// @param posX 
-/// @param startPosX 
-/// @param posY 
-/// @param startPosY 
-/// @param size 
-/// @param spriteID 
-/// @param colorR 
-/// @param colorG 
-/// @param colorB 
-/// @param colorA 
-/// @param rotation 
+/// @param part 
 void VideoFacade::drawParticle(const ParticleAdapter& part)
 {
 	SpriteObject& sprite = part.GetCurrentSprite();
@@ -265,7 +256,7 @@ void VideoFacade::drawMessageAt(const ColoredText& message, const Position& pos,
 	}
 }
 
-/// @brief 
+/// @brief Cleans the videoFacade
 void VideoFacade::clean()
 {
 	for (auto texture : textureMap)
