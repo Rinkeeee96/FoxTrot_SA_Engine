@@ -80,7 +80,6 @@ void Engine::deregisterScene(const int id)
 /// Updates the fps counter
 void Engine::updateFps() {
 	frameData.updateFps();
-	deltaTime = frameData.getDeltaTime();
 }
 
 /// @brief
@@ -96,11 +95,21 @@ void Engine::restartPhysicsWorld()
 }
 
 /// @brief
-/// Returns the deltaTime from the frameData class
+/// Returns the deltaTime from the frameData class using default physics timestep
 /// @returns float
-float Engine::getDeltaTime()
+float Engine::getDeltaTimePhysics()
 {
-	return deltaTime;
+	this->deltaTimePhysics = frameData.calculateDeltaTime(DELTATIME_TIMESTEP_PHYSICS);
+	return this->deltaTimePhysics;
+}
+
+/// @brief
+/// Returns the deltaTime from the frameData class using default render timestep
+/// @returns float
+float Engine::getDeltaTimeRender()
+{
+	this->deltaTimeRender = frameData.calculateDeltaTime(DELTATIME_TIMESTEP_RENDER);
+	return this->deltaTimeRender;
 }
 
 void Engine::loadSound(const string& identifier, const string& path)

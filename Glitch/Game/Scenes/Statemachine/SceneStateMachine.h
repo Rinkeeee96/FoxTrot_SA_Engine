@@ -14,7 +14,7 @@ public:
 
 	void updateCurrentScene()
 	{
-		if (currentScene)currentScene->onUpdate(engine.getDeltaTime());
+		if (currentScene)currentScene->onUpdate(engine.getDeltaTimePhysics());
 	};
 
 	string& getCurrentLevelIdentifier();

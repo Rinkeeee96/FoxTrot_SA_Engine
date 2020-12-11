@@ -52,9 +52,11 @@ public:
 
 	API void restartPhysicsWorld();
 
-	API float getDeltaTime();
+	API float getDeltaTimePhysics();
+	API float getDeltaTimeRender();
 private:
-	float deltaTime = 0;
+	float deltaTimePhysics = 0;
+	float deltaTimeRender = 0;
 
 	EventDispatcher* eventDispatcher;
 	bool running = false;
@@ -62,8 +64,8 @@ private:
 	FrameData frameData;
 	
 	SceneManager sceneManager;
-	ParticleEngine particleEngine{ deltaTime };
-	PhysicsEngine physicsEngine{ deltaTime };
+	ParticleEngine particleEngine{ deltaTimePhysics };
+	PhysicsEngine physicsEngine{ deltaTimePhysics };
 	SoundEngine soundEngine;
 
 	VideoEngine videoEngine{ frameData };

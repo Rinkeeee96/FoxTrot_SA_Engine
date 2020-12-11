@@ -1,5 +1,5 @@
 #pragma once
-#define FRAME_VALUES 100
+#define FRAME_VALUES 10
 #define TIMESTEP 1.f
 
 class FrameData
@@ -12,7 +12,7 @@ public:
 	API void startTimer();
 	API const double getFps() { return fps; };
 	API const double getLastFrameFps() { return lastFrameFps; };
-	API const float getDeltaTime();
+	API const float calculateDeltaTime(int timeStep);
 
 private:
 
