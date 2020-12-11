@@ -4,6 +4,7 @@
 #define DIVIDER 32.0f
 #define BASE_GRAVITY 1
 
+/// @brief This class contains all the data for a physics body
 class PhysicsBody
 {
 public:

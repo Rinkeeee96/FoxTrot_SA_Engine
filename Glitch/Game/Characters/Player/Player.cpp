@@ -35,7 +35,7 @@ Player::Player(const int id, EventDispatcher& _dispatcher) : ICharacter(id, _dis
 }
 
 /// @brief 
-/// Handles when an collision event begins, when the direction of the collision happend on the bottom side of the player object, 
+/// Handles when an collision event begins, when the direction of the collision happend on the bottom side of the player object,
 /// set can jump true
 bool Player::onCollisionBeginEvent(const Event& event) {
 	if (!getIsDead()) {
@@ -75,6 +75,8 @@ bool Player::onCollisionEndEvent(const Event& event) {
 	return false;
 }
 
+/// @brief Set the x Velocity of a player. Also changes the sprite state
+/// @param val 
 void Player::setXAxisVelocity(const float val) {
 
 	if (val == 0 && this->getYAxisVelocity() == 0 && !changed) {
@@ -84,6 +86,8 @@ void Player::setXAxisVelocity(const float val) {
 	Object::setXAxisVelocity(val);
 }
 
+/// @brief Set the y Velocity of a player. Also changes the sprite state
+/// @param val 
 void Player::setYAxisVelocity(const float val) {
 	if (!canJump) {
 		if (val > RESTITUTION_CORRECTION && !changed) {
@@ -146,6 +150,8 @@ bool Player::onKeyPressed(const Event& event) {
 	return false;
 }
 
+/// @brief 
+/// Handles when an key released event happend, stop moving
 bool Player::onKeyReleased(const Event& event)
 {
 	if (!getIsDead()) {
@@ -162,6 +168,9 @@ bool Player::onKeyReleased(const Event& event)
 	return false;
 }
 
+/// @brief Clone the player to a new Player
+/// @param id 
+/// @return 
 ICharacter* Player::clone(int id) { 
 	return new Player(id, this->dispatcher); 
 }

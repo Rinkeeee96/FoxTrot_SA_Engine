@@ -10,6 +10,7 @@
 #define TEXT_HEIGHT 50
 #define BASE_TEXT_SPEED 80
 
+/// @brief Class for the chapter one screen
 class ChapterOneScene : public ChapterScene
 {
 public:

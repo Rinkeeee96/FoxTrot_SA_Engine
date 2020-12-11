@@ -4,6 +4,7 @@
 #include "Game/Scenes/Factory/CreatorImpl.h"
 class Savegame;
 
+/// @brief Class for the scene state machine
 class SceneStateMachine
 {
 public:
@@ -12,10 +13,7 @@ public:
 
 	void switchToScene(string const identifier, bool useTransitionScreen, bool playSound = true);
 
-	void updateCurrentScene()
-	{
-		if (currentScene)currentScene->onUpdate(engine.getDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
-	};
+	void updateCurrentScene();
 
 	string& getCurrentLevelIdentifier();
 

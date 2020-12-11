@@ -18,6 +18,10 @@ PhysicsFacade::~PhysicsFacade()
 	// https://box2d.org/documentation/md__d_1__git_hub_box2d_docs_dynamics.html#autotoc_md113
 }
 
+/// @brief Returns a struct with objects that collided
+/// @param fixture1 
+/// @param fixture2 
+/// @return 
 CollisionStruct PhysicsFacade::getObjectsByFixture(b2Fixture* fixture1, b2Fixture* fixture2) {
 	CollisionStruct collisionStruct = CollisionStruct();
 

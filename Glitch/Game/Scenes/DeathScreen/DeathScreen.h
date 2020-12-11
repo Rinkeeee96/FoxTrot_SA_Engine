@@ -3,6 +3,7 @@
 #include "SceneManager/Objects/Button.h"
 #include "Game/Scenes/GameScene.h"
 
+/// @brief Class for the death screen
 class DeathScreen : public GameScene
 {
 public:

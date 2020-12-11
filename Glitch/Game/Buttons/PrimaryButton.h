@@ -2,6 +2,7 @@
 #include "SceneManager/Objects/Button.h"
 #include "Game/SpriteState.h"
 
+/// @brief Class for a green primary button, derived from button base class
 class PrimaryButton : public Button
 {
 public:

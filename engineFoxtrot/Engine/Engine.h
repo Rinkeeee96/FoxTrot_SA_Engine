@@ -20,7 +20,7 @@
 
 #define TIME_STEP 1
 
-/// @brief 
+/// @brief Engine interface class connecting the game to the engine
 class Engine
 {
 public:

@@ -2,23 +2,27 @@
 #include <nlohmann\json.hpp>
 #include "Game/General/GeneralGameDefines.h"
 
+/// @brief Struct for item data containing itemName and count
 struct Item
 {
 	string itemName;
 	int itemCount = 0;
 };
 
+/// @brief Struct for inventory containing a vector of Items
 struct Inventory
 {
 	vector<Item> items;
 };
 
+/// @brief Struct for level data containing score and completed bool
 struct LevelData
 {
 	int score = 0;
 	bool completed = false;
 };
 
+/// @brief Struct for character data containing an Inventory
 struct CharacterData
 {
 	Inventory inventory;
@@ -26,6 +30,7 @@ struct CharacterData
 
 #define Achievement string
 
+/// @brief Struct for a saveGameData containing al info of a saveGame
 struct SaveGameData
 {
 	int saveGameTimeStamp = 0;
@@ -65,28 +70,12 @@ public:
 	SaveGameData getCurrentGameData();
 	void saveCurrentGameData(SaveGameData saveGame);
 	
-	void addSaveGameData(const int id, SaveGameData savegame)
-	{
-		saveGameDataMap[id] = savegame;
-	}
-	void deleteSaveGameData(const int id)
-	{
-		saveGameDataMap.erase(id);
-	}
+	void addSaveGameData(const int id, SaveGameData savegame) { saveGameDataMap[id] = savegame; }
+	void deleteSaveGameData(const int id) {	saveGameDataMap.erase(id); }
 
-	bool isSaveGameDataEmpty(const int id)
-	{
-		return saveGameDataMap.count(id) == 0;
-	}
+	bool isSaveGameDataEmpty(const int id) { return saveGameDataMap.count(id) == 0; }
 
-	SaveGameData getSaveGameData(const int id) 
-	{ 
-		if (!isSaveGameDataEmpty(id))
-		{
-			return saveGameDataMap[id];
-		}
-		throw exception("Trying to get unknown SaveGame");
-	}
+	SaveGameData getSaveGameData(const int id);
 
 private:
 	FileLoader fileLoader;

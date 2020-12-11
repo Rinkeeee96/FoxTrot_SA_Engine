@@ -10,6 +10,7 @@
 #define CENTER_X  (WINDOW_WIDTH / 2)
 #define CENTER_Y (WINDOW_HEIGHT / 2)
 
+/// @brief Loads the screen on attach.
 void DeathScreen::onAttach()
 {
 	loadButtons();

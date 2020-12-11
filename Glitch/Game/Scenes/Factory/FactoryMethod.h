@@ -11,6 +11,7 @@ class Scene;
 class Creator;
 class SceneStateMachine;
 
+/// @brief Factory class for Scene's
 class SceneFactory
 {
 public:

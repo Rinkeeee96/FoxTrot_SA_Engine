@@ -3,7 +3,7 @@
 
 #define TRANSITION_SCENE_DURATION_S		3
 
-/// @brief 
+/// @brief Transition Screen
 class GeneralTransition : public GameScene
 {
 public:

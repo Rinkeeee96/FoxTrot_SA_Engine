@@ -2,8 +2,7 @@
 #include "Game/Scenes/GameScene.h"
 #include "Game/Levels/LoadLevelFacade.h"
 
-/// @brief 
-/// Overworld level
+/// @brief Class for overworld screen
 class Overworld : public GameScene
 {
 public:
@@ -24,10 +23,7 @@ private:
 	void loadButtons();
 
 	//button functions
-	void onStartBtnClick();
 	void onStopBtnClick();
-	void onCreditsBtnClick();
-	void onLoadBtnClick();
 	void onChapterOneClick();
 	void onShopBtnClick();
 };

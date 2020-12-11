@@ -6,7 +6,7 @@ class Engine;
 class ICharacter;
 #include "Engine/SceneManager/Scene.h"
 
-
+/// @brief Base class for game scenes, derived from engine scene
 class GameScene : public Scene
 {
 public:

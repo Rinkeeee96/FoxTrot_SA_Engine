@@ -7,6 +7,7 @@
 
 #include "Fps/FrameData.h"
 
+/// @brief Physics Engine connected to the physics facade.
 class API PhysicsEngine : public ISubsystem
 {
 public:

@@ -18,10 +18,12 @@ public:
 
 	Direction getDirection() const { return direction; }
 	int getObjectId() const { return objectId; }
+
 	/// @brief
 	/// Returns the eventType of a specific event
 	/// @return EventType
 	EventType getEventType() const override { return EventType::Action; }
+
 	/// @brief
 	/// Returns the name of the event
 	const char* getName() const override { return "Action Event"; }

@@ -7,6 +7,10 @@
 #define CENTER_X  (WINDOW_WIDTH / 2)
 #define CENTER_Y (WINDOW_HEIGHT / 2)
 
+/// @brief 
+/// Loadbuttons
+/// LoadBackground
+/// LoadMusic
 void SaveScreen::onAttach()
 {
 	
@@ -16,11 +20,15 @@ void SaveScreen::onAttach()
 
 }
 
+/// @brief 
+/// Remove the sounds of the soundengine
 void SaveScreen::onDetach()
 {
 	Scene::onDetach();
 }
 
+/// @brief 
+/// Create the sounds for this scene
 void SaveScreen::start(bool playSound)
 {
 	if(playSound)engine.startSound("MENU_SOUND");
@@ -33,6 +41,8 @@ void SaveScreen::onUpdate(float deltaTime)
 {
 }
 
+/// @brief 
+/// Loads the background
 void SaveScreen::loadBackground()
 {
 	SpriteObject* BG_LAYER_0 = new SpriteObject(-999, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_0.png");
@@ -72,11 +82,15 @@ void SaveScreen::loadBackground()
 	addNewObjectToLayer(2, layer2, false, true);
 }
 
+/// @brief 
+/// Load the sounds for this scene
 void SaveScreen::loadMusic()
 {
 	engine.loadSound("MENU_SOUND", "Assets/Sound/file_example_WAV_1MG.wav");
 }
 
+/// @brief 
+/// Loads all the buttons in the Overworld
 void SaveScreen::loadButtons()
 {
 	string nameBtn = "Empty";
@@ -144,12 +158,15 @@ void SaveScreen::loadButtons()
 	addNewObjectToLayer(3, stopBtn);
 }
 
+/// @brief Called when Save 1 is clicked
 void SaveScreen::onSave1BtnClick()
 {
 	savegame->setCurrentGameData(1);
 	stateMachine.switchToScene("Overworld", true);
 }
 
+/// @brief Resets or creates a save file
+/// @param id 
 void SaveScreen::resetOrSaveSaveGame(const int id)
 {
 	if (savegame->isSaveGameDataEmpty(id))
@@ -166,35 +183,39 @@ void SaveScreen::resetOrSaveSaveGame(const int id)
 	}
 }
 
+/// @brief Calls the create or delete save function
 void SaveScreen::onSave1ExtraBtnClick()
 {
 	resetOrSaveSaveGame(1);
 }
 
+/// @brief Called when Save 2 is clicked
 void SaveScreen::onSave2BtnClick()
 {
 	savegame->setCurrentGameData(2);
 	stateMachine.switchToScene("Overworld", true);
 }
 
+/// @brief Calls the create or delete save function
 void SaveScreen::onSave2ExtraBtnClick()
 {
 	resetOrSaveSaveGame(2);
 }
 
-
+/// @brief Called when Save 3 is clicked
 void SaveScreen::onSave3BtnClick()
 {
 	savegame->setCurrentGameData(3);
 	stateMachine.switchToScene("Overworld", true);
 }
 
+/// @brief Calls the create or delete save function
 void SaveScreen::onSave3ExtraBtnClick()
 {
 	resetOrSaveSaveGame(3);
 }
 
-
+/// @brief Called when Back Button is clicked
 void SaveScreen::onStopBtnClick() {
 	stateMachine.switchToScene("MainMenu",false);
 }

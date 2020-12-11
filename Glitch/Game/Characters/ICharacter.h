@@ -23,10 +23,16 @@ public:
 	void setSpawnY(float val) { this->spawnY = val; }
 
 	int getCurrentHealth() const { return this->currentHealth; }
+
+	/// @brief Sets the current health of a character, if health is higher then max health the max health is set to current health
+	/// @param val 
 	void setCurrentHealth(int val) { 
 		this->currentHealth = val; 
 		if (currentHealth > totalHealth) totalHealth = currentHealth;
 	}
+
+	/// @brief Removes health from a character. If players current health is < 0 the kill function is called
+	/// @param val 
 	void removeHealth(int val) { 
 		if (invincible) return;
 		this->currentHealth -= val;

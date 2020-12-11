@@ -24,7 +24,7 @@ void Shop::onDetach()
 	Scene::onDetach();
 }
 
-/// @brief 
+/// @brief Starts the scene's sound
 /// @param playSound 
 void Shop::start(bool playSound)
 {
@@ -38,7 +38,7 @@ void Shop::onUpdate(float deltaTime)
 {
 }
 
-/// @brief 
+/// @brief Loads the screen backGground
 void Shop::loadBackground()
 {
 	SpriteObject* BG_LAYER_0 = new SpriteObject(-1500, 1080, 1920, 1, 0, "Assets/Shop/Shop.png");
@@ -70,13 +70,13 @@ void Shop::loadBackground()
 	addNewObjectToLayer(1, dialogBox, false, true);
 }
 
-/// @brief 
+/// @brief Loads the music for this scene
 void Shop::loadMusic()
 {
 	engine.loadSound("MENU_SOUND", "Assets/Sound/file_example_WAV_1MG.wav");
 }
 
-/// @brief 
+/// @brief Loads the buttons for this scene
 void Shop::loadButtons()
 {
 	auto* stopBtn = new SecondaryButton(-993, "To Overworld", BIND_FN(onStopBtnClick), this->dispatcher);
@@ -86,7 +86,7 @@ void Shop::loadButtons()
 	addNewObjectToLayer(3, stopBtn);
 }
 
-/// @brief 
+/// @brief Called when stop button is clicked
 void Shop::onStopBtnClick() {
 	stateMachine.switchToScene("Overworld", false);
 }

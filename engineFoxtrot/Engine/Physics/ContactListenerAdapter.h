@@ -5,6 +5,7 @@
 #include "box2d/box2d.h"
 #include <math.h>
 
+/// @brief Contact listener for collision between objects
 class ContactListenerAdapter : public b2ContactListener
 {
 private:

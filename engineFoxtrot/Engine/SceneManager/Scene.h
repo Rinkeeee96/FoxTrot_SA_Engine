@@ -9,7 +9,6 @@ class EventDispatcher;
 /// @brief 
 /// Scene Class
 /// Contains all the objects that should be drawn in this scene.
-
 class Scene 
 {
 public:
@@ -29,23 +28,10 @@ public:
 
 	int API getSceneID() { return sceneID; }
 
-	/// @brief
-	/// OnAttach is executed when a scene is "attached" to the current running context
-	/// usually this is can be used to prime a level with relevant data before starting it.
-	/// Must be implemented by a concrete implementation of a scene
-	API virtual void onAttach() = 0;
-	/// @brief
-	/// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
-	/// Must be implemented by a concrete implementation of a scene
-	API virtual void start(bool playSound) = 0;
-	/// @brief
-	/// OnDetach is called when a scene is destroyed/closed and is responsible for cleanup
-	/// Must be implemented by a concrete implementation of a scene
-	API virtual void onDetach() = 0;
 
-	/// @brief
-	/// run is called in the main loop on the currentScene
-	/// If any work needs to be done during a scene this is were to place it
+	API virtual void onAttach() = 0;
+	API virtual void start(bool playSound) = 0;
+	API virtual void onDetach() = 0;
 	API virtual void onUpdate(float deltaTime) = 0;
 
 	void setSceneWidth(const int width) { sceneWidth = width; }
@@ -56,22 +42,8 @@ public:
     
 	void setObjectToFollow(Object* obj) { objectToFollow = obj; }
 
-	/// @brief 
-	/// Returns the id of the object to follow
-	/// @return 
-	/// If no ObjectToFollow will return -1
-	int getObjectToFollowID() const 
-	{ 
-		if (objectToFollow != nullptr)
-		{
-			return objectToFollow->getObjectId();
-		}
-		else
-		{
-			return -1;
-		}
-		
-	}
+
+	int getObjectToFollowID() const;
 	Object* getObjectToFollow() { return objectToFollow; };
 
 	API void removeObjectFromScene(Object* obj);

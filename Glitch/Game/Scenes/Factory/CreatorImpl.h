@@ -9,6 +9,8 @@
 #include "Creator.h"
 #include "FactoryMethod.h"
 
+/// @brief Template class for creator
+/// @tparam T 
 template <class T>
 class CreatorImpl : public Creator
 {

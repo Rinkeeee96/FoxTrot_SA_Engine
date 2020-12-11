@@ -2,8 +2,7 @@
 #include "Game/Scenes/GameScene.h"
 
 
-/// @brief 
-/// Shop class
+/// @brief Class for the shop screen
 class Shop : public GameScene
 {
 public:
