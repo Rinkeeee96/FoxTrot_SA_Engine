@@ -166,6 +166,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Game\Characters\Enemies\BaseEnemy.h" />
     <ClInclude Include="Game\Characters\Enemies\Fleye.h" />
     <ClInclude Include="Game\Characters\Enemies\Jumpkin.h" />
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
@@ -222,7 +223,11 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Scenes\Shop\Shop.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Game\Characters\Enemies\BaseEnemy.cpp" />
+    <ClCompile Include="Game\Characters\Enemies\Fleye.cpp" />
     <ClCompile Include="Game\Characters\Enemies\IEnemy.h" />
+    <ClCompile Include="Game\Characters\Enemies\Jumpkin.cpp" />
+    <ClCompile Include="Game\Characters\Enemies\Slime.cpp" />
     <ClCompile Include="Game\Factories\CharacterFactory.cpp" />
     <ClCompile Include="Game\Factories\TriggerFactory.cpp" />
     <ClCompile Include="Game\Game.cpp" />

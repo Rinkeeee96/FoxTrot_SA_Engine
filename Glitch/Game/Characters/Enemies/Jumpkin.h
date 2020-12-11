@@ -1,66 +1,30 @@
 #pragma once
-#include "Game/Characters/Enemies/IEnemy.h"
+#include "Game/Characters/Enemies/BaseEnemy.h"
 
-#define HORIZONTAL_RANGE 900
-#define VERTICAL_RANGE 150
+#define JUMPKIN_HORIZONTAL_RANGE 900
+#define JUMPKIN_VERTICAL_RANGE 150
+
+#define JUMPKIN_SPRITE_HEIGHT 43
+#define JUMPKIN_SPRITE_WIDTH 32
+#define JUMPKIN_SPRITE_WIDTH_SHORT 30
+
+//TODO Use deltaTime
+#define JUMPKIN_JUMP_ANIMATION_TIME 100
 
 /// @brief 
-/// Slime class with correspondending AI logic
-class Jumpkin : public IEnemy {
+/// Jumpkin class with correspondending AI logic
+class Jumpkin : public BaseEnemy {
 public:
-	Jumpkin(EventDispatcher& _dispatcher) : IEnemy(_dispatcher) {
-		this->damage = 1;
-	}
-	Jumpkin(const int id, EventDispatcher& _dispatcher) : IEnemy(id, _dispatcher) {
-		_dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Jumpkin::onCollisionBeginEvent));
-		this->damage = 1;
-	}
+	Jumpkin(EventDispatcher& _dispatcher) : BaseEnemy(_dispatcher) {}
+	Jumpkin(const int id, EventDispatcher& _dispatcher) : BaseEnemy(id, _dispatcher) {}
 
-	bool onCollisionBeginEvent(const Event& event) {
-		auto collisionEvent = static_cast<const OnCollisionBeginEvent&>(event);
-		if (collisionEvent.getObjectOne().getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo().getObjectId() != this->getObjectId()) return false;
+	void onUpdate() override;
 
-		auto map = collisionEvent.getDirectionMap();
-		auto collidedDirection = map[this->getObjectId()];
+	map<SpriteState, SpriteObject*> buildSpritemap(int textureId) override;
 
-		if (std::find(collidedDirection.begin(), collidedDirection.end(), Direction::UP) != collidedDirection.end()) {
-			this->kill();
-		}
-		else {
-			if (collisionEvent.getObjectOne().getObjectId() == this->getObjectId()) {
-				Object& otherEntity = collisionEvent.getObjectTwo();
+	ICharacter* clone(int id) override { return new Jumpkin(id, dispatcher); }
 
-				if (this->player->getObjectId() == otherEntity.getObjectId()) {
-					this->doDamage();
-				}
-			}
-			else if (collisionEvent.getObjectTwo().getObjectId() == this->getObjectId()) {
-				Object& otherEntity = collisionEvent.getObjectOne();
-
-				if (this->player->getObjectId() == otherEntity.getObjectId()) {
-					this->doDamage();
-				}
-			}
-		}
-		return false;
-	}
-
-	void onUpdate() override {
-		float xDiff = player->getPositionX() - this->getPositionX();
-		float yDiff = player->getPositionY() - this->getPositionY();
-		bool playerIsInRangeHorizontally = (xDiff < HORIZONTAL_RANGE && xDiff >(HORIZONTAL_RANGE * -1));
-		bool playerIsInRangeVertically = (yDiff < VERTICAL_RANGE && yDiff >(VERTICAL_RANGE * -1));
-		Direction direction = player->getPositionX() < this->positionX ? Direction::LEFT : Direction::RIGHT;
-
-		bool positionedOnGround = this->getYAxisVelocity() == 0;
-		if (positionedOnGround && playerIsInRangeHorizontally && playerIsInRangeVertically) {
-			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
-			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(direction, this->getObjectId()));
-		}
-		else if(!playerIsInRangeHorizontally) {
-			dispatcher.dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->getObjectId()));
-		}
-	};
-
-	ICharacter* clone(int id) override { return new Jumpkin(id, this->dispatcher); }
+private:
+	int jumpTimer = 0;
+	bool jumping = false;
 };
