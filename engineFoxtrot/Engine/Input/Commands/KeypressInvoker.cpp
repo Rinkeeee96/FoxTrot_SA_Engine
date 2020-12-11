@@ -1,7 +1,6 @@
 #pragma once
 #include "stdafx.h"
 #include "KeypressInvoker.h"
-#include "Input/Commands/Engine/PauseCommand.h"
 #include "Engine.h"
 
 void KeypressInvoker::registerCommand(KeyCode code, ICommand* command) {
