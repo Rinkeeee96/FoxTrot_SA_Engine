@@ -8,8 +8,6 @@
 void GeneralTransition::onAttach()
 {
 	loadBackground();
-	startTime = chrono::high_resolution_clock::now();
-	previousCallTime = chrono::high_resolution_clock::now();
 	moveCharacter = false;
 }
 
@@ -94,9 +92,9 @@ void GeneralTransition::loadBackground()
 /// Also sets the loading bar. 
 void GeneralTransition::onUpdate(float deltaTime)
 {
-	chrono::duration<double> diffFromPreviousCall = chrono::duration_cast<chrono::duration<double>>(chrono::high_resolution_clock::now() - previousCallTime);
+	timer += deltaTime;
 
-	if (diffFromPreviousCall.count() > 0.5 && !moveCharacter)
+	if (timer > 0.5 && !moveCharacter)
 	{
 		if (progressBarFiller->getWidth() >= 685)
 		{
@@ -114,13 +112,11 @@ void GeneralTransition::onUpdate(float deltaTime)
 		{
 			progressBarFiller->setWidth(progressBarFiller->getWidth() + generated);
 		}
-		previousCallTime = chrono::high_resolution_clock::now();
 	}
 
-	if (diffFromPreviousCall.count() > 0.05 && moveCharacter)
+	if (timer > 0.05 && moveCharacter)
 	{
-		animation->setPositionX(animation->getPositionX() + 20);
-		previousCallTime = chrono::high_resolution_clock::now();
+		animation->setPositionX(animation->getPositionX() + (600 * deltaTime));
 		if (animation->getPositionX() > WINDOW_WIDTH)
 		{
 			stateMachine.switchToScene(nextScene,false);

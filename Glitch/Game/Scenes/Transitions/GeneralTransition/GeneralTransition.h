@@ -27,8 +27,7 @@ private:
 
 	string nextScene = "";
 
-	chrono::high_resolution_clock::time_point startTime;
-	chrono::high_resolution_clock::time_point previousCallTime;
+	float timer = 0;
 };
 
 
