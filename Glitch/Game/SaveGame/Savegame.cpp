@@ -69,7 +69,7 @@ bool Savegame::readSaveGameDataFromJson(string& path)
 
 	try {
 		
-		bool validLevel = fileLoader.validateDocument(path, "Game/Assets/Savegame/savegamedataschema.json");
+		bool validLevel = fileLoader.validateDocument(path, "Assets/Savegame/savegamedataschema.json");
 
 		if (validLevel) {
 			try {
