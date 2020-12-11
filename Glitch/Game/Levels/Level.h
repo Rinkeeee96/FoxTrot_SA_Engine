@@ -30,6 +30,9 @@ private:
 	Player* player = nullptr;
 	bool win = false;
 
+	int pausePopupZIndex = 0;
+	int inventoryPopupZIndex = 0;
+
 	bool inventoryOpen = false;
 
 	float startPosPlayerX = 0;
