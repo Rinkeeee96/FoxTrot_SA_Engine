@@ -6,7 +6,11 @@
 #include "Game/States/Player/NormalState.h"
 
 #define RESTITUTION_CORRECTION 1
+#define PLAYER_SPRITE_HEIGHT 37
+#define PLAYER_SPRITE_WIDTH 50
 
+/// @brief
+/// Handles player logic, stats and movement
 class Player : public ICharacter {
 public:
 	Player(EventDispatcher& _dispatcher);
@@ -31,9 +35,12 @@ public:
 	/// Handles when an key released event happend, stop moving
 	bool onKeyReleased(const Event& event);
 
+	map<SpriteState, SpriteObject*> buildSpritemap(int textureId) override;
+
 	void onUpdate() override {
 		stateMachine.update(this);
 	};
+	
 	StateMachine<Player>& getStateMachine() { return this->stateMachine; }
 	ICharacter* clone(int id) override;
 private:

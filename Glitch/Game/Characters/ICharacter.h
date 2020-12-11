@@ -1,9 +1,10 @@
 #pragma once
 #include "Game/IGameObject.h"
 #include "Events/EventDispatcher.h"
+#include "Game/SpriteState.h"
 
 /// @brief 
-/// Character base class
+/// Character base class; guarantees several functions being implementen in extended classes
 class ICharacter : public IGameObject  {
 public:
 	ICharacter(EventDispatcher& _dispatcher) : dispatcher{ _dispatcher } {};
@@ -40,6 +41,13 @@ public:
 	void kill() { this->currentHealth = 0; }
     void respawn() { this->setPositionX(spawnX); this->setPositionY(spawnY); }
 	bool getIsDead() const { return this->currentHealth == 0; }
+
+	/// @brief
+	/// Builds the spritemap for an object, should be implemented when overriding this
+	/// @param textureId
+	/// The current texture id, required to be able to assign a unique id to all textures
+	/// @returns map<SpriteState, SpriteObject*>
+	virtual map<SpriteState, SpriteObject*> buildSpritemap(int textureId) = 0;
 
 	void setInvincible(const bool invincible) { this->invincible = invincible; }
 	virtual ICharacter* clone(int id) = 0;
