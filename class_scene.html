@@ -153,12 +153,14 @@ API map&lt; int, <a class="el" href="class_layer.html">Layer</a> * &gt;&#160;</t
 <tr class="memitem:afb211048face51d3fd02e6edb02e0b0f"><td class="memItemLeft" align="right" valign="top"><a id="afb211048face51d3fd02e6edb02e0b0f"></a>
 API int&#160;</td><td class="memItemRight" valign="bottom"><b>getHighestLayerIndex</b> ()</td></tr>
 <tr class="separator:afb211048face51d3fd02e6edb02e0b0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a214219badf08c5e522b6244ac766cd37"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a214219badf08c5e522b6244ac766cd37">addPopUpLayer</a> (<a class="el" href="class_layer.html">Layer</a> *_layer)</td></tr>
-<tr class="memdesc:a214219badf08c5e522b6244ac766cd37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a basic l with text.  <a href="class_scene.html#a214219badf08c5e522b6244ac766cd37">More...</a><br /></td></tr>
-<tr class="separator:a214219badf08c5e522b6244ac766cd37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ff49eedec5b3b612edcc06e598892de"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a7ff49eedec5b3b612edcc06e598892de">removePopUpLayer</a> ()</td></tr>
-<tr class="memdesc:a7ff49eedec5b3b612edcc06e598892de"><td class="mdescLeft">&#160;</td><td class="mdescRight">remove layer  <a href="class_scene.html#a7ff49eedec5b3b612edcc06e598892de">More...</a><br /></td></tr>
-<tr class="separator:a7ff49eedec5b3b612edcc06e598892de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3940945ee21a86d900defb4d26c4312"><td class="memItemLeft" align="right" valign="top">API int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#aa3940945ee21a86d900defb4d26c4312">addLayerOnHighestZIndex</a> (<a class="el" href="class_layer.html">Layer</a> *_layer)</td></tr>
+<tr class="memdesc:aa3940945ee21a86d900defb4d26c4312"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a basic l with text.  <a href="class_scene.html#aa3940945ee21a86d900defb4d26c4312">More...</a><br /></td></tr>
+<tr class="separator:aa3940945ee21a86d900defb4d26c4312"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0c74a7c1a359ecaf67c376d226aa0fc"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#af0c74a7c1a359ecaf67c376d226aa0fc">addLayerOnZIndex</a> (const int zIndex, <a class="el" href="class_layer.html">Layer</a> *_layer)</td></tr>
+<tr class="separator:af0c74a7c1a359ecaf67c376d226aa0fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10ad0900fe2b1649b9e9d662d1fccbe4"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a10ad0900fe2b1649b9e9d662d1fccbe4">removeLayer</a> (const int zIndex)</td></tr>
+<tr class="memdesc:a10ad0900fe2b1649b9e9d662d1fccbe4"><td class="mdescLeft">&#160;</td><td class="mdescRight">remove layer  <a href="class_scene.html#a10ad0900fe2b1649b9e9d662d1fccbe4">More...</a><br /></td></tr>
+<tr class="separator:a10ad0900fe2b1649b9e9d662d1fccbe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -235,6 +237,71 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneHeight</b> = WIND
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa3940945ee21a86d900defb4d26c4312"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3940945ee21a86d900defb4d26c4312">&#9670;&nbsp;</a></span>addLayerOnHighestZIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Scene::addLayerOnHighestZIndex </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_layer.html">Layer</a> *&#160;</td>
+          <td class="paramname"><em>_layer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a basic l with text. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xPosition</td><td></td></tr>
+    <tr><td class="paramname">yPosition</td><td></td></tr>
+    <tr><td class="paramname">text</td><td><br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af0c74a7c1a359ecaf67c376d226aa0fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0c74a7c1a359ecaf67c376d226aa0fc">&#9670;&nbsp;</a></span>addLayerOnZIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Scene::addLayerOnZIndex </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>zIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_layer.html">Layer</a> *&#160;</td>
+          <td class="paramname"><em>_layer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">zIndex</td><td></td></tr>
+    <tr><td class="paramname">_layer</td><td><br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a7d7026062180c2f43eda8d1785ceb7d8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7d7026062180c2f43eda8d1785ceb7d8">&#9670;&nbsp;</a></span>addNewObjectToLayer()</h2>
 
@@ -278,35 +345,6 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneHeight</b> = WIND
   <table class="params">
     <tr><td class="paramname">zIndex</td><td>Zindex of the layer that the object should be added to </td></tr>
     <tr><td class="paramname">object</td><td>Pointer to the object </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a214219badf08c5e522b6244ac766cd37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a214219badf08c5e522b6244ac766cd37">&#9670;&nbsp;</a></span>addPopUpLayer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Scene::addPopUpLayer </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_layer.html">Layer</a> *&#160;</td>
-          <td class="paramname"><em>_layer</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Creates a basic l with text. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">xPosition</td><td></td></tr>
-    <tr><td class="paramname">yPosition</td><td></td></tr>
-    <tr><td class="paramname">text</td><td><br  />
- </td></tr>
   </table>
   </dd>
 </dl>
@@ -482,16 +520,17 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneHeight</b> = WIND
 
 </div>
 </div>
-<a id="a7ff49eedec5b3b612edcc06e598892de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ff49eedec5b3b612edcc06e598892de">&#9670;&nbsp;</a></span>removePopUpLayer()</h2>
+<a id="a10ad0900fe2b1649b9e9d662d1fccbe4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10ad0900fe2b1649b9e9d662d1fccbe4">&#9670;&nbsp;</a></span>removeLayer()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Scene::removePopUpLayer </td>
+          <td class="memname">void Scene::removeLayer </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>zIndex</em></td><td>)</td>
           <td></td>
         </tr>
       </table>

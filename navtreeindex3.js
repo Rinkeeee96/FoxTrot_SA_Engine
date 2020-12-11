@@ -1,14 +1,15 @@
 var NAVTREEINDEX3 =
 {
-"class_scene.html#ad1430f4764639b7e1da1fbf276a8e7f7":[1,0,49,35],
-"class_scene.html#ad28c2fd6c05278c2fbb6c3c2a5d8fb5a":[1,0,49,25],
-"class_scene.html#ad7db814286fcad83a1368d54cfc53a86":[1,0,49,13],
-"class_scene.html#ad9d05cb17a04f7754e8f38db29f157dc":[1,0,49,17],
-"class_scene.html#ae3e629e67c6dc2e4dab696f63fd7fa9e":[1,0,49,16],
-"class_scene.html#aedaad4ca2d73ffdc2ebf0de2a31f4ca5":[1,0,49,27],
-"class_scene.html#afa392fe80866ceb24130d4a642834767":[1,0,49,5],
-"class_scene.html#afb211048face51d3fd02e6edb02e0b0f":[1,0,49,10],
-"class_scene.html#afc3766fe5466a09e8ea7d7a2ebb4e66f":[1,0,49,18],
+"class_scene.html#ad1430f4764639b7e1da1fbf276a8e7f7":[1,0,49,36],
+"class_scene.html#ad28c2fd6c05278c2fbb6c3c2a5d8fb5a":[1,0,49,26],
+"class_scene.html#ad7db814286fcad83a1368d54cfc53a86":[1,0,49,14],
+"class_scene.html#ad9d05cb17a04f7754e8f38db29f157dc":[1,0,49,18],
+"class_scene.html#ae3e629e67c6dc2e4dab696f63fd7fa9e":[1,0,49,17],
+"class_scene.html#aedaad4ca2d73ffdc2ebf0de2a31f4ca5":[1,0,49,28],
+"class_scene.html#af0c74a7c1a359ecaf67c376d226aa0fc":[1,0,49,3],
+"class_scene.html#afa392fe80866ceb24130d4a642834767":[1,0,49,6],
+"class_scene.html#afb211048face51d3fd02e6edb02e0b0f":[1,0,49,11],
+"class_scene.html#afc3766fe5466a09e8ea7d7a2ebb4e66f":[1,0,49,19],
 "class_scene_manager.html":[1,0,50],
 "class_scene_manager.html#a2bb376a85d29e85f47753e26c7539229":[1,0,50,1],
 "class_scene_manager.html#a35236665097d81e0581bb9b630feb6d3":[1,0,50,10],
@@ -192,8 +193,8 @@ var NAVTREEINDEX3 =
 "functions_e.html":[1,3,0,5],
 "functions_eval.html":[1,3,3],
 "functions_f.html":[1,3,0,6],
-"functions_func.html":[1,3,1],
 "functions_func.html":[1,3,1,0],
+"functions_func.html":[1,3,1],
 "functions_func_b.html":[1,3,1,1],
 "functions_func_c.html":[1,3,1,2],
 "functions_func_d.html":[1,3,1,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "struct_color4_f.html#af9f307d744621b194553cec8dba2bae6":[1,0,4,0],
 "struct_colored_text.html":[1,0,5],
 "struct_colored_text.html#a0f91205892321d53ef28b854f5c8db7d":[1,0,5,1],
-"struct_colored_text.html#a2709b47bfce56edea442046237dc06c8":[1,0,5,2],
-"struct_colored_text.html#a467481dac4c5819109a31984c482be36":[1,0,5,0]
+"struct_colored_text.html#a2709b47bfce56edea442046237dc06c8":[1,0,5,2]
 };
