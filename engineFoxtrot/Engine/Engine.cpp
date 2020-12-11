@@ -98,6 +98,9 @@ void Engine::restartPhysicsWorld()
 	physicsEngine.removeObject();
 }
 
+/// @brief
+/// Returns the deltaTime from the frameData class
+/// @returns float
 float Engine::getDeltaTime()
 {
 	return deltaTime;

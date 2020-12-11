@@ -14,6 +14,9 @@ void FrameData::startTimer() {
 	startTime = chrono::high_resolution_clock::now();
 }
 
+/// @brief
+/// returns the current deltaTime (1 / fps of the last frame)
+/// @returns const float
 const float FrameData::getDeltaTime()
 {
 	return TIMESTEP / lastFrameFps;
