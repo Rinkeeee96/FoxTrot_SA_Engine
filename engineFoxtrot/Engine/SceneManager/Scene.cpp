@@ -207,21 +207,27 @@ int Scene::getHighestLayerIndex() {
 /// @param xPosition 
 /// @param yPosition 
 /// @param text 
-void Scene::addPopUpLayer(Layer* _layer) {
-	if (!hasActivePopUp) {
-		int zIndex = getHighestLayerIndex() + 1;
-		layers[zIndex] = _layer;
-		hasActivePopUp = true;
-	}
+int Scene::addLayerOnHighestZIndex(Layer* _layer) 
+{
+	int zIndex = getHighestLayerIndex() + 1;
+	layers[zIndex] = _layer;
+	return zIndex;
+}
+
+/// @brief 
+/// @param zIndex 
+/// @param _layer 
+void Scene::addLayerOnZIndex(const int zIndex, Layer* _layer)
+{
+	layers[zIndex] = _layer;
 }
 
 /// @brief remove layer
 /// @param _zIndex no value means top layer.
-void Scene::removePopUpLayer() {
-	if (hasActivePopUp) {
-		int zIndex = 0;
-		zIndex = getHighestLayerIndex();
+void Scene::removeLayer(const int zIndex) 
+{
+	if (layers.count(zIndex) > 0)
+	{
 		layers.erase(zIndex);
-		hasActivePopUp = false;
 	}
 }
