@@ -101,7 +101,7 @@ void Engine::restartPhysicsWorld()
 /// @returns float
 float Engine::getDeltaTime(int timeStep)
 {
-	return frameData.calculateDeltaTime(DELTATIME_TIMESTEP_PHYSICS);
+	return frameData.calculateDeltaTime(timeStep);
 }
 
 void Engine::loadSound(const string& identifier, const string& path)
