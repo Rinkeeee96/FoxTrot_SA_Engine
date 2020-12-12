@@ -40,12 +40,12 @@
     <ClCompile Include="Game\Scenes\Shop\Shop.cpp" />
     <ClCompile Include="Game\Commands\Creator\UICommands\UICommandFactory.cpp" />
     <ClCompile Include="Game\Commands\IUICommand.h" />
-    <ClCompile Include="Game\PopUps\PausePopUp.cpp" />
     <ClCompile Include="Game\Scenes\Story\ChapterOneScene.cpp" />
     <ClCompile Include="Game\Scenes\Story\ChapterScene\ChapterScene.cpp" />
     <ClCompile Include="Game\PopUps\Pause\PausePopUp.cpp" />
     <ClCompile Include="Game\PopUps\Inventory\InventoryPopup.cpp" />
     <ClCompile Include="Game\Scenes\Shop\Shop.cpp" />
+    <ClCompile Include="Game\PopUps\Achievement\AchievementPopup.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
@@ -96,7 +96,6 @@
     <ClInclude Include="Game\Commands\CharacterCommands\JumpCommand.h" />
     <ClInclude Include="Game\Commands\CharacterCommands\MoveLeftCommand.h" />
     <ClInclude Include="Game\Commands\CharacterCommands\MoveRightCommand.h" />
-    <ClInclude Include="Game\Commands\CharacterCommands\StopMovementCommand.h" />
     <ClInclude Include="Game\Commands\Creator\CharacterCommands\CharacterCommandCreator.h" />
     <ClInclude Include="Game\Commands\Creator\CharacterCommands\CharacterCommandFactory.h" />
     <ClInclude Include="Game\Commands\Creator\CharacterCommands\ICharacterCommandCreator.h" />
@@ -107,7 +106,6 @@
     <ClInclude Include="Game\Commands\ICharacterCommand.h" />
     <ClInclude Include="Game\Scenes\Story\ChapterOneScene.h" />
     <ClInclude Include="Game\Scenes\Story\ChapterScene\ChapterScene.h" />
-    <ClInclude Include="Game\PopUps\PausePopUp.h" />
     <ClInclude Include="Game\Characters\Enemies\BaseEnemy.h" />
     <ClInclude Include="Game\States\Player\GodState.h" />
     <ClInclude Include="Game\States\Player\NormalState.h" />
@@ -128,8 +126,9 @@
     <ClInclude Include="Game\PopUps\BasePopup.h" />
     <ClInclude Include="Game\Commands\GlobalCommands\ToggleLayerCommand.h" />
     <ClInclude Include="Game\Scenes\Shop\Shop.h" />
+    <ClInclude Include="Game\PopUps\Achievement\AchievementPopup.h" />
   </ItemGroup>
-    <ItemGroup>
+  <ItemGroup>
     <Text Include="Assets\Levels\Story\ChapterOne.txt" />
   </ItemGroup>
 </Project>
