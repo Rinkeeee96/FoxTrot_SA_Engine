@@ -37,6 +37,10 @@ player : {
 	}
 }
 */
+
+/// @brief
+/// read the bindings from the given input source, create a new game keypress invoker and
+/// register the bindings in pairs
 GameKeypressInvoker* CommandBuilder::readBindingsAndCreateInvoker() {
 	// bindings now belong "hardcoded" to the player
 	unordered_map<KeyCode, string> playerBindings = {
@@ -53,7 +57,8 @@ GameKeypressInvoker* CommandBuilder::readBindingsAndCreateInvoker() {
 
 	return new GameKeypressInvoker(playerBindings, globalBindings);
 }
-
+/// @brief
+/// initialise the character command factory and register it's commands
 void CommandBuilder::initCharacterFactory()
 {
 	characterCommandFactory = std::shared_ptr<CharacterCommandFactory>(new CharacterCommandFactory());
@@ -69,7 +74,9 @@ void CommandBuilder::initCharacterFactory()
 	moveRightCommand->registerClass(characterCommandFactory);
 }
 
-void CommandBuilder::initUICommandFactory()
+/// @brief
+/// initialise the global command factory and register it's commands
+void CommandBuilder::initGlobalCommandFactory()
 {
 	globalCommandFactory = std::shared_ptr<GlobalCommandFactory>(new GlobalCommandFactory());
 	auto toggleInventoryCommand = new GlobalCommandCreator<ToggleLayerCommand>("inventory");
