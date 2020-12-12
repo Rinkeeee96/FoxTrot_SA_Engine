@@ -12,7 +12,7 @@
 #include "Game/Commands/CharacterCommands/CharacterCommands.h"
 
 #include "Game/Commands/GameKeypressInvoker.h"
-#include <Game\Commands\GlobalCommands\ToggleLayerCommand.h>
+#include "Game/Commands/GlobalCommands/ToggleLayerCommand.h"
 
 CommandBuilder::CommandBuilder()
 {
