@@ -1,19 +1,19 @@
 #pragma once
 class Scene;
-class IUICommand;
-class IUICommandCreator;
+class GlobalCommand;
+class IGlobalCommandCreator;
 
-class UICommandFactory
+class GlobalCommandFactory
 {
 public:
 	/// @brief
 	/// Function for registrating a command creator
 	/// a command is created by this creator upon request with its registered classname
-	void registerit(const std::string& classname, IUICommandCreator* creator);
+	void registerit(const std::string& classname, IGlobalCommandCreator* creator);
 	/// @brief
 	/// Function for creating ui commands and registering a layer id
 	/// a command is created by this creator upon request with its registered classname
-	IUICommand* createUICommand(const std::string& classname, const int layerIndex);
+	GlobalCommand* createCommand(const std::string& classname, const int layerIndex);
 private:
-	map<string, IUICommandCreator*> table;
+	map<string, IGlobalCommandCreator*> table;
 };

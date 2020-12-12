@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "stdafx.h"
 #include "CommandFactory.h"
 #include "CommandCreator.h"
 

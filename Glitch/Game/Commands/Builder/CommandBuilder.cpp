@@ -1,8 +1,8 @@
 #include "pch.h"
 #include "CommandBuilder.h"
 
-#include "Game/Commands/Creator/UICommands/UICommandCreator.h"
-#include "Game/Commands/Creator/UICommands/UICommandFactory.h"
+#include "Game/Commands/Creator/GlobalCommands/GlobalCommandCreator.h"
+#include "Game/Commands/Creator/GlobalCommands/GlobalCommandFactory.h"
 
 #include "Game/Commands/Creator/CharacterCommands/CharacterCommandFactory.h"
 #include "Game/Commands/Creator/CharacterCommands/CharacterCommandCreator.h"
@@ -71,12 +71,12 @@ void CommandBuilder::initCharacterFactory()
 
 void CommandBuilder::initUICommandFactory()
 {
-	uiCommandFactory = std::shared_ptr<UICommandFactory>(new UICommandFactory());
-	auto toggleInventoryCommand = new UICommandCreator<ToggleLayerCommand>("inventory");
-	auto togglePauseCommand = new UICommandCreator<ToggleLayerCommand>("pause");
+	globalCommandFactory = std::shared_ptr<GlobalCommandFactory>(new GlobalCommandFactory());
+	auto toggleInventoryCommand = new GlobalCommandCreator<ToggleLayerCommand>("inventory");
+	auto togglePauseCommand = new GlobalCommandCreator<ToggleLayerCommand>("pause");
 
-	toggleInventoryCommand->registerClass(uiCommandFactory);
-	togglePauseCommand->registerClass(uiCommandFactory);
+	toggleInventoryCommand->registerClass(globalCommandFactory);
+	togglePauseCommand->registerClass(globalCommandFactory);
 }
 
 /// @brief
@@ -113,6 +113,6 @@ void CommandBuilder::linkCommandToToggle(GameKeypressInvoker* invoker, int layer
 {
 	invoker->registerCommand(
 		invoker->getKeycodeFromIdentifier(identifier),
-		uiCommandFactory->createUICommand(identifier, layerId)
+		globalCommandFactory->createCommand(identifier, layerId)
 	);
 };

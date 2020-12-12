@@ -34,6 +34,7 @@
     <ClCompile Include="Engine\SceneManager\Objects\Button.cpp" />
     <ClCompile Include="Engine\Input\Commands\KeypressInvoker.cpp" />
     <ClCompile Include="Engine\FileParser\JsonValidator.cpp" />
+    <ClCompile Include="Engine\Input\Commands\Creator\CommandFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Engine.cpp">
@@ -183,6 +184,9 @@
     <ClInclude Include="Engine\FileParser\IFileValidator.h" />
     <ClInclude Include="Engine\FileParser\JsonValidator.h" />
     <ClInclude Include="Engine\Events\Action\ToggleEventLayer.h" />
+    <ClInclude Include="Engine\Input\Commands\Creator\CommandCreator.h" />
+    <ClInclude Include="Engine\Input\Commands\Creator\CommandFactory.h" />
+    <ClInclude Include="Engine\Input\Commands\Creator\ICommandCreator.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
