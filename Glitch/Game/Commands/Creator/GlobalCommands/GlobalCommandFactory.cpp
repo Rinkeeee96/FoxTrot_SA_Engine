@@ -3,13 +3,19 @@
 #include "Game/characters/ICharacter.h"
 #include "GlobalCommandCreator.h"
 #include "Engine/Input/Commands/exceptions/unknownCommandException.h"
-
+/// @brief
+/// register a command with a given identifier
 void GlobalCommandFactory::registerit(const std::string& classname, IGlobalCommandCreator* creator)
 {
 	table[classname] = creator;
 }
 
-
+/// @brief
+/// search a command with the given identiefier and create it
+/// @param classname
+/// the previously registered identifier of the command instance to find 
+/// @param layerIndex
+/// the layerindex to bind this command to
 GlobalCommand* GlobalCommandFactory::createCommand(const std::string& classname, const int layerIndex)
 {
 	auto i = table.find(classname);
