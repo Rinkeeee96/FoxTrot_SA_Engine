@@ -205,6 +205,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Buttons\PrimaryButton.h" />
     <ClInclude Include="Game\Buttons\SecondaryButton.h" />
     <ClInclude Include="Game\PopUps\BasePopup.h" />
+    <ClInclude Include="Game\PopUps\Achievement\AchievementPopup.h" />
     <ClInclude Include="Game\PopUps\Popups.h" />
     <ClInclude Include="Game\SaveGame\Savegame.h" />
     <ClInclude Include="Game\Scenes\Credits\CreditsScene.h" />
@@ -262,6 +263,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="Game\Characters\Player\Player.cpp" />
     <ClCompile Include="Game\Levels\LoadLevelFacade.cpp" />
+    <ClCompile Include="Game\PopUps\Achievement\AchievementPopup.cpp" />
     <ClCompile Include="Game\Scenes\Credits\CreditsScene.cpp" />
     <ClCompile Include="Game\Scenes\Factory\FactoryMethod.cpp" />
     <ClCompile Include="Game\Scenes\GameScene.cpp" />

@@ -28,6 +28,13 @@ private:
 	void addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, SpriteObject* HUD);
 	vector<Drawable*> huds;
 
+	void throwAchievement(Achievement achievement);
+	void increaseTotalGameScore(const int amount);
+
+	Text* scoreText = nullptr;
+	void loadScoreBoard();
+	void updateScoreBoard();
+
 	map<string, string> sounds;
 	Object* follow = nullptr;
 	Player* player = nullptr;
@@ -37,8 +44,11 @@ private:
 	GameKeypressInvoker* gameInvoker;
 	int pausePopupZIndex = 0;
 	int inventoryPopupZIndex = 0;
+	int achievementZIndex = 0;
 
 	bool inventoryOpen = false;
+	bool activeAchievementPopup = false;
+	chrono::high_resolution_clock::time_point timeAchievementPopupThrown;
 
 	float startPosPlayerX = 0;
 	float startPosPlayerY = 0;
