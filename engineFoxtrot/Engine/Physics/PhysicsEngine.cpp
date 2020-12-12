@@ -82,7 +82,6 @@ bool PhysicsEngine::handleAction(const Event& event) {
 			this->physicsFacade->Fall(objectId);
 			return true;
 		default:
-			// TODO what should handle action do when it fails? does the eventhandler need to continue?
 			return false;
 	}
 }
@@ -91,8 +90,8 @@ bool PhysicsEngine::handleAction(const Event& event) {
 /// @param event 
 /// @return 
 bool PhysicsEngine::stopObject(const Event& event) {
-	ObjectStopEvent e = static_cast<const ObjectStopEvent&>(event);
-	physicsFacade->stopObject(e.getObjectId(), e.getStopVertical());
+	auto& e = static_cast<const ObjectStopEvent&>(event);
+	physicsFacade->stopObject(e.getObjectId(), e.getStopVertical(), e.getStopHorizontal());
 	return true;
 }
 
