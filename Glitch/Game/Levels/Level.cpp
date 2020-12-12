@@ -43,6 +43,7 @@ void Level::start(bool playSound) {
 	player->setCurrentHealth(3);
 	player->setTotalHealth(3);
 	this->addHuds();
+	loadScoreBoard();
 	this->win = false;
 
 	this->setObjectToFollow(this->follow);

@@ -51,6 +51,8 @@ public:
 
 	API void updateFps();
 
+	API void toggleFps();
+
 	API bool getEngineRunning() { return running; };
 	API void setEngineRunning(bool run) { running = run; }
 

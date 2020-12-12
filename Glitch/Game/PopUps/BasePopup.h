@@ -13,13 +13,13 @@ public:
 
 	virtual void setupPopUp() = 0;
 	virtual void cleanPopUp() {
-		for (auto obj : objects)
+		for (pair<const int, Object*> obj : objects)
 			delete obj.second;
 
 		this->clearObjects();
 	};
 
-	void onAttach() override
+	virtual void onAttach() override
 	{
 		TogglePauseEvent pauseEvent(true);
 		dispatcher.dispatchEvent<TogglePauseEvent>(pauseEvent);
@@ -28,7 +28,7 @@ public:
 		this->setupPopUp();
 	}
 
-	void onDetach() override
+	virtual void onDetach() override
 	{
 		TogglePauseEvent pauseEvent(false);
 		dispatcher.dispatchEvent<TogglePauseEvent>(pauseEvent);
