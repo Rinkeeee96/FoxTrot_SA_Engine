@@ -17,7 +17,7 @@
 CommandBuilder::CommandBuilder()
 {
 	initCharacterFactory();
-	initUICommandFactory();
+	initGlobalCommandFactory();
 }
 
 // TODO read keybinds from file
