@@ -37,7 +37,6 @@ player : {
 	}
 }
 */
-
 /// @brief
 /// read the bindings from the given input source, create a new game keypress invoker and
 /// register the bindings in pairs
