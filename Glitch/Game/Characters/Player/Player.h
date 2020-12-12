@@ -6,6 +6,8 @@
 #include "Game/States/Player/PlayerGlobalState.h"
 #include "Game/States/Player/NormalState.h"
 
+#include "Game/Commands/CharacterCommands/StopMovementCommand.h"
+
 #define RESTITUTION_CORRECTION 1
 #define PLAYER_SPRITE_HEIGHT 37
 #define PLAYER_SPRITE_WIDTH 50
@@ -34,7 +36,7 @@ public:
 	void onUpdate() override {
 		if (releasedKeyLastFrame)
 		{
-			dispatcher.dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->objectId, false, true));
+			StopMovementCommand(*this, "stopMovement").execute(this->dispatcher);
 		}
 		stateMachine.update(this);
 	};

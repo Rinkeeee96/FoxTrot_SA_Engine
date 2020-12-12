@@ -3,3 +3,4 @@
 #include "Game/Commands/CharacterCommands/JumpCommand.h"
 #include "Game/Commands/CharacterCommands/MoveLeftCommand.h"
 #include "Game/Commands/CharacterCommands/MoveRightcommand.h"
+#include "Game/Commands/CharacterCommands/StopMovementCommand.h"
