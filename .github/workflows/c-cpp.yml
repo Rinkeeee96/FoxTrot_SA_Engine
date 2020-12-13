@@ -20,7 +20,6 @@ jobs:
     - name: Setup VSTest path
       uses: darenm/Setup-VSTest@v1
     - name: Run VSTest
-      run: vstest.console.exe Builds/x64/Debug/glitch.tests.dll
-           vstest.console.exe Builds/x64/Debug/enginefoxtrot.tests.dll
+      run: vstest.console.exe Builds/x64/Debug/glitch.tests.dll Builds/x64/Debug/enginefoxtrot.tests.dll
 
 
