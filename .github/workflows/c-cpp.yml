@@ -18,6 +18,8 @@ jobs:
     - name: build foxtrot engine  
       run :
         msbuild.exe  
+      run:
         vstest.console.exe Builds/x64/Debug/glitch.tests.dll
         vstest.console.exe Builds/x64/Debug/enginefoxtrot.tests.dll
+
 
