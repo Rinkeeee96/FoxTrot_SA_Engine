@@ -70,8 +70,8 @@ $(document).ready(function(){initNavTree('_object_stop_event_8h_source.html','')
 <div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_object_stop_event.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_object_stop_event.html">ObjectStopEvent</a> : <span class="keyword">public</span> <a class="code" href="class_event.html">Event</a></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_object_stop_event.html">ObjectStopEvent</a>(<span class="keywordtype">int</span> _objectId, <span class="keywordtype">bool</span> _stopVertical = <span class="keyword">false</span>) :</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        objectId{ _objectId }, stopVertical{_stopVertical} {};</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_object_stop_event.html">ObjectStopEvent</a>(<span class="keywordtype">int</span> _objectId, <span class="keywordtype">bool</span> _stopVertical = <span class="keyword">false</span>, <span class="keywordtype">bool</span> _stopHorizontal = <span class="keyword">false</span>) :</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        objectId{ _objectId }, stopVertical{ _stopVertical }, stopHorizontal{ _stopHorizontal } {};</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_object_stop_event.html#a90236eb691a65c63ddcf641d697b6e5c">   17</a></span>&#160;    EventType <a class="code" href="class_object_stop_event.html#a90236eb691a65c63ddcf641d697b6e5c">getEventType</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> EventType::ObjectStop; }</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
@@ -79,10 +79,12 @@ $(document).ready(function(){initNavTree('_object_stop_event_8h_source.html','')
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> getObjectId()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> objectId; }</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">bool</span> getStopVertical()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> stopVertical; }</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">int</span> objectId;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">bool</span> stopVertical;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">bool</span> getStopHorizontal()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> stopHorizontal; }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">int</span> objectId;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">bool</span> stopVertical;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">bool</span> stopHorizontal;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_object_stop_event_html_afd72200b674d818f5ea222378cd55753"><div class="ttname"><a href="class_object_stop_event.html#afd72200b674d818f5ea222378cd55753">ObjectStopEvent::getName</a></div><div class="ttdeci">const char * getName() const override</div><div class="ttdoc">Returns the name of the event.</div><div class="ttdef"><b>Definition:</b> ObjectStopEvent.h:21</div></div>

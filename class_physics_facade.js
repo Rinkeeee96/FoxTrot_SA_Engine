@@ -12,7 +12,7 @@ var class_physics_facade =
     [ "Jump", "class_physics_facade.html#ada17497182472bf05707ce261fa2cdad", null ],
     [ "MoveLeft", "class_physics_facade.html#a007c3c74101d15854182eafe77d51134", null ],
     [ "MoveRight", "class_physics_facade.html#a986be15be922656f6a43513ff177b181", null ],
-    [ "stopObject", "class_physics_facade.html#af51f680befa45dc5dcd0fee92a761964", null ],
+    [ "stopObject", "class_physics_facade.html#a83dab18e3a5d0a69c465fc6a191db862", null ],
     [ "update", "class_physics_facade.html#a385afe67398479d31386edfc92371bd2", null ],
     [ "bodies", "class_physics_facade.html#aa3df7f12f50597c44e7f524ad7d72a64", null ],
     [ "dispatcher", "class_physics_facade.html#a8268c3d72a03d8e6e8e768a944ff05e2", null ],

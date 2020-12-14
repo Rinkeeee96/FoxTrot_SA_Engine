@@ -60,6 +60,7 @@ $(document).ready(function(){initNavTree('class_engine.html',''); initResizable(
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_engine-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -74,6 +75,21 @@ $(document).ready(function(){initNavTree('class_engine.html',''); initResizable(
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a4d8066dd213a03f5420d1bf60f150ca7"><td class="memItemLeft" align="right" valign="top"><a id="a4d8066dd213a03f5420d1bf60f150ca7"></a>
+API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a4d8066dd213a03f5420d1bf60f150ca7">start</a> ()</td></tr>
+<tr class="memdesc:a4d8066dd213a03f5420d1bf60f150ca7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The startup function for the engine is for setting the currentScene pointer and the general initialisation. <br /></td></tr>
+<tr class="separator:a4d8066dd213a03f5420d1bf60f150ca7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2ff110d5a86c1cd60b541d65915ac48"><td class="memItemLeft" align="right" valign="top"><a id="ad2ff110d5a86c1cd60b541d65915ac48"></a>
+API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#ad2ff110d5a86c1cd60b541d65915ac48">update</a> ()</td></tr>
+<tr class="memdesc:ad2ff110d5a86c1cd60b541d65915ac48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls the update function on all the subsystems. <br /></td></tr>
+<tr class="separator:ad2ff110d5a86c1cd60b541d65915ac48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bbccf668c46064559c99a999f7b9932"><td class="memItemLeft" align="right" valign="top"><a id="a4bbccf668c46064559c99a999f7b9932"></a>
+API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a4bbccf668c46064559c99a999f7b9932">shutdown</a> ()</td></tr>
+<tr class="memdesc:a4bbccf668c46064559c99a999f7b9932"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls the shutdown function on all the subsystems. <br /></td></tr>
+<tr class="separator:a4bbccf668c46064559c99a999f7b9932"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e06859379e738c137b3361885100d01"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a6e06859379e738c137b3361885100d01">useCustomCommandInvoker</a> (<a class="el" href="class_keypress_invoker.html">KeypressInvoker</a> *newInvoker)</td></tr>
+<tr class="memdesc:a6e06859379e738c137b3361885100d01"><td class="mdescLeft">&#160;</td><td class="mdescRight">The engine's keypress invoker contains 'default' engine commands and keybindings for them, these are to always exist and are thus created in this function, this method is called each time an invoker is assigned. Due to the way the invoker is setup, these cannot be overriden by default, only the bindings can be modified.  <a href="class_engine.html#a6e06859379e738c137b3361885100d01">More...</a><br /></td></tr>
+<tr class="separator:a6e06859379e738c137b3361885100d01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afacb7e390439a2603729200ea99177b0"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#afacb7e390439a2603729200ea99177b0">setCurrentScene</a> (const int sceneID)</td></tr>
 <tr class="memdesc:afacb7e390439a2603729200ea99177b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the current <a class="el" href="class_scene.html" title="Scene Class Contains all the objects that should be drawn in this scene.">Scene</a> in the scenemanager. Called from game to switch screens.  <a href="class_engine.html#afacb7e390439a2603729200ea99177b0">More...</a><br /></td></tr>
 <tr class="separator:afacb7e390439a2603729200ea99177b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -81,7 +97,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab81eff238bf568d470ba149e51be0c45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currentScene.  <a href="class_engine.html#ab81eff238bf568d470ba149e51be0c45">More...</a><br /></td></tr>
 <tr class="separator:ab81eff238bf568d470ba149e51be0c45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab12a03be719deab6073873235b87d2d5"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#ab12a03be719deab6073873235b87d2d5">insertScene</a> (<a class="el" href="class_scene.html">Scene</a> *scene)</td></tr>
-<tr class="memdesc:ab12a03be719deab6073873235b87d2d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a <a class="el" href="class_scene.html" title="Scene Class Contains all the objects that should be drawn in this scene.">Scene</a> into the current scene.  <a href="class_engine.html#ab12a03be719deab6073873235b87d2d5">More...</a><br /></td></tr>
 <tr class="separator:ab12a03be719deab6073873235b87d2d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47b89ed8fab7ae4ca68b638b1b56d768"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a47b89ed8fab7ae4ca68b638b1b56d768">deregisterScene</a> (const int id)</td></tr>
 <tr class="memdesc:a47b89ed8fab7ae4ca68b638b1b56d768"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deregister a scene according to the given sceneID.  <a href="class_engine.html#a47b89ed8fab7ae4ca68b638b1b56d768">More...</a><br /></td></tr>
@@ -101,10 +116,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8c3e0cbbbb93bf41bb9ca34d3b08a1bf"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a8c3e0cbbbb93bf41bb9ca34d3b08a1bf">stopLoopEffect</a> (const string &amp;identifier)</td></tr>
 <tr class="memdesc:a8c3e0cbbbb93bf41bb9ca34d3b08a1bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls onStopLoopedEffect from the sound engine.  <a href="class_engine.html#a8c3e0cbbbb93bf41bb9ca34d3b08a1bf">More...</a><br /></td></tr>
 <tr class="separator:a8c3e0cbbbb93bf41bb9ca34d3b08a1bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea2ad228a62881a5ea7c58f67d2b7c3a"><td class="memItemLeft" align="right" valign="top"><a id="aea2ad228a62881a5ea7c58f67d2b7c3a"></a>
-API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#aea2ad228a62881a5ea7c58f67d2b7c3a">onUpdate</a> ()</td></tr>
-<tr class="memdesc:aea2ad228a62881a5ea7c58f67d2b7c3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls the update function on all the subsystems. <br /></td></tr>
-<tr class="separator:aea2ad228a62881a5ea7c58f67d2b7c3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71aa9acfae99ce60af8f93d25adda1cc"><td class="memItemLeft" align="right" valign="top"><a id="a71aa9acfae99ce60af8f93d25adda1cc"></a>
 API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a71aa9acfae99ce60af8f93d25adda1cc">updateFps</a> ()</td></tr>
 <tr class="memdesc:a71aa9acfae99ce60af8f93d25adda1cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the fps counter. <br /></td></tr>
@@ -113,19 +124,26 @@ API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#ae3360f7c892943c02423e7e6d7ac1969">toggleFps</a> ()</td></tr>
 <tr class="memdesc:ae3360f7c892943c02423e7e6d7ac1969"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles fps visibility. <br /></td></tr>
 <tr class="separator:ae3360f7c892943c02423e7e6d7ac1969"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99c7af6f7e2e52b97f664cfdcd57358f"><td class="memItemLeft" align="right" valign="top"><a id="a99c7af6f7e2e52b97f664cfdcd57358f"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>onKeyPressed</b> (const <a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
-<tr class="separator:a99c7af6f7e2e52b97f664cfdcd57358f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1d2632aba5caf68005ce340bcdaa252"><td class="memItemLeft" align="right" valign="top"><a id="aa1d2632aba5caf68005ce340bcdaa252"></a>
 API bool&#160;</td><td class="memItemRight" valign="bottom"><b>getEngineRunning</b> ()</td></tr>
 <tr class="separator:aa1d2632aba5caf68005ce340bcdaa252"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a129dbf1f1b1d0e53ac2427937a438181"><td class="memItemLeft" align="right" valign="top"><a id="a129dbf1f1b1d0e53ac2427937a438181"></a>
 API void&#160;</td><td class="memItemRight" valign="bottom"><b>setEngineRunning</b> (bool run)</td></tr>
 <tr class="separator:a129dbf1f1b1d0e53ac2427937a438181"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a720008e4aaa071d9a4aebb6ed0066f60"><td class="memItemLeft" align="right" valign="top"><a id="a720008e4aaa071d9a4aebb6ed0066f60"></a>
+<a class="el" href="class_keypress_invoker.html">KeypressInvoker</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getKeypressedInvoker</b> ()</td></tr>
+<tr class="separator:a720008e4aaa071d9a4aebb6ed0066f60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf8a2d328644bcb0d3c4b52ba02a239d"><td class="memItemLeft" align="right" valign="top"><a id="abf8a2d328644bcb0d3c4b52ba02a239d"></a>
 API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#abf8a2d328644bcb0d3c4b52ba02a239d">restartPhysicsWorld</a> ()</td></tr>
 <tr class="memdesc:abf8a2d328644bcb0d3c4b52ba02a239d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls reloadPhysicsObject from the physicsEngine. <br /></td></tr>
 <tr class="separator:abf8a2d328644bcb0d3c4b52ba02a239d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a004baceea42e01b1ffb776e5ecba70e0"><td class="memItemLeft" align="right" valign="top"><a id="a004baceea42e01b1ffb776e5ecba70e0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a004baceea42e01b1ffb776e5ecba70e0">constructDefaultCommands</a> (<a class="el" href="class_keypress_invoker.html">KeypressInvoker</a> *invoker)</td></tr>
+<tr class="memdesc:a004baceea42e01b1ffb776e5ecba70e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create default engine commands that cannot be removed, only overriden by changing the keycode in the invoker. <br /></td></tr>
+<tr class="separator:a004baceea42e01b1ffb776e5ecba70e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -138,6 +156,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>running</b> = false</
 <tr class="memitem:a9dbf7cd03f5e0ce7566e688d2dd0baca"><td class="memItemLeft" align="right" valign="top"><a id="a9dbf7cd03f5e0ce7566e688d2dd0baca"></a>
 <a class="el" href="class_frame_data.html">FrameData</a>&#160;</td><td class="memItemRight" valign="bottom"><b>frameData</b></td></tr>
 <tr class="separator:a9dbf7cd03f5e0ce7566e688d2dd0baca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad771ec44950948484a4bf3a2c898055f"><td class="memItemLeft" align="right" valign="top"><a id="ad771ec44950948484a4bf3a2c898055f"></a>
+<a class="el" href="class_keypress_invoker.html">KeypressInvoker</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>keypressInvoker</b></td></tr>
+<tr class="separator:ad771ec44950948484a4bf3a2c898055f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae998ed00ca0d7cb439f7cdc0d4084ccf"><td class="memItemLeft" align="right" valign="top"><a id="ae998ed00ca0d7cb439f7cdc0d4084ccf"></a>
 <a class="el" href="class_scene_manager.html">SceneManager</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sceneManager</b></td></tr>
 <tr class="separator:ae998ed00ca0d7cb439f7cdc0d4084ccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -226,8 +247,6 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>engineIsPaused</b> = 
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Insert a <a class="el" href="class_scene.html" title="Scene Class Contains all the objects that should be drawn in this scene.">Scene</a> into the current scene. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">scene</td><td></td></tr>
@@ -406,6 +425,27 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>engineIsPaused</b> = 
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a6e06859379e738c137b3361885100d01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e06859379e738c137b3361885100d01">&#9670;&nbsp;</a></span>useCustomCommandInvoker()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Engine::useCustomCommandInvoker </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_keypress_invoker.html">KeypressInvoker</a> *&#160;</td>
+          <td class="paramname"><em>newInvoker</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The engine's keypress invoker contains 'default' engine commands and keybindings for them, these are to always exist and are thus created in this function, this method is called each time an invoker is assigned. Due to the way the invoker is setup, these cannot be overriden by default, only the bindings can be modified. </p>
+<p>Override the default invoker with a custom one from the application. </p>
 
 </div>
 </div>

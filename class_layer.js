@@ -11,6 +11,8 @@ var class_layer =
     [ "getSpecificObjectInLayer", "class_layer.html#ae96e6006b9ed746e5d4718267fcb7bdd", null ],
     [ "getVisible", "class_layer.html#abd0a0367454b2a13bfa0ac90e1265a05", null ],
     [ "objectExists", "class_layer.html#ab76d85c53707635339e6a505af00aa64", null ],
+    [ "onAttach", "class_layer.html#aeeb2709b3fbf22fc5ad6a187dbc51e80", null ],
+    [ "onDetach", "class_layer.html#a322283bd2399ac8c983cc03a12a9c547", null ],
     [ "removeObject", "class_layer.html#a195a862c103c5503612c4077a20e8cd5", null ],
     [ "setAlwaysVisible", "class_layer.html#a8a17e17c30c21577be9e0b5c118fe262", null ],
     [ "setRender", "class_layer.html#a9c09030241d3a20f2e71afa7333653df", null ],

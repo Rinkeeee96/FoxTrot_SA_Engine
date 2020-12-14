@@ -7,9 +7,11 @@ var hierarchy =
     [ "Color", "struct_color.html", null ],
     [ "Color4F", "struct_color4_f.html", null ],
     [ "ColoredText", "struct_colored_text.html", null ],
+    [ "CommandFactory", "class_command_factory.html", null ],
     [ "Engine", "class_engine.html", null ],
     [ "Event", "class_event.html", [
       [ "ActionEvent", "class_action_event.html", null ],
+      [ "CaptureInputEvent", "class_capture_input_event.html", null ],
       [ "KeyEvent", "class_key_event.html", [
         [ "KeyPressedEvent", "class_key_pressed_event.html", null ],
         [ "KeyReleasedEvent", "class_key_released_event.html", null ],
@@ -26,11 +28,24 @@ var hierarchy =
         [ "OnCollisionBeginEvent", "class_on_collision_begin_event.html", null ],
         [ "OnCollisionEndEvent", "class_on_collision_end_event.html", null ]
       ] ],
+      [ "ReleaseInputEvent", "class_release_input_event.html", null ],
+      [ "ToggleLayerEvent", "class_toggle_layer_event.html", null ],
+      [ "TogglePauseEvent", "class_toggle_pause_event.html", null ],
       [ "WindowResizeEvent", "class_window_resize_event.html", null ]
     ] ],
     [ "EventDispatcher", "class_event_dispatcher.html", null ],
+    [ "exception", null, [
+      [ "unknownCommandException", "classunknown_command_exception.html", null ]
+    ] ],
     [ "FileLoader", "class_file_loader.html", null ],
     [ "FrameData", "class_frame_data.html", null ],
+    [ "ICommand", "class_i_command.html", [
+      [ "ShutdownCommand", "class_shutdown_command.html", null ],
+      [ "ToggleFpsCommand", "class_toggle_fps_command.html", null ]
+    ] ],
+    [ "ICommandCreator", "class_i_command_creator.html", [
+      [ "CommandCreator< T >", "class_command_creator.html", null ]
+    ] ],
     [ "IFileValidator", "class_i_file_validator.html", [
       [ "JsonValidator", "class_json_validator.html", null ]
     ] ],
@@ -53,6 +68,7 @@ var hierarchy =
     [ "IVideoFacade", "class_i_video_facade.html", [
       [ "VideoFacade", "class_video_facade.html", null ]
     ] ],
+    [ "KeypressInvoker", "class_keypress_invoker.html", null ],
     [ "Layer", "class_layer.html", null ],
     [ "Object", "class_object.html", [
       [ "Drawable", "class_drawable.html", [

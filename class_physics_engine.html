@@ -89,9 +89,8 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a7fc9180ea453680df0b863fa157c5b92">PhysicsEngine</a> ()</td></tr>
 <tr class="memdesc:a7fc9180ea453680df0b863fa157c5b92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br /></td></tr>
 <tr class="separator:a7fc9180ea453680df0b863fa157c5b92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5f076ee99bbfdbc79ab2d27366d8476"><td class="memItemLeft" align="right" valign="top"><a id="ae5f076ee99bbfdbc79ab2d27366d8476"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#ae5f076ee99bbfdbc79ab2d27366d8476">~PhysicsEngine</a> ()</td></tr>
-<tr class="memdesc:ae5f076ee99bbfdbc79ab2d27366d8476"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor calls the shutdown function. <br /></td></tr>
+<tr class="memitem:ae5f076ee99bbfdbc79ab2d27366d8476"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#ae5f076ee99bbfdbc79ab2d27366d8476">~PhysicsEngine</a> ()</td></tr>
+<tr class="memdesc:ae5f076ee99bbfdbc79ab2d27366d8476"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="class_physics_engine.html#ae5f076ee99bbfdbc79ab2d27366d8476">More...</a><br /></td></tr>
 <tr class="separator:ae5f076ee99bbfdbc79ab2d27366d8476"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a395053a3efe7baf0d5154a204b81b062"><td class="memItemLeft" align="right" valign="top"><a id="a395053a3efe7baf0d5154a204b81b062"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a395053a3efe7baf0d5154a204b81b062">registerObjectInCurrentVectorWithPhysicsEngine</a> ()</td></tr>
@@ -104,6 +103,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a9c94fb9996654e0d495e3a680a431102"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a9c94fb9996654e0d495e3a680a431102">stopObject</a> (const <a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
 <tr class="memdesc:a9c94fb9996654e0d495e3a680a431102"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the vertical movement of an object.  <a href="class_physics_engine.html#a9c94fb9996654e0d495e3a680a431102">More...</a><br /></td></tr>
 <tr class="separator:a9c94fb9996654e0d495e3a680a431102"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c68030f567749eb63ae68b60cb88914"><td class="memItemLeft" align="right" valign="top"><a id="a2c68030f567749eb63ae68b60cb88914"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a2c68030f567749eb63ae68b60cb88914">onPauseEvent</a> (const <a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
+<tr class="memdesc:a2c68030f567749eb63ae68b60cb88914"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes on pause event for physics engine. <br /></td></tr>
+<tr class="separator:a2c68030f567749eb63ae68b60cb88914"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ee00603461896b5ab57b9c61a29856b"><td class="memItemLeft" align="right" valign="top"><a id="a7ee00603461896b5ab57b9c61a29856b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a7ee00603461896b5ab57b9c61a29856b">reloadPhysicsObjects</a> ()</td></tr>
 <tr class="memdesc:a7ee00603461896b5ab57b9c61a29856b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reloads the physicsFacade objects map. <br /></td></tr>
@@ -119,6 +122,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a594c1e5e15be202e90e4584157df5b7d">shutdown</a> () override</td></tr>
 <tr class="memdesc:a594c1e5e15be202e90e4584157df5b7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is called on physicsEngine shutdown. Cleans the physicsEngine en deletes the physicsFacade. <br /></td></tr>
 <tr class="separator:a594c1e5e15be202e90e4584157df5b7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_i_subsystem"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_i_subsystem')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_i_subsystem.html">ISubsystem</a></td></tr>
+<tr class="memitem:adb8851f68718af8dc0e8abea61d15fb9 inherit pub_methods_class_i_subsystem"><td class="memItemLeft" align="right" valign="top"><a id="adb8851f68718af8dc0e8abea61d15fb9"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isPaused</b> ()</td></tr>
+<tr class="separator:adb8851f68718af8dc0e8abea61d15fb9 inherit pub_methods_class_i_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -144,10 +151,38 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a858c48efe8067f869a2512301e609edc"><td class="memItemLeft" align="right" valign="top"><a id="a858c48efe8067f869a2512301e609edc"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>currentSceneID</b> = 0</td></tr>
 <tr class="separator:a858c48efe8067f869a2512301e609edc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_class_i_subsystem"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_i_subsystem')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_i_subsystem.html">ISubsystem</a></td></tr>
+<tr class="memitem:a6c8cdf74ffdf60cb11f4a49d0531902c inherit pro_attribs_class_i_subsystem"><td class="memItemLeft" align="right" valign="top"><a id="a6c8cdf74ffdf60cb11f4a49d0531902c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>paused</b> = false</td></tr>
+<tr class="separator:a6c8cdf74ffdf60cb11f4a49d0531902c inherit pro_attribs_class_i_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Physics <a class="el" href="class_engine.html" title="Engine interface class connecting the game to the engine.">Engine</a> connected to the physics facade. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae5f076ee99bbfdbc79ab2d27366d8476"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5f076ee99bbfdbc79ab2d27366d8476">&#9670;&nbsp;</a></span>~PhysicsEngine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PhysicsEngine::~PhysicsEngine </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destructor. </p>
+<p>Destructor calls the shutdown function </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a1211e342e28078b0774a98e43599fcb7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1211e342e28078b0774a98e43599fcb7">&#9670;&nbsp;</a></span>start()</h2>
 

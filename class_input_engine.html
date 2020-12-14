@@ -87,6 +87,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6a20294376216586c550c50ae736a817"><td class="memItemLeft" align="right" valign="top"><a id="a6a20294376216586c550c50ae736a817"></a>
 API&#160;</td><td class="memItemRight" valign="bottom"><b>InputEngine</b> (<a class="el" href="class_engine.html">Engine</a> &amp;engine)</td></tr>
 <tr class="separator:a6a20294376216586c550c50ae736a817"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba8f5f8cbea770b91d8251def4e7db57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_engine.html#aba8f5f8cbea770b91d8251def4e7db57">registerKeypressInvoker</a> (<a class="el" href="class_keypress_invoker.html">KeypressInvoker</a> *_keypressInvoker)</td></tr>
+<tr class="memdesc:aba8f5f8cbea770b91d8251def4e7db57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a custom invoker.  <a href="class_input_engine.html#aba8f5f8cbea770b91d8251def4e7db57">More...</a><br /></td></tr>
+<tr class="separator:aba8f5f8cbea770b91d8251def4e7db57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a082f29fa0a4bd45802048ee560bbda06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_engine.html#a082f29fa0a4bd45802048ee560bbda06">start</a> (<a class="el" href="class_event_dispatcher.html">EventDispatcher</a> &amp;dispatcher) override</td></tr>
 <tr class="memdesc:a082f29fa0a4bd45802048ee560bbda06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the <a class="el" href="class_input_engine.html" title="Input engine for handling input.">InputEngine</a>. Setting up the inputFacade. Connecting de dispatcher.  <a href="class_input_engine.html#a082f29fa0a4bd45802048ee560bbda06">More...</a><br /></td></tr>
 <tr class="separator:a082f29fa0a4bd45802048ee560bbda06"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -98,6 +101,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_engine.html#aa545a112b41abd4b1a9d0a82123eb894">shutdown</a> () override</td></tr>
 <tr class="memdesc:aa545a112b41abd4b1a9d0a82123eb894"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the inputFacade. <br /></td></tr>
 <tr class="separator:aa545a112b41abd4b1a9d0a82123eb894"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_i_subsystem"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_i_subsystem')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_i_subsystem.html">ISubsystem</a></td></tr>
+<tr class="memitem:adb8851f68718af8dc0e8abea61d15fb9 inherit pub_methods_class_i_subsystem"><td class="memItemLeft" align="right" valign="top"><a id="adb8851f68718af8dc0e8abea61d15fb9"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isPaused</b> ()</td></tr>
+<tr class="separator:adb8851f68718af8dc0e8abea61d15fb9 inherit pub_methods_class_i_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -116,6 +123,16 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:ab642ad1c2ba61666d8fb927254392d55"><td class="memItemLeft" align="right" valign="top"><a id="ab642ad1c2ba61666d8fb927254392d55"></a>
 <a class="el" href="class_event_dispatcher.html">EventDispatcher</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>dispatcher</b></td></tr>
 <tr class="separator:ab642ad1c2ba61666d8fb927254392d55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04505e4f109e77e9ec99f54f8b259001"><td class="memItemLeft" align="right" valign="top"><a id="a04505e4f109e77e9ec99f54f8b259001"></a>
+<a class="el" href="class_keypress_invoker.html">KeypressInvoker</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>keypressInvoker</b></td></tr>
+<tr class="separator:a04505e4f109e77e9ec99f54f8b259001"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_class_i_subsystem"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_i_subsystem')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_i_subsystem.html">ISubsystem</a></td></tr>
+<tr class="memitem:a6c8cdf74ffdf60cb11f4a49d0531902c inherit pro_attribs_class_i_subsystem"><td class="memItemLeft" align="right" valign="top"><a id="a6c8cdf74ffdf60cb11f4a49d0531902c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>paused</b> = false</td></tr>
+<tr class="separator:a6c8cdf74ffdf60cb11f4a49d0531902c inherit pro_attribs_class_i_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Input engine for handling input. </p>
@@ -153,6 +170,32 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><br  />
  </dd></dl>
+
+</div>
+</div>
+<a id="aba8f5f8cbea770b91d8251def4e7db57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba8f5f8cbea770b91d8251def4e7db57">&#9670;&nbsp;</a></span>registerKeypressInvoker()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void InputEngine::registerKeypressInvoker </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_keypress_invoker.html">KeypressInvoker</a> *&#160;</td>
+          <td class="paramname"><em>_keypressInvoker</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Register a custom invoker. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_keypressInvoker</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
