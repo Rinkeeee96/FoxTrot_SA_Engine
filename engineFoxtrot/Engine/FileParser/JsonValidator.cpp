@@ -48,8 +48,10 @@ void JsonValidator::validate(JsonDocument& document, JsonDocument& validationDoc
 	if (!validator.validate(schema, validateAdapter, NULL)) {
 		docIsValid = false;
 	}
+	else {
+		docIsValid = true;
+	}
 
-	docIsValid = true;
 }
 
 /// @brief 
