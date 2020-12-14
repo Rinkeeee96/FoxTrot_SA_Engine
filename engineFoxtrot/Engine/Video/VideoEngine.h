@@ -31,9 +31,9 @@ public:
 	~VideoEngine();
 
 	API void loadImage(const shared_ptr<SpriteObject> spriteObject);
-	API void renderCopy(Drawable& drawable);
+	API void renderCopy(shared_ptr<Drawable>);
 	API void toggleFps();
-	API bool drawParticle(ParticleAdapter* part);
+	API void drawParticle(shared_ptr<ParticleAdapter> part);
 	API void calculateOffset(Object& obj, int sceneWidth, int sceneHeight);
 
 	API bool checkObjectInScreen(const Object& obj);

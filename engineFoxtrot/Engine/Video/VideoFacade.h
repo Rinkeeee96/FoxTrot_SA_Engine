@@ -26,9 +26,9 @@ public:
 	void clearScreen();
 	void drawScreen();
 	void loadImage(const shared_ptr<SpriteObject> spriteObject);
-	void renderCopy(Drawable& object);
+	void renderCopy(shared_ptr<Drawable>);
 
-	void drawParticle(const ParticleAdapter& part);
+	void drawParticle(shared_ptr<ParticleAdapter> part);
 
 	void drawMessageAt(const ColoredText& message, const Position& pos, const ObjectSize& target, bool fromText = false);
 
@@ -40,7 +40,7 @@ public:
 	int getXCameraOffset() const { return xCameraOffset; };
 	int getYCameraOffset() const { return yCameraOffset; };
 private:
-	SDL_Rect createRect(Drawable& object);
+	SDL_Rect createRect(shared_ptr<Drawable> object);
 
 	int xCameraOffset = 0;
 	int yCameraOffset = 0;

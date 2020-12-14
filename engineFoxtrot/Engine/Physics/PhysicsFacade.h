@@ -36,10 +36,10 @@ public:
 	PhysicsFacade(EventDispatcher& _dispatcher);
 	~PhysicsFacade();
 
-	void addStaticObject(PhysicsBody* object) override;
-	void addDynamicObject(PhysicsBody* object) override;
+	void addStaticObject(shared_ptr<PhysicsBody>object) override;
+	void addDynamicObject(shared_ptr<PhysicsBody> object) override;
 
-	PhysicsBody* getPhysicsObject(const int objectId) override;
+	shared_ptr<PhysicsBody> getPhysicsObject(const int objectId) override;
 
 	void MoveLeft(const int objectId) override;
 	void MoveRight(const int objectId) override;
@@ -57,6 +57,6 @@ private:
 	const float timeStep = TIMESTEP_SEC / TIMESTEP_FRAMES;
 
 	// TODO clear on scene detach
-	map <PhysicsBody*, b2Body*> bodies;
+	map <shared_ptr<PhysicsBody>, b2Body*> bodies;
 	b2Body* findBody(const int objectId);
 };

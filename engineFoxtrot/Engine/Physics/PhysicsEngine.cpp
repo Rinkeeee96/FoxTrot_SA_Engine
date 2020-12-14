@@ -116,7 +116,7 @@ void PhysicsEngine::registerObjectInCurrentVectorWithPhysicsEngine()
 	if(DEBUG_PHYSICS_ENGINE)cout << "Size pointertoObj: " << (*pointerToCurrentScene)->getAllObjectsInSceneRenderPhysics().size() << endl;
 	for (Object* object : (*pointerToCurrentScene)->getAllObjectsInSceneRenderPhysics())
 	{
-		PhysicsBody * phyObj = new PhysicsBody(object);
+		auto phyObj = shared_ptr<PhysicsBody>(new PhysicsBody(object));
 
 		if (DEBUG_PHYSICS_ENGINE)cout << "Registering object : " << phyObj->getObjectId() << endl;
 		if (object->getIsParticle()) continue;

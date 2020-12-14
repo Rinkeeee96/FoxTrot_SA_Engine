@@ -22,9 +22,9 @@ public:
 	API bool getRenderPhysics() const { return renderPhysics; }
 
 	//In here for the not friend classes who might need the objects in a layer
-	API map<int, Object*> getObjectsInLayer() { return objects; }
-	API Object* getSpecificObjectInLayer(int objectID) { return objects[objectID]; }
-	API void addObjectInLayer(Object* obj) { objects[obj->getObjectId()] = obj; }
+	API map<int, shared_ptr<Object>> getObjectsInLayer() { return objects; }
+	API Object* getSpecificObjectInLayer(int objectID) { return objects[objectID].get(); }
+	API void addObjectInLayer(Object* obj) { objects[obj->getObjectId()] = shared_ptr<Object>(obj); }
 
 	/// @brief Checks if object exists in the layer
 	/// @param objectID 
@@ -49,7 +49,7 @@ public:
 
 protected:
 	// TODO clear on scene detach in destructor
-	map<int, Object*> objects;
+	map<int, shared_ptr<Object>> objects;
 
 private:
 	bool visible = true;

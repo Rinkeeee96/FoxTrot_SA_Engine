@@ -96,28 +96,28 @@ void VideoFacade::loadImage(const shared_ptr<SpriteObject> spriteObject) {
 /// @brief Creates a SDL_rect acording to the object dimensions
 /// @param object 
 /// @return 
-SDL_Rect VideoFacade::createRect(Drawable& object) {
+SDL_Rect VideoFacade::createRect(shared_ptr<Drawable> object) {
 	SDL_Rect destination;
-	int x = object.getDrawStatic() ? (int)object.getPositionX() : (int)object.getPositionX() - xCameraOffset;
-	int y = object.getDrawStatic() ? (int)object.getPositionY() - (int)object.getHeight() : (int)object.getPositionY() - (int)object.getHeight() - yCameraOffset;
+	int x = object->getDrawStatic() ? (int)object->getPositionX() : (int)object->getPositionX() - xCameraOffset;
+	int y = object->getDrawStatic() ? (int)object->getPositionY() - (int)object->getHeight() : (int)object->getPositionY() - (int)object->getHeight() - yCameraOffset;
 
 	destination.x = x;
 	destination.y = y;
-	destination.w = (int)object.getWidth();
-	destination.h = (int)object.getHeight();
+	destination.w = (int)object->getWidth();
+	destination.h = (int)object->getHeight();
 	return destination;
 }
 /// @brief 
 /// Takes the sprites from the Textuture map animated and copys them to the screen
 /// @param object 
-void VideoFacade::renderCopy(Drawable& object)
+void VideoFacade::renderCopy(shared_ptr<Drawable> object)
 {	
-	if (object.getIsText()) {
+	if (object->getIsText()) {
 		SDL_Rect destination = this->createRect(object);
-		drawMessageAt(*object.toString(), Position(destination.x, destination.y), ObjectSize(destination.w, destination.h), true);
+		drawMessageAt(*object->toString(), Position(destination.x, destination.y), ObjectSize(destination.w, destination.h), true);
 		return;
 	}
-	shared_ptr<SpriteObject> sprite = object.GetCurrentSprite();
+	shared_ptr<SpriteObject> sprite = object->GetCurrentSprite();
 
 	if (!textureMap.count(sprite->getTextureID())) {
 		loadImage(sprite);
@@ -142,33 +142,33 @@ void VideoFacade::renderCopy(Drawable& object)
 	SDL_Rect rect{ (int)leftpos, top, (int)sprite->getWidth(), (int)sprite->getHeight() };
 
 	//update collision box 
-	if (object.getScalable()) {
-		object.setWidth(sprite->getWidth() * object.getScale());
-		object.setHeight(sprite->getHeight() * object.getScale());
+	if (object->getScalable()) {
+		object->setWidth(sprite->getWidth() * object->getScale());
+		object->setHeight(sprite->getHeight() * object->getScale());
 	}
 
 	//generate stratch of image
 	SDL_Rect destination;
-	int x = object.getDrawStatic() ? (int)object.getPositionX() : (int)object.getPositionX() - xCameraOffset;
-	int y = object.getDrawStatic() ? (int)object.getPositionY() - (int)object.getHeight() : (int)object.getPositionY() - (int)object.getHeight() - yCameraOffset;
+	int x = object->getDrawStatic() ? (int)object->getPositionX() : (int)object->getPositionX() - xCameraOffset;
+	int y = object->getDrawStatic() ? (int)object->getPositionY() - (int)object->getHeight() : (int)object->getPositionY() - (int)object->getHeight() - yCameraOffset;
 
 	destination.x = x;
 	destination.y = y;
-	destination.w = (int)object.getWidth();
-	destination.h = (int)object.getHeight();
+	destination.w = (int)object->getWidth();
+	destination.h = (int)object->getHeight();
 
-	SDL_SetTextureColorMod(textureMap[sprite->getTextureID()], object.getTint().red, object.getTint().green, object.getTint().blue);
-	SDL_RenderCopyEx(renderer, textureMap[sprite->getTextureID()], &rect, &destination, object.getRotation(), NULL, SDL_FLIP_NONE);
+	SDL_SetTextureColorMod(textureMap[sprite->getTextureID()], object->getTint().red, object->getTint().green, object->getTint().blue);
+	SDL_RenderCopyEx(renderer, textureMap[sprite->getTextureID()], &rect, &destination, object->getRotation(), NULL, SDL_FLIP_NONE);
 	// crude fix to draw text on top of a drawable, maybe fix with a callback function in the future, or a visitor?
-	if (object.toString() != nullptr)
-		drawMessageAt(*object.toString(), Position(destination.x, destination.y), ObjectSize(destination.w, destination.h));
+	if (object->toString() != nullptr)
+		drawMessageAt(*object->toString(), Position(destination.x, destination.y), ObjectSize(destination.w, destination.h));
 }
 
 /// @brief Function to draw Particles
 /// @param part 
-void VideoFacade::drawParticle(const ParticleAdapter& part)
+void VideoFacade::drawParticle(shared_ptr<ParticleAdapter> part)
 {
-	shared_ptr<SpriteObject> sprite = part.GetCurrentSprite();
+	shared_ptr<SpriteObject> sprite = part->GetCurrentSprite();
 
 	if (!textureMap.count(sprite->getTextureID()))
 	{
@@ -178,8 +178,8 @@ void VideoFacade::drawParticle(const ParticleAdapter& part)
 		throw exception("ERROR_CODE_SVIFACADE_RENDERCOPY_SPRITE_ID_IS_NULL_DRAW_PARTICLE");
 
 
-	vector<ParticleData> particleData = part.getParticleDataVector();
-	for (unsigned int index = 0; index < part.getParticleCount(); index++)
+	vector<ParticleData> particleData = part->getParticleDataVector();
+	for (unsigned int index = 0; index < part->getParticleCount(); index++)
 	{
 		auto& partData = particleData[index];
 

@@ -31,7 +31,7 @@ void Engine::setCurrentScene(const int sceneID)
 	inputEngine.registerKeypressInvoker(this->keypressInvoker);
 	physicsEngine.start(*this->eventDispatcher);
 
-	sceneManager.getSceneWithID(sceneID)->onAttach();
+	//sceneManager.getSceneWithID(sceneID)->onAttach();
 	sceneManager.getSceneWithID(sceneID)->onAttach();
 }
 

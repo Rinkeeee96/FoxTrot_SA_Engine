@@ -13,9 +13,6 @@ public:
 
 	virtual void setupPopUp() = 0;
 	virtual void cleanPopUp() {
-		for (pair<const int, Object*> obj : objects)
-			delete obj.second;
-
 		this->clearObjects();
 	};
 

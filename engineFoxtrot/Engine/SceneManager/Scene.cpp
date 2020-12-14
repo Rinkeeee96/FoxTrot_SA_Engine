@@ -77,7 +77,7 @@ vector <Drawable*> Scene::getAllDrawablesInScene()
 	{
 		for (auto obj : layer.second->objects)
 		{
-			Drawable* drawable = dynamic_cast<Drawable*>(obj.second);
+			Drawable* drawable = dynamic_cast<Drawable*>(obj.second.get());
 			if (drawable != nullptr)
 				returnVector.push_back(drawable);
 		}
@@ -97,7 +97,7 @@ vector <Object*> Scene::getAllObjectsInScene()
 		{
 			if (obj.second != nullptr)
 			{
-				returnVector.push_back(obj.second);
+				returnVector.push_back(obj.second.get());
 			}
 		}
 	}
@@ -113,7 +113,7 @@ vector <Object*> Scene::getAllObjectsInSceneRenderPhysics()
 	{
 		if (layer.second->getRenderPhysics()) {
 			for (auto obj : layer.second->objects) {
-				returnVector.push_back(obj.second);
+				returnVector.push_back(obj.second.get());
 			}
 		}
 	}
@@ -167,8 +167,6 @@ void Scene::onDetach()
 	for (auto& layerContainer : layers)
 	{
 		auto layer = layerContainer.second;
-		for (auto obj : layer->objects)
-			delete obj.second;
 
 		layer->clearObjects();
 	}

@@ -34,7 +34,7 @@ void VideoEngine::loadImage(const shared_ptr<SpriteObject> spriteObject)
 
 /// @brief Sets the sprite on the screen
 /// @param Object 
-void VideoEngine::renderCopy(Drawable& object) {
+void VideoEngine::renderCopy(shared_ptr<Drawable> object) {
 	videoFacade->renderCopy(object);
 }
 
@@ -207,11 +207,11 @@ void VideoEngine::updateScreen()
 		for (auto obj : layer.second->objects) {
 			if (obj.second && ((layer.second->getAlwaysVisible() || !obj.second->getIsRemoved()) || (checkObjectInScreen(*obj.second) && !obj.second->getIsRemoved()))) {
 				if (obj.second->getIsParticle()) {
-					drawParticle((ParticleAdapter*)obj.second);
+					drawParticle(dynamic_pointer_cast<ParticleAdapter>(obj.second));
 				}
 				else {
-					if (Drawable* drawable = dynamic_cast<Drawable*>(obj.second))
-						renderCopy(*drawable);
+					if (auto drawable = dynamic_pointer_cast<Drawable>(obj.second))
+						renderCopy(drawable);
 				}
 			}
 		}
@@ -253,11 +253,7 @@ void VideoEngine::toggleFps() {
 
 /// @brief Draws the Particles
 /// @param part pointer to the particle
-bool VideoEngine::drawParticle(ParticleAdapter* part)
+void VideoEngine::drawParticle(shared_ptr<ParticleAdapter> part)
 {
-	
-	videoFacade->drawParticle(*part);
-	
-	// do not handle on update events, they are continues
-	return false;
+	videoFacade->drawParticle(part);
 }
