@@ -40,11 +40,11 @@ public:
 	void setSceneHeight(const int height) { sceneHeight = height; }
 	int getSceneHeight() const { return sceneHeight; }
     
-	void setObjectToFollow(Object* obj) { objectToFollow = obj; }
+	void setObjectToFollow(shared_ptr<Object> obj) { objectToFollow = obj; }
 
 
 	int getObjectToFollowID() const;
-	Object* getObjectToFollow() { return objectToFollow; };
+	shared_ptr<Object> getObjectToFollow() { return objectToFollow; };
 
 	API void removeObjectFromScene(Object* obj);
 
@@ -70,7 +70,7 @@ private:
 	map<int, shared_ptr<Layer>> layers;
 
 
-	Object *objectToFollow = nullptr;
+	shared_ptr<Object> objectToFollow = nullptr;
 
 	int sceneWidth = WINDOW_WIDTH;
 	int sceneHeight = WINDOW_HEIGHT;

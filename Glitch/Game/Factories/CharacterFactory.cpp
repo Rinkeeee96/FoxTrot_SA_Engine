@@ -29,7 +29,7 @@ ICharacter* CharacterFactory::create(string name, int id) {
 		auto clone = characterMap[name]->clone(id);
 
 		if (name == "player") {
-			level.setPlayer(clone);
+			level.setPlayer(shared_ptr<Object>(clone));
 		}
 
 		auto sprites = spriteObjectMap[name];

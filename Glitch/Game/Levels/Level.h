@@ -11,7 +11,7 @@ class Level : public GameScene
 public:
 	Level(const int id, const int _sceneHeight, const int _sceneWidth, unique_ptr<Engine>& engine, shared_ptr<SceneStateMachine> _stateMachine);
 
-	void setPlayer(Object* object);
+	void setPlayer(shared_ptr<Object> object);
 	void setSound(map<string, string> sounds);
 	void onAttach() override;
 	void start(bool playSound) override;
@@ -36,8 +36,8 @@ private:
 	void updateScoreBoard();
 
 	map<string, string> sounds;
-	Object* follow = nullptr;
-	Player* player = nullptr;
+	shared_ptr<Object> follow = nullptr;
+	shared_ptr<Player> player = nullptr;
 	bool win = false;
 
 	shared_ptr<ICommandBuilder> commandBuilder;

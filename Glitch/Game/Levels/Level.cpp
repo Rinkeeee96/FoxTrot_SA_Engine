@@ -133,9 +133,9 @@ bool Level::onToggleLayerEvent(const Event& event) {
 // @brief 
 /// Sets player in the level the camera will follow this object
 /// @param Object player
-void Level::setPlayer(Object* object) {
+void Level::setPlayer(shared_ptr<Object> object) {
 	this->follow = object;
-	if (Player* _player = dynamic_cast<Player*>(object)) {
+	if (auto _player = dynamic_pointer_cast<Player>(object)) {
 		this->player = _player;
 
 		commandBuilder->buildPlayerCommands(*this->player, gameInvoker);
