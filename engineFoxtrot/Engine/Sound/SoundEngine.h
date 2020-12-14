@@ -8,41 +8,41 @@
 
 /// @brief 
 /// SoundEngine is the Sound SDL2 wrapper
-class API SoundEngine : public ISubsystem
+class  SoundEngine : public ISubsystem
 {
 public:
 	SoundEngine();
 	~SoundEngine();
 
-	void start(EventDispatcher& dispatcher) override { };
-	void update() override { };
-	void shutdown() override { };
-
-	void setFiles(map<string, string> files);
-	void addFile(const string& identifier, const string& file);
-	void playEffect(const string& identifier, const int volume);
-	void loadEffect(const string& identifier);
-	void unloadEffect(const string& identifier);
-	void startLoopedEffect(const string& effect, const int volume);
-	void stopLoopedEffect(const string& identifier);
-	void loadMusic(const string& identifier);
-	void playMusic(const int volume);
-	void playMusic(const string& identifier, const int volume);
-	void changeMusic(const string& identifier);
-	void fadeOutMusic(const int fadeTime);
-	void fadeInMusic(const int fadeTime);
-	void fadeInMusic(const string& identifier, const int fadeTime);
-	void rewindMusic();
-	void stopMusic();
-	void pauseMusic();
-	void resumeMusic();
-	void flush();
-
-	bool identifierExists(const string& identifier);
-	bool identifierIsLoaded(const string& identifier);
-
-	bool onPlayEffect(const string& identifier, int volume, bool shouldLoop);
-	void onStopLoopedEffect(const string& identifier);
+	API void start(EventDispatcher& dispatcher) override { };
+	API void update() override { };
+	API void shutdown() override { };
+	 
+	API void setFiles(map<string, string> files);
+	API void addFile(const string& identifier, const string& file);
+	API void playEffect(const string& identifier, const int volume);
+	API void loadEffect(const string& identifier);
+	API void unloadEffect(const string& identifier);
+	API void startLoopedEffect(const string& effect, const int volume);
+	API void stopLoopedEffect(const string& identifier);
+	API void loadMusic(const string& identifier);
+	API void playMusic(const int volume);
+	API void playMusic(const string& identifier, const int volume);
+	API void changeMusic(const string& identifier);
+	API void fadeOutMusic(const int fadeTime);
+	API void fadeInMusic(const int fadeTime);
+	API void fadeInMusic(const string& identifier, const int fadeTime);
+	API void rewindMusic();
+	API void stopMusic();
+	API void pauseMusic();
+	API void resumeMusic();
+	API void flush();
+	 
+	API bool identifierExists(const string& identifier);
+	API bool identifierIsLoaded(const string& identifier);
+	
+	API bool onPlayEffect(const string& identifier, int volume, bool shouldLoop);
+	API void onStopLoopedEffect(const string& identifier);
 
 private:
 	void onChangeBackgroundMusic(const string& identifier, const int volume);

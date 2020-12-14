@@ -6,26 +6,26 @@
 #include "General/ISubsystem.h"
 
 /// @brief Physics Engine connected to the physics facade.
-class API PhysicsEngine : public ISubsystem
+class PhysicsEngine : public ISubsystem
 {
 public:
 	PhysicsEngine();
 	~PhysicsEngine();
 
-	void registerObjectInCurrentVectorWithPhysicsEngine();
+	API void registerObjectInCurrentVectorWithPhysicsEngine();
 
-	bool handleAction(const Event& event);
-	bool stopObject(const Event& event);
-	bool onPauseEvent(const Event& event);
-	void reloadPhysicsObjects();
+	API bool handleAction(const Event& event);
+	API bool stopObject(const Event& event);
+	API bool onPauseEvent(const Event& event);
+	API void reloadPhysicsObjects();
 
 	Scene** pointerToCurrentScene = nullptr;
 
-	void start(EventDispatcher& dispatcher) override;
-	void update() override;
-	void shutdown() override;
+	API void start(EventDispatcher& dispatcher) override;
+	API void update() override;
+	API void shutdown() override;
 
-	IPhysicsFacade& getIPhysicsFacade() const { return *this->physicsFacade; }
+	API IPhysicsFacade& getIPhysicsFacade() const { return *this->physicsFacade; }
 private:
 	void clean();
 	unique_ptr<IPhysicsFacade> physicsFacade;

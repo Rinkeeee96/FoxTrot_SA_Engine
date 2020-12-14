@@ -24,25 +24,25 @@
 
 /// @brief 
 /// VideoEngine is the SDL2 wrapper
-class API VideoEngine : public ISubsystem
+class VideoEngine : public ISubsystem
 {
 public:
 	VideoEngine(FrameData& _frameData);
 	~VideoEngine();
 
-	void loadImage(const SpriteObject& spriteObject);
-	void renderCopy(Drawable& drawable);
-	void toggleFps();
-	bool drawParticle(ParticleAdapter* part);
-	void calculateOffset(Object& obj, int sceneWidth, int sceneHeight);
+	API void loadImage(const SpriteObject& spriteObject);
+	API void renderCopy(Drawable& drawable);
+	API void toggleFps();
+	API bool drawParticle(ParticleAdapter* part);
+	API void calculateOffset(Object& obj, int sceneWidth, int sceneHeight);
 
-	bool checkObjectInScreen(const Object& obj);
+	API bool checkObjectInScreen(const Object& obj);
 
-	void clearVideoEngine();
+	API void clearVideoEngine();
 
-	void start(EventDispatcher& dispatcher) override;
-	void update() override;
-	void shutdown() override;
+	API void start(EventDispatcher& dispatcher) override;
+	API void update() override;
+	API void shutdown() override;
 
 	Scene** pointerToCurrentScene = nullptr;
 
