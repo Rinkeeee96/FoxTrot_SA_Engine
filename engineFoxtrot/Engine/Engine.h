@@ -64,7 +64,7 @@ private:
 	EventDispatcher* eventDispatcher;
 	bool running = false;
 
-	unique_ptr<FrameData> frameData = unique_ptr<FrameData>(new FrameData);
+	unique_ptr<FrameData> frameData = make_unique<FrameData>(FrameData{});
 	KeypressInvoker* keypressInvoker;
 
 	SceneManager sceneManager;
