@@ -30,8 +30,17 @@ Player::Player(const int id, EventDispatcher& _dispatcher) : ICharacter(id, _dis
 
 	dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Player::onCollisionBeginEvent));
 	dispatcher.setEventCallback<OnCollisionEndEvent>(BIND_EVENT_FN(Player::onCollisionEndEvent));
-	dispatcher.setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Player::onKeyPressed));
-	dispatcher.setEventCallback<KeyReleasedEvent>(BIND_EVENT_FN(Player::onKeyReleased));
+
+	dispatcher.setEventCallback<KeyPressedEvent>([this](const Event& event) -> bool {
+		releasedKeyLastFrame = false;
+		return false;
+	});
+
+	dispatcher.setEventCallback<KeyReleasedEvent>([this](const Event& event) -> bool {
+		releasedKeyLastFrame = true;
+		return false;
+	});
+
 }
 
 /// @brief 
@@ -106,66 +115,11 @@ void Player::setYAxisVelocity(const float val) {
 	Object::setYAxisVelocity(val);
 }
 
-/// @brief 
-/// Handles when an key pressed event happend, Player can move right, left and jump
-bool Player::onKeyPressed(const Event& event) {
-	if (!getIsDead()) {
-		auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
-		// TODO command pattern
-		switch (keyPressedEvent.getKeyCode())
-		{
-		case KeyCode::KEY_A:
-			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::LEFT, this->getObjectId()));
-			if (canJump)
-				this->changeToState(SpriteState::RUN_LEFT);
-			else if (this->getYAxisVelocity() > 0)
-				this->changeToState(SpriteState::AIR_FALL_LEFT);
-			else
-				this->changeToState(SpriteState::AIR_JUMP_LEFT);
-			break;
-		case KeyCode::KEY_D:
-			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::RIGHT, this->getObjectId()));
-			if (canJump) {
-				this->changeToState(SpriteState::RUN_RIGHT);
-			}
-			else if (this->getYAxisVelocity() > 0)
-				this->changeToState(SpriteState::AIR_FALL_RIGHT);
-			else
-				this->changeToState(SpriteState::AIR_JUMP_RIGHT);
-			break;
-		case KeyCode::KEY_SPACE:
-			if (canJump) {
-				if (this->getXAxisVelocity() > 0)
-					this->changeToState(SpriteState::AIR_JUMP_RIGHT);
-				else
-					this->changeToState(SpriteState::AIR_JUMP_LEFT);
-				dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
-			}
-			break;
-		default:
-			return false;
-		}
-		return true;
-	}
-	return false;
-}
-
-/// @brief 
-/// Handles when an key released event happend, stop moving
-bool Player::onKeyReleased(const Event& event)
+/// @brief
+/// Handles registration of a custom gamekeypressinvoker
+void Player::registerKeypressInvoker(GameKeypressInvoker *_invoker)
 {
-	if (!getIsDead()) {
-		auto keyReleasedEvent = static_cast<const KeyReleasedEvent&>(event);
-
-		switch (keyReleasedEvent.getKeyCode()) {
-		case KeyCode::KEY_A:
-		case KeyCode::KEY_D:
-			dispatcher.dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->objectId));
-		}
-
-		return false;
-	}
-	return false;
+	invoker = _invoker;
 }
 
 /// @brief Clone the player to a new Player

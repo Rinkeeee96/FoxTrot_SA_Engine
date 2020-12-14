@@ -1,6 +1,8 @@
 #include "stdafx.h"
 
 #include "InputFacade.h"
+#include "Commands/KeypressInvoker.h"
+
 #include <SDL.h>
 
 #undef main

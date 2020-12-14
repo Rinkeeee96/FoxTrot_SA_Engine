@@ -2,6 +2,7 @@
 #include <api.h>
 #include "Game/Characters/ICharacter.h"
 #include "Game/Characters/Player/Player.h"
+#include "Game/Levels/Level.h"
 
 /// @brief Base class for triggers.
 class BaseTrigger : public Object

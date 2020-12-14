@@ -8,6 +8,8 @@
 #include "Game/Ground/BaseGround.h"
 #include <nlohmann\json.hpp>
 
+class Level;
+
 /// @brief 
 /// Interface for a levelbuilder
 class ILevelBuilder

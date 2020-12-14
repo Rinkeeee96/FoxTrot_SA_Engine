@@ -3,13 +3,19 @@
 #include "Engine.h"
 
 /// @brief 
-InputEngine::InputEngine(Engine& _engine): engine(_engine)
+InputEngine::InputEngine(Engine& _engine): 
+	engine(_engine)
 {
 }
 
 /// @brief 
 InputEngine::~InputEngine()
 {
+}
+/// @brief Register a custom invoker
+/// @param _keypressInvoker
+void InputEngine::registerKeypressInvoker(KeypressInvoker* _keypressInvoker) {
+	keypressInvoker = _keypressInvoker;
 }
 
 /// @brief Starts the InputEngine. Setting up the inputFacade. Connecting de dispatcher.
@@ -22,12 +28,19 @@ void InputEngine::start(EventDispatcher& dispatcher) {
 
 /// @brief Polls for input from the inputFacade
 void InputEngine::update() { 
-	if(inputFacade)inputFacade->pollEvents();
-};
+	if(inputFacade)
+		inputFacade->pollEvents();
+
+	if (keypressInvoker)
+		keypressInvoker->executeCommandQueue(*this->dispatcher);
+}
 
 /// @brief Deletes the inputFacade
 void InputEngine::shutdown() {
-	delete inputFacade;
+	if (inputFacade)
+	{
+		delete inputFacade;
+	}
 };
 
 /// @brief	Function is called when a keyPressed event is fired.
@@ -37,18 +50,9 @@ void InputEngine::shutdown() {
 /// @return 
 bool InputEngine::onKeyPressed(const Event& event) {
 	auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
-	// TODO Send events instead of calling engine directly
-	switch (keyPressedEvent.getKeyCode())
-	{
-	case KeyCode::KEY_F1: {
-		engine.toggleFps();
-		return true;
-	}
-	case KeyCode::KEY_F4: {
-		engine.setEngineRunning(false);
-		return true;
-	}
-	default:
-		return false;
-	}
+
+	if(keypressInvoker)
+		keypressInvoker->enqueueCommand(keyPressedEvent.getKeyCode());
+
+	return false;
 }

@@ -1,5 +1,10 @@
 #include "pch.h"
 #include "LevelBuilder.h"
+#include "Game/Characters/Enemies/IEnemy.h"
+#include "Game/Ground/IGround.h"
+#include "Game/Ground/BaseGround.h"
+#include "Game/Characters/Enemies/Slime.h"
+#include "Game/Factories/CharacterFactory.h"
 
 LevelBuilder::LevelBuilder(Engine& _engine, int levelId, SceneStateMachine& _statemachine)
 	: AbstractLevelBuilder(_engine), bLevel(new Level(levelId, 0, 0, _engine, _statemachine)) {}

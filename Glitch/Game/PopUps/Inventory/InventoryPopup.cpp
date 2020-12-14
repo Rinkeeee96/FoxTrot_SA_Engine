@@ -5,16 +5,6 @@
 
 #define BIND_FN(function) std::bind(&InventoryPopup::function, *this)
 
-InventoryPopup::InventoryPopup(EventDispatcher& _dispatcher, SceneStateMachine& _stateMachine) :
-	dispatcher(_dispatcher), stateMachine(_stateMachine)
-{
-	setAlwaysVisible(true);
-}
-
-InventoryPopup::~InventoryPopup()
-{
-}
-
 /// @brief Setup for the popup inventory layer
 void InventoryPopup::setupPopUp()
 {
@@ -41,5 +31,4 @@ void InventoryPopup::setupPopUp()
 
 	addObjectInLayer(leftInventory);
 	addObjectInLayer(rightInventory);
-
 }

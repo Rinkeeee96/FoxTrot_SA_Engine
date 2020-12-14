@@ -1,21 +1,15 @@
 #pragma once
-#include "Game/Scenes/Statemachine/SceneStateMachine.h"
-
+#include "Game/PopUps/BasePopup.h"
 
 /// @brief Pause Pop Up
-class PausePopUp : public Layer
+class PausePopUp : public BasePopup
 {
 public:
-	PausePopUp(EventDispatcher &_dispacther, SceneStateMachine& _stateMachine);
-	~PausePopUp();
-
-	void setupPopUp();
-
+	PausePopUp(EventDispatcher& _dispacther, SceneStateMachine& _stateMachine)
+		: BasePopup(_dispacther, _stateMachine) {
+	};
+	// Inherited via BasePopup
+	void setupPopUp() override;
 private:
-	EventDispatcher &dispatcher;
-	SceneStateMachine &stateMachine;
-
 	void onBackButtonClick();
 };
-
-

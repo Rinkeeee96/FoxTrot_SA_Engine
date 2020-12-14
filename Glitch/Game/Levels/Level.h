@@ -1,7 +1,9 @@
 #pragma once
-#include "Game/Characters/Player/Player.h"
 #include "Game/Scenes/GameScene.h"
+#include "Game/Commands/Builder/ICommandBuilder.h"
 #include "Game/States/Player/GodState.h"
+
+class Player;
 /// @brief 
 /// Level class. Level has all the information. 
 class Level : public GameScene
@@ -19,7 +21,7 @@ public:
 
 	void addHuds();
 
-	bool onKeyPressed(const Event& event);
+	bool onToggleLayerEvent(const Event& event);
 	void setWin(const bool val) { this->win = val; }
 
 private:
@@ -38,6 +40,8 @@ private:
 	Player* player = nullptr;
 	bool win = false;
 
+	ICommandBuilder* commandBuilder;
+	GameKeypressInvoker* gameInvoker;
 	int pausePopupZIndex = 0;
 	int inventoryPopupZIndex = 0;
 	int achievementZIndex = 0;
