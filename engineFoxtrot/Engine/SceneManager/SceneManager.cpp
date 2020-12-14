@@ -36,7 +36,7 @@ bool SceneManager::checkIfSceneExists(const int sceneID)
 /// Able to insert a Scene into the scenemanager
 /// @param scene 
 /// Pointer to a scene
-void SceneManager::insertScene(Scene* scene)
+void SceneManager::insertScene(shared_ptr<Scene> scene)
 {
 	if (scene == nullptr) return;
 	scenes[scene->getSceneID()] = scene;
@@ -82,7 +82,7 @@ EventDispatcher& SceneManager::setCurrentScene(const int sceneID)
 /// Identifier to a SceneID.
 /// @return
 /// Returns pointer to the found Scene. 
-Scene* SceneManager::getSceneWithID(const int sceneID)
+shared_ptr<Scene> SceneManager::getSceneWithID(const int sceneID)
 {
 	if (scenes.empty()) throw ERROR_CODE_SCENEMANAGER_SCENES_IS_EMPTY;
 	if (scenes.find(sceneID) == scenes.end()) {

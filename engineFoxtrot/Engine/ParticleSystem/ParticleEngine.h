@@ -18,7 +18,7 @@ public:
 
 	bool onPauseEvent(const Event& event);
 
-	Scene** pointerToCurrentScene = nullptr;
+	shared_ptr<Scene>* pointerToCurrentScene = nullptr;
 
 private:
 	void checkIfObjectValueAndParticleValueMatch(ParticleAdapter& particle);

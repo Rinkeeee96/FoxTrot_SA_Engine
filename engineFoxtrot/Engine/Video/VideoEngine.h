@@ -44,7 +44,7 @@ public:
 	API void update() override;
 	API void shutdown() override;
 
-	Scene** pointerToCurrentScene = nullptr;
+	shared_ptr<Scene>* pointerToCurrentScene = nullptr;
 
 private:
 	void drawFps();

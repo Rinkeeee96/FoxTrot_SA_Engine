@@ -102,9 +102,8 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	if (currentScene && dynamic_cast<GameScene*>(currentScene.get()))
 		((GameScene*)currentScene.get())->registerSavegame(savegame);
 
-	engine->insertScene(currentScene.get());
+	engine->insertScene(currentScene);
 	engine->setCurrentScene(currentScene->getSceneID());
-
 
 	// Handle some scene specific things
 	if (currentScene && dynamic_cast<GeneralTransition*>(currentScene.get()))
