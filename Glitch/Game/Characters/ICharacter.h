@@ -53,7 +53,7 @@ public:
 	/// @param textureId
 	/// The current texture id, required to be able to assign a unique id to all textures
 	/// @returns map<SpriteState, SpriteObject*>
-	virtual map<SpriteState, SpriteObject*> buildSpritemap(int textureId) = 0;
+	virtual map<SpriteState, shared_ptr<SpriteObject>> buildSpritemap(int textureId) = 0;
 
 	void setInvincible(const bool invincible) { this->invincible = invincible; }
 	virtual ICharacter* clone(int id) = 0;

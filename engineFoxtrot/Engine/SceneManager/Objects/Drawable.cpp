@@ -5,9 +5,9 @@
 /// register a new state or overwrite a existing state and dispatch an event that signals to load the sprite in memory
 /// register the spriteID
 /// link a state with a sprite
-void Drawable::registerSprite(int state, SpriteObject* spriteObject)
+void Drawable::registerSprite(int state, shared_ptr<SpriteObject> spriteObject)
 {
-	textures.insert(pair<int, SpriteObject*>(state, spriteObject));
+	textures.insert(pair<int, shared_ptr<SpriteObject>>(state, spriteObject));
 }
 
 /// @brief
@@ -16,7 +16,7 @@ void Drawable::registerSprite(int state, SpriteObject* spriteObject)
 void Drawable::changeToState(const int state)
 {
 	currentSpriteState = state;
-	SpriteObject* spriteObject = textures[state];
+	shared_ptr<SpriteObject> spriteObject = textures[state];
 	if (spriteObject == nullptr) throw ERROR_CODE_SPRITE_DOESNT_EXIST;
 	this->currentSprite = spriteObject;
 }

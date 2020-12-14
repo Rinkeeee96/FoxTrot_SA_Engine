@@ -19,7 +19,7 @@ public:
 
 	void onUpdate() override;
 
-	map<SpriteState, SpriteObject*> buildSpritemap(int textureId) override;
+	map<SpriteState, shared_ptr<SpriteObject>> buildSpritemap(int textureId) override;
 
 	ICharacter* clone(int id) override { return new Slime(id, this->dispatcher); }
 

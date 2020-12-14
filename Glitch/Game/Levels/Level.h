@@ -25,7 +25,7 @@ public:
 	void setWin(const bool val) { this->win = val; }
 
 private:
-	void addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, SpriteObject* HUD);
+	void addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, shared_ptr<SpriteObject> HUD);
 	vector<Drawable*> huds;
 
 	void throwAchievement(Achievement achievement);

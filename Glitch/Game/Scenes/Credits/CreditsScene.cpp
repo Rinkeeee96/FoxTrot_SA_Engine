@@ -55,7 +55,7 @@ void CreditsScene::loadButtons() {
 /// @brief 
 /// Create the background for this scene
 void CreditsScene::loadBackground() {
-	SpriteObject* bg = new SpriteObject(-1012, 1080, 1920, 1, 300, "Assets/Backgrounds/credits_foreground.png");
+	shared_ptr<SpriteObject> bg = shared_ptr<SpriteObject>(new SpriteObject(-1012, 1080, 1920, 1, 300, "Assets/Backgrounds/credits_foreground.png"));
 	auto* bgLayer = new Drawable(13);
 	bgLayer->setStatic(true);
 	bgLayer->setPositionX(0);
@@ -65,7 +65,7 @@ void CreditsScene::loadBackground() {
 	bgLayer->registerSprite(SpriteState::DEFAULT, bg);
 	bgLayer->changeToState(SpriteState::DEFAULT);
 
-	SpriteObject* fgTop = new SpriteObject(-1010, 1080, 1920, 1, 300, "Assets/Backgrounds/credits_foreground_top.png");
+	shared_ptr<SpriteObject>fgTop = shared_ptr<SpriteObject>(new SpriteObject(-1010, 1080, 1920, 1, 300, "Assets/Backgrounds/credits_foreground_top.png"));
 
 	auto* foregroundTop = new Drawable(14);
 	foregroundTop->setStatic(true);
@@ -76,7 +76,7 @@ void CreditsScene::loadBackground() {
 	foregroundTop->registerSprite(SpriteState::DEFAULT, fgTop);
 	foregroundTop->changeToState(SpriteState::DEFAULT);
 
-	SpriteObject* BG_LAYER_1 = new SpriteObject(-1011, 1080, 1920, 1, 300, "Assets/Backgrounds/credits_foreground_bottom.png");
+	shared_ptr<SpriteObject>BG_LAYER_1 = shared_ptr<SpriteObject>(new SpriteObject(-1011, 1080, 1920, 1, 300, "Assets/Backgrounds/credits_foreground_bottom.png"));
 
 	auto* foregroundBottom = new Drawable(15);
 	foregroundBottom->setStatic(true);

@@ -25,7 +25,7 @@ private:
 	std::unique_ptr<CharacterFactory> characterFactory;
 	FileLoader fileLoader;
 	map<int, TileSprite*> textureMap;
-	map<int, SpriteObject*> spriteMap;
+	map<int, shared_ptr<SpriteObject>> spriteMap;
 
 	// TODO Fix tileId in tilesets
 	Level* bLevel;

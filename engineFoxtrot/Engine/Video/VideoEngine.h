@@ -30,7 +30,7 @@ public:
 	VideoEngine(unique_ptr<FrameData>& _frameData);
 	~VideoEngine();
 
-	API void loadImage(const SpriteObject& spriteObject);
+	API void loadImage(const shared_ptr<SpriteObject> spriteObject);
 	API void renderCopy(Drawable& drawable);
 	API void toggleFps();
 	API bool drawParticle(ParticleAdapter* part);

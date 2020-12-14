@@ -14,9 +14,9 @@ CharacterFactory::CharacterFactory(unique_ptr<Engine>& _engine, Level& _level) :
 void CharacterFactory::registerCharacter(string name, ICharacter* character, int* textureID) {
 	if (characterMap.count(name) == 0) {
 		characterMap.insert(pair<string&, ICharacter*>(name, character));
-		map<SpriteState, SpriteObject*> spriteMap = character->buildSpritemap(*textureID);
+		map<SpriteState, shared_ptr<SpriteObject>> spriteMap = character->buildSpritemap(*textureID);
 		*textureID += static_cast<int>(spriteMap.size());
-		spriteObjectMap.insert(pair<string, map<SpriteState, SpriteObject*>>(name, spriteMap));
+		spriteObjectMap.insert(pair<string, map<SpriteState, shared_ptr<SpriteObject>>>(name, spriteMap));
 	}
 }
 
@@ -34,7 +34,7 @@ ICharacter* CharacterFactory::create(string name, int id) {
 
 		auto sprites = spriteObjectMap[name];
 
-		map<SpriteState, SpriteObject*>::iterator it = sprites.begin();
+		map<SpriteState, shared_ptr<SpriteObject>>::iterator it = sprites.begin();
 		while (it != sprites.end())
 		{
 			clone->registerSprite(it->first, it->second);

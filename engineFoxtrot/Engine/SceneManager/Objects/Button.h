@@ -10,7 +10,7 @@
 class Button : public Drawable
 {
 public:
-	API Button(int id, ColoredText _text, const function<void(void)> _onClick, SpriteObject* _spriteObject,	EventDispatcher& _dispatcher); 
+	API Button(int id, ColoredText _text, const function<void(void)> _onClick, shared_ptr<SpriteObject> _spriteObject,	EventDispatcher& _dispatcher);
 	virtual ~Button() {};
 
 	API const ColoredText* toString() { return &text; }
@@ -23,7 +23,7 @@ public:
 	API bool mouseOver(const Event& event);
 	API bool isClicked(const Event& event);
 
-	API void registerHoverSprite(SpriteObject* spriteObject);
+	API void registerHoverSprite(shared_ptr<SpriteObject> spriteObject);
 
 protected:
 	bool hasHoverSprite = false;

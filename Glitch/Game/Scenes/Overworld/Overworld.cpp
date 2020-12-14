@@ -23,9 +23,9 @@ void Overworld::onAttach()
 /// @brief 
 /// Loads all the buttons in the Overworld
 void Overworld::loadButtons() {
-	auto defaultBtnSprite = new SpriteObject(101013, 11, 15, 1, 300, "Assets/Buttons/village_orange.png");
-	auto hoverBtnSprite = new SpriteObject(101012, 11, 15, 1, 300, "Assets/Buttons/village_gray.png");
-	auto transSprite = new SpriteObject(101014, 10, 10, 1, 300, "Assets/transparant.png");
+	shared_ptr<SpriteObject> defaultBtnSprite = shared_ptr<SpriteObject>(new SpriteObject(101013, 11, 15, 1, 300, "Assets/Buttons/village_orange.png"));
+	shared_ptr<SpriteObject> hoverBtnSprite = shared_ptr<SpriteObject>(new SpriteObject(101012, 11, 15, 1, 300, "Assets/Buttons/village_gray.png"));
+	shared_ptr<SpriteObject> transSprite = shared_ptr<SpriteObject>(new SpriteObject(101014, 10, 10, 1, 300, "Assets/transparant.png"));
 
 	auto* shop = new Button(10, ColoredText("", Color(255, 255, 255)), BIND_FN(onShopBtnClick), defaultBtnSprite, this->dispatcher);
 	shop->setWidth(32);
@@ -127,7 +127,7 @@ void Overworld::loadButtons() {
 /// @brief 
 void Overworld::loadSaveGame()
 {
-	SpriteObject* emptyBlock = new SpriteObject(-2500, 309, 253, 1, 300, "Assets/Inventory/text_background.png");
+	shared_ptr<SpriteObject> emptyBlock = shared_ptr<SpriteObject>(new SpriteObject(-2500, 309, 253, 1, 300, "Assets/Inventory/text_background.png"));
 	auto* block1 = new Drawable(-2501);
 	block1->setStatic(true);
 	block1->setPositionX(1600);
@@ -182,7 +182,7 @@ void Overworld::loadAchievements()
 /// @brief 
 /// Loads the background
 void Overworld::loadBackground() {
-	SpriteObject* BG_LAYER_0 = new SpriteObject(-9123, 1440, 1344, 1, 1, "Assets/Overworld/World.png");
+	shared_ptr<SpriteObject> BG_LAYER_0 = shared_ptr<SpriteObject>(new SpriteObject(-9123, 1440, 1344, 1, 1, "Assets/Overworld/World.png"));
 
 	auto* layer0 = new Drawable(1);
 	layer0->setStatic(true);

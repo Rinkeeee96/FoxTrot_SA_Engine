@@ -39,8 +39,8 @@ void Shop::onUpdate()
 /// @brief Loads the screen backGground
 void Shop::loadBackground()
 {
-	SpriteObject* BG_LAYER_0 = new SpriteObject(-1500, 1080, 1920, 1, 0, "Assets/Shop/Shop.png");
-	SpriteObject* DialogBox = new SpriteObject(-1502, 170, 455, 1, 0, "Assets/Shop/Dialogbox1.png");
+	shared_ptr<SpriteObject> BG_LAYER_0 = shared_ptr<SpriteObject>(new SpriteObject(-1500, 1080, 1920, 1, 0, "Assets/Shop/Shop.png"));
+	shared_ptr<SpriteObject> DialogBox = shared_ptr<SpriteObject>(new SpriteObject(-1502, 170, 455, 1, 0, "Assets/Shop/Dialogbox1.png"));
 
 	auto* level1TextBtn = new Text(2, new ColoredText("How can i help you today?", Color(0, 0, 0)), 400, 100, 760, 865);
 

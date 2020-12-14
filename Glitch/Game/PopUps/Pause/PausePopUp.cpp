@@ -10,7 +10,7 @@
 void PausePopUp::setupPopUp()
 {
 	Drawable* background = new Drawable(-564574);
-	SpriteObject* backgroundSprite = new SpriteObject(-564577, 200, 500, 1, 1, "Assets/Sprites/PopUp/PopUpBlackBorder.png");
+	shared_ptr<SpriteObject> backgroundSprite = shared_ptr<SpriteObject>(new SpriteObject(-564577, 200, 500, 1, 1, "Assets/Sprites/PopUp/PopUpBlackBorder.png"));
 	Text* text = new Text(	-564573, new ColoredText("Paused", Color(0,0,0), false), 
 							200, 50, WINDOW_WIDTH_CENTER - 100, WINDOW_HEIGHT_CENTER - 175);
 

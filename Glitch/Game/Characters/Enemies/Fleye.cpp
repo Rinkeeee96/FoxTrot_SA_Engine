@@ -52,12 +52,12 @@ void Fleye::onUpdate() {
 
 /// @brief
 /// Builds the spritemap for the Fleye
-map<SpriteState, SpriteObject*> Fleye::buildSpritemap(int textureId) {
-	std::map<SpriteState, SpriteObject*> spriteMap;
+map<SpriteState, shared_ptr<SpriteObject>> Fleye::buildSpritemap(int textureId) {
+	std::map<SpriteState, shared_ptr<SpriteObject>> spriteMap;
 
-	auto fleyeDefault = new SpriteObject(textureId++, 112, 140, 4, 200, "Assets/Sprites/Enemies/Fleye/Fleye_default.png");
+	auto fleyeDefault = shared_ptr<SpriteObject>(new SpriteObject(textureId++, 112, 140, 4, 200, "Assets/Sprites/Enemies/Fleye/Fleye_default.png"));
 
-	spriteMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, fleyeDefault));
+	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::DEFAULT, fleyeDefault));
 
 	return spriteMap;
 }

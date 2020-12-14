@@ -165,8 +165,8 @@ void Level::addHuds() {
 	int xAxisChange = 75;
 	int startingXAxis = 25;
 	int current = 0;
-	SpriteObject* HealthHUD = new SpriteObject(-660, 50, 50, 1, 300, "Assets/Sprites/HUD/Full.png");
-	SpriteObject* EmptyHealthHUD = new SpriteObject(-661, 50, 50, 1, 300, "Assets/Sprites/HUD/Empty.png");
+	shared_ptr<SpriteObject> HealthHUD = shared_ptr<SpriteObject>(new SpriteObject(-660, 50, 50, 1, 300, "Assets/Sprites/HUD/Full.png"));
+	shared_ptr<SpriteObject> EmptyHealthHUD = shared_ptr<SpriteObject>(new SpriteObject(-661, 50, 50, 1, 300, "Assets/Sprites/HUD/Empty.png"));
 
 	for (size_t i = 0; i < player->getCurrentHealth(); i++)
 	{
@@ -181,7 +181,7 @@ void Level::addHuds() {
 
 /// @brief
 /// Add single HUD for lifes of player
-void Level::addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, SpriteObject* HUD) {
+void Level::addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, shared_ptr<SpriteObject> HUD) {
 	auto* health = new Drawable(startingID--);
 	health->setStatic(true);
 	health->setPositionX(((startingXAxis + (float)(xAxisChange * (current + 1)))));
@@ -231,7 +231,7 @@ void Level::increaseTotalGameScore(const int amount)
 /// Loads the scoreboard located in the top right corner.
 void Level::loadScoreBoard()
 {
-	SpriteObject* emptyBlock = new SpriteObject(-2500, 309, 253, 1, 300, "Assets/Inventory/text_background.png");
+	shared_ptr<SpriteObject> emptyBlock = shared_ptr<SpriteObject>(new SpriteObject(-2500, 309, 253, 1, 300, "Assets/Inventory/text_background.png"));
 	auto* block1 = new Drawable(-2501);
 	block1->setStatic(true);
 	block1->setDrawStatic(true);

@@ -77,16 +77,16 @@ void VideoFacade::drawScreen()
 /// Load a animated sprite into the texturemap map
 /// @param spriteObject 
 /// @param filename
-void VideoFacade::loadImage(const SpriteObject& spriteObject) {
-	if (spriteObject.getFileName() == NULL) 
+void VideoFacade::loadImage(const shared_ptr<SpriteObject> spriteObject) {
+	if (spriteObject->getFileName() == NULL) 
 		throw exception(ERRORCODES[ERROR_CODE_SVIFACADE_FILENAME_IS_NULL]);
 
-	int textureId = spriteObject.getTextureID();
+	int textureId = spriteObject->getTextureID();
 
 	if (textureMap[textureId] != nullptr)
 		return;
 
-	SDL_Surface* surface = IMG_Load(spriteObject.getFileName());
+	SDL_Surface* surface = IMG_Load(spriteObject->getFileName());
 	SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
 
 	textureMap[textureId] = texture;
@@ -117,21 +117,21 @@ void VideoFacade::renderCopy(Drawable& object)
 		drawMessageAt(*object.toString(), Position(destination.x, destination.y), ObjectSize(destination.w, destination.h), true);
 		return;
 	}
-	SpriteObject& sprite = object.GetCurrentSprite();
+	shared_ptr<SpriteObject> sprite = object.GetCurrentSprite();
 
-	if (!textureMap.count(sprite.getTextureID())) {
+	if (!textureMap.count(sprite->getTextureID())) {
 		loadImage(sprite);
 	}
-	if (textureMap[sprite.getTextureID()] == NULL)  {
+	if (textureMap[sprite->getTextureID()] == NULL)  {
 		throw exception("ERROR_CODE_SVIFACADE_RENDERCOPY_SPRITE_ID_IS_NULL");
 	}
 	//generate image 
 	Uint32 ticks = SDL_GetTicks();
 	Uint32 seconds = 0;
-	if (sprite.getAnimationDelay() != 0)
-		seconds = ticks / sprite.getAnimationDelay();
+	if (sprite->getAnimationDelay() != 0)
+		seconds = ticks / sprite->getAnimationDelay();
 
-	float leftpos = sprite.getLeftPos(seconds);
+	float leftpos = sprite->getLeftPos(seconds);
 	int top = 0;
 
 	//generate rectangele for selecting 1 image of a full sprite
@@ -139,12 +139,12 @@ void VideoFacade::renderCopy(Drawable& object)
 	//top = amount of pixels of the top (sprites are renderd of the top to bottom
 	//width = amount of pixels of the with of 1 image
 	//height = amount of pixels of the height of 1 image
-	SDL_Rect rect{ (int)leftpos, top, (int)sprite.getWidth(), (int)sprite.getHeight() };
+	SDL_Rect rect{ (int)leftpos, top, (int)sprite->getWidth(), (int)sprite->getHeight() };
 
 	//update collision box 
 	if (object.getScalable()) {
-		object.setWidth(sprite.getWidth() * object.getScale());
-		object.setHeight(sprite.getHeight() * object.getScale());
+		object.setWidth(sprite->getWidth() * object.getScale());
+		object.setHeight(sprite->getHeight() * object.getScale());
 	}
 
 	//generate stratch of image
@@ -157,8 +157,8 @@ void VideoFacade::renderCopy(Drawable& object)
 	destination.w = (int)object.getWidth();
 	destination.h = (int)object.getHeight();
 
-	SDL_SetTextureColorMod(textureMap[sprite.getTextureID()], object.getTint().red, object.getTint().green, object.getTint().blue);
-	SDL_RenderCopyEx(renderer, textureMap[sprite.getTextureID()], &rect, &destination, object.getRotation(), NULL, SDL_FLIP_NONE);
+	SDL_SetTextureColorMod(textureMap[sprite->getTextureID()], object.getTint().red, object.getTint().green, object.getTint().blue);
+	SDL_RenderCopyEx(renderer, textureMap[sprite->getTextureID()], &rect, &destination, object.getRotation(), NULL, SDL_FLIP_NONE);
 	// crude fix to draw text on top of a drawable, maybe fix with a callback function in the future, or a visitor?
 	if (object.toString() != nullptr)
 		drawMessageAt(*object.toString(), Position(destination.x, destination.y), ObjectSize(destination.w, destination.h));
@@ -168,13 +168,13 @@ void VideoFacade::renderCopy(Drawable& object)
 /// @param part 
 void VideoFacade::drawParticle(const ParticleAdapter& part)
 {
-	SpriteObject& sprite = part.GetCurrentSprite();
+	shared_ptr<SpriteObject> sprite = part.GetCurrentSprite();
 
-	if (!textureMap.count(sprite.getTextureID()))
+	if (!textureMap.count(sprite->getTextureID()))
 	{
 		loadImage(sprite);
 	}
-	if (textureMap[sprite.getTextureID()] == NULL)
+	if (textureMap[sprite->getTextureID()] == NULL)
 		throw exception("ERROR_CODE_SVIFACADE_RENDERCOPY_SPRITE_ID_IS_NULL_DRAW_PARTICLE");
 
 
@@ -189,10 +189,10 @@ void VideoFacade::drawParticle(const ParticleAdapter& part)
 		}
 		SDL_Rect r = { int(partData.posx + partData.startPosX - partData.size / 2) - xCameraOffset, int(partData.posy + partData.startPosY - partData.size / 2) - yCameraOffset, int(partData.size), int(partData.size) };
 		SDL_Color c = { Uint8(partData.colorR * 255), Uint8(partData.colorG * 255), Uint8(partData.colorB * 255), Uint8(partData.colorA * 255) };
-		SDL_SetTextureColorMod(textureMap[sprite.getTextureID()], c.r, c.g, c.b);
-		SDL_SetTextureAlphaMod(textureMap[sprite.getTextureID()], c.a);
-		SDL_SetTextureBlendMode(textureMap[sprite.getTextureID()], SDL_BLENDMODE_BLEND);
-		SDL_RenderCopyEx(renderer, textureMap[sprite.getTextureID()], nullptr, &r, partData.rotation, nullptr, SDL_FLIP_NONE);
+		SDL_SetTextureColorMod(textureMap[sprite->getTextureID()], c.r, c.g, c.b);
+		SDL_SetTextureAlphaMod(textureMap[sprite->getTextureID()], c.a);
+		SDL_SetTextureBlendMode(textureMap[sprite->getTextureID()], SDL_BLENDMODE_BLEND);
+		SDL_RenderCopyEx(renderer, textureMap[sprite->getTextureID()], nullptr, &r, partData.rotation, nullptr, SDL_FLIP_NONE);
 	}
 }
 

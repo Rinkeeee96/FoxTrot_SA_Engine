@@ -19,7 +19,7 @@ AchievementPopup::~AchievementPopup()
 /// @param achievement 
 void AchievementPopup::setupPopUp(Achievement& achievement)
 {
-	SpriteObject* backgroundSprite = new SpriteObject(-564577, 200, 500, 1, 1, "Assets/Sprites/PopUp/PopUpGreenBorder.png");
+	shared_ptr<SpriteObject> backgroundSprite = shared_ptr<SpriteObject>(new SpriteObject(-564577, 200, 500, 1, 1, "Assets/Sprites/PopUp/PopUpGreenBorder.png"));
 	Text* text = new Text(-564573, new ColoredText(achievement, Color(0, 0, 0), false),200, 50, WINDOW_WIDTH_CENTER - 100, WINDOW_HEIGHT_CENTER - 395);
 	text->setDrawStatic(true);
 

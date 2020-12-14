@@ -9,7 +9,7 @@ class Level;
 class CharacterFactory {
 private:
 	map<string, ICharacter*> characterMap;
-	map<string, map<SpriteState, SpriteObject*>> spriteObjectMap;
+	map<string, map<SpriteState, shared_ptr<SpriteObject>>> spriteObjectMap;
 	unique_ptr<Engine>& engine;
 	Level& level;
 public:
