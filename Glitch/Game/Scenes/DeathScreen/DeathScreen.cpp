@@ -105,7 +105,7 @@ void DeathScreen::onDetach()
 /// Start transition scene to level1
 void DeathScreen::onReStartBtnClick()
 {
-	stateMachine.switchToScene(stateMachine.getCurrentLevelIdentifier(), true);
+	stateMachine->switchToScene(stateMachine->getCurrentLevelIdentifier(), true);
 }
 
 
@@ -113,5 +113,5 @@ void DeathScreen::onReStartBtnClick()
 /// A callback function for overworldBTN
 /// Start transition scene to overworl
 void DeathScreen::onOverworldBtnClick() {
-	stateMachine.switchToScene("Overworld", false);
+	stateMachine->switchToScene("Overworld", false);
 }

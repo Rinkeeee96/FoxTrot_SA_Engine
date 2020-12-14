@@ -7,7 +7,7 @@
 class WinScreen : public GameScene
 {
 public:
-	WinScreen(const int id, unique_ptr<Engine>& engine, SceneStateMachine& _statemachine) : GameScene(id, engine, _statemachine) {};
+	WinScreen(const int id, unique_ptr<Engine>& engine, shared_ptr<SceneStateMachine> _statemachine) : GameScene(id, engine, _statemachine) {};
 	~WinScreen();
 	// Inherited via Scene
 	void onAttach() override;

@@ -86,5 +86,5 @@ void Shop::loadButtons()
 
 /// @brief Called when stop button is clicked
 void Shop::onStopBtnClick() {
-	stateMachine.switchToScene("Overworld", false);
+	stateMachine->switchToScene("Overworld", false);
 }

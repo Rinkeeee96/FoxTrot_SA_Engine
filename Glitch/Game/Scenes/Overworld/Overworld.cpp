@@ -227,7 +227,7 @@ void Overworld::onDetach()
 /// Start transition scene to Level_1
 void Overworld::onLevel1BtnClick()
 {
-	stateMachine.switchToScene("Level_1", true);
+	stateMachine->switchToScene("Level_1", true);
 }
 
 /// @brief 
@@ -235,7 +235,7 @@ void Overworld::onLevel1BtnClick()
 /// Start transition scene to Level_2
 void Overworld::onLevel2BtnClick()
 {
-	stateMachine.switchToScene("Level_2", true);
+	stateMachine->switchToScene("Level_2", true);
 }
 
 /// @brief 
@@ -243,21 +243,21 @@ void Overworld::onLevel2BtnClick()
 /// Start transition scene to Level_3
 void Overworld::onLevel3BtnClick()
 {
-	stateMachine.switchToScene("Level_3", true);
+	stateMachine->switchToScene("Level_3", true);
 }
 
 /// @brief 
 /// A callback function for stopBtn
 /// Start transition scene to MainMenu 
 void Overworld::onStopBtnClick() {
-	stateMachine.switchToScene("MainMenu",true);
+	stateMachine->switchToScene("MainMenu",true);
 }
 
 /// @brief 
 /// A callback function for chapterOneBtn
 /// Start transition scene to ChapterOne
 void Overworld::onChapterOneClick() {
-	stateMachine.switchToScene("ChapterOne", false);
+	stateMachine->switchToScene("ChapterOne", false);
 }
 
 /// @brief 
@@ -265,5 +265,5 @@ void Overworld::onChapterOneClick() {
 /// Start transition scene to Shop
 void Overworld::onShopBtnClick()
 {
-	stateMachine.switchToScene("Shop", false);
+	stateMachine->switchToScene("Shop", false);
 }

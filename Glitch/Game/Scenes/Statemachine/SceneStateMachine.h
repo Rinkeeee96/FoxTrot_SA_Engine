@@ -5,7 +5,7 @@
 class Savegame;
 
 /// @brief Class for the scene state machine
-class SceneStateMachine
+class SceneStateMachine : public enable_shared_from_this<SceneStateMachine>
 {
 public:
 	SceneStateMachine(unique_ptr<Engine>& engine, shared_ptr<Savegame> savegame);

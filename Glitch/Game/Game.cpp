@@ -6,7 +6,7 @@
 Game::Game()
 {
 	engine = make_unique<Engine>();
-	commandBuilder = make_unique<CommandBuilder>();
+	commandBuilder = shared_ptr<ICommandBuilder>(new CommandBuilder());
 	savegame = shared_ptr<Savegame>(new Savegame());
 	stateMachine = make_unique<SceneStateMachine>(engine, savegame);
 }

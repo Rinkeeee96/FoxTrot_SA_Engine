@@ -110,7 +110,7 @@ void MainMenu::onDetach()
 /// Start transition scene to OVERWORLD
 void MainMenu::onStartBtnClick()
 {
-	stateMachine.switchToScene("SaveScreen", false);
+	stateMachine->switchToScene("SaveScreen", false);
 }
 
 
@@ -126,7 +126,7 @@ void MainMenu::onStopBtnClick() {
 /// A callback function for creditsBTN
 /// Start transition scene to DEAD_SCREEN
 void MainMenu::onCreditsBtnClick() {
-	stateMachine.switchToScene("CreditsSreen", false);
+	stateMachine->switchToScene("CreditsSreen", false);
 }
 
 

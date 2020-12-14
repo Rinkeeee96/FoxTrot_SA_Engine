@@ -9,7 +9,7 @@ class Player;
 class Level : public GameScene
 {
 public:
-	Level(const int id, const int _sceneHeight, const int _sceneWidth, unique_ptr<Engine>& engine, SceneStateMachine& _stateMachine);
+	Level(const int id, const int _sceneHeight, const int _sceneWidth, unique_ptr<Engine>& engine, shared_ptr<SceneStateMachine> _stateMachine);
 
 	void setPlayer(Object* object);
 	void setSound(map<string, string> sounds);
@@ -40,7 +40,7 @@ private:
 	Player* player = nullptr;
 	bool win = false;
 
-	ICommandBuilder* commandBuilder;
+	shared_ptr<ICommandBuilder> commandBuilder;
 	GameKeypressInvoker* gameInvoker;
 	int pausePopupZIndex = 0;
 	int inventoryPopupZIndex = 0;

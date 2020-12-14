@@ -4,7 +4,7 @@
 #include "Game/Buttons/SecondaryButton.h"
 #include "Game/Game.h"
 
-ChapterScene::ChapterScene(const int id, unique_ptr<Engine>& _engine, SceneStateMachine& _statemachine) : GameScene(id, _engine, _statemachine)
+ChapterScene::ChapterScene(const int id, unique_ptr<Engine>& _engine, shared_ptr<SceneStateMachine> _statemachine) : GameScene(id, _engine, _statemachine)
 {
 	dispatcher.setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(ChapterScene::onKeyPressed));
 }
@@ -118,12 +118,12 @@ void ChapterScene::onUpdate()
 	{
 		this->text[i]->setPositionY(this->text[i]->getPositionY() - speed_);
 	}
-	if (text[this->text.size() - 1]->getPositionY() < 0) stateMachine.switchToScene("Overworld", false);
+	if (text[this->text.size() - 1]->getPositionY() < 0) stateMachine->switchToScene("Overworld", false);
 }
 
 /// @brief 
 /// A callback function for overworldBTN
 /// Start transition scene to overworl
 void ChapterScene::onSkipClick() {
-	stateMachine.switchToScene("Overworld", false);
+	stateMachine->switchToScene("Overworld", false);
 }

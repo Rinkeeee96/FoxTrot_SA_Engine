@@ -41,5 +41,5 @@ void PausePopUp::setupPopUp()
 /// @brief Called when Back to overworld button is clicked.
 void PausePopUp::onBackButtonClick()
 {
-	stateMachine.switchToScene("Overworld", false);
+	stateMachine->switchToScene("Overworld", false);
 }

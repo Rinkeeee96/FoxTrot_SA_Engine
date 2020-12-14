@@ -218,7 +218,7 @@ void SaveScreen::loadText()
 void SaveScreen::onSave1BtnClick()
 {
 	savegame->setCurrentGameData(1);
-	stateMachine.switchToScene("Overworld", true);
+	stateMachine->switchToScene("Overworld", true);
 }
 
 /// @brief Resets or creates a save file
@@ -230,12 +230,12 @@ void SaveScreen::resetOrSaveSaveGame(const int id)
 		SaveGameData save;
 		save.saveGameName = "Save " + to_string(id);
 		savegame->addSaveGameData(id, save);
-		stateMachine.switchToScene("SaveScreen", false, false);
+		stateMachine->switchToScene("SaveScreen", false, false);
 	}
 	else
 	{
 		savegame->deleteSaveGameData(id);
-		stateMachine.switchToScene("SaveScreen", false, false);
+		stateMachine->switchToScene("SaveScreen", false, false);
 	}
 }
 
@@ -249,7 +249,7 @@ void SaveScreen::onSave1ExtraBtnClick()
 void SaveScreen::onSave2BtnClick()
 {
 	savegame->setCurrentGameData(2);
-	stateMachine.switchToScene("Overworld", true);
+	stateMachine->switchToScene("Overworld", true);
 }
 
 /// @brief Calls the create or delete save function
@@ -262,7 +262,7 @@ void SaveScreen::onSave2ExtraBtnClick()
 void SaveScreen::onSave3BtnClick()
 {
 	savegame->setCurrentGameData(3);
-	stateMachine.switchToScene("Overworld", true);
+	stateMachine->switchToScene("Overworld", true);
 }
 
 /// @brief Calls the create or delete save function
@@ -273,5 +273,5 @@ void SaveScreen::onSave3ExtraBtnClick()
 
 /// @brief Called when Back Button is clicked
 void SaveScreen::onStopBtnClick() {
-	stateMachine.switchToScene("MainMenu",false);
+	stateMachine->switchToScene("MainMenu",false);
 }

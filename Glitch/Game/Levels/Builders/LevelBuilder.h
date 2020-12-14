@@ -38,7 +38,7 @@ private:
 	int textureId = 0;
 	int id = 0;
 public:
-	LevelBuilder(unique_ptr<Engine>& _engine, int levelId, SceneStateMachine& _statemachine);
+	LevelBuilder(unique_ptr<Engine>& _engine, int levelId, shared_ptr<SceneStateMachine> _statemachine);
 
 	void createLevel(nlohmann::json json) override;
 	void createEntities(nlohmann::json layerValue) override;

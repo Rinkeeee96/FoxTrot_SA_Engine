@@ -12,10 +12,10 @@ public:
 	int run();
 private:
 	unique_ptr<Engine> engine;
-	unique_ptr<ICommandBuilder> commandBuilder;
+	shared_ptr<ICommandBuilder> commandBuilder;
 	shared_ptr<Savegame> savegame;
 
-	unique_ptr<SceneStateMachine> stateMachine;
+	shared_ptr<SceneStateMachine> stateMachine;
 
 	bool gameRunning = true;
 };

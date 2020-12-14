@@ -8,7 +8,7 @@
 #include "Game/PopUps/Popups.h"
 #include "Engine/Events/Action/ToggleEventLayer.h"
 
-Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, unique_ptr<Engine>& engine, SceneStateMachine& _stateMachine)
+Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, unique_ptr<Engine>& engine, shared_ptr<SceneStateMachine> _stateMachine)
 				: GameScene::GameScene(id, _sceneHeight, _sceneWidth, engine, _stateMachine), commandBuilder{new CommandBuilder()}
 {
 	gameInvoker = dynamic_cast<GameKeypressInvoker*>(engine->getKeypressedInvoker());
@@ -74,16 +74,16 @@ void Level::onUpdate()
 	{
 		player->kill();
 		increaseTotalGameScore(100);
-		throwAchievement("Level " + to_string(stateMachine.levelToBuild) + " completed!");
+		throwAchievement("Level " + to_string(stateMachine->levelToBuild) + " completed!");
 		SaveGameData save = savegame->getCurrentGameData();
-		save.levelData[stateMachine.levelToBuild].completed = true;
+		save.levelData[stateMachine->levelToBuild].completed = true;
 		savegame->saveCurrentGameData(save);
-		stateMachine.switchToScene("WinScreen", false);
+		stateMachine->switchToScene("WinScreen", false);
 		return;
 	}
 	if (player->getIsDead())
 	{
-		stateMachine.switchToScene("DeathScreen", false);
+		stateMachine->switchToScene("DeathScreen", false);
 		return;
 	}
 
@@ -222,7 +222,7 @@ void Level::throwAchievement(Achievement achievement)
 void Level::increaseTotalGameScore(const int amount)
 {
 	SaveGameData temp = savegame->getCurrentGameData();
-	temp.levelData[stateMachine.levelToBuild - 1].score += amount;
+	temp.levelData[stateMachine->levelToBuild - 1].score += amount;
 	temp.totalScore += amount;
 	savegame->saveCurrentGameData(temp);
 }

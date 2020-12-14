@@ -48,7 +48,7 @@ unique_ptr<Scene> SceneStateMachine::loadLevel(const string& identifier) {
 	levelToBuild = stoi(identifier.substr(6));
 	if (DEBUG_MAIN) cout << "Level to build: " << levelToBuild << endl;
 
-	LevelBuilder levelOneBuilder{ engine, sceneId++, *this };
+	LevelBuilder levelOneBuilder{ engine, sceneId++, shared_from_this()};
 
 	string path;
 	path = "Assets/Levels/Maps/Level" + to_string(levelToBuild) + ".json";
@@ -82,7 +82,7 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 
 	if (!handlingLevel)
 	{
-		newScene = factory->create(identifier, sceneId++, engine, *this);
+		newScene = factory->create(identifier, sceneId++, engine, shared_from_this());
 	}
 	else
 	{

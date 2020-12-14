@@ -125,7 +125,7 @@ void CreditsScene::onDetach()
 /// A callback function for overworldBTN
 /// Start transition scene to overworl
 void CreditsScene::onBackClick() {
-	stateMachine.switchToScene("MainMenu", false);
+	stateMachine->switchToScene("MainMenu", false);
 }
 
 void CreditsScene::empty() { }

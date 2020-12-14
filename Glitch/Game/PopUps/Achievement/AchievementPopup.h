@@ -6,12 +6,12 @@
 class AchievementPopup : public Layer
 {
 public:
-	AchievementPopup(EventDispatcher& _dispacther, SceneStateMachine& _stateMachine);
+	AchievementPopup(EventDispatcher& _dispacther, shared_ptr<SceneStateMachine> _stateMachine);
 	~AchievementPopup();
 
 	void setupPopUp(Achievement& achievement);
 
 private:
 	EventDispatcher& dispatcher;
-	SceneStateMachine& stateMachine;
+	shared_ptr<SceneStateMachine> stateMachine;
 };

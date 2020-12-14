@@ -5,7 +5,7 @@
 
 #define BIND_FN(function) std::bind(&AchievementPopup::function, *this)
 
-AchievementPopup::AchievementPopup(EventDispatcher& _dispatcher, SceneStateMachine& _stateMachine) :
+AchievementPopup::AchievementPopup(EventDispatcher& _dispatcher, shared_ptr<SceneStateMachine> _stateMachine) :
 	dispatcher(_dispatcher), stateMachine(_stateMachine)
 {
 	setAlwaysVisible(true);

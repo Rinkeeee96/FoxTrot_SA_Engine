@@ -6,7 +6,7 @@
 class InventoryPopup : public BasePopup
 {
 public:
-	InventoryPopup(EventDispatcher& _dispatcher, SceneStateMachine& _stateMachine)
+	InventoryPopup(EventDispatcher& _dispatcher, shared_ptr<SceneStateMachine> _stateMachine)
 		: BasePopup(_dispatcher, _stateMachine) {};
 
 	// Inherited via BasePopup
