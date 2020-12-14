@@ -106,6 +106,10 @@
       <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;$(SolutionDir)Builds\x64\Debug;$(SolutionDir)Glitch\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>engineFoxtrot.lib;AchievementPopup.obj;BaseEnemy.obj;ChapterOneScene.obj;ChapterScene.obj;CharacterCommandFactory.obj;CharacterFactory.obj;CommandBuilder.obj;CreditsScene.obj;DamageCooldownState.obj;DeathScreen.obj;FactoryMethod.obj;Fleye.obj;Game.obj;GameKeypressInvoker.obj;GameScene.obj;GeneralTransition.obj;Glitch.obj;GlobalCommand.obj;GlobalCommandFactory.obj;GodState.obj;IEnemy.obj;InventoryPopup.obj;Jumpkin.obj;Level.obj;LevelBuilder.obj;LevelBuilderDirector.obj;LoadLevelFacade.obj;MainMenu.obj;NormalState.obj;Overworld.obj;PausePopUp.obj;pch.obj;Player.obj;PlayerGlobalState.obj;Savegame.obj;SaveScreen.obj;SceneStateMachine.obj;Shop.obj;Slime.obj;TriggerFactory.obj;WinScreen.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>
+xcopy /e /h /c /i /y "$(SolutionDir)Glitch.tests\TestAssetsGame" "$(OutDir)TestAssetsGame"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -163,8 +167,37 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Glitch.tests.cpp" />
-    <ClCompile Include="GlitchTests\src\Game\GameTests.cpp" />
+    <ClCompile Include="GlitchTests\src\Characters\Enemies\FleyeTests.cpp" />
+    <ClCompile Include="GlitchTests\src\Characters\Enemies\JumpkinTests.cpp" />
+    <ClCompile Include="GlitchTests\src\Characters\PlayerTests.cpp" />
+    <ClCompile Include="GlitchTests\src\Characters\Enemies\SlimeTests.cpp" />
+    <ClCompile Include="GlitchTests\src\Commands\GameKeypressInvokerTests.cpp" />
+    <ClCompile Include="GlitchTests\src\Factories\CharacterFactoryTests.cpp" />
+    <ClCompile Include="GlitchTests\src\Factories\TriggerFactoryTests.cpp" />
+    <ClCompile Include="GlitchTests\src\Levels\LevelBuilderTests.cpp" />
+    <ClCompile Include="GlitchTests\src\Levels\LevelTests.cpp" />
+    <ClCompile Include="GlitchTests\src\Levels\LoadLevelFacadeTests.cpp" />
+    <ClCompile Include="GlitchTests\src\PopUps\AchievementsPopupTests.cpp" />
+    <ClCompile Include="GlitchTests\src\PopUps\InventoryPopupTests.cpp" />
+    <ClCompile Include="GlitchTests\src\PopUps\PausePopupTests.cpp" />
+    <ClCompile Include="GlitchTests\src\SaveGame\SaveGameTests.cpp" />
+    <ClCompile Include="GlitchTests\src\Scenes\ChapterOneSceneTests.cpp" />
+    <ClCompile Include="GlitchTests\src\Scenes\CreditsSceneTests.cpp" />
+    <ClCompile Include="GlitchTests\src\Scenes\DeathScreenTests.cpp" />
+    <ClCompile Include="GlitchTests\src\Scenes\MainMenuTests.cpp" />
+    <ClCompile Include="GlitchTests\src\Scenes\OverWorldTests.cpp" />
+    <ClCompile Include="GlitchTests\src\Scenes\SaveScreenTests.cpp" />
+    <ClCompile Include="GlitchTests\src\Scenes\SceneStateMachineTests.cpp" />
+    <ClCompile Include="GlitchTests\src\Scenes\ShopSceneTests.cpp" />
+    <ClCompile Include="GlitchTests\src\Scenes\TransitionSceneTests.cpp" />
+    <ClCompile Include="GlitchTests\src\Scenes\WinScreenTests.cpp" />
+    <ClCompile Include="GlitchTests\src\States\Player\DamageCooldownStateTests.cpp" />
+    <ClCompile Include="GlitchTests\src\States\Player\GlobalStateTestsTests.cpp" />
+    <ClCompile Include="GlitchTests\src\States\Player\GodStateTests.cpp" />
+    <ClCompile Include="GlitchTests\src\States\Player\NormalState.cpp" />
+    <ClCompile Include="GlitchTests\src\States\StateMachineTests.cpp" />
+    <ClCompile Include="GlitchTests\src\Triggers\DeathTriggerTests.cpp" />
+    <ClCompile Include="GlitchTests\src\Triggers\WinTriggerTests.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

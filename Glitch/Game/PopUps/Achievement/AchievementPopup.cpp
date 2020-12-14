@@ -34,5 +34,4 @@ void AchievementPopup::setupPopUp(Achievement& achievement)
 
 	addObjectInLayer(text);
 	addObjectInLayer(background);
-
 }

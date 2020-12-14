@@ -68,6 +68,9 @@
     <ClInclude Include="FoxtrotTests\src\mocks\MockObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FoxtrotTests\src\mocks\MockKeyPressedCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="TestAssets\Tests.txt" />
