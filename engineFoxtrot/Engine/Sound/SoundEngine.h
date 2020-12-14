@@ -47,8 +47,6 @@ public:
 private:
 	void onChangeBackgroundMusic(const string& identifier, const int volume);
 
-
 	// TODO clear on scene detach
 	ISoundFacade* soundFacade = new SoundFacade;
-
 };

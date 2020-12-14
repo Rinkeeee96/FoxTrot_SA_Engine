@@ -48,6 +48,15 @@
     <ClCompile Include="FoxtrotTests\src\SceneManager\LayerTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FoxtrotTests\src\Video\VideoEngineTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FoxtrotTests\src\Video\VideoFacadeTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FoxtrotTests\src\Input\InputEngineTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
