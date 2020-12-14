@@ -151,7 +151,7 @@ Object * Scene::getObject(const int objectID)
 			return layer.second->getSpecificObjectInLayer(objectID);
 		}
 	}
-	throw ERROR_CODE_SCENE_NO_OBJECT_FOUND;
+	throw exception("object does not exist");
 }
 
 /// @brief Deletes all objects in the scene when called.
