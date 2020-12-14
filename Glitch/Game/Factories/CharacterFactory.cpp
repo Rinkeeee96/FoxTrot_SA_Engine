@@ -4,7 +4,7 @@
 
 /// @brief 
 /// Constructor
-CharacterFactory::CharacterFactory(Engine& _engine, Level& _level) : engine{ _engine }, level{_level} {}
+CharacterFactory::CharacterFactory(unique_ptr<Engine>& _engine, Level& _level) : engine{ _engine }, level{_level} {}
 
 /// @brief 
 /// Register object with its name in factory for later cloning

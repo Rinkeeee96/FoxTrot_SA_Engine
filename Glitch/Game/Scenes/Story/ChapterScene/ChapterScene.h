@@ -12,7 +12,7 @@
 class ChapterScene : public GameScene
 {
 public:
-	ChapterScene(const int id, Engine& _engine, SceneStateMachine& _statemachine);
+	ChapterScene(const int id, unique_ptr<Engine>& _engine, SceneStateMachine& _statemachine);
 	virtual ~ChapterScene() { };
 	// Inherited via Scene
 	virtual void onAttach() override {};

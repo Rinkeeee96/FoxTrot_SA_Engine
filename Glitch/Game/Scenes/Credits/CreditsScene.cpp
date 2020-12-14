@@ -95,14 +95,14 @@ void CreditsScene::loadBackground() {
 /// @brief 
 /// Load the sounds for this scene
 void CreditsScene::loadMusic() {
-	engine.loadSound("WIN_SOUND", "Assets/Sound/TremLoadingloopl.wav");
+	engine->loadSound("WIN_SOUND", "Assets/Sound/TremLoadingloopl.wav");
 }
 
 /// @brief 
 /// Create the sounds for this scene
 void CreditsScene::start(bool playSound)
 {
-	if(playSound)engine.startSound("WIN_SOUND");
+	if(playSound)engine->startSound("WIN_SOUND");
 }
 
 void CreditsScene::onUpdate()

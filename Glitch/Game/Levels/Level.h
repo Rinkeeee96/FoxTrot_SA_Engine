@@ -9,7 +9,7 @@ class Player;
 class Level : public GameScene
 {
 public:
-	Level(const int id, const int _sceneHeight, const int _sceneWidth, Engine& engine, SceneStateMachine& _stateMachine);
+	Level(const int id, const int _sceneHeight, const int _sceneWidth, unique_ptr<Engine>& engine, SceneStateMachine& _stateMachine);
 
 	void setPlayer(Object* object);
 	void setSound(map<string, string> sounds);

@@ -200,14 +200,14 @@ void Overworld::loadBackground() {
 /// @brief 
 /// Load the sounds for this scene
 void Overworld::loadMusic() {
-	engine.loadSound("OVER_WORLD", "Assets/Sound/file_example_WAV_1MG.wav");
+	engine->loadSound("OVER_WORLD", "Assets/Sound/file_example_WAV_1MG.wav");
 }
 
 /// @brief 
 /// Create the sounds for this scene
 void Overworld::start(bool playSound)
 {
-	if(playSound)engine.startSound("OVER_WORLD");
+	if(playSound)engine->startSound("OVER_WORLD");
 }
 
 /// @brief 

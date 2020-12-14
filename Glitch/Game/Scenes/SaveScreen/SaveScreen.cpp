@@ -32,7 +32,7 @@ void SaveScreen::onDetach()
 /// Create the sounds for this scene
 void SaveScreen::start(bool playSound)
 {
-	if(playSound)engine.startSound("MENU_SOUND");
+	if(playSound)engine->startSound("MENU_SOUND");
 }
 
 void SaveScreen::onUpdate()
@@ -115,7 +115,7 @@ void SaveScreen::loadBackground()
 /// Load the sounds for this scene
 void SaveScreen::loadMusic()
 {
-	engine.loadSound("MENU_SOUND", "Assets/Sound/file_example_WAV_1MG.wav");
+	engine->loadSound("MENU_SOUND", "Assets/Sound/file_example_WAV_1MG.wav");
 }
 
 /// @brief 

@@ -4,7 +4,7 @@
 /// @brief Creates all scene states
 /// @param _engine 
 /// @param _savegame 
-SceneStateMachine::SceneStateMachine(Engine& _engine, shared_ptr<Savegame> _savegame) : engine(_engine), savegame(_savegame)
+SceneStateMachine::SceneStateMachine(unique_ptr<Engine>& _engine, shared_ptr<Savegame> _savegame) : engine(_engine), savegame(_savegame)
 {
 	factory = shared_ptr<SceneFactory>(new  SceneFactory());
 	// Somehow delete this after they are used;
@@ -95,15 +95,15 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	// Detach and delete the old now inactive scene
 	if (currentScene != nullptr)
 	{
-		engine.deregisterScene(currentScene->getSceneID());
+		engine->deregisterScene(currentScene->getSceneID());
 	}
 	currentScene = std::move(newScene);
 
 	if (currentScene && dynamic_cast<GameScene*>(currentScene.get()))
 		((GameScene*)currentScene.get())->registerSavegame(savegame);
 
-	engine.insertScene(currentScene.get());
-	engine.setCurrentScene(currentScene->getSceneID());
+	engine->insertScene(currentScene.get());
+	engine->setCurrentScene(currentScene->getSceneID());
 
 
 	// Handle some scene specific things
@@ -111,7 +111,7 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 		((GeneralTransition*)currentScene.get())->setNextScene(transition);
 
 
-	if (DEBUG_MAIN)cout << "Setting current Scene to: " << typeid(*(engine.getCurrentScene())).name() << endl;
+	if (DEBUG_MAIN)cout << "Setting current Scene to: " << typeid(*(engine->getCurrentScene())).name() << endl;
 
 	currentScene->start(playSound);
 
