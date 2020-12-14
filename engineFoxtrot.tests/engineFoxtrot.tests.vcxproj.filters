@@ -27,9 +27,6 @@
     <ClCompile Include="FoxtrotTests\src\Physics\PhysicsFacadeTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FoxtrotTests\src\Engine\EngineTests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="FoxtrotTests\src\Sound\SoundFacadeTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -37,6 +34,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FoxtrotTests\src\FileParser\JsonValidatorTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FoxtrotTests\src\Events\EventDispatcherTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FoxtrotTests\src\SceneManager\SceneManagerTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FoxtrotTests\src\SceneManager\SceneTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FoxtrotTests\src\SceneManager\LayerTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

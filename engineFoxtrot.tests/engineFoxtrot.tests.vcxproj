@@ -174,12 +174,15 @@ xcopy /e /h /c /i /y "$(SolutionDir)engineFoxtrot.tests\TestAssets" "$(OutDir)Te
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="FoxtrotTests\src\Engine\EngineTests.cpp" />
+    <ClCompile Include="FoxtrotTests\src\Events\EventDispatcherTests.cpp" />
     <ClCompile Include="FoxtrotTests\src\FileParser\FileLoaderTests.cpp" />
     <ClCompile Include="FoxtrotTests\src\FileParser\JsonValidatorTests.cpp" />
     <ClCompile Include="FoxtrotTests\src\Particle\ParticleEngineTests.cpp" />
     <ClCompile Include="FoxtrotTests\src\Physics\PhysicsEngineTests.cpp" />
     <ClCompile Include="FoxtrotTests\src\Physics\PhysicsFacadeTests.cpp" />
+    <ClCompile Include="FoxtrotTests\src\SceneManager\LayerTests.cpp" />
+    <ClCompile Include="FoxtrotTests\src\SceneManager\SceneManagerTests.cpp" />
+    <ClCompile Include="FoxtrotTests\src\SceneManager\SceneTests.cpp" />
     <ClCompile Include="FoxtrotTests\src\Sound\SoundFacadeTests.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

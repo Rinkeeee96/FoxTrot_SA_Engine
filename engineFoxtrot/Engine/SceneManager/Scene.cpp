@@ -16,13 +16,6 @@ Scene::Scene(const int _sceneID, const int _sceneHeight, const int _sceneWidth) 
 /// @brief 
 Scene::~Scene()
 {
-	//for (auto layer : layers)
-	//{
-	//	for (auto obj : layer.second->objects)
-	//	{
-	//		delete obj.second;
-	//	}
-	//}
 }
 
 /// @brief 
