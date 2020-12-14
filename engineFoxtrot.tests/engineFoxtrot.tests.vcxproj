@@ -107,6 +107,10 @@
       <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;$(SolutionDir)Builds\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>engineFoxtrot.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>
+xcopy /e /h /c /i /y "$(SolutionDir)engineFoxtrot.tests\TestAssets" "$(OutDir)TestAssets"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -164,10 +168,15 @@
       <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;$(SolutionDir)Builds\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>engineFoxtrot.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="FoxtrotTests\src\engineFoxtrot.tests.cpp" />
     <ClCompile Include="FoxtrotTests\src\Engine\EngineTests.cpp" />
+    <ClCompile Include="FoxtrotTests\src\FileParser\FileLoaderTests.cpp" />
+    <ClCompile Include="FoxtrotTests\src\FileParser\JsonValidatorTests.cpp" />
     <ClCompile Include="FoxtrotTests\src\Particle\ParticleEngineTests.cpp" />
     <ClCompile Include="FoxtrotTests\src\Physics\PhysicsEngineTests.cpp" />
     <ClCompile Include="FoxtrotTests\src\Physics\PhysicsFacadeTests.cpp" />
@@ -188,6 +197,9 @@
     <ProjectReference Include="..\engineFoxtrot\engineFoxtrot.vcxproj">
       <Project>{f1d99aff-84ec-467c-a5e9-d5ba5bb76acd}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="TestAssets\Tests.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

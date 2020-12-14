@@ -18,9 +18,6 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FoxtrotTests\src\engineFoxtrot.tests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="FoxtrotTests\src\Particle\ParticleEngineTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -36,6 +33,12 @@
     <ClCompile Include="FoxtrotTests\src\Sound\SoundFacadeTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FoxtrotTests\src\FileParser\FileLoaderTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FoxtrotTests\src\FileParser\JsonValidatorTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -47,5 +50,8 @@
     <ClInclude Include="FoxtrotTests\src\mocks\MockObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="TestAssets\Tests.txt" />
   </ItemGroup>
 </Project>
