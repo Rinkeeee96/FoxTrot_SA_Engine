@@ -28,7 +28,7 @@ public:
 	IPhysicsFacade& getIPhysicsFacade() const { return *this->physicsFacade; }
 private:
 	void clean();
-	IPhysicsFacade* physicsFacade;
+	unique_ptr<IPhysicsFacade> physicsFacade;
 	EventDispatcher* dispatcher;
 
 	// CurrentScene is stored because if this changes then the objects need to be reset.

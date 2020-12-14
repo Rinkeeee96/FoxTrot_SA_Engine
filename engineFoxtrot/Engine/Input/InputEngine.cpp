@@ -22,7 +22,7 @@ void InputEngine::registerKeypressInvoker(KeypressInvoker* _keypressInvoker) {
 /// @param dispatcher 
 void InputEngine::start(EventDispatcher& dispatcher) {
 	this->dispatcher = &dispatcher;
-	inputFacade = new InputFacade(dispatcher);
+	inputFacade = unique_ptr<InputFacade>(new InputFacade(dispatcher));
 	dispatcher.setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(InputEngine::onKeyPressed));
 };
 
@@ -37,10 +37,7 @@ void InputEngine::update() {
 
 /// @brief Deletes the inputFacade
 void InputEngine::shutdown() {
-	if (inputFacade)
-	{
-		delete inputFacade;
-	}
+
 };
 
 /// @brief	Function is called when a keyPressed event is fired.
