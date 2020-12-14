@@ -22,7 +22,7 @@ void InputEngine::registerKeypressInvoker(KeypressInvoker* _keypressInvoker) {
 /// @param dispatcher 
 void InputEngine::start(EventDispatcher& dispatcher) {
 	this->dispatcher = &dispatcher;
-	inputFacade = unique_ptr<InputFacade>(new InputFacade(dispatcher));
+	inputFacade = make_unique<InputFacade>(InputFacade(dispatcher));
 	dispatcher.setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(InputEngine::onKeyPressed));
 };
 
