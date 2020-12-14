@@ -5,7 +5,7 @@
 /// @brief 
 /// Create default engine commands that cannot be removed, only overriden by changing the keycode in the invoker
 void Engine::constructDefaultCommands(KeypressInvoker* invoker) {
-	invoker->registerCommand(KeyCode::KEY_F1, new ToggleFpsCommand(this->videoEngine));
+	invoker->registerCommand(KeyCode::KEY_F1, new ToggleFpsCommand(*this));
 	invoker->registerCommand(KeyCode::KEY_F4, new ShutdownCommand(*this));
 }
 
@@ -108,10 +108,10 @@ void Engine::shutdown()
 	if (this->running)
 	{
 		this->setEngineRunning(false);
+		inputEngine.shutdown();
 		particleEngine.shutdown();
 		videoEngine.shutdown();
 		physicsEngine.shutdown();
-		inputEngine.shutdown();
 	}
 
 }

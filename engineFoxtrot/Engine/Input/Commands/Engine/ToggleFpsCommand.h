@@ -1,12 +1,12 @@
 #include "stdafx.h"
 #include "Input/Commands/ICommand.h"
-#include "video/VideoEngine.h"
+#include "Engine.h"
 
 class EventDispatcher;
 class ToggleFpsCommand : public ICommand
 {
 public:
-	ToggleFpsCommand(VideoEngine& _engine): engine{ _engine }, ICommand("toggleFps") {}
+	ToggleFpsCommand(Engine& _engine): engine{ _engine }, ICommand("toggleFps") {}
 
 	// Inherited via ICommand
 	void execute(EventDispatcher& dispatcher) override
@@ -14,6 +14,6 @@ public:
 		engine.toggleFps();
 	}
 private:
-	VideoEngine& engine;
+	Engine& engine;
 	bool lastPauseState = false;
 };
