@@ -8,7 +8,7 @@ class Savegame;
 class SceneStateMachine
 {
 public:
-	SceneStateMachine(Engine& engine, shared_ptr<Savegame> savegame);
+	SceneStateMachine(unique_ptr<Engine>& engine, shared_ptr<Savegame> savegame);
 	~SceneStateMachine();
 
 	void switchToScene(string const identifier, bool useTransitionScreen, bool playSound = true);
@@ -24,7 +24,7 @@ private:
 	shared_ptr<SceneFactory>  factory = nullptr;
 
 	unique_ptr<Scene> loadLevel(const string& identifier);
-	Engine& engine;
+	unique_ptr<Engine>& engine;
 
 	shared_ptr<Scene> currentScene;
 	int sceneId = 0;

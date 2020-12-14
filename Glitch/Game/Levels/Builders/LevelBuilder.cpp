@@ -6,7 +6,7 @@
 #include "Game/Characters/Enemies/Slime.h"
 #include "Game/Factories/CharacterFactory.h"
 
-LevelBuilder::LevelBuilder(Engine& _engine, int levelId, SceneStateMachine& _statemachine)
+LevelBuilder::LevelBuilder(unique_ptr<Engine>& _engine, int levelId, SceneStateMachine& _statemachine)
 	: AbstractLevelBuilder(_engine), bLevel(new Level(levelId, 0, 0, _engine, _statemachine)) {}
 
 /// @brief Gets the alwaysDraw objects from the json file

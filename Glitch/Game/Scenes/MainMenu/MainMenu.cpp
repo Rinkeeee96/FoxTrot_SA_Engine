@@ -83,14 +83,14 @@ void MainMenu::loadBackground() {
 /// @brief 
 /// Load the sounds for this scene
 void MainMenu::loadMusic() {
-	engine.loadSound("MENU_SOUND", "Assets/Sound/file_example_WAV_1MG.wav");
+	engine->loadSound("MENU_SOUND", "Assets/Sound/file_example_WAV_1MG.wav");
 }
 
 /// @brief 
 /// Create the sounds for this scene
 void MainMenu::start(bool playSound)
 {
-	if(playSound)engine.startSound("MENU_SOUND");
+	if(playSound)engine->startSound("MENU_SOUND");
 }
 
 void MainMenu::onUpdate()
@@ -118,7 +118,7 @@ void MainMenu::onStartBtnClick()
 /// A callback function for stopBTN
 /// Stop the application
 void MainMenu::onStopBtnClick() {
-	engine.setEngineRunning(false);
+	engine->setEngineRunning(false);
 }
 
 

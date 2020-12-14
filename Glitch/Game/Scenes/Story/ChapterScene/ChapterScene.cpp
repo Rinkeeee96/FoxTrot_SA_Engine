@@ -4,7 +4,7 @@
 #include "Game/Buttons/SecondaryButton.h"
 #include "Game/Game.h"
 
-ChapterScene::ChapterScene(const int id, Engine& _engine, SceneStateMachine& _statemachine) : GameScene(id, _engine, _statemachine)
+ChapterScene::ChapterScene(const int id, unique_ptr<Engine>& _engine, SceneStateMachine& _statemachine) : GameScene(id, _engine, _statemachine)
 {
 	dispatcher.setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(ChapterScene::onKeyPressed));
 }

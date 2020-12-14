@@ -10,10 +10,10 @@ class CharacterFactory {
 private:
 	map<string, ICharacter*> characterMap;
 	map<string, map<SpriteState, SpriteObject*>> spriteObjectMap;
-	Engine& engine;
+	unique_ptr<Engine>& engine;
 	Level& level;
 public:
-	CharacterFactory(Engine& _engine, Level& _level);
+	CharacterFactory(unique_ptr<Engine>& _engine, Level& _level);
 
 	void registerCharacter(string name, ICharacter* character, int* textureId);
 	ICharacter* create(string name, int id);

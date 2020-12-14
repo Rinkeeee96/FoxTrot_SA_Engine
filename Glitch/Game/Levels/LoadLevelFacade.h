@@ -8,11 +8,11 @@
 class LoadLevelFacade
 {
 public:
-	LoadLevelFacade(Engine& _engine);
+	LoadLevelFacade(unique_ptr<Engine>& _engine);
 
 	void load(string path, ILevelBuilder* levelBuilder);
 private:
 	LevelBuilderDirector builderDirector;
-	Engine& engine;
+	unique_ptr<Engine>& engine;
 	FileLoader fileLoader;
 };

@@ -28,7 +28,7 @@ void Shop::onDetach()
 /// @param playSound 
 void Shop::start(bool playSound)
 {
-	if (playSound)engine.startSound("MENU_SOUND");
+	if (playSound)engine->startSound("MENU_SOUND");
 }
 
 /// @brief 
@@ -71,7 +71,7 @@ void Shop::loadBackground()
 /// @brief Loads the music for this scene
 void Shop::loadMusic()
 {
-	engine.loadSound("MENU_SOUND", "Assets/Sound/file_example_WAV_1MG.wav");
+	engine->loadSound("MENU_SOUND", "Assets/Sound/file_example_WAV_1MG.wav");
 }
 
 /// @brief Loads the buttons for this scene

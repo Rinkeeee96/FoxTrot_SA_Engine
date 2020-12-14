@@ -88,7 +88,7 @@ void WinScreen::LoadBackground() {
 /// Load the sounds for this scene
 void WinScreen::LoadMusic() {
 
-	engine.loadSound("WIN_SOUND", "Assets/Sound/TremLoadingloopl.wav");
+	engine->loadSound("WIN_SOUND", "Assets/Sound/TremLoadingloopl.wav");
 }
 
 
@@ -96,7 +96,7 @@ void WinScreen::LoadMusic() {
 /// Create the sounds for this scene
 void WinScreen::start(bool playSound)
 {
-	if(playSound)engine.startSound("WIN_SOUND");
+	if(playSound)engine->startSound("WIN_SOUND");
 }
 
 void WinScreen::onDetach()

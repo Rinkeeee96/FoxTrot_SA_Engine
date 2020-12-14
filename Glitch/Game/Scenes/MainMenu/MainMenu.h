@@ -7,7 +7,7 @@
 class MainMenu : public GameScene
 {
 public:
-	MainMenu(const int id, Engine& engine, SceneStateMachine& _sceneStateMachine) : GameScene(id, engine, _sceneStateMachine){
+	MainMenu(const int id, unique_ptr<Engine>& engine, SceneStateMachine& _sceneStateMachine) : GameScene(id, engine, _sceneStateMachine){
 	};
 	~MainMenu();
 	// Inherited via Scene
