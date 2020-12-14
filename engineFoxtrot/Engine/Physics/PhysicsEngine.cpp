@@ -15,7 +15,7 @@ PhysicsEngine::PhysicsEngine()
 /// @param dispatcher 
 void PhysicsEngine::start(EventDispatcher& dispatcher) {
 	this->dispatcher = &dispatcher;
-	physicsFacade = unique_ptr<PhysicsFacade>(new PhysicsFacade(dispatcher));
+	physicsFacade = make_unique<PhysicsFacade>(PhysicsFacade(dispatcher));
 
 	dispatcher.setEventCallback<ActionEvent>(BIND_EVENT_FN(PhysicsEngine::handleAction));
 	dispatcher.setEventCallback<ObjectStopEvent>(BIND_EVENT_FN(PhysicsEngine::stopObject));
