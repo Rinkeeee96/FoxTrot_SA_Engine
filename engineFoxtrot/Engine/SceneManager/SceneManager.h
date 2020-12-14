@@ -25,5 +25,4 @@ private:
 	bool checkIfSceneExists(const int);
 	// TODO what happens when deleting a scene?
 	map<int, shared_ptr<Scene>> scenes;
-	Engine* engine;
 };

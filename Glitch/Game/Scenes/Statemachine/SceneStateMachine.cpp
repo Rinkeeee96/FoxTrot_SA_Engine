@@ -105,7 +105,6 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	engine->insertScene(currentScene);
 	engine->setCurrentScene(currentScene->getSceneID());
 
-
 	// Handle some scene specific things
 	if (currentScene && dynamic_cast<GeneralTransition*>(currentScene.get()))
 		((GeneralTransition*)currentScene.get())->setNextScene(transition);
