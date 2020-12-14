@@ -80,8 +80,8 @@ void WinScreen::LoadBackground() {
 	confetti->setStartSpinVar(90);
 
 	addNewObjectToLayer(0, layer0, false, true);
-	addNewObjectToLayer(1, animation);
-	addNewObjectToLayer(2, confetti, false, true);
+	addNewObjectToLayer(2, animation);
+	addNewObjectToLayer(3, confetti, false, true);
 }
 
 /// @brief 
@@ -132,6 +132,10 @@ void WinScreen::onUpdate(float deltaTime) {
 		falling = false;
 	}
 
-	float newY = animation->getPositionY() + falling ? deltaTime * 300 : deltaTime * -300;
-	animation->setPositionY(newY);
+	if (falling) {
+		animation->setPositionY(animation->getPositionY() + deltaTime * 300);
+	}
+	else {
+		animation->setPositionY(animation->getPositionY() + deltaTime * -300);
+	}	
 }

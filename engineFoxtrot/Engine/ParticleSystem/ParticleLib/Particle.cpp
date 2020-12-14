@@ -221,6 +221,8 @@ bool Particle::isFull()
 // ParticleSystem - MainLoop
 void Particle::update(float deltaTime)
 {
+    deltaTime *= 2;
+
     if (_isActive && _emissionRate)
     {
         float rate = 1.0f / _emissionRate;

@@ -451,7 +451,7 @@ void ParticleInit::setStyle(ParticleStyle style)
         setGravity(Vec2(0, 0));
 
         // Gravity Mode: speed of particles
-        setSpeedParticle(-70);
+        setSpeedParticle(-200);
         setSpeedVar(40);
 
         // Gravity Mode: radial

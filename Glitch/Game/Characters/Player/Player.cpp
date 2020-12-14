@@ -11,7 +11,7 @@ Player::Player(const int id, EventDispatcher& _dispatcher) : ICharacter(id, _dis
 	this->setPositionX(100);
 	this->setPositionY(80);
 
-	this->setSpeed(6);
+	this->setSpeed(7);
 	this->setJumpHeight(10);
 	this->setDensity(10);
 	this->setFriction(0);
