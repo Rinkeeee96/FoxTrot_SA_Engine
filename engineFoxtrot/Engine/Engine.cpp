@@ -65,7 +65,7 @@ void Engine::deregisterScene(const int id)
 /// @brief
 /// Updates the fps counter
 void Engine::updateFps() {
-	frameData.updateFps();
+	frameData->updateFps();
 }
 
 /// @brief
