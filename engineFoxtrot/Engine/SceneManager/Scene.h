@@ -48,15 +48,15 @@ public:
 
 	API void removeObjectFromScene(Object* obj);
 
-	API map<int, Layer*> getLayers() const;
+	API map<int, shared_ptr<Layer>> getLayers() const;
 
 	API void createLayer(const int zIndex, bool renderPhysics = false, bool alwaysDrawLayer = false);
 
 	EventDispatcher& getEventDispatcher() { return dispatcher; };
 
 	API int getHighestLayerIndex();
-	API int addLayerOnHighestZIndex(Layer *_layer);
-	API void addLayerOnZIndex(const int zIndex, Layer* _layer);
+	API int addLayerOnHighestZIndex(shared_ptr<Layer> _layer);
+	API void addLayerOnZIndex(const int zIndex, shared_ptr<Layer> _layer);
 	API void removeLayer(const int zIndex);
 
 
@@ -67,7 +67,7 @@ protected:
 	bool paused = false;
 private:
 	const int sceneID = 0;
-	map<int, Layer*> layers;
+	map<int, shared_ptr<Layer>> layers;
 
 
 	Object *objectToFollow = nullptr;

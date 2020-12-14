@@ -33,8 +33,8 @@ void Level::start(bool playSound) {
 	inventoryPopupZIndex = this->getHighestLayerIndex() + 1;
 	pausePopupZIndex = inventoryPopupZIndex + 1;
 
-	this->addLayerOnZIndex(inventoryPopupZIndex, new InventoryPopup(this->dispatcher, this->stateMachine));
-	this->addLayerOnZIndex(pausePopupZIndex, new PausePopUp(this->dispatcher, this->stateMachine));
+	this->addLayerOnZIndex(inventoryPopupZIndex, shared_ptr<Layer>(new InventoryPopup(this->dispatcher, this->stateMachine)));
+	this->addLayerOnZIndex(pausePopupZIndex, shared_ptr<Layer>(new PausePopUp(this->dispatcher, this->stateMachine)));
 
 	commandBuilder->linkCommandToToggle(gameInvoker, inventoryPopupZIndex, "inventory");
 	commandBuilder->linkCommandToToggle(gameInvoker, pausePopupZIndex, "pause");
@@ -203,7 +203,7 @@ void Level::addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, 
 void Level::throwAchievement(Achievement achievement)
 {
 	if (savegame->getCurrentGameData().isAchievementAchieved(achievement)) return;
-	AchievementPopup* achievementPopup = new AchievementPopup(this->dispatcher, this->stateMachine);
+	auto achievementPopup = shared_ptr<AchievementPopup>(new AchievementPopup(this->dispatcher, this->stateMachine));
 	achievementPopup->setupPopUp(achievement);
 	achievementZIndex = addLayerOnHighestZIndex(achievementPopup);
 

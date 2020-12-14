@@ -136,7 +136,7 @@ const void Scene::addNewObjectToLayer(const int zIndex, Object* object, bool ren
 	}
 	else
 	{
-		layers[zIndex] = new Layer();
+		layers[zIndex] = shared_ptr<Layer>(new Layer());
 		layers[zIndex]->setRenderPhysics(renderPhysics);
 		layers[zIndex]->addObjectInLayer(object);
 		layers[zIndex]->setAlwaysVisible(alwaysDrawLayer);
@@ -166,12 +166,11 @@ void Scene::onDetach()
 {
 	for (auto& layerContainer : layers)
 	{
-		Layer* layer = layerContainer.second;
+		auto layer = layerContainer.second;
 		for (auto obj : layer->objects)
 			delete obj.second;
 
 		layer->clearObjects();
-		delete layer;
 	}
 	layers.clear();
 }
@@ -208,7 +207,7 @@ void Scene::removeObjectFromScene(Object* obj)
 
 /// @brief Returns the layers map in a scene
 /// @return 
-map<int, Layer*> Scene::getLayers() const
+map<int, shared_ptr<Layer>> Scene::getLayers() const
 {
 	return layers;
 }
@@ -219,7 +218,7 @@ map<int, Layer*> Scene::getLayers() const
 /// @param alwaysDrawLayer 
 void Scene::createLayer(const int zIndex, bool renderPhysics, bool alwaysDrawLayer)
 {
-	layers[zIndex] = new Layer();
+	layers[zIndex] = shared_ptr<Layer>(new Layer());
 	layers[zIndex]->setRenderPhysics(renderPhysics);
 	layers[zIndex]->setAlwaysVisible(alwaysDrawLayer);
 }
@@ -241,7 +240,7 @@ int Scene::getHighestLayerIndex() {
 /// @param xPosition 
 /// @param yPosition 
 /// @param text 
-int Scene::addLayerOnHighestZIndex(Layer* _layer) 
+int Scene::addLayerOnHighestZIndex(shared_ptr<Layer> _layer)
 {
 	int zIndex = getHighestLayerIndex() + 1;
 	layers[zIndex] = _layer;
@@ -251,7 +250,7 @@ int Scene::addLayerOnHighestZIndex(Layer* _layer)
 /// @brief 
 /// @param zIndex 
 /// @param _layer 
-void Scene::addLayerOnZIndex(const int zIndex, Layer* _layer)
+void Scene::addLayerOnZIndex(const int zIndex, shared_ptr<Layer> _layer)
 {
 	layers[zIndex] = _layer;
 }
