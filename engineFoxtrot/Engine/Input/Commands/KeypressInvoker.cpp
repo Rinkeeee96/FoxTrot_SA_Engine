@@ -75,7 +75,9 @@ void KeypressInvoker::enqueueCommand(const KeyCode& code) {
 		executionQueue.push(code);
 };
 
-
+/// @brief
+/// Attempts to find a command in the commands list
+/// @returns returns true if the command is found
 bool KeypressInvoker::isRegistered(const ICommand& command) {
 	auto it = commands.begin();
 	while (it != commands.end())
@@ -85,7 +87,9 @@ bool KeypressInvoker::isRegistered(const ICommand& command) {
 	}
 	return false;
 }
-
+/// @brief
+/// Attempts to find a keycode in the commands list
+/// @returns returns true if the keycode is found
 bool KeypressInvoker::isRegistered(const KeyCode& keyCode) {
 	return commands.find(keyCode) != commands.end();
 }
