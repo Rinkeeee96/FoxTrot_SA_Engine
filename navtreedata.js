@@ -49,7 +49,7 @@ var NAVTREEINDEX =
 "class_i_sound_facade.html#affc4e7e53a2666c656dbdd9111c10435",
 "class_particle.html#a2b83b571668916e33eda702b4df58f5c",
 "class_physics_engine.html#a5558246d687304435d45c5e04c3eb29f",
-"classunknown_command_exception.html#a51560f0cafd28da6a680db0ae64d8a5f"
+"classunknown_command_exception.html#a2b8e9bde13cdf2a2ec285166a4aa0074"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
