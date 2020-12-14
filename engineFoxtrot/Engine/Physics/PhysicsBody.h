@@ -5,7 +5,7 @@
 #define BASE_GRAVITY 1
 
 /// @brief This class contains all the data for a physics body
-class PhysicsBody
+class API PhysicsBody
 {
 public:
 	PhysicsBody(Object* object);

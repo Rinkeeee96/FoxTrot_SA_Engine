@@ -30,7 +30,7 @@ class b2Body;
 
 /// @brief 
 /// PhysicsFacade class. Class for update physics off objects
-class PhysicsFacade : public IPhysicsFacade
+class API PhysicsFacade : public IPhysicsFacade
 {
 public:
 	PhysicsFacade(EventDispatcher& _dispatcher);
