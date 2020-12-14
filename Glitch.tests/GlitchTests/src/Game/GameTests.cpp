@@ -13,6 +13,7 @@ namespace Glitchtests
 		TEST_METHOD(TestMethod1)
 		{
 			Assert::IsTrue(true);
+			Assert::IsTrue(true);
 		}
 	};
 }
