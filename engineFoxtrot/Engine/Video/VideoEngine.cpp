@@ -163,7 +163,7 @@ void VideoEngine::clearVideoEngine()
 /// @param dispatcher 
 void VideoEngine::start(EventDispatcher& dispatcher)
 {
-	videoFacade = new VideoFacade();
+	videoFacade = unique_ptr<VideoFacade>(new VideoFacade());
 }
 
 /// @brief Calls the functions to render a screen.
@@ -180,7 +180,6 @@ void VideoEngine::update()
 void VideoEngine::shutdown()
 {
 	clearVideoEngine();
-	delete videoFacade;
 }
 
 /// @brief 

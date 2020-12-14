@@ -49,6 +49,6 @@ private:
 
 
 	// TODO clear on scene detach
-	ISoundFacade* soundFacade = new SoundFacade;
+	unique_ptr<ISoundFacade> soundFacade = unique_ptr<SoundFacade>(new SoundFacade);
 
 };
