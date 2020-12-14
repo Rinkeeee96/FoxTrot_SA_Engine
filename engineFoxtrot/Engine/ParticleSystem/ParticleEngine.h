@@ -16,6 +16,8 @@ public:
 	void update() override;
 	void shutdown() override;
 
+	bool onPauseEvent(const Event& event);
+
 	Scene** pointerToCurrentScene = nullptr;
 
 private:

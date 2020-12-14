@@ -168,13 +168,13 @@ void PhysicsFacade::update() {
 	}
 }
 
-void PhysicsFacade::stopObject(int objectId, bool stopVertical) {
+void PhysicsFacade::stopObject(int objectId, bool stopVertical, bool stopHorizontal) {
 	b2Body* body = findBody(objectId);
 	const PhysicsBody* ob = getPhysicsObject(objectId);
 	if (!body || !ob) return;
 	b2Vec2 vel = body->GetLinearVelocity();
 	vel.y = stopVertical ? 0 : ob->getYAxisVelocity();
-	vel.x = 0;
+	vel.x = stopHorizontal ? 0 : ob->getXAxisVelocity();
 	body->SetLinearVelocity(vel);
 }
 

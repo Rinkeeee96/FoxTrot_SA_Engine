@@ -3,6 +3,7 @@
 #include "PhysicsEngine.h"
 #include "Events\Action\ObjectStopEvent.h"
 #include "Events/Key/KeyPressed.h"
+#include "Events/Action/TogglePause.h"
 
 
 /// @brief Constructor
@@ -18,12 +19,16 @@ void PhysicsEngine::start(EventDispatcher& dispatcher) {
 
 	dispatcher.setEventCallback<ActionEvent>(BIND_EVENT_FN(PhysicsEngine::handleAction));
 	dispatcher.setEventCallback<ObjectStopEvent>(BIND_EVENT_FN(PhysicsEngine::stopObject));
+
+	dispatcher.setEventCallback<TogglePauseEvent>(BIND_EVENT_FN(PhysicsEngine::onPauseEvent));
 };
 
 
 /// @brief	Updates the physics world via the physicsFacade.
 ///			If the currentScene changes the physics facade will be cleaned.
 void PhysicsEngine::update() {
+	if (isPaused())	return;
+
 	if (currentSceneID != (*pointerToCurrentScene)->getSceneID())
 	{
 		if (DEBUG_PHYSICS_ENGINE)cout << "Cleaning map and reinserting Objects" << endl;
@@ -40,7 +45,7 @@ void PhysicsEngine::update() {
 void PhysicsEngine::shutdown() {
 	clean();
 	delete physicsFacade;
-};
+}
 
 /// @brief Reloads the physicsFacade objects map.
 void PhysicsEngine::reloadPhysicsObjects() {
@@ -77,7 +82,6 @@ bool PhysicsEngine::handleAction(const Event& event) {
 			this->physicsFacade->Fall(objectId);
 			return true;
 		default:
-			// TODO what should handle action do when it fails? does the eventhandler need to continue?
 			return false;
 	}
 }
@@ -86,11 +90,20 @@ bool PhysicsEngine::handleAction(const Event& event) {
 /// @param event 
 /// @return 
 bool PhysicsEngine::stopObject(const Event& event) {
-	ObjectStopEvent e = static_cast<const ObjectStopEvent&>(event);
-	physicsFacade->stopObject(e.getObjectId(), e.getStopVertical());
+	auto& e = static_cast<const ObjectStopEvent&>(event);
+	physicsFacade->stopObject(e.getObjectId(), e.getStopVertical(), e.getStopHorizontal());
 	return true;
 }
 
+/// @brief Executes on pause event for physics engine
+bool PhysicsEngine::onPauseEvent(const Event& event)
+{
+	auto pauseEvent = (TogglePauseEvent&)event;
+	paused = pauseEvent.isPaused();
+	return false;
+}
+
+/// @brief Destructor
 /// @brief Destructor calls the shutdown function
 PhysicsEngine::~PhysicsEngine()
 {

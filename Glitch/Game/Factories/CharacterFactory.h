@@ -2,8 +2,8 @@
 #include "Game\General\GameErrorCodes.h"
 #include "Game\Characters\ICharacter.h"
 #include "Game\SpriteState.h"
-#include "Game\Levels\Level.h"
 
+class Level;
 /// @brief 
 /// Factory for creating entities
 class CharacterFactory {

@@ -8,8 +8,8 @@
 class ObjectStopEvent : public Event
 {
 public:
-	ObjectStopEvent(int _objectId, bool _stopVertical = false) :
-		objectId{ _objectId }, stopVertical{_stopVertical} {};
+	ObjectStopEvent(int _objectId, bool _stopVertical = false, bool _stopHorizontal = false) :
+		objectId{ _objectId }, stopVertical{ _stopVertical }, stopHorizontal{ _stopHorizontal } {};
 
 	/// @brief
 	/// Returns the eventType of a specific event
@@ -22,7 +22,9 @@ public:
 
 	const int getObjectId() const { return objectId; }
 	const bool getStopVertical() const { return stopVertical; }
+	const bool getStopHorizontal() const { return stopHorizontal; }
 protected:
 	int objectId;
 	bool stopVertical;
+	bool stopHorizontal;
 };
