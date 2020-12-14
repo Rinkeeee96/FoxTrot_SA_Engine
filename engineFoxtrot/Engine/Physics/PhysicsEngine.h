@@ -25,6 +25,7 @@ public:
 	void update() override;
 	void shutdown() override;
 
+	IPhysicsFacade& getIPhysicsFacade() const { return *this->physicsFacade; }
 private:
 	void clean();
 	IPhysicsFacade* physicsFacade;
