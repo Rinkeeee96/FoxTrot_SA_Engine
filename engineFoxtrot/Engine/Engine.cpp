@@ -1,23 +1,20 @@
 #include "stdafx.h"
 #include "Engine.h"
-
-
+#include "Input/Commands/Engine/ToggleFpsCommand.h"
+#include "Input/Commands/Engine/ShutdownCommand.h"
 /// @brief 
-Engine::Engine()
-{
-	videoEngine.pointerToCurrentScene =	 &sceneManager.currentScene;
-	physicsEngine.pointerToCurrentScene = &sceneManager.currentScene;
-	particleEngine.pointerToCurrentScene = &sceneManager.currentScene;
-
-
-	videoEngine.start(*this->eventDispatcher);
-	//this->startTickThreads();
+/// Create default engine commands that cannot be removed, only overriden by changing the keycode in the invoker
+void Engine::constructDefaultCommands(KeypressInvoker* invoker) {
+	invoker->registerCommand(KeyCode::KEY_F1, new ToggleFpsCommand(*this));
+	invoker->registerCommand(KeyCode::KEY_F4, new ShutdownCommand(*this));
 }
 
 /// @brief 
-Engine::~Engine()
+/// Override the default invoker with a custom one from the application
+void Engine::useCustomCommandInvoker(KeypressInvoker* newInvoker)
 {
-	videoEngine.shutdown();
+	constructDefaultCommands(newInvoker);
+	this->keypressInvoker = newInvoker;
 }
 
 /// @brief 
@@ -31,6 +28,7 @@ void Engine::setCurrentScene(const int sceneID)
 	particleEngine.start(*this->eventDispatcher);
 	soundEngine.start(*this->eventDispatcher);
 	inputEngine.start(*this->eventDispatcher);
+	inputEngine.registerKeypressInvoker(this->keypressInvoker);
 	physicsEngine.start(*this->eventDispatcher);
 
 	sceneManager.getSceneWithID(sceneID)->onAttach();
@@ -44,22 +42,7 @@ Scene* Engine::getCurrentScene()
 	return sceneManager.currentScene;
 }
 
-// TODO Remove after command pattern is implemented
-bool Engine::onKeyPressed(const Event& event) {
-	auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
-	// TODO command pattern
-	switch (keyPressedEvent.getKeyCode())
-	{
-	case KeyCode::KEY_P:
-		engineIsPaused = !engineIsPaused;
-		break;
-	default:
-		return false;
-	}
-	return true;
-}
-
-/// @brief Insert a Scene into the current scene
+/// @brief 
 /// @param scene
 void Engine::insertScene(Scene* scene)
 {
@@ -97,6 +80,42 @@ void Engine::restartPhysicsWorld()
 	physicsEngine.reloadPhysicsObjects();
 }
 
+/// @brief The startup function for the engine is for setting the currentScene pointer and the general initialisation
+void Engine::start()
+{
+	videoEngine.pointerToCurrentScene = &sceneManager.currentScene;
+	physicsEngine.pointerToCurrentScene = &sceneManager.currentScene;
+	particleEngine.pointerToCurrentScene = &sceneManager.currentScene;
+
+	// register default invoker
+	useCustomCommandInvoker(new KeypressInvoker());
+
+	videoEngine.start(*this->eventDispatcher);
+}
+
+/// @brief Calls the update function on all the subsystems
+void Engine::update()
+{
+	particleEngine.update();
+	physicsEngine.update();
+	videoEngine.update();
+	inputEngine.update();
+}
+
+/// @brief Calls the shutdown function on all the subsystems
+void Engine::shutdown()
+{
+	if (this->running)
+	{
+		this->setEngineRunning(false);
+		inputEngine.shutdown();
+		particleEngine.shutdown();
+		videoEngine.shutdown();
+		physicsEngine.shutdown();
+	}
+
+}
+
 /// @brief Calls addFile from the sound engine.
 /// @param identifier 
 /// @param path 
@@ -128,13 +147,4 @@ void Engine::stopSound(const string& identifier) {
 /// @param identifier 
 void Engine::stopLoopEffect(const string& identifier) {
 	this->soundEngine.onStopLoopedEffect(identifier);
-}
-
-/// @brief Calls the update function on all the subsystems
-void Engine::onUpdate()
-{
-	particleEngine.update();
-	physicsEngine.update();
-	videoEngine.update();
-	inputEngine.update();
 }

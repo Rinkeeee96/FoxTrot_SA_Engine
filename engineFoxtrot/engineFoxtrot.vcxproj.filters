@@ -32,7 +32,9 @@
     <ClCompile Include="Engine\SceneManager\Objects\SpriteObject.cpp" />
     <ClCompile Include="Engine\SceneManager\Objects\Drawable.cpp" />
     <ClCompile Include="Engine\SceneManager\Objects\Button.cpp" />
+    <ClCompile Include="Engine\Input\Commands\KeypressInvoker.cpp" />
     <ClCompile Include="Engine\FileParser\JsonValidator.cpp" />
+    <ClCompile Include="Engine\Input\Commands\Creator\CommandFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Engine.cpp">
@@ -168,10 +170,23 @@
     <ClInclude Include="Engine\SceneManager\Objects\Drawable.h" />
     <ClInclude Include="Engine\SceneManager\Objects\Button.h" />
     <ClInclude Include="Engine\Events\Action\ObjectStopEvent.h" />
+    <ClInclude Include="Engine\Events\InputMapping\CaptureInputEvent.h" />
+    <ClInclude Include="Engine\Events\InputMapping\ReleaseInputEvent.h" />
     <ClInclude Include="Engine\Events\EventDispatcher.h" />
     <ClInclude Include="Engine\General\ISubsystem.h" />
+    <ClInclude Include="Engine\Input\Commands\ICommand.h" />
+    <ClInclude Include="Engine\Input\Commands\KeypressInvoker.h" />
+    <ClInclude Include="Engine\Events\Action\TogglePause.h" />
+    <ClInclude Include="Engine\FileParser\JsonValidator.h" />
+    <ClInclude Include="Engine\FileParser\IFileValidator.h" />
+    <ClInclude Include="Engine\Input\Commands\Engine\ToggleFpsCommand.h" />
+    <ClInclude Include="Engine\Input\Commands\Engine\ShutdownCommand.h" />
     <ClInclude Include="Engine\FileParser\IFileValidator.h" />
     <ClInclude Include="Engine\FileParser\JsonValidator.h" />
+    <ClInclude Include="Engine\Events\Action\ToggleEventLayer.h" />
+    <ClInclude Include="Engine\Input\Commands\Creator\CommandCreator.h" />
+    <ClInclude Include="Engine\Input\Commands\Creator\CommandFactory.h" />
+    <ClInclude Include="Engine\Input\Commands\Creator\ICommandCreator.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

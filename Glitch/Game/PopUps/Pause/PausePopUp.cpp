@@ -2,18 +2,9 @@
 #include "PausePopUp.h"
 #include "Game/Buttons/PrimaryButton.h"
 #include "Game/SpriteState.h"
+#include "Engine/Events/Action/TogglePause.h"
 
 #define BIND_FN(function) std::bind(&PausePopUp::function, *this)
-
-PausePopUp::PausePopUp(EventDispatcher &_dispatcher, SceneStateMachine& _stateMachine) : 
-	dispatcher(_dispatcher), stateMachine(_stateMachine)
-{
-	setAlwaysVisible(true);
-}
-
-PausePopUp::~PausePopUp()
-{
-}
 
 /// @brief Setup the Pause Pop Up.
 void PausePopUp::setupPopUp()

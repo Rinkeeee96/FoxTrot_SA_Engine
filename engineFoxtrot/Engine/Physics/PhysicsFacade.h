@@ -48,7 +48,7 @@ public:
 
 	CollisionStruct getObjectsByFixture(b2Fixture* fixture1, b2Fixture* fixture2);
 	void update() override;
-	void stopObject(int objectId, bool stopVertical);
+	void stopObject(int objectId, bool stopVertical, bool stopHorizontal);
 	void cleanMap();
 
 private:

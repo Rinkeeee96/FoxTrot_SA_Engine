@@ -19,7 +19,6 @@
 #include <ctime>
 #include "api.h"
 
-
 #include "SceneManager/Objects/Button.h"
 #include "Game/SaveGame/Savegame.h"
 #include "Game/General/GeneralGameDefines.h"

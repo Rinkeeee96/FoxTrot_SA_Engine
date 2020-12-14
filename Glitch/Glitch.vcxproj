@@ -170,6 +170,23 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Game\Commands\Builder\CommandBuilder.h" />
+    <ClInclude Include="Game\Commands\CharacterCommands\CharacterCommands.h" />
+    <ClInclude Include="Game\Commands\CharacterCommands\GodmodeCommand.h" />
+    <ClInclude Include="Game\Commands\GlobalCommands\ToggleLayerCommand.h" />
+    <ClInclude Include="Game\Commands\Creator\CharacterCommands\CharacterCommandFactory.h" />
+    <ClInclude Include="Game\Commands\Creator\CharacterCommands\ICharacterCommandCreator.h" />
+    <ClInclude Include="Game\Commands\Creator\CharacterCommands\CharacterCommandCreator.h" />
+    <ClInclude Include="Game\Commands\Builder\ICommandBuilder.h" />
+    <ClInclude Include="Game\Commands\Creator\GlobalCommands\GlobalCommandCreator.h" />
+    <ClInclude Include="Game\Commands\Creator\GlobalCommands\GlobalCommandFactory.h" />
+    <ClInclude Include="Game\Commands\Creator\GlobalCommands\IGlobalCommandCreator.h" />
+    <ClInclude Include="Game\Commands\GameKeypressInvoker.h" />
+    <ClInclude Include="Game\Commands\ICharacterCommand.h" />
+    <ClInclude Include="Game\Commands\CharacterCommands\JumpCommand.h" />
+    <ClInclude Include="Game\Commands\CharacterCommands\MoveLeftCommand.h" />
+    <ClInclude Include="Game\Commands\CharacterCommands\MoveRightCommand.h" />
+    <ClInclude Include="Game\Commands\CharacterCommands\StopMovementCommand.h" />
     <ClInclude Include="Game\Characters\Enemies\BaseEnemy.h" />
     <ClInclude Include="Game\Characters\Enemies\Fleye.h" />
     <ClInclude Include="Game\Characters\Enemies\Jumpkin.h" />
@@ -188,6 +205,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Levels\LoadLevelFacade.h" />
     <ClInclude Include="Game\Buttons\PrimaryButton.h" />
     <ClInclude Include="Game\Buttons\SecondaryButton.h" />
+    <ClInclude Include="Game\PopUps\BasePopup.h" />
     <ClInclude Include="Game\PopUps\Achievement\AchievementPopup.h" />
     <ClInclude Include="Game\PopUps\Popups.h" />
     <ClInclude Include="Game\SaveGame\Savegame.h" />
@@ -230,6 +248,11 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Scenes\Shop\Shop.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Game\Commands\Builder\CommandBuilder.cpp" />
+    <ClCompile Include="Game\Commands\Creator\CharacterCommands\CharacterCommandFactory.cpp" />
+    <ClCompile Include="Game\Commands\Creator\GlobalCommands\GlobalCommandFactory.cpp" />
+    <ClCompile Include="Game\Commands\GameKeypressInvoker.cpp" />
+    <ClCompile Include="Game\Commands\GlobalCommand.h" />
     <ClCompile Include="Game\Characters\Enemies\BaseEnemy.cpp" />
     <ClCompile Include="Game\Characters\Enemies\Fleye.cpp" />
     <ClCompile Include="Game\Characters\Enemies\IEnemy.h" />

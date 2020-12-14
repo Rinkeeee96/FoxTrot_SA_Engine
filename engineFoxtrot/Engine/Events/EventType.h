@@ -4,6 +4,12 @@
 enum class EventType
 {
 	None = 0,
+	ToggleLayer,
+	TogglePause,
+	// -- input capturing events ---
+	CaptureInput,
+	ReleaseInput,
+
 	// -- window events -----
 	WindowResize, 
 	WindowFocus, 

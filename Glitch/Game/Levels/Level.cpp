@@ -1,62 +1,133 @@
 #include "pch.h"
 #include "Level.h"
+#include "Game/Characters/Player/Player.h"
+#include "Game/Scenes/Statemachine/SceneStateMachine.h"
+#include "Game/Commands/Builder/CommandBuilder.h"
+#include "Events/Action/ToggleEventLayer.h"
 #include "Game/Game.h"
 #include "Game/PopUps/Popups.h"
+#include "Engine/Events/Action/ToggleEventLayer.h"
 
 Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, Engine& engine, SceneStateMachine& _stateMachine) 
-				: GameScene::GameScene(id, _sceneHeight, _sceneWidth, engine, _stateMachine)
+				: GameScene::GameScene(id, _sceneHeight, _sceneWidth, engine, _stateMachine), commandBuilder{new CommandBuilder()}
 {
-	this->dispatcher.setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Level::onKeyPressed));
+	gameInvoker = dynamic_cast<GameKeypressInvoker*>(engine.getKeypressedInvoker());
+	this->dispatcher.setEventCallback<ToggleLayerEvent>(BIND_EVENT_FN(Level::onToggleLayerEvent));
 }
 
-// TODO redo after command pattern
-bool Level::onKeyPressed(const Event& event) {
-	if (this->win || this->player->getIsDead()) return false;
-
-	auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
-	// TODO command pattern
-	switch (keyPressedEvent.getKeyCode())
-	{
-	case KeyCode::KEY_P:
-		if (!paused) {
-			PausePopUp* pausePopUp = new PausePopUp(this->dispatcher, this->stateMachine);
-			pausePopUp->setupPopUp();
-			pausePopupZIndex = addLayerOnHighestZIndex(pausePopUp);
-			this->paused = true;
-		}
-		else
-		{
-			removeLayer(pausePopupZIndex);
-			this->paused = false;
-		}
-		break;
-	case KeyCode::KEY_I:
-		if (!inventoryOpen) {
-			InventoryPopup* inventoryPopup = new InventoryPopup(this->dispatcher, this->stateMachine);
-			inventoryPopup->setupPopUp();
-			inventoryPopupZIndex = addLayerOnHighestZIndex(inventoryPopup);
-			inventoryOpen = true;
-		}
-		else
-		{
-			removeLayer(inventoryPopupZIndex);
-			inventoryOpen = false;
-		}
-		break;
-	case KeyCode::KEY_G:
-		if (this->player != nullptr && 
-			typeid(this->player->getStateMachine().getCurrentState()).name() != typeid(GodState).name()) 
-		{
-			this->player->getStateMachine().changeState(new GodState, this->player);
-		}
-		else {
-			this->player->getStateMachine().changeState(new NormalState, this->player);
-		}
-		break;
-	default:
-		break;
+/// @brief
+/// OnAttach is executed when a scene is "attached" to the current running context
+/// usually this is can be used to prime a level with relevant data before starting it.
+void Level::onAttach() {
+	for (const auto& s : sounds) {
+		if (DEBUG_MAIN)std::cout << s.first << " has value " << s.second << std::endl;
+		engine.loadSound(s.first, s.second);
 	}
-	return false;
+}
+
+/// @brief
+/// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
+void Level::start(bool playSound) {
+
+	// TODO kan ik de inventory layers aanmaken in de onAttach?
+	inventoryPopupZIndex = this->getHighestLayerIndex() + 1;
+	pausePopupZIndex = inventoryPopupZIndex + 1;
+
+	this->addLayerOnZIndex(inventoryPopupZIndex, new InventoryPopup(this->dispatcher, this->stateMachine));
+	this->addLayerOnZIndex(pausePopupZIndex, new PausePopUp(this->dispatcher, this->stateMachine));
+
+	commandBuilder->linkCommandToToggle(gameInvoker, inventoryPopupZIndex, "inventory");
+	commandBuilder->linkCommandToToggle(gameInvoker, pausePopupZIndex, "pause");
+
+	player->respawn();
+	player->setCurrentHealth(3);
+	player->setTotalHealth(3);
+	this->addHuds();
+	loadScoreBoard();
+	this->win = false;
+
+	this->setObjectToFollow(this->follow);
+	if (playSound)
+	{
+		for (const auto& s : sounds) {
+			engine.startSound(s.first);
+		}
+	}
+}
+
+/// @brief Updates the level data such as objects that are removed or player is dead or won the level
+void Level::onUpdate()
+{
+	this->addHuds();
+
+	updateScoreBoard();
+
+	chrono::duration<double> diffFromPreviousCall = chrono::duration_cast<chrono::duration<double>>(chrono::high_resolution_clock::now() - timeAchievementPopupThrown);
+
+	if (diffFromPreviousCall.count() > 1 && activeAchievementPopup)
+	{
+		removeLayer(achievementZIndex);
+		activeAchievementPopup = false;
+	}
+
+	if (this->win)
+	{
+		player->kill();
+		increaseTotalGameScore(100);
+		throwAchievement("Level " + to_string(stateMachine.levelToBuild) + " completed!");
+		SaveGameData save = savegame->getCurrentGameData();
+		save.levelData[stateMachine.levelToBuild].completed = true;
+		savegame->saveCurrentGameData(save);
+		stateMachine.switchToScene("WinScreen", false);
+		return;
+	}
+	if (player->getIsDead())
+	{
+		stateMachine.switchToScene("DeathScreen", false);
+		return;
+	}
+
+	for (auto object : this->getAllObjectsInScene()) // TODO get only the non static objects, without looping thru them again and again
+	{
+		if (!object->getStatic())
+		{
+			object->onUpdate();
+
+			if (ICharacter *character = dynamic_cast<ICharacter *>(object))
+			{
+				if (character->getIsDead() && !character->getIsRemoved())
+				{
+					// TODO Death animation
+					object->setIsRemoved(true);
+					removeObjectFromScene(object);
+					engine.restartPhysicsWorld();
+					increaseTotalGameScore(10);
+					throwAchievement("First Kill");
+				}
+			}
+		}
+	}
+}
+
+/// @brief
+// Destroys player commands and calls scene base
+void Level::onDetach()
+{
+	gameInvoker->destroyPlayercommands();
+
+	Scene::onDetach();
+}
+/// @brief
+/// toggle a layer received from the event and set its state oposite to its current render state
+/// "toggeling" it
+bool Level::onToggleLayerEvent(const Event& event) {
+	auto layerEvent = dynamic_cast<const ToggleLayerEvent&>(event);
+
+	int layerIndex = layerEvent.getLayerIndex();
+	bool currentRenderstate = this->getLayers()[layerIndex]->getRender();
+
+	this->toggleLayer(layerIndex, ! currentRenderstate);
+	return true;
 }
 
 // @brief 
@@ -66,6 +137,9 @@ void Level::setPlayer(Object* object) {
 	this->follow = object;
 	if (Player* _player = dynamic_cast<Player*>(object)) {
 		this->player = _player;
+
+		commandBuilder->buildPlayerCommands(*this->player, gameInvoker);
+
 		startPosPlayerX = _player->getPositionX();
 		startPosPlayerY = _player->getPositionY();
 	}
@@ -80,16 +154,6 @@ void Level::setPlayer(Object* object) {
 void Level::setSound(map<string, string> _sounds)
 {
 	sounds = _sounds;
-}
-
-/// @brief
-/// OnAttach is executed when a scene is "attached" to the current running context
-/// usually this is can be used to prime a level with relevant data before starting it.
-void Level::onAttach() {
-    for (const auto& s : sounds) {
-		if(DEBUG_MAIN)std::cout << s.first << " has value " << s.second << std::endl;
-        engine.loadSound(s.first, s.second);
-    }
 }
 
 /// @brief
@@ -201,73 +265,6 @@ void Level::updateScoreBoard()
 }
 
 /// @brief
-/// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
-void Level::start(bool playSound) {
-	player->respawn();
-	player->setCurrentHealth(3);
-	player->setTotalHealth(3);
-	this->addHuds();
-	loadScoreBoard();
-	this->win = false;
-
-	this->setObjectToFollow(this->follow);
-	if (playSound)
-	{
-		for (const auto& s : sounds) {
-			engine.startSound(s.first);
-		}
-	}
-}
-
-/// @brief Updates the level data such as objects that are removed or player is dead or won the level
-void Level::onUpdate() {
-	this->addHuds();
-
-	updateScoreBoard();
-
-	chrono::duration<double> diffFromPreviousCall = chrono::duration_cast<chrono::duration<double>>(chrono::high_resolution_clock::now() - timeAchievementPopupThrown);
-
-	if (diffFromPreviousCall.count() > 1 && activeAchievementPopup)
-	{
-		removeLayer(achievementZIndex);
-		activeAchievementPopup = false;
-	}
-
-	if (this->win) {
-		player->kill();
-		increaseTotalGameScore(100);
-		throwAchievement("Level " + to_string(stateMachine.levelToBuild) + " completed!");
-		SaveGameData save = savegame->getCurrentGameData();
-		save.levelData[stateMachine.levelToBuild].completed = true;
-		savegame->saveCurrentGameData(save);
-		stateMachine.switchToScene("WinScreen", false);
-		return;
-	}
-	if (player->getIsDead()) {
-		stateMachine.switchToScene("DeathScreen", false);
-		return;
-	}
-
-	for (auto object : this->getAllObjectsInScene()) // TODO get only the non static objects, without looping thru them again and again
-	{
-		if (!object->getStatic()) {
-			object->onUpdate();
-
-			if (ICharacter* character = dynamic_cast<ICharacter*>(object)) {
-				if (character->getIsDead() && !character->getIsRemoved()) {
-					// TODO Death animation
-					object->setIsRemoved(true);
-					removeObjectFromScene(object);
-					engine.restartPhysicsWorld();
-					increaseTotalGameScore(10);
-					throwAchievement("First Kill");
-				}
-			}
-		}
-	}
-}
-
-/// @brief
 /// Execute pause logic
 void Level::pause() {
 	for (const auto& s : sounds) {
@@ -275,7 +272,3 @@ void Level::pause() {
 	}
 }
 
-void Level::onDetach() 
-{
-	Scene::onDetach();
-}

@@ -1,5 +1,4 @@
 #pragma once
-#include "Game/SpriteState.h"
 #include "Game/Characters/Player/Player.h"
 #include "Game/Scenes/Statemachine/SceneStateMachine.h"
 #include "Game/SaveGame/Savegame.h"
@@ -13,6 +12,7 @@ public:
 	int run();
 private:
 	Engine engine;
+	ICommandBuilder* commandBuilder;
 	shared_ptr<Savegame> savegame;
 
 	shared_ptr<SceneStateMachine> stateMachine;
