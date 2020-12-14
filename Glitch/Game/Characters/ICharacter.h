@@ -60,7 +60,7 @@ public:
 protected:
 	int currentHealth = 0;
 	int totalHealth = 0;
-	bool invincible = true;
+	bool invincible = false;
 	bool canJump = false;
 	float spawnX = 0;
 	float spawnY = 0;
