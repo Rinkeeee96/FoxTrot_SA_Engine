@@ -87,6 +87,7 @@ bool KeypressInvoker::isRegistered(const ICommand& command) {
 	}
 	return false;
 }
+
 /// @brief
 /// Attempts to find a keycode in the commands list
 /// @returns returns true if the keycode is found
