@@ -6,9 +6,9 @@
 Game::Game()
 {
 	engine = make_unique<Engine>();
-	commandBuilder = new CommandBuilder();
+	commandBuilder = make_unique<CommandBuilder>();
 	savegame = shared_ptr<Savegame>(new Savegame());
-	stateMachine = shared_ptr<SceneStateMachine>(new SceneStateMachine{ engine, savegame });
+	stateMachine = make_unique<SceneStateMachine>(engine, savegame);
 }
 
 /// @brief This function contains the game loop
