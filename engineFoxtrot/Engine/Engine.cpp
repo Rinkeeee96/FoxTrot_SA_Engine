@@ -65,7 +65,7 @@ void Engine::deregisterScene(const int id)
 /// @brief
 /// Updates the fps counter
 void Engine::updateFps() {
-	frameData.updateFps();
+	frameData->updateFps();
 }
 
 /// @brief
@@ -87,12 +87,13 @@ void Engine::restartPhysicsWorld()
 /// @returns float
 float Engine::getDeltaTime(int timeStep)
 {
-	return frameData.calculateDeltaTime(timeStep);
+	return frameData->calculateDeltaTime(timeStep);
 }
 
 /// @brief The startup function for the engine is for setting the currentScene pointer and the general initialisation
 void Engine::start()
 {
+	frameData = make_unique<FrameData>();
 	videoEngine.pointerToCurrentScene = &sceneManager.currentScene;
 	physicsEngine.pointerToCurrentScene = &sceneManager.currentScene;
 	particleEngine.pointerToCurrentScene = &sceneManager.currentScene;

@@ -8,7 +8,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTestsEngine
 {
-	FrameData fpsDataMock;
+	unique_ptr<FrameData>& fpsDataMock = make_unique<FrameData>();
 
 	TEST_CLASS(PhysicsEngineTest)
 	{

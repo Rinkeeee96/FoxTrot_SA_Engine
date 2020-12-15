@@ -34,7 +34,7 @@ class b2Body;
 class PhysicsFacade : public IPhysicsFacade
 {
 public:
-	PhysicsFacade(EventDispatcher& _dispatcher, FrameData& _frameData);
+	PhysicsFacade(EventDispatcher& _dispatcher, unique_ptr<FrameData>& _frameData);
 	~PhysicsFacade();
 
 	void addStaticObject(PhysicsBody* object) override;
@@ -61,5 +61,5 @@ private:
 	map <PhysicsBody*, b2Body*> bodies;
 	b2Body* findBody(const int objectId);
 
-	FrameData& frameData;
+	unique_ptr<FrameData>& frameData;
 };

@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "VideoEngine.h"
 
-VideoEngine::VideoEngine(FrameData& _frameData) : frameData(_frameData)
+VideoEngine::VideoEngine(unique_ptr<FrameData>& _frameData) : frameData(_frameData)
 {
 
 }
@@ -35,7 +35,7 @@ void VideoEngine::loadImage(const SpriteObject& spriteObject)
 /// @brief Sets the sprite on the screen
 /// @param Object 
 void VideoEngine::renderCopy(Drawable& object) {
-	videoFacade->renderCopy(object, frameData.calculateDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
+	videoFacade->renderCopy(object, frameData->calculateDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
 }
 
 /// @brief 
@@ -222,7 +222,7 @@ void VideoEngine::updateScreen()
 /// @brief
 /// Calls the drawFps method with parameters for all calculated Fps types
 void VideoEngine::drawFps() {
-	drawFps(frameData.getFps(), WINDOW_WIDTH, WINDOW_HEIGHT, "Fps: ");
+	drawFps(frameData->getFps(), WINDOW_WIDTH, WINDOW_HEIGHT, "Fps: ");
 }
 
 /// @brief

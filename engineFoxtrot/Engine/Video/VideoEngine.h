@@ -27,7 +27,7 @@
 class API VideoEngine : public ISubsystem
 {
 public:
-	VideoEngine(FrameData& _frameData);
+	VideoEngine(unique_ptr<FrameData>& _frameData);
 	~VideoEngine();
 
 	void loadImage(const SpriteObject& spriteObject);
@@ -55,6 +55,6 @@ private:
 
 	IVideoFacade* videoFacade = nullptr;
 	
-	FrameData& frameData;
+	unique_ptr<FrameData>& frameData;
 	bool shouldDrawFps = false;
 };

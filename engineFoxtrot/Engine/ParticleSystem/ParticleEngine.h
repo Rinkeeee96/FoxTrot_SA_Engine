@@ -10,7 +10,7 @@
 class API ParticleEngine: public ISubsystem
 {
 public:
-	ParticleEngine(FrameData& _frameData);
+	ParticleEngine(unique_ptr<FrameData>& _frameData);
 	~ParticleEngine();
 
 	void start(EventDispatcher& dispatcher) override;
@@ -23,7 +23,7 @@ public:
 
 private:
 	void checkIfObjectValueAndParticleValueMatch(ParticleAdapter& particle);
-	FrameData& frameData;
+	unique_ptr<FrameData>& frameData;
 };
 
 

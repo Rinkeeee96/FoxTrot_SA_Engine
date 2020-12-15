@@ -70,7 +70,7 @@ private:
 	float deltaTimePhysics = 0;
 	float deltaTimeRender = 0;
 	
-	FrameData frameData;
+	unique_ptr<FrameData> frameData;
 	KeypressInvoker* keypressInvoker;
 
 	SceneManager sceneManager;

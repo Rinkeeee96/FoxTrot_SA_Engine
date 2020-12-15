@@ -6,7 +6,7 @@
 /// @brief Constructor
 /// @param _frameData
 /// A reference to the frameData class owned by Engine, used for accessing deltaTime
-ParticleEngine::ParticleEngine(FrameData& _frameData) : frameData{ _frameData }
+ParticleEngine::ParticleEngine(unique_ptr<FrameData>& _frameData) : frameData{ _frameData }
 {
 }
 
@@ -33,7 +33,7 @@ void ParticleEngine::update()
 	{
 		if (particle != nullptr && particle->getIsParticle())
 		{
-			((ParticleAdapter*)particle)->update(frameData.calculateDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
+			((ParticleAdapter*)particle)->update(frameData->calculateDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
 
 			checkIfObjectValueAndParticleValueMatch((ParticleAdapter&)particle);
 		}

@@ -11,7 +11,7 @@
 class API PhysicsEngine : public ISubsystem
 {
 public:
-	PhysicsEngine(FrameData& _frameData);
+	PhysicsEngine(unique_ptr<FrameData>& _frameData);
 	~PhysicsEngine();
 
 	void registerObjectInCurrentVectorWithPhysicsEngine();
@@ -35,5 +35,5 @@ private:
 
 	// CurrentScene is stored because if this changes then the objects need to be reset.
 	int currentSceneID = 0;
-	FrameData& frameData;
+	unique_ptr<FrameData>& frameData;
 };
