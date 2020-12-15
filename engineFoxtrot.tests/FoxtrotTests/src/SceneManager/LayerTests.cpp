@@ -15,32 +15,28 @@ namespace UnitTestsEngine
 		{
 			// Arrange
 			Layer layer;
-			Object* object = new MockObject();
+			MockObject object;
 			// Act
-			layer.addObjectInLayer(object);
+			layer.addObjectInLayer(&object);
 			layer.removeObject(1);
 			// Assert
 			auto result = layer.objectExists(1);
 			Assert::IsFalse(result);
-
-			delete object;
 		}
 
 		TEST_METHOD(RemoveObject_NonExisting_Object_Should_ThrowError)
 		{
 			// Arrange
 			Layer layer;
-			Object* object = new MockObject();
+			MockObject object;
 			// Act
-			layer.addObjectInLayer(object);
+			layer.addObjectInLayer(&object);
 			try {
 				layer.removeObject(0);
 			}
 			// Assert
 			catch (exception e) {
 				Assert::AreEqual(e.what(), "object does not exist");
-
-				delete object;
 			}
 		}
 
@@ -48,38 +44,34 @@ namespace UnitTestsEngine
 		{
 			// Arrange
 			Layer layer;
-			Object* object = new MockObject();
+			MockObject object;
 			// Act
-			layer.addObjectInLayer(object);
+			layer.addObjectInLayer(&object);
 			layer.clearObjects();
 			// Assert
 			auto result = layer.objectExists(1);
 			Assert::IsFalse(result);
-
-			delete object;
 		}
 
 		TEST_METHOD(ObjectExists_Existing_Object_Should_Return_True)
 		{
 			// Arrange
 			Layer layer;
-			Object* object = new MockObject();
+			MockObject object;
 			// Act
-			layer.addObjectInLayer(object);
+			layer.addObjectInLayer(&object);
 			// Assert
 			auto result = layer.objectExists(1);
 			Assert::IsTrue(result);
-
-			delete object;
 		}
 
 		TEST_METHOD(ObjectExists_NonExisting_Object_Should_Return_False)
 		{
 			// Arrange
 			Layer layer;
-			Object* object = new MockObject();
+			MockObject object;
 			// Act
-			layer.addObjectInLayer(object);
+			layer.addObjectInLayer(&object);
 			// Assert
 			auto result = layer.objectExists(0);
 			Assert::IsFalse(result);
@@ -89,17 +81,15 @@ namespace UnitTestsEngine
 		{
 			// Arrange
 			Layer layer;
-			Object* object = new MockObject();
+			MockObject object;
 			// Act
-			layer.addObjectInLayer(object);
+			layer.addObjectInLayer(&object);
 			try {
 				layer.getObjectsInLayer();
 			}
 			// Assert
 			catch (exception e) {
 				Assert::AreEqual(e.what(), "object does not exist");
-
-				delete object;
 			}
 		}
 
@@ -107,15 +97,13 @@ namespace UnitTestsEngine
 		{
 			// Arrange
 			Layer layer;
-			Object* object = new MockObject();
+			MockObject object;
 			// Act
-			layer.addObjectInLayer(object);
+			layer.addObjectInLayer(&object);
 			// Assert
 			auto result = layer.getObjectsInLayer();
 			auto x = result[1];
 			Assert::AreEqual(x->getObjectId(), 1);
-
-			delete object;
 		}
 	};
 }

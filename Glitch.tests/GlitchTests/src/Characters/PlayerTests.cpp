@@ -9,11 +9,6 @@ namespace UnitTestsGlitch
 	TEST_CLASS(PlayerTests)
 	{
 	public:
-		/*
-			TODO:
-			bool onCollisionBeginEvent(const Event& event);
-			bool onCollisionEndEvent(const Event& event);
-		*/
 		TEST_METHOD(Player_RemoveHealth_Invincible_Should_NotRemoveHealth)
 		{
 			// Arrange

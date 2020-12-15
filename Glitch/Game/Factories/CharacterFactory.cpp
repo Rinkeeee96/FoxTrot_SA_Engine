@@ -18,6 +18,9 @@ void CharacterFactory::registerCharacter(string name, ICharacter* character, int
 		*textureID += static_cast<int>(spriteMap.size());
 		spriteObjectMap.insert(pair<string, map<SpriteState, SpriteObject*>>(name, spriteMap));
 	}
+	else {
+		throw exception("identifier already registered");
+	}
 }
 
 /// @brief 
@@ -35,6 +38,9 @@ ICharacter* CharacterFactory::create(string name, int id) {
 		auto sprites = spriteObjectMap[name];
 
 		map<SpriteState, SpriteObject*>::iterator it = sprites.begin();
+		if (sprites.begin() == sprites.end()) {
+			return clone;
+		}
 		while (it != sprites.end())
 		{
 			clone->registerSprite(it->first, it->second);
@@ -43,5 +49,7 @@ ICharacter* CharacterFactory::create(string name, int id) {
 		clone->changeToState(SpriteState::DEFAULT);
 		return clone;
 	}
-	throw exception(GAME_ERRORCODES[ENTITY_NOT_FOUND]);
+	else {
+		throw exception("identifier does not exist");
+	}
 }

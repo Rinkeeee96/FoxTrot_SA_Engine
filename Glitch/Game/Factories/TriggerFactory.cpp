@@ -10,6 +10,9 @@ void TriggerFactory::registerTrigger(string name, BaseTrigger* trigger) {
 	if (triggerMap.count(name) == 0) {
 		triggerMap.insert(pair<std::string, BaseTrigger*>(name, trigger));
 	}
+	else {
+		throw exception("identifier does not exist");
+	}
 }
 
 /// @brief Creates an empty triger to clone to
@@ -21,5 +24,7 @@ BaseTrigger* TriggerFactory::create(string name, int id) {
 		auto clone = triggerMap[name]->clone(id);
 		return clone;
 	}
-	throw exception(GAME_ERRORCODES[ENTITY_NOT_FOUND]);
+	else {
+		throw exception("identifier does not exist");
+	}
 }
