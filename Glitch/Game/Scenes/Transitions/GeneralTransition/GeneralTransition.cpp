@@ -90,7 +90,7 @@ void GeneralTransition::onUpdate(float deltaTime)
 {
 	timer += deltaTime;
 
-	if (timer > 0.5 && !moveCharacter)
+	if (timer > 0.75 && !moveCharacter)
 	{
 		if (progressBarFiller->getWidth() >= 685)
 		{
