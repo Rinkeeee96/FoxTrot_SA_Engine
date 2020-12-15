@@ -11,7 +11,6 @@ public:
 	API float getHeight() const;
 	API float getWidth() const;
 	API const char * getFileName() const;
-	API float getLeftPos(uint32_t ticks);
 	API float getLeftPos(float deltaTime);
 	API void freeze(int number);
 	API void freezeOn(int number);
