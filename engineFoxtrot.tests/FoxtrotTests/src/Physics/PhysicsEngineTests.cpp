@@ -19,8 +19,8 @@ namespace UnitTestsEngine
 
 			EventDispatcher dispatcher;
 			engine.start(dispatcher);
-			Scene* testScene = new MockScene();
-			Scene** pptr;
+			shared_ptr<Scene> testScene = shared_ptr<Scene>(new MockScene());
+			shared_ptr<Scene>* pptr;
 
 			Object* object = new MockObject();
 			object->setHeight(100);
@@ -49,8 +49,8 @@ namespace UnitTestsEngine
 			PhysicsEngine engine = PhysicsEngine();
 			EventDispatcher dispatcher;
 			engine.start(dispatcher);
-			Scene* testScene = new MockScene();
-			Scene** pptr;
+			shared_ptr<Scene> testScene = shared_ptr<Scene>(new MockScene());
+			shared_ptr<Scene>* pptr;
 			Object* object = new MockObject();
 			object->setHeight(100);
 			object->setWidth(100);
@@ -80,8 +80,8 @@ namespace UnitTestsEngine
 			PhysicsEngine engine = PhysicsEngine();
 			EventDispatcher dispatcher;
 			engine.start(dispatcher);
-			Scene* testScene = new MockScene();
-			Scene** pptr;
+			shared_ptr<Scene> testScene = shared_ptr<Scene>(new MockScene());
+			shared_ptr<Scene>* pptr;
 			Object* object = new MockObject();
 			object->setHeight(100);
 			object->setWidth(100);
@@ -110,8 +110,8 @@ namespace UnitTestsEngine
 			PhysicsEngine engine = PhysicsEngine();
 			EventDispatcher dispatcher;
 			engine.start(dispatcher);
-			Scene* testScene = new MockScene();
-			Scene** pptr;
+			shared_ptr<Scene> testScene = shared_ptr<Scene>(new MockScene());
+			shared_ptr<Scene>* pptr;
 			Object* object = new MockObject();
 			object->setHeight(100);
 			object->setWidth(100);
@@ -143,8 +143,8 @@ namespace UnitTestsEngine
 			PhysicsEngine engine = PhysicsEngine();
 			EventDispatcher dispatcher;
 			engine.start(dispatcher);
-			Scene* testScene = new MockScene();
-			Scene** pptr;
+			shared_ptr<Scene> testScene = shared_ptr<Scene>(new MockScene());
+			shared_ptr<Scene>* pptr;
 			Object* object = new MockObject();
 			object->setHeight(100);
 			object->setWidth(100);
@@ -174,8 +174,8 @@ namespace UnitTestsEngine
 			PhysicsEngine engine = PhysicsEngine();
 			EventDispatcher dispatcher;
 			engine.start(dispatcher);
-			Scene* testScene = new MockScene();
-			Scene** pptr;
+			shared_ptr<Scene> testScene = shared_ptr<Scene>(new MockScene());
+			shared_ptr<Scene>* pptr;
 			Object* object = new MockObject();
 			object->setHeight(100);
 			object->setWidth(100);
@@ -205,8 +205,8 @@ namespace UnitTestsEngine
 			PhysicsEngine engine = PhysicsEngine();
 			EventDispatcher dispatcher;
 			engine.start(dispatcher);
-			Scene* testScene = new MockScene();
-			Scene** pptr;
+			shared_ptr<Scene> testScene = shared_ptr<Scene>(new MockScene());
+			shared_ptr<Scene>* pptr;
 			Object* object = new MockObject();
 			object->setHeight(100);
 			object->setWidth(100);

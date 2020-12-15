@@ -9,8 +9,8 @@
 class PhysicsEngine : public ISubsystem
 {
 public:
-	PhysicsEngine();
-	~PhysicsEngine();
+	API PhysicsEngine();
+	API ~PhysicsEngine();
 
 	API void registerObjectInCurrentVectorWithPhysicsEngine();
 
