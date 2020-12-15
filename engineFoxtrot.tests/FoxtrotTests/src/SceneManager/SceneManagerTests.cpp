@@ -15,13 +15,12 @@ namespace UnitTestsEngine
 		{
 			// Arrange
 			SceneManager scenemager;
-			Scene* scene = new MockScene();
+			MockScene scene;
 			// Act
-			scenemager.insertScene(scene);
+			scenemager.insertScene(&scene);
 			scenemager.deregisterScene(1);
 			// Assert
 			Assert::IsTrue(true);
-			delete scene;
 		}
 		TEST_METHOD(DeregisterScene_NonExistingId_Should_ThrowError)
 		{
@@ -40,13 +39,12 @@ namespace UnitTestsEngine
 		{
 			// Arrange
 			SceneManager scenemager;
-			Scene* scene = new MockScene();
+			MockScene scene;
 			// Act
-			scenemager.insertScene(scene);
+			scenemager.insertScene(&scene);
 			auto result = scenemager.getSceneWithID(1);
 			// Assert
 			Assert::AreEqual(result->getSceneID(), 1);
-			delete scene;
 
 		}
 
@@ -68,13 +66,12 @@ namespace UnitTestsEngine
 		{
 			// Arrange
 			SceneManager scenemager;
-			Scene* scene = new MockScene();
+			MockScene scene;
 			// Act
-			scenemager.insertScene(scene);
+			scenemager.insertScene(&scene);
 			auto result = scenemager.setCurrentScene(1);
 			// Assert
 			Assert::IsTrue(true);
-			delete scene;
 		}
 
 		TEST_METHOD(SceneManagerSetCurrentScene_NonExisting_Scene_Should_Throw_Error)
@@ -86,7 +83,7 @@ namespace UnitTestsEngine
 				scenemager.setCurrentScene(0);
 			}
 			// Assert
-			catch(exception e){
+			catch (exception e) {
 				Assert::AreEqual(e.what(), "scene does not exist");
 			}
 		}

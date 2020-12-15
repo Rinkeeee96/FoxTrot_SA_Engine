@@ -195,6 +195,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)engineFoxtrot.tests\TestAssets" "$(OutDir)Te
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FoxtrotTests\src\mocks\MockKeyPressedCommand.h" />
     <ClInclude Include="FoxtrotTests\src\mocks\MockObject.h" />
     <ClInclude Include="FoxtrotTests\src\mocks\MockScene.h" />
     <ClInclude Include="pch.h" />
