@@ -110,7 +110,7 @@ SDL_Rect VideoFacade::createRect(Drawable& object) {
 /// @brief 
 /// Takes the sprites from the Textuture map animated and copys them to the screen
 /// @param object 
-void VideoFacade::renderCopy(Drawable& object)
+void VideoFacade::renderCopy(Drawable& object, float deltaTime)
 {	
 	if (object.getIsText()) {
 		SDL_Rect destination = this->createRect(object);
@@ -125,13 +125,8 @@ void VideoFacade::renderCopy(Drawable& object)
 	if (textureMap[sprite.getTextureID()] == NULL)  {
 		throw exception("ERROR_CODE_SVIFACADE_RENDERCOPY_SPRITE_ID_IS_NULL");
 	}
-	//generate image 
-	Uint32 ticks = SDL_GetTicks();
-	Uint32 seconds = 0;
-	if (sprite.getAnimationDelay() != 0)
-		seconds = ticks / sprite.getAnimationDelay();
 
-	float leftpos = sprite.getLeftPos(seconds);
+	float leftpos = sprite.getLeftPos(deltaTime);
 	int top = 0;
 
 	//generate rectangele for selecting 1 image of a full sprite

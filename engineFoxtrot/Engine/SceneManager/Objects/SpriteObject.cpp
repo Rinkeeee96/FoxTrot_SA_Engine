@@ -53,3 +53,21 @@ float SpriteObject::getLeftPos(uint32_t tick){
 	currentAnimation = pos;
 	return pos * width;
 }
+
+float SpriteObject::getLeftPos(float deltaTime)
+{
+	animationTimer += deltaTime * 1000;
+
+	if (freezedAnimation != -1) {
+		// -1 this is because we count from 0 and not from 1
+		return width * (freezeBy - 1);
+	}
+	if (freezeBy != -1 && freezeBy - 1 <= currentAnimation) {
+		// -1 this is because we count from 0 and not from 1
+		return width * (freezeBy - 1);
+	}
+
+	uint32_t pos = (int)(animationTimer / animationDelay) % lengthOfTextures;
+	currentAnimation = pos;
+	return pos * width;
+}

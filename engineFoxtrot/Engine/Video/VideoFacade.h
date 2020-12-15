@@ -26,7 +26,7 @@ public:
 	void clearScreen();
 	void drawScreen();
 	void loadImage(const SpriteObject& spriteObject);
-	void renderCopy(Drawable& object);
+	void renderCopy(Drawable& object, float deltaTime);
 
 	void drawParticle(const ParticleAdapter& part);
 
