@@ -48,46 +48,10 @@
     <ClCompile Include="GlitchTests\src\Commands\GameKeypressInvokerTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GlitchTests\src\PopUps\AchievementsPopupTests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GlitchTests\src\PopUps\InventoryPopupTests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GlitchTests\src\PopUps\PausePopupTests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GlitchTests\src\SaveGame\SaveGameTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GlitchTests\src\Scenes\ChapterOneSceneTests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GlitchTests\src\Scenes\CreditsSceneTests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GlitchTests\src\Scenes\DeathScreenTests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GlitchTests\src\Scenes\MainMenuTests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GlitchTests\src\Scenes\OverWorldTests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GlitchTests\src\Scenes\SaveScreenTests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GlitchTests\src\Scenes\SceneStateMachineTests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GlitchTests\src\Scenes\ShopSceneTests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GlitchTests\src\Scenes\TransitionSceneTests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GlitchTests\src\Scenes\WinScreenTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GlitchTests\src\States\Player\DamageCooldownStateTests.cpp">

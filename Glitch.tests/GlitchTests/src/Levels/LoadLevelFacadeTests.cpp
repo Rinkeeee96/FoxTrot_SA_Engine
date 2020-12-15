@@ -14,10 +14,10 @@ namespace UnitTestsGlitch
 		{
 			// Arrange
 			Engine engine;
-			LoadLevelFacade levelLoader{ engine };
 			EventDispatcher dispatcher;
 			shared_ptr<Savegame> savegame = shared_ptr<Savegame>(new Savegame());
 			SceneStateMachine statemachine{ engine, savegame };
+			LoadLevelFacade levelLoader{ engine };
 			LevelBuilder levelOneBuilder{ engine, 1, statemachine };
 
 			// Act

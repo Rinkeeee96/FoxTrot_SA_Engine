@@ -36,50 +36,33 @@ namespace UnitTestsGlitch
 			delete result;
 		}
 
-		TEST_METHOD(KeypressInvoker_Delete_Global_Commands_Should_Remove_GlobalCommands)
-		{
-			// Arrange
-			CommandBuilder commandBuilder;
-			GameKeypressInvoker* result = commandBuilder.readBindingsAndCreateInvoker();
-			// Act
-			result->destroyGlobalCommands();
-			// Assert
-			Assert::AreEqual((int)result->getGlobalCommands().count(KeyCode::KEY_P), 0);
-			Assert::AreEqual((int)result->getGlobalCommands().count(KeyCode::KEY_I), 0);
-
-			Assert::AreEqual((int)result->getPlayerCommands().count(KeyCode::KEY_G), 1);
-			Assert::AreEqual((int)result->getPlayerCommands().count(KeyCode::KEY_A), 1);
-			Assert::AreEqual((int)result->getPlayerCommands().count(KeyCode::KEY_D), 1);
-			Assert::AreEqual((int)result->getPlayerCommands().count(KeyCode::KEY_SPACE), 1);
-			delete result;
-		}
-		TEST_METHOD(KeypressInvoker_Delete_Player_Commands_Should_Remove_PlayerCommands)
-		{
-			// Arrange
-			CommandBuilder commandBuilder;
-			GameKeypressInvoker* result = commandBuilder.readBindingsAndCreateInvoker();
-			// Act
-			result->destroyGlobalCommands();
-			// Assert
-			Assert::AreEqual((int)result->getGlobalCommands().count(KeyCode::KEY_P), 1);
-			Assert::AreEqual((int)result->getGlobalCommands().count(KeyCode::KEY_I), 1);
-
-			Assert::AreEqual((int)result->getPlayerCommands().count(KeyCode::KEY_G), 0);
-			Assert::AreEqual((int)result->getPlayerCommands().count(KeyCode::KEY_A), 0);
-			Assert::AreEqual((int)result->getPlayerCommands().count(KeyCode::KEY_D), 0);
-			Assert::AreEqual((int)result->getPlayerCommands().count(KeyCode::KEY_SPACE), 0);
-			delete result;
-		}
-
-		TEST_METHOD(KeypressInvoker_Update_Command_Should_Set_New_Command)
+		TEST_METHOD(KeypressInvoker_Update_Command__Existing_Should_ThrowError)
 		{
 			// Arrange
 			CommandBuilder commandBuilder;
 			GameKeypressInvoker* result = commandBuilder.readBindingsAndCreateInvoker();
 			MockCommand m;
 			// Act
-			result->updateCommand(KeyCode::KEY_G, &m);
+			try {
+				result->updateCommand(KeyCode::KEY_G, &m);
+			}
+			catch (exception e) {
+				Assert::AreEqual(e.what(), "trying to update an unregistered command");
+			}
 			// Assert
+			delete result;
+		}
+
+		TEST_METHOD(KeypressInvoker_Update_Command_ShouldUpdateCommand)
+		{
+			// Arrange
+			CommandBuilder commandBuilder;
+			GameKeypressInvoker* result = commandBuilder.readBindingsAndCreateInvoker();
+			// Act
+			// TODO
+			//result->updateCommand(KeyCode::KEY_O, result->getGlobalCommands()[KeyCode::KEY_G]);
+			// Assert
+			Assert::IsTrue(false);
 			delete result;
 		}
 
@@ -91,7 +74,7 @@ namespace UnitTestsGlitch
 			GameKeypressInvoker* result = commandBuilder.readBindingsAndCreateInvoker();
 			MockCommand m;
 			// Act
-			result->updateCommand(KeyCode::KEY_G, &m);
+			result->registerCommand(KeyCode::KEY_G, &m);
 			result->enqueueCommand(KeyCode::KEY_G);
 			result->executeCommandQueue(dispatcher);
 			// Assert
@@ -107,7 +90,7 @@ namespace UnitTestsGlitch
 			GameKeypressInvoker* result = commandBuilder.readBindingsAndCreateInvoker();
 			MockCommand m;
 			// Act
-			result->updateCommand(KeyCode::KEY_G, &m);
+			result->registerCommand(KeyCode::KEY_G, &m);
 			result->enqueueCommand(KeyCode::KEY_A);
 			result->executeCommandQueue(dispatcher);
 			// Assert

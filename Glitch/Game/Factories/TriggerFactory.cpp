@@ -11,7 +11,7 @@ void TriggerFactory::registerTrigger(string name, BaseTrigger* trigger) {
 		triggerMap.insert(pair<std::string, BaseTrigger*>(name, trigger));
 	}
 	else {
-		throw exception("identifier does not exist");
+		throw exception("identifier already registered");
 	}
 }
 
