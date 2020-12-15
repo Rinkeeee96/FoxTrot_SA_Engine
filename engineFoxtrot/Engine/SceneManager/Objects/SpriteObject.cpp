@@ -53,5 +53,8 @@ float SpriteObject::getLeftPos(float deltaTime)
 
 	uint32_t pos = (int)(animationTimer / animationDelay) % lengthOfTextures;
 	currentAnimation = pos;
+	if (animationTimer >= (lengthOfTextures * animationDelay)) {
+		animationTimer = 0;
+	}
 	return pos * width;
 }
