@@ -18,7 +18,7 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
         
-    - name: Doxygen Action
+    - name: Doxygen Action Engine
       uses: mattnotmitt/doxygen-action@v1.1.0
       with:
         # Path to Doxyfile
@@ -26,10 +26,26 @@ jobs:
         # Working directory
         working-directory: "./engineFoxtrot" # default is .
     
-    - name: Deploy
+    - name: Deploy engine
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         # Default Doxyfile build documentation to html directory. 
         # Change the directory if changes in Doxyfile
         publish_dir: ./engineFoxtrot/html
+
+    - name: Doxygen Action Game
+      uses: mattnotmitt/doxygen-action@v1.1.0
+      with:
+        # Path to Doxyfile
+        doxyfile-path: "../DoxyfileGame" # default is ./Doxyfile
+        # Working directory
+        working-directory: "./Glitch" # default is .
+    
+    - name: Deploy Game
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        # Default Doxyfile build documentation to html directory. 
+        # Change the directory if changes in Doxyfile
+        publish_dir: ./Glitch/html
