@@ -16,9 +16,10 @@ int Game::run() {
 	try {
 		engine.start();
 		engine.useCustomCommandInvoker(commandBuilder->readBindingsAndCreateInvoker());
-		stateMachine->switchToScene("MainMenu", false);
+
 		string path = "Assets/SaveGame/saveGameData.json";
 		savegame->readSaveGameDataFromJson(path);
+
 		stateMachine->switchToScene("MainMenu", false);
 
 		engine.setEngineRunning(true);
