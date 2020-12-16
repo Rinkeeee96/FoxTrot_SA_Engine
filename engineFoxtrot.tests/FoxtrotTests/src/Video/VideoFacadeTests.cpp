@@ -19,8 +19,8 @@ namespace UnitTestsEngine
 			EventDispatcher dispatcher;
 			VideoFacade videoEngine;
 			Drawable drawable;
-			SpriteObject spriteObject{ 1, 1, 1, 1, 1, "TestAssets/testPNG.png" };
-			drawable.registerSprite(1, &spriteObject);
+			shared_ptr<SpriteObject> spriteObject = shared_ptr<SpriteObject>(new SpriteObject{ 1, 1, 1, 1, 1, "TestAssets/testPNG.png" });
+			drawable.registerSprite(1, spriteObject);
 			// Act
 			videoEngine.loadImage(spriteObject);
 			// Assert
@@ -34,8 +34,8 @@ namespace UnitTestsEngine
 			EventDispatcher dispatcher;
 			VideoFacade videoEngine;
 			Drawable drawable;
-			SpriteObject spriteObject{ 1, 1, 1, 1, 1, NULL };
-			drawable.registerSprite(1, &spriteObject);
+			shared_ptr<SpriteObject> spriteObject = shared_ptr<SpriteObject>(new SpriteObject{ 1, 1, 1, 1, 1, NULL });
+			drawable.registerSprite(1, spriteObject);
 			// Act
 			try {
 				videoEngine.loadImage(spriteObject);
@@ -52,10 +52,10 @@ namespace UnitTestsEngine
 			FrameData frameData;
 			EventDispatcher dispatcher;
 			VideoFacade videoEngine;
-			Drawable drawable;
-			SpriteObject spriteObject{ 1, 1, 1, 1, 1, "TestAssets/testPNG.png" };
-			drawable.registerSprite(1, &spriteObject);
-			drawable.changeToState(1);
+			shared_ptr<Drawable> drawable = shared_ptr<Drawable>(new Drawable());
+			shared_ptr<SpriteObject> spriteObject = shared_ptr<SpriteObject>(new SpriteObject{ 1, 1, 1, 1, 1, "TestAssets/testPNG.png" });
+			drawable->registerSprite(1, spriteObject);
+			drawable->changeToState(1);
 			// Act
 			videoEngine.renderCopy(drawable);
 			// Assert
@@ -68,10 +68,10 @@ namespace UnitTestsEngine
 			FrameData frameData;
 			EventDispatcher dispatcher;
 			VideoFacade videoEngine;
-			Drawable drawable;
-			SpriteObject spriteObject{ 1, 1, 1, 1, 1, NULL };
-			drawable.registerSprite(1, &spriteObject);
-			drawable.changeToState(1);
+			shared_ptr<Drawable> drawable = shared_ptr<Drawable>(new Drawable());
+			shared_ptr<SpriteObject> spriteObject = shared_ptr<SpriteObject>(new SpriteObject{ 1, 1, 1, 1, 1, NULL});
+			drawable->registerSprite(1, spriteObject);
+			drawable->changeToState(1);
 			// Act
 			try {
 				videoEngine.renderCopy(drawable);

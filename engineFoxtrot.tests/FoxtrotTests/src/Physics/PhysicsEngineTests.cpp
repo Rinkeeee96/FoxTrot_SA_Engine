@@ -22,7 +22,7 @@ namespace UnitTestsEngine
 			shared_ptr<Scene> testScene = shared_ptr<Scene>(new MockScene());
 			shared_ptr<Scene>* pptr;
 
-			Object* object = new MockObject();
+			shared_ptr<Object> object = shared_ptr<MockObject>(new MockObject());
 			object->setHeight(100);
 			object->setWidth(100);
 			object->setPositionX(30);
@@ -51,7 +51,7 @@ namespace UnitTestsEngine
 			engine.start(dispatcher);
 			shared_ptr<Scene> testScene = shared_ptr<Scene>(new MockScene());
 			shared_ptr<Scene>* pptr;
-			Object* object = new MockObject();
+			shared_ptr<Object> object = shared_ptr<MockObject>(new MockObject());
 			object->setHeight(100);
 			object->setWidth(100);
 			object->setPositionX(30);
@@ -82,7 +82,7 @@ namespace UnitTestsEngine
 			engine.start(dispatcher);
 			shared_ptr<Scene> testScene = shared_ptr<Scene>(new MockScene());
 			shared_ptr<Scene>* pptr;
-			Object* object = new MockObject();
+			shared_ptr<Object> object = shared_ptr<MockObject>(new MockObject());
 			object->setHeight(100);
 			object->setWidth(100);
 			object->setPositionX(30);
@@ -112,7 +112,7 @@ namespace UnitTestsEngine
 			engine.start(dispatcher);
 			shared_ptr<Scene> testScene = shared_ptr<Scene>(new MockScene());
 			shared_ptr<Scene>* pptr;
-			Object* object = new MockObject();
+			shared_ptr<Object> object = shared_ptr<MockObject>(new MockObject());
 			object->setHeight(100);
 			object->setWidth(100);
 			object->setPositionX(30);
@@ -145,7 +145,7 @@ namespace UnitTestsEngine
 			engine.start(dispatcher);
 			shared_ptr<Scene> testScene = shared_ptr<Scene>(new MockScene());
 			shared_ptr<Scene>* pptr;
-			Object* object = new MockObject();
+			shared_ptr<Object> object = shared_ptr<MockObject>(new MockObject());
 			object->setHeight(100);
 			object->setWidth(100);
 			object->setPositionX(30);
@@ -176,7 +176,7 @@ namespace UnitTestsEngine
 			engine.start(dispatcher);
 			shared_ptr<Scene> testScene = shared_ptr<Scene>(new MockScene());
 			shared_ptr<Scene>* pptr;
-			Object* object = new MockObject();
+			shared_ptr<Object> object = shared_ptr<MockObject>(new MockObject());
 			object->setHeight(100);
 			object->setWidth(100);
 			object->setPositionX(30);
@@ -207,7 +207,7 @@ namespace UnitTestsEngine
 			engine.start(dispatcher);
 			shared_ptr<Scene> testScene = shared_ptr<Scene>(new MockScene());
 			shared_ptr<Scene>* pptr;
-			Object* object = new MockObject();
+			shared_ptr<Object> object = shared_ptr<MockObject>(new MockObject());
 			object->setHeight(100);
 			object->setWidth(100);
 			object->setPositionX(30);

@@ -27,8 +27,8 @@
 class VideoEngine : public ISubsystem
 {
 public:
-	VideoEngine(unique_ptr<FrameData>& _frameData);
-	~VideoEngine();
+	API VideoEngine(unique_ptr<FrameData>& _frameData);
+	API ~VideoEngine();
 
 	API void loadImage(const shared_ptr<SpriteObject> spriteObject);
 	API void renderCopy(shared_ptr<Drawable>);
