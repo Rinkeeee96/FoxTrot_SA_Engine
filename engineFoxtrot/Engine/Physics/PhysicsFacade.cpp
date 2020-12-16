@@ -6,7 +6,7 @@
 /// @brief Constructor
 PhysicsFacade::PhysicsFacade(EventDispatcher& _dispatcher) : dispatcher{_dispatcher }
 {
-	world = new b2World(b2Vec2(GRAVITY_SCALE, GRAVITY_FALL));
+	world = shared_ptr<b2World>(new b2World(b2Vec2(GRAVITY_SCALE, GRAVITY_FALL)));
 	world->SetContactListener(new ContactListenerAdapter(this, _dispatcher));
 }
 
@@ -244,7 +244,7 @@ void PhysicsFacade::Fall(const int objectId)
 void PhysicsFacade::cleanMap()
 {
 	bodies.clear();
-	delete world;
-	world = new b2World(b2Vec2(GRAVITY_SCALE, GRAVITY_FALL));
+	world.reset();
+	world = shared_ptr<b2World>(new b2World(b2Vec2(GRAVITY_SCALE, GRAVITY_FALL)));
 	world->SetContactListener(new ContactListenerAdapter(this, dispatcher));
 }
