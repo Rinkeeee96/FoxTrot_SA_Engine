@@ -56,6 +56,7 @@ public:
 	virtual map<SpriteState, SpriteObject*> buildSpritemap(int textureId) = 0;
 
 	void setInvincible(const bool invincible) { this->invincible = invincible; }
+	bool getInvincible() const { return this->invincible; }
 	virtual ICharacter* clone(int id) = 0;
 protected:
 	int currentHealth = 0;

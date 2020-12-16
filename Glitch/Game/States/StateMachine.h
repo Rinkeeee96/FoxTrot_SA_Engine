@@ -29,6 +29,10 @@ public:
     IState<T>& getCurrentState() const { return *this->currentState; };
 
     /// @brief 
+    /// get global state
+    IGlobalState<T>& getGlobalState() const { return *this->globalState; };
+
+    /// @brief 
     /// set global state
     void setGlobalState(IGlobalState<T>* _globalState) {
         this->globalState = _globalState;

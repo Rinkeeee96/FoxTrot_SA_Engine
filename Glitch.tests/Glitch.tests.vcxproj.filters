@@ -57,9 +57,6 @@
     <ClCompile Include="GlitchTests\src\States\Player\DamageCooldownStateTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GlitchTests\src\States\Player\GlobalStateTestsTests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GlitchTests\src\States\Player\GodStateTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

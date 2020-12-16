@@ -180,7 +180,6 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch.tests\TestAssetsGame" "$(OutDir)TestA
     <ClCompile Include="GlitchTests\src\SaveGame\SaveGameTests.cpp" />
     <ClCompile Include="GlitchTests\src\Scenes\SceneStateMachineTests.cpp" />
     <ClCompile Include="GlitchTests\src\States\Player\DamageCooldownStateTests.cpp" />
-    <ClCompile Include="GlitchTests\src\States\Player\GlobalStateTestsTests.cpp" />
     <ClCompile Include="GlitchTests\src\States\Player\GodStateTests.cpp" />
     <ClCompile Include="GlitchTests\src\States\Player\NormalState.cpp" />
     <ClCompile Include="GlitchTests\src\States\StateMachineTests.cpp" />

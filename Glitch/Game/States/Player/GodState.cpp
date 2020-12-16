@@ -14,8 +14,8 @@ void GodState::entry(Player* entity) {
 /// @param entity 
 void GodState::execute(Player* entity) {
 	entity->setCanJump(true);
-	entity->setTotalHealth(3);
-	entity->setCurrentHealth(3);
+	entity->setTotalHealth(entity->getTotalHealth());
+	entity->setCurrentHealth(entity->getTotalHealth());
 };
 
 /// @brief exit

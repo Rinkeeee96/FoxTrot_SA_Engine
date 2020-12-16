@@ -20,8 +20,14 @@ public:
 		auto collisionEvent = static_cast<const OnCollisionBeginEvent&>(event);
 		if (collisionEvent.getObjectOne().getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo().getObjectId() != this->getObjectId()) return false;
 
-		if (Player* characterObject = dynamic_cast<Player*>(&collisionEvent.getObjectOne())) this->level.setWin(true);
-		else if (Player* characterObject = dynamic_cast<Player*>(&collisionEvent.getObjectTwo())) this->level.setWin(true);
+		if (Player* characterObject = dynamic_cast<Player*>(&collisionEvent.getObjectOne())) {
+			this->level.setWin(true);
+			return true;
+		}
+		else if (Player* characterObject = dynamic_cast<Player*>(&collisionEvent.getObjectTwo())) {
+			this->level.setWin(true);
+			return true;
+		}
 		return false;
 	}
 };

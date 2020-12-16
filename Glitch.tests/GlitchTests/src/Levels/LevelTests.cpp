@@ -45,6 +45,7 @@ namespace UnitTestsGlitch
 			EventDispatcher dispatcher;
 
 			shared_ptr<Savegame> savegame = shared_ptr<Savegame>(new Savegame());
+			savegame->setCurrentGameData(1);
 			SceneStateMachine statemachine{ engine, savegame };
 			Level level{ 1, 100, 100, engine, statemachine };
 			Player player{ dispatcher };

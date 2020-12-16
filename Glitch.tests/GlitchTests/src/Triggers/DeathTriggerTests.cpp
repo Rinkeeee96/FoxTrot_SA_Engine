@@ -28,12 +28,17 @@ namespace UnitTestsGlitch
 			Assert::IsTrue(player.getIsDead());
 		}
 
-		TEST_METHOD(DeathTrigger_With_Slime_Should_Kill_Player)
+		TEST_METHOD(DeathTrigger_With_Slime_Should_Not_Kill_Slime)
 		{
 			// Arrange
 			EventDispatcher dispatcher;
 			DeathTrigger entity{ 1, dispatcher };
 			Slime slime{ 2, dispatcher };
+			Player player{ 2, dispatcher };
+			player.setTotalHealth(5);
+			player.setCurrentHealth(5);
+
+			slime.setPlayer(&player);
 			slime.setTotalHealth(5);
 			slime.setCurrentHealth(5);
 			// Act

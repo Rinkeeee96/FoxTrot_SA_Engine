@@ -8,7 +8,6 @@ namespace UnitTestsGlitch
 	TEST_CLASS(SaveGameTests)
 	{
 	public:
-
 		TEST_METHOD(DeleteGameData_Should_Delete_Saved_Game)
 		{
 			// Arrange
