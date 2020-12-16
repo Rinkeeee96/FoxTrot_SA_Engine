@@ -1,6 +1,6 @@
 var class_physics_engine =
 [
-    [ "PhysicsEngine", "class_physics_engine.html#a7fc9180ea453680df0b863fa157c5b92", null ],
+    [ "PhysicsEngine", "class_physics_engine.html#ac62b86cd30a7f73b2b82823c1ace0b49", null ],
     [ "~PhysicsEngine", "class_physics_engine.html#ae5f076ee99bbfdbc79ab2d27366d8476", null ],
     [ "clean", "class_physics_engine.html#a1b8eb1b60b64196cab53e89bef06d21b", null ],
     [ "getIPhysicsFacade", "class_physics_engine.html#aedfd2692ab9d4961aae766f72586a0fc", null ],
@@ -14,6 +14,7 @@ var class_physics_engine =
     [ "update", "class_physics_engine.html#a5558246d687304435d45c5e04c3eb29f", null ],
     [ "currentSceneID", "class_physics_engine.html#a858c48efe8067f869a2512301e609edc", null ],
     [ "dispatcher", "class_physics_engine.html#a6945956fed49dc5086c08bf324336169", null ],
+    [ "frameData", "class_physics_engine.html#a964c1d68f296b10f72412f32392d0fba", null ],
     [ "physicsFacade", "class_physics_engine.html#a6c5b158b02bc35ac02008cbedae5bfeb", null ],
     [ "pointerToCurrentScene", "class_physics_engine.html#a7a87eef7b319b415385b63724195fb41", null ]
 ];

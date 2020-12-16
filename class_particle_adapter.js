@@ -6,7 +6,7 @@ var class_particle_adapter =
     [ "getPositionX", "class_particle_adapter.html#a30360eb04353360da2104d1cfff2abf6", null ],
     [ "getPositionY", "class_particle_adapter.html#a23a955287a9e646791f334b96497cc35", null ],
     [ "getWidth", "class_particle_adapter.html#a949e48ec9000f0dac93219ac5be6066a", null ],
-    [ "onUpdate", "class_particle_adapter.html#a1a0ea4ff402bd39a96a9e7c6ccd1484a", null ],
+    [ "onUpdate", "class_particle_adapter.html#a7916445b9ce4747e968850bd268dfdcc", null ],
     [ "setHeight", "class_particle_adapter.html#a0bec66771c949c4d3805baadddadfb94", null ],
     [ "setPositionX", "class_particle_adapter.html#ab1de4f97d731c6e4800521a02750787e", null ],
     [ "setPositionY", "class_particle_adapter.html#aa5c750875f46d659751d4ad3b5f8fae2", null ],

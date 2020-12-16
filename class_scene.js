@@ -21,7 +21,7 @@ var class_scene =
     [ "getSceneWidth", "class_scene.html#ad9d05cb17a04f7754e8f38db29f157dc", null ],
     [ "onAttach", "class_scene.html#afc3766fe5466a09e8ea7d7a2ebb4e66f", null ],
     [ "onDetach", "class_scene.html#ac2f8580712a38a425315f99d9e5be2b9", null ],
-    [ "onUpdate", "class_scene.html#abb2ed971b11465980804ad4856a0fd66", null ],
+    [ "onUpdate", "class_scene.html#a1d2400532d781f338b25d70a088466c8", null ],
     [ "removeLayer", "class_scene.html#a10ad0900fe2b1649b9e9d662d1fccbe4", null ],
     [ "removeObjectFromScene", "class_scene.html#a4f06a5e001feb04ed82d23a7574779c5", null ],
     [ "setObjectToFollow", "class_scene.html#ac86043cea6ee1590cd16f3f090a1500b", null ],

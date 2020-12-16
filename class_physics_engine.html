@@ -85,10 +85,9 @@ Inheritance diagram for PhysicsEngine:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7fc9180ea453680df0b863fa157c5b92"><td class="memItemLeft" align="right" valign="top"><a id="a7fc9180ea453680df0b863fa157c5b92"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a7fc9180ea453680df0b863fa157c5b92">PhysicsEngine</a> ()</td></tr>
-<tr class="memdesc:a7fc9180ea453680df0b863fa157c5b92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br /></td></tr>
-<tr class="separator:a7fc9180ea453680df0b863fa157c5b92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac62b86cd30a7f73b2b82823c1ace0b49"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#ac62b86cd30a7f73b2b82823c1ace0b49">PhysicsEngine</a> (unique_ptr&lt; <a class="el" href="class_frame_data.html">FrameData</a> &gt; &amp;_frameData)</td></tr>
+<tr class="memdesc:ac62b86cd30a7f73b2b82823c1ace0b49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="class_physics_engine.html#ac62b86cd30a7f73b2b82823c1ace0b49">More...</a><br /></td></tr>
+<tr class="separator:ac62b86cd30a7f73b2b82823c1ace0b49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5f076ee99bbfdbc79ab2d27366d8476"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#ae5f076ee99bbfdbc79ab2d27366d8476">~PhysicsEngine</a> ()</td></tr>
 <tr class="memdesc:ae5f076ee99bbfdbc79ab2d27366d8476"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="class_physics_engine.html#ae5f076ee99bbfdbc79ab2d27366d8476">More...</a><br /></td></tr>
 <tr class="separator:ae5f076ee99bbfdbc79ab2d27366d8476"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -154,6 +153,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a858c48efe8067f869a2512301e609edc"><td class="memItemLeft" align="right" valign="top"><a id="a858c48efe8067f869a2512301e609edc"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>currentSceneID</b> = 0</td></tr>
 <tr class="separator:a858c48efe8067f869a2512301e609edc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a964c1d68f296b10f72412f32392d0fba"><td class="memItemLeft" align="right" valign="top"><a id="a964c1d68f296b10f72412f32392d0fba"></a>
+unique_ptr&lt; <a class="el" href="class_frame_data.html">FrameData</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>frameData</b></td></tr>
+<tr class="separator:a964c1d68f296b10f72412f32392d0fba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -165,6 +167,32 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>paused</b> = false</t
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Physics <a class="el" href="class_engine.html" title="Engine interface class connecting the game to the engine.">Engine</a> connected to the physics facade. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ac62b86cd30a7f73b2b82823c1ace0b49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac62b86cd30a7f73b2b82823c1ace0b49">&#9670;&nbsp;</a></span>PhysicsEngine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PhysicsEngine::PhysicsEngine </td>
+          <td>(</td>
+          <td class="paramtype">unique_ptr&lt; <a class="el" href="class_frame_data.html">FrameData</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>_frameData</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_frameData</td><td>A reference to the frameData class owned by <a class="el" href="class_engine.html" title="Engine interface class connecting the game to the engine.">Engine</a>, used for accessing deltaTime </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ae5f076ee99bbfdbc79ab2d27366d8476"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae5f076ee99bbfdbc79ab2d27366d8476">&#9670;&nbsp;</a></span>~PhysicsEngine()</h2>
 

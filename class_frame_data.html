@@ -84,6 +84,12 @@ API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <tr class="memitem:a799f538700525b3d1f6a72e894cdde99"><td class="memItemLeft" align="right" valign="top"><a id="a799f538700525b3d1f6a72e894cdde99"></a>
 API const double&#160;</td><td class="memItemRight" valign="bottom"><b>getFps</b> ()</td></tr>
 <tr class="separator:a799f538700525b3d1f6a72e894cdde99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9405c711fa366b7812e6fd8bddf4020"><td class="memItemLeft" align="right" valign="top"><a id="ad9405c711fa366b7812e6fd8bddf4020"></a>
+API const double&#160;</td><td class="memItemRight" valign="bottom"><b>getLastFrameFps</b> ()</td></tr>
+<tr class="separator:ad9405c711fa366b7812e6fd8bddf4020"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8596e7991bb934f861815af953d83f2a"><td class="memItemLeft" align="right" valign="top">API const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_data.html#a8596e7991bb934f861815af953d83f2a">calculateDeltaTime</a> (int timeStep)</td></tr>
+<tr class="memdesc:a8596e7991bb934f861815af953d83f2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the current deltaTime (1 / fps of the last frame)  <a href="class_frame_data.html#a8596e7991bb934f861815af953d83f2a">More...</a><br /></td></tr>
+<tr class="separator:a8596e7991bb934f861815af953d83f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -99,10 +105,41 @@ chrono::high_resolution_clock::time_point&#160;</td><td class="memItemRight" val
 <tr class="memitem:a7f747deee20e2ff9b55f9120bd22fabc"><td class="memItemLeft" align="right" valign="top"><a id="a7f747deee20e2ff9b55f9120bd22fabc"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>framesPerSecond</b> = 0</td></tr>
 <tr class="separator:a7f747deee20e2ff9b55f9120bd22fabc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a9409ff49cab916536b809f72825468"><td class="memItemLeft" align="right" valign="top"><a id="a6a9409ff49cab916536b809f72825468"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>lastFrameFps</b> = 0</td></tr>
+<tr class="separator:a6a9409ff49cab916536b809f72825468"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a094ca201b899b7eec0d9c501805d617e"><td class="memItemLeft" align="right" valign="top"><a id="a094ca201b899b7eec0d9c501805d617e"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> = true</td></tr>
 <tr class="separator:a094ca201b899b7eec0d9c501805d617e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8596e7991bb934f861815af953d83f2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8596e7991bb934f861815af953d83f2a">&#9670;&nbsp;</a></span>calculateDeltaTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const float FrameData::calculateDeltaTime </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>timeStep</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns the current deltaTime (1 / fps of the last frame) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeStep</td><td>The timestep to use when calculating deltaTime </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>const float </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>Engine/Fps/<a class="el" href="_frame_data_8h_source.html">FrameData.h</a></li>
 <li>Engine/Fps/FrameData.cpp</li>

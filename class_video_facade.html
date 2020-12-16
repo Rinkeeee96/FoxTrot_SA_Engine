@@ -100,9 +100,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a36160d28e599dc69719458d53e6546e4"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_facade.html#a36160d28e599dc69719458d53e6546e4">loadImage</a> (const <a class="el" href="class_sprite_object.html">SpriteObject</a> &amp;spriteObject)</td></tr>
 <tr class="memdesc:a36160d28e599dc69719458d53e6546e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load a animated sprite into the texturemap map.  <a href="class_video_facade.html#a36160d28e599dc69719458d53e6546e4">More...</a><br /></td></tr>
 <tr class="separator:a36160d28e599dc69719458d53e6546e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2757862e28e26aef520e167e03ae7985"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_facade.html#a2757862e28e26aef520e167e03ae7985">renderCopy</a> (<a class="el" href="class_drawable.html">Drawable</a> &amp;object)</td></tr>
-<tr class="memdesc:a2757862e28e26aef520e167e03ae7985"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes the sprites from the Textuture map animated and copys them to the screen.  <a href="class_video_facade.html#a2757862e28e26aef520e167e03ae7985">More...</a><br /></td></tr>
-<tr class="separator:a2757862e28e26aef520e167e03ae7985"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec39881d0b85b424b8a3b1bd5736dfa1"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_facade.html#aec39881d0b85b424b8a3b1bd5736dfa1">renderCopy</a> (<a class="el" href="class_drawable.html">Drawable</a> &amp;object, float deltaTime)</td></tr>
+<tr class="memdesc:aec39881d0b85b424b8a3b1bd5736dfa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes the sprites from the Textuture map animated and copys them to the screen.  <a href="class_video_facade.html#aec39881d0b85b424b8a3b1bd5736dfa1">More...</a><br /></td></tr>
+<tr class="separator:aec39881d0b85b424b8a3b1bd5736dfa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a3f8e2910d6322efe124e81709959e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_video_facade.html#a6a3f8e2910d6322efe124e81709959e8">drawParticle</a> (const <a class="el" href="class_particle_adapter.html">ParticleAdapter</a> &amp;part)</td></tr>
 <tr class="memdesc:a6a3f8e2910d6322efe124e81709959e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to draw Particles.  <a href="class_video_facade.html#a6a3f8e2910d6322efe124e81709959e8">More...</a><br /></td></tr>
 <tr class="separator:a6a3f8e2910d6322efe124e81709959e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -329,8 +329,8 @@ TTF_Font *&#160;</td><td class="memItemRight" valign="bottom"><b>Sans</b></td></
 
 </div>
 </div>
-<a id="a2757862e28e26aef520e167e03ae7985"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2757862e28e26aef520e167e03ae7985">&#9670;&nbsp;</a></span>renderCopy()</h2>
+<a id="aec39881d0b85b424b8a3b1bd5736dfa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec39881d0b85b424b8a3b1bd5736dfa1">&#9670;&nbsp;</a></span>renderCopy()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -342,8 +342,18 @@ TTF_Font *&#160;</td><td class="memItemRight" valign="bottom"><b>Sans</b></td></
           <td class="memname">void VideoFacade::renderCopy </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_drawable.html">Drawable</a> &amp;&#160;</td>
-          <td class="paramname"><em>object</em></td><td>)</td>
+          <td class="paramname"><em>object</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>

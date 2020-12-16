@@ -92,9 +92,9 @@ API float&#160;</td><td class="memItemRight" valign="bottom"><b>getWidth</b> () 
 <tr class="memitem:a2534718576554215e40ad4f0261a512f"><td class="memItemLeft" align="right" valign="top"><a id="a2534718576554215e40ad4f0261a512f"></a>
 API const char *&#160;</td><td class="memItemRight" valign="bottom"><b>getFileName</b> () const</td></tr>
 <tr class="separator:a2534718576554215e40ad4f0261a512f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50e148851998b4aa021ec5018c4ea681"><td class="memItemLeft" align="right" valign="top">API float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_object.html#a50e148851998b4aa021ec5018c4ea681">getLeftPos</a> (uint32_t ticks)</td></tr>
-<tr class="memdesc:a50e148851998b4aa021ec5018c4ea681"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to give the left position of the sprite.  <a href="class_sprite_object.html#a50e148851998b4aa021ec5018c4ea681">More...</a><br /></td></tr>
-<tr class="separator:a50e148851998b4aa021ec5018c4ea681"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae18f71a9abd08c3bb2747363b92b0ea8"><td class="memItemLeft" align="right" valign="top">API float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_object.html#ae18f71a9abd08c3bb2747363b92b0ea8">getLeftPos</a> (float deltaTime)</td></tr>
+<tr class="memdesc:ae18f71a9abd08c3bb2747363b92b0ea8"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to give the left position of the sprite.  <a href="class_sprite_object.html#ae18f71a9abd08c3bb2747363b92b0ea8">More...</a><br /></td></tr>
+<tr class="separator:ae18f71a9abd08c3bb2747363b92b0ea8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b5a69b5e908ef502a73eed038dfa08b"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_object.html#a0b5a69b5e908ef502a73eed038dfa08b">freeze</a> (int number)</td></tr>
 <tr class="memdesc:a0b5a69b5e908ef502a73eed038dfa08b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to freeze the animation on a specifick sprite for animation the freezenumber needs to be -1;.  <a href="class_sprite_object.html#a0b5a69b5e908ef502a73eed038dfa08b">More...</a><br /></td></tr>
 <tr class="separator:a0b5a69b5e908ef502a73eed038dfa08b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -134,6 +134,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>freezeBy</b> = -1</td>
 <tr class="memitem:acbd6d4e1c36ae52f4ab0652f7788135b"><td class="memItemLeft" align="right" valign="top"><a id="acbd6d4e1c36ae52f4ab0652f7788135b"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>currentAnimation</b> = 0</td></tr>
 <tr class="separator:acbd6d4e1c36ae52f4ab0652f7788135b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67e11d8da73df5a91453852fbfaec4ef"><td class="memItemLeft" align="right" valign="top"><a id="a67e11d8da73df5a91453852fbfaec4ef"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>animationTimer</b> = 0</td></tr>
+<tr class="separator:a67e11d8da73df5a91453852fbfaec4ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a941e3b3d3f27f3d11e4261f5f4adb733"><td class="memItemLeft" align="right" valign="top"><a id="a941e3b3d3f27f3d11e4261f5f4adb733"></a>
 const char *&#160;</td><td class="memItemRight" valign="bottom"><b>fileName</b> = nullptr</td></tr>
 <tr class="separator:a941e3b3d3f27f3d11e4261f5f4adb733"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -195,8 +198,8 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><b>fileName</b> 
 
 </div>
 </div>
-<a id="a50e148851998b4aa021ec5018c4ea681"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a50e148851998b4aa021ec5018c4ea681">&#9670;&nbsp;</a></span>getLeftPos()</h2>
+<a id="ae18f71a9abd08c3bb2747363b92b0ea8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae18f71a9abd08c3bb2747363b92b0ea8">&#9670;&nbsp;</a></span>getLeftPos()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -204,8 +207,8 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><b>fileName</b> 
         <tr>
           <td class="memname">float SpriteObject::getLeftPos </td>
           <td>(</td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>tick</em></td><td>)</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -214,7 +217,7 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><b>fileName</b> 
 <p>A function to give the left position of the sprite. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tick</td><td>Identifier of the tick of a frame. </td></tr>
+    <tr><td class="paramname">deltaTime</td><td>The current deltaTime; used to calculate the delay </td></tr>
   </table>
   </dd>
 </dl>

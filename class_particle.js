@@ -99,7 +99,7 @@ var class_particle =
     [ "setXPosition", "class_particle.html#abc507457eb7ee36c80574f6ef75e402f", null ],
     [ "setYPosition", "class_particle.html#a0cd6b5006fde1a545463024552e85b19", null ],
     [ "stopSystem", "class_particle.html#adff2fa1a4794371f54eb0350bd745bea", null ],
-    [ "update", "class_particle.html#a686aad22bf7a80a089e117bbc7f4b738", null ],
+    [ "update", "class_particle.html#a824ba7d7e5b12eca9f0fc04f1723264b", null ],
     [ "updateColorSizeRadius", "class_particle.html#a5d04576142a82a92c8be32a0b39f590c", null ],
     [ "_allocatedParticles", "class_particle.html#aebae3ce4583b832c23bb0c03ded6c8c5", null ],
     [ "_angle", "class_particle.html#aacc9c19691849cfe39cd4841ac0a2e99", null ],

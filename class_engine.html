@@ -133,6 +133,9 @@ API void&#160;</td><td class="memItemRight" valign="bottom"><b>setEngineRunning<
 <tr class="memitem:a720008e4aaa071d9a4aebb6ed0066f60"><td class="memItemLeft" align="right" valign="top"><a id="a720008e4aaa071d9a4aebb6ed0066f60"></a>
 <a class="el" href="class_keypress_invoker.html">KeypressInvoker</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getKeypressedInvoker</b> ()</td></tr>
 <tr class="separator:a720008e4aaa071d9a4aebb6ed0066f60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87ef2163210af4b480375091d94e6895"><td class="memItemLeft" align="right" valign="top">API float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a87ef2163210af4b480375091d94e6895">getDeltaTime</a> (int timeStep)</td></tr>
+<tr class="memdesc:a87ef2163210af4b480375091d94e6895"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the deltaTime from the frameData class using default physics timestep.  <a href="class_engine.html#a87ef2163210af4b480375091d94e6895">More...</a><br /></td></tr>
+<tr class="separator:a87ef2163210af4b480375091d94e6895"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf8a2d328644bcb0d3c4b52ba02a239d"><td class="memItemLeft" align="right" valign="top"><a id="abf8a2d328644bcb0d3c4b52ba02a239d"></a>
 API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#abf8a2d328644bcb0d3c4b52ba02a239d">restartPhysicsWorld</a> ()</td></tr>
 <tr class="memdesc:abf8a2d328644bcb0d3c4b52ba02a239d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls reloadPhysicsObject from the physicsEngine. <br /></td></tr>
@@ -153,9 +156,15 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a1c5f934e8ab38cf076170f8e8fe25a24"><td class="memItemLeft" align="right" valign="top"><a id="a1c5f934e8ab38cf076170f8e8fe25a24"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>running</b> = false</td></tr>
 <tr class="separator:a1c5f934e8ab38cf076170f8e8fe25a24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dbf7cd03f5e0ce7566e688d2dd0baca"><td class="memItemLeft" align="right" valign="top"><a id="a9dbf7cd03f5e0ce7566e688d2dd0baca"></a>
-<a class="el" href="class_frame_data.html">FrameData</a>&#160;</td><td class="memItemRight" valign="bottom"><b>frameData</b></td></tr>
-<tr class="separator:a9dbf7cd03f5e0ce7566e688d2dd0baca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c359d65d7d4e758755d53b37677364a"><td class="memItemLeft" align="right" valign="top"><a id="a0c359d65d7d4e758755d53b37677364a"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>deltaTimePhysics</b> = 0</td></tr>
+<tr class="separator:a0c359d65d7d4e758755d53b37677364a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd5e5dda45f3fd2af1d4b9f6476ff0f7"><td class="memItemLeft" align="right" valign="top"><a id="abd5e5dda45f3fd2af1d4b9f6476ff0f7"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>deltaTimeRender</b> = 0</td></tr>
+<tr class="separator:abd5e5dda45f3fd2af1d4b9f6476ff0f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69ca0e26ddd8fb24e7077871a5222ce0"><td class="memItemLeft" align="right" valign="top"><a id="a69ca0e26ddd8fb24e7077871a5222ce0"></a>
+unique_ptr&lt; <a class="el" href="class_frame_data.html">FrameData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>frameData</b></td></tr>
+<tr class="separator:a69ca0e26ddd8fb24e7077871a5222ce0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad771ec44950948484a4bf3a2c898055f"><td class="memItemLeft" align="right" valign="top"><a id="ad771ec44950948484a4bf3a2c898055f"></a>
 <a class="el" href="class_keypress_invoker.html">KeypressInvoker</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>keypressInvoker</b></td></tr>
 <tr class="separator:ad771ec44950948484a4bf3a2c898055f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -163,10 +172,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>running</b> = false</
 <a class="el" href="class_scene_manager.html">SceneManager</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sceneManager</b></td></tr>
 <tr class="separator:ae998ed00ca0d7cb439f7cdc0d4084ccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad15e0daf5264d8e6478efb9c1ad1a152"><td class="memItemLeft" align="right" valign="top"><a id="ad15e0daf5264d8e6478efb9c1ad1a152"></a>
-<a class="el" href="class_particle_engine.html">ParticleEngine</a>&#160;</td><td class="memItemRight" valign="bottom"><b>particleEngine</b></td></tr>
+<a class="el" href="class_particle_engine.html">ParticleEngine</a>&#160;</td><td class="memItemRight" valign="bottom"><b>particleEngine</b> { frameData }</td></tr>
 <tr class="separator:ad15e0daf5264d8e6478efb9c1ad1a152"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac52b19aa960d18ddd73492979754467a"><td class="memItemLeft" align="right" valign="top"><a id="ac52b19aa960d18ddd73492979754467a"></a>
-<a class="el" href="class_physics_engine.html">PhysicsEngine</a>&#160;</td><td class="memItemRight" valign="bottom"><b>physicsEngine</b></td></tr>
+<a class="el" href="class_physics_engine.html">PhysicsEngine</a>&#160;</td><td class="memItemRight" valign="bottom"><b>physicsEngine</b> { frameData }</td></tr>
 <tr class="separator:ac52b19aa960d18ddd73492979754467a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e3f297e995c280e5edcf9101f4f9c35"><td class="memItemLeft" align="right" valign="top"><a id="a7e3f297e995c280e5edcf9101f4f9c35"></a>
 <a class="el" href="class_sound_engine.html">SoundEngine</a>&#160;</td><td class="memItemRight" valign="bottom"><b>soundEngine</b></td></tr>
@@ -229,6 +238,33 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>engineIsPaused</b> = 
 <p>Returns the currentScene. </p>
 <dl class="section return"><dt>Returns</dt><dd><br  />
  </dd></dl>
+
+</div>
+</div>
+<a id="a87ef2163210af4b480375091d94e6895"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87ef2163210af4b480375091d94e6895">&#9670;&nbsp;</a></span>getDeltaTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Engine::getDeltaTime </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>timeStep</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the deltaTime from the frameData class using default physics timestep. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeStep</td><td>Timestep to base deltaTime calculation on </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>float </dd></dl>
 
 </div>
 </div>

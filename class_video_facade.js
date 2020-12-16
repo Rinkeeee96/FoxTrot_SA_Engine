@@ -12,7 +12,7 @@ var class_video_facade =
     [ "getYCameraOffset", "class_video_facade.html#abc08e3fe9377666f846917d4ad234d24", null ],
     [ "initSDL", "class_video_facade.html#a3a4ea140c4b79bea2d0da11e948257d9", null ],
     [ "loadImage", "class_video_facade.html#a36160d28e599dc69719458d53e6546e4", null ],
-    [ "renderCopy", "class_video_facade.html#a2757862e28e26aef520e167e03ae7985", null ],
+    [ "renderCopy", "class_video_facade.html#aec39881d0b85b424b8a3b1bd5736dfa1", null ],
     [ "setXCameraOffset", "class_video_facade.html#a98017417115e0b2c2560f21161413094", null ],
     [ "setYCameraOffset", "class_video_facade.html#a2ec9960123def858f5273a4597ea613f", null ],
     [ "renderer", "class_video_facade.html#aaaa013d32a93a52bda2dfb5dd549a7f4", null ],

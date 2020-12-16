@@ -8,7 +8,7 @@ var class_drawable =
     [ "getDrawStatic", "class_drawable.html#af5d155e7f4f61e2ca3032eedd794ce40", null ],
     [ "getIsText", "class_drawable.html#a7b0a2749e8adc024995cf32bcce31d11", null ],
     [ "getTint", "class_drawable.html#a03814334f76c6288718a1e19cef32df7", null ],
-    [ "onUpdate", "class_drawable.html#aba39577939f100d673dd190c24d82f0d", null ],
+    [ "onUpdate", "class_drawable.html#a74cde1e7a50e655e4867901769fda8b1", null ],
     [ "registerSprite", "class_drawable.html#ac6f39d1322218d74357a619c56a2d826", null ],
     [ "removeTint", "class_drawable.html#af921013ccba3560ff8d2dab476f82401", null ],
     [ "setDrawStatic", "class_drawable.html#ad4f564da705224517bc6e8a191cb83d0", null ],

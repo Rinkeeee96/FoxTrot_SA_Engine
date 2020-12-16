@@ -1,6 +1,6 @@
 var class_video_engine =
 [
-    [ "VideoEngine", "class_video_engine.html#af9aa3fbf36d8c2e91b53847d06de12c7", null ],
+    [ "VideoEngine", "class_video_engine.html#aa6829f488304d35a12bf7c84377ef24b", null ],
     [ "~VideoEngine", "class_video_engine.html#a055e9503fcdccb8c4f6f1df5132fb493", null ],
     [ "calculateOffset", "class_video_engine.html#a0cef84176474de6348509531f6276652", null ],
     [ "checkObjectInScreen", "class_video_engine.html#a68540cd3453318e1da70db383a913c09", null ],
@@ -18,7 +18,7 @@ var class_video_engine =
     [ "toggleFps", "class_video_engine.html#a9e9b2cce9ab07835539914853c098f7e", null ],
     [ "update", "class_video_engine.html#a448d04228db501c7aff197abe507423a", null ],
     [ "updateScreen", "class_video_engine.html#a69a5bbd9eeef2970613bc13d2880fcd4", null ],
-    [ "frameData", "class_video_engine.html#a60b53a5441736b0e7866128e4d06a8d5", null ],
+    [ "frameData", "class_video_engine.html#a44db4bc262471dd36175f45d6e98a1b2", null ],
     [ "pointerToCurrentScene", "class_video_engine.html#a1c949a743409bae9c8812daf5b10c354", null ],
     [ "shouldDrawFps", "class_video_engine.html#a93c2c5c62c525777d014bcf3d189f0ce", null ],
     [ "videoFacade", "class_video_engine.html#a543e6fc3d634b03f75aabb4ceb99ce49", null ]

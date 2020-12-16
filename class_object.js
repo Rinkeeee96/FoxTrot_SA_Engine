@@ -23,7 +23,7 @@ var class_object =
     [ "getWidth", "class_object.html#a6c1edada408d830ea9001d89daa898df", null ],
     [ "getXAxisVelocity", "class_object.html#acbe080fe787193c9342f28f23c2ddae2", null ],
     [ "getYAxisVelocity", "class_object.html#a91c888e69faceb416a3eef290ff40fde", null ],
-    [ "onUpdate", "class_object.html#a6ff0e2544342c327f262197014a89f15", null ],
+    [ "onUpdate", "class_object.html#ab749ae4e1e18b32a20bf3a5f18ec76e0", null ],
     [ "setDensity", "class_object.html#a90bae92ec92ba0cafcdf0ab825ff487f", null ],
     [ "setFriction", "class_object.html#aa1ef52b289dc2203654e0af50145f030", null ],
     [ "setGravity", "class_object.html#a8131c3c2902197860e8240d9b77db340", null ],
