@@ -103,8 +103,8 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;$(SolutionDir)Builds\x64\Debug;$(SolutionDir)Glitch\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>engineFoxtrot.lib;AchievementPopup.obj;BaseEnemy.obj;ChapterOneScene.obj;ChapterScene.obj;CharacterCommandFactory.obj;CharacterFactory.obj;CommandBuilder.obj;CreditsScene.obj;DamageCooldownState.obj;DeathScreen.obj;FactoryMethod.obj;Fleye.obj;Game.obj;GameKeypressInvoker.obj;GameScene.obj;GeneralTransition.obj;Glitch.obj;GlobalCommand.obj;GlobalCommandFactory.obj;GodState.obj;IEnemy.obj;InventoryPopup.obj;Jumpkin.obj;Level.obj;LevelBuilder.obj;LevelBuilderDirector.obj;LoadLevelFacade.obj;MainMenu.obj;NormalState.obj;Overworld.obj;PausePopUp.obj;pch.obj;Player.obj;PlayerGlobalState.obj;Savegame.obj;SaveScreen.obj;SceneStateMachine.obj;Shop.obj;Slime.obj;TriggerFactory.obj;WinScreen.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\box2d-master\build\src\Debug;$(VCInstallDir)UnitTest\lib;$(SolutionDir)Builds\x64\Debug;$(SolutionDir)Glitch\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>box2d.lib;engineFoxtrot.lib;AchievementPopup.obj;BaseEnemy.obj;ChapterOneScene.obj;ChapterScene.obj;CharacterCommandFactory.obj;CharacterFactory.obj;CommandBuilder.obj;CreditsScene.obj;DamageCooldownState.obj;DeathScreen.obj;FactoryMethod.obj;Fleye.obj;Game.obj;GameKeypressInvoker.obj;GameScene.obj;GeneralTransition.obj;Glitch.obj;GlobalCommand.obj;GlobalCommandFactory.obj;GodState.obj;IEnemy.obj;InventoryPopup.obj;Jumpkin.obj;Level.obj;LevelBuilder.obj;LevelBuilderDirector.obj;LoadLevelFacade.obj;MainMenu.obj;NormalState.obj;Overworld.obj;PausePopUp.obj;pch.obj;Player.obj;PlayerGlobalState.obj;Savegame.obj;SaveScreen.obj;SceneStateMachine.obj;Shop.obj;Slime.obj;TriggerFactory.obj;WinScreen.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -178,7 +178,6 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch.tests\TestAssetsGame" "$(OutDir)TestA
     <ClCompile Include="GlitchTests\src\Levels\LevelTests.cpp" />
     <ClCompile Include="GlitchTests\src\Levels\LoadLevelFacadeTests.cpp" />
     <ClCompile Include="GlitchTests\src\SaveGame\SaveGameTests.cpp" />
-    <ClCompile Include="GlitchTests\src\Scenes\SceneStateMachineTests.cpp" />
     <ClCompile Include="GlitchTests\src\States\Player\DamageCooldownStateTests.cpp" />
     <ClCompile Include="GlitchTests\src\States\Player\GodStateTests.cpp" />
     <ClCompile Include="GlitchTests\src\States\Player\NormalState.cpp" />

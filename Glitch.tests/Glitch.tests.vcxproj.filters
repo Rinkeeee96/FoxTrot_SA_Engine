@@ -51,9 +51,6 @@
     <ClCompile Include="GlitchTests\src\SaveGame\SaveGameTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GlitchTests\src\Scenes\SceneStateMachineTests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GlitchTests\src\States\Player\DamageCooldownStateTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

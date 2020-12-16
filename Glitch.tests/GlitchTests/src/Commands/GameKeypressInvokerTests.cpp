@@ -53,19 +53,6 @@ namespace UnitTestsGlitch
 			delete result;
 		}
 
-		TEST_METHOD(KeypressInvoker_Update_Command_ShouldUpdateCommand)
-		{
-			// Arrange
-			CommandBuilder commandBuilder;
-			GameKeypressInvoker* result = commandBuilder.readBindingsAndCreateInvoker();
-			// Act
-			// TODO
-			//result->updateCommand(KeyCode::KEY_O, result->getGlobalCommands()[KeyCode::KEY_G]);
-			// Assert
-			Assert::IsTrue(false);
-			delete result;
-		}
-
 		TEST_METHOD(KeypressInvoker_Execute_Once_Should_Call_Command_Once)
 		{
 			// Arrange

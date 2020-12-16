@@ -43,12 +43,19 @@ namespace UnitTestsGlitch
 			// Assert
 			Assert::IsTrue(false);
 		}
-		TEST_METHOD(Jumpkin_On_Collision_Begin_Top_Should_Remove_Fleye)
+		TEST_METHOD(Slime_On_Collision_Begin_Top_Should_Remove_Slime)
 		{
 			// Arrange
 			EventDispatcher dispatcher;
 			Jumpkin entity{ 1, dispatcher };
 			Player player{ 2, dispatcher };
+			auto result = player.buildSpritemap(1);
+			map<SpriteState, SpriteObject*>::iterator it = result.begin();
+			while (it != result.end())
+			{
+				player.registerSprite(it->first, it->second);
+				it++;
+			}
 			player.setTotalHealth(5);
 			player.setCurrentHealth(5);
 			entity.setTotalHealth(5);
@@ -62,9 +69,9 @@ namespace UnitTestsGlitch
 			dispatcher.dispatchEvent<OnCollisionBeginEvent>((Event&)OnCollisionBeginEvent(player, entity, direction));
 			// Assert
 			Assert::AreEqual(entity.getCurrentHealth(), 0);
-			Assert::IsTrue(entity.getIsRemoved());
+			Assert::IsTrue(entity.getIsDead());
 			Assert::AreEqual(player.getCurrentHealth(), 5);
-			Assert::IsFalse(entity.getIsDead());
+			Assert::IsFalse(player.getIsDead());
 		}
 
 		TEST_METHOD(Jumpkin_On_Collision_Begin_Bottom_Should_Damage_Player)
