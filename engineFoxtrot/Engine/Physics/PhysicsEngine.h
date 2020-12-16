@@ -25,7 +25,6 @@ public:
 	API void update() override;
 	API void shutdown() override;
 
-	API IPhysicsFacade& getIPhysicsFacade() const { return *this->physicsFacade; }
 private:
 	void clean();
 	unique_ptr<IPhysicsFacade> physicsFacade;
