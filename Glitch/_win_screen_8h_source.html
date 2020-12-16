@@ -82,30 +82,34 @@ $(document).ready(function(){initNavTree('_win_screen_8h_source.html',''); initR
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_win_screen.html#a26bdf8110452938f270f66d4d0ecc810">LoadMusic</a>();</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_win_screen.html#ad2000e7b6930b9ffa82e6884f56db5fc">LoadButtons</a>();</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">//button functions</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_win_screen.html#a9aff3aa92d7c094bd415371799fafb1b">OnMainBtnClick</a>();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_win_screen.html#a31ea6425dc527c61f5598e223e5043d1">onOverworldBtnClick</a>();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">bool</span> falling = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    Drawable* animation = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">inline</span> WinScreen::~WinScreen()</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">function</span>&lt;void(<span class="keywordtype">void</span>)&gt; OnMainBtnClick = [<span class="keyword">this</span>]() {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        moveToNextScene = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        nextScene = <span class="stringliteral">&quot;MainMenu&quot;</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    };</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">function</span>&lt;void(<span class="keywordtype">void</span>)&gt; onOverworldBtnClick = [<span class="keyword">this</span>]() {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        moveToNextScene = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        nextScene = <span class="stringliteral">&quot;Overworld&quot;</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    };</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">bool</span> falling = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    Drawable* animation = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">inline</span> WinScreen::~WinScreen()</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_game_scene_html"><div class="ttname"><a href="class_game_scene.html">GameScene</a></div><div class="ttdoc">Base class for game scenes, derived from engine scene.</div><div class="ttdef"><b>Definition:</b> GameScene.h:11</div></div>
-<div class="ttc" id="aclass_win_screen_html_ac8d870543e18acf4e015b2fe69a7013d"><div class="ttname"><a href="class_win_screen.html#ac8d870543e18acf4e015b2fe69a7013d">WinScreen::LoadBackground</a></div><div class="ttdeci">void LoadBackground()</div><div class="ttdoc">Create the background for this scene.</div><div class="ttdef"><b>Definition:</b> WinScreen.cpp:42</div></div>
-<div class="ttc" id="aclass_win_screen_html_a85c30c029fca092be52a09753e75be06"><div class="ttname"><a href="class_win_screen.html#a85c30c029fca092be52a09753e75be06">WinScreen::onUpdate</a></div><div class="ttdeci">void onUpdate(float deltaTime) override</div><div class="ttdoc">A function for a jump/fall animation.</div><div class="ttdef"><b>Definition:</b> WinScreen.cpp:125</div></div>
-<div class="ttc" id="aclass_win_screen_html_ad2000e7b6930b9ffa82e6884f56db5fc"><div class="ttname"><a href="class_win_screen.html#ad2000e7b6930b9ffa82e6884f56db5fc">WinScreen::LoadButtons</a></div><div class="ttdeci">void LoadButtons()</div><div class="ttdoc">Create all buttons for this scene.</div><div class="ttdef"><b>Definition:</b> WinScreen.cpp:25</div></div>
-<div class="ttc" id="aclass_win_screen_html_aa3cc28d68ccbe2d1505f666882d728e7"><div class="ttname"><a href="class_win_screen.html#aa3cc28d68ccbe2d1505f666882d728e7">WinScreen::onAttach</a></div><div class="ttdeci">void onAttach() override</div><div class="ttdoc">Loads the background and sets the starttime of this scene;.</div><div class="ttdef"><b>Definition:</b> WinScreen.cpp:16</div></div>
-<div class="ttc" id="aclass_win_screen_html_a26bdf8110452938f270f66d4d0ecc810"><div class="ttname"><a href="class_win_screen.html#a26bdf8110452938f270f66d4d0ecc810">WinScreen::LoadMusic</a></div><div class="ttdeci">void LoadMusic()</div><div class="ttdoc">Load the sounds for this scene.</div><div class="ttdef"><b>Definition:</b> WinScreen.cpp:89</div></div>
+<div class="ttc" id="aclass_win_screen_html_ac8d870543e18acf4e015b2fe69a7013d"><div class="ttname"><a href="class_win_screen.html#ac8d870543e18acf4e015b2fe69a7013d">WinScreen::LoadBackground</a></div><div class="ttdeci">void LoadBackground()</div><div class="ttdoc">Create the background for this scene.</div><div class="ttdef"><b>Definition:</b> WinScreen.cpp:40</div></div>
+<div class="ttc" id="aclass_win_screen_html_a85c30c029fca092be52a09753e75be06"><div class="ttname"><a href="class_win_screen.html#a85c30c029fca092be52a09753e75be06">WinScreen::onUpdate</a></div><div class="ttdeci">void onUpdate(float deltaTime) override</div><div class="ttdoc">A function for a jump/fall animation.</div><div class="ttdef"><b>Definition:</b> WinScreen.cpp:109</div></div>
+<div class="ttc" id="aclass_win_screen_html_ad2000e7b6930b9ffa82e6884f56db5fc"><div class="ttname"><a href="class_win_screen.html#ad2000e7b6930b9ffa82e6884f56db5fc">WinScreen::LoadButtons</a></div><div class="ttdeci">void LoadButtons()</div><div class="ttdoc">Create all buttons for this scene.</div><div class="ttdef"><b>Definition:</b> WinScreen.cpp:23</div></div>
+<div class="ttc" id="aclass_win_screen_html_aa3cc28d68ccbe2d1505f666882d728e7"><div class="ttname"><a href="class_win_screen.html#aa3cc28d68ccbe2d1505f666882d728e7">WinScreen::onAttach</a></div><div class="ttdeci">void onAttach() override</div><div class="ttdoc">Loads the background and sets the starttime of this scene;.</div><div class="ttdef"><b>Definition:</b> WinScreen.cpp:14</div></div>
+<div class="ttc" id="aclass_win_screen_html_a26bdf8110452938f270f66d4d0ecc810"><div class="ttname"><a href="class_win_screen.html#a26bdf8110452938f270f66d4d0ecc810">WinScreen::LoadMusic</a></div><div class="ttdeci">void LoadMusic()</div><div class="ttdoc">Load the sounds for this scene.</div><div class="ttdef"><b>Definition:</b> WinScreen.cpp:87</div></div>
 <div class="ttc" id="aclass_win_screen_html"><div class="ttname"><a href="class_win_screen.html">WinScreen</a></div><div class="ttdoc">Class for the win screen.</div><div class="ttdef"><b>Definition:</b> WinScreen.h:8</div></div>
 <div class="ttc" id="aclass_scene_state_machine_html"><div class="ttname"><a href="class_scene_state_machine.html">SceneStateMachine</a></div><div class="ttdoc">Class for the scene state machine.</div><div class="ttdef"><b>Definition:</b> SceneStateMachine.h:9</div></div>
-<div class="ttc" id="aclass_win_screen_html_a31ea6425dc527c61f5598e223e5043d1"><div class="ttname"><a href="class_win_screen.html#a31ea6425dc527c61f5598e223e5043d1">WinScreen::onOverworldBtnClick</a></div><div class="ttdeci">void onOverworldBtnClick()</div><div class="ttdoc">A callback function for overworldBTN Start transition scene to overworld.</div><div class="ttdef"><b>Definition:</b> WinScreen.cpp:117</div></div>
-<div class="ttc" id="aclass_win_screen_html_aa1d7248abaf1bb8d50057530e93dc057"><div class="ttname"><a href="class_win_screen.html#aa1d7248abaf1bb8d50057530e93dc057">WinScreen::start</a></div><div class="ttdeci">void start(bool playSound) override</div><div class="ttdoc">Create the sounds for this scene.</div><div class="ttdef"><b>Definition:</b> WinScreen.cpp:97</div></div>
-<div class="ttc" id="aclass_win_screen_html_a9aff3aa92d7c094bd415371799fafb1b"><div class="ttname"><a href="class_win_screen.html#a9aff3aa92d7c094bd415371799fafb1b">WinScreen::OnMainBtnClick</a></div><div class="ttdeci">void OnMainBtnClick()</div><div class="ttdoc">Remove the sounds of the soundengine.</div><div class="ttdef"><b>Definition:</b> WinScreen.cpp:109</div></div>
+<div class="ttc" id="aclass_win_screen_html_aa1d7248abaf1bb8d50057530e93dc057"><div class="ttname"><a href="class_win_screen.html#aa1d7248abaf1bb8d50057530e93dc057">WinScreen::start</a></div><div class="ttdeci">void start(bool playSound) override</div><div class="ttdoc">Create the sounds for this scene.</div><div class="ttdef"><b>Definition:</b> WinScreen.cpp:95</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

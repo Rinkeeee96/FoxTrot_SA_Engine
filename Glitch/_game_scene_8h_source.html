@@ -89,8 +89,13 @@ $(document).ready(function(){initNavTree('_game_scene_8h_source.html',''); initR
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_scene_state_machine.html">SceneStateMachine</a>&amp; stateMachine;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    Engine&amp; engine;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    shared_ptr&lt;Savegame&gt; savegame;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">bool</span> moveToNextScene = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">string</span> nextScene;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">bool</span> useTransition = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">bool</span> playSound = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_game_scene_html"><div class="ttname"><a href="class_game_scene.html">GameScene</a></div><div class="ttdoc">Base class for game scenes, derived from engine scene.</div><div class="ttdef"><b>Definition:</b> GameScene.h:11</div></div>

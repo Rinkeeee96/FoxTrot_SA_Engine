@@ -7,7 +7,7 @@ var class_shop =
     [ "loadMusic", "class_shop.html#ad2b568538cd59b795535dba2fd54171a", null ],
     [ "onAttach", "class_shop.html#a15e60e62cd4441930a6c977fbc8c9526", null ],
     [ "onDetach", "class_shop.html#ab932e161c889ef99c97c23b8c98b8122", null ],
-    [ "onStopBtnClick", "class_shop.html#aa9c12635d5b615475b1324ec6037d54d", null ],
     [ "onUpdate", "class_shop.html#a3eb722674861d87b7723fd9bd3144f3e", null ],
-    [ "start", "class_shop.html#a45344919c83661cec891206beadddb3d", null ]
+    [ "start", "class_shop.html#a45344919c83661cec891206beadddb3d", null ],
+    [ "onStopBtnClick", "class_shop.html#ae893fe5ba15f4bddae9c0b4a24878a47", null ]
 ];

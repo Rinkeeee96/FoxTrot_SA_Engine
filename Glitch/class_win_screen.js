@@ -7,10 +7,10 @@ var class_win_screen =
     [ "LoadMusic", "class_win_screen.html#a26bdf8110452938f270f66d4d0ecc810", null ],
     [ "onAttach", "class_win_screen.html#aa3cc28d68ccbe2d1505f666882d728e7", null ],
     [ "onDetach", "class_win_screen.html#a35db66dd885d2f9b8c9c5c497ab0d0ee", null ],
-    [ "OnMainBtnClick", "class_win_screen.html#a9aff3aa92d7c094bd415371799fafb1b", null ],
-    [ "onOverworldBtnClick", "class_win_screen.html#a31ea6425dc527c61f5598e223e5043d1", null ],
     [ "onUpdate", "class_win_screen.html#a85c30c029fca092be52a09753e75be06", null ],
     [ "start", "class_win_screen.html#aa1d7248abaf1bb8d50057530e93dc057", null ],
     [ "animation", "class_win_screen.html#a5e91a097346bda9ceb0702bf6599d8cb", null ],
-    [ "falling", "class_win_screen.html#a347bcd10e8cb300f360cb37d740c5d69", null ]
+    [ "falling", "class_win_screen.html#a347bcd10e8cb300f360cb37d740c5d69", null ],
+    [ "OnMainBtnClick", "class_win_screen.html#a49de190b3abbd7384107b0477a0ca88d", null ],
+    [ "onOverworldBtnClick", "class_win_screen.html#a4a865110d66b753e256044a1fc7b114d", null ]
 ];

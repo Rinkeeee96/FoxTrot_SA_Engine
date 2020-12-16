@@ -126,17 +126,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_win_screen.html#ad2000e7b6930b9ffa82e6884f56db5fc">LoadButtons</a> ()</td></tr>
 <tr class="memdesc:ad2000e7b6930b9ffa82e6884f56db5fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create all buttons for this scene. <br /></td></tr>
 <tr class="separator:ad2000e7b6930b9ffa82e6884f56db5fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9aff3aa92d7c094bd415371799fafb1b"><td class="memItemLeft" align="right" valign="top"><a id="a9aff3aa92d7c094bd415371799fafb1b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_win_screen.html#a9aff3aa92d7c094bd415371799fafb1b">OnMainBtnClick</a> ()</td></tr>
-<tr class="memdesc:a9aff3aa92d7c094bd415371799fafb1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove the sounds of the soundengine. <br /></td></tr>
-<tr class="separator:a9aff3aa92d7c094bd415371799fafb1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31ea6425dc527c61f5598e223e5043d1"><td class="memItemLeft" align="right" valign="top"><a id="a31ea6425dc527c61f5598e223e5043d1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_win_screen.html#a31ea6425dc527c61f5598e223e5043d1">onOverworldBtnClick</a> ()</td></tr>
-<tr class="memdesc:a31ea6425dc527c61f5598e223e5043d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">A callback function for overworldBTN Start transition scene to overworld. <br /></td></tr>
-<tr class="separator:a31ea6425dc527c61f5598e223e5043d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:a49de190b3abbd7384107b0477a0ca88d"><td class="memItemLeft" align="right" valign="top">function&lt; void(void)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>OnMainBtnClick</b></td></tr>
+<tr class="separator:a49de190b3abbd7384107b0477a0ca88d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a865110d66b753e256044a1fc7b114d"><td class="memItemLeft" align="right" valign="top">function&lt; void(void)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>onOverworldBtnClick</b></td></tr>
+<tr class="separator:a4a865110d66b753e256044a1fc7b114d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a347bcd10e8cb300f360cb37d740c5d69"><td class="memItemLeft" align="right" valign="top"><a id="a347bcd10e8cb300f360cb37d740c5d69"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>falling</b> = false</td></tr>
 <tr class="separator:a347bcd10e8cb300f360cb37d740c5d69"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -156,6 +152,18 @@ Engine &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>engine</b></t
 <tr class="memitem:aa09c11b97740b32a1ac1d27ef4a6a829 inherit pro_attribs_class_game_scene"><td class="memItemLeft" align="right" valign="top"><a id="aa09c11b97740b32a1ac1d27ef4a6a829"></a>
 shared_ptr&lt; <a class="el" href="class_savegame.html">Savegame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>savegame</b></td></tr>
 <tr class="separator:aa09c11b97740b32a1ac1d27ef4a6a829 inherit pro_attribs_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27aa2c00289567c59efe2ac30a6feb38 inherit pro_attribs_class_game_scene"><td class="memItemLeft" align="right" valign="top"><a id="a27aa2c00289567c59efe2ac30a6feb38"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>moveToNextScene</b> = false</td></tr>
+<tr class="separator:a27aa2c00289567c59efe2ac30a6feb38 inherit pro_attribs_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88c2a123e48480f7bc85847073e7b1f1 inherit pro_attribs_class_game_scene"><td class="memItemLeft" align="right" valign="top"><a id="a88c2a123e48480f7bc85847073e7b1f1"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><b>nextScene</b></td></tr>
+<tr class="separator:a88c2a123e48480f7bc85847073e7b1f1 inherit pro_attribs_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9c713cbe03b28a72a8b53fb5d907abb inherit pro_attribs_class_game_scene"><td class="memItemLeft" align="right" valign="top"><a id="ab9c713cbe03b28a72a8b53fb5d907abb"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>useTransition</b> = false</td></tr>
+<tr class="separator:ab9c713cbe03b28a72a8b53fb5d907abb inherit pro_attribs_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7b5f466e3bf499875a6f024276af9a3 inherit pro_attribs_class_game_scene"><td class="memItemLeft" align="right" valign="top"><a id="af7b5f466e3bf499875a6f024276af9a3"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>playSound</b> = false</td></tr>
+<tr class="separator:af7b5f466e3bf499875a6f024276af9a3 inherit pro_attribs_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class for the win screen. </p>
@@ -194,6 +202,59 @@ shared_ptr&lt; <a class="el" href="class_savegame.html">Savegame</a> &gt;&#160;<
 
 <p>Implements <a class="el" href="class_game_scene.html">GameScene</a>.</p>
 
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a49de190b3abbd7384107b0477a0ca88d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49de190b3abbd7384107b0477a0ca88d">&#9670;&nbsp;</a></span>OnMainBtnClick</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">function&lt;void(void)&gt; WinScreen::OnMainBtnClick</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= [<span class="keyword">this</span>]() {</div>
+<div class="line">        moveToNextScene = <span class="keyword">true</span>;</div>
+<div class="line">        nextScene = <span class="stringliteral">&quot;MainMenu&quot;</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a4a865110d66b753e256044a1fc7b114d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a865110d66b753e256044a1fc7b114d">&#9670;&nbsp;</a></span>onOverworldBtnClick</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">function&lt;void(void)&gt; WinScreen::onOverworldBtnClick</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= [<span class="keyword">this</span>]() {</div>
+<div class="line">        moveToNextScene = <span class="keyword">true</span>;</div>
+<div class="line">        nextScene = <span class="stringliteral">&quot;Overworld&quot;</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
