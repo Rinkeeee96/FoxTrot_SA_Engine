@@ -23,11 +23,10 @@ private:
 	shared_ptr<Savegame> savegame;
 	shared_ptr<SceneFactory>  factory = nullptr;
 
-	Scene* loadLevel(const string& identifier);
+	unique_ptr<Scene> loadLevel(const string& identifier);
 	Engine& engine;
 
-	Scene * currentScene;
+	unique_ptr<Scene> currentScene;
 	int sceneId = 0;
 	string currentLevelIdentifier = "";
 };
-

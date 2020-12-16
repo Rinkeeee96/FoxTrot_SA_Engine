@@ -9,7 +9,7 @@ SceneStateMachine::SceneStateMachine(Engine& _engine, shared_ptr<Savegame> _save
 	factory = shared_ptr<SceneFactory>(new  SceneFactory());
 	// Somehow delete this after they are used;
 	CreatorImpl <MainMenu>* Menu = new CreatorImpl<MainMenu>();
-	Menu->registerClass("MainMenu",factory);
+	Menu->registerClass("MainMenu", factory);
 
 	CreatorImpl <DeathScreen>* Death = new CreatorImpl <DeathScreen>();
 	Death->registerClass("DeathScreen", factory);
@@ -31,18 +31,18 @@ SceneStateMachine::SceneStateMachine(Engine& _engine, shared_ptr<Savegame> _save
 
 	CreatorImpl <ChapterOneScene>* chap = new CreatorImpl <ChapterOneScene>();
 	chap->registerClass("ChapterOne", factory);
-	
+
 	CreatorImpl <Shop>* shop = new CreatorImpl <Shop>();
 	shop->registerClass("Shop", factory);
 }
 
-SceneStateMachine::~SceneStateMachine(){}
+SceneStateMachine::~SceneStateMachine() {}
 
 /// @brief Load level according to the identifier
 /// @param identifier 
 /// @return 
-Scene* SceneStateMachine::loadLevel(const string& identifier) {
-	Scene* newScene = nullptr;
+unique_ptr<Scene> SceneStateMachine::loadLevel(const string& identifier) {
+	std::unique_ptr<Scene> newScene = nullptr;
 	LoadLevelFacade levelLoader{ engine };
 
 	levelToBuild = stoi(identifier.substr(6));
@@ -78,11 +78,10 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	bool handlingLevel = false;
 	if (identifier.find("Level") != string::npos) handlingLevel = true;
 
-	Scene* newScene = nullptr;
+	std::unique_ptr<Scene> newScene = nullptr;
 
 	if (!handlingLevel)
 	{
-		cout << "Newscene" << endl;
 		newScene = factory->create(identifier, sceneId++, engine, *this);
 	}
 	else
@@ -98,18 +97,18 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	{
 		engine.deregisterScene(currentScene->getSceneID());
 	}
-	currentScene = newScene;
+	currentScene = std::move(newScene);
 
-	if (currentScene && dynamic_cast<GameScene*>(currentScene))
-		((GameScene*)currentScene)->registerSavegame(savegame);
+	if (currentScene && dynamic_cast<GameScene*>(currentScene.get()))
+		((GameScene*)currentScene.get())->registerSavegame(savegame);
 
-	engine.insertScene(currentScene);
+	engine.insertScene(currentScene.get());
 	engine.setCurrentScene(currentScene->getSceneID());
 
 
 	// Handle some scene specific things
-	if (currentScene && dynamic_cast<GeneralTransition*>(currentScene))
-		((GeneralTransition*)currentScene)->setNextScene(transition);
+	if (currentScene && dynamic_cast<GeneralTransition*>(currentScene.get()))
+		((GeneralTransition*)currentScene.get())->setNextScene(transition);
 
 
 	if (DEBUG_MAIN)cout << "Setting current Scene to: " << typeid(*(engine.getCurrentScene())).name() << endl;
