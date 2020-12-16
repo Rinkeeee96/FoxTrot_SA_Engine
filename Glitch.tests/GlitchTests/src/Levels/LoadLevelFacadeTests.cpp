@@ -2,6 +2,7 @@
 #include "CppUnitTest.h"
 #include <Game/Levels/LoadLevelFacade.h>
 #include <Game/Scenes/Statemachine/SceneStateMachine.h>
+#include <Game/Commands/Builder/CommandBuilder.h>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -54,13 +55,16 @@ namespace UnitTestsGlitch
 		{
 			// Arrange
 			Engine engine;
-			LoadLevelFacade levelLoader{ engine };
+			CommandBuilder commandBuilder;
+			engine.start();
+			engine.useCustomCommandInvoker(commandBuilder.readBindingsAndCreateInvoker());
 			EventDispatcher dispatcher;
 			shared_ptr<Savegame> savegame = shared_ptr<Savegame>(new Savegame());
 			SceneStateMachine statemachine{ engine, savegame };
 			LevelBuilder levelOneBuilder{ engine, 1, statemachine };
+			LoadLevelFacade levelLoader{ engine };
 			// Act
-			levelLoader.load("TestAssetsGame/invalidLevel.json", &levelOneBuilder);
+			levelLoader.load("TestAssetsGame/validLevel.json", &levelOneBuilder);
 			// Assert
 			Assert::IsTrue(true);
 		}

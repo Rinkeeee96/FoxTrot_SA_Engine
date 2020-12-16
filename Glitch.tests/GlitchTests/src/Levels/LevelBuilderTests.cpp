@@ -2,6 +2,7 @@
 #include "CppUnitTest.h"
 #include <Game/Levels/LoadLevelFacade.h>
 #include <Game/Scenes/Statemachine/SceneStateMachine.h>
+#include <Game/Commands/Builder/CommandBuilder.h>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -14,6 +15,9 @@ namespace UnitTestsGlitch
 		{
 			// Arrange
 			Engine engine;
+			CommandBuilder commandBuilder;
+			engine.start();
+			engine.useCustomCommandInvoker(commandBuilder.readBindingsAndCreateInvoker());
 			LoadLevelFacade levelLoader{ engine };
 			EventDispatcher dispatcher;
 			shared_ptr<Savegame> savegame = shared_ptr<Savegame>(new Savegame());
