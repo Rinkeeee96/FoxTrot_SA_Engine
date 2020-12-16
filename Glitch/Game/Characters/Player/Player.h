@@ -42,7 +42,7 @@ public:
 	};
 	
 	StateMachine<Player>& getStateMachine() { return this->stateMachine; }
-	ICharacter* clone(int id) override;
+	shared_ptr<ICharacter> clone(int id) override;
 private:
 	GameKeypressInvoker* invoker; 
 	StateMachine<Player> stateMachine;

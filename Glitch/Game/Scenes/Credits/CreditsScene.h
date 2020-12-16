@@ -21,7 +21,7 @@ public:
 	void start(bool playSound) override;
 	void onUpdate() override;
 private:
-	vector<Text*> text;
+	vector<shared_ptr<Text>> text;
 
 	void loadText();
 	void loadBackground();

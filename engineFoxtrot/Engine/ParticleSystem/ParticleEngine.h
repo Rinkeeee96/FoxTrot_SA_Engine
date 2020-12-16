@@ -21,7 +21,7 @@ public:
 	shared_ptr<Scene>* pointerToCurrentScene = nullptr;
 
 private:
-	void checkIfObjectValueAndParticleValueMatch(ParticleAdapter& particle);
+	void checkIfObjectValueAndParticleValueMatch(shared_ptr<ParticleAdapter> particle);
 
 };
 

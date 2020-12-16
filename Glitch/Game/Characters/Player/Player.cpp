@@ -49,7 +49,7 @@ Player::Player(const int id, EventDispatcher& _dispatcher) : ICharacter(id, _dis
 bool Player::onCollisionBeginEvent(const Event& event) {
 	if (!getIsDead()) {
 		auto collisionEvent = static_cast<const OnCollisionBeginEvent&>(event);
-		if (collisionEvent.getObjectOne().getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo().getObjectId() != this->getObjectId()) return false;
+		if (collisionEvent.getObjectOne()->getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo()->getObjectId() != this->getObjectId()) return false;
 
 		auto map = collisionEvent.getDirectionMap();
 		auto collidedDirection = map[this->getObjectId()];
@@ -71,7 +71,7 @@ bool Player::onCollisionBeginEvent(const Event& event) {
 bool Player::onCollisionEndEvent(const Event& event) {
 	if (!getIsDead()) {
 		auto collisionEvent = static_cast<const OnCollisionEndEvent&>(event);
-		if (collisionEvent.getObjectOne().getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo().getObjectId() != this->getObjectId()) return false;
+		if (collisionEvent.getObjectOne()->getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo()->getObjectId() != this->getObjectId()) return false;
 
 		auto map = collisionEvent.getDirectionMap();
 		auto collidedDirection = map[this->getObjectId()];
@@ -125,8 +125,8 @@ void Player::registerKeypressInvoker(GameKeypressInvoker *_invoker)
 /// @brief Clone the player to a new Player
 /// @param id 
 /// @return 
-ICharacter* Player::clone(int id) { 
-	return new Player(id, this->dispatcher); 
+shared_ptr<ICharacter> Player::clone(int id) {
+	return shared_ptr<ICharacter>(new Player(id, this->dispatcher));
 }
 
 /// @brief

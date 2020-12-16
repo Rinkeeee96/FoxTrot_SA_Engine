@@ -24,7 +24,7 @@ private:
 	void onOverworldBtnClick();
 
 	int animationTick = 0;
-	Drawable* animation = nullptr;
+	shared_ptr<Drawable> animation = nullptr;
 };
 
 inline WinScreen::~WinScreen()

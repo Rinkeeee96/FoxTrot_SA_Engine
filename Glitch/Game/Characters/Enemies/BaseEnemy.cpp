@@ -8,7 +8,7 @@
 /// @returns bool
 bool BaseEnemy::onCollisionBeginEvent(const Event& event) {
 	auto collisionEvent = static_cast<const OnCollisionBeginEvent&>(event);
-	if (collisionEvent.getObjectOne().getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo().getObjectId() != this->getObjectId()) return false;
+	if (collisionEvent.getObjectOne()->getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo()->getObjectId() != this->getObjectId()) return false;
 
 	auto map = collisionEvent.getDirectionMap();
 	auto collidedDirection = map[this->getObjectId()];
@@ -17,17 +17,17 @@ bool BaseEnemy::onCollisionBeginEvent(const Event& event) {
 		this->kill();
 	}
 	else {
-		if (collisionEvent.getObjectOne().getObjectId() == this->getObjectId()) {
-			Object& otherEntity = collisionEvent.getObjectTwo();
+		if (collisionEvent.getObjectOne()->getObjectId() == this->getObjectId()) {
+			shared_ptr<Object> otherEntity = collisionEvent.getObjectTwo();
 
-			if (this->player->getObjectId() == otherEntity.getObjectId()) {
+			if (this->player->getObjectId() == otherEntity->getObjectId()) {
 				this->doDamage();
 			}
 		}
-		else if (collisionEvent.getObjectTwo().getObjectId() == this->getObjectId()) {
-			Object& otherEntity = collisionEvent.getObjectOne();
+		else if (collisionEvent.getObjectTwo()->getObjectId() == this->getObjectId()) {
+			shared_ptr<Object> otherEntity = collisionEvent.getObjectOne();
 
-			if (this->player->getObjectId() == otherEntity.getObjectId()) {
+			if (this->player->getObjectId() == otherEntity->getObjectId()) {
 				this->doDamage();
 			}
 		}

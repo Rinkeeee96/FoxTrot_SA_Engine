@@ -64,10 +64,10 @@ vector<string> ChapterScene::splitToLines(string stringToSplit, int maximumLineL
 /// @brief 
 /// Splits text on \n 
 /// @param the text
-vector<Text*> ChapterScene::splitText(string text, int startingId) {
+vector<shared_ptr<Text>> ChapterScene::splitText(string text, int startingId) {
 	auto startingPos = START_Y_POS;
 
-	vector<Text*> ret;
+	vector<shared_ptr<Text>> ret;
 	std::string delimiter = "\n";
 
 	size_t pos = 0;
@@ -79,7 +79,7 @@ vector<Text*> ChapterScene::splitText(string text, int startingId) {
 		for (size_t i = 0; i < result.size(); i++)
 		{
 			startingPos = startingPos + TEXT_HEIGHT;
-			ret.push_back(new Text(startingId++, new ColoredText(result[i], Color(255, 255, 255), false), ((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER) * result[i].length(), TEXT_HEIGHT, 25, (float)(WINDOW_HEIGHT + startingPos)));
+			ret.push_back(shared_ptr<Text>(new Text(startingId++, new ColoredText(result[i], Color(255, 255, 255), false), ((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER) * result[i].length(), TEXT_HEIGHT, 25, (float)(WINDOW_HEIGHT + startingPos))));
 		}
 		text.erase(0, pos + delimiter.length());
 	}
@@ -90,7 +90,7 @@ vector<Text*> ChapterScene::splitText(string text, int startingId) {
 /// Create all buttons for this scene
 void ChapterScene::loadButtons() {
 	// Back button
-	auto* backBtn = new SecondaryButton(3, "Skip", std::bind(&ChapterScene::onSkipClick, *this), this->dispatcher);
+	shared_ptr<SecondaryButton> backBtn = shared_ptr<SecondaryButton>(new SecondaryButton(3, "Skip", std::bind(&ChapterScene::onSkipClick, *this), this->dispatcher));
 	backBtn->setPositionX(WINDOW_WIDTH - 40 - backBtn->getWidth());
 	backBtn->setPositionY(WINDOW_HEIGHT - 10 - backBtn->getHeight());
 

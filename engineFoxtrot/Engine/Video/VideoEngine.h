@@ -34,9 +34,9 @@ public:
 	API void renderCopy(shared_ptr<Drawable>);
 	API void toggleFps();
 	API void drawParticle(shared_ptr<ParticleAdapter> part);
-	API void calculateOffset(Object& obj, int sceneWidth, int sceneHeight);
+	API void calculateOffset(shared_ptr<Object> obj, int sceneWidth, int sceneHeight);
 
-	API bool checkObjectInScreen(const Object& obj);
+	API bool checkObjectInScreen(const shared_ptr<Object> obj);
 
 	API void clearVideoEngine();
 

@@ -8,7 +8,7 @@
 class API PhysicsBody
 {
 public:
-	PhysicsBody(Object* object);
+	PhysicsBody(shared_ptr<Object> object);
 	~PhysicsBody();
 	int getObjectId() const;
 
@@ -54,7 +54,7 @@ public:
 	void setRotatable(const bool val);
 	bool getRotatable() const;
 
-	Object& getObject() const { return *this->object; }
+	shared_ptr<Object> getObject() const { return this->object; }
 	bool objectExists() const { return object != nullptr; }
 
 protected:
@@ -70,7 +70,7 @@ protected:
 	float rotation = 0;
 	float jumpHeight = 0;
 	float gravity = BASE_GRAVITY;
-	Object* object = nullptr;
+	shared_ptr<Object> object = nullptr;
 	float yAxisVelocity = 0;
 	float xAxisVelocity = 0;
 	bool rotatable = false;

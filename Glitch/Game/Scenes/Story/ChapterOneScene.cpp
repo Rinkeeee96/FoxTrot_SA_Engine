@@ -33,7 +33,7 @@ void ChapterOneScene::loadText() {
 /// Create the background for this scene
 void ChapterOneScene::loadBackground() {
 	shared_ptr<SpriteObject> background = shared_ptr<SpriteObject>(new SpriteObject(-33, 1080, 1920, 1, 300, "Assets/Backgrounds/dark_bg.png"));
-	auto* backgroundLayer = new Drawable(0);
+	shared_ptr<Drawable> backgroundLayer = shared_ptr<Drawable>(new Drawable(0));
 	backgroundLayer->setStatic(true);
 	backgroundLayer->setPositionX(0);
 	backgroundLayer->setPositionY(1080);
@@ -43,7 +43,7 @@ void ChapterOneScene::loadBackground() {
 	backgroundLayer->changeToState(SpriteState::DEFAULT);
 
 	shared_ptr<SpriteObject> foregroundBottom = shared_ptr<SpriteObject>(new SpriteObject(-34, 1080, 1920, 1, 300, "Assets/Backgrounds/foreground_bottom.png"));
-	auto* foregroundBottomLayer = new Drawable(1);
+	shared_ptr<Drawable> foregroundBottomLayer = shared_ptr<Drawable>(new Drawable(1));
 	foregroundBottomLayer->setStatic(true);
 	foregroundBottomLayer->setPositionX(0);
 	foregroundBottomLayer->setPositionY(1080);
@@ -53,7 +53,7 @@ void ChapterOneScene::loadBackground() {
 	foregroundBottomLayer->changeToState(SpriteState::DEFAULT);
 
 	shared_ptr<SpriteObject> foregroundTop = shared_ptr<SpriteObject>(new SpriteObject(-35, 1080, 1920, 1, 300, "Assets/Backgrounds/foreground_top.png"));
-	auto* foregroundTopLayer = new Drawable(2);
+	shared_ptr<Drawable> foregroundTopLayer = shared_ptr<Drawable>(new Drawable(2));
 	foregroundTopLayer->setStatic(true);
 	foregroundTopLayer->setPositionX(0);
 	foregroundTopLayer->setPositionY(124);

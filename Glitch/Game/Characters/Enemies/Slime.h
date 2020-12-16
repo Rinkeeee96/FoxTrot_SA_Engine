@@ -21,7 +21,7 @@ public:
 
 	map<SpriteState, shared_ptr<SpriteObject>> buildSpritemap(int textureId) override;
 
-	ICharacter* clone(int id) override { return new Slime(id, this->dispatcher); }
+	shared_ptr<ICharacter> clone(int id) override { return shared_ptr<ICharacter>(new Slime(id, this->dispatcher)); }
 
 private:
 	int jumpTimer = 0;

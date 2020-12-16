@@ -114,7 +114,7 @@ PhysicsEngine::~PhysicsEngine()
 void PhysicsEngine::registerObjectInCurrentVectorWithPhysicsEngine()
 {
 	if(DEBUG_PHYSICS_ENGINE)cout << "Size pointertoObj: " << (*pointerToCurrentScene)->getAllObjectsInSceneRenderPhysics().size() << endl;
-	for (Object* object : (*pointerToCurrentScene)->getAllObjectsInSceneRenderPhysics())
+	for (auto object : (*pointerToCurrentScene)->getAllObjectsInSceneRenderPhysics())
 	{
 		auto phyObj = shared_ptr<PhysicsBody>(new PhysicsBody(object));
 

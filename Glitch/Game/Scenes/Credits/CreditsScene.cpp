@@ -21,13 +21,13 @@ void CreditsScene::onAttach()
 /// @brief 
 /// Create all text for this scene
 void CreditsScene::loadText() {
-	auto* name1 = new Text(4, new ColoredText("Lars Jansen", Color(0, 0, 0), false), SHORT_NAME_WIDTH, TEXT_HEIGHT, CENTER_X - LEFT_X_CENTER, CENTER_Y - 150);
-	auto* name2 = new Text(5, new ColoredText("Max van Nistelrooij", Color(0, 0, 0), false), LONG_NAME_WIDTH, TEXT_HEIGHT, CENTER_X - LEFT_X_CENTER, CENTER_Y + 50);
-	auto* name3 = new Text(6, new ColoredText("Thijs de leeuw", Color(0, 0, 0), false), SHORT_NAME_WIDTH, TEXT_HEIGHT, CENTER_X - LEFT_X_CENTER, CENTER_Y + 250);
-	auto* name4 = new Text(7, new ColoredText("Rinke de Vries", Color(0, 0, 0), false), SHORT_NAME_WIDTH, TEXT_HEIGHT, CENTER_X + RIGHT_X_CENTER, CENTER_Y - 150);
-	auto* name5 = new Text(8, new ColoredText("William Ross", Color(0, 0, 0), false), SHORT_NAME_WIDTH, TEXT_HEIGHT, CENTER_X + RIGHT_X_CENTER, CENTER_Y + 50);
-	auto* name6 = new Text(9, new ColoredText("Wouter van Hees", Color(0, 0, 0), false), LONG_NAME_WIDTH, TEXT_HEIGHT, CENTER_X + RIGHT_X_CENTER, CENTER_Y + 250);
-	auto* name7 = new Text(10, new ColoredText("Foxtrot", Color(0, 0, 0), false), 500, 75, CENTER_X - 350, CENTER_Y + 650);
+	shared_ptr<Text> name1 = shared_ptr<Text>(new Text(4, new ColoredText("Lars Jansen", Color(0, 0, 0), false), SHORT_NAME_WIDTH, TEXT_HEIGHT, CENTER_X - LEFT_X_CENTER, CENTER_Y - 150));
+	shared_ptr<Text> name2 = shared_ptr<Text>(new Text(5, new ColoredText("Max van Nistelrooij", Color(0, 0, 0), false), LONG_NAME_WIDTH, TEXT_HEIGHT, CENTER_X - LEFT_X_CENTER, CENTER_Y + 50));
+	shared_ptr<Text> name3 = shared_ptr<Text>(new Text(6, new ColoredText("Thijs de leeuw", Color(0, 0, 0), false), SHORT_NAME_WIDTH, TEXT_HEIGHT, CENTER_X - LEFT_X_CENTER, CENTER_Y + 250));
+	shared_ptr<Text> name4 = shared_ptr<Text>(new Text(7, new ColoredText("Rinke de Vries", Color(0, 0, 0), false), SHORT_NAME_WIDTH, TEXT_HEIGHT, CENTER_X + RIGHT_X_CENTER, CENTER_Y - 150));
+	shared_ptr<Text> name5 = shared_ptr<Text>(new Text(8, new ColoredText("William Ross", Color(0, 0, 0), false), SHORT_NAME_WIDTH, TEXT_HEIGHT, CENTER_X + RIGHT_X_CENTER, CENTER_Y + 50));
+	shared_ptr<Text> name6 = shared_ptr<Text>(new Text(9, new ColoredText("Wouter van Hees", Color(0, 0, 0), false), LONG_NAME_WIDTH, TEXT_HEIGHT, CENTER_X + RIGHT_X_CENTER, CENTER_Y + 250));
+	shared_ptr<Text> name7 = shared_ptr<Text>(new Text(10, new ColoredText("Foxtrot", Color(0, 0, 0), false), 500, 75, CENTER_X - 350, CENTER_Y + 650));
 	this->text.push_back(name1);
 	this->text.push_back(name2);
 	this->text.push_back(name3);
@@ -45,7 +45,7 @@ void CreditsScene::loadText() {
 /// Create all buttons for this scene
 void CreditsScene::loadButtons() {
 	// Back button
-	auto* backBtn = new SecondaryButton(3, "To Main Menu", BIND_FN(onBackClick), this->dispatcher);
+	auto backBtn = shared_ptr<SecondaryButton>(new SecondaryButton(3, "To Main Menu", BIND_FN(onBackClick), this->dispatcher));
 	backBtn->setPositionX(WINDOW_WIDTH - 40 - backBtn->getWidth());
 	backBtn->setPositionY(WINDOW_HEIGHT - 10 - backBtn->getHeight());
 
@@ -56,7 +56,7 @@ void CreditsScene::loadButtons() {
 /// Create the background for this scene
 void CreditsScene::loadBackground() {
 	shared_ptr<SpriteObject> bg = shared_ptr<SpriteObject>(new SpriteObject(-1012, 1080, 1920, 1, 300, "Assets/Backgrounds/credits_foreground.png"));
-	auto* bgLayer = new Drawable(13);
+	shared_ptr<Drawable> bgLayer = shared_ptr<Drawable>(new Drawable(13));
 	bgLayer->setStatic(true);
 	bgLayer->setPositionX(0);
 	bgLayer->setPositionY(1080);
@@ -67,7 +67,7 @@ void CreditsScene::loadBackground() {
 
 	shared_ptr<SpriteObject>fgTop = shared_ptr<SpriteObject>(new SpriteObject(-1010, 1080, 1920, 1, 300, "Assets/Backgrounds/credits_foreground_top.png"));
 
-	auto* foregroundTop = new Drawable(14);
+	shared_ptr<Drawable> foregroundTop = shared_ptr<Drawable>(new Drawable(14));
 	foregroundTop->setStatic(true);
 	foregroundTop->setPositionX(0);
 	foregroundTop->setPositionY(0 + 250);
@@ -78,7 +78,7 @@ void CreditsScene::loadBackground() {
 
 	shared_ptr<SpriteObject>BG_LAYER_1 = shared_ptr<SpriteObject>(new SpriteObject(-1011, 1080, 1920, 1, 300, "Assets/Backgrounds/credits_foreground_bottom.png"));
 
-	auto* foregroundBottom = new Drawable(15);
+	shared_ptr<Drawable> foregroundBottom = shared_ptr<Drawable>(new Drawable(15));
 	foregroundBottom->setStatic(true);
 	foregroundBottom->setPositionX(0);
 	foregroundBottom->setPositionY(1080);

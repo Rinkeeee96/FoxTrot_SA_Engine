@@ -22,15 +22,15 @@ void MainMenu::onAttach()
 /// Create all buttons for this scene
 void MainMenu::loadButtons() {
 
-	auto* startBtn = new PrimaryButton(10, "Start", BIND_FN(onStartBtnClick), this->dispatcher);
+	shared_ptr<PrimaryButton> startBtn = shared_ptr<PrimaryButton>(new PrimaryButton(10, "Start", BIND_FN(onStartBtnClick), this->dispatcher));
 	startBtn->setPositionX(CENTER_X - startBtn->getWidth() / 2);
 	startBtn->setPositionY(CENTER_Y - startBtn->getHeight() / 2);
 
-	auto* creditsBtn = new PrimaryButton(12, "Credits", BIND_FN(onCreditsBtnClick), this->dispatcher);
+	shared_ptr<PrimaryButton> creditsBtn = shared_ptr<PrimaryButton>(new PrimaryButton(12, "Credits", BIND_FN(onCreditsBtnClick), this->dispatcher));
 	creditsBtn->setPositionX(CENTER_X - creditsBtn->getWidth() / 2);
 	creditsBtn->setPositionY(CENTER_Y - creditsBtn->getHeight() / 2 + 200);
 
-	auto* stopBtn = new SecondaryButton(13, "Stop", BIND_FN(onStopBtnClick), this->dispatcher);
+	shared_ptr<SecondaryButton> stopBtn = shared_ptr<SecondaryButton>(new SecondaryButton(13, "Stop", BIND_FN(onStopBtnClick), this->dispatcher));
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
@@ -47,7 +47,7 @@ void MainMenu::loadBackground() {
 	shared_ptr<SpriteObject> BG_LAYER_ADVENTRUE = shared_ptr<SpriteObject>(new SpriteObject(-1011, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png"));
 	shared_ptr<SpriteObject> BG_LAYER_2 = shared_ptr<SpriteObject>(new SpriteObject(-1012, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_2.png"));
 
-	auto* layer0 = new Drawable(14);
+	shared_ptr<Drawable> layer0 = shared_ptr<Drawable>(new Drawable(14));
 	layer0->setStatic(true);
 	layer0->setPositionX(0);
 	layer0->setPositionY(1080);
@@ -56,7 +56,7 @@ void MainMenu::loadBackground() {
 	layer0->registerSprite(SpriteState::DEFAULT, BG_LAYER_0);
 	layer0->changeToState(SpriteState::DEFAULT);
 
-	auto* animation = new Drawable(15);
+	shared_ptr<Drawable> animation = shared_ptr<Drawable>(new Drawable(15));
 	animation->setStatic(true);
 	animation->setPositionX(175);
 	animation->setPositionY(875);
@@ -66,7 +66,7 @@ void MainMenu::loadBackground() {
 	animation->changeToState(SpriteState::DEFAULT);
 	animation->setScalable(false);
 	
-	auto* layer2 = new Drawable(16);
+	shared_ptr<Drawable> layer2 = shared_ptr<Drawable>(new Drawable(16));
 	layer2->setStatic(true);
 	layer2->setPositionX(0);
 	layer2->setPositionY(1080);

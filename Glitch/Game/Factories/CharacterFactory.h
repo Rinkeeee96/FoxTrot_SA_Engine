@@ -8,13 +8,13 @@ class Level;
 /// Factory for creating entities
 class CharacterFactory {
 private:
-	map<string, ICharacter*> characterMap;
+	map<string, shared_ptr<ICharacter>> characterMap;
 	map<string, map<SpriteState, shared_ptr<SpriteObject>>> spriteObjectMap;
 	unique_ptr<Engine>& engine;
 	Level& level;
 public:
 	CharacterFactory(unique_ptr<Engine>& _engine, Level& _level);
 
-	void registerCharacter(string name, ICharacter* character, int* textureId);
-	ICharacter* create(string name, int id);
+	void registerCharacter(string name, shared_ptr<ICharacter> character, int* textureId);
+	shared_ptr<ICharacter> create(string name, int id);
 };

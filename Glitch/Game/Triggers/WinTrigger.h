@@ -9,7 +9,7 @@ public:
 	WinTrigger(Level& _level, EventDispatcher& _dispatcher) : BaseTrigger(_dispatcher), level(_level) { }
 	WinTrigger(const int _id, Level& _level, EventDispatcher& _dispatcher) : BaseTrigger(_id, _dispatcher), level(_level) { }
 
-	BaseTrigger* clone(const int id) override { return new WinTrigger(id, level, dispatcher); }
+	shared_ptr<BaseTrigger> clone(const int id) override { return shared_ptr<BaseTrigger>(new WinTrigger(id, level, dispatcher)); }
 
 	void onUpdate() override {}
 
@@ -18,10 +18,10 @@ public:
 	/// @return 
 	bool onCollisionBegin(const Event& event) override {
 		auto collisionEvent = static_cast<const OnCollisionBeginEvent&>(event);
-		if (collisionEvent.getObjectOne().getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo().getObjectId() != this->getObjectId()) return false;
+		if (collisionEvent.getObjectOne()->getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo()->getObjectId() != this->getObjectId()) return false;
 
-		if (Player* characterObject = dynamic_cast<Player*>(&collisionEvent.getObjectOne())) this->level.setWin(true);
-		else if (Player* characterObject = dynamic_cast<Player*>(&collisionEvent.getObjectTwo())) this->level.setWin(true);
+		if (shared_ptr<Player> character = dynamic_pointer_cast<Player>(collisionEvent.getObjectOne())) this->level.setWin(true);
+		else if (shared_ptr<Player> character = dynamic_pointer_cast<Player>(collisionEvent.getObjectTwo())) this->level.setWin(true);
 		return false;
 	}
 };

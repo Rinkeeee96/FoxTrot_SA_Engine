@@ -17,7 +17,7 @@ public:
 
 	map<SpriteState, shared_ptr<SpriteObject>> buildSpritemap(int textureId) override;
 
-	ICharacter* clone(int id) override { return new Fleye(id, this->dispatcher); }
+	shared_ptr<ICharacter> clone(int id) override { return shared_ptr<ICharacter>(new Fleye(id, this->dispatcher)); }
 
 private:
 	bool goingUp = false;

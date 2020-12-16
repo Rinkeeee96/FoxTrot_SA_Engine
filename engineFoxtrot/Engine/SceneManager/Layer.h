@@ -23,11 +23,11 @@ public:
 
 	//In here for the not friend classes who might need the objects in a layer
 	API map<int, shared_ptr<Object>> getObjectsInLayer() { return objects; }
-	API Object* getSpecificObjectInLayer(int objectID) { 
+	API shared_ptr<Object> getSpecificObjectInLayer(int objectID) {
 		if (objects.count(objectID) == 0) throw exception("object does not exist");
-		return objects[objectID].get(); 
+		return objects[objectID]; 
 	}
-	API void addObjectInLayer(Object* obj) { objects[obj->getObjectId()] = shared_ptr<Object>(obj); }
+	API void addObjectInLayer(shared_ptr<Object> obj) { objects[obj->getObjectId()] = shared_ptr<Object>(obj); }
 
 	/// @brief Checks if object exists in the layer
 	/// @param objectID 

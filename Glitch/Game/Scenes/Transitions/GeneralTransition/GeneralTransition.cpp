@@ -29,7 +29,7 @@ void GeneralTransition::loadBackground()
 	shared_ptr<SpriteObject> PROGRESSBAR_EMPTY = shared_ptr<SpriteObject>(new SpriteObject(-503, 24, 192, 1, 1, "Assets/LoadingBar/progress-bar-empty.png"));
 	shared_ptr<SpriteObject> PROGRESSBAR_FULL = shared_ptr<SpriteObject>(new SpriteObject(-504, 24, 192, 1, 1, "Assets/LoadingBar/progress-bar-full.png"));
 
-	auto* layer0 = new Drawable(-505);
+	shared_ptr<Drawable> layer0 = shared_ptr<Drawable>(new Drawable(-505));
 	layer0->setStatic(true);
 	layer0->setPositionX(0);
 	layer0->setPositionY(1080);
@@ -38,7 +38,7 @@ void GeneralTransition::loadBackground()
 	layer0->registerSprite(SpriteState::DEFAULT, BG_LAYER_0);
 	layer0->changeToState(SpriteState::DEFAULT);
 
-	auto* progressBar = new Drawable(-506);
+	shared_ptr<Drawable> progressBar = shared_ptr<Drawable>(new Drawable(-506));
 	progressBar->setStatic(true);
 	progressBar->setPositionX(585);
 	progressBar->setPositionY(950);
@@ -47,7 +47,7 @@ void GeneralTransition::loadBackground()
 	progressBar->registerSprite(SpriteState::DEFAULT, PROGRESSBAR_EMPTY);
 	progressBar->changeToState(SpriteState::DEFAULT);
 
-	progressBarFiller = new Drawable(-507);
+	progressBarFiller = shared_ptr<Drawable>(new Drawable(-507));
 	progressBarFiller->setStatic(true);
 	progressBarFiller->setPositionX(616);
 	progressBarFiller->setPositionY(921);
@@ -56,7 +56,7 @@ void GeneralTransition::loadBackground()
 	progressBarFiller->registerSprite(SpriteState::DEFAULT, PROGRESSBAR_FULL);
 	progressBarFiller->changeToState(SpriteState::DEFAULT);
 
-	animation = new Drawable(-508);
+	animation = shared_ptr<Drawable>(new Drawable(-508));
 	animation->setStatic(true);
 	animation->setPositionX(175);
 	animation->setPositionY(875);
@@ -66,7 +66,7 @@ void GeneralTransition::loadBackground()
 	animation->changeToState(SpriteState::DEFAULT);
 	animation->setScalable(false);
 
-	auto* layer2 = new Drawable(-509);
+	shared_ptr<Drawable> layer2 = shared_ptr<Drawable>(new Drawable(-509));
 	layer2->setStatic(true);
 	layer2->setPositionX(0);
 	layer2->setPositionY(1080);

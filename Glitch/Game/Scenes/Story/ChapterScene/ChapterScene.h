@@ -23,7 +23,7 @@ public:
 	bool onKeyPressed(const Event& event);
 
 protected:
-	vector<Text*> text;
+	vector<shared_ptr<Text>> text;
 	FileLoader fileLoader;
 
 	virtual void setTextFromFile(string path, int startingId);
@@ -35,6 +35,6 @@ protected:
 	void onSkipClick();
 
 	vector<string> splitToLines(string stringToSplit, int maximumLineLength);
-	vector<Text*> splitText(string text, int startingId);
+	vector<shared_ptr<Text>> splitText(string text, int startingId);
 	int speed_ = 1;
 };

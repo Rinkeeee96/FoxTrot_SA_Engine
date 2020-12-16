@@ -27,13 +27,14 @@ void ParticleEngine::update()
 	if (isPaused()) return;
 	
 	if ((*pointerToCurrentScene)->getAllDrawablesInScene().size() == 0) return;
-	for (Drawable* particle : (*pointerToCurrentScene)->getAllDrawablesInScene())
+	for (shared_ptr<Drawable> particle : (*pointerToCurrentScene)->getAllDrawablesInScene())
 	{
 		if (particle != nullptr && particle->getIsParticle())
 		{
-			((ParticleAdapter*)particle)->update();
+			//((shared_ptr<ParticleAdapter>)particle)->update();
+			(dynamic_pointer_cast<ParticleAdapter>(particle))->update();
 
-			checkIfObjectValueAndParticleValueMatch((ParticleAdapter&)particle);
+			checkIfObjectValueAndParticleValueMatch(dynamic_pointer_cast<ParticleAdapter>(particle));
 		}
 	}
 }
@@ -57,16 +58,16 @@ bool ParticleEngine::onPauseEvent(const Event& event)
 ///			If not equal they will be made equal.
 ///			Particle position wil be updated to the object position 
 /// @param particle 
-void ParticleEngine::checkIfObjectValueAndParticleValueMatch(ParticleAdapter& particle)
+void ParticleEngine::checkIfObjectValueAndParticleValueMatch(shared_ptr<ParticleAdapter> particle)
 {
-	if (((Object&)particle).getPositionX() != particle.getPositionX())
+	if (((shared_ptr<Object>)particle)->getPositionX() != particle->getPositionX())
 	{
-		particle.setPositionX(((Object&)particle).getPositionX());
+		particle->setPositionX(((shared_ptr<Object>)particle)->getPositionX());
 	}
 
-	if (((Object&)particle).getPositionY() != particle.getPositionY())
+	if (((shared_ptr<Object>)particle)->getPositionY() != particle->getPositionY())
 	{
-		particle.setPositionY(((Object&)particle).getPositionY());
+		particle->setPositionY(((shared_ptr<Object>)particle)->getPositionY());
 	}
 }
 

@@ -93,7 +93,7 @@ void Level::onUpdate()
 		{
 			object->onUpdate();
 
-			if (ICharacter *character = dynamic_cast<ICharacter *>(object))
+			if (ICharacter *character = dynamic_cast<ICharacter *>(object.get()))
 			{
 				if (character->getIsDead() && !character->getIsRemoved())
 				{
@@ -159,7 +159,7 @@ void Level::setSound(map<string, string> _sounds)
 /// @brief
 /// Add HUD for lifes of player
 void Level::addHuds() {
-	this->huds = std::vector<Drawable*>();
+	this->huds.clear();
 	// Health HUDS
 	int startingID = -662;
 	int xAxisChange = 75;
@@ -182,7 +182,7 @@ void Level::addHuds() {
 /// @brief
 /// Add single HUD for lifes of player
 void Level::addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, shared_ptr<SpriteObject> HUD) {
-	auto* health = new Drawable(startingID--);
+	shared_ptr<Drawable> health = shared_ptr<Drawable>(new Drawable(startingID--));
 	health->setStatic(true);
 	health->setPositionX(((startingXAxis + (float)(xAxisChange * (current + 1)))));
 	health->setPositionY(100);
@@ -232,7 +232,7 @@ void Level::increaseTotalGameScore(const int amount)
 void Level::loadScoreBoard()
 {
 	shared_ptr<SpriteObject> emptyBlock = shared_ptr<SpriteObject>(new SpriteObject(-2500, 309, 253, 1, 300, "Assets/Inventory/text_background.png"));
-	auto* block1 = new Drawable(-2501);
+	shared_ptr<Drawable> block1 = shared_ptr<Drawable>(new Drawable(-2501));
 	block1->setStatic(true);
 	block1->setDrawStatic(true);
 	block1->setPositionX(1600);
@@ -244,12 +244,12 @@ void Level::loadScoreBoard()
 
 	int textIDCount = 100;
 
-	auto* text2 = new Text(textIDCount++, new ColoredText(savegame->getCurrentGameData().saveGameName + " " + savegame->getCurrentGameData().getReadableTimeStamp(), Color(0, 0, 0)), 200, 30, 1550, 40);
+	shared_ptr<Text> text2 = shared_ptr<Text>(new Text(textIDCount++, new ColoredText(savegame->getCurrentGameData().saveGameName + " " + savegame->getCurrentGameData().getReadableTimeStamp(), Color(0, 0, 0)), 200, 30, 1550, 40));
 	text2->setDrawStatic(true);
 	addNewObjectToLayer(5, text2, false, true);
 
 
-	scoreText = new Text(textIDCount++, new ColoredText("TotalScore: " + to_string(savegame->getCurrentGameData().totalScore), Color(0, 0, 0)), 200, 30, 1550, 90);
+	scoreText = shared_ptr<Text>(new Text(textIDCount++, new ColoredText("TotalScore: " + to_string(savegame->getCurrentGameData().totalScore), Color(0, 0, 0)), 200, 30, 1550, 90));
 	scoreText->setDrawStatic(true);
 	addNewObjectToLayer(5, scoreText, false, true);
 

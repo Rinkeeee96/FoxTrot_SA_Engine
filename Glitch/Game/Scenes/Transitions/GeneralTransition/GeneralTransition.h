@@ -20,8 +20,8 @@ public:
 
 private:
 	void loadBackground();
-	Drawable* progressBarFiller = nullptr;
-	Drawable* animation = nullptr;
+	shared_ptr<Drawable> progressBarFiller = nullptr;
+	shared_ptr<Drawable> animation = nullptr;
 
 	bool moveCharacter = false;
 

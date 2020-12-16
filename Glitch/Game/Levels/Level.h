@@ -26,12 +26,12 @@ public:
 
 private:
 	void addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, shared_ptr<SpriteObject> HUD);
-	vector<Drawable*> huds;
+	vector<shared_ptr<Drawable>> huds;
 
 	void throwAchievement(Achievement achievement);
 	void increaseTotalGameScore(const int amount);
 
-	Text* scoreText = nullptr;
+	shared_ptr<Text> scoreText = nullptr;
 	void loadScoreBoard();
 	void updateScoreBoard();
 
