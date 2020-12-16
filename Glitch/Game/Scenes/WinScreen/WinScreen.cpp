@@ -107,12 +107,6 @@ void WinScreen::onDetach()
 /// @param deltaTime
 /// DeltaTime should be used when calculating timers/manual movements
 void WinScreen::onUpdate(float deltaTime) {
-
-	if (moveToNextScene)
-	{
-		stateMachine.switchToScene(nextScene, useTransition, playSound);
-	}
-
 	if (animation->getPositionY() < 800) {
 		animation->changeToState(SpriteState::AIR_FALL_RIGHT);
 		falling = true;
@@ -128,4 +122,9 @@ void WinScreen::onUpdate(float deltaTime) {
 	else {
 		animation->setPositionY(animation->getPositionY() + deltaTime * -300);
 	}	
+
+	if (moveToNextScene)
+	{
+		stateMachine.switchToScene(nextScene, useTransition, playSound);
+	}
 }
