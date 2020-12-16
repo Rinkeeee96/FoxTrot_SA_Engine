@@ -8,10 +8,10 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTestsEngine
 {
-	TEST_CLASS(SceneTests)
+	TEST_CLASS(LayerTests)
 	{
 	public:
-		TEST_METHOD(CheckIfObjectExistsTests_ExistingObject_Should_Return_True)
+		TEST_METHOD(RemoveObject_Existing_Object_Should_Remove_Object)
 		{
 			// Arrange
 			MockScene scene;
@@ -107,11 +107,14 @@ namespace UnitTestsEngine
 			Assert::IsTrue(true);
 		}
 
-		TEST_METHOD(GetObject_NonExistingObject_Should_ThrowError)
+		TEST_METHOD(RemoveObject_NonExisting_Object_Should_ThrowError)
 		{
 			// Arrange
 			MockScene scene;
+			MockObject object;
+			Layer layer;
 			// Act
+			layer.addObjectInLayer(&object);
 			try {
 				auto result = scene.getObject(1);
 			}
@@ -121,7 +124,7 @@ namespace UnitTestsEngine
 			}
 		}
 
-		TEST_METHOD(RemoveExistingObject_Should_Remove_Objects)
+		TEST_METHOD(ClearObjects_Should_Remove_All_Objects)
 		{
 			// Arrange
 			MockScene scene;
@@ -191,8 +194,7 @@ namespace UnitTestsEngine
 			Assert::AreEqual((int)result, 0);
 		}
 
-		//API void addLayerOnZIndex(const int zIndex, Layer* _layer);
-		TEST_METHOD(AddLayerOnZIndex_NoLayer_On_ZIndex_Should_Add_Layer)
+		TEST_METHOD(ObjectExists_Existing_Object_Should_Return_True)
 		{
 			// Arrange
 			MockScene scene;
@@ -203,7 +205,7 @@ namespace UnitTestsEngine
 			Assert::AreEqual((int)scene.getLayers().count(1), 1);
 		}
 
-		TEST_METHOD(AddLayerOnZIndex_ExistingLayer_On_ZIndex_Should_Add_Layer_And_Remove_Old_Layer)
+		TEST_METHOD(ObjectExists_NonExisting_Object_Should_Return_False)
 		{
 			// Arrange
 			MockScene scene;
@@ -216,8 +218,7 @@ namespace UnitTestsEngine
 			Assert::AreEqual((int)scene.getLayers().count(1), 1);
 		}
 
-		//API void removeLayer(const int zIndex);
-		TEST_METHOD(Remove_ExistingLayer_Should_Remove_Layer)
+		TEST_METHOD(GetSpecificObjectInLayer_NonExisting_Object_ThrowError)
 		{
 			// Arrange
 			MockScene scene;
@@ -229,7 +230,7 @@ namespace UnitTestsEngine
 			Assert::AreEqual((int)scene.getLayers().count(1), 0);
 		}
 
-		TEST_METHOD(Remove_ExistingLayer_Should_Do_Nothing)
+		TEST_METHOD(AddObjectInLayer_Should_Have_Single_Object)
 		{
 			// Arrange
 			MockScene scene;
