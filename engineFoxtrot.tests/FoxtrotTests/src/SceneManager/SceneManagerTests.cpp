@@ -69,7 +69,7 @@ namespace UnitTestsEngine
 			MockScene scene;
 			// Act
 			scenemager.insertScene(&scene);
-			auto result = scenemager.setCurrentScene(1);
+			auto dispatcher = scenemager.setCurrentScene(1);
 			// Assert
 			Assert::IsTrue(true);
 		}
@@ -83,7 +83,7 @@ namespace UnitTestsEngine
 				scenemager.setCurrentScene(0);
 			}
 			// Assert
-			catch(exception e){
+			catch (exception e) {
 				Assert::AreEqual(e.what(), "scene does not exist");
 			}
 		}
