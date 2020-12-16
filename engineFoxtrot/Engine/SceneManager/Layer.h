@@ -23,7 +23,10 @@ public:
 
 	//In here for the not friend classes who might need the objects in a layer
 	API map<int, shared_ptr<Object>> getObjectsInLayer() { return objects; }
-	API Object* getSpecificObjectInLayer(int objectID) { return objects[objectID].get(); }
+	API Object* getSpecificObjectInLayer(int objectID) { 
+		if (objects.count(objectID) == 0) throw exception("object does not exist");
+		return objects[objectID].get(); 
+	}
 	API void addObjectInLayer(Object* obj) { objects[obj->getObjectId()] = shared_ptr<Object>(obj); }
 
 	/// @brief Checks if object exists in the layer
@@ -36,7 +39,10 @@ public:
 		return false;
 	}
 
-	API void removeObject(int objectID) { objects.erase(objectID); }
+	API void removeObject(int objectID) { 
+		if (objects.count(objectID) == 0) throw exception("object does not exist");
+		objects.erase(objectID); 
+	}
 	API void clearObjects() { objects.clear(); }
 
 	/// @brief Optional method to override which is called when before a layer is loaded

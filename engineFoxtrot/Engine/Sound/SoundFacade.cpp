@@ -77,7 +77,7 @@ void SoundFacade::playEffect(const string& identifier, const int volume = MIX_MA
 		Mix_Volume(channel, volume);
 	}
 	else {
-		throw ERROR_CODE_SVIFACADE_SOUND_IDENTIFIER_NOT_FOUND;
+		throw exception("identifier does not exist");
 	}
 }
 
@@ -93,7 +93,7 @@ void SoundFacade::loadEffect(const string& identifier) {
 		}
 	}
 	else {
-		throw ERROR_CODE_SVIFACADE_SOUND_IDENTIFIER_NOT_FOUND;
+		throw exception("cannot load effect");
 	}
 }
 
@@ -103,7 +103,7 @@ void SoundFacade::loadEffect(const string& identifier) {
 /// The sound identifier saved when the file has been added
 void SoundFacade::unloadEffect(const string& identifier) {
 	if (loadedSoundEffects.find(identifier) == loadedSoundEffects.end()) {
-		throw ERROR_CODE_SVIFACADE_SOUND_IDENTIFIER_NOT_FOUND;
+		throw exception("identifier does not exist");
 	}
 	stopLoopedEffect(identifier);
 	loadedSoundEffects.erase(identifier);
@@ -121,7 +121,7 @@ void SoundFacade::startLoopedEffect(const string& identifier, const int volume) 
 		loopChannels.insert(pair<string, int>(identifier, channel));
 	}
 	else {
-		throw ERROR_CODE_SVIFACADE_SOUND_IDENTIFIER_NOT_FOUND;
+		throw exception("identifier does not exist");
 	}
 }
 
@@ -135,7 +135,7 @@ void SoundFacade::stopLoopedEffect(const string& identifier) {
 		loopChannels.erase(identifier);
 	}
 	else {
-		throw ERROR_CODE_SVIFACADE_SOUND_IDENTIFIER_NOT_FOUND;
+		throw exception("identifier does not exist");
 	}
 }
 
@@ -157,7 +157,7 @@ void SoundFacade::loadMusic(const string& identifier) {
 		}
 	}
 	else {
-		throw ERROR_CODE_SVIFACADE_SOUND_IDENTIFIER_NOT_FOUND;
+		throw exception("identifier does not exist");
 	}
 }
 
@@ -171,7 +171,7 @@ void SoundFacade::playMusic(const int volume = MIX_MAX_VOLUME) {
 		Mix_PlayMusic(music, LOOP_INDEFINITELY);
 	}
 	else {
-		throw ERROR_CODE_SVIFACADE_NO_MUSIC_LOADED;
+		throw exception("identifier does not exist");
 	}
 }
 
@@ -188,7 +188,7 @@ void SoundFacade::playMusic(const string& identifier, const int volume = MIX_MAX
 		Mix_PlayMusic(music, LOOP_INDEFINITELY);
 	}
 	else {
-		throw ERROR_CODE_SVIFACADE_SOUND_IDENTIFIER_NOT_FOUND;
+		throw exception("identifier does not exist");
 	}
 }
 
@@ -207,7 +207,7 @@ void SoundFacade::changeMusic(const string& identifier) {
 /// The amount of time it takes for the music to fade in ms
 void SoundFacade::fadeOutMusic(const int fadeTime) {
 	if (fadeTime < 0) {
-		throw ERROR_CODE_SVIFACADE_INVALID_FADETIME;
+		throw exception("invalid fade time");
 	}
 	Mix_FadeOutMusic(fadeTime);
 }
@@ -218,10 +218,10 @@ void SoundFacade::fadeOutMusic(const int fadeTime) {
 /// The amount of time it takes for the music to fade in ms
 void SoundFacade::fadeInMusic(const int fadeTime) {
 	if (music == NULL) {
-		throw ERROR_CODE_SVIFACADE_NO_MUSIC_LOADED;
+		throw exception("sound does not exist");
 	}
 	if (fadeTime < 0) {
-		throw ERROR_CODE_SVIFACADE_INVALID_FADETIME;
+		throw exception("invalid fade time");
 	}
 	rewindMusic();
 	Mix_FadeInMusic(music, LOOP_INDEFINITELY, fadeTime);
@@ -235,10 +235,10 @@ void SoundFacade::fadeInMusic(const int fadeTime) {
 /// The amount of time it takes for the music to fade in ms
 void SoundFacade::fadeInMusic(const string& identifier, const int fadeTime) {
 	if (music == NULL) {
-		throw ERROR_CODE_SVIFACADE_NO_MUSIC_LOADED;
+		throw exception("identifier does not exist");
 	}
 	if (fadeTime < 0) {
-		throw ERROR_CODE_SVIFACADE_INVALID_FADETIME;
+		throw exception("Invalid fade time");
 	}
 	stopMusic();
 	loadMusic(identifier);
@@ -277,7 +277,7 @@ bool SoundFacade::identifierExists(const string& identifier) {
 	if (soundPaths.find(identifier) != soundPaths.end()) {
 		return true;
 	}
-	throw ERROR_CODE_SVIFACADE_SOUND_IDENTIFIER_NOT_FOUND;
+	throw exception("identifier does not exist");
 }
 
 /// @brief

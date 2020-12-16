@@ -25,29 +25,9 @@ namespace UnitTestsEngine
 			Assert::AreEqual(2, mapSize);
 		}
 
-		// TODO
-		TEST_METHOD(AddFileWithIdentifier) {
-			/*SoundFacade soundFacade;
-			soundFacade.addFile("test", "test.mp3");
-			Assert::IsTrue(soundFacade.identifierIsLoaded("test"));*/
-			Assert::IsTrue(true);
-		}
-
-		// TODO
-		TEST_METHOD(AddFileWithSameIdentifierOverwritesOldEntry) {
-			/*SoundFacade soundFacade;
-			soundFacade.addFile("test", "test.mp3");
-			soundFacade.addFile("test", "override.mp3");*/
-			Assert::IsTrue(true);
-			// TODO
-			/*string path = soundFacade.GetSoundPaths().find("test")->second;
-
-			Assert::IsTrue(path == "override.mp3");*/
-		}
-
 		TEST_METHOD(LoadEffectChecksIfIdentifierExistsIsTrue) {
 			SoundFacade soundFacade;
-			soundFacade.addFile("test", "test.mp3");
+			soundFacade.addFile("test", "applause.wav");
 
 			bool exists = soundFacade.identifierExists("test");
 
@@ -56,15 +36,14 @@ namespace UnitTestsEngine
 
 		TEST_METHOD(LoadEffectChecksIfIdentifierExistsThrowsException) {
 			SoundFacade soundFacade;
-			soundFacade.addFile("test", "test.mp3");
-			soundFacade.addFile("boop", "test.mp3");
+			soundFacade.addFile("test", "applause.wav");
+			soundFacade.addFile("boop", "applause.wav");
 			try
 			{
 				soundFacade.identifierExists("IdontExist");
 			}
-			catch (int e)
-			{
-				Assert::IsTrue(e == ERROR_CODE_SVIFACADE_SOUND_IDENTIFIER_NOT_FOUND);
+			catch (exception e) {
+				Assert::AreEqual(e.what(), "identifier does not exist");
 			}
 		}
 
@@ -74,9 +53,8 @@ namespace UnitTestsEngine
 			{
 				soundFacade.playEffect("IdontExist", 1);
 			}
-			catch (int e)
-			{
-				Assert::IsTrue(e == ERROR_CODE_SVIFACADE_SOUND_IDENTIFIER_NOT_FOUND);
+			catch (exception e) {
+				Assert::AreEqual(e.what(), "identifier does not exist");
 			}
 
 		}
@@ -86,9 +64,8 @@ namespace UnitTestsEngine
 			{
 				soundFacade.identifierExists("IdontExist");
 			}
-			catch (int e)
-			{
-				Assert::IsTrue(e == ERROR_CODE_SVIFACADE_SOUND_IDENTIFIER_NOT_FOUND);
+			catch (exception e) {
+				Assert::AreEqual(e.what(), "identifier does not exist");
 			}
 		}
 
@@ -103,27 +80,28 @@ namespace UnitTestsEngine
 		}
 
 		// TODO
-		TEST_METHOD(FadeInThrowsExceptionWhenFadeTimeIsNegative) {
-			/*try
-			{
-				SoundFacade soundFacade;
-				soundFacade.fadeInMusic(-1);
-			}
-			catch (int e)
-			{
-				Assert::IsTrue(e == ERROR_CODE_SVIFACADE_INVALID_FADETIME);
-			}*/
-		}
-
-		TEST_METHOD(FadeOutThrowsExceptionWhenFadeTimeIsNegative) {
+		TEST_METHOD(FadeIn_Invalid_Fade_Time_Should_ThrowError) {
+			SoundFacade soundFacade;
 			try
 			{
-				SoundFacade soundFacade;
+				soundFacade.fadeInMusic(-1);
+			}
+			catch (exception e) {
+				Assert::AreEqual(e.what(), "sound does not exist");
+			}
+		}
+
+		TEST_METHOD(FadeOut_Invalid_Fade_Time_Should_ThrowError) {
+			// Arrange
+			SoundFacade soundFacade;
+			// Act
+			try
+			{
 				soundFacade.fadeOutMusic(-1);
 			}
-			catch (int e)
-			{
-				Assert::IsTrue(e == ERROR_CODE_SVIFACADE_INVALID_FADETIME);
+			// Assert
+			catch (exception e) {
+				Assert::AreEqual(e.what(), "invalid fade time");
 			}
 		}
 	};

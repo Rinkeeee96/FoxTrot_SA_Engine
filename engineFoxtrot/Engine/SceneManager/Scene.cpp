@@ -16,13 +16,6 @@ Scene::Scene(const int _sceneID, const int _sceneHeight, const int _sceneWidth) 
 /// @brief 
 Scene::~Scene()
 {
-	//for (auto layer : layers)
-	//{
-	//	for (auto obj : layer.second->objects)
-	//	{
-	//		delete obj.second;
-	//	}
-	//}
 }
 
 /// @brief 
@@ -158,7 +151,7 @@ Object * Scene::getObject(const int objectID)
 			return layer.second->getSpecificObjectInLayer(objectID);
 		}
 	}
-	throw ERROR_CODE_SCENE_NO_OBJECT_FOUND;
+	throw exception("object does not exist");
 }
 
 /// @brief Deletes all objects in the scene when called.

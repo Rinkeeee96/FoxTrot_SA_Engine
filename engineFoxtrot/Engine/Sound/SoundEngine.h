@@ -47,7 +47,6 @@ public:
 private:
 	void onChangeBackgroundMusic(const string& identifier, const int volume);
 
-
 	// TODO clear on scene detach
 	unique_ptr<ISoundFacade> soundFacade = unique_ptr<SoundFacade>(new SoundFacade);
 

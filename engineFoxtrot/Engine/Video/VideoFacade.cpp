@@ -18,6 +18,7 @@ VideoFacade::~VideoFacade()
 {
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
+	SDL_Quit();
 }
 
 /// @brief 
@@ -79,7 +80,7 @@ void VideoFacade::drawScreen()
 /// @param filename
 void VideoFacade::loadImage(const shared_ptr<SpriteObject> spriteObject) {
 	if (spriteObject->getFileName() == NULL) 
-		throw exception(ERRORCODES[ERROR_CODE_SVIFACADE_FILENAME_IS_NULL]);
+		throw exception("Invalid file name");
 
 	int textureId = spriteObject->getTextureID();
 

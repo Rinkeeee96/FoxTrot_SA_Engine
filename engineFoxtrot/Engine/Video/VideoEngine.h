@@ -46,6 +46,7 @@ public:
 
 	shared_ptr<Scene>* pointerToCurrentScene = nullptr;
 
+	const IVideoFacade& getVideoFacade() const { return *this->videoFacade; }
 private:
 	void drawFps();
 	void drawFps(double fps, int xPos, int yPos, const string& prefix);

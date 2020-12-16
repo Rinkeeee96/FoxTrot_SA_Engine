@@ -16,6 +16,7 @@ public:
 	API shared_ptr<Scene> getSceneWithID(const int sceneID);
 	API void insertScene(shared_ptr<Scene>);
 	API void deregisterScene(const int id);
+	
 	int getFirstFreeSceneID();
 
 	// Pointer
