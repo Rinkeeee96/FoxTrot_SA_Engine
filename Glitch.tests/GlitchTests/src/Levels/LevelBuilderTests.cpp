@@ -27,9 +27,9 @@ namespace UnitTestsGlitch
 			levelLoader.load("TestAssetsGame/validLevel.json", &levelOneBuilder);
 			auto level = levelOneBuilder.getLevel();
 			// Assert
-			Assert::AreNotEqual((int)level.get()->getAllDrawablesInScene().size(), 0);
-			Assert::AreNotEqual((int)level.get()->getAllObjectsInScene().size(), 0);
-			Assert::AreNotEqual((int)level.get()->getAllObjectsInSceneRenderPhysics().size(), 0);
+			Assert::AreEqual((int)level.get()->getAllDrawablesInScene().size(), 832);
+			Assert::AreEqual((int)level.get()->getAllObjectsInScene().size(), 835);
+			Assert::AreEqual((int)level.get()->getAllObjectsInSceneRenderPhysics().size(), 817);
 		}
 	};
 }
