@@ -30,7 +30,6 @@ int Game::run() {
 			engine.update();
 			// TODO get only the non static objects, without looping thru them again and again
 			stateMachine->updateCurrentScene();
-			this_thread::sleep_for(chrono::milliseconds(10));
 			engine.updateFps();
 		}
 		

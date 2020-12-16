@@ -18,7 +18,7 @@ public:
 	// register base events
 	virtual void onAttach() override = 0;
 	virtual void start(bool playSound) override = 0;
-	virtual void onUpdate() override = 0;
+	virtual void onUpdate(float deltaTime) override = 0;
 	virtual void onDetach() override = 0;
 
 	void registerSavegame(shared_ptr<Savegame> _savegame);

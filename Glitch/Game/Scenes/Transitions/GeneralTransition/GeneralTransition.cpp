@@ -8,8 +8,6 @@
 void GeneralTransition::onAttach()
 {
 	loadBackground();
-	startTime = chrono::high_resolution_clock::now();
-	previousCallTime = chrono::high_resolution_clock::now();
 	moveCharacter = false;
 }
 
@@ -86,11 +84,13 @@ void GeneralTransition::loadBackground()
 /// Runs the scene.
 /// Calculates every 0.5s and random nr between 1 and 150 to increase the loading bar with. 
 /// Also sets the loading bar. 
-void GeneralTransition::onUpdate()
+/// @param deltaTime
+/// DeltaTime should be used when calculating timers/manual movements
+void GeneralTransition::onUpdate(float deltaTime)
 {
-	chrono::duration<double> diffFromPreviousCall = chrono::duration_cast<chrono::duration<double>>(chrono::high_resolution_clock::now() - previousCallTime);
+	timer += deltaTime;
 
-	if (diffFromPreviousCall.count() > 0.5 && !moveCharacter)
+	if (timer > 0.75 && !moveCharacter)
 	{
 		if (progressBarFiller->getWidth() >= 685)
 		{
@@ -108,13 +108,11 @@ void GeneralTransition::onUpdate()
 		{
 			progressBarFiller->setWidth(progressBarFiller->getWidth() + generated);
 		}
-		previousCallTime = chrono::high_resolution_clock::now();
 	}
 
-	if (diffFromPreviousCall.count() > 0.05 && moveCharacter)
+	if (timer > 0.05 && moveCharacter)
 	{
-		animation->setPositionX(animation->getPositionX() + 20);
-		previousCallTime = chrono::high_resolution_clock::now();
+		animation->setPositionX(animation->getPositionX() + (600 * deltaTime));
 		if (animation->getPositionX() > WINDOW_WIDTH)
 		{
 			stateMachine.switchToScene(nextScene,false);
