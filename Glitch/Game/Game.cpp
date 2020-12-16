@@ -13,7 +13,6 @@ Game::Game()
 /// @brief This function contains the game loop
 /// @return 
 int Game::run() {
-
 	try {
 		engine.start();
 		engine.useCustomCommandInvoker(commandBuilder->readBindingsAndCreateInvoker());

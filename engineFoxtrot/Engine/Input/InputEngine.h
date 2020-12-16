@@ -15,11 +15,11 @@ public:
 	API InputEngine(Engine& engine);
 	API ~InputEngine();
 
-	void registerKeypressInvoker(KeypressInvoker* _keypressInvoker);
+	API void registerKeypressInvoker(KeypressInvoker* _keypressInvoker);
 
-	void start(EventDispatcher& dispatcher) override;
-	void update() override;
-	void shutdown() override;
+	API void start(EventDispatcher& dispatcher) override;
+	API void update() override;
+	API void shutdown() override;
 private:
 
 	Engine& engine;

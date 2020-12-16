@@ -23,7 +23,6 @@ namespace UnitTestsEngine
 			Assert::AreEqual(particle.getPositionY(), 1.0f);
 		}
 
-
 		TEST_METHOD(ObjectBaseClassPositionIsIgnored)
 		{
 			// arrange

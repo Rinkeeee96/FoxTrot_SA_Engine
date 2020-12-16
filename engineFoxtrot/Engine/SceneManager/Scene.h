@@ -22,7 +22,7 @@ public:
 	vector<Drawable*> API getAllDrawablesInScene();
 
 	vector <Object*> API getAllObjectsInScene();
-	vector <Object*> getAllObjectsInSceneRenderPhysics();
+	vector <Object*> API getAllObjectsInSceneRenderPhysics();
 
 	Object API *getObject(const int objectID);
 
