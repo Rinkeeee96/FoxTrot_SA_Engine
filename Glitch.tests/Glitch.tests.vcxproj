@@ -183,7 +183,6 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch.tests\TestAssetsGame" "$(OutDir)TestA
     <ClCompile Include="GlitchTests\src\States\Player\NormalState.cpp" />
     <ClCompile Include="GlitchTests\src\States\StateMachineTests.cpp" />
     <ClCompile Include="GlitchTests\src\Triggers\DeathTriggerTests.cpp" />
-    <ClCompile Include="GlitchTests\src\Triggers\WinTriggerTests.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

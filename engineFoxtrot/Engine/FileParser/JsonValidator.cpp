@@ -51,7 +51,6 @@ void JsonValidator::validate(JsonDocument& document, JsonDocument& validationDoc
 	else {
 		docIsValid = true;
 	}
-
 }
 
 /// @brief 

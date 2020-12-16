@@ -66,9 +66,6 @@
     <ClCompile Include="GlitchTests\src\Triggers\DeathTriggerTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GlitchTests\src\Triggers\WinTriggerTests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
