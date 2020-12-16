@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"classunknown_command_exception.html#a08d1a45f9586b47a440aee262f6235fe":[1,0,66,0],
 "classunknown_command_exception.html#a2b8e9bde13cdf2a2ec285166a4aa0074":[1,0,66,1],
 "classunknown_command_exception.html#a51560f0cafd28da6a680db0ae64d8a5f":[1,0,66,2],
 "classunknown_command_exception.html#ad85fa7d60ac0d7543c9cbd9e25f76383":[1,0,66,3],
@@ -29,8 +30,8 @@ var NAVTREEINDEX4 =
 "dir_f5588563a21b289f1b68727b7157a599.html":[2,0,0,5,0],
 "dir_fd8b0673c717371c7973e7210347eb64.html":[2,0,0,0,1],
 "files.html":[2,0],
-"functions.html":[1,3,0,0],
 "functions.html":[1,3,0],
+"functions.html":[1,3,0,0],
 "functions_a.html":[1,3,0,1],
 "functions_b.html":[1,3,0,2],
 "functions_c.html":[1,3,0,3],

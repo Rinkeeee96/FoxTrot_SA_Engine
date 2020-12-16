@@ -10,6 +10,7 @@ var class_video_engine =
     [ "drawFps", "class_video_engine.html#ad4de84f7e2801cda58af13aaa969b940", null ],
     [ "drawParticle", "class_video_engine.html#a2f958998d4352a6b4dbc2c3a315c7601", null ],
     [ "drawScreen", "class_video_engine.html#ae473587fb274cac6d77ccf9312d38b3f", null ],
+    [ "getVideoFacade", "class_video_engine.html#ac4f05c8630a2bb5b31e5de8704ea4d13", null ],
     [ "loadImage", "class_video_engine.html#a66f02fe551b1b47b0dfe20be415b5a5c", null ],
     [ "renderCopy", "class_video_engine.html#aa5fdcf2973896c7660b49ac46c2a6b4c", null ],
     [ "shutdown", "class_video_engine.html#ac19f44b6df0ee867895d7ba1ecef2333", null ],
