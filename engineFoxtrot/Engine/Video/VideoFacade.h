@@ -18,15 +18,15 @@ typedef struct _TTF_Font TTF_Font;
 class VideoFacade : public IVideoFacade
 {
 public:
-	VideoFacade();
-	~VideoFacade();
+	API VideoFacade();
+	API ~VideoFacade();
 
 	void initSDL();
 
 	void clearScreen();
 	void drawScreen();
-	void loadImage(const SpriteObject& spriteObject);
-	void renderCopy(Drawable& object);
+	API void loadImage(const SpriteObject& spriteObject);
+	API void renderCopy(Drawable& object);
 
 	void drawParticle(const ParticleAdapter& part);
 

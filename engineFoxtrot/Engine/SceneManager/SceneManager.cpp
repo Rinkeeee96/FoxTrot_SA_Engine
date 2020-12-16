@@ -46,7 +46,8 @@ void SceneManager::insertScene(Scene* scene)
 /// @param id 
 void SceneManager::deregisterScene(const int id)
 {
-	currentScene->onDetach();
+	if (scenes.count(id) == 0) throw exception("scene does not exist");
+	scenes[id]->onDetach();
 	scenes.erase(scenes.find(id));
 }
 
@@ -66,7 +67,7 @@ int SceneManager::getFirstFreeSceneID()
 /// Identifier to a SceneID.
 EventDispatcher& SceneManager::setCurrentScene(const int sceneID)
 {
-	if (scenes.empty()) throw ERROR_CODE_SCENEMANAGER_SCENES_IS_EMPTY;
+	if (scenes.empty()) throw exception("scene does not exist");
 
 	currentScene = getSceneWithID(sceneID);
 	//currentScene->onAttach();
@@ -84,10 +85,10 @@ EventDispatcher& SceneManager::setCurrentScene(const int sceneID)
 /// Returns pointer to the found Scene. 
 Scene* SceneManager::getSceneWithID(const int sceneID)
 {
-	if (scenes.empty()) throw ERROR_CODE_SCENEMANAGER_SCENES_IS_EMPTY;
+	if (scenes.empty()) throw exception("scene does not exist");
 	if (scenes.find(sceneID) == scenes.end()) {
 		// not found
-		throw ERROR_CODE_SCENEMANAGER_CANT_FIND_SCENE_WITH_ID;
+		throw exception("scene does not exist");
 	}
 	else {
 		// found

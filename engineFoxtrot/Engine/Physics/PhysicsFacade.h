@@ -33,23 +33,23 @@ class b2Body;
 class PhysicsFacade : public IPhysicsFacade
 {
 public:
-	PhysicsFacade(EventDispatcher& _dispatcher);
-	~PhysicsFacade();
+	API PhysicsFacade(EventDispatcher& _dispatcher);
+	API ~PhysicsFacade();
 
-	void addStaticObject(PhysicsBody* object) override;
-	void addDynamicObject(PhysicsBody* object) override;
+	API void addStaticObject(PhysicsBody* object) override;
+	API void addDynamicObject(PhysicsBody* object) override;
 
-	PhysicsBody* getPhysicsObject(const int objectId) override;
+	API PhysicsBody* getPhysicsObject(const int objectId) override;
 
-	void MoveLeft(const int objectId) override;
-	void MoveRight(const int objectId) override;
-	void Jump(const int objectId) override;
-	void Fall(const int objectId) override;
+	API void MoveLeft(const int objectId) override;
+	API void MoveRight(const int objectId) override;
+	API void Jump(const int objectId) override;
+	API void Fall(const int objectId) override;
 
-	CollisionStruct getObjectsByFixture(b2Fixture* fixture1, b2Fixture* fixture2);
-	void update() override;
-	void stopObject(int objectId, bool stopVertical, bool stopHorizontal);
-	void cleanMap();
+	API CollisionStruct getObjectsByFixture(b2Fixture* fixture1, b2Fixture* fixture2);
+	API void update() override;
+	API void stopObject(int objectId, bool stopVertical, bool stopHorizontal);
+	API void cleanMap();
 
 private:
 	EventDispatcher& dispatcher;

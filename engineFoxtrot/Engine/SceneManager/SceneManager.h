@@ -16,6 +16,7 @@ public:
 	API Scene* getSceneWithID(const int sceneID);
 	API void insertScene(Scene* scene);
 	API void deregisterScene(const int id);
+	
 	int getFirstFreeSceneID();
 
 	// Pointer

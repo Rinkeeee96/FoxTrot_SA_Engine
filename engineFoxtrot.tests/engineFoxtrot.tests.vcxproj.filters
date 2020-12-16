@@ -18,9 +18,6 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FoxtrotTests\src\engineFoxtrot.tests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="FoxtrotTests\src\Particle\ParticleEngineTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -30,10 +27,34 @@
     <ClCompile Include="FoxtrotTests\src\Physics\PhysicsFacadeTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FoxtrotTests\src\Engine\EngineTests.cpp">
+    <ClCompile Include="FoxtrotTests\src\Sound\SoundFacadeTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FoxtrotTests\src\Sound\SoundFacadeTests.cpp">
+    <ClCompile Include="FoxtrotTests\src\FileParser\FileLoaderTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FoxtrotTests\src\FileParser\JsonValidatorTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FoxtrotTests\src\Events\EventDispatcherTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FoxtrotTests\src\SceneManager\SceneManagerTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FoxtrotTests\src\SceneManager\SceneTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FoxtrotTests\src\SceneManager\LayerTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FoxtrotTests\src\Video\VideoEngineTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FoxtrotTests\src\Video\VideoFacadeTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FoxtrotTests\src\Input\InputEngineTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,5 +68,11 @@
     <ClInclude Include="FoxtrotTests\src\mocks\MockObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FoxtrotTests\src\mocks\MockKeyPressedCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="TestAssets\Tests.txt" />
   </ItemGroup>
 </Project>
