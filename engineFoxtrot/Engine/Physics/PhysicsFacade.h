@@ -20,8 +20,8 @@
 #define Y_AXIS_STATIC 0
 
 struct CollisionStruct {
-	PhysicsBody* object1 = nullptr;
-	PhysicsBody* object2 = nullptr;
+	shared_ptr<PhysicsBody> object1 = nullptr;
+	shared_ptr<PhysicsBody> object2 = nullptr;
 };
 
 class b2Fixture;

@@ -29,9 +29,9 @@ CollisionStruct PhysicsFacade::getObjectsByFixture(b2Fixture* fixture1, b2Fixtur
 		for (b2Fixture* f = value.second->GetFixtureList(); f; f = f->GetNext())
 		{
 			if (fixture1 == f)
-				collisionStruct.object1 = value.first.get();
+				collisionStruct.object1 = value.first;
 			else if (fixture2 == f)
-				collisionStruct.object2 = value.first.get();
+				collisionStruct.object2 = value.first;
 
 			if (collisionStruct.object1 != nullptr && collisionStruct.object2 != nullptr) break;
 		}
