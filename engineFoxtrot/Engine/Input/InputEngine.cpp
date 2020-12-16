@@ -46,7 +46,7 @@ void InputEngine::shutdown() {
 /// @param event 
 /// @return 
 bool InputEngine::onKeyPressed(const Event& event) {
-	auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
+	auto& keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
 
 	if(keypressInvoker)
 		keypressInvoker->enqueueCommand(keyPressedEvent.getKeyCode());

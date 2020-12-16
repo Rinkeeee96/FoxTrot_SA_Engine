@@ -13,7 +13,6 @@ public:
 	API const double getFps() { return fps; };
 
 private:
-
 	double fps = 0;
 
 	list<chrono::duration<double>> frametimes;
