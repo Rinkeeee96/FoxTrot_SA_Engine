@@ -24,17 +24,14 @@
 */
 var NAVTREE =
 [
-  [ "Foxtrot_Game_Engine", "index.html", [
-    [ "PointerUsage", "md__engine__documentation__pointer_usage.html", null ],
+  [ "Glitch", "index.html", [
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", "functions_func" ],
-        [ "Variables", "functions_vars.html", null ],
-        [ "Enumerator", "functions_eval.html", null ]
+        [ "All", "functions.html", null ],
+        [ "Functions", "functions_func.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -45,11 +42,9 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_action_event_8h_source.html",
-"class_i_sound_facade.html#ade97f28e0fd48a25fd1f368064923584",
-"class_particle.html#a26f2ec7e95a272221453c6b589d5b711",
-"class_physics_body.html#afc5b2bce7ecedc991d5f49d7e241bbb2",
-"class_window_resize_event.html#a4bbcb192821b1ba82dfc1513ba890be9"
+"_abstract_level_builder_8h_source.html",
+"class_game_keypress_invoker.html#a9da00b49776765d62465f9f4dadef454",
+"class_overworld.html#a7a6228166e9aa710f122af73821e1e47"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
