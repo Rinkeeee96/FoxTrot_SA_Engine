@@ -32,7 +32,6 @@ void Engine::setCurrentScene(const int sceneID)
 	physicsEngine.start(*this->eventDispatcher);
 
 	sceneManager.getSceneWithID(sceneID)->onAttach();
-	sceneManager.getSceneWithID(sceneID)->onAttach();
 }
 
 /// @brief Returns the currentScene
