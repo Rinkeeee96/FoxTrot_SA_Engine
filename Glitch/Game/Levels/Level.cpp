@@ -129,7 +129,7 @@ bool Level::onToggleLayerEvent(const Event& event) {
 	bool currentRenderstate = this->getLayers()[layerIndex]->getRender();
 
 	this->toggleLayer(layerIndex, ! currentRenderstate);
-	return true;
+	return false;
 }
 
 // @brief 

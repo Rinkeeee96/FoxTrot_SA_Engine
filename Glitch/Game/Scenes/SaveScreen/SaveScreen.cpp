@@ -37,6 +37,10 @@ void SaveScreen::start(bool playSound)
 
 void SaveScreen::onUpdate()
 {
+	//if (runToNextScene)
+	//{
+	//	stateMachine->switchToScene(nextScene, false,false);
+	//}
 }
 
 /// @brief 
@@ -218,7 +222,8 @@ void SaveScreen::loadText()
 void SaveScreen::onSave1BtnClick()
 {
 	savegame->setCurrentGameData(1);
-	stateMachine.switchToScene("Overworld", true);
+	nextScene = "Overworld";
+	runToNextScene = true;
 }
 
 /// @brief Resets or creates a save file
@@ -230,12 +235,14 @@ void SaveScreen::resetOrSaveSaveGame(const int id)
 		SaveGameData save;
 		save.saveGameName = "Save " + to_string(id);
 		savegame->addSaveGameData(id, save);
-		stateMachine.switchToScene("SaveScreen", false, false);
+		nextScene = "SaveScreen";
+		runToNextScene = true;
 	}
 	else
 	{
 		savegame->deleteSaveGameData(id);
-		stateMachine.switchToScene("SaveScreen", false, false);
+		nextScene = "SaveScreen";
+		runToNextScene = true;
 	}
 }
 
@@ -249,7 +256,8 @@ void SaveScreen::onSave1ExtraBtnClick()
 void SaveScreen::onSave2BtnClick()
 {
 	savegame->setCurrentGameData(2);
-	stateMachine.switchToScene("Overworld", true);
+	nextScene = "Overworld";
+	runToNextScene = true;
 }
 
 /// @brief Calls the create or delete save function
@@ -262,7 +270,8 @@ void SaveScreen::onSave2ExtraBtnClick()
 void SaveScreen::onSave3BtnClick()
 {
 	savegame->setCurrentGameData(3);
-	stateMachine.switchToScene("Overworld", true);
+	nextScene = "Overworld";
+	runToNextScene = true;
 }
 
 /// @brief Calls the create or delete save function
@@ -273,5 +282,6 @@ void SaveScreen::onSave3ExtraBtnClick()
 
 /// @brief Called when Back Button is clicked
 void SaveScreen::onStopBtnClick() {
-	stateMachine.switchToScene("MainMenu",false);
+	nextScene = "MainMenu";
+	runToNextScene = true;
 }

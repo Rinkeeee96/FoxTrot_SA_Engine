@@ -26,5 +26,9 @@ protected:
 	SceneStateMachine& stateMachine;
 	Engine& engine;
 	shared_ptr<Savegame> savegame;
+
+	bool runToNextScene = false;
+	string nextScene = "";
+	bool runTransitionScreen = false;
 };
 

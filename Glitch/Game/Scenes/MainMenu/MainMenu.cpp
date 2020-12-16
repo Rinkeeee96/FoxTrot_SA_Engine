@@ -95,6 +95,10 @@ void MainMenu::start(bool playSound)
 
 void MainMenu::onUpdate()
 {
+	if (runToNextScene)
+	{
+		stateMachine.switchToScene(nextScene, false,false);
+	}
 }
 
 /// @brief 
@@ -110,7 +114,9 @@ void MainMenu::onDetach()
 /// Start transition scene to OVERWORLD
 void MainMenu::onStartBtnClick()
 {
-	stateMachine.switchToScene("SaveScreen", false);
+	nextScene = "SaveScreen";
+	runToNextScene = true;
+	cout << "Button clicked" << endl;
 }
 
 
@@ -126,7 +132,8 @@ void MainMenu::onStopBtnClick() {
 /// A callback function for creditsBTN
 /// Start transition scene to DEAD_SCREEN
 void MainMenu::onCreditsBtnClick() {
-	stateMachine.switchToScene("CreditsSreen", false);
+	nextScene = "CreditsSreen";
+	runToNextScene = true;
 }
 
 

@@ -71,19 +71,16 @@ bool PhysicsEngine::handleAction(const Event& event) {
 	{
 		case Direction::UP:
 			this->physicsFacade->Jump(objectId);
-			return true;
 		case Direction::LEFT:
 			this->physicsFacade->MoveLeft(objectId);
-			return true;
 		case Direction::RIGHT:
 			this->physicsFacade->MoveRight(objectId);
-			return true;
 		case Direction::DOWN:
 			this->physicsFacade->Fall(objectId);
-			return true;
 		default:
 			return false;
 	}
+	return false;
 }
 
 /// @brief Stops the vertical movement of an object.
@@ -92,7 +89,7 @@ bool PhysicsEngine::handleAction(const Event& event) {
 bool PhysicsEngine::stopObject(const Event& event) {
 	auto& e = static_cast<const ObjectStopEvent&>(event);
 	physicsFacade->stopObject(e.getObjectId(), e.getStopVertical(), e.getStopHorizontal());
-	return true;
+	return false;
 }
 
 /// @brief Executes on pause event for physics engine
