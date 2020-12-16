@@ -41,8 +41,8 @@ SceneStateMachine::~SceneStateMachine(){}
 /// @brief Load level according to the identifier
 /// @param identifier 
 /// @return 
-unique_ptr<Scene> SceneStateMachine::loadLevel(const string& identifier) {
-	std::unique_ptr<Scene> newScene = nullptr;
+Scene* SceneStateMachine::loadLevel(const string& identifier) {
+	Scene* newScene = nullptr;
 	LoadLevelFacade levelLoader{ engine };
 
 	levelToBuild = stoi(identifier.substr(6));
@@ -78,10 +78,11 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	bool handlingLevel = false;
 	if (identifier.find("Level") != string::npos) handlingLevel = true;
 
-	std::unique_ptr<Scene> newScene = nullptr;
+	Scene* newScene = nullptr;
 
 	if (!handlingLevel)
 	{
+		cout << "Newscene" << endl;
 		newScene = factory->create(identifier, sceneId++, engine, *this);
 	}
 	else
@@ -97,18 +98,18 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	{
 		engine.deregisterScene(currentScene->getSceneID());
 	}
-	currentScene = std::move(newScene);
+	currentScene = newScene;
 
-	if (currentScene && dynamic_cast<GameScene*>(currentScene.get()))
-		((GameScene*)currentScene.get())->registerSavegame(savegame);
+	if (currentScene && dynamic_cast<GameScene*>(currentScene))
+		((GameScene*)currentScene)->registerSavegame(savegame);
 
-	engine.insertScene(currentScene.get());
+	engine.insertScene(currentScene);
 	engine.setCurrentScene(currentScene->getSceneID());
 
 
 	// Handle some scene specific things
-	if (currentScene && dynamic_cast<GeneralTransition*>(currentScene.get()))
-		((GeneralTransition*)currentScene.get())->setNextScene(transition);
+	if (currentScene && dynamic_cast<GeneralTransition*>(currentScene))
+		((GeneralTransition*)currentScene)->setNextScene(transition);
 
 
 	if (DEBUG_MAIN)cout << "Setting current Scene to: " << typeid(*(engine.getCurrentScene())).name() << endl;

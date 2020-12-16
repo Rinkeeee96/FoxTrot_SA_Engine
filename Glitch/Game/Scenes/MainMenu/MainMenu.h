@@ -21,11 +21,19 @@ private:
 	void loadMusic();
 	void loadButtons();
 
-	//button functions
-	void onStartBtnClick();
-	void onStopBtnClick();
-	void onCreditsBtnClick();
-	void onLoadBtnClick();
+	function<void(void)> onStartBtnClick = [this]() {
+		moveToNextScene = true;
+		nextScene = "SaveScreen";
+	};
+
+	function<void(void)> onStopBtnClick = [this]() {
+		engine.setEngineRunning(false);
+	};
+
+	function<void(void)> onCreditsBtnClick = [this]() {
+		moveToNextScene = true;
+		nextScene = "CreditsSreen";
+	};
 };
 
 inline MainMenu::~MainMenu()
