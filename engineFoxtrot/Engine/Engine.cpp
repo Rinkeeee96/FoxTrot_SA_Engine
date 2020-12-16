@@ -31,7 +31,6 @@ void Engine::setCurrentScene(const int sceneID)
 	inputEngine.registerKeypressInvoker(this->keypressInvoker);
 	physicsEngine.start(*this->eventDispatcher);
 
-	//sceneManager.getSceneWithID(sceneID)->onAttach();
 	sceneManager.getSceneWithID(sceneID)->onAttach();
 }
 
@@ -80,9 +79,20 @@ void Engine::restartPhysicsWorld()
 	physicsEngine.reloadPhysicsObjects();
 }
 
+/// @brief
+/// Returns the deltaTime from the frameData class using default physics timestep
+/// @param timeStep
+/// Timestep to base deltaTime calculation on
+/// @returns float
+float Engine::getDeltaTime(int timeStep)
+{
+	return frameData->calculateDeltaTime(timeStep);
+}
+
 /// @brief The startup function for the engine is for setting the currentScene pointer and the general initialisation
 void Engine::start()
 {
+	frameData = make_unique<FrameData>();
 	videoEngine.pointerToCurrentScene = &sceneManager.currentScene;
 	physicsEngine.pointerToCurrentScene = &sceneManager.currentScene;
 	particleEngine.pointerToCurrentScene = &sceneManager.currentScene;

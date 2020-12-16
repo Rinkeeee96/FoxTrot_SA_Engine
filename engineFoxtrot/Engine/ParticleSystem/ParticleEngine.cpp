@@ -4,7 +4,9 @@
 #include "Events/EventDispatcher.h"
 
 /// @brief Constructor
-ParticleEngine::ParticleEngine()
+/// @param _frameData
+/// A reference to the frameData class owned by Engine, used for accessing deltaTime
+ParticleEngine::ParticleEngine(unique_ptr<FrameData>& _frameData) : frameData{ _frameData }
 {
 }
 
@@ -31,8 +33,8 @@ void ParticleEngine::update()
 	{
 		if (particle != nullptr && particle->getIsParticle())
 		{
-			//((shared_ptr<ParticleAdapter>)particle)->update();
-			(dynamic_pointer_cast<ParticleAdapter>(particle))->update();
+			//((shared_ptr<ParticleAdapter>)particle)->update(frameData->calculateDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
+			(dynamic_pointer_cast<ParticleAdapter>(particle))->update(frameData->calculateDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
 
 			checkIfObjectValueAndParticleValueMatch(dynamic_pointer_cast<ParticleAdapter>(particle));
 		}

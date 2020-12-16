@@ -23,11 +23,11 @@ void DeathScreen::onAttach()
 void DeathScreen::loadButtons() {
 	auto btnSprite = shared_ptr<SpriteObject>(new SpriteObject(-599, 40, 116, 1, 300, "Assets/Buttons/btn_gray_round.png"));
 
-	shared_ptr<Button> startBtn = shared_ptr<Button>(new Button(-600, ColoredText("Restart", Color(0, 0, 0)), BIND_FN(onReStartBtnClick), btnSprite, this->dispatcher));
+	shared_ptr<Button> startBtn = shared_ptr<Button>(new Button(-600, ColoredText("Restart", Color(0, 0, 0)), onReStartBtnClick, btnSprite, this->dispatcher));
 	startBtn->setPositionX(CENTER_X - startBtn->getWidth() / 2);
 	startBtn->setPositionY(CENTER_Y - startBtn->getHeight() / 2);
 
-	shared_ptr<Button> mainBtn = shared_ptr<Button>(new Button(-601, ColoredText("Overworld", Color(0, 0, 0)), BIND_FN(onOverworldBtnClick), btnSprite, this->dispatcher));
+	shared_ptr<Button> mainBtn = shared_ptr<Button>(new Button(-601, ColoredText("Overworld", Color(0, 0, 0)), onOverworldBtnClick, btnSprite, this->dispatcher));
 	mainBtn->setPositionX(CENTER_X - mainBtn->getWidth() / 2);
 	mainBtn->setPositionY(CENTER_Y - mainBtn->getHeight() / 2 + 100);
 
@@ -89,8 +89,19 @@ void DeathScreen::start(bool playSound)
 	if(playSound)engine->startSound("DEAD_SOUND");
 }
 
-void DeathScreen::onUpdate()
+/// @brief
+/// @param deltaTime
+/// DeltaTime should be used when calculating timers/manual movements
+void DeathScreen::onUpdate(float deltaTime)
 {
+	if (moveToNextScene)
+	{
+		if (nextScene == "") {
+
+			nextScene = stateMachine->getCurrentLevelIdentifier();
+		}
+		stateMachine->switchToScene(nextScene, true);
+	}
 }
 
 /// @brief 
@@ -98,20 +109,4 @@ void DeathScreen::onUpdate()
 void DeathScreen::onDetach()
 {
 	Scene::onDetach();
-}
-
-/// @brief 
-/// A callback function for restartBTN
-/// Start transition scene to level1
-void DeathScreen::onReStartBtnClick()
-{
-	stateMachine->switchToScene(stateMachine->getCurrentLevelIdentifier(), true);
-}
-
-
-/// @brief 
-/// A callback function for overworldBTN
-/// Start transition scene to overworl
-void DeathScreen::onOverworldBtnClick() {
-	stateMachine->switchToScene("Overworld", false);
 }

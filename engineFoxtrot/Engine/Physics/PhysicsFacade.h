@@ -2,6 +2,7 @@
 #include "IPhysicsFacade.h"
 #include "PhysicsBody.h"
 #include "Events/Action/OnCollisionEvent.h"
+#include "Fps/FrameData.h"
 
 #define PI 3.14159f
 #define TOTAL_DEGREES 180.0f
@@ -33,7 +34,7 @@ class b2Body;
 class PhysicsFacade : public IPhysicsFacade
 {
 public:
-	API PhysicsFacade(EventDispatcher& _dispatcher);
+	API PhysicsFacade(EventDispatcher& _dispatcher, unique_ptr<FrameData>& _frameData);
 	API ~PhysicsFacade();
 
 	API void addStaticObject(shared_ptr<PhysicsBody> object) override;
@@ -58,4 +59,6 @@ private:
 	// TODO clear on scene detach
 	map <shared_ptr<PhysicsBody>, b2Body*> bodies;
 	b2Body* findBody(const int objectId);
+
+	unique_ptr<FrameData>& frameData;
 };

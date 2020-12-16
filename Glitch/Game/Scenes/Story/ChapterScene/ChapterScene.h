@@ -6,7 +6,8 @@
 #define NUMBER_OF_CHARACTERS_ON_LINE 70
 #define TEXT_SIZE_DIVIDER 80
 #define START_Y_POS -200
-#define MAX_SPEED 10
+#define MAX_SPEED 200
+#define TEXT_SPEED_INCREMENT 10
 
 /// @brief Base class for the chapter screen
 class ChapterScene : public GameScene
@@ -17,7 +18,7 @@ public:
 	// Inherited via Scene
 	virtual void onAttach() override {};
 	virtual void start(bool playSound) override {};
-	virtual void onUpdate() override;
+	virtual void onUpdate(float deltaTime) override;
 	virtual void onDetach() override { Scene::onDetach(); };
 
 	bool onKeyPressed(const Event& event);
@@ -32,7 +33,11 @@ protected:
 	virtual void loadMusic() {};
 
 	void loadButtons();
-	void onSkipClick();
+
+	function<void(void)> onSkipClick = [this]() {
+		moveToNextScene = true;
+		nextScene = "Overworld";
+	};
 
 	vector<string> splitToLines(string stringToSplit, int maximumLineLength);
 	vector<shared_ptr<Text>> splitText(string text, int startingId);

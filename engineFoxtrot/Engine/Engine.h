@@ -18,6 +18,8 @@
 #define	ENGINE_TICK60	 17
 #define ENGINE_TICK30	 33
 
+#define TIME_STEP 1
+
 /// @brief Engine interface class connecting the game to the engine
 class Engine
 {
@@ -58,6 +60,7 @@ public:
 
 	KeypressInvoker* getKeypressedInvoker() { return keypressInvoker; }
 
+	API float getDeltaTime(int timeStep);
 	API void restartPhysicsWorld();
 private:
 	void constructDefaultCommands(KeypressInvoker* invoker);
@@ -65,11 +68,13 @@ private:
 	bool running = false;
 
 	unique_ptr<FrameData> frameData = make_unique<FrameData>(FrameData{});
+	float deltaTimePhysics = 0;
+	float deltaTimeRender = 0;
 	KeypressInvoker* keypressInvoker;
 
 	SceneManager sceneManager;
-	ParticleEngine particleEngine;
-	PhysicsEngine physicsEngine;
+	ParticleEngine particleEngine{ frameData };
+	PhysicsEngine physicsEngine{ frameData };
 	SoundEngine soundEngine;
 
 	VideoEngine videoEngine{ frameData };

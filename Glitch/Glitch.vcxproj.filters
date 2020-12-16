@@ -117,6 +117,7 @@
     <ClInclude Include="Game\PopUps\Popups.h" />
     <ClInclude Include="Game\PopUps\Inventory\InventoryPopup.h" />
     <ClInclude Include="Game\Scenes\Shop\Shop.h" />
+    <ClInclude Include="Game\General\GeneralEnemyDefines.h" />
     <ClInclude Include="Game\PopUps\BasePopup.h" />
     <ClInclude Include="Game\Commands\GlobalCommands\ToggleLayerCommand.h" />
     <ClInclude Include="Game\Scenes\Shop\Shop.h" />

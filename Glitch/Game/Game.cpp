@@ -17,7 +17,7 @@ int Game::run() {
 	try {
 		engine->start();
 		engine->useCustomCommandInvoker(commandBuilder->readBindingsAndCreateInvoker());
-		stateMachine->switchToScene("MainMenu", false);
+
 		string path = "Assets/SaveGame/saveGameData.json";
 		savegame->readSaveGameDataFromJson(path);
 		stateMachine->switchToScene("MainMenu", false);
@@ -30,7 +30,6 @@ int Game::run() {
 			engine->update();
 			// TODO get only the non static objects, without looping thru them again and again
 			stateMachine->updateCurrentScene();
-			this_thread::sleep_for(chrono::milliseconds(10));
 			engine->updateFps();
 		}
 		

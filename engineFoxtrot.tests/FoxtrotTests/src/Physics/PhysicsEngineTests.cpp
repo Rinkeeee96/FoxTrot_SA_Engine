@@ -8,6 +8,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTestsEngine
 {
+	unique_ptr<FrameData>& fpsDataMock = make_unique<FrameData>();
 
 	TEST_CLASS(PhysicsEngineTest)
 	{
@@ -15,7 +16,7 @@ namespace UnitTestsEngine
 		TEST_METHOD(RegisterCurrentScene_Should_Set_Bodies)
 		{
 			// Arrange
-			PhysicsEngine engine = PhysicsEngine();
+			PhysicsEngine engine = PhysicsEngine(fpsDataMock);
 
 			EventDispatcher dispatcher;
 			engine.start(dispatcher);
@@ -46,7 +47,7 @@ namespace UnitTestsEngine
 		TEST_METHOD(HandleActionEvent_With_Update_Direction_Up_Should_Call_Jump)
 		{
 			// Arrange
-			PhysicsEngine engine = PhysicsEngine();
+			PhysicsEngine engine = PhysicsEngine(fpsDataMock);
 			EventDispatcher dispatcher;
 			engine.start(dispatcher);
 			shared_ptr<Scene> testScene = shared_ptr<Scene>(new MockScene());
@@ -77,7 +78,7 @@ namespace UnitTestsEngine
 		TEST_METHOD(HandleActionEvent_Without_Update_Direction_Up_Should_Call_Jump)
 		{
 			// Arrange
-			PhysicsEngine engine = PhysicsEngine();
+			PhysicsEngine engine = PhysicsEngine(fpsDataMock);
 			EventDispatcher dispatcher;
 			engine.start(dispatcher);
 			shared_ptr<Scene> testScene = shared_ptr<Scene>(new MockScene());
@@ -107,7 +108,7 @@ namespace UnitTestsEngine
 		TEST_METHOD(HandleActionEvent_With_Update_Direction_Up_Should_Call_Right)
 		{
 			// Arrange
-			PhysicsEngine engine = PhysicsEngine();
+			PhysicsEngine engine = PhysicsEngine(fpsDataMock);
 			EventDispatcher dispatcher;
 			engine.start(dispatcher);
 			shared_ptr<Scene> testScene = shared_ptr<Scene>(new MockScene());
@@ -140,7 +141,7 @@ namespace UnitTestsEngine
 		TEST_METHOD(HandleActionEvent_Without_Update_Direction_Up_Should_Call_Right)
 		{
 			// Arrange
-			PhysicsEngine engine = PhysicsEngine();
+			PhysicsEngine engine = PhysicsEngine(fpsDataMock);
 			EventDispatcher dispatcher;
 			engine.start(dispatcher);
 			shared_ptr<Scene> testScene = shared_ptr<Scene>(new MockScene());
@@ -171,7 +172,7 @@ namespace UnitTestsEngine
 		TEST_METHOD(HandleActionEvent_Without_Update_Direction_Up_Should_Call_Left)
 		{
 			// Arrange
-			PhysicsEngine engine = PhysicsEngine();
+			PhysicsEngine engine = PhysicsEngine(fpsDataMock);
 			EventDispatcher dispatcher;
 			engine.start(dispatcher);
 			shared_ptr<Scene> testScene = shared_ptr<Scene>(new MockScene());
@@ -202,7 +203,7 @@ namespace UnitTestsEngine
 		TEST_METHOD(HandleActionEvent_With_Update_Direction_Up_Should_Call_Left)
 		{
 			// Arrange
-			PhysicsEngine engine = PhysicsEngine();
+			PhysicsEngine engine = PhysicsEngine(fpsDataMock);
 			EventDispatcher dispatcher;
 			engine.start(dispatcher);
 			shared_ptr<Scene> testScene = shared_ptr<Scene>(new MockScene());

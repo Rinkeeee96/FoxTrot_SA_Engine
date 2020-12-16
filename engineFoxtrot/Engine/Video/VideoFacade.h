@@ -26,7 +26,7 @@ public:
 	void clearScreen();
 	void drawScreen();
 	API void loadImage(const shared_ptr<SpriteObject> spriteObject);
-	API void renderCopy(shared_ptr<Drawable>);
+	API void renderCopy(shared_ptr<Drawable>, float deltaTime);
 
 	void drawParticle(shared_ptr<ParticleAdapter> part);
 

@@ -8,6 +8,7 @@
 #define LEFT_X_CENTER 500
 #define RIGHT_X_CENTER 50
 #define TEXT_HEIGHT 50
+#define BASE_TEXT_SPEED 80
 
 /// @brief Class for the chapter one screen
 class ChapterOneScene : public ChapterScene
@@ -18,7 +19,7 @@ public:
 	// Inherited via Scene
 	void onAttach() override;
 	void start(bool playSound) override;
-	void onUpdate() override { ChapterScene::onUpdate(); };
+	void onUpdate(float deltaTime) override { ChapterScene::onUpdate(deltaTime); };
 	void onDetach() override;
 protected:
 	void loadText() override;

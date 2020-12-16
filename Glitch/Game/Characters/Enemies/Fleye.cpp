@@ -4,7 +4,9 @@
 /// @brief
 /// Checks if the player is within range and acts accordingly
 /// If the player is below the Fleye, it will swoop down towards the player
-void Fleye::onUpdate() {
+/// @param deltaTime
+/// DeltaTime should be used when calculating timers/manual movements
+void Fleye::onUpdate(float deltaTime) {
 	if (setup) {
 		startY = this->getPositionY();
 		setup = false;

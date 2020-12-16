@@ -1,8 +1,6 @@
 #pragma once
 #include "Game/Characters/Enemies/BaseEnemy.h"
 
-#define FLEYE_RANGE 900
-
 /// @brief 
 /// Fleye class with correspondending AI logic
 class Fleye : public BaseEnemy {
@@ -13,7 +11,7 @@ public:
 		this->damage = 2;
 	}
 
-	void onUpdate() override;
+	void onUpdate(float deltaTime) override;
 
 	map<SpriteState, shared_ptr<SpriteObject>> buildSpritemap(int textureId) override;
 

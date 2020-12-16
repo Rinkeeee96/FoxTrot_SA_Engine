@@ -34,6 +34,7 @@ bool Savegame::saveGameDataToJsonFile()
 		}
 		nlohmann::json characterData;
 		nlohmann::json items;
+		bool charData = false;
 		for (Item item : saveGame.second.characterData.inventory.items)
 		{
 			nlohmann::json itemJson;
@@ -41,8 +42,9 @@ bool Savegame::saveGameDataToJsonFile()
 			itemJson["itemcount"] = item.itemCount;
 
 			characterData["inventory"]["items"].push_back(itemJson);
+			charData = true;
 		}	
-		saveGameJson["characterdata"] = characterData;
+		if(charData)saveGameJson["characterdata"] = characterData;
 		json["savegames"].push_back(saveGameJson);
 	}
 	// Todo move to engine.
@@ -64,37 +66,48 @@ bool Savegame::saveGameDataToJsonFile()
 bool Savegame::readSaveGameDataFromJson(string& path)
 {
 	nlohmann::json json;
-
-	try {
-		
-		auto filestream = fileLoader.readFile(path);
-
-		bool validLevel = fileLoader.validateDocument(path, "Assets/Savegame/savegamedataschema.json");
-
-		if (validLevel) {
-			try {
-				
-				filestream >> json;
-				parseJsonToMap(json);
-				
-			}
-			catch (exception exc) {
-				cout << "Something went wrong parsing the file, make sure the file is correctly structured" << "\n";
-				cout << exc.what() << "\n";
-				throw exc;
-			}
-		}
-		else {
-			throw exception("Something went wrong validating file, make sure the file is correct");
-		}
-
-		filestream.close();
-		
+	bool parseErrors = false;
+	ifstream filestream;
+	try
+	{
+		filestream = fileLoader.readFile(path);
 	}
-	catch (exception exc) {
-		// File doesnt exist. 
-		// Doesnt matter because json can handle empty jsons
+	catch (const std::exception&)
+	{
+		// If error is thrown this means the document is empty or non existant. 
+		// Doesnt matter in our case as we use 3 empty savegames. 
+		// Dont throw an error but we do notify the developer
+		cout << "Error thrown in fileloader, starting with 3 empty savegames" << endl;
 	}
+	bool validLevel;
+	try
+	{
+		validLevel = fileLoader.validateDocument(path, "Assets/Savegame/savegamedataschema.json");
+	}
+	catch (const std::exception& exc)
+	{
+		cout << "Something went wrong parsing the file, make sure the file is correctly structured" << "\n";
+		cout << exc.what() << "\n";
+		throw exc;
+	}
+
+
+	if (validLevel) {
+		try {
+
+			filestream >> json;
+			parseJsonToMap(json);
+		}
+		catch (exception exc) {
+			cout << "Something went wrong parsing the file, make sure the file is correctly structured" << "\n";
+			cout << exc.what() << "\n";	
+		}
+	}
+	else {
+		throw exception("Something went wrong validating file, make sure the file is correct");
+	}
+
+	filestream.close();
 
 	return true;
 	

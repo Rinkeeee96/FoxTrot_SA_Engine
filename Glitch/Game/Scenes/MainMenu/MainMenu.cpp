@@ -5,8 +5,6 @@
 #include "Game/Buttons/SecondaryButton.h"
 #include "Game/Game.h"
 
-#define BIND_FN(function) std::bind(&MainMenu::function, *this)
-
 #define CENTER_X  (WINDOW_WIDTH / 2)
 #define CENTER_Y (WINDOW_HEIGHT / 2)
 
@@ -22,15 +20,15 @@ void MainMenu::onAttach()
 /// Create all buttons for this scene
 void MainMenu::loadButtons() {
 
-	shared_ptr<PrimaryButton> startBtn = shared_ptr<PrimaryButton>(new PrimaryButton(10, "Start", BIND_FN(onStartBtnClick), this->dispatcher));
+	shared_ptr<PrimaryButton> startBtn = shared_ptr<PrimaryButton>(new PrimaryButton(10, "Start", onStartBtnClick, this->dispatcher));
 	startBtn->setPositionX(CENTER_X - startBtn->getWidth() / 2);
 	startBtn->setPositionY(CENTER_Y - startBtn->getHeight() / 2);
 
-	shared_ptr<PrimaryButton> creditsBtn = shared_ptr<PrimaryButton>(new PrimaryButton(12, "Credits", BIND_FN(onCreditsBtnClick), this->dispatcher));
+	shared_ptr<PrimaryButton> creditsBtn = shared_ptr<PrimaryButton>(new PrimaryButton(12, "Credits", onCreditsBtnClick, this->dispatcher));
 	creditsBtn->setPositionX(CENTER_X - creditsBtn->getWidth() / 2);
 	creditsBtn->setPositionY(CENTER_Y - creditsBtn->getHeight() / 2 + 200);
 
-	shared_ptr<SecondaryButton> stopBtn = shared_ptr<SecondaryButton>(new SecondaryButton(13, "Stop", BIND_FN(onStopBtnClick), this->dispatcher));
+	shared_ptr<SecondaryButton> stopBtn = shared_ptr<SecondaryButton>(new SecondaryButton(13, "Stop", onStopBtnClick, this->dispatcher));
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
@@ -93,8 +91,15 @@ void MainMenu::start(bool playSound)
 	if(playSound)engine->startSound("MENU_SOUND");
 }
 
-void MainMenu::onUpdate()
+/// @brief
+/// @param deltaTime
+/// DeltaTime should be used when calculating timers/manual movements
+void MainMenu::onUpdate(float deltaTime)
 {
+	if (moveToNextScene)
+	{
+		stateMachine->switchToScene(nextScene, useTransition, playSound);
+	}
 }
 
 /// @brief 
@@ -102,37 +107,4 @@ void MainMenu::onUpdate()
 void MainMenu::onDetach()
 {
 	Scene::onDetach();
-}
-
-
-/// @brief 
-/// A callback function for startBtn
-/// Start transition scene to OVERWORLD
-void MainMenu::onStartBtnClick()
-{
-	stateMachine->switchToScene("SaveScreen", false);
-}
-
-
-/// @brief 
-/// A callback function for stopBTN
-/// Stop the application
-void MainMenu::onStopBtnClick() {
-	engine->setEngineRunning(false);
-}
-
-
-/// @brief 
-/// A callback function for creditsBTN
-/// Start transition scene to DEAD_SCREEN
-void MainMenu::onCreditsBtnClick() {
-	stateMachine->switchToScene("CreditsSreen", false);
-}
-
-
-/// @brief 
-/// A callback function for loadBtn
-/// Start transition scene to WIN_SCREEN
-void MainMenu::onLoadBtnClick() {
-	cout << "Load button click" << endl;
 }

@@ -7,5 +7,5 @@ class BaseGround : public IGround {
 public:
 	BaseGround(const int id) : IGround(id) {}
 
-	virtual void onUpdate() override {};
+	virtual void onUpdate(float deltaTime) override {};
 };

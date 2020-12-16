@@ -56,7 +56,9 @@ void Level::start(bool playSound) {
 }
 
 /// @brief Updates the level data such as objects that are removed or player is dead or won the level
-void Level::onUpdate()
+/// @param deltaTime
+/// DeltaTime should be used when calculating timers/manual movements
+void Level::onUpdate(float deltaTime)
 {
 	this->addHuds();
 
@@ -91,7 +93,7 @@ void Level::onUpdate()
 	{
 		if (!object->getStatic())
 		{
-			object->onUpdate();
+			object->onUpdate(engine->getDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
 
 			if (ICharacter *character = dynamic_cast<ICharacter *>(object.get()))
 			{

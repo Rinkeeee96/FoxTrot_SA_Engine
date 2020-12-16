@@ -2,8 +2,6 @@
 #include "Shop.h"
 #include "Game/Game.h"
 
-#define BIND_FN(function) std::bind(&Shop::function, *this)
-
 #define CENTER_X  (WINDOW_WIDTH / 2)
 #define CENTER_Y (WINDOW_HEIGHT / 2)
 
@@ -32,8 +30,14 @@ void Shop::start(bool playSound)
 }
 
 /// @brief 
-void Shop::onUpdate()
+/// @param deltaTime
+/// DeltaTime should be used when calculating timers/manual movements
+void Shop::onUpdate(float deltaTime)
 {
+	if (moveToNextScene)
+	{
+		stateMachine->switchToScene(nextScene, useTransition, playSound);
+	}
 }
 
 /// @brief Loads the screen backGground
@@ -77,14 +81,9 @@ void Shop::loadMusic()
 /// @brief Loads the buttons for this scene
 void Shop::loadButtons()
 {
-	shared_ptr<SecondaryButton> stopBtn = shared_ptr<SecondaryButton>(new SecondaryButton(-993, "To Overworld", BIND_FN(onStopBtnClick), this->dispatcher));
+	shared_ptr<SecondaryButton> stopBtn = shared_ptr<SecondaryButton>(new SecondaryButton(-993, "To Overworld", onStopBtnClick, this->dispatcher));
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
 	addNewObjectToLayer(3, stopBtn);
-}
-
-/// @brief Called when stop button is clicked
-void Shop::onStopBtnClick() {
-	stateMachine->switchToScene("Overworld", false);
 }

@@ -11,7 +11,7 @@ public:
 
 	shared_ptr<BaseTrigger> clone(const int id) override { return shared_ptr<BaseTrigger>(new WinTrigger(id, level, dispatcher)); }
 
-	void onUpdate() override {}
+	void onUpdate(float deltaTime) override {}
 
 	/// @brief Is called when a player collides with a win trigger
 	/// @param event 

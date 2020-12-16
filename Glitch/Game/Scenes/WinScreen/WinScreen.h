@@ -13,16 +13,22 @@ public:
 	void onAttach() override;
 	void onDetach() override;
 	void start(bool playSound) override;
-	void onUpdate() override;
+	void onUpdate(float deltaTime) override;
 private:
 	void LoadBackground();
 	void LoadMusic();
 	void LoadButtons();
 
-	//button functions
-	void OnMainBtnClick();
-	void onOverworldBtnClick();
+	function<void(void)> OnMainBtnClick = [this]() {
+		moveToNextScene = true;
+		nextScene = "MainMenu";
+	};
 
+	function<void(void)> onOverworldBtnClick = [this]() {
+		moveToNextScene = true;
+		nextScene = "Overworld";
+	};
+	bool falling = false;
 	int animationTick = 0;
 	shared_ptr<Drawable> animation = nullptr;
 };

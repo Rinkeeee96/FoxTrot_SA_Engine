@@ -35,7 +35,7 @@ void VideoEngine::loadImage(const shared_ptr<SpriteObject> spriteObject)
 /// @brief Sets the sprite on the screen
 /// @param Object 
 void VideoEngine::renderCopy(shared_ptr<Drawable> object) {
-	videoFacade->renderCopy(object);
+	videoFacade->renderCopy(object,frameData->calculateDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
 }
 
 /// @brief 

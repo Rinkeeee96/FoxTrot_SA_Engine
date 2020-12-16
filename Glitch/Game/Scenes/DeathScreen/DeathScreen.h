@@ -13,15 +13,21 @@ public:
 	void onAttach() override;
 	void onDetach() override;
 	void start(bool playSound) override;
-	void onUpdate() override;
+	void onUpdate(float deltaTime) override;
 private:
 	void loadBackground();
 	void loadMusic();
 	void loadButtons();
 
-	//button functions
-	void onReStartBtnClick();
-	void onOverworldBtnClick();
+	function<void(void)> onReStartBtnClick = [this]() {
+		moveToNextScene = true;
+	};
+
+	function<void(void)> onOverworldBtnClick = [this]() {
+		moveToNextScene = true;
+		nextScene = "Overworld";
+	};
+
 };
 
 inline DeathScreen::~DeathScreen()
