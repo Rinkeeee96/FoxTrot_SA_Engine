@@ -19,11 +19,10 @@ public:
 
 	API virtual const ColoredText* toString() { return nullptr; }
 
+	virtual void onUpdate(float deltaTime) override { }
 	API virtual void setTint(int r, int g, int b) { this->tint = Color{ r, g, b }; }
 	API virtual void removeTint() { this->tint = Color{ 255, 255, 255 };}
 	API virtual Color getTint() { return this->tint; }
-
-	virtual void onUpdate() override { }
 
 	bool getIsText() const { return this->isText; }
 

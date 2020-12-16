@@ -11,7 +11,7 @@ Player::Player(const int id, EventDispatcher& _dispatcher) : ICharacter(id, _dis
 	this->setPositionX(100);
 	this->setPositionY(80);
 
-	this->setSpeed(6);
+	this->setSpeed(7);
 	this->setJumpHeight(10);
 	this->setDensity(10);
 	this->setFriction(0);
@@ -136,12 +136,12 @@ map<SpriteState, SpriteObject*> Player::buildSpritemap(int textureId) {
 
 	auto playerDefault = new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 1, 200, "Assets/Sprites/Character/adventure.png");
 	auto playerAirAttack = new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 4, 300, "Assets/Sprites/Character/adventure_air_attack1.png");
-	auto playerRunRight = new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 6, 200, "Assets/Sprites/Character/adventure_run_right.png");
+	auto playerRunRight = new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 6, 150, "Assets/Sprites/Character/adventure_run_right.png");
+	auto playerRunLeft = new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 6, 150, "Assets/Sprites/Character/adventure_run_left.png");
 	auto playerSlide = new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_slide.png");
 	auto playerFallLeft = new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_fall_left.png");
 	auto playerFallRight = new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_fall_right.png");
 	auto playerJumpLeft = new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_jump_left.png");
-	auto playerRunLeft = new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 6, 200, "Assets/Sprites/Character/adventure_run_left.png");
 	auto playerJumpRight = new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_jump_right.png");
 
 	spriteMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, playerDefault));

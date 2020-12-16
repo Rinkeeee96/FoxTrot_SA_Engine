@@ -105,7 +105,7 @@ void CreditsScene::start(bool playSound)
 	if(playSound)engine.startSound("WIN_SOUND");
 }
 
-void CreditsScene::onUpdate()
+void CreditsScene::onUpdate(float deltaTime)
 {
 	for (size_t i = 0; i < this->text.size(); i++)
 	{

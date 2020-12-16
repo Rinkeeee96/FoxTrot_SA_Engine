@@ -4,7 +4,7 @@
 #include "box2d/box2d.h"
 
 /// @brief Constructor
-PhysicsFacade::PhysicsFacade(EventDispatcher& _dispatcher) : dispatcher{_dispatcher }
+PhysicsFacade::PhysicsFacade(EventDispatcher& _dispatcher, unique_ptr<FrameData>& _frameData) : dispatcher{ _dispatcher }, frameData{_frameData}
 {
 	world = new b2World(b2Vec2(GRAVITY_SCALE, GRAVITY_FALL));
 	world->SetContactListener(new ContactListenerAdapter(this, _dispatcher));
@@ -150,7 +150,7 @@ b2Body* PhysicsFacade::findBody(const int objectId) {
 /// The position is set to the bottom left
 void PhysicsFacade::update() {
 	if (!this->world) return;
-	this->world->Step(timeStep, VELOCITY_ITERATIONS, POSITION_ITERATIONS);
+	this->world->Step(frameData->calculateDeltaTime(DELTATIME_TIMESTEP_PHYSICS), VELOCITY_ITERATIONS, POSITION_ITERATIONS);
 
 	for (auto& it : bodies)
 	{

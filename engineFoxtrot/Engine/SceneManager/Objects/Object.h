@@ -71,7 +71,7 @@ public:
 
 	API bool getIsParticle();
 
-	virtual void onUpdate() = 0;
+	virtual void onUpdate(float deltaTime) = 0;
 	
 protected:
 	// object base properties
@@ -87,7 +87,6 @@ protected:
 	bool rotatable = false;
 	float rotation = 0;
 	float scale = 0;
-
 	// -----------------
 	// movable / physics properties
 	float speed = 0;

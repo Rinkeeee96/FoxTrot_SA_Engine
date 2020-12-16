@@ -120,7 +120,7 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 /// @brief Calls current scene onUpdate function
 void SceneStateMachine::updateCurrentScene()
 {
-	if (currentScene)currentScene->onUpdate();
+	if (currentScene)currentScene->onUpdate(engine.getDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
 };
 
 /// @brief Returns currentLevelIdentifier

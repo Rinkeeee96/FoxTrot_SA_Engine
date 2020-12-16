@@ -93,7 +93,10 @@ void MainMenu::start(bool playSound)
 	if(playSound)engine.startSound("MENU_SOUND");
 }
 
-void MainMenu::onUpdate()
+/// @brief
+/// @param deltaTime
+/// DeltaTime should be used when calculating timers/manual movements
+void MainMenu::onUpdate(float deltaTime)
 {
 	if (runToNextScene)
 	{

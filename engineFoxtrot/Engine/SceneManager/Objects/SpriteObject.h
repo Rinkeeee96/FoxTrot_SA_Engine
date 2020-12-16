@@ -11,7 +11,7 @@ public:
 	API float getHeight() const;
 	API float getWidth() const;
 	API const char * getFileName() const;
-	API float getLeftPos(uint32_t ticks);
+	API float getLeftPos(float deltaTime);
 	API void freeze(int number);
 	API void freezeOn(int number);
 
@@ -27,6 +27,8 @@ private:
 	int freezedAnimation = -1;
 	int freezeBy = -1;
 	int currentAnimation = 0;
+
+	float animationTimer = 0;
 
 	const char * fileName = nullptr;
 };
