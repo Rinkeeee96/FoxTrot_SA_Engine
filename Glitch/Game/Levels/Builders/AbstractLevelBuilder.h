@@ -9,7 +9,7 @@ protected:
 public:
 	AbstractLevelBuilder(Engine& _engine) : engine(_engine) { }
 
-	unique_ptr<Level> getLevel() override { return std::move(level); }
+	Scene* getLevel() override { return level; }
 
 	virtual void create() = 0;
 	virtual void createLevel(nlohmann::json json) = 0;

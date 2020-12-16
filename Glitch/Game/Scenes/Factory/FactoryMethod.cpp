@@ -16,7 +16,7 @@ void SceneFactory::registerit(const std::string& classname, Creator* creator)
 /// @param engine 
 /// @param _stateMachine 
 /// @return 
-unique_ptr<Scene> SceneFactory::create(const std::string& classname, const int id, Engine& engine, SceneStateMachine& _stateMachine)
+Scene* SceneFactory::create(const std::string& classname, const int id, Engine& engine, SceneStateMachine& _stateMachine)
 {
 	std::map<std::string, Creator*>::iterator i;
 	i = table.find(classname);

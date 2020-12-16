@@ -15,9 +15,9 @@ class Level;
 class ILevelBuilder
 {
 protected:
-	std::unique_ptr<Level> level;
+	Scene* level;
 public:
-	virtual unique_ptr<Level> getLevel() = 0;
+	virtual Scene* getLevel() = 0;
 	virtual void create() = 0;
 	virtual void createLevel(nlohmann::json json) = 0;
 	virtual void createEntities(nlohmann::json layerValue) = 0;

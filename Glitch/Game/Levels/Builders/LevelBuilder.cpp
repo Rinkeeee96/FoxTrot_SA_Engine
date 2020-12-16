@@ -25,7 +25,7 @@ bool LevelBuilder::getAlwaysDrawFromJson(nlohmann::json layerValue)
 
 /// @brief Creates a unique pointer for a level
 void LevelBuilder::create() {
-	level = unique_ptr<Level>(bLevel);
+	level = bLevel;
 }
 
 // @brief 
