@@ -44,7 +44,7 @@ public:
 	void update() override;
 	void shutdown() override;
 
-	Scene** pointerToCurrentScene = nullptr;
+	unique_ptr<Scene>* pointerToCurrentScene = nullptr;
 
 	const IVideoFacade& getVideoFacade() const { return *this->videoFacade; }
 private:

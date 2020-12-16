@@ -40,8 +40,7 @@ public:
 
 	//SceneManager calls
 	API void setCurrentScene(const int sceneID);
-	API Scene* getCurrentScene();
-	API void insertScene(Scene * scene);
+	API void insertScene(unique_ptr<Scene> scene);
 	API void deregisterScene(const int id);
 
 	// Sound calls

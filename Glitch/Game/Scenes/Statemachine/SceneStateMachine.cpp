@@ -102,16 +102,15 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	if (currentScene && dynamic_cast<GameScene*>(currentScene.get()))
 		((GameScene*)currentScene.get())->registerSavegame(savegame);
 
-	engine.insertScene(currentScene.get());
+	engine.insertScene(move(currentScene));
 	engine.setCurrentScene(currentScene->getSceneID());
-
 
 	// Handle some scene specific things
 	if (currentScene && dynamic_cast<GeneralTransition*>(currentScene.get()))
 		((GeneralTransition*)currentScene.get())->setNextScene(transition);
 
 
-	if (DEBUG_MAIN)cout << "Setting current Scene to: " << typeid(*(engine.getCurrentScene())).name() << endl;
+	//if (DEBUG_MAIN)cout << "Setting current Scene to: " << typeid(*(engine.getCurrentScene())).name() << endl;
 
 	currentScene->start(playSound);
 

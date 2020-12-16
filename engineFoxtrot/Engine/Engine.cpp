@@ -32,21 +32,14 @@ void Engine::setCurrentScene(const int sceneID)
 	physicsEngine.start(*this->eventDispatcher);
 
 	sceneManager.getSceneWithID(sceneID)->onAttach();
-	sceneManager.getSceneWithID(sceneID)->onAttach();
-}
-
-/// @brief Returns the currentScene
-/// @return 
-Scene* Engine::getCurrentScene()
-{
-	return sceneManager.currentScene;
+	//sceneManager.getSceneWithID(sceneID)->onAttach();
 }
 
 /// @brief 
 /// @param scene
-void Engine::insertScene(Scene* scene)
+void Engine::insertScene(unique_ptr<Scene> scene)
 {
-	sceneManager.insertScene(scene);
+	sceneManager.insertScene(move(scene));
 }
 
 /// @brief Deregister a scene according to the given sceneID
