@@ -10,5 +10,5 @@ public:
 class MockDrawable : public Drawable {
 public:
 	MockDrawable() : Drawable(2, false) { }
-	void onUpdate() override { }
+	void onUpdate(float deltaTime) override { }
 };

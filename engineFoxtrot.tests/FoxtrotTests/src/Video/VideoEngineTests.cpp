@@ -15,7 +15,7 @@ namespace UnitTestsEngine
 		TEST_METHOD(LoadImage_Valid_Path_Should_Load_Image_Correctly)
 		{
 			// Arrange
-			FrameData frameData;
+			unique_ptr<FrameData> frameData = make_unique<FrameData>();
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine { frameData };
 			videoEngine.start(dispatcher);
@@ -31,7 +31,7 @@ namespace UnitTestsEngine
 		TEST_METHOD(LoadImage_InValid_Should_ThrowError)
 		{
 			// Arrange
-			FrameData frameData;
+			unique_ptr<FrameData> frameData = make_unique<FrameData>();
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine{ frameData };
 			videoEngine.start(dispatcher);
@@ -51,7 +51,7 @@ namespace UnitTestsEngine
 		TEST_METHOD(RenderCopy_Valid_File_Should_Render_Copy)
 		{
 			// Arrange
-			FrameData frameData;
+			unique_ptr<FrameData> frameData = make_unique<FrameData>();
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine{ frameData };
 			videoEngine.start(dispatcher);
@@ -68,7 +68,7 @@ namespace UnitTestsEngine
 		TEST_METHOD(RenderCopy_InValid_File_Should_ThrowError)
 		{
 			// Arrange
-			FrameData frameData;
+			unique_ptr<FrameData> frameData = make_unique<FrameData>();
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine{ frameData };
 			videoEngine.start(dispatcher);
@@ -89,7 +89,7 @@ namespace UnitTestsEngine
 		TEST_METHOD(CalculateOffsetWithObjectToFollow_Should_Have_No_Offset)
 		{
 			// Arrange
-			FrameData frameData;
+			unique_ptr<FrameData> frameData = make_unique<FrameData>();
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine{ frameData };
 			videoEngine.start(dispatcher);
@@ -107,7 +107,7 @@ namespace UnitTestsEngine
 		TEST_METHOD(CalculateOffsetWithObjectToFollow_Should_X_Have_No_Offset)
 		{
 			// Arrange
-			FrameData frameData;
+			unique_ptr<FrameData> frameData = make_unique<FrameData>();
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine{ frameData };
 			videoEngine.start(dispatcher);
@@ -126,7 +126,7 @@ namespace UnitTestsEngine
 		TEST_METHOD(CalculateOffsetWithObjectToFollow_Should_Y_Have_No_Offset)
 		{
 			// Arrange
-			FrameData frameData;
+			unique_ptr<FrameData> frameData = make_unique<FrameData>();
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine{ frameData };
 			videoEngine.start(dispatcher);
@@ -146,7 +146,7 @@ namespace UnitTestsEngine
 		TEST_METHOD(CheckObjectInScreen_Outside_North_Side_Should_Return_False)
 		{
 			// Arrange
-			FrameData frameData;
+			unique_ptr<FrameData> frameData = make_unique<FrameData>();
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine{ frameData };
 			videoEngine.start(dispatcher);
@@ -167,7 +167,7 @@ namespace UnitTestsEngine
 		TEST_METHOD(CheckObjectInScreen_Inside_North_Side_Should_Return_True)
 		{
 			// Arrange
-			FrameData frameData;
+			unique_ptr<FrameData> frameData = make_unique<FrameData>();
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine{ frameData };
 			videoEngine.start(dispatcher);
@@ -188,7 +188,7 @@ namespace UnitTestsEngine
 		TEST_METHOD(CheckObjectInScreen_Outside_West_Side_Should_Return_False)
 		{
 			// Arrange
-			FrameData frameData;
+			unique_ptr<FrameData> frameData = make_unique<FrameData>();
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine{ frameData };
 			videoEngine.start(dispatcher);
@@ -209,7 +209,7 @@ namespace UnitTestsEngine
 		TEST_METHOD(CheckObjectInScreen_Inside_West_Side_Should_Return_True)
 		{
 			// Arrange
-			FrameData frameData;
+			unique_ptr<FrameData> frameData = make_unique<FrameData>();
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine{ frameData };
 			videoEngine.start(dispatcher);
@@ -230,7 +230,7 @@ namespace UnitTestsEngine
 		TEST_METHOD(CheckObjectInScreen_Outside_South_Side_Should_Return_False)
 		{
 			// Arrange
-			FrameData frameData;
+			unique_ptr<FrameData> frameData = make_unique<FrameData>();
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine{ frameData };
 			videoEngine.start(dispatcher);
@@ -251,7 +251,7 @@ namespace UnitTestsEngine
 		TEST_METHOD(CheckObjectInScreen_Inside_South_Side_Should_Return_True)
 		{
 			// Arrange
-			FrameData frameData;
+			unique_ptr<FrameData> frameData = make_unique<FrameData>();
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine{ frameData };
 			videoEngine.start(dispatcher);
@@ -272,7 +272,7 @@ namespace UnitTestsEngine
 		TEST_METHOD(CheckObjectInScreen_Outside_East_Side_Should_Return_False)
 		{
 			// Arrange
-			FrameData frameData;
+			unique_ptr<FrameData> frameData = make_unique<FrameData>();
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine{ frameData };
 			videoEngine.start(dispatcher);
@@ -293,7 +293,7 @@ namespace UnitTestsEngine
 		TEST_METHOD(CheckObjectInScreen_Inside_East_Side_Should_Return_True)
 		{
 			// Arrange
-			FrameData frameData;
+			unique_ptr<FrameData> frameData = make_unique<FrameData>();
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine{ frameData };
 			videoEngine.start(dispatcher);
