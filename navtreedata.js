@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "Foxtrot_Game_Engine", "index.html", [
-    [ "PointerUsage", "md__engine__documentation__pointer_usage.html", null ],
+    [ "PointerUsage", "md__github_workspace_engine_foxtrot__engine__documentation__pointer_usage.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
