@@ -7,7 +7,9 @@
 
 
 /// @brief Constructor
-PhysicsEngine::PhysicsEngine()
+/// @param _frameData
+/// A reference to the frameData class owned by Engine, used for accessing deltaTime
+PhysicsEngine::PhysicsEngine(unique_ptr<FrameData>& _frameData) : frameData{ _frameData }
 {
 }
 
@@ -15,7 +17,7 @@ PhysicsEngine::PhysicsEngine()
 /// @param dispatcher 
 void PhysicsEngine::start(EventDispatcher& dispatcher) {
 	this->dispatcher = &dispatcher;
-	physicsFacade = new PhysicsFacade(dispatcher);
+	physicsFacade = new PhysicsFacade(dispatcher, frameData);
 
 	dispatcher.setEventCallback<ActionEvent>(BIND_EVENT_FN(PhysicsEngine::handleAction));
 	dispatcher.setEventCallback<ObjectStopEvent>(BIND_EVENT_FN(PhysicsEngine::stopObject));

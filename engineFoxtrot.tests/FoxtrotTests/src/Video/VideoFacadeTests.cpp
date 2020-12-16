@@ -15,7 +15,7 @@ namespace UnitTestsEngine
 		TEST_METHOD(LoadImage_Valid_Path_Should_Load_Image_Correctly)
 		{
 			// Arrange
-			FrameData frameData;
+			unique_ptr<FrameData> frameData = make_unique<FrameData>();;
 			EventDispatcher dispatcher;
 			VideoFacade videoEngine;
 			Drawable drawable;
@@ -30,7 +30,7 @@ namespace UnitTestsEngine
 		TEST_METHOD(LoadImage_InValid_Should_ThrowError)
 		{
 			// Arrange
-			FrameData frameData;
+			unique_ptr<FrameData> frameData = make_unique<FrameData>();;
 			EventDispatcher dispatcher;
 			VideoFacade videoEngine;
 			Drawable drawable;
@@ -49,7 +49,7 @@ namespace UnitTestsEngine
 		TEST_METHOD(RenderCopy_Valid_File_Should_Render_Copy)
 		{
 			// Arrange
-			FrameData frameData;
+			unique_ptr<FrameData> frameData = make_unique<FrameData>();;
 			EventDispatcher dispatcher;
 			VideoFacade videoEngine;
 			Drawable drawable;
@@ -57,7 +57,7 @@ namespace UnitTestsEngine
 			drawable.registerSprite(1, &spriteObject);
 			drawable.changeToState(1);
 			// Act
-			videoEngine.renderCopy(drawable);
+			videoEngine.renderCopy(drawable, frameData->calculateDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
 			// Assert
 			Assert::IsTrue(true);
 		}
@@ -65,7 +65,7 @@ namespace UnitTestsEngine
 		TEST_METHOD(RenderCopy_InValid_File_Should_ThrowError)
 		{
 			// Arrange
-			FrameData frameData;
+			unique_ptr<FrameData> frameData = make_unique<FrameData>();;
 			EventDispatcher dispatcher;
 			VideoFacade videoEngine;
 			Drawable drawable;
@@ -74,7 +74,7 @@ namespace UnitTestsEngine
 			drawable.changeToState(1);
 			// Act
 			try {
-				videoEngine.renderCopy(drawable);
+				videoEngine.renderCopy(drawable, frameData->calculateDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
 			}
 			// Assert
 			catch (exception e) {

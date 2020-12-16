@@ -11,7 +11,7 @@ public:
 	ICharacter(const int id, EventDispatcher& _dispatcher) : dispatcher{ _dispatcher }, IGameObject(id) {}
 	virtual ~ICharacter() {}
 
-	virtual void onUpdate() = 0;
+	virtual void onUpdate(float deltaTime) = 0;
 
 	bool getCanJump() const { return this->canJump; }
 	void setCanJump(bool val) { this->canJump = val; }

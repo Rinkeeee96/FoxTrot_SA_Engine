@@ -13,7 +13,7 @@ public:
 	void onAttach() override;
 	void onDetach() override;
 	void start(bool playSound) override;
-	void onUpdate() override;
+	void onUpdate(float deltaTime) override;
 private:
 	void LoadBackground();
 	void LoadMusic();
@@ -23,7 +23,7 @@ private:
 	void OnMainBtnClick();
 	void onOverworldBtnClick();
 
-	int animationTick = 0;
+	bool falling = false;
 	Drawable* animation = nullptr;
 };
 

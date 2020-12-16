@@ -80,8 +80,8 @@ void WinScreen::LoadBackground() {
 	confetti->setStartSpinVar(90);
 
 	addNewObjectToLayer(0, layer0, false, true);
-	addNewObjectToLayer(1, animation);
-	addNewObjectToLayer(2, confetti, false, true);
+	addNewObjectToLayer(2, animation);
+	addNewObjectToLayer(3, confetti, false, true);
 }
 
 /// @brief 
@@ -120,20 +120,22 @@ void WinScreen::onOverworldBtnClick() {
 
 /// @brief 
 /// A function for a jump/fall animation
-void WinScreen::onUpdate() {
-	animationTick++;
-	if (animationTick < 100) {
-		animation->setPositionY(animation->getPositionY() - 1);
-	}
-	else if (animationTick == 100) {
+/// @param deltaTime
+/// DeltaTime should be used when calculating timers/manual movements
+void WinScreen::onUpdate(float deltaTime) {
+	if (animation->getPositionY() < 800) {
 		animation->changeToState(SpriteState::AIR_FALL_RIGHT);
-		animation->setPositionY(animation->getPositionY() + 1);
+		falling = true;
 	}
-	else if (animationTick > 100 && animationTick < 200) {
-		animation->setPositionY(animation->getPositionY() + 1);
+	else if (animation->getPositionY() > 1080) {
+		animation->changeToState(SpriteState::AIR_JUMP_RIGHT);
+		falling = false;
+	}
+
+	if (falling) {
+		animation->setPositionY(animation->getPositionY() + deltaTime * 300);
 	}
 	else {
-		animation->changeToState(SpriteState::AIR_JUMP_RIGHT);
-		animationTick = 0;
-	}
+		animation->setPositionY(animation->getPositionY() + deltaTime * -300);
+	}	
 }

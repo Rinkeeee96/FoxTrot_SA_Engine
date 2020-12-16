@@ -32,7 +32,7 @@ public:
 	API virtual void onAttach() = 0;
 	API virtual void start(bool playSound) = 0;
 	API virtual void onDetach() = 0;
-	API virtual void onUpdate() = 0;
+	API virtual void onUpdate(float deltaTime) = 0;
 
 	void setSceneWidth(const int width) { sceneWidth = width; }
 	int getSceneWidth() const { return sceneWidth; }

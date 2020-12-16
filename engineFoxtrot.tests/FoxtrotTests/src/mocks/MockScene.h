@@ -7,5 +7,5 @@ public:
 	void onAttach() override { }
 	void start(bool playSound) override { }
 	void onDetach() override { }
-	void onUpdate() override { }
+	void onUpdate(float frameData) override { }
 };

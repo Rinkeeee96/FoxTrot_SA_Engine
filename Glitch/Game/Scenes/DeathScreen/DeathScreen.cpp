@@ -89,7 +89,10 @@ void DeathScreen::start(bool playSound)
 	if(playSound)engine.startSound("DEAD_SOUND");
 }
 
-void DeathScreen::onUpdate()
+/// @brief
+/// @param deltaTime
+/// DeltaTime should be used when calculating timers/manual movements
+void DeathScreen::onUpdate(float deltaTime)
 {
 }
 

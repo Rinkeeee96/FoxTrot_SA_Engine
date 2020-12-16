@@ -211,7 +211,9 @@ void Overworld::start(bool playSound)
 }
 
 /// @brief 
-void Overworld::onUpdate()
+/// @param deltaTime
+/// DeltaTime should be used when calculating timers/manual movements
+void Overworld::onUpdate(float deltaTime)
 {
 }
 
