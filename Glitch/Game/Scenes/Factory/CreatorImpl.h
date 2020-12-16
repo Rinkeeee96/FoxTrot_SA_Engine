@@ -16,11 +16,7 @@ class CreatorImpl : public Creator
 {
 public:
 	void registerClass(const string& classname, shared_ptr<SceneFactory> factory) { factory->registerit(classname, this); };
-	Scene* create(const int id, Engine& engine, SceneStateMachine& _statemachine) 
-	{ 
-		cout << "Calling new" << endl;
-		return new T(id, engine, _statemachine); 
-	}
+	unique_ptr<Scene> create(const int id, Engine& engine, SceneStateMachine& _statemachine) { return unique_ptr<T>{new T(id, engine, _statemachine)}; }
 };
 
 

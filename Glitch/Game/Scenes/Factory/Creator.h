@@ -14,7 +14,7 @@ public:
 	Creator() {};
 	~Creator() {};
 
-	virtual Scene* create(const int id, Engine& engine, SceneStateMachine& _statemachine) = 0;
+	virtual unique_ptr<Scene> create(const int id, Engine& engine, SceneStateMachine& _statemachine) = 0;
 
 };
 
