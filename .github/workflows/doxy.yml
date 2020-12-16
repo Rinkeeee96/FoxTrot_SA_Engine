@@ -33,6 +33,7 @@ jobs:
         # Default Doxyfile build documentation to html directory. 
         # Change the directory if changes in Doxyfile
         publish_dir: ./engineFoxtrot/html
+        destination_dir: ./Engine
 
     - name: Doxygen Action Game
       uses: mattnotmitt/doxygen-action@v1.1.0
@@ -49,3 +50,4 @@ jobs:
         # Default Doxyfile build documentation to html directory. 
         # Change the directory if changes in Doxyfile
         publish_dir: ./Glitch/html
+        destination_dir: ./Glitch
