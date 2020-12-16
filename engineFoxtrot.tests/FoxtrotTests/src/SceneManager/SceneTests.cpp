@@ -30,7 +30,6 @@ namespace UnitTestsEngine
 			// Act
 			auto result = scene.checkIfObjectExists(0);
 			// Assert
-			auto result = layer.objectExists(1);
 			Assert::IsFalse(result);
 		}
 
@@ -112,6 +111,8 @@ namespace UnitTestsEngine
 		{
 			// Arrange
 			MockScene scene;
+			MockObject object;
+			Layer layer;
 			// Act
 			layer.addObjectInLayer(&object);
 			try {

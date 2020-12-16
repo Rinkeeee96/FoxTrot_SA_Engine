@@ -129,7 +129,6 @@ namespace UnitTestsGlitch
 		TEST_METHOD(StateMachine_SetCurrentState_Should_CallEntry_Once)
 		{
 			// Arrange
-			// Arrange
 			MockObj* obj = new MockObj;
 			mockFirstState* firstState = new mockFirstState;
 			mockSecondState* secondState = new mockSecondState;
