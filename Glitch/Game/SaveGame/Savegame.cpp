@@ -207,6 +207,5 @@ void Savegame::parseJsonToMap(nlohmann::json json)
 			// Parse other character data in future
 		}
 		saveGameDataMap[id] = saveGameData;
-		cout << "Added savegame" << endl;
 	}
 }
