@@ -30,4 +30,3 @@ private:
 	int sceneId = 0;
 	string currentLevelIdentifier = "";
 };
-

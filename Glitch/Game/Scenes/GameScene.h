@@ -26,5 +26,10 @@ protected:
 	SceneStateMachine& stateMachine;
 	Engine& engine;
 	shared_ptr<Savegame> savegame;
+
+	bool moveToNextScene = false;
+	string nextScene;
+	bool useTransition = false;
+	bool playSound = false;
 };
 

@@ -19,9 +19,15 @@ private:
 	void LoadMusic();
 	void LoadButtons();
 
-	//button functions
-	void OnMainBtnClick();
-	void onOverworldBtnClick();
+	function<void(void)> OnMainBtnClick = [this]() {
+		moveToNextScene = true;
+		nextScene = "MainMenu";
+	};
+
+	function<void(void)> onOverworldBtnClick = [this]() {
+		moveToNextScene = true;
+		nextScene = "Overworld";
+	};
 
 	bool falling = false;
 	Drawable* animation = nullptr;

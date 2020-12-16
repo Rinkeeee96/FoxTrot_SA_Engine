@@ -28,7 +28,9 @@ private:
 	void loadMusic();
 	void loadButtons();
 
-	//button functions
-	void onBackClick();
-	void empty();
+	function<void(void)> onBackClick = [this]() {
+		moveToNextScene = true;
+		nextScene = "MainMenu";
+	};
+
 };
