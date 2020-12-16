@@ -12,14 +12,13 @@ Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, unique
 				: GameScene::GameScene(id, _sceneHeight, _sceneWidth, engine, _stateMachine), commandBuilder{new CommandBuilder()}
 {
 	gameInvoker = dynamic_cast<GameKeypressInvoker*>(engine->getKeypressedInvoker());
+	this->dispatcher.setEventCallback<ToggleLayerEvent>(BIND_EVENT_FN(Level::onToggleLayerEvent));
 }
 
 /// @brief
 /// OnAttach is executed when a scene is "attached" to the current running context
 /// usually this is can be used to prime a level with relevant data before starting it.
 void Level::onAttach() {
-	TogglePauseEvent unpause{ false };
-	this->dispatcher.dispatchEvent<TogglePauseEvent>(unpause);
 	for (const auto& s : sounds) {
 		if (DEBUG_MAIN)std::cout << s.first << " has value " << s.second << std::endl;
 		engine->loadSound(s.first, s.second);
