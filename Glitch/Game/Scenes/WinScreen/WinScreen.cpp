@@ -6,8 +6,6 @@
 #include "Game/Buttons/SecondaryButton.h"
 #include "Game/Game.h"
 
-#define BIND_FN(function) std::bind(&WinScreen::function, *this)
-
 #define CENTER_X  (WINDOW_WIDTH / 2)
 #define CENTER_Y (WINDOW_HEIGHT / 2)
 
@@ -25,11 +23,11 @@ void WinScreen::onAttach()
 void WinScreen::LoadButtons() {
 	auto mainSprite = new SpriteObject(-602, 40, 116, 1, 300, "Assets/Buttons/btn_gray_round.png");
 
-	auto* overBtn = new Button(-700, ColoredText("Overworld", Color(0, 0, 0)), BIND_FN(onOverworldBtnClick), mainSprite, this->dispatcher);
+	auto* overBtn = new Button(-700, ColoredText("Overworld", Color(0, 0, 0)), onOverworldBtnClick, mainSprite, this->dispatcher);
 	overBtn->setPositionX(CENTER_X - overBtn->getWidth() / 2);
 	overBtn->setPositionY(CENTER_Y - overBtn->getHeight() / 2);
 
-	auto* mainBtn = new Button(-701, ColoredText("Hoofdmenu", Color(0, 0, 0)), BIND_FN(OnMainBtnClick), mainSprite, this->dispatcher);
+	auto* mainBtn = new Button(-701, ColoredText("Hoofdmenu", Color(0, 0, 0)), OnMainBtnClick, mainSprite, this->dispatcher);
 	mainBtn->setPositionX(CENTER_X - mainBtn->getWidth() / 2);
 	mainBtn->setPositionY(CENTER_Y - mainBtn->getHeight() / 2 + 200);
 
@@ -105,24 +103,16 @@ void WinScreen::onDetach()
 }
 
 /// @brief 
-/// Remove the sounds of the soundengine
-void WinScreen::OnMainBtnClick()
-{
-	stateMachine.switchToScene("MainMenu", false);
-}
-
-/// @brief 
-/// A callback function for overworldBTN
-/// Start transition scene to overworld
-void WinScreen::onOverworldBtnClick() {
-	stateMachine.switchToScene("Overworld", false);
-}
-
-/// @brief 
 /// A function for a jump/fall animation
 /// @param deltaTime
 /// DeltaTime should be used when calculating timers/manual movements
 void WinScreen::onUpdate(float deltaTime) {
+
+	if (moveToNextScene)
+	{
+		stateMachine.switchToScene(nextScene, useTransition, playSound);
+	}
+
 	if (animation->getPositionY() < 800) {
 		animation->changeToState(SpriteState::AIR_FALL_RIGHT);
 		falling = true;
