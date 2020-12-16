@@ -20,11 +20,8 @@ private:
 	void loadMusic();
 	void loadButtons();
 
-	function<void(void)> onStopBtnClick = [this]() {
-		moveToNextScene = true;
-		nextScene = "Overworld";
-	};
-
+	//button functions
+	void onStopBtnClick();
 };
 
 

@@ -7,6 +7,7 @@
 
 #define CENTER_X  (WINDOW_WIDTH / 2)
 #define CENTER_Y (WINDOW_HEIGHT / 2)
+#define BIND_FN(function) std::bind(&ChapterOneScene::function, *this)
 
 /// @brief Loads al the text, buttons and background for this scene
 void ChapterOneScene::onAttach()

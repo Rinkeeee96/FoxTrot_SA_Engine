@@ -90,7 +90,7 @@ vector<Text*> ChapterScene::splitText(string text, int startingId) {
 /// Create all buttons for this scene
 void ChapterScene::loadButtons() {
 	// Back button
-	auto* backBtn = new SecondaryButton(3, "Skip",onSkipClick, this->dispatcher);
+	auto* backBtn = new SecondaryButton(3, "Skip", std::bind(&ChapterScene::onSkipClick, *this), this->dispatcher);
 	backBtn->setPositionX(WINDOW_WIDTH - 40 - backBtn->getWidth());
 	backBtn->setPositionY(WINDOW_HEIGHT - 10 - backBtn->getHeight());
 
@@ -116,11 +116,6 @@ void ChapterScene::setTextFromFile(string path, int startingId) {
 /// DeltaTime should be used when calculating timers/manual movements
 void ChapterScene::onUpdate(float deltaTime)
 {
-	if (moveToNextScene)
-	{
-		stateMachine.switchToScene(nextScene, useTransition, playSound);
-	}
-
 	for (size_t i = 0; i < this->text.size(); i++)
 	{
 		this->text[i]->setPositionY(this->text[i]->getPositionY() - (speed_ * deltaTime));
@@ -128,3 +123,9 @@ void ChapterScene::onUpdate(float deltaTime)
 	if (text[this->text.size() - 1]->getPositionY() < 0) stateMachine.switchToScene("Overworld", false);
 }
 
+/// @brief 
+/// A callback function for overworldBTN
+/// Start transition scene to overworld
+void ChapterScene::onSkipClick() {
+	stateMachine.switchToScene("Overworld", false);
+}

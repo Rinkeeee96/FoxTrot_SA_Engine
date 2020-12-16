@@ -26,40 +26,15 @@ private:
 	void loadButtons();
 	void loadText();
 
-	function<void(void)> onSave1BtnClick = [this]() {
-		savegame->setCurrentGameData(1);
-		moveToNextScene = true;
-		nextScene = "Overworld";
-	};
+	//button functions
+	void onSave1BtnClick();
+	void onSave2BtnClick();
+	void onSave3BtnClick();
+	void onStopBtnClick();
 
-	function<void(void)> onSave2BtnClick = [this]() {
-		savegame->setCurrentGameData(2);
-		moveToNextScene = true;
-		nextScene = "Overworld";
-	};
-
-	function<void(void)> onSave3BtnClick = [this]() {
-		savegame->setCurrentGameData(3);
-		moveToNextScene = true;
-		nextScene = "Overworld";
-	};
-
-	function<void(void)> onStopBtnClick = [this]() {
-		moveToNextScene = true;
-		nextScene = "MainMenu";
-	};
-
-	function<void(void)> onSave1ExtraBtnClick = [this]() {
-		resetOrSaveSaveGame(1);
-	};
-
-	function<void(void)> onSave2ExtraBtnClick = [this]() {
-		resetOrSaveSaveGame(2);
-	};
-
-	function<void(void)> onSave3ExtraBtnClick = [this]() {
-		resetOrSaveSaveGame(3);
-	};
+	void onSave1ExtraBtnClick();
+	void onSave2ExtraBtnClick();
+	void onSave3ExtraBtnClick();
 
 	void resetOrSaveSaveGame(const int id);
 

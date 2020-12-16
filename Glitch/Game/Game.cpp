@@ -19,6 +19,7 @@ int Game::run() {
 		stateMachine->switchToScene("MainMenu", false);
 		string path = "Assets/SaveGame/saveGameData.json";
 		savegame->readSaveGameDataFromJson(path);
+		stateMachine->switchToScene("MainMenu", false);
 
 		engine.setEngineRunning(true);
 

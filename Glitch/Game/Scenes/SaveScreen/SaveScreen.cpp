@@ -2,6 +2,8 @@
 #include "SaveScreen.h"
 #include "Game/Game.h"
 
+#define BIND_FN(function) std::bind(&SaveScreen::function, *this)
+
 #define CENTER_X  (WINDOW_WIDTH / 2)
 #define CENTER_Y (WINDOW_HEIGHT / 2)
 
@@ -38,10 +40,6 @@ void SaveScreen::start(bool playSound)
 /// DeltaTime should be used when calculating timers/manual movements
 void SaveScreen::onUpdate(float deltaTime)
 {
-	if (moveToNextScene)
-	{
-		stateMachine.switchToScene(nextScene, useTransition, playSound);
-	}
 }
 
 /// @brief 
@@ -130,46 +128,46 @@ void SaveScreen::loadButtons()
 	string nameBtnExtra = "Create New";
 	if (!savegame->isSaveGameDataEmpty(1))
 	{
-		auto* save1 = new PrimaryButton(-996, "Start!", onSave1BtnClick, this->dispatcher);
+		auto* save1 = new PrimaryButton(-996, "Start!", BIND_FN(onSave1BtnClick), this->dispatcher);
 		save1->setPositionX(605);
 		save1->setPositionY(750);
 		addNewObjectToLayer(4, save1);
 		nameBtnExtra = "Delete";
 	}
 
-	auto* delSave1 = new PrimaryButton(-992, nameBtnExtra, onSave1ExtraBtnClick, this->dispatcher);
+	auto* delSave1 = new PrimaryButton(-992, nameBtnExtra, BIND_FN(onSave1ExtraBtnClick), this->dispatcher);
 	delSave1->setPositionX(605);
 	delSave1->setPositionY(805);
 
 	nameBtnExtra = "Create New";
 	if (!savegame->isSaveGameDataEmpty(2))
 	{
-		auto* save1 = new PrimaryButton(-995, "Start!", onSave2BtnClick, this->dispatcher);
+		auto* save1 = new PrimaryButton(-995, "Start!", BIND_FN(onSave2BtnClick), this->dispatcher);
 		save1->setPositionX(605 + SPACING_INCREMENT);
 		save1->setPositionY(750);
 		addNewObjectToLayer(4, save1);
 		nameBtnExtra = "Delete";
 	}
 
-	auto* delSave2 = new PrimaryButton(-991, nameBtnExtra, onSave2ExtraBtnClick, this->dispatcher);
+	auto* delSave2 = new PrimaryButton(-991, nameBtnExtra, BIND_FN(onSave2ExtraBtnClick), this->dispatcher);
 	delSave2->setPositionX(605 + SPACING_INCREMENT);
 	delSave2->setPositionY(805);
 
 	nameBtnExtra = "Create New";
 	if (!savegame->isSaveGameDataEmpty(3))
 	{
-		auto* save1 = new PrimaryButton(-994, "Start!", onSave3BtnClick, this->dispatcher);
+		auto* save1 = new PrimaryButton(-994, "Start!", BIND_FN(onSave3BtnClick), this->dispatcher);
 		save1->setPositionX(605 + SPACING_INCREMENT*2);
 		save1->setPositionY(750);
 		addNewObjectToLayer(4, save1);
 		nameBtnExtra = "Delete";
 	}
 
-	auto* delSave3 = new PrimaryButton(-990, nameBtnExtra, onSave3ExtraBtnClick, this->dispatcher);
+	auto* delSave3 = new PrimaryButton(-990, nameBtnExtra, BIND_FN(onSave3ExtraBtnClick), this->dispatcher);
 	delSave3->setPositionX(605 + SPACING_INCREMENT*2);
 	delSave3->setPositionY(805);
 
-	auto* stopBtn = new SecondaryButton(-993, "To Main Menu", onStopBtnClick, this->dispatcher);
+	auto* stopBtn = new SecondaryButton(-993, "To Main Menu", BIND_FN(onStopBtnClick), this->dispatcher);
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
@@ -219,6 +217,13 @@ void SaveScreen::loadText()
 	}
 }
 
+/// @brief Called when Save 1 is clicked
+void SaveScreen::onSave1BtnClick()
+{
+	savegame->setCurrentGameData(1);
+	stateMachine.switchToScene("Overworld", true);
+}
+
 /// @brief Resets or creates a save file
 /// @param id 
 void SaveScreen::resetOrSaveSaveGame(const int id)
@@ -235,4 +240,41 @@ void SaveScreen::resetOrSaveSaveGame(const int id)
 		savegame->deleteSaveGameData(id);
 		stateMachine.switchToScene("SaveScreen", false, false);
 	}
+}
+
+/// @brief Calls the create or delete save function
+void SaveScreen::onSave1ExtraBtnClick()
+{
+	resetOrSaveSaveGame(1);
+}
+
+/// @brief Called when Save 2 is clicked
+void SaveScreen::onSave2BtnClick()
+{
+	savegame->setCurrentGameData(2);
+	stateMachine.switchToScene("Overworld", true);
+}
+
+/// @brief Calls the create or delete save function
+void SaveScreen::onSave2ExtraBtnClick()
+{
+	resetOrSaveSaveGame(2);
+}
+
+/// @brief Called when Save 3 is clicked
+void SaveScreen::onSave3BtnClick()
+{
+	savegame->setCurrentGameData(3);
+	stateMachine.switchToScene("Overworld", true);
+}
+
+/// @brief Calls the create or delete save function
+void SaveScreen::onSave3ExtraBtnClick()
+{
+	resetOrSaveSaveGame(3);
+}
+
+/// @brief Called when Back Button is clicked
+void SaveScreen::onStopBtnClick() {
+	stateMachine.switchToScene("MainMenu",false);
 }

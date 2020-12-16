@@ -94,10 +94,6 @@ void DeathScreen::start(bool playSound)
 /// DeltaTime should be used when calculating timers/manual movements
 void DeathScreen::onUpdate(float deltaTime)
 {
-	if (moveToNextScene)
-	{
-		stateMachine.switchToScene(stateMachine.getCurrentLevelIdentifier(), true);
-	}
 }
 
 /// @brief 
@@ -105,4 +101,20 @@ void DeathScreen::onUpdate(float deltaTime)
 void DeathScreen::onDetach()
 {
 	Scene::onDetach();
+}
+
+/// @brief 
+/// A callback function for restartBTN
+/// Start transition scene to level1
+void DeathScreen::onReStartBtnClick()
+{
+	stateMachine.switchToScene(stateMachine.getCurrentLevelIdentifier(), true);
+}
+
+
+/// @brief 
+/// A callback function for overworldBTN
+/// Start transition scene to overworl
+void DeathScreen::onOverworldBtnClick() {
+	stateMachine.switchToScene("Overworld", false);
 }

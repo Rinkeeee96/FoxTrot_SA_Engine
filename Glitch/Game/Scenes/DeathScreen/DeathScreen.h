@@ -19,15 +19,9 @@ private:
 	void loadMusic();
 	void loadButtons();
 
-	function<void(void)> onReStartBtnClick = [this]() {
-		moveToNextScene = true;
-	};
-
-	function<void(void)> onOverworldBtnClick = [this]() {
-		moveToNextScene = true;
-		nextScene = "Overworld";
-	};
-
+	//button functions
+	void onReStartBtnClick();
+	void onOverworldBtnClick();
 };
 
 inline DeathScreen::~DeathScreen()

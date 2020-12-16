@@ -33,11 +33,7 @@ protected:
 	virtual void loadMusic() {};
 
 	void loadButtons();
-
-	function<void(void)> onSkipClick = [this]() {
-		moveToNextScene = true;
-		nextScene = "Overworld";
-	};
+	void onSkipClick();
 
 	vector<string> splitToLines(string stringToSplit, int maximumLineLength);
 	vector<Text*> splitText(string text, int startingId);
