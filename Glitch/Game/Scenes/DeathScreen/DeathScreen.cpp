@@ -96,7 +96,11 @@ void DeathScreen::onUpdate(float deltaTime)
 {
 	if (moveToNextScene)
 	{
-		stateMachine.switchToScene(stateMachine.getCurrentLevelIdentifier(), true);
+		if (nextScene == "") {
+
+			nextScene = stateMachine.getCurrentLevelIdentifier();
+		}
+		stateMachine.switchToScene(nextScene, true);
 	}
 }
 
