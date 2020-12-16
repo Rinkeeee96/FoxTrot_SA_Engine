@@ -18,7 +18,7 @@ namespace UnitTestsGlitch
 			CommandBuilder commandBuilder;
 			engine.start();
 			engine.useCustomCommandInvoker(commandBuilder.readBindingsAndCreateInvoker());
-			LoadLevelFacade levelLoader{ engine };
+			LoadLevelFacade levelLoader{ };
 			EventDispatcher dispatcher;
 			shared_ptr<Savegame> savegame = shared_ptr<Savegame>(new Savegame());
 			SceneStateMachine statemachine{ engine, savegame };

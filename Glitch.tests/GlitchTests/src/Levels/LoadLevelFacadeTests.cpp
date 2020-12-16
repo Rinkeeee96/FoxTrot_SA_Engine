@@ -18,7 +18,7 @@ namespace UnitTestsGlitch
 			EventDispatcher dispatcher;
 			shared_ptr<Savegame> savegame = shared_ptr<Savegame>(new Savegame());
 			SceneStateMachine statemachine{ engine, savegame };
-			LoadLevelFacade levelLoader{ engine };
+			LoadLevelFacade levelLoader{ };
 			LevelBuilder levelOneBuilder{ engine, 1, statemachine };
 
 			// Act
@@ -35,7 +35,7 @@ namespace UnitTestsGlitch
 		{
 			// Arrange
 			Engine engine;
-			LoadLevelFacade levelLoader{ engine };
+			LoadLevelFacade levelLoader{ };
 			EventDispatcher dispatcher;
 			shared_ptr<Savegame> savegame = shared_ptr<Savegame>(new Savegame());
 			SceneStateMachine statemachine{ engine, savegame };
@@ -62,7 +62,7 @@ namespace UnitTestsGlitch
 			shared_ptr<Savegame> savegame = shared_ptr<Savegame>(new Savegame());
 			SceneStateMachine statemachine{ engine, savegame };
 			LevelBuilder levelOneBuilder{ engine, 1, statemachine };
-			LoadLevelFacade levelLoader{ engine };
+			LoadLevelFacade levelLoader{ };
 			// Act
 			levelLoader.load("TestAssetsGame/validLevel.json", &levelOneBuilder);
 			// Assert
