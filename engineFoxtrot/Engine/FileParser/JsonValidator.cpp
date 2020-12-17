@@ -27,7 +27,7 @@ JsonValidator::JsonValidator(string path, string validationPath) : IFileValidato
 /// @param document reference
 void JsonValidator::loadDocument(string path, JsonDocument& document) {
 	if (!valijson::utils::loadDocument(path, document)) {
-		throw exception("Failed to load schema document");
+		throw exception("JsonValidator: Failed to load schema document");
 	}
 }
 

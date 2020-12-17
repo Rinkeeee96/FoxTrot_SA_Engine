@@ -123,7 +123,7 @@ vector <shared_ptr<Object>> Scene::getAllObjectsInSceneRenderPhysics()
 /// Pointer to the object
 const void Scene::addNewObjectToLayer(const int zIndex, shared_ptr<Object> object, bool renderPhysics, bool alwaysDrawLayer)
 {
-	if (object == nullptr) throw ERROR_CODE_SCENE_NO_OBJECT_FOUND;
+	if (object == nullptr) throw exception("Scene: No object found");
 
 	if (layers.find(zIndex) != layers.end())
 	{
@@ -153,7 +153,7 @@ shared_ptr<Object> Scene::getObject(const int objectID)
 			return layer.second->getSpecificObjectInLayer(objectID);
 		}
 	}
-	throw exception("object does not exist");
+	throw exception("Scene: Object does not exist");
 }
 
 /// @brief Deletes all objects in the scene when called.

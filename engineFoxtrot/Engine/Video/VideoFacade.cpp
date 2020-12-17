@@ -33,7 +33,7 @@ void VideoFacade::initSDL()
 	if (window == NULL)
 	{
 		printf("Window could not be created! SDL Error: %s\n", SDL_GetError());
-		throw ERROR_CODE_SVIFACADE_CANT_CREATE_WINDOW;
+		throw exception("VideoFacade: Cant create SDL2 window");
 	}
 	else
 	{
@@ -42,7 +42,7 @@ void VideoFacade::initSDL()
 		if (renderer == NULL)
 		{
 			printf("Renderer could not be created! SDL Error: %s\n", SDL_GetError());
-			throw ERROR_CODE_SVIFACADE_CANT_CREATE_RENDERER;
+			throw exception("VideoFacade: Cant create SDL2 renderer");
 		}
 		else
 		{
@@ -80,7 +80,7 @@ void VideoFacade::drawScreen()
 /// @param filename
 void VideoFacade::loadImage(const shared_ptr<SpriteObject> spriteObject) {
 	if (spriteObject->getFileName() == NULL) 
-		throw exception("Invalid file name");
+		throw exception("VideoFacade: Invalid file name");
 
 	int textureId = spriteObject->getTextureID();
 
@@ -124,7 +124,7 @@ void VideoFacade::renderCopy(shared_ptr<Drawable> object, float deltaTime)
 		loadImage(sprite);
 	}
 	if (textureMap[sprite->getTextureID()] == NULL)  {
-		throw exception("ERROR_CODE_SVIFACADE_RENDERCOPY_SPRITE_ID_IS_NULL");
+		throw exception("VideoFacade: SpriteID is NULL");
 	}
 
 	float leftpos = sprite->getLeftPos(deltaTime);
@@ -171,7 +171,7 @@ void VideoFacade::drawParticle(shared_ptr<ParticleAdapter> part)
 		loadImage(sprite);
 	}
 	if (textureMap[sprite->getTextureID()] == NULL)
-		throw exception("ERROR_CODE_SVIFACADE_RENDERCOPY_SPRITE_ID_IS_NULL_DRAW_PARTICLE");
+		throw exception("VideoFacade: SpriteID is NULL");
 
 
 	vector<ParticleData> particleData = part->getParticleDataVector();

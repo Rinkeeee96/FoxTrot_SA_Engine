@@ -43,5 +43,5 @@ shared_ptr<ICharacter> CharacterFactory::create(string name, int id) {
 		clone->changeToState(SpriteState::DEFAULT);
 		return clone;
 	}
-	throw exception(GAME_ERRORCODES[ENTITY_NOT_FOUND]);
+	throw exception("CharacterFactory: Entity not found");
 }

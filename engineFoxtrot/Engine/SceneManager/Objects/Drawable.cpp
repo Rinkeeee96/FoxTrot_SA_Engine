@@ -17,7 +17,7 @@ void Drawable::changeToState(const int state)
 {
 	currentSpriteState = state;
 	shared_ptr<SpriteObject> spriteObject = textures[state];
-	if (spriteObject == nullptr) throw ERROR_CODE_SPRITE_DOESNT_EXIST;
+	if (spriteObject == nullptr) throw exception("Drawable: Sprite doesnt exist");
 	this->currentSprite = spriteObject;
 }
 

@@ -21,5 +21,5 @@ shared_ptr<BaseTrigger> TriggerFactory::create(string name, int id) {
 		shared_ptr<BaseTrigger> clone = triggerMap[name]->clone(id);
 		return clone;
 	}
-	throw exception(GAME_ERRORCODES[ENTITY_NOT_FOUND]);
+	throw exception("TriggerFactory: Entity not found");
 }
