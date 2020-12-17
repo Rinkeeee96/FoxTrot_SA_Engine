@@ -28,6 +28,7 @@ struct CollisionStruct {
 class b2Fixture;
 class b2World;
 class b2Body;
+class b2PolygonShape;
 
 /// @brief 
 /// PhysicsFacade class. Class for update physics off objects
@@ -52,6 +53,7 @@ public:
 	API void cleanMap();
 
 private:
+	b2PolygonShape createShape(const PhysicsBody& object);
 	EventDispatcher& dispatcher;
 	shared_ptr<b2World> world;
 	const float timeStep = TIMESTEP_SEC / TIMESTEP_FRAMES;
