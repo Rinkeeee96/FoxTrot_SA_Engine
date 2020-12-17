@@ -24,6 +24,5 @@ public:
 private:
 	// Helper Functions
 	bool checkIfSceneExists(const int);
-	// TODO what happens when deleting a scene?
 	map<int, shared_ptr<Scene>> scenes;
 };
