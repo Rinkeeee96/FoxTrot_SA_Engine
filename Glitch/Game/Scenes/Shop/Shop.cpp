@@ -46,7 +46,7 @@ void Shop::loadBackground()
 	SpriteObject* BG_LAYER_0 = new SpriteObject(-1500, 1080, 1920, 1, 0, "Assets/Shop/Shop.png");
 	SpriteObject* DialogBox = new SpriteObject(-1502, 170, 455, 1, 0, "Assets/Shop/Dialogbox1.png");
 
-	auto* level1TextBtn = new Text(2, new ColoredText("How can i help you today?", Color(0, 0, 0)), 400, 100, 760, 865);
+	auto* level1TextBtn = new Text(2, new ColoredText("Hoe kan ik je helpen?", Color(0, 0, 0)), 400, 100, 760, 865);
 
 
 	auto* layer0 = new Drawable(-992);
@@ -81,7 +81,7 @@ void Shop::loadMusic()
 /// @brief Loads the buttons for this scene
 void Shop::loadButtons()
 {
-	auto* stopBtn = new SecondaryButton(-993, "To Overworld", onStopBtnClick, this->dispatcher);
+	auto* stopBtn = new SecondaryButton(-993, "Wereld", onStopBtnClick, this->dispatcher);
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
