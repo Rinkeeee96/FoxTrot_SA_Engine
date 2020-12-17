@@ -46,7 +46,7 @@ void Shop::loadBackground()
 	shared_ptr<SpriteObject> BG_LAYER_0 = shared_ptr<SpriteObject>(new SpriteObject(-1500, 1080, 1920, 1, 0, "Assets/Shop/Shop.png"));
 	shared_ptr<SpriteObject> DialogBox = shared_ptr<SpriteObject>(new SpriteObject(-1502, 170, 455, 1, 0, "Assets/Shop/Dialogbox1.png"));
 
-	shared_ptr<Text> level1TextBtn = shared_ptr<Text>(new Text(2, new ColoredText("Hoe kan ik je helpen?", Color(0, 0, 0)), 400, 100, 760, 865));
+	shared_ptr<Text> level1TextBtn = shared_ptr<Text>(new Text(2, new ColoredText("How can I help you today?", Color(0, 0, 0)), 400, 100, 760, 865));
 
 
 	shared_ptr<Drawable> layer0 = shared_ptr<Drawable>(new Drawable(-992));
