@@ -17,7 +17,7 @@ PhysicsEngine::PhysicsEngine(unique_ptr<FrameData>& _frameData) : frameData{ _fr
 /// @param dispatcher 
 void PhysicsEngine::start(EventDispatcher& dispatcher) {
 	this->dispatcher = &dispatcher;
-	physicsFacade = new PhysicsFacade(dispatcher, frameData);
+	physicsFacade = make_unique<PhysicsFacade>(PhysicsFacade(dispatcher,frameData));
 
 	dispatcher.setEventCallback<ActionEvent>(BIND_EVENT_FN(PhysicsEngine::handleAction));
 	dispatcher.setEventCallback<ObjectStopEvent>(BIND_EVENT_FN(PhysicsEngine::stopObject));
@@ -46,7 +46,6 @@ void PhysicsEngine::update() {
 ///			Cleans the physicsEngine en deletes the physicsFacade.
 void PhysicsEngine::shutdown() {
 	clean();
-	delete physicsFacade;
 }
 
 /// @brief Reloads the physicsFacade objects map.
@@ -117,9 +116,9 @@ PhysicsEngine::~PhysicsEngine()
 void PhysicsEngine::registerObjectInCurrentVectorWithPhysicsEngine()
 {
 	if(DEBUG_PHYSICS_ENGINE)cout << "Size pointertoObj: " << (*pointerToCurrentScene)->getAllObjectsInSceneRenderPhysics().size() << endl;
-	for (Object* object : (*pointerToCurrentScene)->getAllObjectsInSceneRenderPhysics())
+	for (auto object : (*pointerToCurrentScene)->getAllObjectsInSceneRenderPhysics())
 	{
-		PhysicsBody * phyObj = new PhysicsBody(object);
+		auto phyObj = shared_ptr<PhysicsBody>(new PhysicsBody(object));
 
 		if (DEBUG_PHYSICS_ENGINE)cout << "Registering object : " << phyObj->getObjectId() << endl;
 		if (object->getIsParticle()) continue;

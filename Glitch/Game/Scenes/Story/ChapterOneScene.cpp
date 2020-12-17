@@ -31,8 +31,8 @@ void ChapterOneScene::loadText() {
 /// @brief 
 /// Create the background for this scene
 void ChapterOneScene::loadBackground() {
-	SpriteObject* background = new SpriteObject(-33, 1080, 1920, 1, 300, "Assets/Backgrounds/dark_bg.png");
-	auto* backgroundLayer = new Drawable(0);
+	shared_ptr<SpriteObject> background = shared_ptr<SpriteObject>(new SpriteObject(-33, 1080, 1920, 1, 300, "Assets/Backgrounds/dark_bg.png"));
+	shared_ptr<Drawable> backgroundLayer = shared_ptr<Drawable>(new Drawable(0));
 	backgroundLayer->setStatic(true);
 	backgroundLayer->setPositionX(0);
 	backgroundLayer->setPositionY(1080);
@@ -41,8 +41,8 @@ void ChapterOneScene::loadBackground() {
 	backgroundLayer->registerSprite(SpriteState::DEFAULT, background);
 	backgroundLayer->changeToState(SpriteState::DEFAULT);
 
-	SpriteObject* foregroundBottom = new SpriteObject(-34, 1080, 1920, 1, 300, "Assets/Backgrounds/foreground_bottom.png");
-	auto* foregroundBottomLayer = new Drawable(1);
+	shared_ptr<SpriteObject> foregroundBottom = shared_ptr<SpriteObject>(new SpriteObject(-34, 1080, 1920, 1, 300, "Assets/Backgrounds/foreground_bottom.png"));
+	shared_ptr<Drawable> foregroundBottomLayer = shared_ptr<Drawable>(new Drawable(1));
 	foregroundBottomLayer->setStatic(true);
 	foregroundBottomLayer->setPositionX(0);
 	foregroundBottomLayer->setPositionY(1080);
@@ -51,8 +51,8 @@ void ChapterOneScene::loadBackground() {
 	foregroundBottomLayer->registerSprite(SpriteState::DEFAULT, foregroundBottom);
 	foregroundBottomLayer->changeToState(SpriteState::DEFAULT);
 
-	SpriteObject* foregroundTop = new SpriteObject(-35, 1080, 1920, 1, 300, "Assets/Backgrounds/foreground_top.png");
-	auto* foregroundTopLayer = new Drawable(2);
+	shared_ptr<SpriteObject> foregroundTop = shared_ptr<SpriteObject>(new SpriteObject(-35, 1080, 1920, 1, 300, "Assets/Backgrounds/foreground_top.png"));
+	shared_ptr<Drawable> foregroundTopLayer = shared_ptr<Drawable>(new Drawable(2));
 	foregroundTopLayer->setStatic(true);
 	foregroundTopLayer->setPositionX(0);
 	foregroundTopLayer->setPositionY(124);
@@ -69,14 +69,14 @@ void ChapterOneScene::loadBackground() {
 /// @brief 
 /// Load the sounds for this scene
 void ChapterOneScene::loadMusic() {
-	engine.loadSound("WIN_SOUND", "Assets/Sound/TremLoadingloopl.wav");
+	engine->loadSound("WIN_SOUND", "Assets/Sound/TremLoadingloopl.wav");
 }
 
 /// @brief 
 /// Create the sounds for this scene
 void ChapterOneScene::start(bool playSound)
 {
-	if (playSound)engine.startSound("WIN_SOUND");
+	if (playSound)engine->startSound("WIN_SOUND");
 	this->speed_ = BASE_TEXT_SPEED;
 }
 
@@ -84,6 +84,6 @@ void ChapterOneScene::start(bool playSound)
 /// Remove the sounds of the soundengine
 void ChapterOneScene::onDetach()
 {
-	engine.startSound("WIN_SOUND");
+	engine->startSound("WIN_SOUND");
 	ChapterScene::onDetach();
 }

@@ -7,7 +7,7 @@
 /// @param _onClick 
 /// @param _spriteObject 
 /// @param _dispatcher 
-Button::Button(int id, ColoredText _text, const function<void(void)> _onClick, SpriteObject* _spriteObject, EventDispatcher& _dispatcher) :
+Button::Button(int id, ColoredText _text, const function<void(void)> _onClick, shared_ptr<SpriteObject> _spriteObject, EventDispatcher& _dispatcher) :
 	Drawable(id), text(_text), onClick(_onClick), dispatcher{ _dispatcher }
 {
 	setSize(200, 50);
@@ -80,7 +80,7 @@ bool Button::isClicked(const Event& event) {
 /// @param SpriteObject
 /// The spriteobject with the hover effect. 
 /// @return 
-void Button::registerHoverSprite(SpriteObject* spriteObject) {
+void Button::registerHoverSprite(shared_ptr<SpriteObject> spriteObject) {
 	hasHoverSprite = true;
 	Drawable::registerSprite(HOVER_STATE, spriteObject);
 }

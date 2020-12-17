@@ -21,13 +21,13 @@ void WinScreen::onAttach()
 /// @brief 
 /// Create all buttons for this scene
 void WinScreen::LoadButtons() {
-	auto mainSprite = new SpriteObject(-602, 40, 116, 1, 300, "Assets/Buttons/btn_gray_round.png");
+	auto mainSprite = shared_ptr<SpriteObject>(new SpriteObject(-602, 40, 116, 1, 300, "Assets/Buttons/btn_gray_round.png"));
 
-	auto* overBtn = new Button(-700, ColoredText("Overworld", Color(0, 0, 0)), onOverworldBtnClick, mainSprite, this->dispatcher);
+	shared_ptr<Button> overBtn = shared_ptr<Button>(new Button(-700, ColoredText("Overworld", Color(0, 0, 0)), onOverworldBtnClick, mainSprite, this->dispatcher));
 	overBtn->setPositionX(CENTER_X - overBtn->getWidth() / 2);
 	overBtn->setPositionY(CENTER_Y - overBtn->getHeight() / 2);
 
-	auto* mainBtn = new Button(-701, ColoredText("Hoofdmenu", Color(0, 0, 0)), OnMainBtnClick, mainSprite, this->dispatcher);
+	shared_ptr<Button> mainBtn = shared_ptr<Button>(new Button(-701, ColoredText("Hoofdmenu", Color(0, 0, 0)), OnMainBtnClick, mainSprite, this->dispatcher));
 	mainBtn->setPositionX(CENTER_X - mainBtn->getWidth() / 2);
 	mainBtn->setPositionY(CENTER_Y - mainBtn->getHeight() / 2 + 200);
 
@@ -38,14 +38,14 @@ void WinScreen::LoadButtons() {
 /// @brief 
 /// Create the background for this scene
 void WinScreen::LoadBackground() {
-	SpriteObject* BG_LAYER_0 = new SpriteObject(-992882, 1080, 1920, 1, 300, "Assets/Backgrounds/game_win_layer_0.png");
-	SpriteObject* BG_LAYER_ADVENTRUE_JUMP = new SpriteObject(-992883, 37, 50, 2, 300, "Assets/Sprites/Character/adventurer_jump_straight.png");
-	SpriteObject* BG_LAYER_ADVENTRUE_FALL = new SpriteObject(-992884, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_fall_right.png");
-	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(-992885, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png");
-	SpriteObject* particleSprite = new SpriteObject(-992886, 20, 20, 20, 300, "Assets/Particles/fire.png");
+	shared_ptr<SpriteObject> BG_LAYER_0 = shared_ptr<SpriteObject>(new SpriteObject(-992882, 1080, 1920, 1, 300, "Assets/Backgrounds/game_win_layer_0.png"));
+	shared_ptr<SpriteObject> BG_LAYER_ADVENTRUE_JUMP = shared_ptr<SpriteObject>(new SpriteObject(-992883, 37, 50, 2, 300, "Assets/Sprites/Character/adventurer_jump_straight.png"));
+	shared_ptr<SpriteObject> BG_LAYER_ADVENTRUE_FALL = shared_ptr<SpriteObject>(new SpriteObject(-992884, 37, 50, 2, 300, "Assets/Sprites/Character/adventure_fall_right.png"));
+	shared_ptr<SpriteObject> BG_LAYER_ADVENTRUE = shared_ptr<SpriteObject>(new SpriteObject(-992885, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png"));
+	shared_ptr<SpriteObject> particleSprite = shared_ptr<SpriteObject>(new SpriteObject(-992886, 20, 20, 20, 300, "Assets/Particles/fire.png"));
 
 
-	auto* layer0 = new Drawable(34);
+	shared_ptr<Drawable> layer0 = shared_ptr<Drawable>(new Drawable(34));
 	layer0->setStatic(true);
 	layer0->setPositionX(0);
 	layer0->setPositionY(1080);
@@ -54,7 +54,7 @@ void WinScreen::LoadBackground() {
 	layer0->registerSprite(SpriteState::DEFAULT, BG_LAYER_0);
 	layer0->changeToState(SpriteState::DEFAULT);
 
-	animation = new Drawable(35);
+	animation = shared_ptr<Drawable>(new Drawable(35));
 	animation->setStatic(true);
 	animation->setPositionX(175);
 	animation->setPositionY(1030);
@@ -66,7 +66,7 @@ void WinScreen::LoadBackground() {
 	animation->changeToState(SpriteState::DEFAULT);
 	animation->setScalable(false);
 
-	ParticleAdapter* confetti = new ParticleAdapter(11);        
+	shared_ptr<ParticleAdapter> confetti = shared_ptr<ParticleAdapter>(new ParticleAdapter(11));
 	confetti->registerSprite(SpriteState::DEFAULT, particleSprite);
 	confetti->changeToState(SpriteState::DEFAULT);
 	confetti->setPositionX(CENTER_X);
@@ -86,7 +86,7 @@ void WinScreen::LoadBackground() {
 /// Load the sounds for this scene
 void WinScreen::LoadMusic() {
 
-	engine.loadSound("WIN_SOUND", "Assets/Sound/TremLoadingloopl.wav");
+	engine->loadSound("WIN_SOUND", "Assets/Sound/TremLoadingloopl.wav");
 }
 
 
@@ -94,7 +94,7 @@ void WinScreen::LoadMusic() {
 /// Create the sounds for this scene
 void WinScreen::start(bool playSound)
 {
-	if(playSound)engine.startSound("WIN_SOUND");
+	if(playSound)engine->startSound("WIN_SOUND");
 }
 
 void WinScreen::onDetach()
@@ -125,6 +125,6 @@ void WinScreen::onUpdate(float deltaTime) {
 
 	if (moveToNextScene)
 	{
-		stateMachine.switchToScene(nextScene, useTransition, playSound);
+		stateMachine->switchToScene(nextScene, useTransition, playSound);
 	}
 }

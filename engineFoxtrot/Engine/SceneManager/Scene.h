@@ -17,14 +17,14 @@ public:
 
 	bool API checkIfObjectExists(const int objectID);
 	const bool API toggleLayer(const int zIndex, bool render);
-	const void API addNewObjectToLayer(const int zIndex, Object* object, bool renderPhysics = false, bool alwaysDrawLayer = false);
+	const void API addNewObjectToLayer(const int zIndex, shared_ptr<Object> object, bool renderPhysics = false, bool alwaysDrawLayer = false);
 
-	vector<Drawable*> API getAllDrawablesInScene();
+	vector<shared_ptr<Drawable>> API getAllDrawablesInScene();
 
-	vector <Object*> API getAllObjectsInScene();
-	vector <Object*> API getAllObjectsInSceneRenderPhysics();
+	vector <shared_ptr<Object>> API getAllObjectsInScene();
+	vector <shared_ptr<Object>> getAllObjectsInSceneRenderPhysics();
 
-	Object API *getObject(const int objectID);
+	shared_ptr<Object> API getObject(const int objectID);
 
 	int API getSceneID() { return sceneID; }
 
@@ -40,23 +40,24 @@ public:
 	void setSceneHeight(const int height) { sceneHeight = height; }
 	int getSceneHeight() const { return sceneHeight; }
     
-	void setObjectToFollow(Object* obj) { objectToFollow = obj; }
+	void setObjectToFollow(shared_ptr<Object> obj) { objectToFollow = obj; }
 
 
 	int getObjectToFollowID() const;
-	Object* getObjectToFollow() { return objectToFollow; };
+	shared_ptr<Object> getObjectToFollow() { return objectToFollow; };
 
-	API void removeObjectFromScene(Object* obj);
+	API void removeObjectFromScene(shared_ptr<Drawable> obj);
+	API void removeObjectFromScene(shared_ptr<Object> obj);
 
-	API map<int, Layer*> getLayers() const;
+	API map<int, shared_ptr<Layer>> getLayers() const;
 
 	API void createLayer(const int zIndex, bool renderPhysics = false, bool alwaysDrawLayer = false);
 
 	EventDispatcher& getEventDispatcher() { return dispatcher; };
 
 	API int getHighestLayerIndex();
-	API int addLayerOnHighestZIndex(Layer *_layer);
-	API void addLayerOnZIndex(const int zIndex, Layer* _layer);
+	API int addLayerOnHighestZIndex(shared_ptr<Layer> _layer);
+	API void addLayerOnZIndex(const int zIndex, shared_ptr<Layer> _layer);
 	API void removeLayer(const int zIndex);
 
 
@@ -67,10 +68,10 @@ protected:
 	bool paused = false;
 private:
 	const int sceneID = 0;
-	map<int, Layer*> layers;
+	map<int, shared_ptr<Layer>> layers;
 
 
-	Object *objectToFollow = nullptr;
+	shared_ptr<Object> objectToFollow = nullptr;
 
 	int sceneWidth = WINDOW_WIDTH;
 	int sceneHeight = WINDOW_HEIGHT;

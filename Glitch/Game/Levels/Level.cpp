@@ -8,10 +8,10 @@
 #include "Game/PopUps/Popups.h"
 #include "Engine/Events/Action/ToggleEventLayer.h"
 
-Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, Engine& engine, SceneStateMachine& _stateMachine) 
+Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, unique_ptr<Engine>& engine, shared_ptr<SceneStateMachine> _stateMachine)
 				: GameScene::GameScene(id, _sceneHeight, _sceneWidth, engine, _stateMachine), commandBuilder{new CommandBuilder()}
 {
-	gameInvoker = (GameKeypressInvoker*)engine.getKeypressedInvoker();
+	gameInvoker = dynamic_cast<GameKeypressInvoker*>(engine->getKeypressedInvoker());
 	this->dispatcher.setEventCallback<ToggleLayerEvent>(BIND_EVENT_FN(Level::onToggleLayerEvent));
 }
 
@@ -19,11 +19,9 @@ Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, Engine
 /// OnAttach is executed when a scene is "attached" to the current running context
 /// usually this is can be used to prime a level with relevant data before starting it.
 void Level::onAttach() {
-	TogglePauseEvent unpause{ false };
-	this->dispatcher.dispatchEvent<TogglePauseEvent>(unpause);
 	for (const auto& s : sounds) {
 		if (DEBUG_MAIN)std::cout << s.first << " has value " << s.second << std::endl;
-		engine.loadSound(s.first, s.second);
+		engine->loadSound(s.first, s.second);
 	}
 }
 
@@ -35,8 +33,8 @@ void Level::start(bool playSound) {
 	inventoryPopupZIndex = this->getHighestLayerIndex() + 1;
 	pausePopupZIndex = inventoryPopupZIndex + 1;
 
-	this->addLayerOnZIndex(inventoryPopupZIndex, new InventoryPopup(this->dispatcher, this->stateMachine));
-	this->addLayerOnZIndex(pausePopupZIndex, new PausePopUp(this->dispatcher, this->stateMachine));
+	this->addLayerOnZIndex(inventoryPopupZIndex, shared_ptr<Layer>(new InventoryPopup(this->dispatcher, this->stateMachine)));
+	this->addLayerOnZIndex(pausePopupZIndex, shared_ptr<Layer>(new PausePopUp(this->dispatcher, this->stateMachine)));
 
 	commandBuilder->linkCommandToToggle(gameInvoker, inventoryPopupZIndex, "inventory");
 	commandBuilder->linkCommandToToggle(gameInvoker, pausePopupZIndex, "pause");
@@ -52,7 +50,7 @@ void Level::start(bool playSound) {
 	if (playSound)
 	{
 		for (const auto& s : sounds) {
-			engine.startSound(s.first);
+			engine->startSound(s.first);
 		}
 	}
 }
@@ -78,16 +76,16 @@ void Level::onUpdate(float deltaTime)
 	{
 		player->kill();
 		increaseTotalGameScore(100);
-		throwAchievement("Level " + to_string(stateMachine.levelToBuild) + " behaald!");
+		throwAchievement("Level " + to_string(stateMachine.get()->levelToBuild) + " behaald!");
 		SaveGameData save = savegame->getCurrentGameData();
-		save.levelData[stateMachine.levelToBuild].completed = true;
+		save.levelData[stateMachine->levelToBuild].completed = true;
 		savegame->saveCurrentGameData(save);
-		stateMachine.switchToScene("WinScreen", false);
+		stateMachine->switchToScene("WinScreen", false);
 		return;
 	}
 	if (player->getIsDead())
 	{
-		stateMachine.switchToScene("DeathScreen", false);
+		stateMachine->switchToScene("DeathScreen", false);
 		return;
 	}
 
@@ -95,16 +93,16 @@ void Level::onUpdate(float deltaTime)
 	{
 		if (!object->getStatic())
 		{
-			object->onUpdate(engine.getDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
+			object->onUpdate(engine->getDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
 
-			if (ICharacter *character = dynamic_cast<ICharacter *>(object))
+			if (ICharacter *character = dynamic_cast<ICharacter *>(object.get()))
 			{
 				if (character->getIsDead() && !character->getIsRemoved())
 				{
 					// TODO Death animation
 					object->setIsRemoved(true);
 					removeObjectFromScene(object);
-					engine.restartPhysicsWorld();
+					engine->restartPhysicsWorld();
 					increaseTotalGameScore(10);
 					throwAchievement("Eerste kill");
 				}
@@ -137,9 +135,9 @@ bool Level::onToggleLayerEvent(const Event& event) {
 // @brief 
 /// Sets player in the level the camera will follow this object
 /// @param Object player
-void Level::setPlayer(Object* object) {
+void Level::setPlayer(shared_ptr<Object> object) {
 	this->follow = object;
-	if (Player* _player = dynamic_cast<Player*>(object)) {
+	if (auto _player = dynamic_pointer_cast<Player>(object)) {
 		this->player = _player;
 
 		commandBuilder->buildPlayerCommands(*this->player, gameInvoker);
@@ -163,14 +161,14 @@ void Level::setSound(map<string, string> _sounds)
 /// @brief
 /// Add HUD for lifes of player
 void Level::addHuds() {
-	this->huds = std::vector<Drawable*>();
+	this->huds.clear();
 	// Health HUDS
 	int startingID = -662;
 	int xAxisChange = 75;
 	int startingXAxis = 25;
 	int current = 0;
-	SpriteObject* HealthHUD = new SpriteObject(-660, 50, 50, 1, 300, "Assets/Sprites/HUD/Full.png");
-	SpriteObject* EmptyHealthHUD = new SpriteObject(-661, 50, 50, 1, 300, "Assets/Sprites/HUD/Empty.png");
+	shared_ptr<SpriteObject> HealthHUD = shared_ptr<SpriteObject>(new SpriteObject(-660, 50, 50, 1, 300, "Assets/Sprites/HUD/Full.png"));
+	shared_ptr<SpriteObject> EmptyHealthHUD = shared_ptr<SpriteObject>(new SpriteObject(-661, 50, 50, 1, 300, "Assets/Sprites/HUD/Empty.png"));
 
 	for (size_t i = 0; i < player->getCurrentHealth(); i++)
 	{
@@ -185,8 +183,8 @@ void Level::addHuds() {
 
 /// @brief
 /// Add single HUD for lifes of player
-void Level::addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, SpriteObject* HUD) {
-	auto* health = new Drawable(startingID--);
+void Level::addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, shared_ptr<SpriteObject> HUD) {
+	shared_ptr<Drawable> health = shared_ptr<Drawable>(new Drawable(startingID--));
 	health->setStatic(true);
 	health->setPositionX(((startingXAxis + (float)(xAxisChange * (current + 1)))));
 	health->setPositionY(100);
@@ -207,7 +205,7 @@ void Level::addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, 
 void Level::throwAchievement(Achievement achievement)
 {
 	if (savegame->getCurrentGameData().isAchievementAchieved(achievement)) return;
-	AchievementPopup* achievementPopup = new AchievementPopup(this->dispatcher, this->stateMachine);
+	auto achievementPopup = shared_ptr<AchievementPopup>(new AchievementPopup(this->dispatcher, this->stateMachine));
 	achievementPopup->setupPopUp(achievement);
 	achievementZIndex = addLayerOnHighestZIndex(achievementPopup);
 
@@ -226,7 +224,7 @@ void Level::throwAchievement(Achievement achievement)
 void Level::increaseTotalGameScore(const int amount)
 {
 	SaveGameData temp = savegame->getCurrentGameData();
-	temp.levelData[stateMachine.levelToBuild - 1].score += amount;
+	temp.levelData[stateMachine->levelToBuild - 1].score += amount;
 	temp.totalScore += amount;
 	savegame->saveCurrentGameData(temp);
 }
@@ -235,8 +233,8 @@ void Level::increaseTotalGameScore(const int amount)
 /// Loads the scoreboard located in the top right corner.
 void Level::loadScoreBoard()
 {
-	SpriteObject* emptyBlock = new SpriteObject(-2500, 309, 253, 1, 300, "Assets/Inventory/text_background.png");
-	auto* block1 = new Drawable(-2501);
+	shared_ptr<SpriteObject> emptyBlock = shared_ptr<SpriteObject>(new SpriteObject(-2500, 309, 253, 1, 300, "Assets/Inventory/text_background.png"));
+	shared_ptr<Drawable> block1 = shared_ptr<Drawable>(new Drawable(-2501));
 	block1->setStatic(true);
 	block1->setDrawStatic(true);
 	block1->setPositionX(1600);
@@ -248,12 +246,12 @@ void Level::loadScoreBoard()
 
 	int textIDCount = 100;
 
-	auto* text2 = new Text(textIDCount++, new ColoredText(savegame->getCurrentGameData().saveGameName + " " + savegame->getCurrentGameData().getReadableTimeStamp(), Color(0, 0, 0)), 200, 30, 1550, 40);
+	shared_ptr<Text> text2 = shared_ptr<Text>(new Text(textIDCount++, new ColoredText(savegame->getCurrentGameData().saveGameName + " " + savegame->getCurrentGameData().getReadableTimeStamp(), Color(0, 0, 0)), 200, 30, 1550, 40));
 	text2->setDrawStatic(true);
 	addNewObjectToLayer(5, text2, false, true);
 
 
-	scoreText = new Text(textIDCount++, new ColoredText("Totale score: " + to_string(savegame->getCurrentGameData().totalScore), Color(0, 0, 0)), 200, 30, 1550, 90);
+	scoreText = shared_ptr<Text>(new Text(textIDCount++, new ColoredText("Totale score: " + to_string(savegame->getCurrentGameData().totalScore), Color(0, 0, 0)), 200, 30, 1550, 90));
 	scoreText->setDrawStatic(true);
 	addNewObjectToLayer(5, scoreText, false, true);
 
@@ -272,7 +270,7 @@ void Level::updateScoreBoard()
 /// Execute pause logic
 void Level::pause() {
 	for (const auto& s : sounds) {
-		engine.stopLoopEffect(s.first);
+		engine->stopLoopEffect(s.first);
 	}
 }
 

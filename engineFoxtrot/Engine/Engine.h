@@ -40,8 +40,8 @@ public:
 
 	//SceneManager calls
 	API void setCurrentScene(const int sceneID);
-	API Scene* getCurrentScene();
-	API void insertScene(Scene * scene);
+	API shared_ptr<Scene> getCurrentScene();
+	API void insertScene(shared_ptr<Scene> scene);
 	API void deregisterScene(const int id);
 
 	// Sound calls
@@ -67,10 +67,9 @@ private:
 	EventDispatcher* eventDispatcher;
 	bool running = false;
 
+	unique_ptr<FrameData> frameData = make_unique<FrameData>(FrameData{});
 	float deltaTimePhysics = 0;
 	float deltaTimeRender = 0;
-	
-	unique_ptr<FrameData> frameData;
 	KeypressInvoker* keypressInvoker;
 
 	SceneManager sceneManager;

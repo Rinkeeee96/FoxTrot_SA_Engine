@@ -63,14 +63,14 @@ const bool Scene::toggleLayer(const int zIndex, bool render)
 /// @brief 
 /// Returns a filtered collection of all the drawables in the current scene TEMPORARY
 /// @return 
-vector <Drawable*> Scene::getAllDrawablesInScene()
+vector <shared_ptr<Drawable>> Scene::getAllDrawablesInScene()
 {
-	vector <Drawable*> returnVector;
+	vector <shared_ptr<Drawable>> returnVector;
 	for (auto layer : layers)
 	{
 		for (auto obj : layer.second->objects)
 		{
-			Drawable* drawable = dynamic_cast<Drawable*>(obj.second);
+			shared_ptr<Drawable> drawable = dynamic_pointer_cast<Drawable>(obj.second);
 			if (drawable != nullptr)
 				returnVector.push_back(drawable);
 		}
@@ -81,9 +81,9 @@ vector <Drawable*> Scene::getAllDrawablesInScene()
 /// @brief 
 /// Returns pointers to all available objects in the whole scene. 
 /// @return 
-vector <Object*> Scene::getAllObjectsInScene()
+vector <shared_ptr<Object>> Scene::getAllObjectsInScene()
 {
-	vector <Object*> returnVector;
+	vector <shared_ptr<Object>> returnVector;
 	for (auto layer : layers)
 	{
 		for (auto obj : layer.second->objects)
@@ -99,9 +99,9 @@ vector <Object*> Scene::getAllObjectsInScene()
 
 /// @brief Returns all objects in the scene with the renderPhysics value on true
 /// @return 
-vector <Object*> Scene::getAllObjectsInSceneRenderPhysics()
+vector <shared_ptr<Object>> Scene::getAllObjectsInSceneRenderPhysics()
 {
-	vector <Object*> returnVector;
+	vector <shared_ptr<Object>> returnVector;
 	for (auto layer : layers)
 	{
 		if (layer.second->getRenderPhysics()) {
@@ -119,7 +119,7 @@ vector <Object*> Scene::getAllObjectsInSceneRenderPhysics()
 /// Zindex of the layer that the object should be added to
 /// @param object 
 /// Pointer to the object
-const void Scene::addNewObjectToLayer(const int zIndex, Object* object, bool renderPhysics, bool alwaysDrawLayer)
+const void Scene::addNewObjectToLayer(const int zIndex, shared_ptr<Object> object, bool renderPhysics, bool alwaysDrawLayer)
 {
 	if (object == nullptr) throw ERROR_CODE_SCENE_NO_OBJECT_FOUND;
 
@@ -129,7 +129,7 @@ const void Scene::addNewObjectToLayer(const int zIndex, Object* object, bool ren
 	}
 	else
 	{
-		layers[zIndex] = new Layer();
+		layers[zIndex] = shared_ptr<Layer>(new Layer());
 		layers[zIndex]->setRenderPhysics(renderPhysics);
 		layers[zIndex]->addObjectInLayer(object);
 		layers[zIndex]->setAlwaysVisible(alwaysDrawLayer);
@@ -142,7 +142,7 @@ const void Scene::addNewObjectToLayer(const int zIndex, Object* object, bool ren
 /// Identifier for objectID
 /// @return 
 /// Returns pointer to the found Object
-Object * Scene::getObject(const int objectID)
+shared_ptr<Object> Scene::getObject(const int objectID)
 {
 	for (auto layer : layers)
 	{
@@ -159,12 +159,9 @@ void Scene::onDetach()
 {
 	for (auto& layerContainer : layers)
 	{
-		Layer* layer = layerContainer.second;
-		for (auto obj : layer->objects)
-			delete obj.second;
+		auto layer = layerContainer.second;
 
 		layer->clearObjects();
-		delete layer;
 	}
 	layers.clear();
 }
@@ -188,7 +185,20 @@ int Scene::getObjectToFollowID() const
 
 /// @brief Removes a specific object from the current scene
 /// @param obj 
-void Scene::removeObjectFromScene(Object* obj)
+void Scene::removeObjectFromScene(shared_ptr<Drawable> obj)
+{
+	for (auto lay : layers) {
+		if (lay.second->objectExists(obj->getObjectId())) {
+			lay.second->removeObject(obj->getObjectId());
+			obj->setIsRemoved(true);
+			return;
+		}
+	}
+}
+
+/// @brief Removes a specific object from the current scene OVERLOADED FUNCTION
+/// @param obj 
+void Scene::removeObjectFromScene(shared_ptr<Object> obj)
 {
 	for (auto lay : layers) {
 		if (lay.second->objectExists(obj->getObjectId())) {
@@ -201,7 +211,7 @@ void Scene::removeObjectFromScene(Object* obj)
 
 /// @brief Returns the layers map in a scene
 /// @return 
-map<int, Layer*> Scene::getLayers() const
+map<int, shared_ptr<Layer>> Scene::getLayers() const
 {
 	return layers;
 }
@@ -212,7 +222,7 @@ map<int, Layer*> Scene::getLayers() const
 /// @param alwaysDrawLayer 
 void Scene::createLayer(const int zIndex, bool renderPhysics, bool alwaysDrawLayer)
 {
-	layers[zIndex] = new Layer();
+	layers[zIndex] = shared_ptr<Layer>(new Layer());
 	layers[zIndex]->setRenderPhysics(renderPhysics);
 	layers[zIndex]->setAlwaysVisible(alwaysDrawLayer);
 }
@@ -234,7 +244,7 @@ int Scene::getHighestLayerIndex() {
 /// @param xPosition 
 /// @param yPosition 
 /// @param text 
-int Scene::addLayerOnHighestZIndex(Layer* _layer) 
+int Scene::addLayerOnHighestZIndex(shared_ptr<Layer> _layer)
 {
 	int zIndex = getHighestLayerIndex() + 1;
 	layers[zIndex] = _layer;
@@ -244,7 +254,7 @@ int Scene::addLayerOnHighestZIndex(Layer* _layer)
 /// @brief 
 /// @param zIndex 
 /// @param _layer 
-void Scene::addLayerOnZIndex(const int zIndex, Layer* _layer)
+void Scene::addLayerOnZIndex(const int zIndex, shared_ptr<Layer> _layer)
 {
 	layers[zIndex] = _layer;
 }

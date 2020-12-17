@@ -7,7 +7,7 @@
 class GeneralTransition : public GameScene
 {
 public:
-	GeneralTransition(const int id, Engine& engine, SceneStateMachine& _statemachine) : GameScene(id, engine, _statemachine) {};
+	GeneralTransition(const int id, unique_ptr<Engine>& engine, shared_ptr<SceneStateMachine> _statemachine) : GameScene(id, engine, _statemachine) {};
 	~GeneralTransition() {};
 
 	// Inherited via Scene
@@ -20,8 +20,8 @@ public:
 
 private:
 	void loadBackground();
-	Drawable* progressBarFiller = nullptr;
-	Drawable* animation = nullptr;
+	shared_ptr<Drawable> progressBarFiller = nullptr;
+	shared_ptr<Drawable> animation = nullptr;
 
 	bool moveCharacter = false;
 

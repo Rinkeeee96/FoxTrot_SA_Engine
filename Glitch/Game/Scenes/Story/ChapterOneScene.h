@@ -14,7 +14,7 @@
 class ChapterOneScene : public ChapterScene
 {
 public:
-	ChapterOneScene(const int id, Engine& _engine, SceneStateMachine& _statemachine) : ChapterScene(id, _engine, _statemachine) {};
+	ChapterOneScene(const int id, unique_ptr<Engine>& _engine, shared_ptr<SceneStateMachine> _statemachine) : ChapterScene(id, _engine, _statemachine) {};
 	~ChapterOneScene() { };
 	// Inherited via Scene
 	void onAttach() override;

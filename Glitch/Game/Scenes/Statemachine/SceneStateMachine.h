@@ -5,10 +5,10 @@
 class Savegame;
 
 /// @brief Class for the scene state machine
-class SceneStateMachine
+class SceneStateMachine : public enable_shared_from_this<SceneStateMachine>
 {
 public:
-	SceneStateMachine(Engine& engine, shared_ptr<Savegame> savegame);
+	SceneStateMachine(unique_ptr<Engine>& engine, shared_ptr<Savegame> savegame);
 	~SceneStateMachine();
 
 	void switchToScene(string const identifier, bool useTransitionScreen, bool playSound = true);
@@ -24,9 +24,9 @@ private:
 	shared_ptr<SceneFactory>  factory = nullptr;
 
 	unique_ptr<Scene> loadLevel(const string& identifier);
-	Engine& engine;
+	unique_ptr<Engine>& engine;
 
-	unique_ptr<Scene> currentScene;
+	shared_ptr<Scene> currentScene;
 	int sceneId = 0;
 	string currentLevelIdentifier = "";
 };

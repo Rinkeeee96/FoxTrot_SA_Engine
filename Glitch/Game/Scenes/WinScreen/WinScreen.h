@@ -7,7 +7,7 @@
 class WinScreen : public GameScene
 {
 public:
-	WinScreen(const int id, Engine& engine, SceneStateMachine& _statemachine) : GameScene(id, engine, _statemachine) {};
+	WinScreen(const int id, unique_ptr<Engine>& engine, shared_ptr<SceneStateMachine> _statemachine) : GameScene(id, engine, _statemachine) {};
 	~WinScreen();
 	// Inherited via Scene
 	void onAttach() override;
@@ -28,9 +28,9 @@ private:
 		moveToNextScene = true;
 		nextScene = "Overworld";
 	};
-
 	bool falling = false;
-	Drawable* animation = nullptr;
+	int animationTick = 0;
+	shared_ptr<Drawable> animation = nullptr;
 };
 
 inline WinScreen::~WinScreen()

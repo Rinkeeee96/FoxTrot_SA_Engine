@@ -10,9 +10,9 @@ public:
 
 	void onUpdate(float deltaTime) override;
 
-	map<SpriteState, SpriteObject*> buildSpritemap(int textureId) override;
+	map<SpriteState, shared_ptr<SpriteObject>> buildSpritemap(int textureId) override;
 
-	ICharacter* clone(int id) override { return new Jumpkin(id, dispatcher); }
+	shared_ptr<ICharacter> clone(int id) override { return shared_ptr<ICharacter>(new Jumpkin(id, dispatcher)); }
 
 private:
 	float jumpTimer = 0;

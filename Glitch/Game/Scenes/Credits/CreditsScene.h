@@ -13,7 +13,7 @@
 class CreditsScene : public GameScene
 {
 public:
-	CreditsScene(const int id, Engine& _engine, SceneStateMachine& _statemachine) : GameScene(id, _engine, _statemachine) {};
+	CreditsScene(const int id, unique_ptr<Engine>& _engine, shared_ptr<SceneStateMachine> _statemachine) : GameScene(id, _engine, _statemachine) {};
 	~CreditsScene() { };
 	// Inherited via Scene
 	void onAttach() override;
@@ -21,7 +21,7 @@ public:
 	void start(bool playSound) override;
 	void onUpdate(float deltaTime) override;
 private:
-	vector<Text*> text;
+	vector<shared_ptr<Text>> text;
 
 	void loadText();
 	void loadBackground();

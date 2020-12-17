@@ -13,7 +13,7 @@
 class ChapterScene : public GameScene
 {
 public:
-	ChapterScene(const int id, Engine& _engine, SceneStateMachine& _statemachine);
+	ChapterScene(const int id, unique_ptr<Engine>& _engine, shared_ptr<SceneStateMachine> _statemachine);
 	virtual ~ChapterScene() { };
 	// Inherited via Scene
 	virtual void onAttach() override {};
@@ -24,7 +24,7 @@ public:
 	bool onKeyPressed(const Event& event);
 
 protected:
-	vector<Text*> text;
+	vector<shared_ptr<Text>> text;
 	FileLoader fileLoader;
 
 	virtual void setTextFromFile(string path, int startingId);
@@ -40,6 +40,6 @@ protected:
 	};
 
 	vector<string> splitToLines(string stringToSplit, int maximumLineLength);
-	vector<Text*> splitText(string text, int startingId);
+	vector<shared_ptr<Text>> splitText(string text, int startingId);
 	int speed_ = 1;
 };

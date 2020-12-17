@@ -15,7 +15,7 @@ public:
 	virtual ~BaseTrigger() { }
 
 	virtual bool onCollisionBegin(const Event& event) = 0;
-	virtual BaseTrigger* clone(const int id) = 0;
+	virtual shared_ptr<BaseTrigger> clone(const int id) = 0;
 protected:
 	EventDispatcher& dispatcher;
 };

@@ -6,9 +6,9 @@ TriggerFactory::TriggerFactory() {}
 /// @brief Register trigger with its name in factory for later cloning
 /// @param name 
 /// @param trigger 
-void TriggerFactory::registerTrigger(string name, BaseTrigger* trigger) {
+void TriggerFactory::registerTrigger(string name, shared_ptr<BaseTrigger> trigger) {
 	if (triggerMap.count(name) == 0) {
-		triggerMap.insert(pair<std::string, BaseTrigger*>(name, trigger));
+		triggerMap.insert(pair<std::string, shared_ptr<BaseTrigger>>(name, trigger));
 	}
 }
 
@@ -16,9 +16,9 @@ void TriggerFactory::registerTrigger(string name, BaseTrigger* trigger) {
 /// @param name 
 /// @param id 
 /// @return 
-BaseTrigger* TriggerFactory::create(string name, int id) {
+shared_ptr<BaseTrigger> TriggerFactory::create(string name, int id) {
 	if (triggerMap.count(name) > 0) {
-		auto clone = triggerMap[name]->clone(id);
+		shared_ptr<BaseTrigger> clone = triggerMap[name]->clone(id);
 		return clone;
 	}
 	throw exception(GAME_ERRORCODES[ENTITY_NOT_FOUND]);

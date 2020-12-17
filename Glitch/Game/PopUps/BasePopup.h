@@ -6,16 +6,13 @@
 class BasePopup : public Layer
 {
 public:
-	BasePopup(EventDispatcher& _dispatcher, SceneStateMachine& _stateMachine) :
+	BasePopup(EventDispatcher& _dispatcher, shared_ptr<SceneStateMachine> _stateMachine) :
 		dispatcher(_dispatcher), stateMachine(_stateMachine) 
 	{
 	};
 
 	virtual void setupPopUp() = 0;
 	virtual void cleanPopUp() {
-		for (pair<const int, Object*> obj : objects)
-			delete obj.second;
-
 		this->clearObjects();
 	};
 
@@ -38,5 +35,5 @@ public:
 	}
 protected:
 	EventDispatcher& dispatcher;
-	SceneStateMachine& stateMachine;
+	shared_ptr<SceneStateMachine> stateMachine;
 };

@@ -15,9 +15,9 @@ namespace UnitTestsEngine
 		{
 			// Arrange
 			Layer layer;
-			MockObject object;
+			shared_ptr<Object> object = shared_ptr<MockObject>(new MockObject());
 			// Act
-			layer.addObjectInLayer(&object);
+			layer.addObjectInLayer(object);
 			layer.removeObject(1);
 			// Assert
 			auto result = layer.objectExists(1);
@@ -28,9 +28,9 @@ namespace UnitTestsEngine
 		{
 			// Arrange
 			Layer layer;
-			MockObject object;
+			shared_ptr<Object> object = shared_ptr<MockObject>(new MockObject());
 			// Act
-			layer.addObjectInLayer(&object);
+			layer.addObjectInLayer(object);
 			try {
 				layer.removeObject(0);
 			}
@@ -44,9 +44,9 @@ namespace UnitTestsEngine
 		{
 			// Arrange
 			Layer layer;
-			MockObject object;
+			shared_ptr<Object> object = shared_ptr<MockObject>(new MockObject());
 			// Act
-			layer.addObjectInLayer(&object);
+			layer.addObjectInLayer(object);
 			layer.clearObjects();
 			// Assert
 			auto result = layer.objectExists(1);
@@ -57,9 +57,9 @@ namespace UnitTestsEngine
 		{
 			// Arrange
 			Layer layer;
-			MockObject object;
+			shared_ptr<Object> object = shared_ptr<MockObject>(new MockObject());
 			// Act
-			layer.addObjectInLayer(&object);
+			layer.addObjectInLayer(object);
 			// Assert
 			auto result = layer.objectExists(1);
 			Assert::IsTrue(result);
@@ -69,9 +69,9 @@ namespace UnitTestsEngine
 		{
 			// Arrange
 			Layer layer;
-			MockObject object;
+			shared_ptr<Object> object = shared_ptr<MockObject>(new MockObject());
 			// Act
-			layer.addObjectInLayer(&object);
+			layer.addObjectInLayer(object);
 			// Assert
 			auto result = layer.objectExists(0);
 			Assert::IsFalse(result);
@@ -81,9 +81,9 @@ namespace UnitTestsEngine
 		{
 			// Arrange
 			Layer layer;
-			MockObject object;
+			shared_ptr<Object> object = shared_ptr<MockObject>(new MockObject());
 			// Act
-			layer.addObjectInLayer(&object);
+			layer.addObjectInLayer(object);
 			try {
 				layer.getObjectsInLayer();
 			}
@@ -97,9 +97,9 @@ namespace UnitTestsEngine
 		{
 			// Arrange
 			Layer layer;
-			MockObject object;
+			shared_ptr<Object> object = shared_ptr<MockObject>(new MockObject());
 			// Act
-			layer.addObjectInLayer(&object);
+			layer.addObjectInLayer(object);
 			// Assert
 			auto result = layer.getObjectsInLayer();
 			auto x = result[1];

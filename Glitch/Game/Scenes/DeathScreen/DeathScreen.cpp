@@ -21,13 +21,13 @@ void DeathScreen::onAttach()
 /// @brief 
 /// Create all buttons for this scene
 void DeathScreen::loadButtons() {
-	auto btnSprite = new SpriteObject(-599, 40, 116, 1, 300, "Assets/Buttons/btn_gray_round.png");
+	auto btnSprite = shared_ptr<SpriteObject>(new SpriteObject(-599, 40, 116, 1, 300, "Assets/Buttons/btn_gray_round.png"));
 
-	auto* startBtn = new Button(-600, ColoredText("Restart", Color(0, 0, 0)), onReStartBtnClick, btnSprite, this->dispatcher);
+	shared_ptr<Button> startBtn = shared_ptr<Button>(new Button(-600, ColoredText("Restart", Color(0, 0, 0)), onReStartBtnClick, btnSprite, this->dispatcher));
 	startBtn->setPositionX(CENTER_X - startBtn->getWidth() / 2);
 	startBtn->setPositionY(CENTER_Y - startBtn->getHeight() / 2);
 
-	auto* mainBtn = new Button(-601, ColoredText("Overworld", Color(0, 0, 0)), onOverworldBtnClick, btnSprite, this->dispatcher);
+	shared_ptr<Button> mainBtn = shared_ptr<Button>(new Button(-601, ColoredText("Overworld", Color(0, 0, 0)), onOverworldBtnClick, btnSprite, this->dispatcher));
 	mainBtn->setPositionX(CENTER_X - mainBtn->getWidth() / 2);
 	mainBtn->setPositionY(CENTER_Y - mainBtn->getHeight() / 2 + 100);
 
@@ -38,12 +38,12 @@ void DeathScreen::loadButtons() {
 /// @brief 
 /// Create the background for this scene
 void DeathScreen::loadBackground() {
-	SpriteObject* BG_LAYER_0 = new SpriteObject(-605, 1080, 1920, 1, 300, "Assets/Backgrounds/game_over_Layer_0.png");
-	SpriteObject* BG_LAYER_ADVENTRUE = new SpriteObject(-606, 37, 50, 7, 300, "Assets/Sprites/Character/adventure_die.png");
+	shared_ptr<SpriteObject> BG_LAYER_0 = shared_ptr<SpriteObject>(new SpriteObject(-605, 1080, 1920, 1, 300, "Assets/Backgrounds/game_over_Layer_0.png"));
+	shared_ptr<SpriteObject> BG_LAYER_ADVENTRUE = shared_ptr<SpriteObject>(new SpriteObject(-606, 37, 50, 7, 300, "Assets/Sprites/Character/adventure_die.png"));
 	BG_LAYER_ADVENTRUE->freezeOn(7);
-	SpriteObject* BG_LAYER_2 = new SpriteObject(-607, 1080, 1920, 1, 300, "Assets/Backgrounds/game_over_Layer_1.png");
+	shared_ptr<SpriteObject> BG_LAYER_2 = shared_ptr<SpriteObject>(new SpriteObject(-607, 1080, 1920, 1, 300, "Assets/Backgrounds/game_over_Layer_1.png"));
 
-	auto* layer0 = new Drawable(-602);
+	shared_ptr<Drawable> layer0 = shared_ptr<Drawable>(new Drawable(-602));
 	layer0->setStatic(true);
 	layer0->setPositionX(0);
 	layer0->setPositionY(1080);
@@ -52,7 +52,7 @@ void DeathScreen::loadBackground() {
 	layer0->registerSprite(SpriteState::DEFAULT, BG_LAYER_0);
 	layer0->changeToState(SpriteState::DEFAULT);
 
-	auto* animation = new Drawable(-604);
+	shared_ptr<Drawable> animation = shared_ptr<Drawable>(new Drawable(-604));
 	animation->setStatic(true);
 	animation->setPositionX(175);
 	animation->setPositionY(875);
@@ -62,7 +62,7 @@ void DeathScreen::loadBackground() {
 	animation->changeToState(SpriteState::DEFAULT);
 	animation->setScalable(false);
 
-	auto* layer2 = new Drawable(-603);
+	shared_ptr<Drawable> layer2 = shared_ptr<Drawable>(new Drawable(-603));
 	layer2->setStatic(true);
 	layer2->setPositionX(0);
 	layer2->setPositionY(1080);
@@ -79,14 +79,14 @@ void DeathScreen::loadBackground() {
 /// @brief 
 /// Load the sounds for this scene
 void DeathScreen::loadMusic() {
-	engine.loadSound("DEAD_SOUND", "Assets/Sound/game_over_looped.wav");
+	engine->loadSound("DEAD_SOUND", "Assets/Sound/game_over_looped.wav");
 }
 
 /// @brief 
 /// Create the sounds for this scene
 void DeathScreen::start(bool playSound)
 {
-	if(playSound)engine.startSound("DEAD_SOUND");
+	if(playSound)engine->startSound("DEAD_SOUND");
 }
 
 /// @brief
@@ -98,9 +98,9 @@ void DeathScreen::onUpdate(float deltaTime)
 	{
 		if (nextScene == "") {
 
-			nextScene = stateMachine.getCurrentLevelIdentifier();
+			nextScene = stateMachine->getCurrentLevelIdentifier();
 		}
-		stateMachine.switchToScene(nextScene, true);
+		stateMachine->switchToScene(nextScene, true);
 	}
 }
 

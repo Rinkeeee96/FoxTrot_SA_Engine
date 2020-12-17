@@ -12,9 +12,9 @@ public:
 		Object::~Object();
 	};
 
-	API SpriteObject& GetCurrentSprite() const { return *currentSprite; }
+	API shared_ptr<SpriteObject> GetCurrentSprite() const { return currentSprite; }
 
-	API virtual void registerSprite(int state, SpriteObject* spriteObject);
+	API virtual void registerSprite(int state, shared_ptr<SpriteObject> spriteObject);
 	API virtual void changeToState(const int state);
 
 	API virtual const ColoredText* toString() { return nullptr; }
@@ -34,10 +34,10 @@ protected:
 	Color tint{ 255, 255, 255 };
 	bool drawStatic = false;
 	int currentSpriteState = 0;
-	SpriteObject* currentSprite = nullptr;
+	shared_ptr<SpriteObject> currentSprite = nullptr;
 
 	// TODO delete on scene detach in destructor when object is destroyed
-	map<const int, SpriteObject*> textures;
+	map<const int, shared_ptr<SpriteObject>> textures;
 };
 
 /// @brief Text class that should be drawn on the screen.

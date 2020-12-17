@@ -6,7 +6,7 @@
 class Shop : public GameScene
 {
 public:
-	Shop(const int id, Engine& engine, SceneStateMachine& _statemachine) : GameScene(id, engine, _statemachine) {};
+	Shop(const int id, unique_ptr<Engine>& engine, shared_ptr<SceneStateMachine> _statemachine) : GameScene(id, engine, _statemachine) {};
 	~Shop() {};
 
 	// Inherited via Scene

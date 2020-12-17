@@ -15,9 +15,9 @@ namespace UnitTestsEngine
 		{
 			// Arrange
 			SceneManager scenemager;
-			MockScene scene;
+			shared_ptr<Scene> scene = shared_ptr<MockScene>(new MockScene);
 			// Act
-			scenemager.insertScene(&scene);
+			scenemager.insertScene(scene);
 			scenemager.deregisterScene(1);
 			// Assert
 			Assert::IsTrue(true);
@@ -39,9 +39,9 @@ namespace UnitTestsEngine
 		{
 			// Arrange
 			SceneManager scenemager;
-			MockScene scene;
+			shared_ptr<Scene> scene = shared_ptr<MockScene>(new MockScene);
 			// Act
-			scenemager.insertScene(&scene);
+			scenemager.insertScene(scene);
 			auto result = scenemager.getSceneWithID(1);
 			// Assert
 			Assert::AreEqual(result->getSceneID(), 1);
@@ -66,9 +66,9 @@ namespace UnitTestsEngine
 		{
 			// Arrange
 			SceneManager scenemager;
-			MockScene scene;
+			shared_ptr<Scene> scene = shared_ptr<MockScene>(new MockScene);
 			// Act
-			scenemager.insertScene(&scene);
+			scenemager.insertScene(scene);
 			auto dispatcher = scenemager.setCurrentScene(1);
 			// Assert
 			Assert::IsTrue(true);

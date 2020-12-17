@@ -8,29 +8,28 @@
 #include "Fps/FrameData.h"
 
 /// @brief Physics Engine connected to the physics facade.
-class API PhysicsEngine : public ISubsystem
+class PhysicsEngine : public ISubsystem
 {
 public:
-	PhysicsEngine(unique_ptr<FrameData>& _frameData);
-	~PhysicsEngine();
+	API PhysicsEngine(unique_ptr<FrameData>& _frameData);
+	API ~PhysicsEngine();
 
-	void registerObjectInCurrentVectorWithPhysicsEngine();
+	API void registerObjectInCurrentVectorWithPhysicsEngine();
 
-	bool handleAction(const Event& event);
-	bool stopObject(const Event& event);
-	bool onPauseEvent(const Event& event);
-	void reloadPhysicsObjects();
+	API bool handleAction(const Event& event);
+	API bool stopObject(const Event& event);
+	API bool onPauseEvent(const Event& event);
+	API void reloadPhysicsObjects();
 
-	Scene** pointerToCurrentScene = nullptr;
+	shared_ptr<Scene>* pointerToCurrentScene = nullptr;
 
-	void start(EventDispatcher& dispatcher) override;
-	void update() override;
-	void shutdown() override;
+	API void start(EventDispatcher& dispatcher) override;
+	API void update() override;
+	API void shutdown() override;
 
-	IPhysicsFacade& getIPhysicsFacade() const { return *this->physicsFacade; }
 private:
 	void clean();
-	IPhysicsFacade* physicsFacade;
+	unique_ptr<IPhysicsFacade> physicsFacade;
 	EventDispatcher* dispatcher;
 
 	// CurrentScene is stored because if this changes then the objects need to be reset.

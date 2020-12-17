@@ -8,10 +8,10 @@
 /// @brief Setup for the popup inventory layer
 void InventoryPopup::setupPopUp()
 {
-	SpriteObject* rightInven = new SpriteObject(-40000, 343, 614, 1, 1, "Assets/Inventory/right.png");
-	SpriteObject* leftInven = new SpriteObject(-40002, 402, 255, 1, 1, "Assets/Inventory/left.png");
+	shared_ptr<SpriteObject> rightInven = shared_ptr<SpriteObject>(new SpriteObject(-40000, 343, 614, 1, 1, "Assets/Inventory/right.png"));
+	shared_ptr<SpriteObject> leftInven = shared_ptr<SpriteObject>(new SpriteObject(-40002, 402, 255, 1, 1, "Assets/Inventory/left.png"));
 
-	Drawable* leftInventory = new Drawable(-40004);
+	shared_ptr<Drawable> leftInventory = shared_ptr<Drawable>(new Drawable(-40004));
 	leftInventory->setHeight(600);
 	leftInventory->setWidth(400);
 	leftInventory->setPositionX(WINDOW_WIDTH_CENTER - 600);
@@ -20,7 +20,7 @@ void InventoryPopup::setupPopUp()
 	leftInventory->registerSprite(SpriteState::DEFAULT, leftInven);
 	leftInventory->changeToState(SpriteState::DEFAULT);
 
-	Drawable* rightInventory = new Drawable(-40006);
+	shared_ptr<Drawable> rightInventory = shared_ptr<Drawable>(new Drawable(-40006));
 	rightInventory->setHeight(600);
 	rightInventory->setWidth(600);
 	rightInventory->setDrawStatic(true);

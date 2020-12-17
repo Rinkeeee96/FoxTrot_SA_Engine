@@ -19,5 +19,5 @@ public:
 	void doDamage() { this->player->removeHealth(this->damage); }
 
 	virtual void onUpdate(float deltaTime) = 0;
-	virtual ICharacter* clone(int id) = 0;
+	virtual shared_ptr<ICharacter> clone(int id) = 0;
 };

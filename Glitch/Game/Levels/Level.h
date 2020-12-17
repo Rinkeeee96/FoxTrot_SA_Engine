@@ -9,9 +9,9 @@ class Player;
 class Level : public GameScene
 {
 public:
-	Level(const int id, const int _sceneHeight, const int _sceneWidth, Engine& engine, SceneStateMachine& _stateMachine);
+	Level(const int id, const int _sceneHeight, const int _sceneWidth, unique_ptr<Engine>& engine, shared_ptr<SceneStateMachine> _stateMachine);
 
-	void setPlayer(Object* object);
+	void setPlayer(shared_ptr<Object> object);
 	void setSound(map<string, string> sounds);
 	void onAttach() override;
 	void start(bool playSound) override;
@@ -25,22 +25,22 @@ public:
 	void setWin(const bool val) { this->win = val; }
 
 private:
-	void addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, SpriteObject* HUD);
-	vector<Drawable*> huds;
+	void addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, shared_ptr<SpriteObject> HUD);
+	vector<shared_ptr<Drawable>> huds;
 
 	void throwAchievement(Achievement achievement);
 	void increaseTotalGameScore(const int amount);
 
-	Text* scoreText = nullptr;
+	shared_ptr<Text> scoreText = nullptr;
 	void loadScoreBoard();
 	void updateScoreBoard();
 
 	map<string, string> sounds;
-	Object* follow = nullptr;
-	Player* player = nullptr;
+	shared_ptr<Object> follow = nullptr;
+	shared_ptr<Player> player = nullptr;
 	bool win = false;
 
-	ICommandBuilder* commandBuilder;
+	shared_ptr<ICommandBuilder> commandBuilder;
 	GameKeypressInvoker* gameInvoker;
 	int pausePopupZIndex = 0;
 	int inventoryPopupZIndex = 0;

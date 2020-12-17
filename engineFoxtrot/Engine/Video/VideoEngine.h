@@ -24,27 +24,27 @@
 
 /// @brief 
 /// VideoEngine is the SDL2 wrapper
-class API VideoEngine : public ISubsystem
+class VideoEngine : public ISubsystem
 {
 public:
-	VideoEngine(unique_ptr<FrameData>& _frameData);
-	~VideoEngine();
+	API VideoEngine(unique_ptr<FrameData>& _frameData);
+	API ~VideoEngine();
 
-	void loadImage(const SpriteObject& spriteObject);
-	void renderCopy(Drawable& drawable);
-	void toggleFps();
-	bool drawParticle(ParticleAdapter* part);
-	void calculateOffset(Object& obj, int sceneWidth, int sceneHeight);
+	API void loadImage(const shared_ptr<SpriteObject> spriteObject);
+	API void renderCopy(shared_ptr<Drawable>);
+	API void toggleFps();
+	API void drawParticle(shared_ptr<ParticleAdapter> part);
+	API void calculateOffset(shared_ptr<Object> obj, int sceneWidth, int sceneHeight);
 
-	bool checkObjectInScreen(const Object& obj);
+	API bool checkObjectInScreen(const shared_ptr<Object> obj);
 
-	void clearVideoEngine();
+	API void clearVideoEngine();
 
-	void start(EventDispatcher& dispatcher) override;
-	void update() override;
-	void shutdown() override;
+	API void start(EventDispatcher& dispatcher) override;
+	API void update() override;
+	API void shutdown() override;
 
-	Scene** pointerToCurrentScene = nullptr;
+	shared_ptr<Scene>* pointerToCurrentScene = nullptr;
 
 	const IVideoFacade& getVideoFacade() const { return *this->videoFacade; }
 private:
@@ -54,7 +54,7 @@ private:
 	void clearScreen();
 	void drawScreen();
 
-	IVideoFacade* videoFacade = nullptr;
+	unique_ptr<IVideoFacade> videoFacade = nullptr;
 	
 	unique_ptr<FrameData>& frameData;
 	bool shouldDrawFps = false;
