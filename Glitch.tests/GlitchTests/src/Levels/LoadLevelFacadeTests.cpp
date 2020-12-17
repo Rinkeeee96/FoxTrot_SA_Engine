@@ -27,7 +27,7 @@ namespace UnitTestsGlitch
 			}
 			// Assert
 			catch (exception e) {
-				Assert::AreEqual(e.what(), "file not found exception");
+				Assert::AreEqual("FileLoader: file not found exception", e.what());
 			}
 		}
 
@@ -47,7 +47,7 @@ namespace UnitTestsGlitch
 			}
 			// Assert
 			catch (exception e) {
-				Assert::AreEqual(e.what(), "Something went wrong validating file, make sure the file is correct");
+				Assert::AreEqual(e.what(), "LoadLevelFacade: Something went wrong validating file, make sure the file is correct");
 			}
 		}
 

@@ -74,5 +74,17 @@
     <ClInclude Include="GlitchTests\src\mocks\MockScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GlitchTests\src\mocks\MockPlayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GlitchTests\src\mocks\MockFleye.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GlitchTests\src\mocks\MockJumpkin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GlitchTests\src\mocks\MockSlime.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

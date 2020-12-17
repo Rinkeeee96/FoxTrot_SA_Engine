@@ -1,6 +1,11 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 #include <Game/Characters/Enemies/Jumpkin.h>
+#include <Game/Commands/Builder/CommandBuilder.h>
+#include <Game/Scenes/Statemachine/SceneStateMachine.h>
+#include "../../mocks/MockScene.h"
+#include "../../mocks/MockPlayer.h"
+#include "../../mocks/MockJumpkin.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -14,35 +19,124 @@ namespace UnitTestsGlitch
 			void onUpdate() -> AI
 		*/
 	public:
-		TEST_METHOD(Jumpkin_On_Update_Player_Left_Should_Go_Left)
+		TEST_METHOD(Jumpkin_On_Update_Player_Left_Should_Turn_Left)
 		{
 			// Arrange
+			unique_ptr<Engine> engine = make_unique<Engine>();
+			CommandBuilder commandBuilder;
+			engine->start();
+			engine->useCustomCommandInvoker(commandBuilder.readBindingsAndCreateInvoker());
+
+			shared_ptr<Savegame> savegame = shared_ptr<Savegame>(new Savegame());
+			savegame->setCurrentGameData(1);
+			shared_ptr<SceneStateMachine> statemachine = make_shared<SceneStateMachine>(engine, savegame);
+
+			unique_ptr<MockScene> scene = make_unique<MockScene>();
+
+			shared_ptr<Jumpkin> jumpkin = make_shared<MockJumpkin>(1, scene->getEventDispatcher());
+			jumpkin->setPositionX(300);
+			jumpkin->setPositionY(200);
+			jumpkin->setStatic(true);
+
+			auto result = jumpkin->buildSpritemap(1);
+			map<SpriteState, shared_ptr<SpriteObject>>::iterator it = result.begin();
+			while (it != result.end())
+			{
+				jumpkin->registerSprite(it->first, it->second);
+				it++;
+			}
+			jumpkin->changeToState(0);
+
+			float oldX = jumpkin->getPositionX();
+
+			shared_ptr<Player> player = make_shared<MockPlayer>(2, scene->getEventDispatcher());
+			player->setPositionX(100);
+			player->setPositionY(200);
+
+			result = player->buildSpritemap(1);
+			it = result.begin();
+			while (it != result.end())
+			{
+				player->registerSprite(it->first, it->second);
+				it++;
+			}
+			player->changeToState(0);
+
+			jumpkin->setPlayer(player.get());
+
+			scene->addNewObjectToLayer(1, jumpkin, true, false);
+			scene->addNewObjectToLayer(1, player, true, false);
+			engine->insertScene(move(scene));
+			engine->setCurrentScene(1);
 
 			// Act
+			engine->update();
+			jumpkin->onUpdate(1);
+			engine->update();
 
 			// Assert
-			Assert::IsTrue(false);
+			Assert::AreEqual("Assets/Sprites/Enemies/Jumpkin/Jumpkin_action_left_1.png", jumpkin->GetCurrentSprite()->getFileName());
 		}
 
-		TEST_METHOD(Jumpkin_On_Update_Player_Right_Should_Go_Right)
+		TEST_METHOD(Jumpkin_On_Update_Player_Right_Should_Turn_Right)
 		{
 			// Arrange
+			unique_ptr<Engine> engine = make_unique<Engine>();
+			CommandBuilder commandBuilder;
+			engine->start();
+			engine->useCustomCommandInvoker(commandBuilder.readBindingsAndCreateInvoker());
+
+			shared_ptr<Savegame> savegame = shared_ptr<Savegame>(new Savegame());
+			savegame->setCurrentGameData(1);
+			shared_ptr<SceneStateMachine> statemachine = make_shared<SceneStateMachine>(engine, savegame);
+
+			unique_ptr<MockScene> scene = make_unique<MockScene>();
+
+			shared_ptr<Jumpkin> jumpkin = make_shared<MockJumpkin>(1, scene->getEventDispatcher());
+			jumpkin->setPositionX(100);
+			jumpkin->setPositionY(200);
+			jumpkin->setStatic(true);
+
+			auto result = jumpkin->buildSpritemap(1);
+			map<SpriteState, shared_ptr<SpriteObject>>::iterator it = result.begin();
+			while (it != result.end())
+			{
+				jumpkin->registerSprite(it->first, it->second);
+				it++;
+			}
+			jumpkin->changeToState(0);
+
+			float oldX = jumpkin->getPositionX();
+
+			shared_ptr<Player> player = make_shared<MockPlayer>(2, scene->getEventDispatcher());
+			player->setPositionX(300);
+			player->setPositionY(200);
+
+			result = player->buildSpritemap(1);
+			it = result.begin();
+			while (it != result.end())
+			{
+				player->registerSprite(it->first, it->second);
+				it++;
+			}
+			player->changeToState(0);
+
+			jumpkin->setPlayer(player.get());
+
+			scene->addNewObjectToLayer(1, jumpkin, true, false);
+			scene->addNewObjectToLayer(1, player, true, false);
+			engine->insertScene(move(scene));
+			engine->setCurrentScene(1);
 
 			// Act
+			engine->update();
+			jumpkin->onUpdate(1);
+			engine->update();
 
 			// Assert
-			Assert::IsTrue(false);
+			Assert::AreEqual("Assets/Sprites/Enemies/Jumpkin/Jumpkin_action_right_1.png", jumpkin->GetCurrentSprite()->getFileName());
 		}
 
-		TEST_METHOD(Jumpkin_On_Update_Player_In_Sight_Should_Move)
-		{
-			// Arrange
-
-			// Act
-
-			// Assert
-			Assert::IsTrue(false);
-		}
 		TEST_METHOD(Jumpkin_On_Collision_Begin_Top_Should_Remove_Jumpkin)
 		{
 			// Arrange
