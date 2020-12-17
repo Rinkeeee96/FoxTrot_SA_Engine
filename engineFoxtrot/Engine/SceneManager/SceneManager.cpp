@@ -60,6 +60,11 @@ int SceneManager::getFirstFreeSceneID()
 	return scenes.end()->second->getSceneID() + 1;
 }
 
+void SceneManager::updateCurrentScene(float deltaTime)
+{
+	if(currentScene)currentScene->onUpdate(deltaTime);
+}
+
 /// @brief 
 /// A function to change a scene
 /// If a scene does not exists throw ERROR_CODE_SCENEMANAGER_SCENES_IS_EMPTY

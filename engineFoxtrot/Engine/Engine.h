@@ -58,6 +58,8 @@ public:
 	API bool getEngineRunning() { return running; };
 	API void setEngineRunning(bool run) { running = run; }
 
+	API void updateCurrentScene();
+
 	KeypressInvoker* getKeypressedInvoker() { return keypressInvoker; }
 
 	API float getDeltaTime(int timeStep);

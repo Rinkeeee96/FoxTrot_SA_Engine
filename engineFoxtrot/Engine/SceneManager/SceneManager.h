@@ -19,6 +19,8 @@ public:
 	
 	int getFirstFreeSceneID();
 
+	void updateCurrentScene(float deltaTime);
+
 	// Pointer
 	shared_ptr<Scene> currentScene = nullptr;
 private:

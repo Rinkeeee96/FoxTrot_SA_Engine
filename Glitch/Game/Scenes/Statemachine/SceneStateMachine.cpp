@@ -97,30 +97,24 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	{
 		engine->deregisterScene(currentScene->getSceneID());
 	}
-	currentScene = std::move(newScene);
 
-	if (currentScene && dynamic_cast<GameScene*>(currentScene.get()))
-		((GameScene*)currentScene.get())->registerSavegame(savegame);
+	if (dynamic_cast<GameScene*>(newScene.get()))
+		((GameScene*)newScene.get())->registerSavegame(savegame);
+
+	// Handle some scene specific things
+	if (dynamic_cast<GeneralTransition*>(newScene.get()))
+		((GeneralTransition*)newScene.get())->setNextScene(transition);
+
+	currentScene = std::move(newScene);
 
 	engine->insertScene(currentScene);
 	engine->setCurrentScene(currentScene->getSceneID());
-
-	// Handle some scene specific things
-	if (currentScene && dynamic_cast<GeneralTransition*>(currentScene.get()))
-		((GeneralTransition*)currentScene.get())->setNextScene(transition);
-
 
 	if (DEBUG_MAIN)cout << "Setting current Scene to: " << typeid(*(engine->getCurrentScene())).name() << endl;
 
 	currentScene->start(playSound);
 
 }
-
-/// @brief Calls current scene onUpdate function
-void SceneStateMachine::updateCurrentScene()
-{
-	if (currentScene)currentScene->onUpdate(engine->getDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
-};
 
 /// @brief Returns currentLevelIdentifier
 /// @return 

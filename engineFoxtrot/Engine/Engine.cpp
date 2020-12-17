@@ -79,6 +79,11 @@ void Engine::restartPhysicsWorld()
 	physicsEngine.reloadPhysicsObjects();
 }
 
+void Engine::updateCurrentScene()
+{
+	sceneManager.updateCurrentScene(getDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
+}
+
 /// @brief
 /// Returns the deltaTime from the frameData class using default physics timestep
 /// @param timeStep
