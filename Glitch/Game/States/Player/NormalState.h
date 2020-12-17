@@ -11,9 +11,9 @@ class NormalState : public IState<Player>
 public:
     virtual ~NormalState() {}
 
-    void entry(Player* entity) override;
-    void execute(Player* entity) override;
-    void exit(Player* entity) override;
+    void entry(Player& entity) override;
+    void execute(Player& entity) override;
+    void exit(Player& entity) override;
 
 private:
     int currentHealth = 0;
