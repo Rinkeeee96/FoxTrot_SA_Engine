@@ -60,7 +60,7 @@ shared_ptr<PhysicsBody> PhysicsFacade::getPhysicsObject(const int objectId)
 /// The position is set to the bottom left
 /// @param objectId 
 /// Identifier for ObjectID
-b2PolygonShape createShape(const PhysicsBody& object) {
+b2PolygonShape PhysicsFacade::createShape(const PhysicsBody& object) {
 	b2PolygonShape shape;
 	float halfH = object.getHeight() / 2; //Box2D needs the half height of a object
 	float halfW = object.getWidth() / 2; //Box2D needs the half width of a object
