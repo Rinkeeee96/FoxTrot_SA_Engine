@@ -22,7 +22,6 @@ var class_engine =
     [ "toggleFps", "class_engine.html#ae3360f7c892943c02423e7e6d7ac1969", null ],
     [ "update", "class_engine.html#ad2ff110d5a86c1cd60b541d65915ac48", null ],
     [ "updateCurrentScene", "class_engine.html#a48294422199e1d58a435ea6fab38f64f", null ],
-    [ "updateFps", "class_engine.html#a71aa9acfae99ce60af8f93d25adda1cc", null ],
     [ "useCustomCommandInvoker", "class_engine.html#a6e06859379e738c137b3361885100d01", null ],
     [ "deltaTimePhysics", "class_engine.html#a0c359d65d7d4e758755d53b37677364a", null ],
     [ "deltaTimeRender", "class_engine.html#abd5e5dda45f3fd2af1d4b9f6476ff0f7", null ],
