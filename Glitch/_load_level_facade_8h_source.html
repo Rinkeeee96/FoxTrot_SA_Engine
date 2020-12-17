@@ -70,12 +70,12 @@ $(document).ready(function(){initNavTree('_load_level_facade_8h_source.html','')
 <div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_load_level_facade.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_load_level_facade.html">LoadLevelFacade</a></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_load_level_facade.html">LoadLevelFacade</a>(Engine&amp; _engine);</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_load_level_facade.html">LoadLevelFacade</a>(unique_ptr&lt;Engine&gt;&amp; _engine);</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_load_level_facade.html#a7b8dab30d67d7caf6f39649f33afa8e3">load</a>(<span class="keywordtype">string</span> path, <a class="code" href="class_i_level_builder.html">ILevelBuilder</a>* levelBuilder);</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="class_level_builder_director.html">LevelBuilderDirector</a> builderDirector;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    Engine&amp; engine;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    unique_ptr&lt;Engine&gt;&amp; engine;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    FileLoader fileLoader;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->

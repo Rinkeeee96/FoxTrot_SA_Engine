@@ -2,8 +2,8 @@ var class_player =
 [
     [ "Player", "class_player.html#ac0ead17c48a4be0b516bf45c445f3ca0", null ],
     [ "Player", "class_player.html#ae415c53c49fdb5733d2de182c7af076f", null ],
-    [ "buildSpritemap", "class_player.html#a27c4817a7ebb6c54b20a1eff0ab60f97", null ],
-    [ "clone", "class_player.html#af3fa2aac2c9fd19bd7a0b33dc1f7f2e7", null ],
+    [ "buildSpritemap", "class_player.html#a22727247fd6de39c7241f111f03bb331", null ],
+    [ "clone", "class_player.html#a7f8da86158f0ae1f3e277488640da573", null ],
     [ "getStateMachine", "class_player.html#a9ff54a85ffddc6ce4c0d99646d2fbae7", null ],
     [ "onCollisionBeginEvent", "class_player.html#a2ef2419c4b7be1c09f12661445e46d1c", null ],
     [ "onCollisionEndEvent", "class_player.html#a9aa203a39db537fbb96c89a800a130c1", null ],

@@ -1,6 +1,6 @@
 var class_death_screen =
 [
-    [ "DeathScreen", "class_death_screen.html#ae907198e980e2c62c3ad0781d65160be", null ],
+    [ "DeathScreen", "class_death_screen.html#a713e6c239933bfb142c9cbc40825899a", null ],
     [ "~DeathScreen", "class_death_screen.html#a9a7a696c5becb43f7036b29646d06f8f", null ],
     [ "loadBackground", "class_death_screen.html#a59161e96fdd04db69f207cc7513ae2ae", null ],
     [ "loadButtons", "class_death_screen.html#a2909877bd2e3193ef3c024d9fb523ddb", null ],

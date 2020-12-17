@@ -107,19 +107,19 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a1d764e532d68c59d149c1a07fd3e1bda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player.html#a1d764e532d68c59d149c1a07fd3e1bda">registerKeypressInvoker</a> (<a class="el" href="class_game_keypress_invoker.html">GameKeypressInvoker</a> *invoker)</td></tr>
 <tr class="memdesc:a1d764e532d68c59d149c1a07fd3e1bda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register the keypressinvoker from the builder to capture relevant keyevents and act on them accordingly.  <a href="class_player.html#a1d764e532d68c59d149c1a07fd3e1bda">More...</a><br /></td></tr>
 <tr class="separator:a1d764e532d68c59d149c1a07fd3e1bda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27c4817a7ebb6c54b20a1eff0ab60f97"><td class="memItemLeft" align="right" valign="top"><a id="a27c4817a7ebb6c54b20a1eff0ab60f97"></a>
-map&lt; SpriteState, SpriteObject * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player.html#a27c4817a7ebb6c54b20a1eff0ab60f97">buildSpritemap</a> (int textureId) override</td></tr>
-<tr class="memdesc:a27c4817a7ebb6c54b20a1eff0ab60f97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds the spritemap for the <a class="el" href="class_player.html" title="Handles player logic, stats and movement.">Player</a>. <br /></td></tr>
-<tr class="separator:a27c4817a7ebb6c54b20a1eff0ab60f97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22727247fd6de39c7241f111f03bb331"><td class="memItemLeft" align="right" valign="top"><a id="a22727247fd6de39c7241f111f03bb331"></a>
+map&lt; SpriteState, shared_ptr&lt; SpriteObject &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player.html#a22727247fd6de39c7241f111f03bb331">buildSpritemap</a> (int textureId) override</td></tr>
+<tr class="memdesc:a22727247fd6de39c7241f111f03bb331"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds the spritemap for the <a class="el" href="class_player.html" title="Handles player logic, stats and movement.">Player</a>. <br /></td></tr>
+<tr class="separator:a22727247fd6de39c7241f111f03bb331"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f47a012a4bc082e66d402fced2a4729"><td class="memItemLeft" align="right" valign="top"><a id="a8f47a012a4bc082e66d402fced2a4729"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>onUpdate</b> (float deltaTime) override</td></tr>
 <tr class="separator:a8f47a012a4bc082e66d402fced2a4729"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ff54a85ffddc6ce4c0d99646d2fbae7"><td class="memItemLeft" align="right" valign="top"><a id="a9ff54a85ffddc6ce4c0d99646d2fbae7"></a>
 <a class="el" href="class_state_machine.html">StateMachine</a>&lt; <a class="el" href="class_player.html">Player</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getStateMachine</b> ()</td></tr>
 <tr class="separator:a9ff54a85ffddc6ce4c0d99646d2fbae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3fa2aac2c9fd19bd7a0b33dc1f7f2e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_i_character.html">ICharacter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player.html#af3fa2aac2c9fd19bd7a0b33dc1f7f2e7">clone</a> (int id) override</td></tr>
-<tr class="memdesc:af3fa2aac2c9fd19bd7a0b33dc1f7f2e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clone the player to a new <a class="el" href="class_player.html" title="Handles player logic, stats and movement.">Player</a>.  <a href="class_player.html#af3fa2aac2c9fd19bd7a0b33dc1f7f2e7">More...</a><br /></td></tr>
-<tr class="separator:af3fa2aac2c9fd19bd7a0b33dc1f7f2e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f8da86158f0ae1f3e277488640da573"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_i_character.html">ICharacter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player.html#a7f8da86158f0ae1f3e277488640da573">clone</a> (int id) override</td></tr>
+<tr class="memdesc:a7f8da86158f0ae1f3e277488640da573"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clone the player to a new <a class="el" href="class_player.html" title="Handles player logic, stats and movement.">Player</a>.  <a href="class_player.html#a7f8da86158f0ae1f3e277488640da573">More...</a><br /></td></tr>
+<tr class="separator:a7f8da86158f0ae1f3e277488640da573"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_i_character"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_i_character')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_i_character.html">ICharacter</a></td></tr>
 <tr class="memitem:a96c5df7c4613e085eefb32edb02d3bec inherit pub_methods_class_i_character"><td class="memItemLeft" align="right" valign="top"><a id="a96c5df7c4613e085eefb32edb02d3bec"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>ICharacter</b> (EventDispatcher &amp;_dispatcher)</td></tr>
@@ -217,8 +217,8 @@ EventDispatcher &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>disp
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Handles player logic, stats and movement. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="af3fa2aac2c9fd19bd7a0b33dc1f7f2e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3fa2aac2c9fd19bd7a0b33dc1f7f2e7">&#9670;&nbsp;</a></span>clone()</h2>
+<a id="a7f8da86158f0ae1f3e277488640da573"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f8da86158f0ae1f3e277488640da573">&#9670;&nbsp;</a></span>clone()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -227,7 +227,7 @@ EventDispatcher &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>disp
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_i_character.html">ICharacter</a> * Player::clone </td>
+          <td class="memname">shared_ptr&lt; <a class="el" href="class_i_character.html">ICharacter</a> &gt; Player::clone </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>

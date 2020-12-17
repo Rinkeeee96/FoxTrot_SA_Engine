@@ -140,15 +140,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>respawn</b> ()</td></
 <tr class="memitem:a442a0db016bff89c5d9585f6d98e6686"><td class="memItemLeft" align="right" valign="top"><a id="a442a0db016bff89c5d9585f6d98e6686"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>getIsDead</b> () const</td></tr>
 <tr class="separator:a442a0db016bff89c5d9585f6d98e6686"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26e1240ae351e3ffc0a98df2dd85585c"><td class="memItemLeft" align="right" valign="top">virtual map&lt; SpriteState, SpriteObject * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_character.html#a26e1240ae351e3ffc0a98df2dd85585c">buildSpritemap</a> (int textureId)=0</td></tr>
-<tr class="memdesc:a26e1240ae351e3ffc0a98df2dd85585c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds the spritemap for an object, should be implemented when overriding this.  <a href="class_i_character.html#a26e1240ae351e3ffc0a98df2dd85585c">More...</a><br /></td></tr>
-<tr class="separator:a26e1240ae351e3ffc0a98df2dd85585c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc000c194ad9f145c7cae4ca060435dd"><td class="memItemLeft" align="right" valign="top">virtual map&lt; SpriteState, shared_ptr&lt; SpriteObject &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_character.html#acc000c194ad9f145c7cae4ca060435dd">buildSpritemap</a> (int textureId)=0</td></tr>
+<tr class="memdesc:acc000c194ad9f145c7cae4ca060435dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds the spritemap for an object, should be implemented when overriding this.  <a href="class_i_character.html#acc000c194ad9f145c7cae4ca060435dd">More...</a><br /></td></tr>
+<tr class="separator:acc000c194ad9f145c7cae4ca060435dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade4148bf505b361a73f94f0b61f4f821"><td class="memItemLeft" align="right" valign="top"><a id="ade4148bf505b361a73f94f0b61f4f821"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setInvincible</b> (const bool invincible)</td></tr>
 <tr class="separator:ade4148bf505b361a73f94f0b61f4f821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae09fed8d069bb68709449542358355b6"><td class="memItemLeft" align="right" valign="top"><a id="ae09fed8d069bb68709449542358355b6"></a>
-virtual <a class="el" href="class_i_character.html">ICharacter</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>clone</b> (int id)=0</td></tr>
-<tr class="separator:ae09fed8d069bb68709449542358355b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc757aa69d4481932844ed2f6942b09b"><td class="memItemLeft" align="right" valign="top"><a id="acc757aa69d4481932844ed2f6942b09b"></a>
+virtual shared_ptr&lt; <a class="el" href="class_i_character.html">ICharacter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>clone</b> (int id)=0</td></tr>
+<tr class="separator:acc757aa69d4481932844ed2f6942b09b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_i_game_object"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_i_game_object')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_i_game_object.html">IGameObject</a></td></tr>
 <tr class="memitem:a610b0565533fb0694b30aab4ddb55a0c inherit pub_methods_class_i_game_object"><td class="memItemLeft" align="right" valign="top"><a id="a610b0565533fb0694b30aab4ddb55a0c"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>IGameObject</b> (const int id)</td></tr>
@@ -181,8 +181,8 @@ EventDispatcher &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>disp
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Character base class; guarantees several functions being implementen in extended classes. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a26e1240ae351e3ffc0a98df2dd85585c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26e1240ae351e3ffc0a98df2dd85585c">&#9670;&nbsp;</a></span>buildSpritemap()</h2>
+<a id="acc000c194ad9f145c7cae4ca060435dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc000c194ad9f145c7cae4ca060435dd">&#9670;&nbsp;</a></span>buildSpritemap()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -191,7 +191,7 @@ EventDispatcher &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>disp
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual map&lt;SpriteState, SpriteObject*&gt; ICharacter::buildSpritemap </td>
+          <td class="memname">virtual map&lt;SpriteState, shared_ptr&lt;SpriteObject&gt; &gt; ICharacter::buildSpritemap </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>textureId</em></td><td>)</td>
@@ -214,7 +214,7 @@ EventDispatcher &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>disp
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>map&lt;SpriteState, SpriteObject*&gt; </dd></dl>
 
-<p>Implemented in <a class="el" href="class_player.html#a27c4817a7ebb6c54b20a1eff0ab60f97">Player</a>, <a class="el" href="class_slime.html#a203bf91dc731d4fb82ae083e6f0f82a4">Slime</a>, <a class="el" href="class_jumpkin.html#acd79b936e9da05ed100a7be4ee876041">Jumpkin</a>, and <a class="el" href="class_fleye.html#a563f5c3c4eaa74bd4f4182b9f127f507">Fleye</a>.</p>
+<p>Implemented in <a class="el" href="class_player.html#a22727247fd6de39c7241f111f03bb331">Player</a>, <a class="el" href="class_slime.html#a2465ecfc3d13af9218fb81ab7e4e76d8">Slime</a>, <a class="el" href="class_jumpkin.html#af5c3ecb8bbc87ef4599012825e3cf2f6">Jumpkin</a>, and <a class="el" href="class_fleye.html#afd5ca4ddb6e35b53fb4eb645b1a03218">Fleye</a>.</p>
 
 </div>
 </div>

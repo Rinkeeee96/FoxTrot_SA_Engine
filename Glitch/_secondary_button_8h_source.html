@@ -70,7 +70,7 @@ $(document).ready(function(){initNavTree('_secondary_button_8h_source.html','');
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="class_secondary_button.html">SecondaryButton</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">string</span> _text, <span class="keyword">const</span> <span class="keyword">function</span>&lt;<span class="keywordtype">void</span>(<span class="keywordtype">void</span>)&gt; _onClick, EventDispatcher&amp; _dispatcher) : </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        Button(<span class="keywordtype">id</span>, ColoredText(_text, Color(255, 255, 255)), _onClick, <span class="keyword">new</span> SpriteObject(101011, 40, 116, 1, 300, <span class="stringliteral">&quot;Assets/Buttons/btn_red_round.png&quot;</span>), _dispatcher) {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        Button(<span class="keywordtype">id</span>, ColoredText(_text, Color(255, 255, 255)), _onClick, shared_ptr&lt;SpriteObject&gt;(<span class="keyword">new</span> SpriteObject(101011, 40, 116, 1, 300, <span class="stringliteral">&quot;Assets/Buttons/btn_red_round.png&quot;</span>)), _dispatcher) {</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    }</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->

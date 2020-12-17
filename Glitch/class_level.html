@@ -85,11 +85,11 @@ Inheritance diagram for Level:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af38c5801990fd1d04349799b59d309b5"><td class="memItemLeft" align="right" valign="top"><a id="af38c5801990fd1d04349799b59d309b5"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Level</b> (const int id, const int _sceneHeight, const int _sceneWidth, Engine &amp;engine, <a class="el" href="class_scene_state_machine.html">SceneStateMachine</a> &amp;_stateMachine)</td></tr>
-<tr class="separator:af38c5801990fd1d04349799b59d309b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf24fe153c23a859fb73fab955925794"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level.html#acf24fe153c23a859fb73fab955925794">setPlayer</a> (Object *object)</td></tr>
-<tr class="separator:acf24fe153c23a859fb73fab955925794"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaa92eb87a42590e9a3e4d6f8649c6c9"><td class="memItemLeft" align="right" valign="top"><a id="afaa92eb87a42590e9a3e4d6f8649c6c9"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Level</b> (const int id, const int _sceneHeight, const int _sceneWidth, unique_ptr&lt; Engine &gt; &amp;engine, shared_ptr&lt; <a class="el" href="class_scene_state_machine.html">SceneStateMachine</a> &gt; _stateMachine)</td></tr>
+<tr class="separator:afaa92eb87a42590e9a3e4d6f8649c6c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2b173546e9d7c7769d90e9218a905b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level.html#aa2b173546e9d7c7769d90e9218a905b0">setPlayer</a> (shared_ptr&lt; Object &gt; object)</td></tr>
+<tr class="separator:aa2b173546e9d7c7769d90e9218a905b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb745760ed67fe01f3492762f52d089a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level.html#adb745760ed67fe01f3492762f52d089a">setSound</a> (map&lt; string, string &gt; sounds)</td></tr>
 <tr class="separator:adb745760ed67fe01f3492762f52d089a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90e2bb29f3efd410e60ea5bb1e5f72b5"><td class="memItemLeft" align="right" valign="top"><a id="a90e2bb29f3efd410e60ea5bb1e5f72b5"></a>
@@ -122,22 +122,22 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setWin</b> (const bool val)</td></tr>
 <tr class="separator:a47e326d99ad2b84dfe7b9d735e42f945"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_game_scene"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_game_scene')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_game_scene.html">GameScene</a></td></tr>
-<tr class="memitem:a015680f9fb3e7d8fbd8756818373562e inherit pub_methods_class_game_scene"><td class="memItemLeft" align="right" valign="top"><a id="a015680f9fb3e7d8fbd8756818373562e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>GameScene</b> (const int id, Engine &amp;_engine, <a class="el" href="class_scene_state_machine.html">SceneStateMachine</a> &amp;_sceneStateMachine)</td></tr>
-<tr class="separator:a015680f9fb3e7d8fbd8756818373562e inherit pub_methods_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a208d1f229b2362cafc00ea806ab113c7 inherit pub_methods_class_game_scene"><td class="memItemLeft" align="right" valign="top"><a id="a208d1f229b2362cafc00ea806ab113c7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>GameScene</b> (const int id, const int _sceneHeight, const int _sceneWidth, Engine &amp;_engine, <a class="el" href="class_scene_state_machine.html">SceneStateMachine</a> &amp;_sceneStateMachine)</td></tr>
-<tr class="separator:a208d1f229b2362cafc00ea806ab113c7 inherit pub_methods_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e7210ed3ecaca1dd5250831be2128c8 inherit pub_methods_class_game_scene"><td class="memItemLeft" align="right" valign="top"><a id="a8e7210ed3ecaca1dd5250831be2128c8"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>GameScene</b> (const int id, unique_ptr&lt; Engine &gt; &amp;_engine, shared_ptr&lt; <a class="el" href="class_scene_state_machine.html">SceneStateMachine</a> &gt; _sceneStateMachine)</td></tr>
+<tr class="separator:a8e7210ed3ecaca1dd5250831be2128c8 inherit pub_methods_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa30ce2155e8eeef74e93dda570805e01 inherit pub_methods_class_game_scene"><td class="memItemLeft" align="right" valign="top"><a id="aa30ce2155e8eeef74e93dda570805e01"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>GameScene</b> (const int id, const int _sceneHeight, const int _sceneWidth, unique_ptr&lt; Engine &gt; &amp;_engine, shared_ptr&lt; <a class="el" href="class_scene_state_machine.html">SceneStateMachine</a> &gt; _sceneStateMachine)</td></tr>
+<tr class="separator:aa30ce2155e8eeef74e93dda570805e01 inherit pub_methods_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa692bb4e4737fa6b5e34d6e6c600c933 inherit pub_methods_class_game_scene"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_scene.html#aa692bb4e4737fa6b5e34d6e6c600c933">registerSavegame</a> (shared_ptr&lt; <a class="el" href="class_savegame.html">Savegame</a> &gt; _savegame)</td></tr>
 <tr class="memdesc:aa692bb4e4737fa6b5e34d6e6c600c933 inherit pub_methods_class_game_scene"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register the savegame pointer.  <a href="class_game_scene.html#aa692bb4e4737fa6b5e34d6e6c600c933">More...</a><br /></td></tr>
 <tr class="separator:aa692bb4e4737fa6b5e34d6e6c600c933 inherit pub_methods_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:aa4cb8bb920533d6c3a86289805974105"><td class="memItemLeft" align="right" valign="top"><a id="aa4cb8bb920533d6c3a86289805974105"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level.html#aa4cb8bb920533d6c3a86289805974105">addHealthHud</a> (int &amp;startingID, int &amp;startingXAxis, int &amp;xAxisChange, int &amp;current, SpriteObject *HUD)</td></tr>
-<tr class="memdesc:aa4cb8bb920533d6c3a86289805974105"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add single HUD for lifes of player. <br /></td></tr>
-<tr class="separator:aa4cb8bb920533d6c3a86289805974105"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaff15cd6338ab657d7f71e0480b7ec42"><td class="memItemLeft" align="right" valign="top"><a id="aaff15cd6338ab657d7f71e0480b7ec42"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level.html#aaff15cd6338ab657d7f71e0480b7ec42">addHealthHud</a> (int &amp;startingID, int &amp;startingXAxis, int &amp;xAxisChange, int &amp;current, shared_ptr&lt; SpriteObject &gt; HUD)</td></tr>
+<tr class="memdesc:aaff15cd6338ab657d7f71e0480b7ec42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add single HUD for lifes of player. <br /></td></tr>
+<tr class="separator:aaff15cd6338ab657d7f71e0480b7ec42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9df9091adb54f5b34e60f62ab3892bea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level.html#a9df9091adb54f5b34e60f62ab3892bea">throwAchievement</a> (Achievement achievement)</td></tr>
 <tr class="memdesc:a9df9091adb54f5b34e60f62ab3892bea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activates the achievement popup and adds the Achievement param to the Achievement vector. If a achievement is already given, it wont be added or shown.  <a href="class_level.html#a9df9091adb54f5b34e60f62ab3892bea">More...</a><br /></td></tr>
 <tr class="separator:a9df9091adb54f5b34e60f62ab3892bea"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,27 +155,27 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a6fc88681ca502861070b85880913cb61"><td class="memItemLeft" align="right" valign="top"><a id="a6fc88681ca502861070b85880913cb61"></a>
-vector&lt; Drawable * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>huds</b></td></tr>
-<tr class="separator:a6fc88681ca502861070b85880913cb61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af74fea077ca0939a82a5e5ae057c02ae"><td class="memItemLeft" align="right" valign="top"><a id="af74fea077ca0939a82a5e5ae057c02ae"></a>
-Text *&#160;</td><td class="memItemRight" valign="bottom"><b>scoreText</b> = nullptr</td></tr>
-<tr class="separator:af74fea077ca0939a82a5e5ae057c02ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f6edfa80132c0136b274422f3125ddc"><td class="memItemLeft" align="right" valign="top"><a id="a3f6edfa80132c0136b274422f3125ddc"></a>
+vector&lt; shared_ptr&lt; Drawable &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>huds</b></td></tr>
+<tr class="separator:a3f6edfa80132c0136b274422f3125ddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4478b384f6cf488d78f696b8a530406"><td class="memItemLeft" align="right" valign="top"><a id="aa4478b384f6cf488d78f696b8a530406"></a>
+shared_ptr&lt; Text &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>scoreText</b> = nullptr</td></tr>
+<tr class="separator:aa4478b384f6cf488d78f696b8a530406"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0504dae4cd7bae17c912a309ea9572b3"><td class="memItemLeft" align="right" valign="top"><a id="a0504dae4cd7bae17c912a309ea9572b3"></a>
 map&lt; string, string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>sounds</b></td></tr>
 <tr class="separator:a0504dae4cd7bae17c912a309ea9572b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7728e5742afe1deffe63f0ced18eb2fd"><td class="memItemLeft" align="right" valign="top"><a id="a7728e5742afe1deffe63f0ced18eb2fd"></a>
-Object *&#160;</td><td class="memItemRight" valign="bottom"><b>follow</b> = nullptr</td></tr>
-<tr class="separator:a7728e5742afe1deffe63f0ced18eb2fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76b010ccc524cef1ae0c3adc2a63d3b1"><td class="memItemLeft" align="right" valign="top"><a id="a76b010ccc524cef1ae0c3adc2a63d3b1"></a>
-<a class="el" href="class_player.html">Player</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>player</b> = nullptr</td></tr>
-<tr class="separator:a76b010ccc524cef1ae0c3adc2a63d3b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acae596c07a8fdc75a977dca8c8b684b3"><td class="memItemLeft" align="right" valign="top"><a id="acae596c07a8fdc75a977dca8c8b684b3"></a>
+shared_ptr&lt; Object &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>follow</b> = nullptr</td></tr>
+<tr class="separator:acae596c07a8fdc75a977dca8c8b684b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9526d51909a17163924473203621d7d9"><td class="memItemLeft" align="right" valign="top"><a id="a9526d51909a17163924473203621d7d9"></a>
+shared_ptr&lt; <a class="el" href="class_player.html">Player</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>player</b> = nullptr</td></tr>
+<tr class="separator:a9526d51909a17163924473203621d7d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a761df3a67a67f916632a07e59ba01431"><td class="memItemLeft" align="right" valign="top"><a id="a761df3a67a67f916632a07e59ba01431"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>win</b> = false</td></tr>
 <tr class="separator:a761df3a67a67f916632a07e59ba01431"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9251bfd74156f04d70a89a8430b07bd"><td class="memItemLeft" align="right" valign="top"><a id="ab9251bfd74156f04d70a89a8430b07bd"></a>
-<a class="el" href="class_i_command_builder.html">ICommandBuilder</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>commandBuilder</b></td></tr>
-<tr class="separator:ab9251bfd74156f04d70a89a8430b07bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6aaf51bbb3788659affa419727fddfe6"><td class="memItemLeft" align="right" valign="top"><a id="a6aaf51bbb3788659affa419727fddfe6"></a>
+shared_ptr&lt; <a class="el" href="class_i_command_builder.html">ICommandBuilder</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>commandBuilder</b></td></tr>
+<tr class="separator:a6aaf51bbb3788659affa419727fddfe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b3f9a51236868e6948b6db54d890a63"><td class="memItemLeft" align="right" valign="top"><a id="a0b3f9a51236868e6948b6db54d890a63"></a>
 <a class="el" href="class_game_keypress_invoker.html">GameKeypressInvoker</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>gameInvoker</b></td></tr>
 <tr class="separator:a0b3f9a51236868e6948b6db54d890a63"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -207,12 +207,12 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>startPosPlayerY</b> 
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_game_scene"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_game_scene')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_game_scene.html">GameScene</a></td></tr>
-<tr class="memitem:ab4f2c48f6e7db1569bed5461e0df2ef7 inherit pro_attribs_class_game_scene"><td class="memItemLeft" align="right" valign="top"><a id="ab4f2c48f6e7db1569bed5461e0df2ef7"></a>
-<a class="el" href="class_scene_state_machine.html">SceneStateMachine</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>stateMachine</b></td></tr>
-<tr class="separator:ab4f2c48f6e7db1569bed5461e0df2ef7 inherit pro_attribs_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af850bc3fd46b18d71771f829e29c1e54 inherit pro_attribs_class_game_scene"><td class="memItemLeft" align="right" valign="top"><a id="af850bc3fd46b18d71771f829e29c1e54"></a>
-Engine &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>engine</b></td></tr>
-<tr class="separator:af850bc3fd46b18d71771f829e29c1e54 inherit pro_attribs_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa29730ca964c431178e3b4816c225870 inherit pro_attribs_class_game_scene"><td class="memItemLeft" align="right" valign="top"><a id="aa29730ca964c431178e3b4816c225870"></a>
+shared_ptr&lt; <a class="el" href="class_scene_state_machine.html">SceneStateMachine</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>stateMachine</b></td></tr>
+<tr class="separator:aa29730ca964c431178e3b4816c225870 inherit pro_attribs_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af906c5c36c7352550e0a0db8f00f849e inherit pro_attribs_class_game_scene"><td class="memItemLeft" align="right" valign="top"><a id="af906c5c36c7352550e0a0db8f00f849e"></a>
+unique_ptr&lt; Engine &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>engine</b></td></tr>
+<tr class="separator:af906c5c36c7352550e0a0db8f00f849e inherit pro_attribs_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa09c11b97740b32a1ac1d27ef4a6a829 inherit pro_attribs_class_game_scene"><td class="memItemLeft" align="right" valign="top"><a id="aa09c11b97740b32a1ac1d27ef4a6a829"></a>
 shared_ptr&lt; <a class="el" href="class_savegame.html">Savegame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>savegame</b></td></tr>
 <tr class="separator:aa09c11b97740b32a1ac1d27ef4a6a829 inherit pro_attribs_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -304,8 +304,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>playSound</b> = false
 
 </div>
 </div>
-<a id="acf24fe153c23a859fb73fab955925794"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf24fe153c23a859fb73fab955925794">&#9670;&nbsp;</a></span>setPlayer()</h2>
+<a id="aa2b173546e9d7c7769d90e9218a905b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2b173546e9d7c7769d90e9218a905b0">&#9670;&nbsp;</a></span>setPlayer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -313,7 +313,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>playSound</b> = false
         <tr>
           <td class="memname">void Level::setPlayer </td>
           <td>(</td>
-          <td class="paramtype">Object *&#160;</td>
+          <td class="paramtype">shared_ptr&lt; Object &gt;&#160;</td>
           <td class="paramname"><em>object</em></td><td>)</td>
           <td></td>
         </tr>

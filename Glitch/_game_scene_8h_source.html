@@ -73,9 +73,9 @@ $(document).ready(function(){initNavTree('_game_scene_8h_source.html',''); initR
 <div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_game_scene.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_game_scene.html">GameScene</a> : <span class="keyword">public</span> Scene</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="class_game_scene.html">GameScene</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, Engine&amp; _engine, <a class="code" href="class_scene_state_machine.html">SceneStateMachine</a>&amp; _sceneStateMachine):</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="class_game_scene.html">GameScene</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, unique_ptr&lt;Engine&gt;&amp; _engine, shared_ptr&lt;SceneStateMachine&gt; _sceneStateMachine):</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        engine(_engine), stateMachine(_sceneStateMachine), Scene(<span class="keywordtype">id</span>, WINDOW_HEIGHT, WINDOW_WIDTH) {};</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="class_game_scene.html">GameScene</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keyword">const</span> <span class="keywordtype">int</span> _sceneHeight, <span class="keyword">const</span> <span class="keywordtype">int</span> _sceneWidth, Engine&amp; _engine, <a class="code" href="class_scene_state_machine.html">SceneStateMachine</a>&amp; _sceneStateMachine) :</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="class_game_scene.html">GameScene</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keyword">const</span> <span class="keywordtype">int</span> _sceneHeight, <span class="keyword">const</span> <span class="keywordtype">int</span> _sceneWidth, unique_ptr&lt;Engine&gt;&amp; _engine, shared_ptr&lt;SceneStateMachine&gt; _sceneStateMachine) :</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        engine(_engine), stateMachine(_sceneStateMachine), Scene(<span class="keywordtype">id</span>, _sceneHeight, _sceneWidth) {};</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">// register base events</span></div>
@@ -86,8 +86,8 @@ $(document).ready(function(){initNavTree('_game_scene_8h_source.html',''); initR
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_scene.html#aa692bb4e4737fa6b5e34d6e6c600c933">registerSavegame</a>(shared_ptr&lt;Savegame&gt; _savegame);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_scene_state_machine.html">SceneStateMachine</a>&amp; stateMachine;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    Engine&amp; engine;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    shared_ptr&lt;SceneStateMachine&gt; stateMachine;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    unique_ptr&lt;Engine&gt;&amp; engine;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    shared_ptr&lt;Savegame&gt; savegame;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">bool</span> moveToNextScene = <span class="keyword">false</span>;</div>

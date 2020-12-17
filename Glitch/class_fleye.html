@@ -95,13 +95,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2d05218ccae47f9c98cf6f9c8d088546"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fleye.html#a2d05218ccae47f9c98cf6f9c8d088546">onUpdate</a> (float deltaTime) override</td></tr>
 <tr class="memdesc:a2d05218ccae47f9c98cf6f9c8d088546"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the player is within range and acts accordingly If the player is below the <a class="el" href="class_fleye.html" title="Fleye class with correspondending AI logic.">Fleye</a>, it will swoop down towards the player.  <a href="class_fleye.html#a2d05218ccae47f9c98cf6f9c8d088546">More...</a><br /></td></tr>
 <tr class="separator:a2d05218ccae47f9c98cf6f9c8d088546"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a563f5c3c4eaa74bd4f4182b9f127f507"><td class="memItemLeft" align="right" valign="top"><a id="a563f5c3c4eaa74bd4f4182b9f127f507"></a>
-map&lt; SpriteState, SpriteObject * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fleye.html#a563f5c3c4eaa74bd4f4182b9f127f507">buildSpritemap</a> (int textureId) override</td></tr>
-<tr class="memdesc:a563f5c3c4eaa74bd4f4182b9f127f507"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds the spritemap for the <a class="el" href="class_fleye.html" title="Fleye class with correspondending AI logic.">Fleye</a>. <br /></td></tr>
-<tr class="separator:a563f5c3c4eaa74bd4f4182b9f127f507"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8bdbe532e159ea57f940492d08851706"><td class="memItemLeft" align="right" valign="top"><a id="a8bdbe532e159ea57f940492d08851706"></a>
-<a class="el" href="class_i_character.html">ICharacter</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>clone</b> (int id) override</td></tr>
-<tr class="separator:a8bdbe532e159ea57f940492d08851706"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd5ca4ddb6e35b53fb4eb645b1a03218"><td class="memItemLeft" align="right" valign="top"><a id="afd5ca4ddb6e35b53fb4eb645b1a03218"></a>
+map&lt; SpriteState, shared_ptr&lt; SpriteObject &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fleye.html#afd5ca4ddb6e35b53fb4eb645b1a03218">buildSpritemap</a> (int textureId) override</td></tr>
+<tr class="memdesc:afd5ca4ddb6e35b53fb4eb645b1a03218"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds the spritemap for the <a class="el" href="class_fleye.html" title="Fleye class with correspondending AI logic.">Fleye</a>. <br /></td></tr>
+<tr class="separator:afd5ca4ddb6e35b53fb4eb645b1a03218"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dc6de016a5da0354a167931ce866221"><td class="memItemLeft" align="right" valign="top"><a id="a0dc6de016a5da0354a167931ce866221"></a>
+shared_ptr&lt; <a class="el" href="class_i_character.html">ICharacter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>clone</b> (int id) override</td></tr>
+<tr class="separator:a0dc6de016a5da0354a167931ce866221"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_base_enemy"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_base_enemy')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_base_enemy.html">BaseEnemy</a></td></tr>
 <tr class="memitem:a55d14fd72c5563c944ea1549f930f652 inherit pub_methods_class_base_enemy"><td class="memItemLeft" align="right" valign="top"><a id="a55d14fd72c5563c944ea1549f930f652"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>BaseEnemy</b> (EventDispatcher &amp;_dispatcher)</td></tr>

@@ -1,6 +1,6 @@
 var class_main_menu =
 [
-    [ "MainMenu", "class_main_menu.html#a6fb7f3b761158d9aa66581f74bafbe37", null ],
+    [ "MainMenu", "class_main_menu.html#ac95400d6e2a2992a61be74ea8764562f", null ],
     [ "~MainMenu", "class_main_menu.html#a0a19ddba3ac52bf39c09b579171c98f2", null ],
     [ "loadBackground", "class_main_menu.html#ae08f1dadd6ca0a6ea3a80dd4652a748c", null ],
     [ "loadButtons", "class_main_menu.html#a70affed5daa898a62140aaf8883cea61", null ],

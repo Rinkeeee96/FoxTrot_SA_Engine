@@ -67,9 +67,9 @@ $(document).ready(function(){initNavTree('_abstract_level_builder_8h_source.html
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_abstract_level_builder.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_abstract_level_builder.html">AbstractLevelBuilder</a> : <span class="keyword">public</span> <a class="code" href="class_i_level_builder.html">ILevelBuilder</a> {</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    Engine&amp; engine;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    unique_ptr&lt;Engine&gt;&amp; engine;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="class_abstract_level_builder.html">AbstractLevelBuilder</a>(Engine&amp; _engine) : engine(_engine) { }</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="class_abstract_level_builder.html">AbstractLevelBuilder</a>(unique_ptr&lt;Engine&gt;&amp; _engine) : engine(_engine) { }</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    unique_ptr&lt;Level&gt; getLevel()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> std::move(level); }</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>

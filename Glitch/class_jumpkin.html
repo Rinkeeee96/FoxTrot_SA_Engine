@@ -95,13 +95,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8becb1d0e39e44d31dd11bf5a9b0923a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jumpkin.html#a8becb1d0e39e44d31dd11bf5a9b0923a">onUpdate</a> (float deltaTime) override</td></tr>
 <tr class="memdesc:a8becb1d0e39e44d31dd11bf5a9b0923a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the player is within range and acts accordingly If the player is in range horizontally and vertically, the <a class="el" href="class_jumpkin.html" title="Jumpkin class with correspondending AI logic.">Jumpkin</a> will move towards the player by jumping.  <a href="class_jumpkin.html#a8becb1d0e39e44d31dd11bf5a9b0923a">More...</a><br /></td></tr>
 <tr class="separator:a8becb1d0e39e44d31dd11bf5a9b0923a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd79b936e9da05ed100a7be4ee876041"><td class="memItemLeft" align="right" valign="top"><a id="acd79b936e9da05ed100a7be4ee876041"></a>
-map&lt; SpriteState, SpriteObject * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jumpkin.html#acd79b936e9da05ed100a7be4ee876041">buildSpritemap</a> (int textureId) override</td></tr>
-<tr class="memdesc:acd79b936e9da05ed100a7be4ee876041"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds the spritemap for the <a class="el" href="class_jumpkin.html" title="Jumpkin class with correspondending AI logic.">Jumpkin</a>. <br /></td></tr>
-<tr class="separator:acd79b936e9da05ed100a7be4ee876041"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a523741c8a68717e4f15ab78326943762"><td class="memItemLeft" align="right" valign="top"><a id="a523741c8a68717e4f15ab78326943762"></a>
-<a class="el" href="class_i_character.html">ICharacter</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>clone</b> (int id) override</td></tr>
-<tr class="separator:a523741c8a68717e4f15ab78326943762"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5c3ecb8bbc87ef4599012825e3cf2f6"><td class="memItemLeft" align="right" valign="top"><a id="af5c3ecb8bbc87ef4599012825e3cf2f6"></a>
+map&lt; SpriteState, shared_ptr&lt; SpriteObject &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jumpkin.html#af5c3ecb8bbc87ef4599012825e3cf2f6">buildSpritemap</a> (int textureId) override</td></tr>
+<tr class="memdesc:af5c3ecb8bbc87ef4599012825e3cf2f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds the spritemap for the <a class="el" href="class_jumpkin.html" title="Jumpkin class with correspondending AI logic.">Jumpkin</a>. <br /></td></tr>
+<tr class="separator:af5c3ecb8bbc87ef4599012825e3cf2f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6cc70a3835a058303b677fc45bd2433"><td class="memItemLeft" align="right" valign="top"><a id="af6cc70a3835a058303b677fc45bd2433"></a>
+shared_ptr&lt; <a class="el" href="class_i_character.html">ICharacter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>clone</b> (int id) override</td></tr>
+<tr class="separator:af6cc70a3835a058303b677fc45bd2433"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_base_enemy"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_base_enemy')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_base_enemy.html">BaseEnemy</a></td></tr>
 <tr class="memitem:a55d14fd72c5563c944ea1549f930f652 inherit pub_methods_class_base_enemy"><td class="memItemLeft" align="right" valign="top"><a id="a55d14fd72c5563c944ea1549f930f652"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>BaseEnemy</b> (EventDispatcher &amp;_dispatcher)</td></tr>

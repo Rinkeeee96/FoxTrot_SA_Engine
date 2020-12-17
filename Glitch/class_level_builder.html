@@ -85,9 +85,9 @@ Inheritance diagram for LevelBuilder:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a398e338eef8ef586b6ebab962f8a5b0a"><td class="memItemLeft" align="right" valign="top"><a id="a398e338eef8ef586b6ebab962f8a5b0a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>LevelBuilder</b> (Engine &amp;_engine, int levelId, <a class="el" href="class_scene_state_machine.html">SceneStateMachine</a> &amp;_statemachine)</td></tr>
-<tr class="separator:a398e338eef8ef586b6ebab962f8a5b0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae35ed65f7c16ede038b46c8a79fe4ded"><td class="memItemLeft" align="right" valign="top"><a id="ae35ed65f7c16ede038b46c8a79fe4ded"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>LevelBuilder</b> (unique_ptr&lt; Engine &gt; &amp;_engine, int levelId, shared_ptr&lt; <a class="el" href="class_scene_state_machine.html">SceneStateMachine</a> &gt; _statemachine)</td></tr>
+<tr class="separator:ae35ed65f7c16ede038b46c8a79fe4ded"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e6989bceb709adeede49f5d1f8ea4ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level_builder.html#a8e6989bceb709adeede49f5d1f8ea4ec">createLevel</a> (nlohmann::json json) override</td></tr>
 <tr class="separator:a8e6989bceb709adeede49f5d1f8ea4ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a303637d12b5abe997ae3cf6de3c99908"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level_builder.html#a303637d12b5abe997ae3cf6de3c99908">createEntities</a> (nlohmann::json layerValue) override</td></tr>
@@ -113,9 +113,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memdesc:afb686bc238c54dfe289cfe22d80298dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a unique pointer for a level. <br /></td></tr>
 <tr class="separator:afb686bc238c54dfe289cfe22d80298dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_abstract_level_builder"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_abstract_level_builder')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_abstract_level_builder.html">AbstractLevelBuilder</a></td></tr>
-<tr class="memitem:af94ab23535c746598ba3c23cbf157de9 inherit pub_methods_class_abstract_level_builder"><td class="memItemLeft" align="right" valign="top"><a id="af94ab23535c746598ba3c23cbf157de9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>AbstractLevelBuilder</b> (Engine &amp;_engine)</td></tr>
-<tr class="separator:af94ab23535c746598ba3c23cbf157de9 inherit pub_methods_class_abstract_level_builder"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d49b4400a444bffae8549b60d94b34d inherit pub_methods_class_abstract_level_builder"><td class="memItemLeft" align="right" valign="top"><a id="a6d49b4400a444bffae8549b60d94b34d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>AbstractLevelBuilder</b> (unique_ptr&lt; Engine &gt; &amp;_engine)</td></tr>
+<tr class="separator:a6d49b4400a444bffae8549b60d94b34d inherit pub_methods_class_abstract_level_builder"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0e5448b841bd34f878ebc1ff5258b70 inherit pub_methods_class_abstract_level_builder"><td class="memItemLeft" align="right" valign="top"><a id="af0e5448b841bd34f878ebc1ff5258b70"></a>
 unique_ptr&lt; <a class="el" href="class_level.html">Level</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getLevel</b> () override</td></tr>
 <tr class="separator:af0e5448b841bd34f878ebc1ff5258b70 inherit pub_methods_class_abstract_level_builder"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -140,9 +140,9 @@ FileLoader&#160;</td><td class="memItemRight" valign="bottom"><b>fileLoader</b><
 <tr class="memitem:a2c21ecbd0370d0ade86380fc63b2778d"><td class="memItemLeft" align="right" valign="top"><a id="a2c21ecbd0370d0ade86380fc63b2778d"></a>
 map&lt; int, <a class="el" href="class_tile_sprite.html">TileSprite</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>textureMap</b></td></tr>
 <tr class="separator:a2c21ecbd0370d0ade86380fc63b2778d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8063581a7947cdcb06c6b45510edae14"><td class="memItemLeft" align="right" valign="top"><a id="a8063581a7947cdcb06c6b45510edae14"></a>
-map&lt; int, SpriteObject * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>spriteMap</b></td></tr>
-<tr class="separator:a8063581a7947cdcb06c6b45510edae14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af11c741db6ac6cc07e574c945ef4dee8"><td class="memItemLeft" align="right" valign="top"><a id="af11c741db6ac6cc07e574c945ef4dee8"></a>
+map&lt; int, shared_ptr&lt; SpriteObject &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>spriteMap</b></td></tr>
+<tr class="separator:af11c741db6ac6cc07e574c945ef4dee8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8685823d6e1ff1275104250c95bd06a"><td class="memItemLeft" align="right" valign="top"><a id="ab8685823d6e1ff1275104250c95bd06a"></a>
 <a class="el" href="class_level.html">Level</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>bLevel</b></td></tr>
 <tr class="separator:ab8685823d6e1ff1275104250c95bd06a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,9 +165,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>id</b> = 0</td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_abstract_level_builder"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_abstract_level_builder')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_abstract_level_builder.html">AbstractLevelBuilder</a></td></tr>
-<tr class="memitem:a45331a872844c814426f8a55c5d846ee inherit pro_attribs_class_abstract_level_builder"><td class="memItemLeft" align="right" valign="top"><a id="a45331a872844c814426f8a55c5d846ee"></a>
-Engine &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>engine</b></td></tr>
-<tr class="separator:a45331a872844c814426f8a55c5d846ee inherit pro_attribs_class_abstract_level_builder"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad323bbb56924b4b749a26e7e120da8a0 inherit pro_attribs_class_abstract_level_builder"><td class="memItemLeft" align="right" valign="top"><a id="ad323bbb56924b4b749a26e7e120da8a0"></a>
+unique_ptr&lt; Engine &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>engine</b></td></tr>
+<tr class="separator:ad323bbb56924b4b749a26e7e120da8a0 inherit pro_attribs_class_abstract_level_builder"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_i_level_builder"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_i_level_builder')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_i_level_builder.html">ILevelBuilder</a></td></tr>
 <tr class="memitem:a55ee2de93be2cba78841f719e61c5d41 inherit pro_attribs_class_i_level_builder"><td class="memItemLeft" align="right" valign="top"><a id="a55ee2de93be2cba78841f719e61c5d41"></a>
 std::unique_ptr&lt; <a class="el" href="class_level.html">Level</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>level</b></td></tr>

@@ -74,28 +74,28 @@ $(document).ready(function(){initNavTree('class_character_factory.html',''); ini
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6895fa5a606c5bbb0eae9a55038c69e7"><td class="memItemLeft" align="right" valign="top"><a id="a6895fa5a606c5bbb0eae9a55038c69e7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character_factory.html#a6895fa5a606c5bbb0eae9a55038c69e7">CharacterFactory</a> (Engine &amp;_engine, <a class="el" href="class_level.html">Level</a> &amp;_level)</td></tr>
-<tr class="memdesc:a6895fa5a606c5bbb0eae9a55038c69e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br /></td></tr>
-<tr class="separator:a6895fa5a606c5bbb0eae9a55038c69e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f377f7504e09c3788879de8a0a39adc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character_factory.html#a7f377f7504e09c3788879de8a0a39adc">registerCharacter</a> (string name, <a class="el" href="class_i_character.html">ICharacter</a> *character, int *textureId)</td></tr>
-<tr class="memdesc:a7f377f7504e09c3788879de8a0a39adc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register object with its name in factory for later cloning.  <a href="class_character_factory.html#a7f377f7504e09c3788879de8a0a39adc">More...</a><br /></td></tr>
-<tr class="separator:a7f377f7504e09c3788879de8a0a39adc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2bcac27b1231f9374bf05fa19fc8a6b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_i_character.html">ICharacter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character_factory.html#ae2bcac27b1231f9374bf05fa19fc8a6b">create</a> (string name, int id)</td></tr>
-<tr class="memdesc:ae2bcac27b1231f9374bf05fa19fc8a6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an empty objects and registerd sprites.  <a href="class_character_factory.html#ae2bcac27b1231f9374bf05fa19fc8a6b">More...</a><br /></td></tr>
-<tr class="separator:ae2bcac27b1231f9374bf05fa19fc8a6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae608bdb6e2ca00c64c842fbed1837ec9"><td class="memItemLeft" align="right" valign="top"><a id="ae608bdb6e2ca00c64c842fbed1837ec9"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character_factory.html#ae608bdb6e2ca00c64c842fbed1837ec9">CharacterFactory</a> (unique_ptr&lt; Engine &gt; &amp;_engine, <a class="el" href="class_level.html">Level</a> &amp;_level)</td></tr>
+<tr class="memdesc:ae608bdb6e2ca00c64c842fbed1837ec9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br /></td></tr>
+<tr class="separator:ae608bdb6e2ca00c64c842fbed1837ec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67217768f4aa243dee2da7ff3d6cc13f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character_factory.html#a67217768f4aa243dee2da7ff3d6cc13f">registerCharacter</a> (string name, shared_ptr&lt; <a class="el" href="class_i_character.html">ICharacter</a> &gt; character, int *textureId)</td></tr>
+<tr class="memdesc:a67217768f4aa243dee2da7ff3d6cc13f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register object with its name in factory for later cloning.  <a href="class_character_factory.html#a67217768f4aa243dee2da7ff3d6cc13f">More...</a><br /></td></tr>
+<tr class="separator:a67217768f4aa243dee2da7ff3d6cc13f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f78cc96401293ac2508713a447438da"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_i_character.html">ICharacter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character_factory.html#a1f78cc96401293ac2508713a447438da">create</a> (string name, int id)</td></tr>
+<tr class="memdesc:a1f78cc96401293ac2508713a447438da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an empty objects and registerd sprites.  <a href="class_character_factory.html#a1f78cc96401293ac2508713a447438da">More...</a><br /></td></tr>
+<tr class="separator:a1f78cc96401293ac2508713a447438da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:ab2c1ad0251f33f71e4e3ffcc4a42e457"><td class="memItemLeft" align="right" valign="top"><a id="ab2c1ad0251f33f71e4e3ffcc4a42e457"></a>
-map&lt; string, <a class="el" href="class_i_character.html">ICharacter</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>characterMap</b></td></tr>
-<tr class="separator:ab2c1ad0251f33f71e4e3ffcc4a42e457"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e64833893d9da3c55f41c59fd87778b"><td class="memItemLeft" align="right" valign="top"><a id="a8e64833893d9da3c55f41c59fd87778b"></a>
-map&lt; string, map&lt; SpriteState, SpriteObject * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>spriteObjectMap</b></td></tr>
-<tr class="separator:a8e64833893d9da3c55f41c59fd87778b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c920bfd712dc907588f485b0c84273e"><td class="memItemLeft" align="right" valign="top"><a id="a1c920bfd712dc907588f485b0c84273e"></a>
-Engine &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>engine</b></td></tr>
-<tr class="separator:a1c920bfd712dc907588f485b0c84273e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf42e2de23c095d8471a1aa36bcaf90b"><td class="memItemLeft" align="right" valign="top"><a id="aaf42e2de23c095d8471a1aa36bcaf90b"></a>
+map&lt; string, shared_ptr&lt; <a class="el" href="class_i_character.html">ICharacter</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>characterMap</b></td></tr>
+<tr class="separator:aaf42e2de23c095d8471a1aa36bcaf90b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a557ec05ea2f62c1c60399583eccfde7d"><td class="memItemLeft" align="right" valign="top"><a id="a557ec05ea2f62c1c60399583eccfde7d"></a>
+map&lt; string, map&lt; SpriteState, shared_ptr&lt; SpriteObject &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>spriteObjectMap</b></td></tr>
+<tr class="separator:a557ec05ea2f62c1c60399583eccfde7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e67d23b115fcbe99d797f38b17e01d0"><td class="memItemLeft" align="right" valign="top"><a id="a9e67d23b115fcbe99d797f38b17e01d0"></a>
+unique_ptr&lt; Engine &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>engine</b></td></tr>
+<tr class="separator:a9e67d23b115fcbe99d797f38b17e01d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9ce3e3f4ae4f59ded17b3bbbfc9764d"><td class="memItemLeft" align="right" valign="top"><a id="aa9ce3e3f4ae4f59ded17b3bbbfc9764d"></a>
 <a class="el" href="class_level.html">Level</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>level</b></td></tr>
 <tr class="separator:aa9ce3e3f4ae4f59ded17b3bbbfc9764d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -103,14 +103,14 @@ Engine &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>engine</b></t
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Factory for creating entities. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae2bcac27b1231f9374bf05fa19fc8a6b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2bcac27b1231f9374bf05fa19fc8a6b">&#9670;&nbsp;</a></span>create()</h2>
+<a id="a1f78cc96401293ac2508713a447438da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f78cc96401293ac2508713a447438da">&#9670;&nbsp;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_i_character.html">ICharacter</a> * CharacterFactory::create </td>
+          <td class="memname">shared_ptr&lt; <a class="el" href="class_i_character.html">ICharacter</a> &gt; CharacterFactory::create </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
           <td class="paramname"><em>name</em>, </td>
@@ -141,8 +141,8 @@ Engine &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>engine</b></t
 
 </div>
 </div>
-<a id="a7f377f7504e09c3788879de8a0a39adc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f377f7504e09c3788879de8a0a39adc">&#9670;&nbsp;</a></span>registerCharacter()</h2>
+<a id="a67217768f4aa243dee2da7ff3d6cc13f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67217768f4aa243dee2da7ff3d6cc13f">&#9670;&nbsp;</a></span>registerCharacter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -156,7 +156,7 @@ Engine &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>engine</b></t
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_i_character.html">ICharacter</a> *&#160;</td>
+          <td class="paramtype">shared_ptr&lt; <a class="el" href="class_i_character.html">ICharacter</a> &gt;&#160;</td>
           <td class="paramname"><em>character</em>, </td>
         </tr>
         <tr>

@@ -1,6 +1,6 @@
 var class_save_screen =
 [
-    [ "SaveScreen", "class_save_screen.html#a6d4a7346e12e276b00da114b684bd7ef", null ],
+    [ "SaveScreen", "class_save_screen.html#a79eca788eb68ea9b1555f1488b02c726", null ],
     [ "~SaveScreen", "class_save_screen.html#a5481f601b9c7afa91724e330639c1833", null ],
     [ "loadBackground", "class_save_screen.html#aa09fb27bd06d013ee2f1661c4e7c7f19", null ],
     [ "loadButtons", "class_save_screen.html#a10582bc3e409c33fe8b8a0d14c7eae9d", null ],

@@ -113,9 +113,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>doDamage</b> ()</td><
 <tr class="memitem:a9029dd111f2de592b95e042d18abae35 inherit pub_methods_class_i_enemy"><td class="memItemLeft" align="right" valign="top"><a id="a9029dd111f2de592b95e042d18abae35"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>onUpdate</b> (float deltaTime)=0</td></tr>
 <tr class="separator:a9029dd111f2de592b95e042d18abae35 inherit pub_methods_class_i_enemy"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67d787c3dba9b0252b37deceead524eb inherit pub_methods_class_i_enemy"><td class="memItemLeft" align="right" valign="top"><a id="a67d787c3dba9b0252b37deceead524eb"></a>
-virtual <a class="el" href="class_i_character.html">ICharacter</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>clone</b> (int id)=0</td></tr>
-<tr class="separator:a67d787c3dba9b0252b37deceead524eb inherit pub_methods_class_i_enemy"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad86352f543ed003c61d7cb7fc6d9e506 inherit pub_methods_class_i_enemy"><td class="memItemLeft" align="right" valign="top"><a id="ad86352f543ed003c61d7cb7fc6d9e506"></a>
+virtual shared_ptr&lt; <a class="el" href="class_i_character.html">ICharacter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>clone</b> (int id)=0</td></tr>
+<tr class="separator:ad86352f543ed003c61d7cb7fc6d9e506 inherit pub_methods_class_i_enemy"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_i_character"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_i_character')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_i_character.html">ICharacter</a></td></tr>
 <tr class="memitem:a96c5df7c4613e085eefb32edb02d3bec inherit pub_methods_class_i_character"><td class="memItemLeft" align="right" valign="top"><a id="a96c5df7c4613e085eefb32edb02d3bec"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>ICharacter</b> (EventDispatcher &amp;_dispatcher)</td></tr>
@@ -165,9 +165,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>respawn</b> ()</td></
 <tr class="memitem:a442a0db016bff89c5d9585f6d98e6686 inherit pub_methods_class_i_character"><td class="memItemLeft" align="right" valign="top"><a id="a442a0db016bff89c5d9585f6d98e6686"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>getIsDead</b> () const</td></tr>
 <tr class="separator:a442a0db016bff89c5d9585f6d98e6686 inherit pub_methods_class_i_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26e1240ae351e3ffc0a98df2dd85585c inherit pub_methods_class_i_character"><td class="memItemLeft" align="right" valign="top">virtual map&lt; SpriteState, SpriteObject * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_character.html#a26e1240ae351e3ffc0a98df2dd85585c">buildSpritemap</a> (int textureId)=0</td></tr>
-<tr class="memdesc:a26e1240ae351e3ffc0a98df2dd85585c inherit pub_methods_class_i_character"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds the spritemap for an object, should be implemented when overriding this.  <a href="class_i_character.html#a26e1240ae351e3ffc0a98df2dd85585c">More...</a><br /></td></tr>
-<tr class="separator:a26e1240ae351e3ffc0a98df2dd85585c inherit pub_methods_class_i_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc000c194ad9f145c7cae4ca060435dd inherit pub_methods_class_i_character"><td class="memItemLeft" align="right" valign="top">virtual map&lt; SpriteState, shared_ptr&lt; SpriteObject &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_character.html#acc000c194ad9f145c7cae4ca060435dd">buildSpritemap</a> (int textureId)=0</td></tr>
+<tr class="memdesc:acc000c194ad9f145c7cae4ca060435dd inherit pub_methods_class_i_character"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds the spritemap for an object, should be implemented when overriding this.  <a href="class_i_character.html#acc000c194ad9f145c7cae4ca060435dd">More...</a><br /></td></tr>
+<tr class="separator:acc000c194ad9f145c7cae4ca060435dd inherit pub_methods_class_i_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade4148bf505b361a73f94f0b61f4f821 inherit pub_methods_class_i_character"><td class="memItemLeft" align="right" valign="top"><a id="ade4148bf505b361a73f94f0b61f4f821"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setInvincible</b> (const bool invincible)</td></tr>
 <tr class="separator:ade4148bf505b361a73f94f0b61f4f821 inherit pub_methods_class_i_character"><td class="memSeparator" colspan="2">&#160;</td></tr>

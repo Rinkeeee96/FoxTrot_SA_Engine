@@ -27,6 +27,9 @@ var hierarchy =
         ] ]
       ] ]
     ] ],
+    [ "enable_shared_from_this", null, [
+      [ "SceneStateMachine", "class_scene_state_machine.html", null ]
+    ] ],
     [ "Game", "class_game.html", null ],
     [ "Glitch", "class_glitch.html", null ],
     [ "GlobalCommandFactory", "class_global_command_factory.html", null ],
@@ -106,7 +109,6 @@ var hierarchy =
       ] ]
     ] ],
     [ "SceneFactory", "class_scene_factory.html", null ],
-    [ "SceneStateMachine", "class_scene_state_machine.html", null ],
     [ "StateMachine< T >", "class_state_machine.html", null ],
     [ "StateMachine< Player >", "class_state_machine.html", null ],
     [ "TileSprite", "class_tile_sprite.html", null ],

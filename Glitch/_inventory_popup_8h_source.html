@@ -69,7 +69,7 @@ $(document).ready(function(){initNavTree('_inventory_popup_8h_source.html',''); 
 <div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_inventory_popup.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_inventory_popup.html">InventoryPopup</a> : <span class="keyword">public</span> <a class="code" href="class_base_popup.html">BasePopup</a></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="class_inventory_popup.html">InventoryPopup</a>(EventDispatcher&amp; _dispatcher, <a class="code" href="class_scene_state_machine.html">SceneStateMachine</a>&amp; _stateMachine)</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="class_inventory_popup.html">InventoryPopup</a>(EventDispatcher&amp; _dispatcher, shared_ptr&lt;SceneStateMachine&gt; _stateMachine)</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        : <a class="code" href="class_base_popup.html">BasePopup</a>(_dispatcher, _stateMachine) {};</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="comment">// Inherited via BasePopup</span></div>
@@ -79,7 +79,6 @@ $(document).ready(function(){initNavTree('_inventory_popup_8h_source.html',''); 
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_base_popup_html"><div class="ttname"><a href="class_base_popup.html">BasePopup</a></div><div class="ttdef"><b>Definition:</b> BasePopup.h:7</div></div>
-<div class="ttc" id="aclass_scene_state_machine_html"><div class="ttname"><a href="class_scene_state_machine.html">SceneStateMachine</a></div><div class="ttdoc">Class for the scene state machine.</div><div class="ttdef"><b>Definition:</b> SceneStateMachine.h:9</div></div>
 <div class="ttc" id="aclass_inventory_popup_html"><div class="ttname"><a href="class_inventory_popup.html">InventoryPopup</a></div><div class="ttdoc">Inventory popup class.</div><div class="ttdef"><b>Definition:</b> InventoryPopup.h:7</div></div>
 <div class="ttc" id="aclass_inventory_popup_html_a602dcc48b01c88e239a01c5cd07b410c"><div class="ttname"><a href="class_inventory_popup.html#a602dcc48b01c88e239a01c5cd07b410c">InventoryPopup::setupPopUp</a></div><div class="ttdeci">void setupPopUp() override</div><div class="ttdoc">Setup for the popup inventory layer.</div><div class="ttdef"><b>Definition:</b> InventoryPopup.cpp:9</div></div>
 <!-- start footer part -->

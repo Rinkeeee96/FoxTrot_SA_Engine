@@ -1,6 +1,6 @@
 var class_credits_scene =
 [
-    [ "CreditsScene", "class_credits_scene.html#a09b833505bd0e4e229c4f6a4c8554e81", null ],
+    [ "CreditsScene", "class_credits_scene.html#a9be1f1943881ecff211ecbbef738f724", null ],
     [ "~CreditsScene", "class_credits_scene.html#aa6105bc2f1e6cb2898f399e96407f824", null ],
     [ "loadBackground", "class_credits_scene.html#a8946646eaab130c018ce51405748eb2c", null ],
     [ "loadButtons", "class_credits_scene.html#ae130e69c9167a09ebe7821cc88a61477", null ],
@@ -11,5 +11,5 @@ var class_credits_scene =
     [ "onUpdate", "class_credits_scene.html#aa1d22351d5b141a47aa51582606b8459", null ],
     [ "start", "class_credits_scene.html#a30b0aa0d030b3aa8b76e0704354a5bb5", null ],
     [ "onBackClick", "class_credits_scene.html#af3df15cce09d3300bbdc556c850e58e1", null ],
-    [ "text", "class_credits_scene.html#ac1ee9aee01447990c4b475bb7a7a9735", null ]
+    [ "text", "class_credits_scene.html#a4754327fddfd423d48e0f0569f9e118f", null ]
 ];

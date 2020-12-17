@@ -78,7 +78,7 @@ $(document).ready(function(){initNavTree('_base_trigger_8h_source.html',''); ini
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_base_trigger.html">BaseTrigger</a>() { }</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> onCollisionBegin(<span class="keyword">const</span> Event&amp; event) = 0;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_base_trigger.html">BaseTrigger</a>* clone(<span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>) = 0;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">virtual</span> shared_ptr&lt;BaseTrigger&gt; clone(<span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>) = 0;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    EventDispatcher&amp; dispatcher;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;};</div>

@@ -73,12 +73,18 @@ $(document).ready(function(){initNavTree('class_scene_state_machine.html',''); i
  <a href="class_scene_state_machine.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_scene_state_machine_8h_source.html">SceneStateMachine.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for SceneStateMachine:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_scene_state_machine.png" alt=""/>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a45f74481719e4f63c72d5094ce6e7fec"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_state_machine.html#a45f74481719e4f63c72d5094ce6e7fec">SceneStateMachine</a> (Engine &amp;engine, shared_ptr&lt; <a class="el" href="class_savegame.html">Savegame</a> &gt; savegame)</td></tr>
-<tr class="memdesc:a45f74481719e4f63c72d5094ce6e7fec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates all scene states.  <a href="class_scene_state_machine.html#a45f74481719e4f63c72d5094ce6e7fec">More...</a><br /></td></tr>
-<tr class="separator:a45f74481719e4f63c72d5094ce6e7fec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab21a5f4971289d3e68d43384aff31201"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_state_machine.html#ab21a5f4971289d3e68d43384aff31201">SceneStateMachine</a> (unique_ptr&lt; Engine &gt; &amp;engine, shared_ptr&lt; <a class="el" href="class_savegame.html">Savegame</a> &gt; savegame)</td></tr>
+<tr class="memdesc:ab21a5f4971289d3e68d43384aff31201"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates all scene states.  <a href="class_scene_state_machine.html#ab21a5f4971289d3e68d43384aff31201">More...</a><br /></td></tr>
+<tr class="separator:ab21a5f4971289d3e68d43384aff31201"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26137e740c92022293084968c98fb824"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_state_machine.html#a26137e740c92022293084968c98fb824">switchToScene</a> (string const identifier, bool useTransitionScreen, bool playSound=true)</td></tr>
 <tr class="memdesc:a26137e740c92022293084968c98fb824"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switch to the scene according the the identifier.  <a href="class_scene_state_machine.html#a26137e740c92022293084968c98fb824">More...</a><br /></td></tr>
 <tr class="separator:a26137e740c92022293084968c98fb824"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -110,12 +116,12 @@ shared_ptr&lt; <a class="el" href="class_savegame.html">Savegame</a> &gt;&#160;<
 <tr class="memitem:a90e3c545d512324fdf208932df581ee6"><td class="memItemLeft" align="right" valign="top"><a id="a90e3c545d512324fdf208932df581ee6"></a>
 shared_ptr&lt; <a class="el" href="class_scene_factory.html">SceneFactory</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>factory</b> = nullptr</td></tr>
 <tr class="separator:a90e3c545d512324fdf208932df581ee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfb0cb176bba2c247f0df6dff58f4e9a"><td class="memItemLeft" align="right" valign="top"><a id="adfb0cb176bba2c247f0df6dff58f4e9a"></a>
-Engine &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>engine</b></td></tr>
-<tr class="separator:adfb0cb176bba2c247f0df6dff58f4e9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a861a4b93df82f0a27871d0173059f86a"><td class="memItemLeft" align="right" valign="top"><a id="a861a4b93df82f0a27871d0173059f86a"></a>
-unique_ptr&lt; Scene &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>currentScene</b></td></tr>
-<tr class="separator:a861a4b93df82f0a27871d0173059f86a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f151d7114a2cff7bfc1a0cb667cea12"><td class="memItemLeft" align="right" valign="top"><a id="a6f151d7114a2cff7bfc1a0cb667cea12"></a>
+unique_ptr&lt; Engine &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>engine</b></td></tr>
+<tr class="separator:a6f151d7114a2cff7bfc1a0cb667cea12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cc4534a276296a070a73629742699c4"><td class="memItemLeft" align="right" valign="top"><a id="a7cc4534a276296a070a73629742699c4"></a>
+shared_ptr&lt; Scene &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>currentScene</b></td></tr>
+<tr class="separator:a7cc4534a276296a070a73629742699c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8ae9091d17d0c949435033d5f962901"><td class="memItemLeft" align="right" valign="top"><a id="ab8ae9091d17d0c949435033d5f962901"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneId</b> = 0</td></tr>
 <tr class="separator:ab8ae9091d17d0c949435033d5f962901"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,8 +132,8 @@ string&#160;</td><td class="memItemRight" valign="bottom"><b>currentLevelIdentif
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class for the scene state machine. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a45f74481719e4f63c72d5094ce6e7fec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a45f74481719e4f63c72d5094ce6e7fec">&#9670;&nbsp;</a></span>SceneStateMachine()</h2>
+<a id="ab21a5f4971289d3e68d43384aff31201"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab21a5f4971289d3e68d43384aff31201">&#9670;&nbsp;</a></span>SceneStateMachine()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -135,7 +141,7 @@ string&#160;</td><td class="memItemRight" valign="bottom"><b>currentLevelIdentif
         <tr>
           <td class="memname">SceneStateMachine::SceneStateMachine </td>
           <td>(</td>
-          <td class="paramtype">Engine &amp;&#160;</td>
+          <td class="paramtype">unique_ptr&lt; Engine &gt; &amp;&#160;</td>
           <td class="paramname"><em>_engine</em>, </td>
         </tr>
         <tr>

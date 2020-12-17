@@ -74,9 +74,9 @@ $(document).ready(function(){initNavTree('class_scene_factory.html',''); initRes
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abffa23bfd21401e2adccf4d72329c4d2"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; Scene &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_factory.html#abffa23bfd21401e2adccf4d72329c4d2">create</a> (const std::string &amp;classname, const int id, Engine &amp;engine, <a class="el" href="class_scene_state_machine.html">SceneStateMachine</a> &amp;_stateMachine)</td></tr>
-<tr class="memdesc:abffa23bfd21401e2adccf4d72329c4d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the scene from the table.  <a href="class_scene_factory.html#abffa23bfd21401e2adccf4d72329c4d2">More...</a><br /></td></tr>
-<tr class="separator:abffa23bfd21401e2adccf4d72329c4d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef626ae5f4a2bb4796ce05a57f02de23"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; Scene &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_factory.html#aef626ae5f4a2bb4796ce05a57f02de23">create</a> (const std::string &amp;classname, const int id, unique_ptr&lt; Engine &gt; &amp;engine, shared_ptr&lt; <a class="el" href="class_scene_state_machine.html">SceneStateMachine</a> &gt; _stateMachine)</td></tr>
+<tr class="memdesc:aef626ae5f4a2bb4796ce05a57f02de23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the scene from the table.  <a href="class_scene_factory.html#aef626ae5f4a2bb4796ce05a57f02de23">More...</a><br /></td></tr>
+<tr class="separator:aef626ae5f4a2bb4796ce05a57f02de23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53735492d872c925b4392ff9cf6a083b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_factory.html#a53735492d872c925b4392ff9cf6a083b">registerit</a> (const std::string &amp;classname, <a class="el" href="class_creator.html">Creator</a> *creator)</td></tr>
 <tr class="memdesc:a53735492d872c925b4392ff9cf6a083b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a scene to the table.  <a href="class_scene_factory.html#a53735492d872c925b4392ff9cf6a083b">More...</a><br /></td></tr>
 <tr class="separator:a53735492d872c925b4392ff9cf6a083b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -90,8 +90,8 @@ std::map&lt; std::string, <a class="el" href="class_creator.html">Creator</a> * 
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Factory class for Scene's. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="abffa23bfd21401e2adccf4d72329c4d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abffa23bfd21401e2adccf4d72329c4d2">&#9670;&nbsp;</a></span>create()</h2>
+<a id="aef626ae5f4a2bb4796ce05a57f02de23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef626ae5f4a2bb4796ce05a57f02de23">&#9670;&nbsp;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -111,13 +111,13 @@ std::map&lt; std::string, <a class="el" href="class_creator.html">Creator</a> * 
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Engine &amp;&#160;</td>
+          <td class="paramtype">unique_ptr&lt; Engine &gt; &amp;&#160;</td>
           <td class="paramname"><em>engine</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_scene_state_machine.html">SceneStateMachine</a> &amp;&#160;</td>
+          <td class="paramtype">shared_ptr&lt; <a class="el" href="class_scene_state_machine.html">SceneStateMachine</a> &gt;&#160;</td>
           <td class="paramname"><em>_stateMachine</em>&#160;</td>
         </tr>
         <tr>

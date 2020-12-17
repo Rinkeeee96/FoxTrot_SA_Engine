@@ -73,8 +73,8 @@ $(document).ready(function(){initNavTree('_game_8h_source.html',''); initResizab
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_game.html">Game</a>();</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_game.html#a99fb161fbbe87d25a8b73265a0611e58">run</a>();</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    Engine engine;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="class_i_command_builder.html">ICommandBuilder</a>* commandBuilder;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    unique_ptr&lt;Engine&gt; engine;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    shared_ptr&lt;ICommandBuilder&gt; commandBuilder;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    shared_ptr&lt;Savegame&gt; savegame;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    shared_ptr&lt;SceneStateMachine&gt; stateMachine;</div>
@@ -84,8 +84,7 @@ $(document).ready(function(){initNavTree('_game_8h_source.html',''); initResizab
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_game_html_a99fb161fbbe87d25a8b73265a0611e58"><div class="ttname"><a href="class_game.html#a99fb161fbbe87d25a8b73265a0611e58">Game::run</a></div><div class="ttdeci">int run()</div><div class="ttdoc">This function contains the game loop.</div><div class="ttdef"><b>Definition:</b> Game.cpp:15</div></div>
-<div class="ttc" id="aclass_i_command_builder_html"><div class="ttname"><a href="class_i_command_builder.html">ICommandBuilder</a></div><div class="ttdef"><b>Definition:</b> ICommandBuilder.h:5</div></div>
+<div class="ttc" id="aclass_game_html_a99fb161fbbe87d25a8b73265a0611e58"><div class="ttname"><a href="class_game.html#a99fb161fbbe87d25a8b73265a0611e58">Game::run</a></div><div class="ttdeci">int run()</div><div class="ttdoc">This function contains the game loop.</div><div class="ttdef"><b>Definition:</b> Game.cpp:16</div></div>
 <div class="ttc" id="aclass_game_html"><div class="ttname"><a href="class_game.html">Game</a></div><div class="ttdoc">Game class runs the game.</div><div class="ttdef"><b>Definition:</b> Game.h:9</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

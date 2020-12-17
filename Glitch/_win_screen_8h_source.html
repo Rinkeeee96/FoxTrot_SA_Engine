@@ -70,7 +70,7 @@ $(document).ready(function(){initNavTree('_win_screen_8h_source.html',''); initR
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_win_screen.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_win_screen.html">WinScreen</a> : <span class="keyword">public</span> <a class="code" href="class_game_scene.html">GameScene</a></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="class_win_screen.html">WinScreen</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, Engine&amp; engine, <a class="code" href="class_scene_state_machine.html">SceneStateMachine</a>&amp; _statemachine) : <a class="code" href="class_game_scene.html">GameScene</a>(<span class="keywordtype">id</span>, engine, _statemachine) {};</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="class_win_screen.html">WinScreen</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, unique_ptr&lt;Engine&gt;&amp; engine, shared_ptr&lt;SceneStateMachine&gt; _statemachine) : <a class="code" href="class_game_scene.html">GameScene</a>(<span class="keywordtype">id</span>, engine, _statemachine) {};</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    ~<a class="code" href="class_win_screen.html">WinScreen</a>();</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="comment">// Inherited via Scene</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_win_screen.html#aa3cc28d68ccbe2d1505f666882d728e7">onAttach</a>() <span class="keyword">override</span>;</div>
@@ -91,9 +91,9 @@ $(document).ready(function(){initNavTree('_win_screen_8h_source.html',''); initR
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        moveToNextScene = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        nextScene = <span class="stringliteral">&quot;Overworld&quot;</span>;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    };</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">bool</span> falling = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    Drawable* animation = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">bool</span> falling = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">int</span> animationTick = 0;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    shared_ptr&lt;Drawable&gt; animation = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">inline</span> WinScreen::~WinScreen()</div>
@@ -108,7 +108,6 @@ $(document).ready(function(){initNavTree('_win_screen_8h_source.html',''); initR
 <div class="ttc" id="aclass_win_screen_html_aa3cc28d68ccbe2d1505f666882d728e7"><div class="ttname"><a href="class_win_screen.html#aa3cc28d68ccbe2d1505f666882d728e7">WinScreen::onAttach</a></div><div class="ttdeci">void onAttach() override</div><div class="ttdoc">Loads the background and sets the starttime of this scene;.</div><div class="ttdef"><b>Definition:</b> WinScreen.cpp:14</div></div>
 <div class="ttc" id="aclass_win_screen_html_a26bdf8110452938f270f66d4d0ecc810"><div class="ttname"><a href="class_win_screen.html#a26bdf8110452938f270f66d4d0ecc810">WinScreen::LoadMusic</a></div><div class="ttdeci">void LoadMusic()</div><div class="ttdoc">Load the sounds for this scene.</div><div class="ttdef"><b>Definition:</b> WinScreen.cpp:87</div></div>
 <div class="ttc" id="aclass_win_screen_html"><div class="ttname"><a href="class_win_screen.html">WinScreen</a></div><div class="ttdoc">Class for the win screen.</div><div class="ttdef"><b>Definition:</b> WinScreen.h:8</div></div>
-<div class="ttc" id="aclass_scene_state_machine_html"><div class="ttname"><a href="class_scene_state_machine.html">SceneStateMachine</a></div><div class="ttdoc">Class for the scene state machine.</div><div class="ttdef"><b>Definition:</b> SceneStateMachine.h:9</div></div>
 <div class="ttc" id="aclass_win_screen_html_aa1d7248abaf1bb8d50057530e93dc057"><div class="ttname"><a href="class_win_screen.html#aa1d7248abaf1bb8d50057530e93dc057">WinScreen::start</a></div><div class="ttdeci">void start(bool playSound) override</div><div class="ttdoc">Create the sounds for this scene.</div><div class="ttdef"><b>Definition:</b> WinScreen.cpp:95</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

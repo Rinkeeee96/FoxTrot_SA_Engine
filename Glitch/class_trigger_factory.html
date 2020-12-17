@@ -74,30 +74,30 @@ $(document).ready(function(){initNavTree('class_trigger_factory.html',''); initR
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3b4042e076b797adeefea8db41ff0e3d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_trigger_factory.html#a3b4042e076b797adeefea8db41ff0e3d">registerTrigger</a> (string name, <a class="el" href="class_base_trigger.html">BaseTrigger</a> *trigger)</td></tr>
-<tr class="memdesc:a3b4042e076b797adeefea8db41ff0e3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register trigger with its name in factory for later cloning.  <a href="class_trigger_factory.html#a3b4042e076b797adeefea8db41ff0e3d">More...</a><br /></td></tr>
-<tr class="separator:a3b4042e076b797adeefea8db41ff0e3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57367b887a0d1364672c4513f3dac38a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_base_trigger.html">BaseTrigger</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_trigger_factory.html#a57367b887a0d1364672c4513f3dac38a">create</a> (string name, int id)</td></tr>
-<tr class="memdesc:a57367b887a0d1364672c4513f3dac38a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an empty triger to clone to.  <a href="class_trigger_factory.html#a57367b887a0d1364672c4513f3dac38a">More...</a><br /></td></tr>
-<tr class="separator:a57367b887a0d1364672c4513f3dac38a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa03db4c247b16280c34f6105e0d4a6ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_trigger_factory.html#aa03db4c247b16280c34f6105e0d4a6ba">registerTrigger</a> (string name, shared_ptr&lt; <a class="el" href="class_base_trigger.html">BaseTrigger</a> &gt; trigger)</td></tr>
+<tr class="memdesc:aa03db4c247b16280c34f6105e0d4a6ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register trigger with its name in factory for later cloning.  <a href="class_trigger_factory.html#aa03db4c247b16280c34f6105e0d4a6ba">More...</a><br /></td></tr>
+<tr class="separator:aa03db4c247b16280c34f6105e0d4a6ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c11da33324dad02617441e7439d06dd"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_base_trigger.html">BaseTrigger</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_trigger_factory.html#a9c11da33324dad02617441e7439d06dd">create</a> (string name, int id)</td></tr>
+<tr class="memdesc:a9c11da33324dad02617441e7439d06dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an empty triger to clone to.  <a href="class_trigger_factory.html#a9c11da33324dad02617441e7439d06dd">More...</a><br /></td></tr>
+<tr class="separator:a9c11da33324dad02617441e7439d06dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a0cec442a2e3bb99a82ec75fee19b54a8"><td class="memItemLeft" align="right" valign="top"><a id="a0cec442a2e3bb99a82ec75fee19b54a8"></a>
-map&lt; string, <a class="el" href="class_base_trigger.html">BaseTrigger</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>triggerMap</b></td></tr>
-<tr class="separator:a0cec442a2e3bb99a82ec75fee19b54a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a772e4e0a4390d01da440ee50e778b9eb"><td class="memItemLeft" align="right" valign="top"><a id="a772e4e0a4390d01da440ee50e778b9eb"></a>
+map&lt; string, shared_ptr&lt; <a class="el" href="class_base_trigger.html">BaseTrigger</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>triggerMap</b></td></tr>
+<tr class="separator:a772e4e0a4390d01da440ee50e778b9eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Factory for triggers. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a57367b887a0d1364672c4513f3dac38a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57367b887a0d1364672c4513f3dac38a">&#9670;&nbsp;</a></span>create()</h2>
+<a id="a9c11da33324dad02617441e7439d06dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c11da33324dad02617441e7439d06dd">&#9670;&nbsp;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_base_trigger.html">BaseTrigger</a> * TriggerFactory::create </td>
+          <td class="memname">shared_ptr&lt; <a class="el" href="class_base_trigger.html">BaseTrigger</a> &gt; TriggerFactory::create </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
           <td class="paramname"><em>name</em>, </td>
@@ -129,8 +129,8 @@ map&lt; string, <a class="el" href="class_base_trigger.html">BaseTrigger</a> * &
 
 </div>
 </div>
-<a id="a3b4042e076b797adeefea8db41ff0e3d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b4042e076b797adeefea8db41ff0e3d">&#9670;&nbsp;</a></span>registerTrigger()</h2>
+<a id="aa03db4c247b16280c34f6105e0d4a6ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa03db4c247b16280c34f6105e0d4a6ba">&#9670;&nbsp;</a></span>registerTrigger()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -144,7 +144,7 @@ map&lt; string, <a class="el" href="class_base_trigger.html">BaseTrigger</a> * &
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_base_trigger.html">BaseTrigger</a> *&#160;</td>
+          <td class="paramtype">shared_ptr&lt; <a class="el" href="class_base_trigger.html">BaseTrigger</a> &gt;&#160;</td>
           <td class="paramname"><em>trigger</em>&#160;</td>
         </tr>
         <tr>

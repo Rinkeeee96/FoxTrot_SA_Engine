@@ -95,13 +95,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac60b24386580c522070d1153e9f0f149"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_slime.html#ac60b24386580c522070d1153e9f0f149">onUpdate</a> (float deltaTime) override</td></tr>
 <tr class="memdesc:ac60b24386580c522070d1153e9f0f149"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the player is within range and acts accordingly The <a class="el" href="class_slime.html" title="Slime class with correspondending AI logic.">Slime</a> will jump if it is on the ground If the player is below the <a class="el" href="class_slime.html" title="Slime class with correspondending AI logic.">Slime</a>, it will add a downwards velocity to reach the player faster.  <a href="class_slime.html#ac60b24386580c522070d1153e9f0f149">More...</a><br /></td></tr>
 <tr class="separator:ac60b24386580c522070d1153e9f0f149"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a203bf91dc731d4fb82ae083e6f0f82a4"><td class="memItemLeft" align="right" valign="top"><a id="a203bf91dc731d4fb82ae083e6f0f82a4"></a>
-map&lt; SpriteState, SpriteObject * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_slime.html#a203bf91dc731d4fb82ae083e6f0f82a4">buildSpritemap</a> (int textureId) override</td></tr>
-<tr class="memdesc:a203bf91dc731d4fb82ae083e6f0f82a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds the spritemap for the <a class="el" href="class_slime.html" title="Slime class with correspondending AI logic.">Slime</a>. <br /></td></tr>
-<tr class="separator:a203bf91dc731d4fb82ae083e6f0f82a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cf0b00f0ef695cb5ff061327a0d9d0f"><td class="memItemLeft" align="right" valign="top"><a id="a0cf0b00f0ef695cb5ff061327a0d9d0f"></a>
-<a class="el" href="class_i_character.html">ICharacter</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>clone</b> (int id) override</td></tr>
-<tr class="separator:a0cf0b00f0ef695cb5ff061327a0d9d0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2465ecfc3d13af9218fb81ab7e4e76d8"><td class="memItemLeft" align="right" valign="top"><a id="a2465ecfc3d13af9218fb81ab7e4e76d8"></a>
+map&lt; SpriteState, shared_ptr&lt; SpriteObject &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_slime.html#a2465ecfc3d13af9218fb81ab7e4e76d8">buildSpritemap</a> (int textureId) override</td></tr>
+<tr class="memdesc:a2465ecfc3d13af9218fb81ab7e4e76d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds the spritemap for the <a class="el" href="class_slime.html" title="Slime class with correspondending AI logic.">Slime</a>. <br /></td></tr>
+<tr class="separator:a2465ecfc3d13af9218fb81ab7e4e76d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43e6bcff1f3b15b6e7349d70de7df1eb"><td class="memItemLeft" align="right" valign="top"><a id="a43e6bcff1f3b15b6e7349d70de7df1eb"></a>
+shared_ptr&lt; <a class="el" href="class_i_character.html">ICharacter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>clone</b> (int id) override</td></tr>
+<tr class="separator:a43e6bcff1f3b15b6e7349d70de7df1eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_base_enemy"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_base_enemy')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_base_enemy.html">BaseEnemy</a></td></tr>
 <tr class="memitem:a55d14fd72c5563c944ea1549f930f652 inherit pub_methods_class_base_enemy"><td class="memItemLeft" align="right" valign="top"><a id="a55d14fd72c5563c944ea1549f930f652"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>BaseEnemy</b> (EventDispatcher &amp;_dispatcher)</td></tr>

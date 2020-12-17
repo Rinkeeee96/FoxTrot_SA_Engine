@@ -69,18 +69,17 @@ $(document).ready(function(){initNavTree('_achievement_popup_8h_source.html','')
 <div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_achievement_popup.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_achievement_popup.html">AchievementPopup</a> : <span class="keyword">public</span> Layer</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="class_achievement_popup.html">AchievementPopup</a>(EventDispatcher&amp; _dispacther, <a class="code" href="class_scene_state_machine.html">SceneStateMachine</a>&amp; _stateMachine);</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="class_achievement_popup.html">AchievementPopup</a>(EventDispatcher&amp; _dispacther, shared_ptr&lt;SceneStateMachine&gt; _stateMachine);</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    ~<a class="code" href="class_achievement_popup.html">AchievementPopup</a>();</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_achievement_popup.html#aa7bd94a911c41009a36aa5bd897258d3">setupPopUp</a>(Achievement&amp; achievement);</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    EventDispatcher&amp; dispatcher;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="class_scene_state_machine.html">SceneStateMachine</a>&amp; stateMachine;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    shared_ptr&lt;SceneStateMachine&gt; stateMachine;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_scene_state_machine_html"><div class="ttname"><a href="class_scene_state_machine.html">SceneStateMachine</a></div><div class="ttdoc">Class for the scene state machine.</div><div class="ttdef"><b>Definition:</b> SceneStateMachine.h:9</div></div>
 <div class="ttc" id="aclass_achievement_popup_html_aa7bd94a911c41009a36aa5bd897258d3"><div class="ttname"><a href="class_achievement_popup.html#aa7bd94a911c41009a36aa5bd897258d3">AchievementPopup::setupPopUp</a></div><div class="ttdeci">void setupPopUp(Achievement &amp;achievement)</div><div class="ttdoc">Setup the Achievement popup.</div><div class="ttdef"><b>Definition:</b> AchievementPopup.cpp:20</div></div>
 <div class="ttc" id="aclass_achievement_popup_html"><div class="ttname"><a href="class_achievement_popup.html">AchievementPopup</a></div><div class="ttdoc">Pause Pop Up.</div><div class="ttdef"><b>Definition:</b> AchievementPopup.h:7</div></div>
 <!-- start footer part -->
