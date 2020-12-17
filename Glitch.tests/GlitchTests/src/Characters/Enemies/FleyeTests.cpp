@@ -24,13 +24,14 @@ namespace UnitTestsGlitch
 			CommandBuilder commandBuilder;
 			engine->start();
 			engine->useCustomCommandInvoker(commandBuilder.readBindingsAndCreateInvoker());
-			EventDispatcher dispatcher;
 
 			shared_ptr<Savegame> savegame = shared_ptr<Savegame>(new Savegame());
 			savegame->setCurrentGameData(1);
 			shared_ptr<SceneStateMachine> statemachine = make_shared<SceneStateMachine>(engine, savegame);
 
-			shared_ptr<Fleye> fleye = make_shared<Fleye>(dispatcher);
+			unique_ptr<MockScene> scene = make_unique<MockScene>();
+
+			shared_ptr<Fleye> fleye = make_shared<Fleye>(1, scene->getEventDispatcher());
 			fleye->setPositionX(100);
 			fleye->setPositionY(100);
 			fleye->setWidth(50);
@@ -54,11 +55,18 @@ namespace UnitTestsGlitch
 
 			float oldY = fleye->getPositionY();
 
-			shared_ptr<Player> player = make_shared<Player>(dispatcher);
+			shared_ptr<Player> player = make_shared<Player>(2, scene->getEventDispatcher());
 			player->setPositionX(100);
 			player->setPositionY(200);
 			player->setWidth(50);
 			player->setHeight(50);
+
+			player->setSpeed(100);
+			player->setJumpHeight(4);
+			player->setDensity(1000000);
+			player->setFriction(0);
+			player->setRestitution(0);
+			player->setStatic(false);
 
 			result = player->buildSpritemap(1);
 			it = result.begin();
@@ -71,20 +79,19 @@ namespace UnitTestsGlitch
 
 			fleye->setPlayer(player.get());
 
-			unique_ptr<MockScene> scene = make_unique<MockScene>();
-
 			scene->addNewObjectToLayer(1, fleye, true, false);
 			scene->addNewObjectToLayer(1, player, true, false);
 			engine->insertScene(move(scene));
 			engine->setCurrentScene(1);
 
 			// Act
-
+			engine->update();
 			fleye->onUpdate(1);
 			engine->update();
 			
 			// Assert
 			Assert::IsTrue(fleye->getPositionY() > oldY);
+			//Assert::IsTrue(fleye->getPositionY() > oldY);
 		}
 
 		TEST_METHOD(Fleye_On_Update_Player_Not_Beneath_Should_Stay_Same)
