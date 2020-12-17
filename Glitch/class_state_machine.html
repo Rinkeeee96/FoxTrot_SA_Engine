@@ -74,35 +74,38 @@ $(document).ready(function(){initNavTree('class_state_machine.html',''); initRes
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af01534bc996363b9bce441c18fea9ea9"><td class="memItemLeft" align="right" valign="top"><a id="af01534bc996363b9bce441c18fea9ea9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_machine.html#af01534bc996363b9bce441c18fea9ea9">setCurrentState</a> (<a class="el" href="class_i_state.html">IState</a>&lt; T &gt; *_state, T *entity)</td></tr>
-<tr class="memdesc:af01534bc996363b9bce441c18fea9ea9"><td class="mdescLeft">&#160;</td><td class="mdescRight">set current state <br /></td></tr>
-<tr class="separator:af01534bc996363b9bce441c18fea9ea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dc57f37ad2a5c29731a413aa49d5c8a"><td class="memItemLeft" align="right" valign="top"><a id="a2dc57f37ad2a5c29731a413aa49d5c8a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_machine.html#a2dc57f37ad2a5c29731a413aa49d5c8a">setCurrentState</a> (unique_ptr&lt; <a class="el" href="class_i_state.html">IState</a>&lt; T &gt;&gt; _state, T &amp;entity)</td></tr>
+<tr class="memdesc:a2dc57f37ad2a5c29731a413aa49d5c8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">set current state <br /></td></tr>
+<tr class="separator:a2dc57f37ad2a5c29731a413aa49d5c8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb3d2cbe9987abd351be01ca1364dc86"><td class="memItemLeft" align="right" valign="top"><a id="abb3d2cbe9987abd351be01ca1364dc86"></a>
 <a class="el" href="class_i_state.html">IState</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_machine.html#abb3d2cbe9987abd351be01ca1364dc86">getCurrentState</a> () const</td></tr>
 <tr class="memdesc:abb3d2cbe9987abd351be01ca1364dc86"><td class="mdescLeft">&#160;</td><td class="mdescRight">get current state <br /></td></tr>
 <tr class="separator:abb3d2cbe9987abd351be01ca1364dc86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:accae7de12e43837b0ca524ceae3b2581"><td class="memItemLeft" align="right" valign="top"><a id="accae7de12e43837b0ca524ceae3b2581"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_machine.html#accae7de12e43837b0ca524ceae3b2581">setGlobalState</a> (<a class="el" href="class_i_global_state.html">IGlobalState</a>&lt; T &gt; *_globalState)</td></tr>
-<tr class="memdesc:accae7de12e43837b0ca524ceae3b2581"><td class="mdescLeft">&#160;</td><td class="mdescRight">set global state <br /></td></tr>
-<tr class="separator:accae7de12e43837b0ca524ceae3b2581"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6a81a6c62bc137c2f957e200de4e950"><td class="memItemLeft" align="right" valign="top"><a id="ac6a81a6c62bc137c2f957e200de4e950"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_machine.html#ac6a81a6c62bc137c2f957e200de4e950">update</a> (T *entity)</td></tr>
-<tr class="memdesc:ac6a81a6c62bc137c2f957e200de4e950"><td class="mdescLeft">&#160;</td><td class="mdescRight">update current and global state <br /></td></tr>
-<tr class="separator:ac6a81a6c62bc137c2f957e200de4e950"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3110638d4395367db93b2735a46b0d92"><td class="memItemLeft" align="right" valign="top"><a id="a3110638d4395367db93b2735a46b0d92"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_machine.html#a3110638d4395367db93b2735a46b0d92">changeState</a> (<a class="el" href="class_i_state.html">IState</a>&lt; T &gt; *_state, T *entity)</td></tr>
-<tr class="memdesc:a3110638d4395367db93b2735a46b0d92"><td class="mdescLeft">&#160;</td><td class="mdescRight">change state <br /></td></tr>
-<tr class="separator:a3110638d4395367db93b2735a46b0d92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a856db82cb41f951e898ec454a1cb72c1"><td class="memItemLeft" align="right" valign="top"><a id="a856db82cb41f951e898ec454a1cb72c1"></a>
+<a class="el" href="class_i_state.html">IState</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getGlobalState</b> () const</td></tr>
+<tr class="separator:a856db82cb41f951e898ec454a1cb72c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a004f58e7ba10b2795b9204f8aecb018d"><td class="memItemLeft" align="right" valign="top"><a id="a004f58e7ba10b2795b9204f8aecb018d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_machine.html#a004f58e7ba10b2795b9204f8aecb018d">setGlobalState</a> (unique_ptr&lt; <a class="el" href="class_i_state.html">IState</a>&lt; T &gt;&gt; _globalState, T &amp;entity)</td></tr>
+<tr class="memdesc:a004f58e7ba10b2795b9204f8aecb018d"><td class="mdescLeft">&#160;</td><td class="mdescRight">set global state <br /></td></tr>
+<tr class="separator:a004f58e7ba10b2795b9204f8aecb018d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bae0a6d138a9a8b4f7144a67c5dd2cc"><td class="memItemLeft" align="right" valign="top"><a id="a3bae0a6d138a9a8b4f7144a67c5dd2cc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_machine.html#a3bae0a6d138a9a8b4f7144a67c5dd2cc">update</a> (T &amp;entity)</td></tr>
+<tr class="memdesc:a3bae0a6d138a9a8b4f7144a67c5dd2cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">update current and global state <br /></td></tr>
+<tr class="separator:a3bae0a6d138a9a8b4f7144a67c5dd2cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93302f1cde09d0f222dd9d2f31eb2f7f"><td class="memItemLeft" align="right" valign="top"><a id="a93302f1cde09d0f222dd9d2f31eb2f7f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_machine.html#a93302f1cde09d0f222dd9d2f31eb2f7f">changeState</a> (unique_ptr&lt; <a class="el" href="class_i_state.html">IState</a>&lt; T &gt;&gt; _state, T &amp;entity)</td></tr>
+<tr class="memdesc:a93302f1cde09d0f222dd9d2f31eb2f7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">change state <br /></td></tr>
+<tr class="separator:a93302f1cde09d0f222dd9d2f31eb2f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a867a5babcb0be403c95fc7e026abb4aa"><td class="memItemLeft" align="right" valign="top"><a id="a867a5babcb0be403c95fc7e026abb4aa"></a>
-<a class="el" href="class_i_state.html">IState</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>currentState</b></td></tr>
-<tr class="separator:a867a5babcb0be403c95fc7e026abb4aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49c1ed98ef24d99457a4a6defd4e3d4a"><td class="memItemLeft" align="right" valign="top"><a id="a49c1ed98ef24d99457a4a6defd4e3d4a"></a>
-<a class="el" href="class_i_global_state.html">IGlobalState</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>globalState</b></td></tr>
-<tr class="separator:a49c1ed98ef24d99457a4a6defd4e3d4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad04367179d5d84068a82f4a5492b6919"><td class="memItemLeft" align="right" valign="top"><a id="ad04367179d5d84068a82f4a5492b6919"></a>
+unique_ptr&lt; <a class="el" href="class_i_state.html">IState</a>&lt; T &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>currentState</b></td></tr>
+<tr class="separator:ad04367179d5d84068a82f4a5492b6919"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a0cb200f0660f2eece2d606da042bb8"><td class="memItemLeft" align="right" valign="top"><a id="a6a0cb200f0660f2eece2d606da042bb8"></a>
+unique_ptr&lt; <a class="el" href="class_i_state.html">IState</a>&lt; T &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>globalState</b></td></tr>
+<tr class="separator:a6a0cb200f0660f2eece2d606da042bb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename T&gt;<br />

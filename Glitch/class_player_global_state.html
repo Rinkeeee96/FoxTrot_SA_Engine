@@ -60,7 +60,6 @@ $(document).ready(function(){initNavTree('class_player_global_state.html',''); i
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_player_global_state-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">PlayerGlobalState Class Reference</div>  </div>
@@ -77,27 +76,64 @@ Inheritance diagram for PlayerGlobalState:</div>
  <div class="center">
   <img src="class_player_global_state.png" usemap="#PlayerGlobalState_map" alt=""/>
   <map id="PlayerGlobalState_map" name="PlayerGlobalState_map">
-<area href="class_i_global_state.html" alt="IGlobalState&lt; Player &gt;" shape="rect" coords="0,0,140,24"/>
+<area href="class_i_state.html" alt="IState&lt; Player &gt;" shape="rect" coords="0,0,113,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab456fa4d36e754a95b85217f87dc72ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_global_state.html#ab456fa4d36e754a95b85217f87dc72ce">execute</a> (<a class="el" href="class_player.html">Player</a> *entity) override</td></tr>
-<tr class="memdesc:ab456fa4d36e754a95b85217f87dc72ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">execute  <a href="class_player_global_state.html#ab456fa4d36e754a95b85217f87dc72ce">More...</a><br /></td></tr>
-<tr class="separator:ab456fa4d36e754a95b85217f87dc72ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a6e22f9956ab7cd77667a4149dcb06c26"><td class="memItemLeft" align="right" valign="top"><a id="a6e22f9956ab7cd77667a4149dcb06c26"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>health</b></td></tr>
-<tr class="separator:a6e22f9956ab7cd77667a4149dcb06c26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3a6c18118f32fb1e2b7d8249768073e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_global_state.html#ab3a6c18118f32fb1e2b7d8249768073e">entry</a> (<a class="el" href="class_player.html">Player</a> &amp;entity) override</td></tr>
+<tr class="memdesc:ab3a6c18118f32fb1e2b7d8249768073e"><td class="mdescLeft">&#160;</td><td class="mdescRight">on entry sets player invincible on false  <a href="class_player_global_state.html#ab3a6c18118f32fb1e2b7d8249768073e">More...</a><br /></td></tr>
+<tr class="separator:ab3a6c18118f32fb1e2b7d8249768073e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ba26b4e3b7b73a815b1d0ba777c0de0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_global_state.html#a4ba26b4e3b7b73a815b1d0ba777c0de0">execute</a> (<a class="el" href="class_player.html">Player</a> &amp;entity) override</td></tr>
+<tr class="memdesc:a4ba26b4e3b7b73a815b1d0ba777c0de0"><td class="mdescLeft">&#160;</td><td class="mdescRight">execute  <a href="class_player_global_state.html#a4ba26b4e3b7b73a815b1d0ba777c0de0">More...</a><br /></td></tr>
+<tr class="separator:a4ba26b4e3b7b73a815b1d0ba777c0de0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02c54776ef153d6901687c2533e7cc9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_global_state.html#a02c54776ef153d6901687c2533e7cc9c">exit</a> (<a class="el" href="class_player.html">Player</a> &amp;entity) override</td></tr>
+<tr class="memdesc:a02c54776ef153d6901687c2533e7cc9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">exit  <a href="class_player_global_state.html#a02c54776ef153d6901687c2533e7cc9c">More...</a><br /></td></tr>
+<tr class="separator:a02c54776ef153d6901687c2533e7cc9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class for the global player state. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab456fa4d36e754a95b85217f87dc72ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab456fa4d36e754a95b85217f87dc72ce">&#9670;&nbsp;</a></span>execute()</h2>
+<a id="ab3a6c18118f32fb1e2b7d8249768073e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3a6c18118f32fb1e2b7d8249768073e">&#9670;&nbsp;</a></span>entry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayerGlobalState::entry </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_player.html">Player</a> &amp;&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on entry sets player invincible on false </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td><br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_i_state.html#a3e3d96dec970511b03d0611a1691a394">IState&lt; Player &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a4ba26b4e3b7b73a815b1d0ba777c0de0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ba26b4e3b7b73a815b1d0ba777c0de0">&#9670;&nbsp;</a></span>execute()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -108,7 +144,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>health</b></td></tr>
         <tr>
           <td class="memname">void PlayerGlobalState::execute </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_player.html">Player</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="class_player.html">Player</a> &amp;&#160;</td>
           <td class="paramname"><em>entity</em></td><td>)</td>
           <td></td>
         </tr>
@@ -129,7 +165,44 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>health</b></td></tr>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="class_i_global_state.html#a65890ecf483f0ef1115d7c3f6d360e80">IGlobalState&lt; Player &gt;</a>.</p>
+<p>Implements <a class="el" href="class_i_state.html#a57f9c4b816fb655dd24f319c2aee5ac7">IState&lt; Player &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a02c54776ef153d6901687c2533e7cc9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02c54776ef153d6901687c2533e7cc9c">&#9670;&nbsp;</a></span>exit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayerGlobalState::exit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_player.html">Player</a> &amp;&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>exit </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td><br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_i_state.html#aa8caed02a7fd7e052efa5f1e5dce449e">IState&lt; Player &gt;</a>.</p>
 
 </div>
 </div>

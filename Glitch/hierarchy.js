@@ -54,10 +54,6 @@ var hierarchy =
     [ "IGlobalCommandCreator", "class_i_global_command_creator.html", [
       [ "GlobalCommandCreator< T >", "class_global_command_creator.html", null ]
     ] ],
-    [ "IGlobalState< T >", "class_i_global_state.html", null ],
-    [ "IGlobalState< Player >", "class_i_global_state.html", [
-      [ "PlayerGlobalState", "class_player_global_state.html", null ]
-    ] ],
     [ "ILevelBuilder", "class_i_level_builder.html", [
       [ "AbstractLevelBuilder", "class_abstract_level_builder.html", [
         [ "LevelBuilder", "class_level_builder.html", null ]
@@ -68,7 +64,8 @@ var hierarchy =
     [ "IState< Player >", "class_i_state.html", [
       [ "DamageCooldownState", "class_damage_cooldown_state.html", null ],
       [ "GodState", "class_god_state.html", null ],
-      [ "NormalState", "class_normal_state.html", null ]
+      [ "NormalState", "class_normal_state.html", null ],
+      [ "PlayerGlobalState", "class_player_global_state.html", null ]
     ] ],
     [ "Item", "struct_item.html", null ],
     [ "KeypressInvoker", null, [

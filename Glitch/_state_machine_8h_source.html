@@ -64,60 +64,52 @@ $(document).ready(function(){initNavTree('_state_machine_8h_source.html',''); in
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;IState.h&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;IGlobalState.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_state_machine.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_state_machine.html">StateMachine</a></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="class_i_state.html">IState&lt;T&gt;</a>* currentState;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="class_i_global_state.html">IGlobalState&lt;T&gt;</a>* globalState;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    ~<a class="code" href="class_state_machine.html">StateMachine</a>() {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">delete</span> currentState;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keyword">delete</span> globalState;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    }</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_state_machine.html#af01534bc996363b9bce441c18fea9ea9">   22</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#af01534bc996363b9bce441c18fea9ea9">setCurrentState</a>(<a class="code" href="class_i_state.html">IState&lt;T&gt;</a>* _state, T* entity) {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        this-&gt;currentState = _state;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        this-&gt;currentState-&gt;<a class="code" href="class_i_state.html#ad4cc10358cc2dafb1ae0654cf3624260">entry</a>(entity);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    };</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_state_machine.html#abb3d2cbe9987abd351be01ca1364dc86">   29</a></span>&#160;    <a class="code" href="class_i_state.html">IState&lt;T&gt;</a>&amp; <a class="code" href="class_state_machine.html#abb3d2cbe9987abd351be01ca1364dc86">getCurrentState</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> *this-&gt;currentState; };</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="class_state_machine.html#accae7de12e43837b0ca524ceae3b2581">   33</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#accae7de12e43837b0ca524ceae3b2581">setGlobalState</a>(<a class="code" href="class_i_global_state.html">IGlobalState&lt;T&gt;</a>* _globalState) {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        this-&gt;globalState = _globalState;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    };</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_state_machine.html#ac6a81a6c62bc137c2f957e200de4e950">   39</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#ac6a81a6c62bc137c2f957e200de4e950">update</a>(T* entity) {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        this-&gt;currentState-&gt;<a class="code" href="class_i_state.html#ab00db52e6713816efbb8a6151e20d16f">execute</a>(entity);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        this-&gt;globalState-&gt;<a class="code" href="class_i_global_state.html#a65890ecf483f0ef1115d7c3f6d360e80">execute</a>(entity);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    };</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_state_machine.html#a3110638d4395367db93b2735a46b0d92">   46</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#a3110638d4395367db93b2735a46b0d92">changeState</a>(<a class="code" href="class_i_state.html">IState&lt;T&gt;</a>* _state, T* entity) {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">if</span> (currentState != _state &amp;&amp; _state)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            currentState-&gt;<a class="code" href="class_i_state.html#a9f5c75d21655b5ec0b98f026fc88300c">exit</a>(entity);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keyword">delete</span> currentState;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            currentState = _state;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            currentState-&gt;<a class="code" href="class_i_state.html#ad4cc10358cc2dafb1ae0654cf3624260">entry</a>(entity);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    };</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_state_machine.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_state_machine.html">StateMachine</a></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    unique_ptr&lt;IState&lt;T&gt;&gt; currentState;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    unique_ptr&lt;IState&lt;T&gt;&gt; globalState;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    ~<a class="code" href="class_state_machine.html">StateMachine</a>() { }</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_state_machine.html#a2dc57f37ad2a5c29731a413aa49d5c8a">   18</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#a2dc57f37ad2a5c29731a413aa49d5c8a">setCurrentState</a>(unique_ptr&lt;<a class="code" href="class_i_state.html">IState&lt;T&gt;</a>&gt; _state, T&amp; entity) {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        this-&gt;currentState = move(_state);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        this-&gt;currentState-&gt;entry(entity);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    };</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_state_machine.html#abb3d2cbe9987abd351be01ca1364dc86">   25</a></span>&#160;    <a class="code" href="class_i_state.html">IState&lt;T&gt;</a>&amp; <a class="code" href="class_state_machine.html#abb3d2cbe9987abd351be01ca1364dc86">getCurrentState</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> *this-&gt;currentState; };</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_i_state.html">IState&lt;T&gt;</a>&amp; getGlobalState()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> *this-&gt;globalState; };</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_state_machine.html#a004f58e7ba10b2795b9204f8aecb018d">   30</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#a004f58e7ba10b2795b9204f8aecb018d">setGlobalState</a>(unique_ptr&lt;<a class="code" href="class_i_state.html">IState&lt;T&gt;</a>&gt; _globalState, T&amp; entity) {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        this-&gt;globalState = move(_globalState);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        this-&gt;currentState-&gt;entry(entity);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    };</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_state_machine.html#a3bae0a6d138a9a8b4f7144a67c5dd2cc">   37</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#a3bae0a6d138a9a8b4f7144a67c5dd2cc">update</a>(T&amp; entity) {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        this-&gt;currentState-&gt;execute(entity);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        this-&gt;globalState-&gt;execute(entity);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    };</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_state_machine.html#a93302f1cde09d0f222dd9d2f31eb2f7f">   44</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#a93302f1cde09d0f222dd9d2f31eb2f7f">changeState</a>(unique_ptr&lt;<a class="code" href="class_i_state.html">IState&lt;T&gt;</a>&gt; _state, T&amp; entity) {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">if</span> (currentState != _state &amp;&amp; _state)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            currentState-&gt;exit(entity);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            currentState = move(_state);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            currentState-&gt;entry(entity);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    };</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_i_global_state_html_a65890ecf483f0ef1115d7c3f6d360e80"><div class="ttname"><a href="class_i_global_state.html#a65890ecf483f0ef1115d7c3f6d360e80">IGlobalState::execute</a></div><div class="ttdeci">virtual void execute(T *entity)=0</div><div class="ttdoc">execute</div></div>
-<div class="ttc" id="aclass_state_machine_html_a3110638d4395367db93b2735a46b0d92"><div class="ttname"><a href="class_state_machine.html#a3110638d4395367db93b2735a46b0d92">StateMachine::changeState</a></div><div class="ttdeci">void changeState(IState&lt; T &gt; *_state, T *entity)</div><div class="ttdoc">change state</div><div class="ttdef"><b>Definition:</b> StateMachine.h:46</div></div>
+<div class="ttc" id="aclass_state_machine_html_a2dc57f37ad2a5c29731a413aa49d5c8a"><div class="ttname"><a href="class_state_machine.html#a2dc57f37ad2a5c29731a413aa49d5c8a">StateMachine::setCurrentState</a></div><div class="ttdeci">void setCurrentState(unique_ptr&lt; IState&lt; T &gt;&gt; _state, T &amp;entity)</div><div class="ttdoc">set current state</div><div class="ttdef"><b>Definition:</b> StateMachine.h:18</div></div>
 <div class="ttc" id="aclass_i_state_html"><div class="ttname"><a href="class_i_state.html">IState</a></div><div class="ttdoc">Interface class for a player state.</div><div class="ttdef"><b>Definition:</b> IState.h:7</div></div>
-<div class="ttc" id="aclass_i_state_html_a9f5c75d21655b5ec0b98f026fc88300c"><div class="ttname"><a href="class_i_state.html#a9f5c75d21655b5ec0b98f026fc88300c">IState::exit</a></div><div class="ttdeci">virtual void exit(T *entity)=0</div><div class="ttdoc">on exit</div></div>
-<div class="ttc" id="aclass_i_state_html_ad4cc10358cc2dafb1ae0654cf3624260"><div class="ttname"><a href="class_i_state.html#ad4cc10358cc2dafb1ae0654cf3624260">IState::entry</a></div><div class="ttdeci">virtual void entry(T *entity)=0</div><div class="ttdoc">entry</div></div>
-<div class="ttc" id="aclass_state_machine_html_af01534bc996363b9bce441c18fea9ea9"><div class="ttname"><a href="class_state_machine.html#af01534bc996363b9bce441c18fea9ea9">StateMachine::setCurrentState</a></div><div class="ttdeci">void setCurrentState(IState&lt; T &gt; *_state, T *entity)</div><div class="ttdoc">set current state</div><div class="ttdef"><b>Definition:</b> StateMachine.h:22</div></div>
-<div class="ttc" id="aclass_state_machine_html_accae7de12e43837b0ca524ceae3b2581"><div class="ttname"><a href="class_state_machine.html#accae7de12e43837b0ca524ceae3b2581">StateMachine::setGlobalState</a></div><div class="ttdeci">void setGlobalState(IGlobalState&lt; T &gt; *_globalState)</div><div class="ttdoc">set global state</div><div class="ttdef"><b>Definition:</b> StateMachine.h:33</div></div>
-<div class="ttc" id="aclass_state_machine_html_ac6a81a6c62bc137c2f957e200de4e950"><div class="ttname"><a href="class_state_machine.html#ac6a81a6c62bc137c2f957e200de4e950">StateMachine::update</a></div><div class="ttdeci">void update(T *entity)</div><div class="ttdoc">update current and global state</div><div class="ttdef"><b>Definition:</b> StateMachine.h:39</div></div>
-<div class="ttc" id="aclass_state_machine_html"><div class="ttname"><a href="class_state_machine.html">StateMachine</a></div><div class="ttdoc">Statemachine T for entity.</div><div class="ttdef"><b>Definition:</b> StateMachine.h:10</div></div>
-<div class="ttc" id="aclass_i_state_html_ab00db52e6713816efbb8a6151e20d16f"><div class="ttname"><a href="class_i_state.html#ab00db52e6713816efbb8a6151e20d16f">IState::execute</a></div><div class="ttdeci">virtual void execute(T *entity)=0</div><div class="ttdoc">execute</div></div>
-<div class="ttc" id="aclass_i_global_state_html"><div class="ttname"><a href="class_i_global_state.html">IGlobalState</a></div><div class="ttdoc">Interface class for global state.</div><div class="ttdef"><b>Definition:</b> IGlobalState.h:6</div></div>
-<div class="ttc" id="aclass_state_machine_html_abb3d2cbe9987abd351be01ca1364dc86"><div class="ttname"><a href="class_state_machine.html#abb3d2cbe9987abd351be01ca1364dc86">StateMachine::getCurrentState</a></div><div class="ttdeci">IState&lt; T &gt; &amp; getCurrentState() const</div><div class="ttdoc">get current state</div><div class="ttdef"><b>Definition:</b> StateMachine.h:29</div></div>
+<div class="ttc" id="aclass_state_machine_html"><div class="ttname"><a href="class_state_machine.html">StateMachine</a></div><div class="ttdoc">Statemachine T for entity.</div><div class="ttdef"><b>Definition:</b> StateMachine.h:9</div></div>
+<div class="ttc" id="aclass_state_machine_html_a004f58e7ba10b2795b9204f8aecb018d"><div class="ttname"><a href="class_state_machine.html#a004f58e7ba10b2795b9204f8aecb018d">StateMachine::setGlobalState</a></div><div class="ttdeci">void setGlobalState(unique_ptr&lt; IState&lt; T &gt;&gt; _globalState, T &amp;entity)</div><div class="ttdoc">set global state</div><div class="ttdef"><b>Definition:</b> StateMachine.h:30</div></div>
+<div class="ttc" id="aclass_state_machine_html_a3bae0a6d138a9a8b4f7144a67c5dd2cc"><div class="ttname"><a href="class_state_machine.html#a3bae0a6d138a9a8b4f7144a67c5dd2cc">StateMachine::update</a></div><div class="ttdeci">void update(T &amp;entity)</div><div class="ttdoc">update current and global state</div><div class="ttdef"><b>Definition:</b> StateMachine.h:37</div></div>
+<div class="ttc" id="aclass_state_machine_html_a93302f1cde09d0f222dd9d2f31eb2f7f"><div class="ttname"><a href="class_state_machine.html#a93302f1cde09d0f222dd9d2f31eb2f7f">StateMachine::changeState</a></div><div class="ttdeci">void changeState(unique_ptr&lt; IState&lt; T &gt;&gt; _state, T &amp;entity)</div><div class="ttdoc">change state</div><div class="ttdef"><b>Definition:</b> StateMachine.h:44</div></div>
+<div class="ttc" id="aclass_state_machine_html_abb3d2cbe9987abd351be01ca1364dc86"><div class="ttname"><a href="class_state_machine.html#abb3d2cbe9987abd351be01ca1364dc86">StateMachine::getCurrentState</a></div><div class="ttdeci">IState&lt; T &gt; &amp; getCurrentState() const</div><div class="ttdoc">get current state</div><div class="ttdef"><b>Definition:</b> StateMachine.h:25</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

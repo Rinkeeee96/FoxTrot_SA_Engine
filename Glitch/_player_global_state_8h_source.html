@@ -63,22 +63,26 @@ $(document).ready(function(){initNavTree('_player_global_state_8h_source.html','
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;Game/States/IGlobalState.h&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;Game/States/IState.h&quot;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">class </span><a class="code" href="class_player.html">Player</a>;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_player_global_state.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_player_global_state.html">PlayerGlobalState</a> : <span class="keyword">public</span> <a class="code" href="class_i_global_state.html">IGlobalState</a>&lt;Player&gt;</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_player_global_state.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_player_global_state.html">PlayerGlobalState</a> : <span class="keyword">public</span> <a class="code" href="class_i_state.html">IState</a>&lt;Player&gt;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordtype">int</span> health;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_player_global_state.html#ab456fa4d36e754a95b85217f87dc72ce">execute</a>(<a class="code" href="class_player.html">Player</a>* entity) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;};</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_player_global_state.html">PlayerGlobalState</a>() {}</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_player_global_state.html#ab3a6c18118f32fb1e2b7d8249768073e">entry</a>(<a class="code" href="class_player.html">Player</a>&amp; entity) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_player_global_state.html#a4ba26b4e3b7b73a815b1d0ba777c0de0">execute</a>(<a class="code" href="class_player.html">Player</a>&amp; entity) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_player_global_state.html#a02c54776ef153d6901687c2533e7cc9c">exit</a>(<a class="code" href="class_player.html">Player</a>&amp; entity) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_i_state_html"><div class="ttname"><a href="class_i_state.html">IState</a></div><div class="ttdoc">Interface class for a player state.</div><div class="ttdef"><b>Definition:</b> IState.h:7</div></div>
 <div class="ttc" id="aclass_player_global_state_html"><div class="ttname"><a href="class_player_global_state.html">PlayerGlobalState</a></div><div class="ttdoc">Class for the global player state.</div><div class="ttdef"><b>Definition:</b> PlayerGlobalState.h:8</div></div>
-<div class="ttc" id="aclass_player_global_state_html_ab456fa4d36e754a95b85217f87dc72ce"><div class="ttname"><a href="class_player_global_state.html#ab456fa4d36e754a95b85217f87dc72ce">PlayerGlobalState::execute</a></div><div class="ttdeci">void execute(Player *entity) override</div><div class="ttdoc">execute</div><div class="ttdef"><b>Definition:</b> PlayerGlobalState.cpp:7</div></div>
-<div class="ttc" id="aclass_i_global_state_html"><div class="ttname"><a href="class_i_global_state.html">IGlobalState</a></div><div class="ttdoc">Interface class for global state.</div><div class="ttdef"><b>Definition:</b> IGlobalState.h:6</div></div>
+<div class="ttc" id="aclass_player_global_state_html_a02c54776ef153d6901687c2533e7cc9c"><div class="ttname"><a href="class_player_global_state.html#a02c54776ef153d6901687c2533e7cc9c">PlayerGlobalState::exit</a></div><div class="ttdeci">void exit(Player &amp;entity) override</div><div class="ttdoc">exit</div><div class="ttdef"><b>Definition:</b> PlayerGlobalState.cpp:19</div></div>
+<div class="ttc" id="aclass_player_global_state_html_ab3a6c18118f32fb1e2b7d8249768073e"><div class="ttname"><a href="class_player_global_state.html#ab3a6c18118f32fb1e2b7d8249768073e">PlayerGlobalState::entry</a></div><div class="ttdeci">void entry(Player &amp;entity) override</div><div class="ttdoc">on entry sets player invincible on false</div><div class="ttdef"><b>Definition:</b> PlayerGlobalState.cpp:13</div></div>
+<div class="ttc" id="aclass_player_global_state_html_a4ba26b4e3b7b73a815b1d0ba777c0de0"><div class="ttname"><a href="class_player_global_state.html#a4ba26b4e3b7b73a815b1d0ba777c0de0">PlayerGlobalState::execute</a></div><div class="ttdeci">void execute(Player &amp;entity) override</div><div class="ttdoc">execute</div><div class="ttdef"><b>Definition:</b> PlayerGlobalState.cpp:7</div></div>
 <div class="ttc" id="aclass_player_html"><div class="ttname"><a href="class_player.html">Player</a></div><div class="ttdoc">Handles player logic, stats and movement.</div><div class="ttdef"><b>Definition:</b> Player.h:17</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

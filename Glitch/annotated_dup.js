@@ -37,7 +37,6 @@ var annotated_dup =
     [ "IEnemy", "class_i_enemy.html", "class_i_enemy" ],
     [ "IGameObject", "class_i_game_object.html", "class_i_game_object" ],
     [ "IGlobalCommandCreator", "class_i_global_command_creator.html", "class_i_global_command_creator" ],
-    [ "IGlobalState", "class_i_global_state.html", "class_i_global_state" ],
     [ "IGround", "class_i_ground.html", "class_i_ground" ],
     [ "ILevelBuilder", "class_i_level_builder.html", "class_i_level_builder" ],
     [ "Inventory", "struct_inventory.html", "struct_inventory" ],
