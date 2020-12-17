@@ -116,15 +116,20 @@ void ChapterScene::setTextFromFile(string path, int startingId) {
 /// DeltaTime should be used when calculating timers/manual movements
 void ChapterScene::onUpdate(float deltaTime)
 {
+	for (size_t i = 0; i < this->text.size(); i++)
+	{
+		this->text[i]->setPositionY(this->text[i]->getPositionY() - (speed_ * deltaTime));
+	}
+	if (text[this->text.size() - 1]->getPositionY() < 0)
+	{
+		moveToNextScene = true;
+		nextScene = "Overworld";
+	}
+
 	if (moveToNextScene)
 	{
 		stateMachine->switchToScene(nextScene, useTransition, playSound);
 	}
 
-	for (size_t i = 0; i < this->text.size(); i++)
-	{
-		this->text[i]->setPositionY(this->text[i]->getPositionY() - (speed_ * deltaTime));
-	}
-	if (text[this->text.size() - 1]->getPositionY() < 0) stateMachine->switchToScene("Overworld", false);
 }
 

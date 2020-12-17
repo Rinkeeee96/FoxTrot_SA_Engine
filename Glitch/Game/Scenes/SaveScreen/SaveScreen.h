@@ -29,18 +29,21 @@ private:
 	function<void(void)> onSave1BtnClick = [this]() {
 		savegame->setCurrentGameData(1);
 		moveToNextScene = true;
+		useTransition = true;
 		nextScene = "Overworld";
 	};
 
 	function<void(void)> onSave2BtnClick = [this]() {
 		savegame->setCurrentGameData(2);
 		moveToNextScene = true;
+		useTransition = true;
 		nextScene = "Overworld";
 	};
 
 	function<void(void)> onSave3BtnClick = [this]() {
 		savegame->setCurrentGameData(3);
 		moveToNextScene = true;
+		useTransition = true;
 		nextScene = "Overworld";
 	};
 
