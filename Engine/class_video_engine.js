@@ -19,7 +19,7 @@ var class_video_engine =
     [ "update", "class_video_engine.html#a448d04228db501c7aff197abe507423a", null ],
     [ "updateScreen", "class_video_engine.html#a69a5bbd9eeef2970613bc13d2880fcd4", null ],
     [ "frameData", "class_video_engine.html#a44db4bc262471dd36175f45d6e98a1b2", null ],
-    [ "pointerToCurrentScene", "class_video_engine.html#a6efbcb66a112cbec8c81e2102415be21", null ],
+    [ "pointerToCurrentScene", "class_video_engine.html#a1601b9efd5637fb7b6087fa6c0e7f4d5", null ],
     [ "shouldDrawFps", "class_video_engine.html#a93c2c5c62c525777d014bcf3d189f0ce", null ],
     [ "videoFacade", "class_video_engine.html#a17cea595dd823ffc8d0dc6a7b7120154", null ]
 ];

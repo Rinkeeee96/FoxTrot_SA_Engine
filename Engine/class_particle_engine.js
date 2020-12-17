@@ -8,5 +8,5 @@ var class_particle_engine =
     [ "start", "class_particle_engine.html#a6a4c49189fb7f110a891a7405bbcdbe7", null ],
     [ "update", "class_particle_engine.html#a91a39fce5340275279bcd10aa7db0add", null ],
     [ "frameData", "class_particle_engine.html#a618c5ea257ebc9447c17d1158065dac3", null ],
-    [ "pointerToCurrentScene", "class_particle_engine.html#a6465ea21c7a5fba22cf43da9ccde55b8", null ]
+    [ "pointerToCurrentScene", "class_particle_engine.html#a3d5f5858b36e8e1cbf16b50312a33a7a", null ]
 ];

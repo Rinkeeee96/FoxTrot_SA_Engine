@@ -93,14 +93,11 @@ API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <tr class="memitem:afacb7e390439a2603729200ea99177b0"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#afacb7e390439a2603729200ea99177b0">setCurrentScene</a> (const int sceneID)</td></tr>
 <tr class="memdesc:afacb7e390439a2603729200ea99177b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the current <a class="el" href="class_scene.html" title="Scene Class Contains all the objects that should be drawn in this scene.">Scene</a> in the scenemanager. Called from game to switch screens.  <a href="class_engine.html#afacb7e390439a2603729200ea99177b0">More...</a><br /></td></tr>
 <tr class="separator:afacb7e390439a2603729200ea99177b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6e6d299c00348be3a2c8089e6f539a2"><td class="memItemLeft" align="right" valign="top">API shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#ad6e6d299c00348be3a2c8089e6f539a2">getCurrentScene</a> ()</td></tr>
-<tr class="memdesc:ad6e6d299c00348be3a2c8089e6f539a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currentScene.  <a href="class_engine.html#ad6e6d299c00348be3a2c8089e6f539a2">More...</a><br /></td></tr>
-<tr class="separator:ad6e6d299c00348be3a2c8089e6f539a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3094f1bd0f388fabcdf1f45d3fb1a0f5"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a3094f1bd0f388fabcdf1f45d3fb1a0f5">insertScene</a> (shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; scene)</td></tr>
-<tr class="separator:a3094f1bd0f388fabcdf1f45d3fb1a0f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47b89ed8fab7ae4ca68b638b1b56d768"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a47b89ed8fab7ae4ca68b638b1b56d768">deregisterScene</a> (const int id)</td></tr>
-<tr class="memdesc:a47b89ed8fab7ae4ca68b638b1b56d768"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deregister a scene according to the given sceneID.  <a href="class_engine.html#a47b89ed8fab7ae4ca68b638b1b56d768">More...</a><br /></td></tr>
-<tr class="separator:a47b89ed8fab7ae4ca68b638b1b56d768"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad18c3be05163ac05b5153afc24dc29d0"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#ad18c3be05163ac05b5153afc24dc29d0">insertScene</a> (unique_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; scene)</td></tr>
+<tr class="separator:ad18c3be05163ac05b5153afc24dc29d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06ea113be81e940670d9d01de8d11cdf"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a06ea113be81e940670d9d01de8d11cdf">deregisterCurrentScene</a> ()</td></tr>
+<tr class="memdesc:a06ea113be81e940670d9d01de8d11cdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deregister a scene according to the given sceneID.  <a href="class_engine.html#a06ea113be81e940670d9d01de8d11cdf">More...</a><br /></td></tr>
+<tr class="separator:a06ea113be81e940670d9d01de8d11cdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aece87efecfa18b9de057737b0c239011"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#aece87efecfa18b9de057737b0c239011">loadSound</a> (const string &amp;identifier, const string &amp;path)</td></tr>
 <tr class="memdesc:aece87efecfa18b9de057737b0c239011"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls addFile from the sound engine.  <a href="class_engine.html#aece87efecfa18b9de057737b0c239011">More...</a><br /></td></tr>
 <tr class="separator:aece87efecfa18b9de057737b0c239011"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -130,6 +127,12 @@ API bool&#160;</td><td class="memItemRight" valign="bottom"><b>getEngineRunning<
 <tr class="memitem:a129dbf1f1b1d0e53ac2427937a438181"><td class="memItemLeft" align="right" valign="top"><a id="a129dbf1f1b1d0e53ac2427937a438181"></a>
 API void&#160;</td><td class="memItemRight" valign="bottom"><b>setEngineRunning</b> (bool run)</td></tr>
 <tr class="separator:a129dbf1f1b1d0e53ac2427937a438181"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48294422199e1d58a435ea6fab38f64f"><td class="memItemLeft" align="right" valign="top"><a id="a48294422199e1d58a435ea6fab38f64f"></a>
+API void&#160;</td><td class="memItemRight" valign="bottom"><b>updateCurrentScene</b> ()</td></tr>
+<tr class="separator:a48294422199e1d58a435ea6fab38f64f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7fa718863034a0b4ca2f594636b5059"><td class="memItemLeft" align="right" valign="top"><a id="ac7fa718863034a0b4ca2f594636b5059"></a>
+API void&#160;</td><td class="memItemRight" valign="bottom"><b>startCurrentScene</b> (bool playSound)</td></tr>
+<tr class="separator:ac7fa718863034a0b4ca2f594636b5059"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a720008e4aaa071d9a4aebb6ed0066f60"><td class="memItemLeft" align="right" valign="top"><a id="a720008e4aaa071d9a4aebb6ed0066f60"></a>
 <a class="el" href="class_keypress_invoker.html">KeypressInvoker</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getKeypressedInvoker</b> ()</td></tr>
 <tr class="separator:a720008e4aaa071d9a4aebb6ed0066f60"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -193,17 +196,16 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>engineIsPaused</b> = 
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_engine.html" title="Engine interface class connecting the game to the engine.">Engine</a> interface class connecting the game to the engine. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a47b89ed8fab7ae4ca68b638b1b56d768"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47b89ed8fab7ae4ca68b638b1b56d768">&#9670;&nbsp;</a></span>deregisterScene()</h2>
+<a id="a06ea113be81e940670d9d01de8d11cdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06ea113be81e940670d9d01de8d11cdf">&#9670;&nbsp;</a></span>deregisterCurrentScene()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Engine::deregisterScene </td>
+          <td class="memname">void Engine::deregisterCurrentScene </td>
           <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -217,27 +219,6 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>engineIsPaused</b> = 
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="ad6e6d299c00348be3a2c8089e6f539a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad6e6d299c00348be3a2c8089e6f539a2">&#9670;&nbsp;</a></span>getCurrentScene()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; Engine::getCurrentScene </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the currentScene. </p>
-<dl class="section return"><dt>Returns</dt><dd><br  />
- </dd></dl>
 
 </div>
 </div>
@@ -268,8 +249,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>engineIsPaused</b> = 
 
 </div>
 </div>
-<a id="a3094f1bd0f388fabcdf1f45d3fb1a0f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3094f1bd0f388fabcdf1f45d3fb1a0f5">&#9670;&nbsp;</a></span>insertScene()</h2>
+<a id="ad18c3be05163ac05b5153afc24dc29d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad18c3be05163ac05b5153afc24dc29d0">&#9670;&nbsp;</a></span>insertScene()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -277,7 +258,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>engineIsPaused</b> = 
         <tr>
           <td class="memname">void Engine::insertScene </td>
           <td>(</td>
-          <td class="paramtype">shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt;&#160;</td>
+          <td class="paramtype">unique_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt;&#160;</td>
           <td class="paramname"><em>scene</em></td><td>)</td>
           <td></td>
         </tr>

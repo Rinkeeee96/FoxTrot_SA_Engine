@@ -87,23 +87,23 @@ API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <tr class="memitem:ac51bb5595426983c049e03b2d5ab6786"><td class="memItemLeft" align="right" valign="top">API <a class="el" href="class_event_dispatcher.html">EventDispatcher</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_manager.html#ac51bb5595426983c049e03b2d5ab6786">setCurrentScene</a> (const int sceneID)</td></tr>
 <tr class="memdesc:ac51bb5595426983c049e03b2d5ab6786"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to change a scene If a scene does not exists throw ERROR_CODE_SCENEMANAGER_SCENES_IS_EMPTY.  <a href="class_scene_manager.html#ac51bb5595426983c049e03b2d5ab6786">More...</a><br /></td></tr>
 <tr class="separator:ac51bb5595426983c049e03b2d5ab6786"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69d85f638ff3fea6c34e550f20089201"><td class="memItemLeft" align="right" valign="top">API shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_manager.html#a69d85f638ff3fea6c34e550f20089201">getSceneWithID</a> (const int sceneID)</td></tr>
-<tr class="memdesc:a69d85f638ff3fea6c34e550f20089201"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a scene with a sceneID If a scene does not exists throw ERROR_CODE_SCENEMANAGER_SCENES_IS_EMPTY.  <a href="class_scene_manager.html#a69d85f638ff3fea6c34e550f20089201">More...</a><br /></td></tr>
-<tr class="separator:a69d85f638ff3fea6c34e550f20089201"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab391cd0b898c8a838207a66a243ff8eb"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_manager.html#ab391cd0b898c8a838207a66a243ff8eb">insertScene</a> (shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt;)</td></tr>
-<tr class="memdesc:ab391cd0b898c8a838207a66a243ff8eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Able to insert a <a class="el" href="class_scene.html" title="Scene Class Contains all the objects that should be drawn in this scene.">Scene</a> into the scenemanager.  <a href="class_scene_manager.html#ab391cd0b898c8a838207a66a243ff8eb">More...</a><br /></td></tr>
-<tr class="separator:ab391cd0b898c8a838207a66a243ff8eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9a321c7ffc5193b46cfc21f3073f9f0"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_manager.html#ad9a321c7ffc5193b46cfc21f3073f9f0">deregisterScene</a> (const int id)</td></tr>
-<tr class="separator:ad9a321c7ffc5193b46cfc21f3073f9f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21b2d04df1f29d7b7de01773ec69f0dd"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_manager.html#a21b2d04df1f29d7b7de01773ec69f0dd">insertScene</a> (unique_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt;)</td></tr>
+<tr class="memdesc:a21b2d04df1f29d7b7de01773ec69f0dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Able to insert a <a class="el" href="class_scene.html" title="Scene Class Contains all the objects that should be drawn in this scene.">Scene</a> into the scenemanager.  <a href="class_scene_manager.html#a21b2d04df1f29d7b7de01773ec69f0dd">More...</a><br /></td></tr>
+<tr class="separator:a21b2d04df1f29d7b7de01773ec69f0dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56cb43864c0f7dddc45ef2af6e50733a"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_manager.html#a56cb43864c0f7dddc45ef2af6e50733a">deregisterCurrentScene</a> ()</td></tr>
+<tr class="separator:a56cb43864c0f7dddc45ef2af6e50733a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aecbb7c556a2389d802bd79c110506a7b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_manager.html#aecbb7c556a2389d802bd79c110506a7b">getFirstFreeSceneID</a> ()</td></tr>
 <tr class="memdesc:aecbb7c556a2389d802bd79c110506a7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last sceneID available in the map + 1.  <a href="class_scene_manager.html#aecbb7c556a2389d802bd79c110506a7b">More...</a><br /></td></tr>
 <tr class="separator:aecbb7c556a2389d802bd79c110506a7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40d9abb791ff02a56f3e2df96601e564"><td class="memItemLeft" align="right" valign="top"><a id="a40d9abb791ff02a56f3e2df96601e564"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>updateCurrentScene</b> (float deltaTime)</td></tr>
+<tr class="separator:a40d9abb791ff02a56f3e2df96601e564"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a7e5d622f3213c305607f9d65ecf6e1e5"><td class="memItemLeft" align="right" valign="top"><a id="a7e5d622f3213c305607f9d65ecf6e1e5"></a>
-shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>currentScene</b> = nullptr</td></tr>
-<tr class="separator:a7e5d622f3213c305607f9d65ecf6e1e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5561951dee8227f76e6be86a1fdd361"><td class="memItemLeft" align="right" valign="top"><a id="ac5561951dee8227f76e6be86a1fdd361"></a>
+unique_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>currentScene</b> = nullptr</td></tr>
+<tr class="separator:ac5561951dee8227f76e6be86a1fdd361"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -113,9 +113,9 @@ Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a4a94208511cf6cf04b27bd9956ff628c"><td class="memItemLeft" align="right" valign="top"><a id="a4a94208511cf6cf04b27bd9956ff628c"></a>
-map&lt; int, shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>scenes</b></td></tr>
-<tr class="separator:a4a94208511cf6cf04b27bd9956ff628c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f41cee53b5e919db779070d3b480438"><td class="memItemLeft" align="right" valign="top"><a id="a2f41cee53b5e919db779070d3b480438"></a>
+map&lt; int, unique_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>scenes</b></td></tr>
+<tr class="separator:a2f41cee53b5e919db779070d3b480438"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains all scenes. Manages all scenes and objects. </p>
@@ -155,17 +155,16 @@ map&lt; int, shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt;
 
 </div>
 </div>
-<a id="ad9a321c7ffc5193b46cfc21f3073f9f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9a321c7ffc5193b46cfc21f3073f9f0">&#9670;&nbsp;</a></span>deregisterScene()</h2>
+<a id="a56cb43864c0f7dddc45ef2af6e50733a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56cb43864c0f7dddc45ef2af6e50733a">&#9670;&nbsp;</a></span>deregisterCurrentScene()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void SceneManager::deregisterScene </td>
+          <td class="memname">void SceneManager::deregisterCurrentScene </td>
           <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -200,36 +199,8 @@ map&lt; int, shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt;
 
 </div>
 </div>
-<a id="a69d85f638ff3fea6c34e550f20089201"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69d85f638ff3fea6c34e550f20089201">&#9670;&nbsp;</a></span>getSceneWithID()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; SceneManager::getSceneWithID </td>
-          <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>sceneID</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get a scene with a sceneID If a scene does not exists throw ERROR_CODE_SCENEMANAGER_SCENES_IS_EMPTY. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">sceneID</td><td>Identifier to a SceneID. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns pointer to the found <a class="el" href="class_scene.html" title="Scene Class Contains all the objects that should be drawn in this scene.">Scene</a>. <br  />
- </dd></dl>
-
-</div>
-</div>
-<a id="ab391cd0b898c8a838207a66a243ff8eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab391cd0b898c8a838207a66a243ff8eb">&#9670;&nbsp;</a></span>insertScene()</h2>
+<a id="a21b2d04df1f29d7b7de01773ec69f0dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21b2d04df1f29d7b7de01773ec69f0dd">&#9670;&nbsp;</a></span>insertScene()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -237,7 +208,7 @@ map&lt; int, shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt;
         <tr>
           <td class="memname">void SceneManager::insertScene </td>
           <td>(</td>
-          <td class="paramtype">shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt;&#160;</td>
+          <td class="paramtype">unique_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt;&#160;</td>
           <td class="paramname"><em>scene</em></td><td>)</td>
           <td></td>
         </tr>

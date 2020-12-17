@@ -15,5 +15,5 @@ var class_physics_engine =
     [ "dispatcher", "class_physics_engine.html#a6945956fed49dc5086c08bf324336169", null ],
     [ "frameData", "class_physics_engine.html#a964c1d68f296b10f72412f32392d0fba", null ],
     [ "physicsFacade", "class_physics_engine.html#a24a900170749a3a8beb373d14082f190", null ],
-    [ "pointerToCurrentScene", "class_physics_engine.html#a63b185521b77cb1f1a6d11432199d4f4", null ]
+    [ "pointerToCurrentScene", "class_physics_engine.html#a8ef9292305318724dddfb46ca073bd2b", null ]
 ];
