@@ -23,7 +23,7 @@ namespace UnitTestsGlitch
 			player.setInvincible(false);
 			// Act
 			player.getStateMachine().changeState(new DamageCooldownState, &player);
-			player.onUpdate();
+			player.onUpdate(1);
 			// Assert
 			Assert::IsTrue(player.getInvincible());
 		}
@@ -38,9 +38,9 @@ namespace UnitTestsGlitch
 			player.setInvincible(true);
 			// Act
 			player.getStateMachine().changeState(new DamageCooldownState, &player);
-			player.onUpdate();
+			player.onUpdate(1);
 			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-			player.onUpdate();
+			player.onUpdate(1);
 			// Assert
 			IState<Player>& result = player.getStateMachine().getCurrentState();
 			// Assert
@@ -64,13 +64,13 @@ namespace UnitTestsGlitch
 			// Act
 
 			player.getStateMachine().changeState(new DamageCooldownState, &player);
-			player.onUpdate();
+			player.onUpdate(1);
 
 			chrono::high_resolution_clock::time_point endTime = chrono::high_resolution_clock::now();
 			std::chrono::milliseconds miliSeconds = std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime);
 			std::chrono::milliseconds ml{ 900 };
 			std::this_thread::sleep_for(std::chrono::milliseconds(ml - miliSeconds));
-			player.onUpdate();
+			player.onUpdate(1);
 			// Assert
 			IState<Player>& result = player.getStateMachine().getCurrentState();
 			// Assert

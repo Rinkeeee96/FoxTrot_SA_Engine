@@ -21,7 +21,7 @@ namespace UnitTestsGlitch
 			return new MockTrigger(id + 1, this->dispatcher);
 		}
 
-		virtual void onUpdate() override {};
+		virtual void onUpdate(float deltaTime) override {};
 	};
 
 	TEST_CLASS(FactoryTests)

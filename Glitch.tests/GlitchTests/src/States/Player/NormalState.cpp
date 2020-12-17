@@ -20,7 +20,7 @@ namespace UnitTestsGlitch
 			player.setTotalHealth(5);
 			player.setCurrentHealth(3);
 			// Act
-			player.onUpdate();
+			player.onUpdate(1);
 			IState<Player>& result = player.getStateMachine().getCurrentState();
 			// Assert
 			if (typeid(NormalState) == typeid(result)) {
@@ -41,7 +41,7 @@ namespace UnitTestsGlitch
 			player.setInvincible(true);
 			// Act
 			player.getStateMachine().changeState(new NormalState, &player);
-			player.onUpdate();
+			player.onUpdate(1);
 			// Assert
 			Assert::IsFalse(player.getInvincible());
 		}
@@ -55,9 +55,9 @@ namespace UnitTestsGlitch
 			player.setTotalHealth(5);
 			player.setCurrentHealth(3);
 			// Act
-			player.onUpdate();
+			player.onUpdate(1);
 			player.setCurrentHealth(2);
-			player.onUpdate();
+			player.onUpdate(1);
 			IState<Player>& result = player.getStateMachine().getCurrentState();
 			// Assert
 			if (typeid(DamageCooldownState) == typeid(result)) {

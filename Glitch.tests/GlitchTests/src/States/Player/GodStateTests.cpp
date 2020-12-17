@@ -20,7 +20,7 @@ namespace UnitTestsGlitch
 			player.setCurrentHealth(3);
 			player.getStateMachine().changeState(new GodState, &player);
 			// Act
-			player.onUpdate();
+			player.onUpdate(1);
 			// Assert
 			Assert::IsTrue(player.getInvincible());
 		}
@@ -35,7 +35,7 @@ namespace UnitTestsGlitch
 			player.setCurrentHealth(3);
 			player.getStateMachine().changeState(new GodState, &player);
 			// Act
-			player.onUpdate();
+			player.onUpdate(1);
 			// Assert
 			Assert::IsTrue(player.getCanJump());
 		}
@@ -50,7 +50,7 @@ namespace UnitTestsGlitch
 			player.setCurrentHealth(3);
 			player.getStateMachine().changeState(new GodState, &player);
 			// Act
-			player.onUpdate();
+			player.onUpdate(1);
 			// Assert
 			Assert::AreEqual(player.getCurrentHealth(), 5);
 		}

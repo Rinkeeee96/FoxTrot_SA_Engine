@@ -32,7 +32,7 @@ namespace UnitTestsGlitch
 			level.createLayer(1, true, true);
 			// Act
 			player.kill();
-			level.onUpdate();
+			level.onUpdate(1);
 			// Assert
 			Assert::IsFalse(level.getWin());
 		}

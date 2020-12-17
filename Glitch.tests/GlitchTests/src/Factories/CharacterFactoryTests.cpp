@@ -22,7 +22,7 @@ namespace UnitTestsGlitch
 			return new MockCharacter(id + 1, this->dispatcher);
 		}
 
-		void onUpdate() override {
+		void onUpdate(float deltaTime) override {
 
 		}
 	};
