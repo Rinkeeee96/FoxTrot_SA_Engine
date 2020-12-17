@@ -4,9 +4,9 @@
 #include "box2d/box2d.h"
 
 /// @brief Constructor
-PhysicsFacade::PhysicsFacade(EventDispatcher& _dispatcher, unique_ptr<FrameData>& _frameData) : dispatcher{ _dispatcher }, frameData{_frameData}
+PhysicsFacade::PhysicsFacade(EventDispatcher& _dispatcher, unique_ptr<FrameData>& _frameData) 
+	: dispatcher{ _dispatcher }, frameData{_frameData} , world(make_unique<b2World>(b2Vec2(GRAVITY_SCALE, GRAVITY_FALL)))
 {
-	world = shared_ptr<b2World>(new b2World(b2Vec2(GRAVITY_SCALE, GRAVITY_FALL)));
 	world->SetContactListener(new ContactListenerAdapter(this, _dispatcher));
 }
 
@@ -245,6 +245,6 @@ void PhysicsFacade::cleanMap()
 {
 	bodies.clear();
 	world.reset();
-	world = shared_ptr<b2World>(new b2World(b2Vec2(GRAVITY_SCALE, GRAVITY_FALL)));
+	world = make_unique<b2World>(b2Vec2(GRAVITY_SCALE, GRAVITY_FALL));
 	world->SetContactListener(new ContactListenerAdapter(this, dispatcher));
 }
