@@ -21,7 +21,7 @@ void FrameData::startTimer() {
 /// @returns const float
 const float FrameData::calculateDeltaTime(int timeStep)
 {
-	return static_cast<const float>(timeStep / lastFrameFps);
+	return static_cast<const float>(lastFrameFps != 0 ? timeStep / lastFrameFps : 0);
 }
 
 /// @brief

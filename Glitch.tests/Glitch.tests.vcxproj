@@ -191,6 +191,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch.tests\TestAssetsGame" "$(OutDir)TestA
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GlitchTests\src\mocks\MockScene.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>

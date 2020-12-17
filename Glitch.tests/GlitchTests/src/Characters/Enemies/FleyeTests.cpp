@@ -1,6 +1,9 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 #include <Game/Characters/Enemies/Fleye.h>
+#include <Game/Commands/Builder/CommandBuilder.h>
+#include <Game/Scenes/Statemachine/SceneStateMachine.h>
+#include "../../mocks/MockScene.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -17,11 +20,71 @@ namespace UnitTestsGlitch
 		TEST_METHOD(Fleye_On_Update_Player_Beneath_Should_Go_Down)
 		{
 			// Arrange
+			unique_ptr<Engine> engine = make_unique<Engine>();
+			CommandBuilder commandBuilder;
+			engine->start();
+			engine->useCustomCommandInvoker(commandBuilder.readBindingsAndCreateInvoker());
+			EventDispatcher dispatcher;
+
+			shared_ptr<Savegame> savegame = shared_ptr<Savegame>(new Savegame());
+			savegame->setCurrentGameData(1);
+			shared_ptr<SceneStateMachine> statemachine = make_shared<SceneStateMachine>(engine, savegame);
+
+			shared_ptr<Fleye> fleye = make_shared<Fleye>(dispatcher);
+			fleye->setPositionX(100);
+			fleye->setPositionY(100);
+			fleye->setWidth(50);
+			fleye->setHeight(50);
 			
+			fleye->setSpeed(100);
+			fleye->setJumpHeight(4);
+			fleye->setDensity(1000000);
+			fleye->setFriction(0);
+			fleye->setRestitution(0);
+			fleye->setStatic(false);
+
+			auto result = fleye->buildSpritemap(1);
+			map<SpriteState, shared_ptr<SpriteObject>>::iterator it = result.begin();
+			while (it != result.end())
+			{
+				fleye->registerSprite(it->first, it->second);
+				it++;
+			}
+			fleye->changeToState(0);
+
+			float oldY = fleye->getPositionY();
+
+			shared_ptr<Player> player = make_shared<Player>(dispatcher);
+			player->setPositionX(100);
+			player->setPositionY(200);
+			player->setWidth(50);
+			player->setHeight(50);
+
+			result = player->buildSpritemap(1);
+			it = result.begin();
+			while (it != result.end())
+			{
+				player->registerSprite(it->first, it->second);
+				it++;
+			}
+			player->changeToState(0);
+
+			fleye->setPlayer(player.get());
+
+			unique_ptr<MockScene> scene = make_unique<MockScene>();
+
+			scene->addNewObjectToLayer(1, fleye, true, false);
+			scene->addNewObjectToLayer(1, player, true, false);
+			engine->insertScene(move(scene));
+			engine->setCurrentScene(1);
+
 			// Act
 
+			fleye->onUpdate(1);
+			engine->update();
+			
 			// Assert
-			Assert::IsTrue(false);
+			Assert::IsTrue(fleye->getPositionY() > oldY);
 		}
 
 		TEST_METHOD(Fleye_On_Update_Player_Not_Beneath_Should_Stay_Same)
