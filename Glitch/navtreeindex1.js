@@ -1,6 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"class_game_keypress_invoker.html#ad6c24425f5b03ef09995d4d3f6b9d0b9":[0,0,21,3],
 "class_game_keypress_invoker.html#af378cd522c0f1a7e964280707d5eedda":[0,0,21,5],
 "class_game_scene.html":[0,0,22],
 "class_game_scene.html#a1796ecd869a64933c39be0af9628a11c":[0,0,22,6],
@@ -249,5 +248,6 @@ var NAVTREEINDEX1 =
 "class_overworld.html#a5ae41765ac94fc80e7f3c30499d1b15d":[0,0,54,7],
 "class_overworld.html#a5c366de55b2a233f0d8336d0857c8089":[0,0,54,5],
 "class_overworld.html#a5f63a6667d3e64705feccaaa360f91fd":[0,0,54,10],
-"class_overworld.html#a6a79df3c9db30d56c21b19a13591b26f":[0,0,54,14]
+"class_overworld.html#a6a79df3c9db30d56c21b19a13591b26f":[0,0,54,14],
+"class_overworld.html#a9d92673d6c0c10e2dcb8be3b07742f5f":[0,0,54,15]
 };

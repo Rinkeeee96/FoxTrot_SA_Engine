@@ -64,22 +64,21 @@ $(document).ready(function(){initNavTree('_trigger_factory_8h_source.html',''); 
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;Game\Triggers\BaseTrigger.h&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Game\General\GameErrorCodes.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_trigger_factory.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_trigger_factory.html">TriggerFactory</a> {</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    map&lt;string, shared_ptr&lt;BaseTrigger&gt;&gt; triggerMap;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="class_trigger_factory.html">TriggerFactory</a>();</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_trigger_factory.html#aa03db4c247b16280c34f6105e0d4a6ba">registerTrigger</a>(<span class="keywordtype">string</span> name, shared_ptr&lt;BaseTrigger&gt; trigger);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    shared_ptr&lt;BaseTrigger&gt; <a class="code" href="class_trigger_factory.html#a9c11da33324dad02617441e7439d06dd">create</a>(<span class="keywordtype">string</span> name, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;};</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="class_trigger_factory.html">    5</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_trigger_factory.html">TriggerFactory</a> {</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    map&lt;string, shared_ptr&lt;BaseTrigger&gt;&gt; triggerMap;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="class_trigger_factory.html">TriggerFactory</a>();</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_trigger_factory.html#aa03db4c247b16280c34f6105e0d4a6ba">registerTrigger</a>(<span class="keywordtype">string</span> name, shared_ptr&lt;BaseTrigger&gt; trigger);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    shared_ptr&lt;BaseTrigger&gt; <a class="code" href="class_trigger_factory.html#a9c11da33324dad02617441e7439d06dd">create</a>(<span class="keywordtype">string</span> name, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_trigger_factory_html_aa03db4c247b16280c34f6105e0d4a6ba"><div class="ttname"><a href="class_trigger_factory.html#aa03db4c247b16280c34f6105e0d4a6ba">TriggerFactory::registerTrigger</a></div><div class="ttdeci">void registerTrigger(string name, shared_ptr&lt; BaseTrigger &gt; trigger)</div><div class="ttdoc">Register trigger with its name in factory for later cloning.</div><div class="ttdef"><b>Definition:</b> TriggerFactory.cpp:9</div></div>
 <div class="ttc" id="aclass_trigger_factory_html_a9c11da33324dad02617441e7439d06dd"><div class="ttname"><a href="class_trigger_factory.html#a9c11da33324dad02617441e7439d06dd">TriggerFactory::create</a></div><div class="ttdeci">shared_ptr&lt; BaseTrigger &gt; create(string name, int id)</div><div class="ttdoc">Creates an empty triger to clone to.</div><div class="ttdef"><b>Definition:</b> TriggerFactory.cpp:19</div></div>
-<div class="ttc" id="aclass_trigger_factory_html"><div class="ttname"><a href="class_trigger_factory.html">TriggerFactory</a></div><div class="ttdoc">Factory for triggers.</div><div class="ttdef"><b>Definition:</b> TriggerFactory.h:6</div></div>
+<div class="ttc" id="aclass_trigger_factory_html"><div class="ttname"><a href="class_trigger_factory.html">TriggerFactory</a></div><div class="ttdoc">Factory for triggers.</div><div class="ttdef"><b>Definition:</b> TriggerFactory.h:5</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

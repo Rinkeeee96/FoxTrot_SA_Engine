@@ -63,30 +63,29 @@ $(document).ready(function(){initNavTree('_character_factory_8h_source.html','')
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;Game\General\GameErrorCodes.h&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Game\Characters\ICharacter.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Game\SpriteState.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">class </span><a class="code" href="class_level.html">Level</a>;</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_character_factory.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_character_factory.html">CharacterFactory</a> {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    map&lt;string, shared_ptr&lt;ICharacter&gt;&gt; characterMap;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    map&lt;string, map&lt;SpriteState, shared_ptr&lt;SpriteObject&gt;&gt;&gt; spriteObjectMap;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    unique_ptr&lt;Engine&gt;&amp; engine;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="class_level.html">Level</a>&amp; level;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="class_character_factory.html#ae608bdb6e2ca00c64c842fbed1837ec9">CharacterFactory</a>(unique_ptr&lt;Engine&gt;&amp; _engine, <a class="code" href="class_level.html">Level</a>&amp; _level);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_character_factory.html#a67217768f4aa243dee2da7ff3d6cc13f">registerCharacter</a>(<span class="keywordtype">string</span> name, shared_ptr&lt;ICharacter&gt; character, <span class="keywordtype">int</span>* textureId);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    shared_ptr&lt;ICharacter&gt; <a class="code" href="class_character_factory.html#a1f78cc96401293ac2508713a447438da">create</a>(<span class="keywordtype">string</span> name, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;Game\Characters\ICharacter.h&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Game\SpriteState.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">class </span><a class="code" href="class_level.html">Level</a>;</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_character_factory.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_character_factory.html">CharacterFactory</a> {</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    map&lt;string, shared_ptr&lt;ICharacter&gt;&gt; characterMap;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    map&lt;string, map&lt;SpriteState, shared_ptr&lt;SpriteObject&gt;&gt;&gt; spriteObjectMap;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    unique_ptr&lt;Engine&gt;&amp; engine;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="class_level.html">Level</a>&amp; level;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="class_character_factory.html#ae608bdb6e2ca00c64c842fbed1837ec9">CharacterFactory</a>(unique_ptr&lt;Engine&gt;&amp; _engine, <a class="code" href="class_level.html">Level</a>&amp; _level);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_character_factory.html#a67217768f4aa243dee2da7ff3d6cc13f">registerCharacter</a>(<span class="keywordtype">string</span> name, shared_ptr&lt;ICharacter&gt; character, <span class="keywordtype">int</span>* textureId);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    shared_ptr&lt;ICharacter&gt; <a class="code" href="class_character_factory.html#a1f78cc96401293ac2508713a447438da">create</a>(<span class="keywordtype">string</span> name, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_character_factory_html_a67217768f4aa243dee2da7ff3d6cc13f"><div class="ttname"><a href="class_character_factory.html#a67217768f4aa243dee2da7ff3d6cc13f">CharacterFactory::registerCharacter</a></div><div class="ttdeci">void registerCharacter(string name, shared_ptr&lt; ICharacter &gt; character, int *textureId)</div><div class="ttdoc">Register object with its name in factory for later cloning.</div><div class="ttdef"><b>Definition:</b> CharacterFactory.cpp:14</div></div>
 <div class="ttc" id="aclass_level_html"><div class="ttname"><a href="class_level.html">Level</a></div><div class="ttdoc">Level class. Level has all the information.</div><div class="ttdef"><b>Definition:</b> Level.h:10</div></div>
 <div class="ttc" id="aclass_character_factory_html_a1f78cc96401293ac2508713a447438da"><div class="ttname"><a href="class_character_factory.html#a1f78cc96401293ac2508713a447438da">CharacterFactory::create</a></div><div class="ttdeci">shared_ptr&lt; ICharacter &gt; create(string name, int id)</div><div class="ttdoc">Creates an empty objects and registerd sprites.</div><div class="ttdef"><b>Definition:</b> CharacterFactory.cpp:27</div></div>
 <div class="ttc" id="aclass_character_factory_html_ae608bdb6e2ca00c64c842fbed1837ec9"><div class="ttname"><a href="class_character_factory.html#ae608bdb6e2ca00c64c842fbed1837ec9">CharacterFactory::CharacterFactory</a></div><div class="ttdeci">CharacterFactory(unique_ptr&lt; Engine &gt; &amp;_engine, Level &amp;_level)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> CharacterFactory.cpp:7</div></div>
-<div class="ttc" id="aclass_character_factory_html"><div class="ttname"><a href="class_character_factory.html">CharacterFactory</a></div><div class="ttdoc">Factory for creating entities.</div><div class="ttdef"><b>Definition:</b> CharacterFactory.h:9</div></div>
+<div class="ttc" id="aclass_character_factory_html"><div class="ttname"><a href="class_character_factory.html">CharacterFactory</a></div><div class="ttdoc">Factory for creating entities.</div><div class="ttdef"><b>Definition:</b> CharacterFactory.h:8</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

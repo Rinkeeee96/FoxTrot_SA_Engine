@@ -22,11 +22,10 @@ var NAVTREEINDEX0 =
 "_factory_method_8h_source.html":[1,0,0,9,2,2],
 "_fleye_8h_source.html":[1,0,0,1,0,1],
 "_game_8h_source.html":[1,0,0,12],
-"_game_error_codes_8h_source.html":[1,0,0,4,0],
 "_game_keypress_invoker_8h_source.html":[1,0,0,2,4],
 "_game_scene_8h_source.html":[1,0,0,9,11],
-"_general_enemy_defines_8h_source.html":[1,0,0,4,1],
-"_general_game_defines_8h_source.html":[1,0,0,4,2],
+"_general_enemy_defines_8h_source.html":[1,0,0,4,0],
+"_general_game_defines_8h_source.html":[1,0,0,4,1],
 "_general_transition_8h_source.html":[1,0,0,9,9,0,0],
 "_glitch_8h_source.html":[1,0,1],
 "_global_command_8h_source.html":[1,0,0,2,5],
@@ -249,5 +248,6 @@ var NAVTREEINDEX0 =
 "class_game_keypress_invoker.html#a88f79816d600915748d6df5cba3903a2":[0,0,21,11],
 "class_game_keypress_invoker.html#a957b9f23b824e8ad5161621acb456ad5":[0,0,21,7],
 "class_game_keypress_invoker.html#a9da00b49776765d62465f9f4dadef454":[0,0,21,4],
-"class_game_keypress_invoker.html#aa202a565434bb7eb337f77161ae62991":[0,0,21,0]
+"class_game_keypress_invoker.html#aa202a565434bb7eb337f77161ae62991":[0,0,21,0],
+"class_game_keypress_invoker.html#ad6c24425f5b03ef09995d4d3f6b9d0b9":[0,0,21,3]
 };
