@@ -5,9 +5,9 @@
 /// Abstract builder class for creating a level
 class AbstractLevelBuilder : public ILevelBuilder {
 protected:
-	Engine& engine;
+	unique_ptr<Engine>& engine;
 public:
-	AbstractLevelBuilder(Engine& _engine) : engine(_engine) { }
+	AbstractLevelBuilder(unique_ptr<Engine>& _engine) : engine(_engine) { }
 
 	unique_ptr<Level> getLevel() override { return std::move(level); }
 

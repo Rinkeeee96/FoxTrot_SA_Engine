@@ -4,19 +4,19 @@
 
 /// @brief 
 /// Constructor
-CharacterFactory::CharacterFactory(Engine& _engine, Level& _level) : engine{ _engine }, level{_level} {}
+CharacterFactory::CharacterFactory(unique_ptr<Engine>& _engine, Level& _level) : engine{ _engine }, level{_level} {}
 
 /// @brief 
 /// Register object with its name in factory for later cloning
 /// @param name 
 /// @param character 
 /// @param _spriteObjectMap , All sprites of the object 
-void CharacterFactory::registerCharacter(string name, ICharacter* character, int* textureID) {
+void CharacterFactory::registerCharacter(string name, shared_ptr<ICharacter> character, int* textureID) {
 	if (characterMap.count(name) == 0) {
-		characterMap.insert(pair<string&, ICharacter*>(name, character));
-		map<SpriteState, SpriteObject*> spriteMap = character->buildSpritemap(*textureID);
+		characterMap.insert(pair<string&, shared_ptr<ICharacter>>(name, character));
+		map<SpriteState, shared_ptr<SpriteObject>> spriteMap = character->buildSpritemap(*textureID);
 		*textureID += static_cast<int>(spriteMap.size());
-		spriteObjectMap.insert(pair<string, map<SpriteState, SpriteObject*>>(name, spriteMap));
+		spriteObjectMap.insert(pair<string, map<SpriteState, shared_ptr<SpriteObject>>>(name, spriteMap));
 	}
 	else {
 		throw exception("identifier already registered");
@@ -27,12 +27,12 @@ void CharacterFactory::registerCharacter(string name, ICharacter* character, int
 /// Creates an empty objects and registerd sprites
 /// @param name 
 /// @param id 
-ICharacter* CharacterFactory::create(string name, int id) {
+shared_ptr<ICharacter> CharacterFactory::create(string name, int id) {
 	if (characterMap.count(name) > 0) {
-		auto clone = characterMap[name]->clone(id);
+		shared_ptr<ICharacter> clone = characterMap[name]->clone(id);
 
 		if (name == "player") {
-			level.setPlayer(clone);
+			level.setPlayer(shared_ptr<Object>(clone));
 		}
 
 		auto sprites = spriteObjectMap[name];

@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "PhysicsBody.h"
 
-PhysicsBody::PhysicsBody(Object* object) : objectID(object->getObjectId()), height(object->getHeight() / DIVIDER), width(object->getWidth() / DIVIDER), posX(object->getPositionX() / DIVIDER),
+PhysicsBody::PhysicsBody(shared_ptr<Object> object) : objectID(object->getObjectId()), height(object->getHeight() / DIVIDER), width(object->getWidth() / DIVIDER), posX(object->getPositionX() / DIVIDER),
 	posY(object->getPositionY() / DIVIDER), speed(object->getSpeed()), friction(object->getFriction()), restitution(object->getRestitution()), density(object->getDensity()),
 	rotation(object->getRotation()), jumpHeight(object->getJumpHeight()), gravity(object->getGravity()), yAxisVelocity(object->getYAxisVelocity()), rotatable(object->getRotatable()) {
 	this->object = object;

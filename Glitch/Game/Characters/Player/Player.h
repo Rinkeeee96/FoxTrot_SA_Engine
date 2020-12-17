@@ -31,7 +31,7 @@ public:
 	/// Register the keypressinvoker from the builder to capture relevant keyevents and act on them accordingly
 	void registerKeypressInvoker(GameKeypressInvoker* invoker);
 
-	map<SpriteState, SpriteObject*> buildSpritemap(int textureId) override;
+	map<SpriteState, shared_ptr<SpriteObject>> buildSpritemap(int textureId) override;
 
 	void onUpdate(float deltaTime) override {
 		if (releasedKeyLastFrame)
@@ -42,7 +42,7 @@ public:
 	};
 	
 	StateMachine<Player>& getStateMachine() { return this->stateMachine; }
-	ICharacter* clone(int id) override;
+	shared_ptr<ICharacter> clone(int id) override;
 private:
 	GameKeypressInvoker* invoker; 
 	StateMachine<Player> stateMachine;

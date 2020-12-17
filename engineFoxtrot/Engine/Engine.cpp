@@ -36,14 +36,14 @@ void Engine::setCurrentScene(const int sceneID)
 
 /// @brief Returns the currentScene
 /// @return 
-Scene* Engine::getCurrentScene()
+shared_ptr<Scene> Engine::getCurrentScene()
 {
 	return sceneManager.currentScene;
 }
 
 /// @brief 
 /// @param scene
-void Engine::insertScene(Scene* scene)
+void Engine::insertScene(shared_ptr<Scene> scene)
 {
 	sceneManager.insertScene(scene);
 }

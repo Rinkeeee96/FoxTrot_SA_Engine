@@ -27,15 +27,15 @@ void VideoEngine::drawScreen()
 /// @brief Loads the PNG files AKA sprites
 /// @param spriteID 
 /// @param filename
-void VideoEngine::loadImage(const SpriteObject& spriteObject)
+void VideoEngine::loadImage(const shared_ptr<SpriteObject> spriteObject)
 {
 	videoFacade->loadImage(spriteObject);
 }
 
 /// @brief Sets the sprite on the screen
 /// @param Object 
-void VideoEngine::renderCopy(Drawable& object) {
-	videoFacade->renderCopy(object, frameData->calculateDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
+void VideoEngine::renderCopy(shared_ptr<Drawable> object) {
+	videoFacade->renderCopy(object,frameData->calculateDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
 }
 
 /// @brief 
@@ -44,14 +44,14 @@ void VideoEngine::renderCopy(Drawable& object) {
 /// This is the Object marked as a player
 /// @param sceneWidth 
 /// @param sceneHeight 
-void VideoEngine::calculateOffset(Object& obj, int sceneWidth, int sceneHeight)
+void VideoEngine::calculateOffset(shared_ptr<Object> obj, int sceneWidth, int sceneHeight)
 {
 	// Place obj variables in temporary variables for easy use. 
 	// Object Y pos needs to be subtracted with the height due to the position conversion from Object to SDL2.
-	int objectPosY = (int)obj.getPositionY() - (int)obj.getHeight();
-	int objectPosX = (int)obj.getPositionX();
-	int objectWidth = (int)obj.getWidth();
-	int objectHeight = (int)obj.getHeight();
+	int objectPosY = (int)obj->getPositionY() - (int)obj->getHeight();
+	int objectPosX = (int)obj->getPositionX();
+	int objectWidth = (int)obj->getWidth();
+	int objectHeight = (int)obj->getHeight();
 
 	int cameraOffsetX = videoFacade->getXCameraOffset();
 	int cameraOffsetY = videoFacade->getYCameraOffset();
@@ -121,12 +121,12 @@ void VideoEngine::calculateOffset(Object& obj, int sceneWidth, int sceneHeight)
 /// @brief This function checks if the obj is in screen or partially in screen
 /// @param obj 
 /// @return true if on screen, false if off screen
-bool VideoEngine::checkObjectInScreen(const Object& obj) {
+bool VideoEngine::checkObjectInScreen(const shared_ptr<Object> obj) {
 	float objLeft, objRight, objUp, objDown;
-	objLeft = obj.getPositionX();
-	objRight = obj.getPositionX() + obj.getWidth();
-	objUp = obj.getPositionY() - obj.getHeight();
-	objDown = obj.getPositionY();
+	objLeft = obj->getPositionX();
+	objRight = obj->getPositionX() + obj->getWidth();
+	objUp = obj->getPositionY() - obj->getHeight();
+	objDown = obj->getPositionY();
 
 	//Check if any corner is in the screen
 		// Check top right corner
@@ -163,7 +163,7 @@ void VideoEngine::clearVideoEngine()
 /// @param dispatcher 
 void VideoEngine::start(EventDispatcher& dispatcher)
 {
-	videoFacade = new VideoFacade();
+	videoFacade = unique_ptr<VideoFacade>(new VideoFacade());
 }
 
 /// @brief Calls the functions to render a screen.
@@ -180,7 +180,6 @@ void VideoEngine::update()
 void VideoEngine::shutdown()
 {
 	clearVideoEngine();
-	delete videoFacade;
 }
 
 /// @brief 
@@ -196,7 +195,7 @@ void VideoEngine::updateScreen()
 	int objectIDToFollow = (*pointerToCurrentScene)->getObjectToFollowID();
 	if (objectIDToFollow != -1)
 	{
-		calculateOffset(*(*pointerToCurrentScene)->getObject(objectIDToFollow), (*pointerToCurrentScene)->getSceneWidth(), (*pointerToCurrentScene)->getSceneHeight());
+		calculateOffset((*pointerToCurrentScene)->getObject(objectIDToFollow), (*pointerToCurrentScene)->getSceneWidth(), (*pointerToCurrentScene)->getSceneHeight());
 	}
 	else
 	{
@@ -206,13 +205,13 @@ void VideoEngine::updateScreen()
 
 	for (auto layer : (*pointerToCurrentScene)->getLayers()) {
 		for (auto obj : layer.second->objects) {
-			if (obj.second && ((layer.second->getAlwaysVisible() || !obj.second->getIsRemoved()) || (checkObjectInScreen(*obj.second) && !obj.second->getIsRemoved()))) {
+			if (obj.second && ((layer.second->getAlwaysVisible() || !obj.second->getIsRemoved()) || (checkObjectInScreen(obj.second) && !obj.second->getIsRemoved()))) {
 				if (obj.second->getIsParticle()) {
-					drawParticle((ParticleAdapter*)obj.second);
+					drawParticle(dynamic_pointer_cast<ParticleAdapter>(obj.second));
 				}
 				else {
-					if (Drawable* drawable = dynamic_cast<Drawable*>(obj.second))
-						renderCopy(*drawable);
+					if (auto drawable = dynamic_pointer_cast<Drawable>(obj.second))
+						renderCopy(drawable);
 				}
 			}
 		}
@@ -254,11 +253,7 @@ void VideoEngine::toggleFps() {
 
 /// @brief Draws the Particles
 /// @param part pointer to the particle
-bool VideoEngine::drawParticle(ParticleAdapter* part)
+void VideoEngine::drawParticle(shared_ptr<ParticleAdapter> part)
 {
-	
-	videoFacade->drawParticle(*part);
-	
-	// do not handle on update events, they are continues
-	return false;
+	videoFacade->drawParticle(part);
 }

@@ -6,7 +6,7 @@
 /// @brief Constructor
 PhysicsFacade::PhysicsFacade(EventDispatcher& _dispatcher, unique_ptr<FrameData>& _frameData) : dispatcher{ _dispatcher }, frameData{_frameData}
 {
-	world = new b2World(b2Vec2(GRAVITY_SCALE, GRAVITY_FALL));
+	world = shared_ptr<b2World>(new b2World(b2Vec2(GRAVITY_SCALE, GRAVITY_FALL)));
 	world->SetContactListener(new ContactListenerAdapter(this, _dispatcher));
 }
 
@@ -44,7 +44,7 @@ CollisionStruct PhysicsFacade::getObjectsByFixture(b2Fixture* fixture1, b2Fixtur
 /// If a body is not found throw PHYSICS_FACADE_OBJECT_DOESNT_EXIST
 /// @param objectId 
 /// Identifier for ObjectID
-PhysicsBody* PhysicsFacade::getPhysicsObject(const int objectId)
+shared_ptr<PhysicsBody> PhysicsFacade::getPhysicsObject(const int objectId)
 {
 	for (const auto& value : bodies) {
 		if (value.first->getObjectId() == objectId)
@@ -74,7 +74,7 @@ b2PolygonShape createShape(const PhysicsBody& object) {
 /// A function for register a non static object
 /// @param Object 
 /// The object to register
-void PhysicsFacade::addStaticObject(PhysicsBody* object) {
+void PhysicsFacade::addStaticObject(shared_ptr<PhysicsBody> object) {
 	b2BodyDef groundBodyDef;
 	groundBodyDef.type = b2_staticBody;
 	b2Body* body = world->CreateBody(&groundBodyDef);
@@ -96,14 +96,14 @@ void PhysicsFacade::addStaticObject(PhysicsBody* object) {
 	float posX = object->getPositionX() + object->getWidth() / 2; //Box2d needs the middle position
 	groundBodyDef.position.Set(posX, posY);
 
-	bodies.insert(pair<PhysicsBody*, b2Body*>(object, body));
+	bodies.insert(pair<shared_ptr<PhysicsBody>, b2Body*>(object, body));
 }
 
 /// @brief 
 /// A function for register a non static object
 /// @param Object 
 /// The object to register
-void PhysicsFacade::addDynamicObject(PhysicsBody* object)
+void PhysicsFacade::addDynamicObject(shared_ptr<PhysicsBody> object)
 {
 	b2BodyDef bodyDef;
 	bodyDef.type = b2_dynamicBody;
@@ -127,7 +127,7 @@ void PhysicsFacade::addDynamicObject(PhysicsBody* object)
 
 	if(DEBUG_PHYSICS_ENGINE)cout << "Pushing back obj: spriteid: " << object->getObjectId() << endl;
 	body->SetGravityScale(object->getGravity());
-	bodies.insert(pair<PhysicsBody*, b2Body*>(object, body));
+	bodies.insert(pair<shared_ptr<PhysicsBody>, b2Body*>(object, body));
 }
 
 /// @brief 
@@ -157,7 +157,7 @@ void PhysicsFacade::update() {
 		b2Body* body = it.second;
 		if (body->GetType() == b2_staticBody) continue;
 
-		PhysicsBody* object = it.first;
+		auto object = it.first;
 		if (!object) return;
 		object->setPositionX(body->GetWorldCenter().x - object->getWidth() / 2);
 		object->setPositionY(body->GetWorldCenter().y + object->getHeight() / 2);
@@ -170,7 +170,7 @@ void PhysicsFacade::update() {
 
 void PhysicsFacade::stopObject(int objectId, bool stopVertical, bool stopHorizontal) {
 	b2Body* body = findBody(objectId);
-	const PhysicsBody* ob = getPhysicsObject(objectId);
+	auto ob = getPhysicsObject(objectId);
 	if (!body || !ob) return;
 	b2Vec2 vel = body->GetLinearVelocity();
 	vel.y = stopVertical ? 0 : ob->getYAxisVelocity();
@@ -185,7 +185,7 @@ void PhysicsFacade::stopObject(int objectId, bool stopVertical, bool stopHorizon
 void PhysicsFacade::MoveLeft(const int objectId)
 {
 	b2Body* body = findBody(objectId);
-	const PhysicsBody* ob = getPhysicsObject(objectId);
+	auto ob = getPhysicsObject(objectId);
 	if (!body || !ob) return;
 
 	b2Vec2 vel = body->GetLinearVelocity();
@@ -200,7 +200,7 @@ void PhysicsFacade::MoveLeft(const int objectId)
 void PhysicsFacade::MoveRight(const int objectId)
 {
 	b2Body* body = findBody(objectId);
-	const PhysicsBody* ob = getPhysicsObject(objectId);
+	auto ob = getPhysicsObject(objectId);
 	if (!body || !ob) return;
 
 	b2Vec2 vel = body->GetLinearVelocity();
@@ -215,7 +215,7 @@ void PhysicsFacade::MoveRight(const int objectId)
 void PhysicsFacade::Jump(const int objectId)
 {
 	b2Body* body = findBody(objectId);
-	const PhysicsBody* ob = getPhysicsObject(objectId);
+	auto ob = getPhysicsObject(objectId);
 	if (!body || !ob) return;
 
 	b2Vec2 vel = body->GetLinearVelocity();
@@ -230,7 +230,7 @@ void PhysicsFacade::Jump(const int objectId)
 void PhysicsFacade::Fall(const int objectId)
 {
 	b2Body* body = findBody(objectId);
-	const PhysicsBody* ob = getPhysicsObject(objectId);
+	auto ob = getPhysicsObject(objectId);
 	if (!body || !ob) return;
 
 	b2Vec2 vel = body->GetLinearVelocity();
@@ -243,12 +243,8 @@ void PhysicsFacade::Fall(const int objectId)
 /// destroy all the bodies of the world
 void PhysicsFacade::cleanMap()
 {
-	for (auto b : bodies)
-	{
-		delete b.first;
-	}
 	bodies.clear();
-	delete world;
-	world = new b2World(b2Vec2(GRAVITY_SCALE, GRAVITY_FALL));
+	world.reset();
+	world = shared_ptr<b2World>(new b2World(b2Vec2(GRAVITY_SCALE, GRAVITY_FALL)));
 	world->SetContactListener(new ContactListenerAdapter(this, dispatcher));
 }

@@ -21,43 +21,43 @@ void Overworld::onAttach()
 /// @brief 
 /// Loads all the buttons in the Overworld
 void Overworld::loadButtons() {
-	auto defaultBtnSprite = new SpriteObject(101013, 11, 15, 1, 300, "Assets/Buttons/village_orange.png");
-	auto hoverBtnSprite = new SpriteObject(101012, 11, 15, 1, 300, "Assets/Buttons/village_gray.png");
-	auto transSprite = new SpriteObject(101014, 10, 10, 1, 300, "Assets/transparant.png");
+	shared_ptr<SpriteObject> defaultBtnSprite = shared_ptr<SpriteObject>(new SpriteObject(101013, 11, 15, 1, 300, "Assets/Buttons/village_orange.png"));
+	shared_ptr<SpriteObject> hoverBtnSprite = shared_ptr<SpriteObject>(new SpriteObject(101012, 11, 15, 1, 300, "Assets/Buttons/village_gray.png"));
+	shared_ptr<SpriteObject> transSprite = shared_ptr<SpriteObject>(new SpriteObject(101014, 10, 10, 1, 300, "Assets/transparant.png"));
 
-	auto* shop = new Button(10, ColoredText("", Color(255, 255, 255)), onShopBtnClick, defaultBtnSprite, this->dispatcher);
+	shared_ptr<Button> shop = shared_ptr<Button>(new Button(10, ColoredText("", Color(255, 255, 255)), onShopBtnClick, defaultBtnSprite, this->dispatcher));
 	shop->setWidth(32);
 	shop->setHeight(32);
 	shop->setPositionX(305);
 	shop->setPositionY(1000);
 	shop->registerHoverSprite(hoverBtnSprite);
 
-	auto* shopText = new Text(15, new ColoredText("Winkel", Color(0, 0, 0)), 70, 50, 390, 1000);
+	shared_ptr<Text> shopText = shared_ptr<Text>(new Text(15, new ColoredText("Winkel", Color(0, 0, 0)), 70, 50, 390, 1000));
 
-	auto* shop1 = new Button(11, ColoredText("", Color(255, 255, 255)), onShopBtnClick, defaultBtnSprite, this->dispatcher);
+	shared_ptr<Button> shop1 = shared_ptr<Button>(new Button(11, ColoredText("", Color(255, 255, 255)), onShopBtnClick, defaultBtnSprite, this->dispatcher));
 	shop1->setWidth(32);
 	shop1->setHeight(32);
 	shop1->setPositionX(390);
 	shop1->setPositionY(990);
 	shop1->registerHoverSprite(hoverBtnSprite);
 
-	auto* shop2 = new Button(12, ColoredText("", Color(255, 255, 255)), onShopBtnClick, defaultBtnSprite, this->dispatcher);
+	shared_ptr<Button> shop2 = shared_ptr<Button>(new Button(12, ColoredText("", Color(255, 255, 255)), onShopBtnClick, defaultBtnSprite, this->dispatcher));
 	shop2->setWidth(32);
 	shop2->setHeight(32);
 	shop2->setPositionX(340);
 	shop2->setPositionY(1030);
 	shop2->registerHoverSprite(hoverBtnSprite);
 
-	auto* level1Btn = new Button(1, ColoredText("", Color(255, 255, 255)), onLevel1BtnClick, defaultBtnSprite, this->dispatcher);
+	shared_ptr<Button> level1Btn = shared_ptr<Button>(new Button(1, ColoredText("", Color(255, 255, 255)), onLevel1BtnClick, defaultBtnSprite, this->dispatcher));
 	level1Btn->setWidth(32);
 	level1Btn->setHeight(32);
 	level1Btn->setPositionX(955);
 	level1Btn->setPositionY(320);
 	level1Btn->registerHoverSprite(hoverBtnSprite);
 
-	auto* level1TextBtn = new Text(2, new ColoredText("Level 1, Score: " + to_string(savegame->getCurrentGameData().levelData[0].score), Color(0, 0, 0)), 120, 30, 955, 340);
+	shared_ptr<Text> level1TextBtn = shared_ptr<Text>(new Text(2, new ColoredText("Level 1, Score: " + to_string(savegame->getCurrentGameData().levelData[0].score), Color(0, 0, 0)), 120, 30, 955, 340));
 
-	auto* level2Btn = new Button(3, ColoredText("", Color(255, 255, 255)), onLevel2BtnClick, defaultBtnSprite, this->dispatcher);
+	shared_ptr<Button> level2Btn = shared_ptr<Button>(new Button(3, ColoredText("", Color(255, 255, 255)), onLevel2BtnClick, defaultBtnSprite, this->dispatcher));
 	level2Btn->setWidth(32);
 	level2Btn->setHeight(32);
 	level2Btn->setPositionX(795);
@@ -69,7 +69,7 @@ void Overworld::loadButtons() {
 	{
 		level2Name = "Level 2, Score: " + to_string(savegame->getCurrentGameData().levelData[1].score);
 	}
-	auto* level2TextBtn = new Text(4, new ColoredText(level2Name, Color(0, 0, 0)), 120, 30, 795, 870);
+	shared_ptr<Text> level2TextBtn = shared_ptr<Text>(new Text(4, new ColoredText(level2Name, Color(0, 0, 0)), 120, 30, 795, 870));
 
 	if (!savegame->getCurrentGameData().levelData[1].completed)
 	{
@@ -81,31 +81,31 @@ void Overworld::loadButtons() {
 	{
 		level3Name = "Level 3, Score: " + to_string(savegame->getCurrentGameData().levelData[2].score);
 	}
-    auto* level3Btn = new Button(5, ColoredText("", Color(255, 255, 255)),onLevel3BtnClick, defaultBtnSprite, this->dispatcher);
+	shared_ptr<Button> level3Btn = shared_ptr<Button>(new Button(5, ColoredText("", Color(255, 255, 255)), onLevel3BtnClick, defaultBtnSprite, this->dispatcher));
 	level3Btn->setWidth(32);
 	level3Btn->setHeight(32);
 	level3Btn->setPositionX(1500);
 	level3Btn->setPositionY(880);
 	level3Btn->registerHoverSprite(hoverBtnSprite);
 
-	auto* level3TextBtn = new Text(6, new ColoredText(level3Name, Color(0, 0, 0)), 120, 30, 1500, 890);
+	shared_ptr<Text> level3TextBtn = shared_ptr<Text>(new Text(6, new ColoredText(level3Name, Color(0, 0, 0)), 120, 30, 1500, 890));
 	if (!savegame->getCurrentGameData().levelData[2].completed)
 	{
 		level3Btn->disable();
 	}
 
-	auto* stopBtn = new SecondaryButton(7, "To Main Menu", onStopBtnClick, this->dispatcher);
+	shared_ptr<SecondaryButton> stopBtn = shared_ptr<SecondaryButton>(new SecondaryButton(7, "To Main Menu", onStopBtnClick, this->dispatcher));
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
-	auto* chapterOne = new Button(8, ColoredText("", Color(0, 0, 0)), onChapterOneClick, defaultBtnSprite, this->dispatcher);
+	shared_ptr<Button> chapterOne = shared_ptr<Button>(new Button(8, ColoredText("", Color(0, 0, 0)), onChapterOneClick, defaultBtnSprite, this->dispatcher));
 	chapterOne->setWidth(50);
 	chapterOne->setHeight(50);
 	chapterOne->setPositionX(295);
 	chapterOne->setPositionY(363);
 	chapterOne->registerHoverSprite(hoverBtnSprite);
 
-	auto* chapterOneTxt = new Text(9, new ColoredText("Hoofdstuk 1", Color(0, 0, 0), false), 100, 50, 295 - 25, 393);
+	shared_ptr<Text> chapterOneTxt = shared_ptr<Text>(new Text(9, new ColoredText("Hoofdstuk 1", Color(0, 0, 0), false), 100, 50, 295 - 25, 393));
 
 	addNewObjectToLayer(3, chapterOne);
 	addNewObjectToLayer(3, chapterOneTxt);
@@ -125,8 +125,8 @@ void Overworld::loadButtons() {
 /// @brief 
 void Overworld::loadSaveGame()
 {
-	SpriteObject* emptyBlock = new SpriteObject(-2500, 309, 253, 1, 300, "Assets/Inventory/text_background.png");
-	auto* block1 = new Drawable(-2501);
+	shared_ptr<SpriteObject> emptyBlock = shared_ptr<SpriteObject>(new SpriteObject(-2500, 309, 253, 1, 300, "Assets/Inventory/text_background.png"));
+	shared_ptr<Drawable> block1 = shared_ptr<Drawable>(new Drawable(-2501));
 	block1->setStatic(true);
 	block1->setPositionX(1600);
 	block1->setPositionY(120);
@@ -136,7 +136,7 @@ void Overworld::loadSaveGame()
 	block1->changeToState(SpriteState::DEFAULT);
 
 
-	auto* achievements = new Drawable(-2502);
+	shared_ptr<Drawable> achievements = shared_ptr<Drawable>(new Drawable(-2502));
 	achievements->setStatic(true);
 	achievements->setPositionX(20);
 	achievements->setPositionY(800);
@@ -147,10 +147,10 @@ void Overworld::loadSaveGame()
 
 	int textIDCount = 100;
 
-	auto* text2 = new Text(textIDCount++, new ColoredText(savegame->getCurrentGameData().saveGameName + " " + savegame->getCurrentGameData().getReadableTimeStamp(), Color(0, 0, 0)), 200, 30, 1550, 40);
+	shared_ptr<Text> text2 = shared_ptr<Text>(new Text(textIDCount++, new ColoredText(savegame->getCurrentGameData().saveGameName + " " + savegame->getCurrentGameData().getReadableTimeStamp(), Color(0, 0, 0)), 200, 30, 1550, 40));
 	addNewObjectToLayer(5, text2, false, true);
 
-	text2 = new Text(textIDCount++, new ColoredText("Totale score: " + to_string(savegame->getCurrentGameData().totalScore), Color(0, 0, 0)), 200, 30, 1550, 90);
+	text2 = shared_ptr<Text>(new Text(textIDCount++, new ColoredText("Totale score: " + to_string(savegame->getCurrentGameData().totalScore), Color(0, 0, 0)), 200, 30, 1550, 90));
 	addNewObjectToLayer(5, text2, false, true);
 
 	addNewObjectToLayer(4,block1, false, true);
@@ -162,14 +162,14 @@ void Overworld::loadAchievements()
 {
 	int textIDCount = 0;
 
-	auto* text2 = new Text(textIDCount++, new ColoredText("Achievements", Color(0, 0, 0)), 120, 30, 8, 340);
+	shared_ptr<Text> text2 = shared_ptr<Text>(new Text(textIDCount++, new ColoredText("Achievements", Color(0, 0, 0)), 120, 30, 8, 340));
 	addNewObjectToLayer(5, text2, false, true);
 
 	int linecount = 30;
 
 	for (auto achievement : savegame->getCurrentGameData().achievements)
 	{
-		auto* text2 = new Text(textIDCount++, new ColoredText(achievement, Color(0, 0, 0)), 120, 30, 5, 340 + (float)linecount);
+		shared_ptr<Text> text2 = shared_ptr<Text>(new Text(textIDCount++, new ColoredText(achievement, Color(0, 0, 0)), 120, 30, 5, 340 + (float)linecount));
 		addNewObjectToLayer(5, text2, false, true);
 
 		linecount += 30;
@@ -180,9 +180,9 @@ void Overworld::loadAchievements()
 /// @brief 
 /// Loads the background
 void Overworld::loadBackground() {
-	SpriteObject* BG_LAYER_0 = new SpriteObject(-9123, 1440, 1344, 1, 1, "Assets/Overworld/World.png");
+	shared_ptr<SpriteObject> BG_LAYER_0 = shared_ptr<SpriteObject>(new SpriteObject(-9123, 1440, 1344, 1, 1, "Assets/Overworld/World.png"));
 
-	auto* layer0 = new Drawable(1);
+	shared_ptr<Drawable> layer0 = shared_ptr<Drawable>(new Drawable(1));
 	layer0->setStatic(true);
 	layer0->setPositionX(0);
 	layer0->setPositionY(1080);
@@ -198,14 +198,14 @@ void Overworld::loadBackground() {
 /// @brief 
 /// Load the sounds for this scene
 void Overworld::loadMusic() {
-	engine.loadSound("OVER_WORLD", "Assets/Sound/file_example_WAV_1MG.wav");
+	engine->loadSound("OVER_WORLD", "Assets/Sound/file_example_WAV_1MG.wav");
 }
 
 /// @brief 
 /// Create the sounds for this scene
 void Overworld::start(bool playSound)
 {
-	if(playSound)engine.startSound("OVER_WORLD");
+	if(playSound)engine->startSound("OVER_WORLD");
 }
 
 /// @brief 
@@ -215,7 +215,7 @@ void Overworld::onUpdate(float deltaTime)
 {
 	if (moveToNextScene)
 	{
-		stateMachine.switchToScene(nextScene, useTransition, playSound);
+		stateMachine->switchToScene(nextScene, useTransition, playSound);
 	}
 }
 

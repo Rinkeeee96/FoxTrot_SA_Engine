@@ -26,7 +26,7 @@ void Shop::onDetach()
 /// @param playSound 
 void Shop::start(bool playSound)
 {
-	if (playSound)engine.startSound("MENU_SOUND");
+	if (playSound)engine->startSound("MENU_SOUND");
 }
 
 /// @brief 
@@ -36,20 +36,20 @@ void Shop::onUpdate(float deltaTime)
 {
 	if (moveToNextScene)
 	{
-		stateMachine.switchToScene(nextScene, useTransition, playSound);
+		stateMachine->switchToScene(nextScene, useTransition, playSound);
 	}
 }
 
 /// @brief Loads the screen backGground
 void Shop::loadBackground()
 {
-	SpriteObject* BG_LAYER_0 = new SpriteObject(-1500, 1080, 1920, 1, 0, "Assets/Shop/Shop.png");
-	SpriteObject* DialogBox = new SpriteObject(-1502, 170, 455, 1, 0, "Assets/Shop/Dialogbox1.png");
+	shared_ptr<SpriteObject> BG_LAYER_0 = shared_ptr<SpriteObject>(new SpriteObject(-1500, 1080, 1920, 1, 0, "Assets/Shop/Shop.png"));
+	shared_ptr<SpriteObject> DialogBox = shared_ptr<SpriteObject>(new SpriteObject(-1502, 170, 455, 1, 0, "Assets/Shop/Dialogbox1.png"));
 
-	auto* level1TextBtn = new Text(2, new ColoredText("Hoe kan ik je helpen?", Color(0, 0, 0)), 400, 100, 760, 865);
+	shared_ptr<Text> level1TextBtn = shared_ptr<Text>(new Text(2, new ColoredText("Hoe kan ik je helpen?", Color(0, 0, 0)), 400, 100, 760, 865));
 
 
-	auto* layer0 = new Drawable(-992);
+	shared_ptr<Drawable> layer0 = shared_ptr<Drawable>(new Drawable(-992));
 	layer0->setStatic(true);
 	layer0->setPositionX(0);
 	layer0->setPositionY(1080);
@@ -58,7 +58,7 @@ void Shop::loadBackground()
 	layer0->registerSprite(SpriteState::DEFAULT, BG_LAYER_0);
 	layer0->changeToState(SpriteState::DEFAULT);
 
-	auto* dialogBox = new Drawable(-994);
+	shared_ptr<Drawable> dialogBox = shared_ptr<Drawable>(new Drawable(-994));
 	dialogBox->setStatic(true);
 	dialogBox->setPositionX(800);
 	dialogBox->setPositionY(950);
@@ -75,13 +75,13 @@ void Shop::loadBackground()
 /// @brief Loads the music for this scene
 void Shop::loadMusic()
 {
-	engine.loadSound("MENU_SOUND", "Assets/Sound/file_example_WAV_1MG.wav");
+	engine->loadSound("MENU_SOUND", "Assets/Sound/file_example_WAV_1MG.wav");
 }
 
 /// @brief Loads the buttons for this scene
 void Shop::loadButtons()
 {
-	auto* stopBtn = new SecondaryButton(-993, "Wereld", onStopBtnClick, this->dispatcher);
+	shared_ptr<SecondaryButton> stopBtn = shared_ptr<SecondaryButton>(new SecondaryButton(-993, "Wereld", onStopBtnClick, this->dispatcher));
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 

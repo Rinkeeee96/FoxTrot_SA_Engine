@@ -23,7 +23,7 @@ public:
 private:
 
 	Engine& engine;
-	IInputFacade *inputFacade;
+	unique_ptr<IInputFacade> inputFacade;
 	EventDispatcher* dispatcher;
 
 	KeypressInvoker* keypressInvoker;

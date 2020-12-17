@@ -15,6 +15,7 @@ public:
 	API const float calculateDeltaTime(int timeStep);
 
 private:
+
 	double fps = 0;
 
 	list<chrono::duration<double>> frametimes;

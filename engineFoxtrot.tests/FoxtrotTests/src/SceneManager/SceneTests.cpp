@@ -14,11 +14,11 @@ namespace UnitTestsEngine
 		TEST_METHOD(RemoveObject_Existing_Object_Should_Remove_Object)
 		{
 			// Arrange
-			MockScene scene;
-			MockObject object;
+			Layer layer;
+			shared_ptr<Object> object = shared_ptr<MockObject>(new MockObject());
 			// Act
-			scene.addNewObjectToLayer(0, &object, false, false);
-			auto result = scene.checkIfObjectExists(1);
+			layer.addObjectInLayer(object);
+			layer.removeObject(1);
 			// Assert
 			Assert::IsTrue(result);
 		}
@@ -113,8 +113,9 @@ namespace UnitTestsEngine
 			MockScene scene;
 			MockObject object;
 			Layer layer;
+			shared_ptr<Object> object = shared_ptr<MockObject>(new MockObject());
 			// Act
-			layer.addObjectInLayer(&object);
+			layer.addObjectInLayer(object);
 			try {
 				auto result = scene.getObject(1);
 			}
@@ -127,11 +128,11 @@ namespace UnitTestsEngine
 		TEST_METHOD(ClearObjects_Should_Remove_All_Objects)
 		{
 			// Arrange
-			MockScene scene;
-			MockObject object;
+			Layer layer;
+			shared_ptr<Object> object = shared_ptr<MockObject>(new MockObject());
 			// Act
-			scene.addNewObjectToLayer(0, &object, false, true);
-			scene.removeObjectFromScene(&object);
+			layer.addObjectInLayer(object);
+			layer.clearObjects();
 			// Assert
 			Assert::IsTrue(object.getIsRemoved());
 		}
@@ -199,8 +200,9 @@ namespace UnitTestsEngine
 			// Arrange
 			MockScene scene;
 			Layer layer;
+			shared_ptr<Object> object = shared_ptr<MockObject>(new MockObject());
 			// Act
-			scene.addLayerOnZIndex(1, &layer);
+			layer.addObjectInLayer(object);
 			// Assert
 			Assert::AreEqual((int)scene.getLayers().count(1), 1);
 		}
@@ -210,10 +212,9 @@ namespace UnitTestsEngine
 			// Arrange
 			MockScene scene;
 			Layer layer;
-			Layer layer2;
+			shared_ptr<Object> object = shared_ptr<MockObject>(new MockObject());
 			// Act
-			scene.addLayerOnZIndex(1, &layer);
-			scene.addLayerOnZIndex(1, &layer2);
+			layer.addObjectInLayer(object);
 			// Assert
 			Assert::AreEqual((int)scene.getLayers().count(1), 1);
 		}
@@ -223,9 +224,12 @@ namespace UnitTestsEngine
 			// Arrange
 			MockScene scene;
 			Layer layer;
+			shared_ptr<Object> object = shared_ptr<MockObject>(new MockObject());
 			// Act
-			scene.addLayerOnZIndex(1, &layer);
-			scene.removeLayer(1);
+			layer.addObjectInLayer(object);
+			try {
+				layer.getObjectsInLayer();
+			}
 			// Assert
 			Assert::AreEqual((int)scene.getLayers().count(1), 0);
 		}
@@ -235,9 +239,9 @@ namespace UnitTestsEngine
 			// Arrange
 			MockScene scene;
 			Layer layer;
+			shared_ptr<Object> object = shared_ptr<MockObject>(new MockObject());
 			// Act
-			scene.addLayerOnZIndex(1, &layer);
-			scene.removeLayer(2);
+			layer.addObjectInLayer(object);
 			// Assert
 			Assert::AreEqual((int)scene.getLayers().count(1), 1);
 		}

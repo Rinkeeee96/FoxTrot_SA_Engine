@@ -11,8 +11,8 @@ public:
 	Game();
 	int run();
 private:
-	Engine engine;
-	ICommandBuilder* commandBuilder;
+	unique_ptr<Engine> engine;
+	shared_ptr<ICommandBuilder> commandBuilder;
 	shared_ptr<Savegame> savegame;
 
 	shared_ptr<SceneStateMachine> stateMachine;

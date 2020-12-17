@@ -18,7 +18,7 @@ namespace UnitTestsEngine
 			EventDispatcher dispatcher = EventDispatcher();
 			PhysicsFacade facade = PhysicsFacade(dispatcher, frameData);
 
-			Object* object = new MockObject();
+			shared_ptr<Object> object = shared_ptr<MockObject>(new MockObject());
 			object->setHeight(100);
 			object->setWidth(100);
 			object->setPositionX(30);
@@ -29,9 +29,9 @@ namespace UnitTestsEngine
 			object->setFriction(0);
 			object->setRestitution(0);
 			object->setStatic(false);
-			PhysicsBody b{ object };
+			shared_ptr<PhysicsBody> b = shared_ptr<PhysicsBody>(new PhysicsBody{ object });
 
-			facade.addDynamicObject(&b);
+			facade.addDynamicObject(b);
 			// Act
 			auto oldY = object->getPositionY();
 			facade.Jump(0);
@@ -46,7 +46,7 @@ namespace UnitTestsEngine
 			EventDispatcher dispatcher = EventDispatcher();
 			PhysicsFacade facade = PhysicsFacade(dispatcher, frameData);
 
-			Object* object = new MockObject();
+			shared_ptr<Object> object = shared_ptr<MockObject>(new MockObject());
 			object->setHeight(100);
 			object->setWidth(100);
 			object->setPositionX(30);
@@ -57,9 +57,9 @@ namespace UnitTestsEngine
 			object->setFriction(0);
 			object->setRestitution(0);
 			object->setStatic(false);
-			PhysicsBody b{ object };
+			shared_ptr<PhysicsBody> b = shared_ptr<PhysicsBody>( new PhysicsBody{object });
 
-			facade.addDynamicObject(&b);
+			facade.addDynamicObject(b);
 			// Act
 			auto oldY = object->getPositionY();
 			facade.Jump(1);
@@ -75,7 +75,7 @@ namespace UnitTestsEngine
 			EventDispatcher dispatcher = EventDispatcher();
 			PhysicsFacade facade = PhysicsFacade(dispatcher, frameData);
 
-			Object* object = new MockObject();
+			shared_ptr<Object> object = shared_ptr<MockObject>(new MockObject());
 			object->setHeight(100);
 			object->setWidth(100);
 			object->setPositionX(30);
@@ -86,9 +86,9 @@ namespace UnitTestsEngine
 			object->setFriction(0);
 			object->setRestitution(0);
 			object->setStatic(false);
-			PhysicsBody b{ object };
+			shared_ptr<PhysicsBody> b = shared_ptr<PhysicsBody>(new PhysicsBody{ object });
 
-			facade.addDynamicObject(&b);
+			facade.addDynamicObject(b);
 			// Act
 			frameData->startTimer();
 			frameData->calculateAverageFps();
@@ -106,7 +106,7 @@ namespace UnitTestsEngine
 			EventDispatcher dispatcher = EventDispatcher();
 			PhysicsFacade facade = PhysicsFacade(dispatcher, frameData);
 
-			Object* object = new MockObject();
+			shared_ptr<Object> object = shared_ptr<MockObject>(new MockObject());
 			object->setHeight(100);
 			object->setWidth(100);
 			object->setPositionX(30);
@@ -117,9 +117,9 @@ namespace UnitTestsEngine
 			object->setFriction(0);
 			object->setRestitution(0);
 			object->setStatic(false);
-			PhysicsBody b{ object };
+			shared_ptr<PhysicsBody> b = shared_ptr<PhysicsBody>(new PhysicsBody{ object });
 
-			facade.addDynamicObject(&b);
+			facade.addDynamicObject(b);
 			// Act
 			auto oldX = object->getPositionX();
 			facade.MoveRight(1);
@@ -135,7 +135,7 @@ namespace UnitTestsEngine
 			EventDispatcher dispatcher = EventDispatcher();
 			PhysicsFacade facade = PhysicsFacade(dispatcher, frameData);
 
-			Object* object = new MockObject();
+			shared_ptr<Object> object = shared_ptr<MockObject>(new MockObject());
 			object->setHeight(100);
 			object->setWidth(100);
 			object->setPositionX(30);
@@ -146,9 +146,9 @@ namespace UnitTestsEngine
 			object->setFriction(0);
 			object->setRestitution(0);
 			object->setStatic(false);
-			PhysicsBody b{ object };
+			shared_ptr<PhysicsBody> b = shared_ptr<PhysicsBody>(new PhysicsBody{ object });
 
-			facade.addDynamicObject(&b);
+			facade.addDynamicObject(b);
 			// Act
 			frameData->startTimer();
 			frameData->calculateAverageFps();
@@ -166,7 +166,7 @@ namespace UnitTestsEngine
 			EventDispatcher dispatcher = EventDispatcher();
 			PhysicsFacade facade = PhysicsFacade(dispatcher, frameData);
 
-			Object* object = new MockObject();
+			shared_ptr<Object> object = shared_ptr<MockObject>(new MockObject());
 			object->setHeight(100);
 			object->setWidth(100);
 			object->setPositionX(30);
@@ -177,9 +177,9 @@ namespace UnitTestsEngine
 			object->setFriction(0);
 			object->setRestitution(0);
 			object->setStatic(false);
-			PhysicsBody b{ object };
+			shared_ptr<PhysicsBody> b = shared_ptr<PhysicsBody>(new PhysicsBody{ object });
 
-			facade.addDynamicObject(&b);
+			facade.addDynamicObject(b);
 			// Act
 			auto oldX = object->getPositionX();
 			facade.MoveLeft(1);

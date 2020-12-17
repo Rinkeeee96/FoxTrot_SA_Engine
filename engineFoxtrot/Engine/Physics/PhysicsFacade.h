@@ -21,8 +21,8 @@
 #define Y_AXIS_STATIC 0
 
 struct CollisionStruct {
-	PhysicsBody* object1 = nullptr;
-	PhysicsBody* object2 = nullptr;
+	shared_ptr<PhysicsBody> object1 = nullptr;
+	shared_ptr<PhysicsBody> object2 = nullptr;
 };
 
 class b2Fixture;
@@ -37,15 +37,14 @@ public:
 	API PhysicsFacade(EventDispatcher& _dispatcher, unique_ptr<FrameData>& _frameData);
 	API ~PhysicsFacade();
 
-	API void addStaticObject(PhysicsBody* object) override;
-	API void addDynamicObject(PhysicsBody* object) override;
-
-	API PhysicsBody* getPhysicsObject(const int objectId) override;
+	API void addStaticObject(shared_ptr<PhysicsBody> object) override;
+	API void addDynamicObject(shared_ptr<PhysicsBody> object) override;
 
 	API void MoveLeft(const int objectId) override;
 	API void MoveRight(const int objectId) override;
 	API void Jump(const int objectId) override;
 	API void Fall(const int objectId) override;
+	API shared_ptr<PhysicsBody> getPhysicsObject(const int objectId) override;
 
 	API CollisionStruct getObjectsByFixture(b2Fixture* fixture1, b2Fixture* fixture2);
 	API void update() override;
@@ -54,11 +53,11 @@ public:
 
 private:
 	EventDispatcher& dispatcher;
-	b2World * world;
+	shared_ptr<b2World> world;
 	const float timeStep = TIMESTEP_SEC / TIMESTEP_FRAMES;
 
 	// TODO clear on scene detach
-	map <PhysicsBody*, b2Body*> bodies;
+	map <shared_ptr<PhysicsBody>, b2Body*> bodies;
 	b2Body* findBody(const int objectId);
 
 	unique_ptr<FrameData>& frameData;

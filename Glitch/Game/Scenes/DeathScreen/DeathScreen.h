@@ -7,7 +7,7 @@
 class DeathScreen : public GameScene
 {
 public:
-	DeathScreen(const int id, Engine& engine, SceneStateMachine& _statemachine) : GameScene(id, engine, _statemachine) {};
+	DeathScreen(const int id, unique_ptr<Engine>& engine, shared_ptr<SceneStateMachine> _statemachine) : GameScene(id, engine, _statemachine) {};
 	~DeathScreen();
 	// Inherited via Scene
 	void onAttach() override;

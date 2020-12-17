@@ -19,9 +19,9 @@ namespace UnitTestsEngine
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine { frameData };
 			videoEngine.start(dispatcher);
-			Drawable drawable;
-			SpriteObject spriteObject{ 1, 1, 1, 1, 1, "TestAssets/testPNG.png" };
-			drawable.registerSprite(1, &spriteObject);
+			shared_ptr<Drawable> drawable = shared_ptr<Drawable>(new Drawable());
+			shared_ptr<SpriteObject> spriteObject= shared_ptr<SpriteObject>(new SpriteObject{ 1, 1, 1, 1, 1, "TestAssets/testPNG.png" });
+			drawable->registerSprite(1, spriteObject);
 			// Act
 			videoEngine.loadImage(spriteObject);
 			// Assert
@@ -35,9 +35,9 @@ namespace UnitTestsEngine
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine{ frameData };
 			videoEngine.start(dispatcher);
-			Drawable drawable;
-			SpriteObject spriteObject{ 1, 1, 1, 1, 1, NULL };
-			drawable.registerSprite(1, &spriteObject);
+			shared_ptr<Drawable> drawable = shared_ptr<Drawable>(new Drawable());
+			shared_ptr<SpriteObject> spriteObject = shared_ptr<SpriteObject>(new SpriteObject{ 1, 1, 1, 1, 1, NULL });
+			drawable->registerSprite(1, spriteObject);
 			// Act
 			try {
 				videoEngine.loadImage(spriteObject);
@@ -55,10 +55,10 @@ namespace UnitTestsEngine
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine{ frameData };
 			videoEngine.start(dispatcher);
-			Drawable drawable;
-			SpriteObject spriteObject{ 1, 1, 1, 1, 1, "TestAssets/testPNG.png" };
-			drawable.registerSprite(1, &spriteObject);
-			drawable.changeToState(1);
+			shared_ptr<Drawable> drawable = shared_ptr<Drawable>(new Drawable());
+			shared_ptr<SpriteObject> spriteObject = shared_ptr<SpriteObject>(new SpriteObject{ 1, 1, 1, 1, 1, "TestAssets/testPNG.png" });
+			drawable->registerSprite(1, spriteObject);
+			drawable->changeToState(1);
 			// Act
 			videoEngine.renderCopy(drawable);
 			// Assert
@@ -72,10 +72,10 @@ namespace UnitTestsEngine
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine{ frameData };
 			videoEngine.start(dispatcher);
-			Drawable drawable;
-			SpriteObject spriteObject{ 1, 1, 1, 1, 1, NULL };
-			drawable.registerSprite(1, &spriteObject);
-			drawable.changeToState(1);
+			shared_ptr<Drawable> drawable = shared_ptr<Drawable>(new Drawable());
+			shared_ptr<SpriteObject> spriteObject = shared_ptr<SpriteObject>(new SpriteObject{ 1, 1, 1, 1, 1, NULL });
+			drawable->registerSprite(1, spriteObject);
+			drawable->changeToState(1);
 			// Act
 			try {
 				videoEngine.renderCopy(drawable);
@@ -93,10 +93,10 @@ namespace UnitTestsEngine
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine{ frameData };
 			videoEngine.start(dispatcher);
-			Drawable drawable;
-			SpriteObject spriteObject{ 1, 1, 1, 1, 1, NULL };
-			drawable.registerSprite(1, &spriteObject);
-			drawable.changeToState(1);
+			shared_ptr<Drawable> drawable = shared_ptr<Drawable>(new Drawable());
+			shared_ptr<SpriteObject> spriteObject = shared_ptr<SpriteObject>(new SpriteObject{ 1, 1, 1, 1, 1, NULL });
+			drawable->registerSprite(1, spriteObject);
+			drawable->changeToState(1);
 			// Act
 			videoEngine.calculateOffset(drawable, 1024, 1024);
 			// Assert
@@ -111,11 +111,11 @@ namespace UnitTestsEngine
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine{ frameData };
 			videoEngine.start(dispatcher);
-			Drawable drawable;
-			drawable.setPositionX(3024 - 100);
-			SpriteObject spriteObject{ 1, 1, 1, 1, 1, NULL };
-			drawable.registerSprite(1, &spriteObject);
-			drawable.changeToState(1);
+			shared_ptr<Drawable> drawable = shared_ptr<Drawable>(new Drawable());
+			drawable->setPositionX(3024 - 100);
+			shared_ptr<SpriteObject> spriteObject = shared_ptr<SpriteObject>(new SpriteObject{ 1, 1, 1, 1, 1, NULL });;
+			drawable->registerSprite(1, spriteObject);
+			drawable->changeToState(1);
 			// Act
 			videoEngine.calculateOffset(drawable, 3024, 1024);
 			// Assert
@@ -130,12 +130,12 @@ namespace UnitTestsEngine
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine{ frameData };
 			videoEngine.start(dispatcher);
-			Drawable drawable;
-			drawable.setPositionX(0);
-			drawable.setPositionY(3024 - 3024/2);
-			SpriteObject spriteObject{ 1, 1, 1, 1, 1, NULL };
-			drawable.registerSprite(1, &spriteObject);
-			drawable.changeToState(1);
+			shared_ptr<Drawable> drawable = shared_ptr<Drawable>(new Drawable());
+			drawable->setPositionX(0);
+			drawable->setPositionY(3024 - 3024/2);
+			shared_ptr<SpriteObject> spriteObject = shared_ptr<SpriteObject>(new SpriteObject{ 1, 1, 1, 1, 1, NULL });
+			drawable->registerSprite(1, spriteObject);
+			drawable->changeToState(1);
 			// Act
 			videoEngine.calculateOffset(drawable, 3024, 1024);
 			// Assert
@@ -150,14 +150,14 @@ namespace UnitTestsEngine
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine{ frameData };
 			videoEngine.start(dispatcher);
-			Drawable drawable;
-			drawable.setPositionX(100);
-			drawable.setPositionY(-1);
-			drawable.setWidth(10);
-			drawable.setHeight(10);
-			SpriteObject spriteObject{ 1, 1, 1, 1, 1, NULL };
-			drawable.registerSprite(1, &spriteObject);
-			drawable.changeToState(1);
+			shared_ptr<Drawable> drawable = shared_ptr<Drawable>(new Drawable());
+			drawable->setPositionX(100);
+			drawable->setPositionY(-1);
+			drawable->setWidth(10);
+			drawable->setHeight(10);
+			shared_ptr<SpriteObject> spriteObject = shared_ptr<SpriteObject>(new SpriteObject{ 1, 1, 1, 1, 1, NULL });
+			drawable->registerSprite(1, spriteObject);
+			drawable->changeToState(1);
 			// Act
 			auto result = videoEngine.checkObjectInScreen(drawable);
 			// Assert
@@ -171,14 +171,14 @@ namespace UnitTestsEngine
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine{ frameData };
 			videoEngine.start(dispatcher);
-			Drawable drawable;
-			drawable.setPositionX(100);
-			drawable.setPositionY(1);
-			drawable.setWidth(10);
-			drawable.setHeight(10);
-			SpriteObject spriteObject{ 1, 1, 1, 1, 1, NULL };
-			drawable.registerSprite(1, &spriteObject);
-			drawable.changeToState(1);
+			shared_ptr<Drawable> drawable = shared_ptr<Drawable>(new Drawable());
+			drawable->setPositionX(100);
+			drawable->setPositionY(1);
+			drawable->setWidth(10);
+			drawable->setHeight(10);
+			shared_ptr<SpriteObject> spriteObject = shared_ptr<SpriteObject>(new SpriteObject{ 1, 1, 1, 1, 1, NULL });
+			drawable->registerSprite(1, spriteObject);
+			drawable->changeToState(1);
 			// Act
 			auto result = videoEngine.checkObjectInScreen(drawable);
 			// Assert
@@ -192,14 +192,14 @@ namespace UnitTestsEngine
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine{ frameData };
 			videoEngine.start(dispatcher);
-			Drawable drawable;
-			drawable.setPositionX(-11);
-			drawable.setPositionY(100);
-			drawable.setWidth(10);
-			drawable.setHeight(10);
-			SpriteObject spriteObject{ 1, 1, 1, 1, 1, NULL };
-			drawable.registerSprite(1, &spriteObject);
-			drawable.changeToState(1);
+			shared_ptr<Drawable> drawable = shared_ptr<Drawable>(new Drawable());
+			drawable->setPositionX(-11);
+			drawable->setPositionY(100);
+			drawable->setWidth(10);
+			drawable->setHeight(10);
+			shared_ptr<SpriteObject> spriteObject = shared_ptr<SpriteObject>(new SpriteObject{ 1, 1, 1, 1, 1, NULL });
+			drawable->registerSprite(1, spriteObject);
+			drawable->changeToState(1);
 			// Act
 			auto result = videoEngine.checkObjectInScreen(drawable);
 			// Assert
@@ -213,14 +213,14 @@ namespace UnitTestsEngine
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine{ frameData };
 			videoEngine.start(dispatcher);
-			Drawable drawable;
-			drawable.setPositionX(-9);
-			drawable.setPositionY(100);
-			drawable.setWidth(10);
-			drawable.setHeight(10);
-			SpriteObject spriteObject{ 1, 1, 1, 1, 1, NULL };
-			drawable.registerSprite(1, &spriteObject);
-			drawable.changeToState(1);
+			shared_ptr<Drawable> drawable = shared_ptr<Drawable>(new Drawable());
+			drawable->setPositionX(-9);
+			drawable->setPositionY(100);
+			drawable->setWidth(10);
+			drawable->setHeight(10);
+			shared_ptr<SpriteObject> spriteObject = shared_ptr<SpriteObject>(new SpriteObject{ 1, 1, 1, 1, 1, NULL });
+			drawable->registerSprite(1, spriteObject);
+			drawable->changeToState(1);
 			// Act
 			auto result = videoEngine.checkObjectInScreen(drawable);
 			// Assert
@@ -234,14 +234,14 @@ namespace UnitTestsEngine
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine{ frameData };
 			videoEngine.start(dispatcher);
-			Drawable drawable;
-			drawable.setPositionX(100);
-			drawable.setPositionY(WINDOW_HEIGHT + 11);
-			drawable.setWidth(10);
-			drawable.setHeight(10);
-			SpriteObject spriteObject{ 1, 1, 1, 1, 1, NULL };
-			drawable.registerSprite(1, &spriteObject);
-			drawable.changeToState(1);
+			shared_ptr<Drawable> drawable = shared_ptr<Drawable>(new Drawable());
+			drawable->setPositionX(100);
+			drawable->setPositionY(WINDOW_HEIGHT + 11);
+			drawable->setWidth(10);
+			drawable->setHeight(10);
+			shared_ptr<SpriteObject> spriteObject = shared_ptr<SpriteObject>(new SpriteObject{ 1, 1, 1, 1, 1, NULL });
+			drawable->registerSprite(1, spriteObject);
+			drawable->changeToState(1);
 			// Act
 			auto result = videoEngine.checkObjectInScreen(drawable);
 			// Assert
@@ -255,14 +255,14 @@ namespace UnitTestsEngine
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine{ frameData };
 			videoEngine.start(dispatcher);
-			Drawable drawable;
-			drawable.setPositionX(100);
-			drawable.setPositionY(WINDOW_HEIGHT + 9);
-			drawable.setWidth(10);
-			drawable.setHeight(10);
-			SpriteObject spriteObject{ 1, 1, 1, 1, 1, NULL };
-			drawable.registerSprite(1, &spriteObject);
-			drawable.changeToState(1);
+			shared_ptr<Drawable> drawable = shared_ptr<Drawable>(new Drawable());
+			drawable->setPositionX(100);
+			drawable->setPositionY(WINDOW_HEIGHT + 9);
+			drawable->setWidth(10);
+			drawable->setHeight(10);
+			shared_ptr<SpriteObject> spriteObject = shared_ptr<SpriteObject>(new SpriteObject{ 1, 1, 1, 1, 1, NULL });
+			drawable->registerSprite(1, spriteObject);
+			drawable->changeToState(1);
 			// Act
 			auto result = videoEngine.checkObjectInScreen(drawable);
 			// Assert
@@ -276,14 +276,14 @@ namespace UnitTestsEngine
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine{ frameData };
 			videoEngine.start(dispatcher);
-			Drawable drawable;
-			drawable.setPositionX(WINDOW_WIDTH + 1);
-			drawable.setPositionY(100);
-			drawable.setWidth(10);
-			drawable.setHeight(10);
-			SpriteObject spriteObject{ 1, 1, 1, 1, 1, NULL };
-			drawable.registerSprite(1, &spriteObject);
-			drawable.changeToState(1);
+			shared_ptr<Drawable> drawable = shared_ptr<Drawable>(new Drawable());
+			drawable->setPositionX(WINDOW_WIDTH + 1);
+			drawable->setPositionY(100);
+			drawable->setWidth(10);
+			drawable->setHeight(10);
+			shared_ptr<SpriteObject> spriteObject = shared_ptr<SpriteObject>(new SpriteObject{ 1, 1, 1, 1, 1, NULL });
+			drawable->registerSprite(1, spriteObject);
+			drawable->changeToState(1);
 			// Act
 			auto result = videoEngine.checkObjectInScreen(drawable);
 			// Assert
@@ -297,14 +297,14 @@ namespace UnitTestsEngine
 			EventDispatcher dispatcher;
 			VideoEngine videoEngine{ frameData };
 			videoEngine.start(dispatcher);
-			Drawable drawable;
-			drawable.setPositionX(WINDOW_WIDTH - 1);
-			drawable.setPositionY(100);
-			drawable.setWidth(10);
-			drawable.setHeight(10);
-			SpriteObject spriteObject{ 1, 1, 1, 1, 1, NULL };
-			drawable.registerSprite(1, &spriteObject);
-			drawable.changeToState(1);
+			shared_ptr<Drawable> drawable = shared_ptr<Drawable>(new Drawable());
+			drawable->setPositionX(WINDOW_WIDTH - 1);
+			drawable->setPositionY(100);
+			drawable->setWidth(10);
+			drawable->setHeight(10);
+			shared_ptr<SpriteObject> spriteObject = shared_ptr<SpriteObject>(new SpriteObject{ 1, 1, 1, 1, 1, NULL });
+			drawable->registerSprite(1, spriteObject);
+			drawable->changeToState(1);
 			// Act
 			auto result = videoEngine.checkObjectInScreen(drawable);
 			// Assert

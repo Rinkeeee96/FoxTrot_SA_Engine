@@ -25,7 +25,7 @@ private:
 	std::unique_ptr<CharacterFactory> characterFactory;
 	FileLoader fileLoader;
 	map<int, TileSprite*> textureMap;
-	map<int, SpriteObject*> spriteMap;
+	map<int, shared_ptr<SpriteObject>> spriteMap;
 
 	// TODO Fix tileId in tilesets
 	Level* bLevel;
@@ -38,7 +38,7 @@ private:
 	int textureId = 0;
 	int id = 0;
 public:
-	LevelBuilder(Engine& _engine, int levelId, SceneStateMachine& _statemachine);
+	LevelBuilder(unique_ptr<Engine>& _engine, int levelId, shared_ptr<SceneStateMachine> _statemachine);
 
 	void createLevel(nlohmann::json json) override;
 	void createEntities(nlohmann::json layerValue) override;

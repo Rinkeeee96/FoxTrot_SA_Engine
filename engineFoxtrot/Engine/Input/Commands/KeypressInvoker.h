@@ -7,7 +7,7 @@ class KeypressInvoker
 {
 public:
 	API void registerCommand(KeyCode code, ICommand* command);
-	API void updateCommand(KeyCode code, ICommand* command);
+	API virtual void updateCommand(KeyCode code, ICommand* command);
 	API void deleteCommandThatBelongsTo(const KeyCode& code);
 	API void executeCommandQueue(EventDispatcher& dispatcher);
 	API void enqueueCommand(const KeyCode& code);

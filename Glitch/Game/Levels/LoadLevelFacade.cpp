@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "LoadLevelFacade.h"
 
-LoadLevelFacade::LoadLevelFacade()
+LoadLevelFacade::LoadLevelFacade(unique_ptr<Engine>& _engine) : engine(_engine)
 { 
 }
 
