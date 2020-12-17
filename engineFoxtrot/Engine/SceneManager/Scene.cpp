@@ -8,6 +8,8 @@
 
 /// @brief 
 /// @param sceneID 
+/// @param _sceneHeight
+/// @param _sceneWidth
 Scene::Scene(const int _sceneID, const int _sceneHeight, const int _sceneWidth) : 
 	sceneID(_sceneID), sceneHeight(_sceneHeight), sceneWidth(_sceneWidth)
 {
