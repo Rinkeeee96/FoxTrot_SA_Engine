@@ -13,7 +13,6 @@ public:
 
 	// Scene modifiers
 	API EventDispatcher& setCurrentScene(const int sceneID);
-	API unique_ptr<Scene>& getSceneWithID(const int sceneID);
 	API void insertScene(unique_ptr<Scene>);
 	API void deregisterCurrentScene();
 	
