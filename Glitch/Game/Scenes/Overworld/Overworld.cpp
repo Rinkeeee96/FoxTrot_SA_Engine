@@ -32,7 +32,7 @@ void Overworld::loadButtons() {
 	shop->setPositionY(1000);
 	shop->registerHoverSprite(hoverBtnSprite);
 
-	shared_ptr<Text> shopText = shared_ptr<Text>(new Text(15, new ColoredText("Shop", Color(0, 0, 0)), 60, 50, 390, 1000));
+	auto* shopText = new Text(15, new ColoredText("Winkel", Color(0, 0, 0)), 70, 50, 390, 1000);
 
 	shared_ptr<Button> shop1 = shared_ptr<Button>(new Button(11, ColoredText("", Color(255, 255, 255)), onShopBtnClick, defaultBtnSprite, this->dispatcher));
 	shop1->setWidth(32);
@@ -64,7 +64,7 @@ void Overworld::loadButtons() {
 	level2Btn->setPositionY(850);
 	level2Btn->registerHoverSprite(hoverBtnSprite);
 
-	string level2Name = "Locked";
+	string level2Name = "Vergrendeld";
 	if (savegame->getCurrentGameData().levelData[1].completed)
 	{
 		level2Name = "Level 2, Score: " + to_string(savegame->getCurrentGameData().levelData[1].score);
@@ -76,7 +76,7 @@ void Overworld::loadButtons() {
 		level2Btn->disable();
 	}
 
-	string level3Name = "Locked";
+	string level3Name = "Vergrendeld";
 	if (savegame->getCurrentGameData().levelData[2].completed)
 	{
 		level3Name = "Level 3, Score: " + to_string(savegame->getCurrentGameData().levelData[2].score);
@@ -105,7 +105,7 @@ void Overworld::loadButtons() {
 	chapterOne->setPositionY(363);
 	chapterOne->registerHoverSprite(hoverBtnSprite);
 
-	shared_ptr<Text> chapterOneTxt = shared_ptr<Text>(new Text(9, new ColoredText("chapter one", Color(0, 0, 0), false), 100, 50, 295 - 25, 393));
+	auto* chapterOneTxt = new Text(9, new ColoredText("Hoofdstuk 1", Color(0, 0, 0), false), 100, 50, 295 - 25, 393);
 
 	addNewObjectToLayer(3, chapterOne);
 	addNewObjectToLayer(3, chapterOneTxt);
@@ -150,7 +150,7 @@ void Overworld::loadSaveGame()
 	shared_ptr<Text> text2 = shared_ptr<Text>(new Text(textIDCount++, new ColoredText(savegame->getCurrentGameData().saveGameName + " " + savegame->getCurrentGameData().getReadableTimeStamp(), Color(0, 0, 0)), 200, 30, 1550, 40));
 	addNewObjectToLayer(5, text2, false, true);
 
-	text2 = shared_ptr<Text>(new Text(textIDCount++, new ColoredText("TotalScore: " + to_string(savegame->getCurrentGameData().totalScore), Color(0, 0, 0)), 200, 30, 1550, 90));
+	text2 = new Text(textIDCount++, new ColoredText("Totale score: " + to_string(savegame->getCurrentGameData().totalScore), Color(0, 0, 0)), 200, 30, 1550, 90);
 	addNewObjectToLayer(5, text2, false, true);
 
 	addNewObjectToLayer(4,block1, false, true);

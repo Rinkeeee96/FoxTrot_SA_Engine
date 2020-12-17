@@ -43,7 +43,7 @@ bool Button::mouseOver(const Event& event) {
 				mousePositionY >= (positionY - height) &&
 				mousePositionY <= positionY);
 
-	if (!buttonPressed) {
+	if (!buttonPressed && isEnabled) {
 		if (isMouseOver && hasHoverSprite) {
 			changeToState(HOVER_STATE);
 		}
