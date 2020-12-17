@@ -14,11 +14,11 @@ namespace UnitTestsGlitch
 		TEST_METHOD(LoadFacade_Load_Non_ExistingFile_Should_ThrowError)
 		{
 			// Arrange
-			Engine engine;
+			unique_ptr<Engine> engine = make_unique<Engine>();
 			EventDispatcher dispatcher;
 			shared_ptr<Savegame> savegame = shared_ptr<Savegame>(new Savegame());
-			SceneStateMachine statemachine{ engine, savegame };
-			LoadLevelFacade levelLoader{ };
+			shared_ptr<SceneStateMachine> statemachine = make_shared<SceneStateMachine>(SceneStateMachine{ engine, savegame });
+			LoadLevelFacade levelLoader{ engine };
 			LevelBuilder levelOneBuilder{ engine, 1, statemachine };
 
 			// Act
@@ -34,11 +34,11 @@ namespace UnitTestsGlitch
 		TEST_METHOD(LoadFacade_Load_InvalidFile_Existing_Should_ThrowError)
 		{
 			// Arrange
-			Engine engine;
-			LoadLevelFacade levelLoader{ };
+			unique_ptr<Engine> engine = make_unique<Engine>();
+			LoadLevelFacade levelLoader{ engine };
 			EventDispatcher dispatcher;
 			shared_ptr<Savegame> savegame = shared_ptr<Savegame>(new Savegame());
-			SceneStateMachine statemachine{ engine, savegame };
+			shared_ptr<SceneStateMachine> statemachine = make_shared<SceneStateMachine>(SceneStateMachine{ engine, savegame });
 			LevelBuilder levelOneBuilder{ engine, 1, statemachine };
 
 			// Act
@@ -54,15 +54,15 @@ namespace UnitTestsGlitch
 		TEST_METHOD(LoadFacade_Load_ValidFile_Existing_Should_Create_lEVEL)
 		{
 			// Arrange
-			Engine engine;
+			unique_ptr<Engine> engine = make_unique<Engine>();
 			CommandBuilder commandBuilder;
-			engine.start();
-			engine.useCustomCommandInvoker(commandBuilder.readBindingsAndCreateInvoker());
+			engine->start();
+			engine->useCustomCommandInvoker(commandBuilder.readBindingsAndCreateInvoker());
 			EventDispatcher dispatcher;
 			shared_ptr<Savegame> savegame = shared_ptr<Savegame>(new Savegame());
-			SceneStateMachine statemachine{ engine, savegame };
+			shared_ptr<SceneStateMachine> statemachine = make_shared<SceneStateMachine>(SceneStateMachine{ engine, savegame });
 			LevelBuilder levelOneBuilder{ engine, 1, statemachine };
-			LoadLevelFacade levelLoader{ };
+			LoadLevelFacade levelLoader{ engine };
 			// Act
 			levelLoader.load("TestAssetsGame/validLevel.json", &levelOneBuilder);
 			// Assert

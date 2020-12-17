@@ -14,24 +14,24 @@ namespace UnitTestsGlitch
 		TEST_METHOD(Level_Death_Should_Stop_Level)
 		{
 			// Arrange
-			Engine engine;
+			unique_ptr<Engine> engine = make_unique<Engine>();
 			CommandBuilder commandBuilder;
-			engine.start();
-			engine.useCustomCommandInvoker(commandBuilder.readBindingsAndCreateInvoker());
+			engine->start();
+			engine->useCustomCommandInvoker(commandBuilder.readBindingsAndCreateInvoker());
 			EventDispatcher dispatcher;
 
 			shared_ptr<Savegame> savegame = shared_ptr<Savegame>(new Savegame());
 			savegame->setCurrentGameData(1);
-			SceneStateMachine statemachine{ engine, savegame };
+			shared_ptr<SceneStateMachine> statemachine = make_shared<SceneStateMachine>(SceneStateMachine{ engine, savegame });
 			Level level{ 1, 100, 100, engine, statemachine };
-			Player player{ dispatcher };
-			level.addNewObjectToLayer(1, &player, true, true);
-			level.setPlayer(&player);
+			shared_ptr<Player> player = make_shared<Player>(Player{ dispatcher });
+			level.addNewObjectToLayer(1, player, true, true);
+			level.setPlayer(player);
 			level.registerSavegame(savegame);
 			level.start(false);
 			level.createLayer(1, true, true);
 			// Act
-			player.kill();
+			player->kill();
 			level.onUpdate(1);
 			// Assert
 			Assert::IsFalse(level.getWin());

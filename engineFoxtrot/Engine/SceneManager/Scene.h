@@ -22,7 +22,7 @@ public:
 	vector<shared_ptr<Drawable>> API getAllDrawablesInScene();
 
 	vector <shared_ptr<Object>> API getAllObjectsInScene();
-	vector <shared_ptr<Object>> getAllObjectsInSceneRenderPhysics();
+	vector <shared_ptr<Object>> API getAllObjectsInSceneRenderPhysics();
 
 	shared_ptr<Object> API getObject(const int objectID);
 

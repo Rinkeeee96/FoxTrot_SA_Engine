@@ -12,14 +12,14 @@ namespace UnitTestsGlitch
 		MockCharacter(EventDispatcher& _dispatcher) : ICharacter(_dispatcher) { }
 		MockCharacter(const int id, EventDispatcher& _dispatcher) : ICharacter(id, _dispatcher) { }
 
-		virtual map<SpriteState, SpriteObject*> buildSpritemap(int textureId) override {
-			map<SpriteState, SpriteObject*> map;
+		map<SpriteState, shared_ptr<SpriteObject>> buildSpritemap(int textureId) override {
+			map<SpriteState, shared_ptr<SpriteObject>> map;
 			return map;
 		}
 
-		virtual ICharacter* clone(int id) override {
+		shared_ptr<ICharacter> clone(int id) override {
 
-			return new MockCharacter(id + 1, this->dispatcher);
+			return make_shared<MockCharacter>(MockCharacter{ id + 1, this->dispatcher });
 		}
 
 		void onUpdate(float deltaTime) override {
@@ -32,18 +32,17 @@ namespace UnitTestsGlitch
 		TEST_METHOD(CharacterFactory_Create_Charactar_Return_Clone)
 		{
 			// Arrange
-			Engine engine;
+			unique_ptr<Engine> engine = make_unique<Engine>();
 			EventDispatcher dispatcher;
 			shared_ptr<Savegame> savegame = shared_ptr<Savegame>(new Savegame());
-			SceneStateMachine statemachine{ engine, savegame };
+			shared_ptr<SceneStateMachine> statemachine = make_shared<SceneStateMachine>(SceneStateMachine{ engine, savegame });
 			Level level{ 1, 100, 100, engine, statemachine };
 			CharacterFactory factory{ engine, level };
-			MockCharacter registerCharacter{ dispatcher };
-			MockCharacter registerCharacter2{ dispatcher };
+			shared_ptr<MockCharacter> registerCharacter = make_shared<MockCharacter>(MockCharacter{ dispatcher });
 			int i = 1;
 			int* a = &i;
 			// Act
-			factory.registerCharacter("name", &registerCharacter, a);
+			factory.registerCharacter("name", registerCharacter, a);
 			auto result = factory.create("name", 1);
 			// Assert
 			Assert::AreEqual(result->getObjectId(), 2);
@@ -51,10 +50,10 @@ namespace UnitTestsGlitch
 		TEST_METHOD(CharacterFactory_Create_NonExisting_Identifier_Should_ThrowError)
 		{
 			// Arrange
-			Engine engine;
+			unique_ptr<Engine> engine = make_unique<Engine>();
 			EventDispatcher dispatcher;
 			shared_ptr<Savegame> savegame = shared_ptr<Savegame>(new Savegame());
-			SceneStateMachine statemachine{ engine, savegame };
+			shared_ptr<SceneStateMachine> statemachine = make_shared<SceneStateMachine>(SceneStateMachine{ engine, savegame });
 			Level level{ 1, 100, 100, engine, statemachine };
 			CharacterFactory factory{ engine, level };
 			// Act
@@ -70,38 +69,37 @@ namespace UnitTestsGlitch
 		TEST_METHOD(CharacterFactory_Register_Charactar_Should_Add_Character)
 		{
 			// Arrange
-			Engine engine;
+			unique_ptr<Engine> engine = make_unique<Engine>();
 			EventDispatcher dispatcher;
 			shared_ptr<Savegame> savegame = shared_ptr<Savegame>(new Savegame());
-			SceneStateMachine statemachine{ engine, savegame };
+			shared_ptr<SceneStateMachine> statemachine = make_shared<SceneStateMachine>(SceneStateMachine{ engine, savegame });
 			Level level{ 1, 100, 100, engine, statemachine };
 			CharacterFactory factory{ engine, level };
-			MockCharacter registerCharacter{ dispatcher };
-			MockCharacter registerCharacter2{ dispatcher };
+			shared_ptr<MockCharacter> registerCharacter = make_shared<MockCharacter>(MockCharacter{ dispatcher });
 			int i = 1;
 			int* a = &i;
 			// Act
-			factory.registerCharacter("name", &registerCharacter, a);
+			factory.registerCharacter("name", registerCharacter, a);
 			// Assert
 			Assert::IsTrue(true);
 		}
 		TEST_METHOD(CharacterFactory_Register_ExistingCharactar_Should_ThrowError)
 		{
 			// Arrange
-			Engine engine;
+			unique_ptr<Engine> engine = make_unique<Engine>();
 			EventDispatcher dispatcher;
 			shared_ptr<Savegame> savegame = shared_ptr<Savegame>(new Savegame());
-			SceneStateMachine statemachine{ engine, savegame };
+			shared_ptr<SceneStateMachine> statemachine = make_shared<SceneStateMachine>(SceneStateMachine{ engine, savegame });
 			Level level{ 1, 100, 100, engine, statemachine };
 			CharacterFactory factory{ engine, level };
-			MockCharacter registerCharacter{ dispatcher };
-			MockCharacter registerCharacter2{ dispatcher };
+			shared_ptr<MockCharacter> registerCharacter = make_shared<MockCharacter>(MockCharacter{ dispatcher });
+			shared_ptr<MockCharacter> registerCharacter2 = make_shared<MockCharacter>(MockCharacter{ dispatcher });
 			int i = 1;
 			int* a = &i;
 			// Act
-			factory.registerCharacter("name", &registerCharacter, a);
+			factory.registerCharacter("name", registerCharacter, a);
 			try {
-				factory.registerCharacter("name", &registerCharacter2, a);
+				factory.registerCharacter("name", registerCharacter2, a);
 			}
 			// Assert
 			catch (exception e) {

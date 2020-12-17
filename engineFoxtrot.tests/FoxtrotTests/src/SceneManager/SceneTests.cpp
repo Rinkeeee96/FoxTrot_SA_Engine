@@ -19,6 +19,7 @@ namespace UnitTestsEngine
 			// Act
 			layer.addObjectInLayer(object);
 			layer.removeObject(1);
+			bool result = layer.objectExists(object->getObjectId());
 			// Assert
 			Assert::IsTrue(result);
 		}
@@ -37,9 +38,9 @@ namespace UnitTestsEngine
 		{
 			// Arrange
 			MockScene scene;
-			MockObject object;
+			shared_ptr<MockObject> object = make_shared<MockObject>();
 			// Act
-			scene.addNewObjectToLayer(0, &object, true, false);
+			scene.addNewObjectToLayer(0, object, true, false);
 			auto result = scene.getAllObjectsInSceneRenderPhysics();
 			// Assert
 			Assert::AreEqual((int)result.size(), 1);
@@ -49,9 +50,9 @@ namespace UnitTestsEngine
 		{
 			// Arrange
 			MockScene scene;
-			MockObject object;
+			shared_ptr<MockObject> object = make_shared<MockObject>();
 			// Act
-			scene.addNewObjectToLayer(0, &object, false, true);
+			scene.addNewObjectToLayer(0, object, false, true);
 			auto result = scene.getAllObjectsInScene();
 			// Assert
 			Assert::AreEqual((int)result.size(), 1);
@@ -61,9 +62,9 @@ namespace UnitTestsEngine
 		{
 			// Arrange
 			MockScene scene;
-			MockDrawable object;
+			shared_ptr<MockObject> object = make_shared<MockObject>();
 			// Act
-			scene.addNewObjectToLayer(0, &object, false, true);
+			scene.addNewObjectToLayer(0, object, false, true);
 			auto result = scene.getAllDrawablesInScene();
 			// Assert
 			Assert::AreEqual((int)result.size(), 1);
@@ -74,9 +75,9 @@ namespace UnitTestsEngine
 		{
 			// Arrange
 			MockScene scene;
-			MockObject object;
+			shared_ptr<MockObject> object = make_shared<MockObject>();
 			// Act
-			scene.addNewObjectToLayer(0, &object, false, true);
+			scene.addNewObjectToLayer(0, object, false, true);
 			auto result = scene.getAllDrawablesInScene();
 			// Assert
 			Assert::AreEqual((int)result.size(), 0);
@@ -85,11 +86,11 @@ namespace UnitTestsEngine
 		{
 			// Arrange
 			MockScene scene;
-			MockObject object;
-			MockDrawable drawable;
+			shared_ptr<MockObject> object = make_shared<MockObject>();
+			shared_ptr<MockDrawable> drawable = make_shared<MockDrawable>();
 			// Act
-			scene.addNewObjectToLayer(0, &object, false, true);
-			scene.addNewObjectToLayer(0, &drawable, false, true);
+			scene.addNewObjectToLayer(0, object, false, true);
+			scene.addNewObjectToLayer(0, drawable, false, true);
 			auto result = scene.getAllDrawablesInScene();
 			// Assert
 			Assert::AreEqual((int)result.size(), 1);
@@ -99,9 +100,9 @@ namespace UnitTestsEngine
 		{
 			// Arrange
 			MockScene scene;
-			MockObject object;
+			shared_ptr<MockObject> object = make_shared<MockObject>();
 			// Act
-			scene.addNewObjectToLayer(0, &object, false, true);
+			scene.addNewObjectToLayer(0, object, false, true);
 			auto result = scene.getObject(1);
 			// Assert
 			Assert::IsTrue(true);
@@ -111,9 +112,8 @@ namespace UnitTestsEngine
 		{
 			// Arrange
 			MockScene scene;
-			MockObject object;
+			shared_ptr<MockObject> object = make_shared<MockObject>();
 			Layer layer;
-			shared_ptr<Object> object = shared_ptr<MockObject>(new MockObject());
 			// Act
 			layer.addObjectInLayer(object);
 			try {
@@ -134,29 +134,29 @@ namespace UnitTestsEngine
 			layer.addObjectInLayer(object);
 			layer.clearObjects();
 			// Assert
-			Assert::IsTrue(object.getIsRemoved());
+			Assert::IsTrue(object->getIsRemoved());
 		}
 
 		TEST_METHOD(GetObject_NonExistingObject_Should_Not_Remove_Object)
 		{
 			// Arrange
 			MockScene scene;
-			MockObject object;
-			MockObject object2;
+			shared_ptr<MockObject> object = make_shared<MockObject>();
+			shared_ptr<MockObject> object2 = make_shared<MockObject>();
 			// Act
-			scene.addNewObjectToLayer(0, &object, false, true);
-			scene.removeObjectFromScene(&object2);
+			scene.addNewObjectToLayer(0, object, false, true);
+			scene.removeObjectFromScene(object2);
 			// Assert
-			Assert::IsFalse(object.getIsRemoved());
+			Assert::IsFalse(object->getIsRemoved());
 		}
 
 		TEST_METHOD(getLayers_TwoExistingLayers_Should_Return_Map_With_Layers)
 		{
 			// Arrange
 			MockScene scene;
-			MockObject object;
+			shared_ptr<MockObject> object = make_shared<MockObject>();
 			// Act
-			scene.addNewObjectToLayer(0, &object, false, true);
+			scene.addNewObjectToLayer(0, object, false, true);
 			scene.createLayer(25, 0, 0);
 			// Assert
 			Assert::AreEqual((int)scene.getLayers().count(0), 1);
@@ -177,9 +177,9 @@ namespace UnitTestsEngine
 		{
 			// Arrange
 			MockScene scene;
-			MockObject object;
+			shared_ptr<MockObject> object = make_shared<MockObject>();
 			// Act
-			scene.addNewObjectToLayer(0, &object, false, true);
+			scene.addNewObjectToLayer(0, object, false, true);
 			scene.createLayer(25, 0, 0);
 			// Assert
 			Assert::AreEqual((int)scene.getHighestLayerIndex(), 25);
@@ -229,6 +229,9 @@ namespace UnitTestsEngine
 			layer.addObjectInLayer(object);
 			try {
 				layer.getObjectsInLayer();
+			}
+			catch(exception e) {
+
 			}
 			// Assert
 			Assert::AreEqual((int)scene.getLayers().count(1), 0);

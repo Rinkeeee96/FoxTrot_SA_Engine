@@ -71,7 +71,7 @@ namespace UnitTestsGlitch
 			Fleye entity{ 1, dispatcher };
 			Player player{ 2, dispatcher };
 			auto result = player.buildSpritemap(1);
-			map<SpriteState, SpriteObject*>::iterator it = result.begin();
+			map<SpriteState, shared_ptr<SpriteObject>>::iterator it = result.begin();
 			while (it != result.end())
 			{
 				player.registerSprite(it->first, it->second);
@@ -87,7 +87,7 @@ namespace UnitTestsGlitch
 			direction[player.getObjectId()] = { Direction::DOWN };
 			direction[entity.getObjectId()] = { Direction::UP };
 
-			dispatcher.dispatchEvent<OnCollisionBeginEvent>((Event&)OnCollisionBeginEvent(player, entity, direction));
+			dispatcher.dispatchEvent<OnCollisionBeginEvent>((Event&)OnCollisionBeginEvent(make_shared<Player>(player), make_shared<Fleye>(entity), direction));
 			// Assert
 			Assert::AreEqual(entity.getCurrentHealth(), 0);
 			Assert::IsTrue(entity.getIsDead());
@@ -111,7 +111,7 @@ namespace UnitTestsGlitch
 			direction[player.getObjectId()] = { Direction::UP };
 			direction[entity.getObjectId()] = { Direction::DOWN };
 
-			dispatcher.dispatchEvent<OnCollisionBeginEvent>((Event&)OnCollisionBeginEvent(player, entity, direction));
+			dispatcher.dispatchEvent<OnCollisionBeginEvent>((Event&)OnCollisionBeginEvent(make_shared<Player>(player), make_shared<Fleye>(entity), direction));
 			// Assert
 			Assert::AreNotEqual(player.getCurrentHealth(), 5);
 			Assert::AreEqual(entity.getCurrentHealth(), 5);

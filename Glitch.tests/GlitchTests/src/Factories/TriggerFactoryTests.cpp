@@ -12,16 +12,16 @@ namespace UnitTestsGlitch
 		MockTrigger(EventDispatcher& _dispatcher) : BaseTrigger(_dispatcher) { }
 		MockTrigger(const int id, EventDispatcher& _dispatcher) : BaseTrigger(id, _dispatcher) { }
 
-		virtual bool onCollisionBegin(const Event& event)  override {
+		bool onCollisionBegin(const Event& event)  override {
 			return false;
 		}
 
-		virtual BaseTrigger* clone(int id) override {
+		shared_ptr<BaseTrigger> clone(int id) override {
 
-			return new MockTrigger(id + 1, this->dispatcher);
+			return make_shared<MockTrigger>(MockTrigger{ id + 1, this->dispatcher });
 		}
 
-		virtual void onUpdate(float deltaTime) override {};
+		void onUpdate(float deltaTime) override {};
 	};
 
 	TEST_CLASS(FactoryTests)
@@ -34,7 +34,7 @@ namespace UnitTestsGlitch
 			TriggerFactory factory;
 			MockTrigger trigger{ dispatcher };
 			// Act
-			factory.registerTrigger("name", &trigger);
+			factory.registerTrigger("name", make_shared<MockTrigger>(trigger));
 			auto result = factory.create("name", 1);
 			// Assert
 			Assert::AreEqual(result->getObjectId(), 2);
@@ -63,7 +63,7 @@ namespace UnitTestsGlitch
 			TriggerFactory factory;
 			MockTrigger trigger{ dispatcher };
 			// Act
-			factory.registerTrigger("name", &trigger);
+			factory.registerTrigger("name", make_shared<MockTrigger>(trigger));
 			// Assert
 			Assert::IsTrue(true);
 		}
@@ -75,9 +75,9 @@ namespace UnitTestsGlitch
 			MockTrigger trigger{ dispatcher };
 			MockTrigger trigger2{ dispatcher };
 			// Act
-			factory.registerTrigger("name", &trigger);
+			factory.registerTrigger("name", make_shared<MockTrigger>(trigger));
 			try {
-				factory.registerTrigger("name", &trigger2);
+				factory.registerTrigger("name", make_shared<MockTrigger>(trigger2));
 			}
 			// Assert
 			catch (exception e) {

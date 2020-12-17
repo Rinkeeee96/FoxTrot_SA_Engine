@@ -14,14 +14,14 @@ namespace UnitTestsGlitch
 		TEST_METHOD(LevelBuilder_Create_Level_Should_Have_Correct_Level)
 		{
 			// Arrange
-			Engine engine;
+			unique_ptr<Engine> engine = make_unique<Engine>();
 			CommandBuilder commandBuilder;
-			engine.start();
-			engine.useCustomCommandInvoker(commandBuilder.readBindingsAndCreateInvoker());
-			LoadLevelFacade levelLoader{ };
+			engine->start();
+			engine->useCustomCommandInvoker(commandBuilder.readBindingsAndCreateInvoker());
+			LoadLevelFacade levelLoader{ engine };
 			EventDispatcher dispatcher;
 			shared_ptr<Savegame> savegame = shared_ptr<Savegame>(new Savegame());
-			SceneStateMachine statemachine{ engine, savegame };
+			shared_ptr<SceneStateMachine> statemachine = make_shared<SceneStateMachine>(SceneStateMachine{ engine, savegame });
 			LevelBuilder levelOneBuilder{ engine, 1, statemachine };
 			// Act
 			levelLoader.load("TestAssetsGame/validLevel.json", &levelOneBuilder);

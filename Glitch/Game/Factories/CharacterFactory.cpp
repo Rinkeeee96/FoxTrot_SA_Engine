@@ -37,7 +37,7 @@ shared_ptr<ICharacter> CharacterFactory::create(string name, int id) {
 
 		auto sprites = spriteObjectMap[name];
 
-		map<SpriteState, SpriteObject*>::iterator it = sprites.begin();
+		map<SpriteState, shared_ptr<SpriteObject>>::iterator it = sprites.begin();
 		if (sprites.begin() == sprites.end()) {
 			return clone;
 		}

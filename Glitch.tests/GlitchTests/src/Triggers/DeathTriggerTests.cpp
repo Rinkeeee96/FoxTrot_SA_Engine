@@ -14,41 +14,41 @@ namespace UnitTestsGlitch
 		{
 			// Arrange
 			EventDispatcher dispatcher;
-			DeathTrigger entity{ 1, dispatcher };
-			Player player{ 2, dispatcher };
-			player.setTotalHealth(5);
-			player.setCurrentHealth(5);
+			shared_ptr<DeathTrigger> entity = make_shared<DeathTrigger>(DeathTrigger{ 1, dispatcher });
+			shared_ptr<Player> player = make_shared<Player>(Player{ 2, dispatcher });
+			player->setTotalHealth(5);
+			player->setCurrentHealth(5);
 			// Act
 			map<int, vector<Direction>> direction;
-			direction[player.getObjectId()] = { Direction::DOWN };
-			direction[entity.getObjectId()] = { Direction::UP };
+			direction[player->getObjectId()] = { Direction::DOWN };
+			direction[entity->getObjectId()] = { Direction::UP };
 
 			dispatcher.dispatchEvent<OnCollisionBeginEvent>((Event&)OnCollisionBeginEvent(player, entity, direction));
 			// Assert
-			Assert::IsTrue(player.getIsDead());
+			Assert::IsTrue(player->getIsDead());
 		}
 
 		TEST_METHOD(DeathTrigger_With_Slime_Should_Not_Kill_Slime)
 		{
 			// Arrange
 			EventDispatcher dispatcher;
-			DeathTrigger entity{ 1, dispatcher };
-			Slime slime{ 2, dispatcher };
+			shared_ptr<DeathTrigger> entity = make_shared<DeathTrigger>(DeathTrigger{ 1, dispatcher });
+			shared_ptr<Slime> slime = make_shared<Slime>(Slime{ 2, dispatcher });
 			Player player{ 2, dispatcher };
 			player.setTotalHealth(5);
 			player.setCurrentHealth(5);
 
-			slime.setPlayer(&player);
-			slime.setTotalHealth(5);
-			slime.setCurrentHealth(5);
+			slime->setPlayer(&player);
+			slime->setTotalHealth(5);
+			slime->setCurrentHealth(5);
 			// Act
 			map<int, vector<Direction>> direction;
-			direction[slime.getObjectId()] = { Direction::DOWN };
-			direction[entity.getObjectId()] = { Direction::UP };
+			direction[slime->getObjectId()] = { Direction::DOWN };
+			direction[entity->getObjectId()] = { Direction::UP };
 
 			dispatcher.dispatchEvent<OnCollisionBeginEvent>((Event&)OnCollisionBeginEvent(slime, entity, direction));
 			// Assert
-			Assert::IsTrue(slime.getIsDead());
+			Assert::IsTrue(slime->getIsDead());
 		}
 	};
 }
