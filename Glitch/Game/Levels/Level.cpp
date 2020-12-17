@@ -76,7 +76,7 @@ void Level::onUpdate(float deltaTime)
 	{
 		player->kill();
 		increaseTotalGameScore(100);
-		throwAchievement("Level " + to_string(stateMachine.get()->levelToBuild) + " behaald!");
+		throwAchievement("Level " + to_string(stateMachine.get()->levelToBuild) + " completed!");
 		SaveGameData save = savegame->getCurrentGameData();
 		save.levelData[stateMachine->levelToBuild].completed = true;
 		savegame->saveCurrentGameData(save);
@@ -104,7 +104,7 @@ void Level::onUpdate(float deltaTime)
 					removeObjectFromScene(object);
 					engine->restartPhysicsWorld();
 					increaseTotalGameScore(10);
-					throwAchievement("Eerste kill");
+					throwAchievement("First Kill");
 				}
 			}
 		}
@@ -251,7 +251,7 @@ void Level::loadScoreBoard()
 	addNewObjectToLayer(5, text2, false, true);
 
 
-	scoreText = shared_ptr<Text>(new Text(textIDCount++, new ColoredText("Totale score: " + to_string(savegame->getCurrentGameData().totalScore), Color(0, 0, 0)), 200, 30, 1550, 90));
+	scoreText = shared_ptr<Text>(new Text(textIDCount++, new ColoredText("Total score: " + to_string(savegame->getCurrentGameData().totalScore), Color(0, 0, 0)), 200, 30, 1550, 90));
 	scoreText->setDrawStatic(true);
 	addNewObjectToLayer(5, scoreText, false, true);
 
@@ -262,7 +262,7 @@ void Level::loadScoreBoard()
 /// Updates the scoreboard
 void Level::updateScoreBoard()
 {
-	string text = "Totale score: " + to_string(savegame->getCurrentGameData().totalScore);
+	string text = "Total score: " + to_string(savegame->getCurrentGameData().totalScore);
 	scoreText->changeText(text);
 }
 
