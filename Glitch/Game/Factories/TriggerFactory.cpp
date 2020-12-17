@@ -28,4 +28,3 @@ shared_ptr<BaseTrigger> TriggerFactory::create(string name, int id) {
 		throw exception("identifier does not exist");
 	}
 }
-}
