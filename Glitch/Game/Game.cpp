@@ -26,11 +26,8 @@ int Game::run() {
 
 		while (engine->getEngineRunning())
 		{
-			engine->updateFps();
 			engine->update();
-			// TODO get only the non static objects, without looping thru them again and again
 			engine->updateCurrentScene();
-			engine->updateFps();
 		}
 		
 		if(EXPORT_GAME_DATA) 
