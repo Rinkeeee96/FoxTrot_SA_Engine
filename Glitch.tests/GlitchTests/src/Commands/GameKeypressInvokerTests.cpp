@@ -47,7 +47,7 @@ namespace UnitTestsGlitch
 				result->updateCommand(KeyCode::KEY_G, &m);
 			}
 			catch (exception e) {
-				Assert::AreEqual(e.what(), "trying to update an unregistered command");
+				Assert::AreEqual("KeypressInvoker: trying to update an unregistered command", e.what());
 			}
 			// Assert
 			delete result;
