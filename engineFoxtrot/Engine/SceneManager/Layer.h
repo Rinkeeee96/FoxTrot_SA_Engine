@@ -7,7 +7,7 @@ class Layer
 {
 public:
 	Layer() {};
-	~Layer() {};
+	~Layer() { clearObjects(); };
 
 	API void setVisible(bool value) { visible = value; }
 	API bool getVisible() const { return visible; }

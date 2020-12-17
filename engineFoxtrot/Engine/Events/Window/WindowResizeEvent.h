@@ -22,7 +22,7 @@ public:
 	/// @brief
 	/// Returns the eventType of a specific event
 	/// @return EventType
-	EventType getEventType() const override { return EventType::WindowClose; }
+	EventType getEventType() const override { return EventType::WindowResize; }
 	
 	/// @brief
 	/// Get the name of an event

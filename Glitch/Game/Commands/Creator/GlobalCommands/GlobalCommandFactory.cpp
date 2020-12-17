@@ -2,7 +2,6 @@
 #include "GlobalCommandFactory.h"
 #include "Game/characters/ICharacter.h"
 #include "GlobalCommandCreator.h"
-#include "Engine/Input/Commands/exceptions/unknownCommandException.h"
 /// @brief
 /// register a command with a given identifier
 void GlobalCommandFactory::registerit(const std::string& classname, IGlobalCommandCreator* creator)

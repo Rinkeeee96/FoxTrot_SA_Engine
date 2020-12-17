@@ -21,6 +21,7 @@ SoundFacade::SoundFacade()
 // TODO no sound memory is freed
 SoundFacade::~SoundFacade()
 {
+	flush();
     /*SDL_CloseAudioDevice(deviceId);
     SDL_FreeWAV(wavBuffer);*/
 }

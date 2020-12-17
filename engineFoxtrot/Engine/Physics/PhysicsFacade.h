@@ -53,9 +53,9 @@ public:
 	API void cleanMap();
 
 private:
-	b2PolygonShape createShape(const PhysicsBody& object);
+	b2PolygonShape createShape(shared_ptr<PhysicsBody> object);
 	EventDispatcher& dispatcher;
-	shared_ptr<b2World> world;
+	unique_ptr<b2World> world;
 	const float timeStep = TIMESTEP_SEC / TIMESTEP_FRAMES;
 
 	// TODO clear on scene detach

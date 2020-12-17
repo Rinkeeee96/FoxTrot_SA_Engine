@@ -43,8 +43,8 @@ protected:
 /// @brief Text class that should be drawn on the screen.
 class Text : public Drawable {
 public:
-	Text(const int _id, ColoredText* _color, float _width, float _height, float _x, float _y)
-		: color(_color), Drawable(_id)
+	Text(const int _id, ColoredText* _colortext, float _width, float _height, float _x, float _y)
+		: colortext(_colortext), Drawable(_id)
 	{
 		Object::setHeight(_height);
 		Object::setWidth(_width);
@@ -55,17 +55,17 @@ public:
 	}
 
 	~Text() {
-		delete color;
+		delete colortext;
 	}
 
 	API void changeText(string& text) 
 	{
-		this->color->text = text;
+		this->colortext->text = text;
 	};
 
-	API virtual const ColoredText* toString() { return color; }
+	API virtual const ColoredText* toString() { return colortext; }
 
 private:
-	ColoredText* color = nullptr;
+	ColoredText* colortext = nullptr;
 };
 

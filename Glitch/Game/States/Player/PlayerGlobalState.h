@@ -1,13 +1,15 @@
 #pragma once
-#include "Game/States/IGlobalState.h"
+#include "Game/States/IState.h"
 
 class Player;
 
 /// @brief Class for the global player state
-class PlayerGlobalState : public IGlobalState<Player>
+class PlayerGlobalState : public IState<Player>
 {
-private:
-    int health;
 public:
-    void execute(Player* entity) override;
+    virtual ~PlayerGlobalState() {}
+
+    void entry(Player& entity) override;
+    void execute(Player& entity) override;
+    void exit(Player& entity) override;
 };

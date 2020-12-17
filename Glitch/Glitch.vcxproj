@@ -224,7 +224,6 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Scenes\Transitions\Transitions.h" />
     <ClInclude Include="Game\Scenes\DeathScreen\DeathScreen.h" />
     <ClInclude Include="Game\Scenes\WinScreen\WinScreen.h" />
-    <ClInclude Include="Game\States\IGlobalState.h" />
     <ClInclude Include="Game\States\IState.h" />
     <ClInclude Include="Game\States\Player\GodState.h" />
     <ClInclude Include="Game\States\Player\DamageCooldownState.h" />

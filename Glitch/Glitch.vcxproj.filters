@@ -107,7 +107,6 @@
     <ClInclude Include="Game\States\Player\GodState.h" />
     <ClInclude Include="Game\States\Player\NormalState.h" />
     <ClInclude Include="Game\States\Player\PlayerGlobalState.h" />
-    <ClInclude Include="Game\States\IGlobalState.h" />
     <ClInclude Include="Game\States\IState.h" />
     <ClInclude Include="Game\States\StateMachine.h" />
     <ClInclude Include="Game\States\Player\DamageCooldownState.h" />

@@ -203,7 +203,6 @@ void VideoFacade::drawParticle(shared_ptr<ParticleAdapter> part)
 void VideoFacade::drawMessageAt(const ColoredText& message, const Position& pos, const ObjectSize& bounds, bool fromText)
 {
 	bool exists = std::filesystem::exists(FONT_PATH); // TODO dynamic fonts
-	// TODO check if message is in bounds
 	if (exists) {
 
 		SDL_Color color = {(Uint8)message.color.red, (Uint8)message.color.green, (Uint8)message.color.blue };
@@ -216,7 +215,6 @@ void VideoFacade::drawMessageAt(const ColoredText& message, const Position& pos,
 		if (message.centered)
 		{
 			if (fromText) {
-				// TODO check width and height positioning relative to set x/y position	
 				xPos = pos.xPos + (bounds.width / 2);
 				yPos = pos.yPos + (bounds.height / 2);
 			}

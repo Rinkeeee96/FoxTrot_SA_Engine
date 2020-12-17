@@ -125,6 +125,7 @@ void Engine::shutdown()
 		particleEngine.shutdown();
 		videoEngine.shutdown();
 		physicsEngine.shutdown();
+		soundEngine.shutdown();
 	}
 
 }

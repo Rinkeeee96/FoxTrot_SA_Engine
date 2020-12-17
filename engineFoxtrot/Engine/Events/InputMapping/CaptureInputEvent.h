@@ -21,10 +21,10 @@ public:
 	/// MouseCode to be captured by the capture event
 	CaptureInputEvent(const MouseCode& _mouseCode) : pressedMouseButton{ &_mouseCode } {};
 
-	EventType GetEventType() const override { return EventType::CaptureInput; }
-	const char* GetName() const override { return "Capture input"; }
+	EventType getEventType() const override { return EventType::CaptureInput; }
+	const char* getName() const override { return "Capture input"; }
 
 private:
 	const KeyCode* pressedKeyboardKey;
-	const MouseCode* pressedMouseButton
+	const MouseCode* pressedMouseButton;
 };

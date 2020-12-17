@@ -16,7 +16,8 @@ public:
 
 	API void start(EventDispatcher& dispatcher) override { };
 	API void update() override { };
-	API void shutdown() override { };
+	API void shutdown() override;
+	API void clean();
 	 
 	API void setFiles(map<string, string> files);
 	API void addFile(const string& identifier, const string& file);
