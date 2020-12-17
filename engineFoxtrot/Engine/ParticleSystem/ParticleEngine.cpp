@@ -33,7 +33,6 @@ void ParticleEngine::update()
 	{
 		if (particle != nullptr && particle->getIsParticle())
 		{
-			//((shared_ptr<ParticleAdapter>)particle)->update(frameData->calculateDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
 			(dynamic_pointer_cast<ParticleAdapter>(particle))->update(frameData->calculateDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
 
 			checkIfObjectValueAndParticleValueMatch(dynamic_pointer_cast<ParticleAdapter>(particle));
