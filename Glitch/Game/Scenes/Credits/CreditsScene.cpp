@@ -5,8 +5,6 @@
 #include "Game/Buttons/SecondaryButton.h"
 #include "Game/Game.h"
 
-#define BIND_FN(function) std::bind(&CreditsScene::function, *this)
-
 #define CENTER_X  (WINDOW_WIDTH / 2)
 #define CENTER_Y (WINDOW_HEIGHT / 2)
 
@@ -45,7 +43,7 @@ void CreditsScene::loadText() {
 /// Create all buttons for this scene
 void CreditsScene::loadButtons() {
 	// Back button
-	auto* backBtn = new SecondaryButton(3, "To Main Menu", BIND_FN(onBackClick), this->dispatcher);
+	auto* backBtn = new SecondaryButton(3, "To Main Menu", onBackClick, this->dispatcher);
 	backBtn->setPositionX(WINDOW_WIDTH - 40 - backBtn->getWidth());
 	backBtn->setPositionY(WINDOW_HEIGHT - 10 - backBtn->getHeight());
 
@@ -105,8 +103,13 @@ void CreditsScene::start(bool playSound)
 	if(playSound)engine.startSound("WIN_SOUND");
 }
 
-void CreditsScene::onUpdate()
+void CreditsScene::onUpdate(float deltaTime)
 {
+	if (moveToNextScene)
+	{
+		stateMachine.switchToScene(nextScene, useTransition, playSound);
+	}
+
 	for (size_t i = 0; i < this->text.size(); i++)
 	{
 		this->text[i]->setPositionY(this->text[i]->getPositionY() - 1);
@@ -120,12 +123,3 @@ void CreditsScene::onDetach()
 {
 	Scene::onDetach();
 }
-
-/// @brief 
-/// A callback function for overworldBTN
-/// Start transition scene to overworl
-void CreditsScene::onBackClick() {
-	stateMachine.switchToScene("MainMenu", false);
-}
-
-void CreditsScene::empty() { }

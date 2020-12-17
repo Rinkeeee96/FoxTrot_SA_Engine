@@ -33,7 +33,7 @@ public:
 
 	map<SpriteState, SpriteObject*> buildSpritemap(int textureId) override;
 
-	void onUpdate() override {
+	void onUpdate(float deltaTime) override {
 		if (releasedKeyLastFrame)
 		{
 			StopMovementCommand(*this, "stopMovement").execute(this->dispatcher);

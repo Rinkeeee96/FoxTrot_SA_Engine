@@ -9,7 +9,7 @@ SceneStateMachine::SceneStateMachine(Engine& _engine, shared_ptr<Savegame> _save
 	factory = shared_ptr<SceneFactory>(new  SceneFactory());
 	// Somehow delete this after they are used;
 	CreatorImpl <MainMenu>* Menu = new CreatorImpl<MainMenu>();
-	Menu->registerClass("MainMenu",factory);
+	Menu->registerClass("MainMenu", factory);
 
 	CreatorImpl <DeathScreen>* Death = new CreatorImpl <DeathScreen>();
 	Death->registerClass("DeathScreen", factory);
@@ -31,12 +31,12 @@ SceneStateMachine::SceneStateMachine(Engine& _engine, shared_ptr<Savegame> _save
 
 	CreatorImpl <ChapterOneScene>* chap = new CreatorImpl <ChapterOneScene>();
 	chap->registerClass("ChapterOne", factory);
-	
+
 	CreatorImpl <Shop>* shop = new CreatorImpl <Shop>();
 	shop->registerClass("Shop", factory);
 }
 
-SceneStateMachine::~SceneStateMachine(){}
+SceneStateMachine::~SceneStateMachine() {}
 
 /// @brief Load level according to the identifier
 /// @param identifier 
@@ -120,7 +120,7 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 /// @brief Calls current scene onUpdate function
 void SceneStateMachine::updateCurrentScene()
 {
-	if (currentScene)currentScene->onUpdate();
+	if (currentScene)currentScene->onUpdate(engine.getDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
 };
 
 /// @brief Returns currentLevelIdentifier

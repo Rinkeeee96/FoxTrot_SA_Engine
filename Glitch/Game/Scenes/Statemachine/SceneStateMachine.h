@@ -14,7 +14,7 @@ public:
 	void switchToScene(string const identifier, bool useTransitionScreen, bool playSound = true);
 
 	void updateCurrentScene();
-	
+
 	string& getCurrentLevelIdentifier();
 
 	int levelToBuild = 0;
@@ -30,4 +30,3 @@ private:
 	int sceneId = 0;
 	string currentLevelIdentifier = "";
 };
-

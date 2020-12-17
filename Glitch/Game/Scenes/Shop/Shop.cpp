@@ -2,8 +2,6 @@
 #include "Shop.h"
 #include "Game/Game.h"
 
-#define BIND_FN(function) std::bind(&Shop::function, *this)
-
 #define CENTER_X  (WINDOW_WIDTH / 2)
 #define CENTER_Y (WINDOW_HEIGHT / 2)
 
@@ -32,8 +30,14 @@ void Shop::start(bool playSound)
 }
 
 /// @brief 
-void Shop::onUpdate()
+/// @param deltaTime
+/// DeltaTime should be used when calculating timers/manual movements
+void Shop::onUpdate(float deltaTime)
 {
+	if (moveToNextScene)
+	{
+		stateMachine.switchToScene(nextScene, useTransition, playSound);
+	}
 }
 
 /// @brief Loads the screen backGground
@@ -42,7 +46,7 @@ void Shop::loadBackground()
 	SpriteObject* BG_LAYER_0 = new SpriteObject(-1500, 1080, 1920, 1, 0, "Assets/Shop/Shop.png");
 	SpriteObject* DialogBox = new SpriteObject(-1502, 170, 455, 1, 0, "Assets/Shop/Dialogbox1.png");
 
-	auto* level1TextBtn = new Text(2, new ColoredText("How can i help you today?", Color(0, 0, 0)), 400, 100, 760, 865);
+	auto* level1TextBtn = new Text(2, new ColoredText("Hoe kan ik je helpen?", Color(0, 0, 0)), 400, 100, 760, 865);
 
 
 	auto* layer0 = new Drawable(-992);
@@ -77,14 +81,9 @@ void Shop::loadMusic()
 /// @brief Loads the buttons for this scene
 void Shop::loadButtons()
 {
-	auto* stopBtn = new SecondaryButton(-993, "To Overworld", BIND_FN(onStopBtnClick), this->dispatcher);
+	auto* stopBtn = new SecondaryButton(-993, "Wereld", onStopBtnClick, this->dispatcher);
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
 	addNewObjectToLayer(3, stopBtn);
-}
-
-/// @brief Called when stop button is clicked
-void Shop::onStopBtnClick() {
-	stateMachine.switchToScene("Overworld", false);
 }

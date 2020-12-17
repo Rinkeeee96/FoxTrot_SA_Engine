@@ -13,15 +13,18 @@ public:
 	void onAttach() override;
 	void onDetach() override;
 	void start(bool playSound) override;
-	void onUpdate() override;
+	void onUpdate(float deltaTime) override;
 
 private:
 	void loadBackground();
 	void loadMusic();
 	void loadButtons();
 
-	//button functions
-	void onStopBtnClick();
+	function<void(void)> onStopBtnClick = [this]() {
+		moveToNextScene = true;
+		nextScene = "Overworld";
+	};
+
 };
 
 

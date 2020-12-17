@@ -58,7 +58,9 @@ void Level::start(bool playSound) {
 }
 
 /// @brief Updates the level data such as objects that are removed or player is dead or won the level
-void Level::onUpdate()
+/// @param deltaTime
+/// DeltaTime should be used when calculating timers/manual movements
+void Level::onUpdate(float deltaTime)
 {
 	this->addHuds();
 
@@ -76,7 +78,7 @@ void Level::onUpdate()
 	{
 		player->kill();
 		increaseTotalGameScore(100);
-		throwAchievement("Level " + to_string(stateMachine.levelToBuild) + " completed!");
+		throwAchievement("Level " + to_string(stateMachine.levelToBuild) + " behaald!");
 		SaveGameData save = savegame->getCurrentGameData();
 		save.levelData[stateMachine.levelToBuild].completed = true;
 		savegame->saveCurrentGameData(save);
@@ -93,7 +95,7 @@ void Level::onUpdate()
 	{
 		if (!object->getStatic())
 		{
-			object->onUpdate();
+			object->onUpdate(engine.getDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
 
 			if (ICharacter *character = dynamic_cast<ICharacter *>(object))
 			{
@@ -104,7 +106,7 @@ void Level::onUpdate()
 					removeObjectFromScene(object);
 					engine.restartPhysicsWorld();
 					increaseTotalGameScore(10);
-					throwAchievement("First Kill");
+					throwAchievement("Eerste kill");
 				}
 			}
 		}
@@ -251,7 +253,7 @@ void Level::loadScoreBoard()
 	addNewObjectToLayer(5, text2, false, true);
 
 
-	scoreText = new Text(textIDCount++, new ColoredText("TotalScore: " + to_string(savegame->getCurrentGameData().totalScore), Color(0, 0, 0)), 200, 30, 1550, 90);
+	scoreText = new Text(textIDCount++, new ColoredText("Totale score: " + to_string(savegame->getCurrentGameData().totalScore), Color(0, 0, 0)), 200, 30, 1550, 90);
 	scoreText->setDrawStatic(true);
 	addNewObjectToLayer(5, scoreText, false, true);
 
@@ -262,7 +264,7 @@ void Level::loadScoreBoard()
 /// Updates the scoreboard
 void Level::updateScoreBoard()
 {
-	string text = "TotalScore: " + to_string(savegame->getCurrentGameData().totalScore);
+	string text = "Totale score: " + to_string(savegame->getCurrentGameData().totalScore);
 	scoreText->changeText(text);
 }
 

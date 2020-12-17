@@ -10,7 +10,7 @@ public:
 
 	BaseTrigger* clone(const int id) override { return new DeathTrigger(id, dispatcher); }
 
-	void onUpdate() override {}
+	void onUpdate(float deltaTime) override {}
 
 	/// @brief Is called when the player collides with a death trigger
 	/// @param event 

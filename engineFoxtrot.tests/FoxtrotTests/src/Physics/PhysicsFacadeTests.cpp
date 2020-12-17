@@ -14,8 +14,9 @@ namespace UnitTestsEngine
 		TEST_METHOD(JumpTests_NonExistingObject_Should_Not_Move_Object)
 		{
 			// Arrange
+			unique_ptr<FrameData> frameData = make_unique<FrameData>();
 			EventDispatcher dispatcher = EventDispatcher();
-			PhysicsFacade facade = PhysicsFacade(dispatcher);
+			PhysicsFacade facade = PhysicsFacade(dispatcher, frameData);
 
 			Object* object = new MockObject();
 			object->setHeight(100);
@@ -41,8 +42,9 @@ namespace UnitTestsEngine
 		TEST_METHOD(JumpTests_ExistingObject_Should_Move_Object)
 		{
 			// Arrange
+			unique_ptr<FrameData> frameData = make_unique<FrameData>();
 			EventDispatcher dispatcher = EventDispatcher();
-			PhysicsFacade facade = PhysicsFacade(dispatcher);
+			PhysicsFacade facade = PhysicsFacade(dispatcher, frameData);
 
 			Object* object = new MockObject();
 			object->setHeight(100);
@@ -69,8 +71,9 @@ namespace UnitTestsEngine
 		TEST_METHOD(MoveRightTests_NonExistingObject_Should_Not_Move_Object)
 		{
 			// Arrange
+			unique_ptr<FrameData> frameData = make_unique<FrameData>();
 			EventDispatcher dispatcher = EventDispatcher();
-			PhysicsFacade facade = PhysicsFacade(dispatcher);
+			PhysicsFacade facade = PhysicsFacade(dispatcher, frameData);
 
 			Object* object = new MockObject();
 			object->setHeight(100);
@@ -87,6 +90,8 @@ namespace UnitTestsEngine
 
 			facade.addDynamicObject(&b);
 			// Act
+			frameData->startTimer();
+			frameData->calculateAverageFps();
 			auto oldX = object->getPositionX();
 			facade.MoveRight(0);
 			facade.update();
@@ -97,8 +102,9 @@ namespace UnitTestsEngine
 		TEST_METHOD(MoveRightTests_ExistingObject_Should_Move_Object)
 		{
 			// Arrange
+			unique_ptr<FrameData> frameData = make_unique<FrameData>();
 			EventDispatcher dispatcher = EventDispatcher();
-			PhysicsFacade facade = PhysicsFacade(dispatcher);
+			PhysicsFacade facade = PhysicsFacade(dispatcher, frameData);
 
 			Object* object = new MockObject();
 			object->setHeight(100);
@@ -125,8 +131,9 @@ namespace UnitTestsEngine
 		TEST_METHOD(MoveLeftTests_NonExistingObject_Should_Not_Move_Object)
 		{
 			// Arrange
+			unique_ptr<FrameData> frameData = make_unique<FrameData>();
 			EventDispatcher dispatcher = EventDispatcher();
-			PhysicsFacade facade = PhysicsFacade(dispatcher);
+			PhysicsFacade facade = PhysicsFacade(dispatcher, frameData);
 
 			Object* object = new MockObject();
 			object->setHeight(100);
@@ -143,6 +150,8 @@ namespace UnitTestsEngine
 
 			facade.addDynamicObject(&b);
 			// Act
+			frameData->startTimer();
+			frameData->calculateAverageFps();
 			auto oldX = object->getPositionX();
 			facade.MoveLeft(0);
 			facade.update();
@@ -153,8 +162,9 @@ namespace UnitTestsEngine
 		TEST_METHOD(MoveLeftTests_ExistingObject_Should_Move_Object)
 		{
 			// Arrange
+			unique_ptr<FrameData> frameData = make_unique<FrameData>();
 			EventDispatcher dispatcher = EventDispatcher();
-			PhysicsFacade facade = PhysicsFacade(dispatcher);
+			PhysicsFacade facade = PhysicsFacade(dispatcher, frameData);
 
 			Object* object = new MockObject();
 			object->setHeight(100);

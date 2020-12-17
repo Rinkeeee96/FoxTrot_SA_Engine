@@ -8,5 +8,8 @@ FoxTrot_SA_Engine
 ![C/C++ CI](https://github.com/Rinkeeee96/FoxTrot_SA_Engine/workflows/C/C++%20CI/badge.svg?branch=develop)
 
 
-DoxyGen:
-https://rinkeeee96.github.io/FoxTrot_SA_Engine/index.html
+Engine Doxygen:
+https://rinkeeee96.github.io/FoxTrot_SA_Engine/Engine/
+
+Glitch Doxygen:
+https://rinkeeee96.github.io/FoxTrot_SA_Engine/Glitch/

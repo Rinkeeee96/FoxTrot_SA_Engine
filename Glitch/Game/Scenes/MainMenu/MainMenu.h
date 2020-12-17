@@ -14,18 +14,26 @@ public:
 	void onAttach() override;
 	void onDetach() override;
 	void start(bool playSound) override;
-	void onUpdate() override;
+	void onUpdate(float deltaTime) override;
 
 private:
 	void loadBackground();
 	void loadMusic();
 	void loadButtons();
 
-	//button functions
-	void onStartBtnClick();
-	void onStopBtnClick();
-	void onCreditsBtnClick();
-	void onLoadBtnClick();
+	function<void(void)> onStartBtnClick = [this]() {
+		moveToNextScene = true;
+		nextScene = "SaveScreen";
+	};
+
+	function<void(void)> onStopBtnClick = [this]() {
+		engine.setEngineRunning(false);
+	};
+
+	function<void(void)> onCreditsBtnClick = [this]() {
+		moveToNextScene = true;
+		nextScene = "CreditsSreen";
+	};
 };
 
 inline MainMenu::~MainMenu()

@@ -9,5 +9,5 @@ public:
 	IGameObject(const int id) : Drawable(id) {}
 	virtual ~IGameObject() {}
 
-	virtual void onUpdate() = 0;
+	virtual void onUpdate(float deltaTime) = 0;
 };

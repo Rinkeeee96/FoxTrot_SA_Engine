@@ -4,7 +4,9 @@
 /// @brief
 /// Checks if the player is within range and acts accordingly
 /// If the player is in range horizontally and vertically, the Jumpkin will move towards the player by jumping
-void Jumpkin::onUpdate() {
+/// @param deltaTime
+/// DeltaTime should be used when calculating timers/manual movements
+void Jumpkin::onUpdate(float deltaTime) {
 	// Differences are calculated from the middle position of the object
 	float xPositionDifference = abs((player->getPositionX() + player->getWidth() / 2) - (this->getPositionX() + this->getWidth() / 2));
 	float yPositionDifference = abs((player->getPositionY() + player->getHeight() / 2) - (this->getPositionY() + this->getHeight() / 2));
@@ -31,11 +33,11 @@ void Jumpkin::onUpdate() {
 	}
 
 	if (jumping) {
-		jumpTimer++;
-		if (jumpTimer == JUMPKIN_JUMP_ANIMATION_TIME / 2) {
+		jumpTimer += deltaTime;
+		if (jumpTimer >= (JUMPKIN_JUMP_ANIMATION_TIME / 2) && jumpTimer <= JUMPKIN_JUMP_ANIMATION_TIME) {
 			changeToState(direction == Direction::LEFT ? SpriteState::ACTION_LEFT_1 : SpriteState::ACTION_RIGHT_1);
 		}
-		if (jumpTimer == JUMPKIN_JUMP_ANIMATION_TIME) {
+		if (jumpTimer >= JUMPKIN_JUMP_ANIMATION_TIME) {
 			changeToState(direction == Direction::LEFT ? SpriteState::ACTION_LEFT_3 : SpriteState::ACTION_RIGHT_3);
 			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
 			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(direction, this->getObjectId()));
