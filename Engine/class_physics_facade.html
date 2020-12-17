@@ -130,9 +130,9 @@ API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a647016ad3e7a8229085ad8e8eda39cfe"><td class="memItemLeft" align="right" valign="top">b2PolygonShape&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_facade.html#a647016ad3e7a8229085ad8e8eda39cfe">createShape</a> (const <a class="el" href="class_physics_body.html">PhysicsBody</a> &amp;object)</td></tr>
-<tr class="memdesc:a647016ad3e7a8229085ad8e8eda39cfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">A (private) function for create a shape The position is set to the bottom left.  <a href="class_physics_facade.html#a647016ad3e7a8229085ad8e8eda39cfe">More...</a><br /></td></tr>
-<tr class="separator:a647016ad3e7a8229085ad8e8eda39cfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac91951a4dad5ced8b41029b48bc45c9f"><td class="memItemLeft" align="right" valign="top">b2PolygonShape&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_facade.html#ac91951a4dad5ced8b41029b48bc45c9f">createShape</a> (shared_ptr&lt; <a class="el" href="class_physics_body.html">PhysicsBody</a> &gt; object)</td></tr>
+<tr class="memdesc:ac91951a4dad5ced8b41029b48bc45c9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A (private) function for create a shape The position is set to the bottom left.  <a href="class_physics_facade.html#ac91951a4dad5ced8b41029b48bc45c9f">More...</a><br /></td></tr>
+<tr class="separator:ac91951a4dad5ced8b41029b48bc45c9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60324e2e674f8b0c43f3d1b659587d8f"><td class="memItemLeft" align="right" valign="top">b2Body *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_facade.html#a60324e2e674f8b0c43f3d1b659587d8f">findBody</a> (const int objectId)</td></tr>
 <tr class="memdesc:a60324e2e674f8b0c43f3d1b659587d8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to search a body with the ObjectId If a body is not found throw PHYSICS_FACADE_BODY_DOESNT_EXIST.  <a href="class_physics_facade.html#a60324e2e674f8b0c43f3d1b659587d8f">More...</a><br /></td></tr>
 <tr class="separator:a60324e2e674f8b0c43f3d1b659587d8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -142,9 +142,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a8268c3d72a03d8e6e8e768a944ff05e2"><td class="memItemLeft" align="right" valign="top"><a id="a8268c3d72a03d8e6e8e768a944ff05e2"></a>
 <a class="el" href="class_event_dispatcher.html">EventDispatcher</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>dispatcher</b></td></tr>
 <tr class="separator:a8268c3d72a03d8e6e8e768a944ff05e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3197553a801efe3a82de7e264cdbb540"><td class="memItemLeft" align="right" valign="top"><a id="a3197553a801efe3a82de7e264cdbb540"></a>
-shared_ptr&lt; b2World &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>world</b></td></tr>
-<tr class="separator:a3197553a801efe3a82de7e264cdbb540"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3d32d49e29bfa606eb6d226a34f5160"><td class="memItemLeft" align="right" valign="top"><a id="ad3d32d49e29bfa606eb6d226a34f5160"></a>
+unique_ptr&lt; b2World &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>world</b></td></tr>
+<tr class="separator:ad3d32d49e29bfa606eb6d226a34f5160"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab77571b869e17b84b9e595322b7d304e"><td class="memItemLeft" align="right" valign="top"><a id="ab77571b869e17b84b9e595322b7d304e"></a>
 const float&#160;</td><td class="memItemRight" valign="bottom"><b>timeStep</b> = TIMESTEP_SEC / TIMESTEP_FRAMES</td></tr>
 <tr class="separator:ab77571b869e17b84b9e595322b7d304e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -230,8 +230,8 @@ unique_ptr&lt; <a class="el" href="class_frame_data.html">FrameData</a> &gt; &am
 
 </div>
 </div>
-<a id="a647016ad3e7a8229085ad8e8eda39cfe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a647016ad3e7a8229085ad8e8eda39cfe">&#9670;&nbsp;</a></span>createShape()</h2>
+<a id="ac91951a4dad5ced8b41029b48bc45c9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac91951a4dad5ced8b41029b48bc45c9f">&#9670;&nbsp;</a></span>createShape()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -242,7 +242,7 @@ unique_ptr&lt; <a class="el" href="class_frame_data.html">FrameData</a> &gt; &am
         <tr>
           <td class="memname">b2PolygonShape PhysicsFacade::createShape </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_physics_body.html">PhysicsBody</a> &amp;&#160;</td>
+          <td class="paramtype">shared_ptr&lt; <a class="el" href="class_physics_body.html">PhysicsBody</a> &gt;&#160;</td>
           <td class="paramname"><em>object</em></td><td>)</td>
           <td></td>
         </tr>

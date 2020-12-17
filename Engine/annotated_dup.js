@@ -66,7 +66,6 @@ var annotated_dup =
     [ "ToggleFpsCommand", "class_toggle_fps_command.html", "class_toggle_fps_command" ],
     [ "ToggleLayerEvent", "class_toggle_layer_event.html", "class_toggle_layer_event" ],
     [ "TogglePauseEvent", "class_toggle_pause_event.html", "class_toggle_pause_event" ],
-    [ "unknownCommandException", "classunknown_command_exception.html", "classunknown_command_exception" ],
     [ "VideoEngine", "class_video_engine.html", "class_video_engine" ],
     [ "VideoFacade", "class_video_facade.html", "class_video_facade" ],
     [ "WindowResizeEvent", "class_window_resize_event.html", "class_window_resize_event" ]

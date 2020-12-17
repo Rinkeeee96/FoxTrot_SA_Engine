@@ -34,9 +34,6 @@ var hierarchy =
       [ "WindowResizeEvent", "class_window_resize_event.html", null ]
     ] ],
     [ "EventDispatcher", "class_event_dispatcher.html", null ],
-    [ "exception", null, [
-      [ "unknownCommandException", "classunknown_command_exception.html", null ]
-    ] ],
     [ "FileLoader", "class_file_loader.html", null ],
     [ "FrameData", "class_frame_data.html", null ],
     [ "ICommand", "class_i_command.html", [

@@ -1,5 +1,6 @@
 var class_keypress_invoker =
 [
+    [ "~KeypressInvoker", "class_keypress_invoker.html#ad33b4b49acbe00c7ad8cefe75d4da46a", null ],
     [ "deleteCommandThatBelongsTo", "class_keypress_invoker.html#a800d795e493af32b698d5ede3afc2639", null ],
     [ "enqueueCommand", "class_keypress_invoker.html#a5f8bcdedef9f044ec207ed3429691845", null ],
     [ "executeCommandQueue", "class_keypress_invoker.html#a493b21439f6b9365a51cd0a3a1e3b3a3", null ],
