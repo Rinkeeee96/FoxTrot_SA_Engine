@@ -42,7 +42,7 @@ namespace UnitTestsEngine
 			}
 			// Assert
 			catch (exception e) {
-				Assert::AreEqual(e.what(), "Invalid file name");
+				Assert::AreEqual(e.what(), "VideoFacade: Invalid file name");
 			}
 		}
 
@@ -78,7 +78,7 @@ namespace UnitTestsEngine
 			}
 			// Assert
 			catch (exception e) {
-				Assert::AreEqual(e.what(), "Invalid file name");
+				Assert::AreEqual(e.what(), "VideoFacade: Invalid file name");
 			}
 		}
 	};
