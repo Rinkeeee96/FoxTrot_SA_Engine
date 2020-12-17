@@ -1,11 +1,12 @@
 #include "stdafx.h"
 #include "PhysicsBody.h"
 
-PhysicsBody::PhysicsBody(shared_ptr<Object> object) : objectID(object->getObjectId()), height(object->getHeight() / DIVIDER), width(object->getWidth() / DIVIDER), posX(object->getPositionX() / DIVIDER),
-	posY(object->getPositionY() / DIVIDER), speed(object->getSpeed()), friction(object->getFriction()), restitution(object->getRestitution()), density(object->getDensity()),
-	rotation(object->getRotation()), jumpHeight(object->getJumpHeight()), gravity(object->getGravity()), yAxisVelocity(object->getYAxisVelocity()), rotatable(object->getRotatable()) {
-	this->object = object;
-};
+PhysicsBody::PhysicsBody(shared_ptr<Object> _object) 
+	:	objectID(_object->getObjectId()), height(_object->getHeight() / DIVIDER), width(_object->getWidth() / DIVIDER), posX(_object->getPositionX() / DIVIDER),
+		posY(_object->getPositionY() / DIVIDER), speed(_object->getSpeed()), friction(_object->getFriction()), restitution(_object->getRestitution()), density(_object->getDensity()),
+		rotation(_object->getRotation()), jumpHeight(_object->getJumpHeight()), gravity(_object->getGravity()), yAxisVelocity(_object->getYAxisVelocity()), rotatable(_object->getRotatable()), object(_object) 
+{};
+
 PhysicsBody::~PhysicsBody() { }
 
 int PhysicsBody::getObjectId() const { return this->objectID; }

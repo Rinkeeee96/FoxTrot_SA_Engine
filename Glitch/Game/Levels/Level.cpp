@@ -9,9 +9,9 @@
 #include "Engine/Events/Action/ToggleEventLayer.h"
 
 Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, unique_ptr<Engine>& engine, shared_ptr<SceneStateMachine> _stateMachine)
-				: GameScene::GameScene(id, _sceneHeight, _sceneWidth, engine, _stateMachine), commandBuilder{new CommandBuilder()}
+				: GameScene::GameScene(id, _sceneHeight, _sceneWidth, engine, _stateMachine), commandBuilder{new CommandBuilder()},
+	gameInvoker(dynamic_cast<GameKeypressInvoker*>(engine->getKeypressedInvoker()))
 {
-	gameInvoker = dynamic_cast<GameKeypressInvoker*>(engine->getKeypressedInvoker());
 	this->dispatcher.setEventCallback<ToggleLayerEvent>(BIND_EVENT_FN(Level::onToggleLayerEvent));
 }
 
