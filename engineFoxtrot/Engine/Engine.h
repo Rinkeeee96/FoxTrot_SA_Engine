@@ -50,8 +50,6 @@ public:
 	API void stopSound(const string& identifier);
 	API void stopLoopEffect(const string& identifier);
 
-	API void updateFps();
-
 	API void toggleFps();
 
 	API bool getEngineRunning() { return running; };

@@ -55,12 +55,6 @@ void Engine::deregisterCurrentScene()
 }
 
 /// @brief
-/// Updates the fps counter
-void Engine::updateFps() {
-	frameData->updateFps();
-}
-
-/// @brief
 /// Toggles fps visibility
 void Engine::toggleFps() {
 	videoEngine.toggleFps();
@@ -109,6 +103,7 @@ void Engine::start()
 /// @brief Calls the update function on all the subsystems
 void Engine::update()
 {
+	frameData->updateFps();
 	particleEngine.update();
 	physicsEngine.update();
 	videoEngine.update();
