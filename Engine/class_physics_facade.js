@@ -5,6 +5,7 @@ var class_physics_facade =
     [ "addDynamicObject", "class_physics_facade.html#a6ec2e53bf183eaf3911dc3dd68bb22aa", null ],
     [ "addStaticObject", "class_physics_facade.html#a6dc0d1aed09086bdd7002dc5f41f9bbc", null ],
     [ "cleanMap", "class_physics_facade.html#a20da72d44f1f0a0501797d43d6d07a41", null ],
+    [ "createShape", "class_physics_facade.html#a647016ad3e7a8229085ad8e8eda39cfe", null ],
     [ "Fall", "class_physics_facade.html#ab04597a56a75b0c1c856ae8da958bf2a", null ],
     [ "findBody", "class_physics_facade.html#a60324e2e674f8b0c43f3d1b659587d8f", null ],
     [ "getObjectsByFixture", "class_physics_facade.html#a74487413c93e481b2b000b68f431e808", null ],
