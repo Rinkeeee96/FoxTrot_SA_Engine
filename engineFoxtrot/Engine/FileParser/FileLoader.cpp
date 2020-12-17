@@ -14,7 +14,7 @@ ifstream FileLoader::readFile(string path) {
 		return ifstream;
 	}
 
-	throw exception("file not found exception");
+	throw exception("FileLoader: file not found exception");
 }
 
 /// @brief 
@@ -29,7 +29,7 @@ bool FileLoader::validateDocument(string path, string validationPath) {
 		JsonValidator valiJsonAdapter(path, validationPath);
 		return valiJsonAdapter.documentIsValid();
 	}else{
-		throw exception("unsupported file type");
+		throw exception("FileLoader: unsupported file type");
 	}
 	return false;
 }

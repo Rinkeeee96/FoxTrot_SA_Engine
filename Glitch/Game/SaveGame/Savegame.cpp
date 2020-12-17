@@ -104,7 +104,7 @@ bool Savegame::readSaveGameDataFromJson(string& path)
 		}
 	}
 	else {
-		throw exception("Something went wrong validating file, make sure the file is correct");
+		throw exception("SaveGame: Something went wrong validating file, make sure the file is correct");
 	}
 
 	filestream.close();
@@ -146,7 +146,7 @@ SaveGameData Savegame::getSaveGameData(const int id)
 	{
 		return saveGameDataMap[id];
 	}
-	throw exception("Trying to get unknown SaveGame");
+	throw exception("SaveGame: Trying to get unknown SaveGame");
 }
 
 /// @brief 
@@ -157,9 +157,9 @@ void Savegame::parseJsonToMap(nlohmann::json json)
 	for (auto jsonObject : json["savegames"])
 	{
 		SaveGameData saveGameData;
-		if (!jsonObject.contains("timestamp")) throw exception("Timestamp unavailable in json file");
-		if (!jsonObject.contains("savegamename"))throw exception("savegamename unavailable in json file");
-		if (!jsonObject.contains("savegameid")) throw exception("savegameid unavailable in json file");
+		if (!jsonObject.contains("timestamp")) throw exception("SaveGame: Timestamp unavailable in json file");
+		if (!jsonObject.contains("savegamename"))throw exception("SaveGame: savegamename unavailable in json file");
+		if (!jsonObject.contains("savegameid")) throw exception("SaveGame: savegameid unavailable in json file");
 
 		saveGameData.saveGameName = jsonObject["savegamename"];
 		saveGameData.saveGameTimeStamp = jsonObject["timestamp"];

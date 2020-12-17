@@ -33,10 +33,6 @@ int Game::run() {
 		if(EXPORT_GAME_DATA) 
 			savegame->saveGameDataToJsonFile();
 	}
-	catch (int e) {
-		cout << ERRORCODES[e] << endl;
-		return EXIT_FAILURE;
-	}
 	catch (exception e) {
 		cout << e.what() << endl;
 		return EXIT_FAILURE;

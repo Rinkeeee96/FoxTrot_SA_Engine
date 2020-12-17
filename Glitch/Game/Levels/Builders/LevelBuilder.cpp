@@ -110,7 +110,7 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 			}
 		}
 		
-		if (object == nullptr) throw OBJECT_IS_NULLPTR;
+		if (object == nullptr) throw exception("LevelBuilder: Object is nullptr");
 
 		object->setHeight(objectValue["height"]);
 		object->setWidth(objectValue["width"]);
@@ -273,7 +273,7 @@ void LevelBuilder::createParticle(nlohmann::json layerValue)
 				bLevel->addNewObjectToLayer(PARTICLE_LAYER_INDEX, part, false, alwaysDrawLayer);
 			}
 			else {
-				throw std::exception(GAME_ERRORCODES[INVALID_TYPE]);
+				throw exception("LevelBuilder: Invalid Type");;
 			}
 		}
 	}

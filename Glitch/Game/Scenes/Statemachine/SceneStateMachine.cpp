@@ -90,7 +90,7 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	}
 
 	if (sceneId > 10) sceneId = 1;
-	if (newScene == nullptr) throw exception("NewScene is Nullptr so cant set new scene");
+	if (newScene == nullptr) throw exception("SceneStateMachine: NewScene is Nullptr");
 
 	// Detach and delete the old now inactive scene
 	if (currentSceneId != -1)

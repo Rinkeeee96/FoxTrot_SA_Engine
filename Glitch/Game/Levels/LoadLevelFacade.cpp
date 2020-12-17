@@ -32,7 +32,7 @@ void LoadLevelFacade::load(string path, ILevelBuilder* levelBuilder) {
 			}
 		}
 		else{
-			throw exception("Something went wrong validating file, make sure the file is correct");
+			throw exception("LoadLevelFacade: Something went wrong validating file, make sure the file is correct");
 		}
 	}
 	catch (exception exc) {

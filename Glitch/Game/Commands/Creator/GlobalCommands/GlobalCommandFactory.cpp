@@ -22,5 +22,5 @@ GlobalCommand* GlobalCommandFactory::createCommand(const std::string& classname,
 	if (i != table.end())
 		return i->second->createCommand(layerIndex);
 	else
-		throw exception(string("Unknown command " + classname).c_str());
+		throw exception(string("GlobalCommandFactory: Unknown command " + classname).c_str());
 }

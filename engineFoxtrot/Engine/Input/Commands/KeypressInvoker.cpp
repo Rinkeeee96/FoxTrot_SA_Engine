@@ -12,7 +12,7 @@
 /// A shared pointer to the command which needs to be registered
 void KeypressInvoker::registerCommand(KeyCode code, ICommand* command) {
 	if (isRegistered(*command)) 
-		throw exception("keycode already registered, cannot override");
+		throw exception("KeypressInvoker: keycode already registered, cannot override");
 	commands.insert(make_pair(code, command));
 };
 
@@ -25,7 +25,7 @@ void KeypressInvoker::registerCommand(KeyCode code, ICommand* command) {
 void KeypressInvoker::updateCommand(KeyCode code, ICommand* command) {
 
 	if (! isRegistered(*command))
-		throw exception("trying to update an unregistered command");
+		throw exception("KeypressInvoker: trying to update an unregistered command");
 
 	// check if the keycode for this new command has been registered
 	// if so, swap them, else, register the new key for this command

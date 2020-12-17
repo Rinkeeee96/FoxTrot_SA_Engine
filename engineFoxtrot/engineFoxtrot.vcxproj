@@ -238,7 +238,6 @@
     <ClInclude Include="Engine\Fps\FrameData.h" />
     <ClInclude Include="Engine\General\Debug.h" />
     <ClInclude Include="Engine\Engine.h" />
-    <ClInclude Include="Engine\General\ErrorCodes.h" />
     <ClInclude Include="Engine\FileParser\FileLoader.h" />
     <ClInclude Include="Engine\General\GeneralDefines.h" />
     <ClInclude Include="Engine\Input\IInputFacade.h" />

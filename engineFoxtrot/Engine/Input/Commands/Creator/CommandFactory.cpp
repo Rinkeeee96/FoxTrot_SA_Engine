@@ -15,5 +15,5 @@ ICommand* CommandFactory::create(const std::string& classname)
 	if (i != table.end())
 		return i->second->create();
 	else
-		throw exception(string("Unknown command " + classname).c_str());
+		throw exception(string("CommandFactory: Unknown command " + classname).c_str());
 }
