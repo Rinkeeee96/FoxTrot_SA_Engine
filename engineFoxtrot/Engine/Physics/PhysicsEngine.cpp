@@ -46,6 +46,7 @@ void PhysicsEngine::update() {
 ///			Cleans the physicsEngine en deletes the physicsFacade.
 void PhysicsEngine::shutdown() {
 	clean();
+	paused = false;
 }
 
 /// @brief Reloads the physicsFacade objects map.
