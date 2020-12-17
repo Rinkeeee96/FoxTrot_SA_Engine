@@ -27,7 +27,7 @@ void WinScreen::LoadButtons() {
 	overBtn->setPositionX(CENTER_X - overBtn->getWidth() / 2);
 	overBtn->setPositionY(CENTER_Y - overBtn->getHeight() / 2);
 
-	shared_ptr<Button> mainBtn = shared_ptr<Button>(new Button(-701, ColoredText("Hoofdmenu", Color(0, 0, 0)), OnMainBtnClick, mainSprite, this->dispatcher));
+	shared_ptr<Button> mainBtn = shared_ptr<Button>(new Button(-701, ColoredText("Main menu", Color(0, 0, 0)), OnMainBtnClick, mainSprite, this->dispatcher));
 	mainBtn->setPositionX(CENTER_X - mainBtn->getWidth() / 2);
 	mainBtn->setPositionY(CENTER_Y - mainBtn->getHeight() / 2 + 200);
 
