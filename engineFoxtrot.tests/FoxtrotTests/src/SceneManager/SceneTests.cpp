@@ -65,7 +65,7 @@ namespace UnitTestsEngine
 			shared_ptr<MockObject> object = make_shared<MockObject>();
 			// Act
 			scene.addNewObjectToLayer(0, object, false, true);
-			auto result = scene.getAllDrawablesInScene();
+			vector <shared_ptr<Object>> result = scene.getAllObjectsInScene();
 			// Assert
 			Assert::AreEqual((int)result.size(), 1);
 		}
