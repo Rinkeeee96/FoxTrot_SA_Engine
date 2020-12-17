@@ -83,21 +83,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aedaad4ca2d73ffdc2ebf0de2a31f4ca5"><td class="memItemLeft" align="right" valign="top">const bool API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#aedaad4ca2d73ffdc2ebf0de2a31f4ca5">toggleLayer</a> (const int zIndex, bool render)</td></tr>
 <tr class="memdesc:aedaad4ca2d73ffdc2ebf0de2a31f4ca5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns the layer on or off.  <a href="class_scene.html#aedaad4ca2d73ffdc2ebf0de2a31f4ca5">More...</a><br /></td></tr>
 <tr class="separator:aedaad4ca2d73ffdc2ebf0de2a31f4ca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d7026062180c2f43eda8d1785ceb7d8"><td class="memItemLeft" align="right" valign="top">const void API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a7d7026062180c2f43eda8d1785ceb7d8">addNewObjectToLayer</a> (const int zIndex, <a class="el" href="class_object.html">Object</a> *object, bool renderPhysics=false, bool alwaysDrawLayer=false)</td></tr>
-<tr class="memdesc:a7d7026062180c2f43eda8d1785ceb7d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new object to the given Z index.  <a href="class_scene.html#a7d7026062180c2f43eda8d1785ceb7d8">More...</a><br /></td></tr>
-<tr class="separator:a7d7026062180c2f43eda8d1785ceb7d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abdd9e7feda2031b46c64f797dee51615"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_drawable.html">Drawable</a> * &gt; API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#abdd9e7feda2031b46c64f797dee51615">getAllDrawablesInScene</a> ()</td></tr>
-<tr class="memdesc:abdd9e7feda2031b46c64f797dee51615"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a filtered collection of all the drawables in the current scene TEMPORARY.  <a href="class_scene.html#abdd9e7feda2031b46c64f797dee51615">More...</a><br /></td></tr>
-<tr class="separator:abdd9e7feda2031b46c64f797dee51615"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d0bba022bb38ac9a0a5de5df6787c3d"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_object.html">Object</a> * &gt; API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a2d0bba022bb38ac9a0a5de5df6787c3d">getAllObjectsInScene</a> ()</td></tr>
-<tr class="memdesc:a2d0bba022bb38ac9a0a5de5df6787c3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns pointers to all available objects in the whole scene.  <a href="class_scene.html#a2d0bba022bb38ac9a0a5de5df6787c3d">More...</a><br /></td></tr>
-<tr class="separator:a2d0bba022bb38ac9a0a5de5df6787c3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d99949d09c9958c60b934a417da5d81"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_object.html">Object</a> * &gt; API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a5d99949d09c9958c60b934a417da5d81">getAllObjectsInSceneRenderPhysics</a> ()</td></tr>
-<tr class="memdesc:a5d99949d09c9958c60b934a417da5d81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns all objects in the scene with the renderPhysics value on true.  <a href="class_scene.html#a5d99949d09c9958c60b934a417da5d81">More...</a><br /></td></tr>
-<tr class="separator:a5d99949d09c9958c60b934a417da5d81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72486463c25db408ff5cf771bc6ba2b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_object.html">Object</a> API *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a72486463c25db408ff5cf771bc6ba2b1">getObject</a> (const int objectID)</td></tr>
-<tr class="memdesc:a72486463c25db408ff5cf771bc6ba2b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the object matched with the given objectID, if none are found an error is thrown.  <a href="class_scene.html#a72486463c25db408ff5cf771bc6ba2b1">More...</a><br /></td></tr>
-<tr class="separator:a72486463c25db408ff5cf771bc6ba2b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a598b214f9f54dd72a0a531779b5ff208"><td class="memItemLeft" align="right" valign="top">const void API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a598b214f9f54dd72a0a531779b5ff208">addNewObjectToLayer</a> (const int zIndex, shared_ptr&lt; <a class="el" href="class_object.html">Object</a> &gt; object, bool renderPhysics=false, bool alwaysDrawLayer=false)</td></tr>
+<tr class="memdesc:a598b214f9f54dd72a0a531779b5ff208"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new object to the given Z index.  <a href="class_scene.html#a598b214f9f54dd72a0a531779b5ff208">More...</a><br /></td></tr>
+<tr class="separator:a598b214f9f54dd72a0a531779b5ff208"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e2af984b2b384a3dc2f26ec158b422d"><td class="memItemLeft" align="right" valign="top">vector&lt; shared_ptr&lt; <a class="el" href="class_drawable.html">Drawable</a> &gt; &gt; API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a5e2af984b2b384a3dc2f26ec158b422d">getAllDrawablesInScene</a> ()</td></tr>
+<tr class="memdesc:a5e2af984b2b384a3dc2f26ec158b422d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a filtered collection of all the drawables in the current scene TEMPORARY.  <a href="class_scene.html#a5e2af984b2b384a3dc2f26ec158b422d">More...</a><br /></td></tr>
+<tr class="separator:a5e2af984b2b384a3dc2f26ec158b422d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07aea524f66e6ef8ca24b43e39d161d0"><td class="memItemLeft" align="right" valign="top">vector&lt; shared_ptr&lt; <a class="el" href="class_object.html">Object</a> &gt; &gt; API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a07aea524f66e6ef8ca24b43e39d161d0">getAllObjectsInScene</a> ()</td></tr>
+<tr class="memdesc:a07aea524f66e6ef8ca24b43e39d161d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns pointers to all available objects in the whole scene.  <a href="class_scene.html#a07aea524f66e6ef8ca24b43e39d161d0">More...</a><br /></td></tr>
+<tr class="separator:a07aea524f66e6ef8ca24b43e39d161d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0bb45c0c369e8796d5cf993d72ae927"><td class="memItemLeft" align="right" valign="top">vector&lt; shared_ptr&lt; <a class="el" href="class_object.html">Object</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#aa0bb45c0c369e8796d5cf993d72ae927">getAllObjectsInSceneRenderPhysics</a> ()</td></tr>
+<tr class="memdesc:aa0bb45c0c369e8796d5cf993d72ae927"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns all objects in the scene with the renderPhysics value on true.  <a href="class_scene.html#aa0bb45c0c369e8796d5cf993d72ae927">More...</a><br /></td></tr>
+<tr class="separator:aa0bb45c0c369e8796d5cf993d72ae927"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c09f94e54f01ba64e4130a6d071457b"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_object.html">Object</a> &gt; API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a1c09f94e54f01ba64e4130a6d071457b">getObject</a> (const int objectID)</td></tr>
+<tr class="memdesc:a1c09f94e54f01ba64e4130a6d071457b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the object matched with the given objectID, if none are found an error is thrown.  <a href="class_scene.html#a1c09f94e54f01ba64e4130a6d071457b">More...</a><br /></td></tr>
+<tr class="separator:a1c09f94e54f01ba64e4130a6d071457b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3e629e67c6dc2e4dab696f63fd7fa9e"><td class="memItemLeft" align="right" valign="top"><a id="ae3e629e67c6dc2e4dab696f63fd7fa9e"></a>
 int API&#160;</td><td class="memItemRight" valign="bottom"><b>getSceneID</b> ()</td></tr>
 <tr class="separator:ae3e629e67c6dc2e4dab696f63fd7fa9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,21 +126,24 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setSceneHeight</b> (c
 <tr class="memitem:a626d3a4fcb21b2c1ac406d94bbe8c4ff"><td class="memItemLeft" align="right" valign="top"><a id="a626d3a4fcb21b2c1ac406d94bbe8c4ff"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>getSceneHeight</b> () const</td></tr>
 <tr class="separator:a626d3a4fcb21b2c1ac406d94bbe8c4ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac86043cea6ee1590cd16f3f090a1500b"><td class="memItemLeft" align="right" valign="top"><a id="ac86043cea6ee1590cd16f3f090a1500b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setObjectToFollow</b> (<a class="el" href="class_object.html">Object</a> *obj)</td></tr>
-<tr class="separator:ac86043cea6ee1590cd16f3f090a1500b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61335813cb72bf657425a121637c44d8"><td class="memItemLeft" align="right" valign="top"><a id="a61335813cb72bf657425a121637c44d8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setObjectToFollow</b> (shared_ptr&lt; <a class="el" href="class_object.html">Object</a> &gt; obj)</td></tr>
+<tr class="separator:a61335813cb72bf657425a121637c44d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd9d69a98c906f5bd8c1a8a18db1f67a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#abd9d69a98c906f5bd8c1a8a18db1f67a">getObjectToFollowID</a> () const</td></tr>
 <tr class="memdesc:abd9d69a98c906f5bd8c1a8a18db1f67a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the id of the object to follow.  <a href="class_scene.html#abd9d69a98c906f5bd8c1a8a18db1f67a">More...</a><br /></td></tr>
 <tr class="separator:abd9d69a98c906f5bd8c1a8a18db1f67a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7db814286fcad83a1368d54cfc53a86"><td class="memItemLeft" align="right" valign="top"><a id="ad7db814286fcad83a1368d54cfc53a86"></a>
-<a class="el" href="class_object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getObjectToFollow</b> ()</td></tr>
-<tr class="separator:ad7db814286fcad83a1368d54cfc53a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f06a5e001feb04ed82d23a7574779c5"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a4f06a5e001feb04ed82d23a7574779c5">removeObjectFromScene</a> (<a class="el" href="class_object.html">Object</a> *obj)</td></tr>
-<tr class="memdesc:a4f06a5e001feb04ed82d23a7574779c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a specific object from the current scene.  <a href="class_scene.html#a4f06a5e001feb04ed82d23a7574779c5">More...</a><br /></td></tr>
-<tr class="separator:a4f06a5e001feb04ed82d23a7574779c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb0274a49f1ca81274151e2d0dca9918"><td class="memItemLeft" align="right" valign="top">API map&lt; int, <a class="el" href="class_layer.html">Layer</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#acb0274a49f1ca81274151e2d0dca9918">getLayers</a> () const</td></tr>
-<tr class="memdesc:acb0274a49f1ca81274151e2d0dca9918"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the layers map in a scene.  <a href="class_scene.html#acb0274a49f1ca81274151e2d0dca9918">More...</a><br /></td></tr>
-<tr class="separator:acb0274a49f1ca81274151e2d0dca9918"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fd9d038908ef22a45e911eabda02a62"><td class="memItemLeft" align="right" valign="top"><a id="a2fd9d038908ef22a45e911eabda02a62"></a>
+shared_ptr&lt; <a class="el" href="class_object.html">Object</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getObjectToFollow</b> ()</td></tr>
+<tr class="separator:a2fd9d038908ef22a45e911eabda02a62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0452401868fec0e19cc6f22f8ab67298"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a0452401868fec0e19cc6f22f8ab67298">removeObjectFromScene</a> (shared_ptr&lt; <a class="el" href="class_drawable.html">Drawable</a> &gt; obj)</td></tr>
+<tr class="memdesc:a0452401868fec0e19cc6f22f8ab67298"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a specific object from the current scene.  <a href="class_scene.html#a0452401868fec0e19cc6f22f8ab67298">More...</a><br /></td></tr>
+<tr class="separator:a0452401868fec0e19cc6f22f8ab67298"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8a8672b25632c5cf3d3f878ec97348a"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#ad8a8672b25632c5cf3d3f878ec97348a">removeObjectFromScene</a> (shared_ptr&lt; <a class="el" href="class_object.html">Object</a> &gt; obj)</td></tr>
+<tr class="memdesc:ad8a8672b25632c5cf3d3f878ec97348a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a specific object from the current scene OVERLOADED FUNCTION.  <a href="class_scene.html#ad8a8672b25632c5cf3d3f878ec97348a">More...</a><br /></td></tr>
+<tr class="separator:ad8a8672b25632c5cf3d3f878ec97348a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf475aeea5358f6cd7094fa8e81a9e9d"><td class="memItemLeft" align="right" valign="top">API map&lt; int, shared_ptr&lt; <a class="el" href="class_layer.html">Layer</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#aaf475aeea5358f6cd7094fa8e81a9e9d">getLayers</a> () const</td></tr>
+<tr class="memdesc:aaf475aeea5358f6cd7094fa8e81a9e9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the layers map in a scene.  <a href="class_scene.html#aaf475aeea5358f6cd7094fa8e81a9e9d">More...</a><br /></td></tr>
+<tr class="separator:aaf475aeea5358f6cd7094fa8e81a9e9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa392fe80866ceb24130d4a642834767"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#afa392fe80866ceb24130d4a642834767">createLayer</a> (const int zIndex, bool renderPhysics=false, bool alwaysDrawLayer=false)</td></tr>
 <tr class="memdesc:afa392fe80866ceb24130d4a642834767"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a layer on the active scene with the given zIndex.  <a href="class_scene.html#afa392fe80866ceb24130d4a642834767">More...</a><br /></td></tr>
 <tr class="separator:afa392fe80866ceb24130d4a642834767"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -150,11 +153,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setObjectToFollow</b>
 <tr class="memitem:afb211048face51d3fd02e6edb02e0b0f"><td class="memItemLeft" align="right" valign="top">API int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#afb211048face51d3fd02e6edb02e0b0f">getHighestLayerIndex</a> ()</td></tr>
 <tr class="memdesc:afb211048face51d3fd02e6edb02e0b0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the highest layer zIndex in the scene.  <a href="class_scene.html#afb211048face51d3fd02e6edb02e0b0f">More...</a><br /></td></tr>
 <tr class="separator:afb211048face51d3fd02e6edb02e0b0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3940945ee21a86d900defb4d26c4312"><td class="memItemLeft" align="right" valign="top">API int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#aa3940945ee21a86d900defb4d26c4312">addLayerOnHighestZIndex</a> (<a class="el" href="class_layer.html">Layer</a> *_layer)</td></tr>
-<tr class="memdesc:aa3940945ee21a86d900defb4d26c4312"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a basic l with text.  <a href="class_scene.html#aa3940945ee21a86d900defb4d26c4312">More...</a><br /></td></tr>
-<tr class="separator:aa3940945ee21a86d900defb4d26c4312"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0c74a7c1a359ecaf67c376d226aa0fc"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#af0c74a7c1a359ecaf67c376d226aa0fc">addLayerOnZIndex</a> (const int zIndex, <a class="el" href="class_layer.html">Layer</a> *_layer)</td></tr>
-<tr class="separator:af0c74a7c1a359ecaf67c376d226aa0fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9e71fa81671297ca102f037296d7f27"><td class="memItemLeft" align="right" valign="top">API int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#ae9e71fa81671297ca102f037296d7f27">addLayerOnHighestZIndex</a> (shared_ptr&lt; <a class="el" href="class_layer.html">Layer</a> &gt; _layer)</td></tr>
+<tr class="memdesc:ae9e71fa81671297ca102f037296d7f27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a basic l with text.  <a href="class_scene.html#ae9e71fa81671297ca102f037296d7f27">More...</a><br /></td></tr>
+<tr class="separator:ae9e71fa81671297ca102f037296d7f27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa355fc2ad8035453407d60031dd7c304"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#aa355fc2ad8035453407d60031dd7c304">addLayerOnZIndex</a> (const int zIndex, shared_ptr&lt; <a class="el" href="class_layer.html">Layer</a> &gt; _layer)</td></tr>
+<tr class="separator:aa355fc2ad8035453407d60031dd7c304"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10ad0900fe2b1649b9e9d662d1fccbe4"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a10ad0900fe2b1649b9e9d662d1fccbe4">removeLayer</a> (const int zIndex)</td></tr>
 <tr class="memdesc:a10ad0900fe2b1649b9e9d662d1fccbe4"><td class="mdescLeft">&#160;</td><td class="mdescRight">remove layer  <a href="class_scene.html#a10ad0900fe2b1649b9e9d662d1fccbe4">More...</a><br /></td></tr>
 <tr class="separator:a10ad0900fe2b1649b9e9d662d1fccbe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -176,12 +179,12 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a4b9a37b8f4701eb269ff2a92dc429d1a"><td class="memItemLeft" align="right" valign="top"><a id="a4b9a37b8f4701eb269ff2a92dc429d1a"></a>
 const int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneID</b> = 0</td></tr>
 <tr class="separator:a4b9a37b8f4701eb269ff2a92dc429d1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87df5d77f7ce2557bb00ab7846a67209"><td class="memItemLeft" align="right" valign="top"><a id="a87df5d77f7ce2557bb00ab7846a67209"></a>
-map&lt; int, <a class="el" href="class_layer.html">Layer</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>layers</b></td></tr>
-<tr class="separator:a87df5d77f7ce2557bb00ab7846a67209"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61135ea61673ed895f5c237591622829"><td class="memItemLeft" align="right" valign="top"><a id="a61135ea61673ed895f5c237591622829"></a>
-<a class="el" href="class_object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>objectToFollow</b> = nullptr</td></tr>
-<tr class="separator:a61135ea61673ed895f5c237591622829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e5351ef77c90c045ca61f289008cf64"><td class="memItemLeft" align="right" valign="top"><a id="a6e5351ef77c90c045ca61f289008cf64"></a>
+map&lt; int, shared_ptr&lt; <a class="el" href="class_layer.html">Layer</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>layers</b></td></tr>
+<tr class="separator:a6e5351ef77c90c045ca61f289008cf64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d8dbeb9465fee609ef07145989f5c27"><td class="memItemLeft" align="right" valign="top"><a id="a4d8dbeb9465fee609ef07145989f5c27"></a>
+shared_ptr&lt; <a class="el" href="class_object.html">Object</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>objectToFollow</b> = nullptr</td></tr>
+<tr class="separator:a4d8dbeb9465fee609ef07145989f5c27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1430f4764639b7e1da1fbf276a8e7f7"><td class="memItemLeft" align="right" valign="top"><a id="ad1430f4764639b7e1da1fbf276a8e7f7"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneWidth</b> = WINDOW_WIDTH</td></tr>
 <tr class="separator:ad1430f4764639b7e1da1fbf276a8e7f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -234,8 +237,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneHeight</b> = WIND
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aa3940945ee21a86d900defb4d26c4312"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3940945ee21a86d900defb4d26c4312">&#9670;&nbsp;</a></span>addLayerOnHighestZIndex()</h2>
+<a id="ae9e71fa81671297ca102f037296d7f27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9e71fa81671297ca102f037296d7f27">&#9670;&nbsp;</a></span>addLayerOnHighestZIndex()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -243,7 +246,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneHeight</b> = WIND
         <tr>
           <td class="memname">int Scene::addLayerOnHighestZIndex </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_layer.html">Layer</a> *&#160;</td>
+          <td class="paramtype">shared_ptr&lt; <a class="el" href="class_layer.html">Layer</a> &gt;&#160;</td>
           <td class="paramname"><em>_layer</em></td><td>)</td>
           <td></td>
         </tr>
@@ -263,8 +266,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneHeight</b> = WIND
 
 </div>
 </div>
-<a id="af0c74a7c1a359ecaf67c376d226aa0fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0c74a7c1a359ecaf67c376d226aa0fc">&#9670;&nbsp;</a></span>addLayerOnZIndex()</h2>
+<a id="aa355fc2ad8035453407d60031dd7c304"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa355fc2ad8035453407d60031dd7c304">&#9670;&nbsp;</a></span>addLayerOnZIndex()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -278,7 +281,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneHeight</b> = WIND
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_layer.html">Layer</a> *&#160;</td>
+          <td class="paramtype">shared_ptr&lt; <a class="el" href="class_layer.html">Layer</a> &gt;&#160;</td>
           <td class="paramname"><em>_layer</em>&#160;</td>
         </tr>
         <tr>
@@ -299,8 +302,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneHeight</b> = WIND
 
 </div>
 </div>
-<a id="a7d7026062180c2f43eda8d1785ceb7d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d7026062180c2f43eda8d1785ceb7d8">&#9670;&nbsp;</a></span>addNewObjectToLayer()</h2>
+<a id="a598b214f9f54dd72a0a531779b5ff208"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a598b214f9f54dd72a0a531779b5ff208">&#9670;&nbsp;</a></span>addNewObjectToLayer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -314,7 +317,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneHeight</b> = WIND
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_object.html">Object</a> *&#160;</td>
+          <td class="paramtype">shared_ptr&lt; <a class="el" href="class_object.html">Object</a> &gt;&#160;</td>
           <td class="paramname"><em>object</em>, </td>
         </tr>
         <tr>
@@ -420,14 +423,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneHeight</b> = WIND
 
 </div>
 </div>
-<a id="abdd9e7feda2031b46c64f797dee51615"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abdd9e7feda2031b46c64f797dee51615">&#9670;&nbsp;</a></span>getAllDrawablesInScene()</h2>
+<a id="a5e2af984b2b384a3dc2f26ec158b422d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e2af984b2b384a3dc2f26ec158b422d">&#9670;&nbsp;</a></span>getAllDrawablesInScene()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">vector&lt; <a class="el" href="class_drawable.html">Drawable</a> * &gt; Scene::getAllDrawablesInScene </td>
+          <td class="memname">vector&lt; shared_ptr&lt; <a class="el" href="class_drawable.html">Drawable</a> &gt; &gt; Scene::getAllDrawablesInScene </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -441,14 +444,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneHeight</b> = WIND
 
 </div>
 </div>
-<a id="a2d0bba022bb38ac9a0a5de5df6787c3d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d0bba022bb38ac9a0a5de5df6787c3d">&#9670;&nbsp;</a></span>getAllObjectsInScene()</h2>
+<a id="a07aea524f66e6ef8ca24b43e39d161d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07aea524f66e6ef8ca24b43e39d161d0">&#9670;&nbsp;</a></span>getAllObjectsInScene()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">vector&lt; <a class="el" href="class_object.html">Object</a> * &gt; Scene::getAllObjectsInScene </td>
+          <td class="memname">vector&lt; shared_ptr&lt; <a class="el" href="class_object.html">Object</a> &gt; &gt; Scene::getAllObjectsInScene </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -462,14 +465,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneHeight</b> = WIND
 
 </div>
 </div>
-<a id="a5d99949d09c9958c60b934a417da5d81"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d99949d09c9958c60b934a417da5d81">&#9670;&nbsp;</a></span>getAllObjectsInSceneRenderPhysics()</h2>
+<a id="aa0bb45c0c369e8796d5cf993d72ae927"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0bb45c0c369e8796d5cf993d72ae927">&#9670;&nbsp;</a></span>getAllObjectsInSceneRenderPhysics()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">vector&lt; <a class="el" href="class_object.html">Object</a> * &gt; Scene::getAllObjectsInSceneRenderPhysics </td>
+          <td class="memname">vector&lt; shared_ptr&lt; <a class="el" href="class_object.html">Object</a> &gt; &gt; Scene::getAllObjectsInSceneRenderPhysics </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -504,14 +507,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneHeight</b> = WIND
 
 </div>
 </div>
-<a id="acb0274a49f1ca81274151e2d0dca9918"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb0274a49f1ca81274151e2d0dca9918">&#9670;&nbsp;</a></span>getLayers()</h2>
+<a id="aaf475aeea5358f6cd7094fa8e81a9e9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf475aeea5358f6cd7094fa8e81a9e9d">&#9670;&nbsp;</a></span>getLayers()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">map&lt; int, <a class="el" href="class_layer.html">Layer</a> * &gt; Scene::getLayers </td>
+          <td class="memname">map&lt; int, shared_ptr&lt; <a class="el" href="class_layer.html">Layer</a> &gt; &gt; Scene::getLayers </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -525,14 +528,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneHeight</b> = WIND
 
 </div>
 </div>
-<a id="a72486463c25db408ff5cf771bc6ba2b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72486463c25db408ff5cf771bc6ba2b1">&#9670;&nbsp;</a></span>getObject()</h2>
+<a id="a1c09f94e54f01ba64e4130a6d071457b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c09f94e54f01ba64e4130a6d071457b">&#9670;&nbsp;</a></span>getObject()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_object.html">Object</a> * Scene::getObject </td>
+          <td class="memname">shared_ptr&lt; <a class="el" href="class_object.html">Object</a> &gt; Scene::getObject </td>
           <td>(</td>
           <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>objectID</em></td><td>)</td>
@@ -598,8 +601,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneHeight</b> = WIND
 
 </div>
 </div>
-<a id="a4f06a5e001feb04ed82d23a7574779c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f06a5e001feb04ed82d23a7574779c5">&#9670;&nbsp;</a></span>removeObjectFromScene()</h2>
+<a id="a0452401868fec0e19cc6f22f8ab67298"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0452401868fec0e19cc6f22f8ab67298">&#9670;&nbsp;</a></span>removeObjectFromScene() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -607,7 +610,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneHeight</b> = WIND
         <tr>
           <td class="memname">void Scene::removeObjectFromScene </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_object.html">Object</a> *&#160;</td>
+          <td class="paramtype">shared_ptr&lt; <a class="el" href="class_drawable.html">Drawable</a> &gt;&#160;</td>
           <td class="paramname"><em>obj</em></td><td>)</td>
           <td></td>
         </tr>
@@ -615,6 +618,33 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneHeight</b> = WIND
 </div><div class="memdoc">
 
 <p>Removes a specific object from the current scene. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td><br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad8a8672b25632c5cf3d3f878ec97348a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8a8672b25632c5cf3d3f878ec97348a">&#9670;&nbsp;</a></span>removeObjectFromScene() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Scene::removeObjectFromScene </td>
+          <td>(</td>
+          <td class="paramtype">shared_ptr&lt; <a class="el" href="class_object.html">Object</a> &gt;&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes a specific object from the current scene OVERLOADED FUNCTION. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">obj</td><td><br  />

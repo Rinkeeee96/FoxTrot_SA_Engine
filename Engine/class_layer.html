@@ -100,15 +100,15 @@ API void&#160;</td><td class="memItemRight" valign="bottom"><b>setRenderPhysics<
 <tr class="memitem:a2f920e994117eb45a895d9bd6bec1e33"><td class="memItemLeft" align="right" valign="top"><a id="a2f920e994117eb45a895d9bd6bec1e33"></a>
 API bool&#160;</td><td class="memItemRight" valign="bottom"><b>getRenderPhysics</b> () const</td></tr>
 <tr class="separator:a2f920e994117eb45a895d9bd6bec1e33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf9c83d1de497eaa792da1d05cd35864"><td class="memItemLeft" align="right" valign="top"><a id="adf9c83d1de497eaa792da1d05cd35864"></a>
-API map&lt; int, <a class="el" href="class_object.html">Object</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getObjectsInLayer</b> ()</td></tr>
-<tr class="separator:adf9c83d1de497eaa792da1d05cd35864"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae96e6006b9ed746e5d4718267fcb7bdd"><td class="memItemLeft" align="right" valign="top"><a id="ae96e6006b9ed746e5d4718267fcb7bdd"></a>
-API <a class="el" href="class_object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getSpecificObjectInLayer</b> (int objectID)</td></tr>
-<tr class="separator:ae96e6006b9ed746e5d4718267fcb7bdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ce4aa7be769a843d5b4148b1023e037"><td class="memItemLeft" align="right" valign="top"><a id="a1ce4aa7be769a843d5b4148b1023e037"></a>
-API void&#160;</td><td class="memItemRight" valign="bottom"><b>addObjectInLayer</b> (<a class="el" href="class_object.html">Object</a> *obj)</td></tr>
-<tr class="separator:a1ce4aa7be769a843d5b4148b1023e037"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fa30239d59b36f208fd6b7d309f17ee"><td class="memItemLeft" align="right" valign="top"><a id="a6fa30239d59b36f208fd6b7d309f17ee"></a>
+API map&lt; int, shared_ptr&lt; <a class="el" href="class_object.html">Object</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getObjectsInLayer</b> ()</td></tr>
+<tr class="separator:a6fa30239d59b36f208fd6b7d309f17ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb5a776b2991dd2187fb0761c59bcb20"><td class="memItemLeft" align="right" valign="top"><a id="afb5a776b2991dd2187fb0761c59bcb20"></a>
+API shared_ptr&lt; <a class="el" href="class_object.html">Object</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getSpecificObjectInLayer</b> (int objectID)</td></tr>
+<tr class="separator:afb5a776b2991dd2187fb0761c59bcb20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab46e9518ebb9134227fdb08a66b0a444"><td class="memItemLeft" align="right" valign="top"><a id="ab46e9518ebb9134227fdb08a66b0a444"></a>
+API void&#160;</td><td class="memItemRight" valign="bottom"><b>addObjectInLayer</b> (shared_ptr&lt; <a class="el" href="class_object.html">Object</a> &gt; obj)</td></tr>
+<tr class="separator:ab46e9518ebb9134227fdb08a66b0a444"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab76d85c53707635339e6a505af00aa64"><td class="memItemLeft" align="right" valign="top">API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_layer.html#ab76d85c53707635339e6a505af00aa64">objectExists</a> (int objectID)</td></tr>
 <tr class="memdesc:ab76d85c53707635339e6a505af00aa64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if object exists in the layer.  <a href="class_layer.html#ab76d85c53707635339e6a505af00aa64">More...</a><br /></td></tr>
 <tr class="separator:ab76d85c53707635339e6a505af00aa64"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -130,9 +130,9 @@ virtual API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a1f322d676e32f7e0ae0bc00b4dea120b"><td class="memItemLeft" align="right" valign="top"><a id="a1f322d676e32f7e0ae0bc00b4dea120b"></a>
-map&lt; int, <a class="el" href="class_object.html">Object</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>objects</b></td></tr>
-<tr class="separator:a1f322d676e32f7e0ae0bc00b4dea120b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23f486a62204ba9bcccb48d1e99fbeab"><td class="memItemLeft" align="right" valign="top"><a id="a23f486a62204ba9bcccb48d1e99fbeab"></a>
+map&lt; int, shared_ptr&lt; <a class="el" href="class_object.html">Object</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>objects</b></td></tr>
+<tr class="separator:a23f486a62204ba9bcccb48d1e99fbeab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>

@@ -1,6 +1,5 @@
 var NAVTREEINDEX4 =
 {
-"class_window_resize_event.html#a4bbcb192821b1ba82dfc1513ba890be9":[1,0,69,0],
 "class_window_resize_event.html#a6f4f2d920e1374d8df72989e61b53c6d":[1,0,69,2],
 "class_window_resize_event.html#a94197e584dc1b692700f4ee2d45c18ba":[1,0,69,3],
 "class_window_resize_event.html#aa7d49558eb68e6c9c678ba0821d06986":[1,0,69,1],
@@ -40,8 +39,8 @@ var NAVTREEINDEX4 =
 "dir_f5588563a21b289f1b68727b7157a599.html":[2,0,0,5,0],
 "dir_fd8b0673c717371c7973e7210347eb64.html":[2,0,0,0,1],
 "files.html":[2,0],
-"functions.html":[1,3,0],
 "functions.html":[1,3,0,0],
+"functions.html":[1,3,0],
 "functions_a.html":[1,3,0,1],
 "functions_b.html":[1,3,0,2],
 "functions_c.html":[1,3,0,3],
@@ -93,8 +92,8 @@ var NAVTREEINDEX4 =
 "pages.html":[],
 "stdafx_8h_source.html":[2,0,0,13],
 "struct_collision_struct.html":[1,0,3],
-"struct_collision_struct.html#a1097fcf8b35cb630771e8f64eb54ab09":[1,0,3,0],
-"struct_collision_struct.html#a2c95379cb761168ff2d55542a54c074a":[1,0,3,1],
+"struct_collision_struct.html#a34976a9ee9a7610a9ac8678d8f1d94c8":[1,0,3,0],
+"struct_collision_struct.html#a44f52f4de38df9c90efec593923807cb":[1,0,3,1],
 "struct_color.html":[1,0,4],
 "struct_color.html#a0067567caf9aaa8661b7e25b45dc8ee2":[1,0,4,0],
 "struct_color.html#a3cd71f006939f83ecd756f0ed28db40e":[1,0,4,3],

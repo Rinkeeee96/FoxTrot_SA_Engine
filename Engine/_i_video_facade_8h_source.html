@@ -77,10 +77,10 @@ $(document).ready(function(){initNavTree('_i_video_facade_8h_source.html',''); i
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> initSDL() = 0;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> clearScreen() = 0;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> drawScreen() = 0;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> loadImage(<span class="keyword">const</span> <a class="code" href="class_sprite_object.html">SpriteObject</a>&amp; spriteObject) = 0;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> renderCopy(<a class="code" href="class_drawable.html">Drawable</a>&amp; <span class="keywordtype">object</span>, <span class="keywordtype">float</span> deltaTime) = 0;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> loadImage(<span class="keyword">const</span> shared_ptr&lt;SpriteObject&gt; spriteObject) = 0;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> renderCopy(shared_ptr&lt;Drawable&gt;, <span class="keywordtype">float</span> deltaTime) = 0;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> drawMessageAt(<span class="keyword">const</span> <a class="code" href="struct_colored_text.html">ColoredText</a>&amp; message, <span class="keyword">const</span> <a class="code" href="struct_position.html">Position</a>&amp; pos, <span class="keyword">const</span> <a class="code" href="struct_object_size.html">ObjectSize</a>&amp; boundary, <span class="keywordtype">bool</span> fromText = <span class="keyword">false</span>) = 0;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> drawParticle(<span class="keyword">const</span> <a class="code" href="class_particle_adapter.html">ParticleAdapter</a>&amp; part) = 0;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> drawParticle(shared_ptr&lt;ParticleAdapter&gt; part) = 0;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> clean() = 0;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
@@ -93,13 +93,10 @@ $(document).ready(function(){initNavTree('_i_video_facade_8h_source.html',''); i
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_particle_adapter_html"><div class="ttname"><a href="class_particle_adapter.html">ParticleAdapter</a></div><div class="ttdoc">Particle Bridge that inherits from Object and ParticleInit(Cocos2dx Library)</div><div class="ttdef"><b>Definition:</b> ParticleAdapter.h:8</div></div>
 <div class="ttc" id="astruct_object_size_html"><div class="ttname"><a href="struct_object_size.html">ObjectSize</a></div><div class="ttdoc">Size struct containing the width and height of an object.</div><div class="ttdef"><b>Definition:</b> HelperStructs.h:33</div></div>
 <div class="ttc" id="astruct_colored_text_html"><div class="ttname"><a href="struct_colored_text.html">ColoredText</a></div><div class="ttdoc">Struct for ColoredText, has the Color struct and a Text string.</div><div class="ttdef"><b>Definition:</b> HelperStructs.h:16</div></div>
 <div class="ttc" id="astruct_position_html"><div class="ttname"><a href="struct_position.html">Position</a></div><div class="ttdoc">Postion struct containing the xPos and yPos.</div><div class="ttdef"><b>Definition:</b> HelperStructs.h:26</div></div>
 <div class="ttc" id="aclass_i_video_facade_html"><div class="ttname"><a href="class_i_video_facade.html">IVideoFacade</a></div><div class="ttdoc">Interface class for Video facade.</div><div class="ttdef"><b>Definition:</b> IVideoFacade.h:9</div></div>
-<div class="ttc" id="aclass_drawable_html"><div class="ttname"><a href="class_drawable.html">Drawable</a></div><div class="ttdoc">Base class for all objects that can be drawn.</div><div class="ttdef"><b>Definition:</b> Drawable.h:6</div></div>
-<div class="ttc" id="aclass_sprite_object_html"><div class="ttname"><a href="class_sprite_object.html">SpriteObject</a></div><div class="ttdoc">Class for animated sprites.</div><div class="ttdef"><b>Definition:</b> SpriteObject.h:5</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

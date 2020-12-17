@@ -112,15 +112,15 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isPaused</b> 
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ac1f4fb343ea2b4e38df8f00197c0613f"><td class="memItemLeft" align="right" valign="top"><a id="ac1f4fb343ea2b4e38df8f00197c0613f"></a>
-<a class="el" href="class_scene.html">Scene</a> **&#160;</td><td class="memItemRight" valign="bottom"><b>pointerToCurrentScene</b> = nullptr</td></tr>
-<tr class="separator:ac1f4fb343ea2b4e38df8f00197c0613f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6465ea21c7a5fba22cf43da9ccde55b8"><td class="memItemLeft" align="right" valign="top"><a id="a6465ea21c7a5fba22cf43da9ccde55b8"></a>
+shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>pointerToCurrentScene</b> = nullptr</td></tr>
+<tr class="separator:a6465ea21c7a5fba22cf43da9ccde55b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:ae3c9f2091e30e57f2ea5bd7d1e1fba42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_engine.html#ae3c9f2091e30e57f2ea5bd7d1e1fba42">checkIfObjectValueAndParticleValueMatch</a> (<a class="el" href="class_particle_adapter.html">ParticleAdapter</a> &amp;particle)</td></tr>
-<tr class="memdesc:ae3c9f2091e30e57f2ea5bd7d1e1fba42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the postion of the <a class="el" href="class_particle.html">Particle</a> is the same as the position of the <a class="el" href="class_object.html" title="Object class. Object is linked with a sprite id in SVI.">Object</a>. If not equal they will be made equal. <a class="el" href="class_particle.html">Particle</a> position wil be updated to the object position.  <a href="class_particle_engine.html#ae3c9f2091e30e57f2ea5bd7d1e1fba42">More...</a><br /></td></tr>
-<tr class="separator:ae3c9f2091e30e57f2ea5bd7d1e1fba42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cd43d8d19ea47071f8e831d952a36bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_engine.html#a3cd43d8d19ea47071f8e831d952a36bd">checkIfObjectValueAndParticleValueMatch</a> (shared_ptr&lt; <a class="el" href="class_particle_adapter.html">ParticleAdapter</a> &gt; particle)</td></tr>
+<tr class="memdesc:a3cd43d8d19ea47071f8e831d952a36bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the postion of the <a class="el" href="class_particle.html">Particle</a> is the same as the position of the <a class="el" href="class_object.html" title="Object class. Object is linked with a sprite id in SVI.">Object</a>. If not equal they will be made equal. <a class="el" href="class_particle.html">Particle</a> position wil be updated to the object position.  <a href="class_particle_engine.html#a3cd43d8d19ea47071f8e831d952a36bd">More...</a><br /></td></tr>
+<tr class="separator:a3cd43d8d19ea47071f8e831d952a36bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -165,8 +165,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>paused</b> = false</t
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae3c9f2091e30e57f2ea5bd7d1e1fba42"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3c9f2091e30e57f2ea5bd7d1e1fba42">&#9670;&nbsp;</a></span>checkIfObjectValueAndParticleValueMatch()</h2>
+<a id="a3cd43d8d19ea47071f8e831d952a36bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cd43d8d19ea47071f8e831d952a36bd">&#9670;&nbsp;</a></span>checkIfObjectValueAndParticleValueMatch()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -177,7 +177,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>paused</b> = false</t
         <tr>
           <td class="memname">void ParticleEngine::checkIfObjectValueAndParticleValueMatch </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_particle_adapter.html">ParticleAdapter</a> &amp;&#160;</td>
+          <td class="paramtype">shared_ptr&lt; <a class="el" href="class_particle_adapter.html">ParticleAdapter</a> &gt;&#160;</td>
           <td class="paramname"><em>particle</em></td><td>)</td>
           <td></td>
         </tr>

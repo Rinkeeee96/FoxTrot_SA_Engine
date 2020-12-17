@@ -22,12 +22,12 @@ var class_sound_engine =
     [ "resumeMusic", "class_sound_engine.html#aa92b18ce63e1dc19be9e7fc94ad728e7", null ],
     [ "rewindMusic", "class_sound_engine.html#ab71c6a04ccb14c1beb7f72ec77659237", null ],
     [ "setFiles", "class_sound_engine.html#aed84d13eb753878a088c3b55c5aea0ed", null ],
-    [ "shutdown", "class_sound_engine.html#aaa40540b5fa935c1cdad598f1d2e74bb", null ],
-    [ "start", "class_sound_engine.html#ab3bdacab7471f7f5dff8d265e2921d36", null ],
+    [ "shutdown", "class_sound_engine.html#a47ca46f8c289b21bc24d09a8d0ba89bf", null ],
+    [ "start", "class_sound_engine.html#a623284550c6cbd44ee15d2ca518934ac", null ],
     [ "startLoopedEffect", "class_sound_engine.html#a7de527787c09da6f6831310cb71bd30c", null ],
     [ "stopLoopedEffect", "class_sound_engine.html#ae62ff7ff5b837fc6dfcf022dd21c495c", null ],
     [ "stopMusic", "class_sound_engine.html#ab0a94979eebf9ea7753a2f1cdf48c350", null ],
     [ "unloadEffect", "class_sound_engine.html#aa7fe18c8f75914c78d3e89ebcf7037c3", null ],
-    [ "update", "class_sound_engine.html#ad67532cdd5f2daaa2771e2f1e7c71133", null ],
-    [ "soundFacade", "class_sound_engine.html#ac8a2b0e10df3f7bcc4fad9e5fd60b6f2", null ]
+    [ "update", "class_sound_engine.html#ae1412bab0b59680f13ccd54b8f5ea342", null ],
+    [ "soundFacade", "class_sound_engine.html#a8b942685e0ca66a870da778681c63a9f", null ]
 ];

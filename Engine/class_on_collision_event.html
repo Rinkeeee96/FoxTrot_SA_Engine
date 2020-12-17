@@ -85,17 +85,17 @@ Inheritance diagram for OnCollisionEvent:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad6a67a34387104de635025a7694683ca"><td class="memItemLeft" align="right" valign="top"><a id="ad6a67a34387104de635025a7694683ca"></a>
-API&#160;</td><td class="memItemRight" valign="bottom"><b>OnCollisionEvent</b> (<a class="el" href="class_object.html">Object</a> &amp;_objectOneId, <a class="el" href="class_object.html">Object</a> &amp;_objectTwoId, const map&lt; int, vector&lt; Direction &gt;&gt; _directionMap)</td></tr>
-<tr class="separator:ad6a67a34387104de635025a7694683ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3323716be1db30acbdda4dbc3654f81"><td class="memItemLeft" align="right" valign="top"><a id="af3323716be1db30acbdda4dbc3654f81"></a>
-API <a class="el" href="class_object.html">Object</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_on_collision_event.html#af3323716be1db30acbdda4dbc3654f81">getObjectOne</a> () const</td></tr>
-<tr class="memdesc:af3323716be1db30acbdda4dbc3654f81"><td class="mdescLeft">&#160;</td><td class="mdescRight">The id of one of the objects where collision happend. <br /></td></tr>
-<tr class="separator:af3323716be1db30acbdda4dbc3654f81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94daac8f67d51a2b68a0140704ee48ea"><td class="memItemLeft" align="right" valign="top"><a id="a94daac8f67d51a2b68a0140704ee48ea"></a>
-API <a class="el" href="class_object.html">Object</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_on_collision_event.html#a94daac8f67d51a2b68a0140704ee48ea">getObjectTwo</a> () const</td></tr>
-<tr class="memdesc:a94daac8f67d51a2b68a0140704ee48ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">The id of one of the objects where collision happend. <br /></td></tr>
-<tr class="separator:a94daac8f67d51a2b68a0140704ee48ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad406fa4c87939432053792c12b14c503"><td class="memItemLeft" align="right" valign="top"><a id="ad406fa4c87939432053792c12b14c503"></a>
+API&#160;</td><td class="memItemRight" valign="bottom"><b>OnCollisionEvent</b> (shared_ptr&lt; <a class="el" href="class_object.html">Object</a> &gt; _objectOneId, shared_ptr&lt; <a class="el" href="class_object.html">Object</a> &gt; _objectTwoId, const map&lt; int, vector&lt; Direction &gt;&gt; _directionMap)</td></tr>
+<tr class="separator:ad406fa4c87939432053792c12b14c503"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaaba22281707ab2297af862e34886881"><td class="memItemLeft" align="right" valign="top"><a id="aaaba22281707ab2297af862e34886881"></a>
+API shared_ptr&lt; <a class="el" href="class_object.html">Object</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_on_collision_event.html#aaaba22281707ab2297af862e34886881">getObjectOne</a> () const</td></tr>
+<tr class="memdesc:aaaba22281707ab2297af862e34886881"><td class="mdescLeft">&#160;</td><td class="mdescRight">The id of one of the objects where collision happend. <br /></td></tr>
+<tr class="separator:aaaba22281707ab2297af862e34886881"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cf0ff4b90996d4222cf15466d0aca84"><td class="memItemLeft" align="right" valign="top"><a id="a5cf0ff4b90996d4222cf15466d0aca84"></a>
+API shared_ptr&lt; <a class="el" href="class_object.html">Object</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_on_collision_event.html#a5cf0ff4b90996d4222cf15466d0aca84">getObjectTwo</a> () const</td></tr>
+<tr class="memdesc:a5cf0ff4b90996d4222cf15466d0aca84"><td class="mdescLeft">&#160;</td><td class="mdescRight">The id of one of the objects where collision happend. <br /></td></tr>
+<tr class="separator:a5cf0ff4b90996d4222cf15466d0aca84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8296c08b084ba40e9e951863c123e684"><td class="memItemLeft" align="right" valign="top">virtual API EventType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_on_collision_event.html#a8296c08b084ba40e9e951863c123e684">getEventType</a> () const override=0</td></tr>
 <tr class="memdesc:a8296c08b084ba40e9e951863c123e684"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the eventType of a specific event.  <a href="class_on_collision_event.html#a8296c08b084ba40e9e951863c123e684">More...</a><br /></td></tr>
 <tr class="separator:a8296c08b084ba40e9e951863c123e684"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,12 +114,12 @@ virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" 
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:aecb1223c9ba208c407b14f4a1fb1dedb"><td class="memItemLeft" align="right" valign="top"><a id="aecb1223c9ba208c407b14f4a1fb1dedb"></a>
-<a class="el" href="class_object.html">Object</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>objectOneId</b></td></tr>
-<tr class="separator:aecb1223c9ba208c407b14f4a1fb1dedb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2f60bbd45b7183f47c4e8c453312a76"><td class="memItemLeft" align="right" valign="top"><a id="aa2f60bbd45b7183f47c4e8c453312a76"></a>
-<a class="el" href="class_object.html">Object</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>objectTwoId</b></td></tr>
-<tr class="separator:aa2f60bbd45b7183f47c4e8c453312a76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2569a8ed73ac498343b7bfb637b74517"><td class="memItemLeft" align="right" valign="top"><a id="a2569a8ed73ac498343b7bfb637b74517"></a>
+shared_ptr&lt; <a class="el" href="class_object.html">Object</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>objectOneId</b></td></tr>
+<tr class="separator:a2569a8ed73ac498343b7bfb637b74517"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f719a7be6b5691857621ae6868bc1b4"><td class="memItemLeft" align="right" valign="top"><a id="a2f719a7be6b5691857621ae6868bc1b4"></a>
+shared_ptr&lt; <a class="el" href="class_object.html">Object</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>objectTwoId</b></td></tr>
+<tr class="separator:a2f719a7be6b5691857621ae6868bc1b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae27f33c5f86c583036719d0211b80b7a"><td class="memItemLeft" align="right" valign="top"><a id="ae27f33c5f86c583036719d0211b80b7a"></a>
 map&lt; int, vector&lt; Direction &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>directionMap</b></td></tr>
 <tr class="separator:ae27f33c5f86c583036719d0211b80b7a"><td class="memSeparator" colspan="2">&#160;</td></tr>

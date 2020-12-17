@@ -73,7 +73,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab56d9d836c09a3260b63026d3ead62d8"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_keypress_invoker.html#ab56d9d836c09a3260b63026d3ead62d8">registerCommand</a> (KeyCode code, <a class="el" href="class_i_command.html">ICommand</a> *command)</td></tr>
 <tr class="memdesc:ab56d9d836c09a3260b63026d3ead62d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register keybinds in the invoker for the first time, throws exception when trying to register multiple commands under the same binding.  <a href="class_keypress_invoker.html#ab56d9d836c09a3260b63026d3ead62d8">More...</a><br /></td></tr>
 <tr class="separator:ab56d9d836c09a3260b63026d3ead62d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d5d5e83770deb3d97cb8e6fd9463bf8"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_keypress_invoker.html#a2d5d5e83770deb3d97cb8e6fd9463bf8">updateCommand</a> (KeyCode code, <a class="el" href="class_i_command.html">ICommand</a> *command)</td></tr>
+<tr class="memitem:a2d5d5e83770deb3d97cb8e6fd9463bf8"><td class="memItemLeft" align="right" valign="top">virtual API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_keypress_invoker.html#a2d5d5e83770deb3d97cb8e6fd9463bf8">updateCommand</a> (KeyCode code, <a class="el" href="class_i_command.html">ICommand</a> *command)</td></tr>
 <tr class="memdesc:a2d5d5e83770deb3d97cb8e6fd9463bf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the keycode that is set to this command.  <a href="class_keypress_invoker.html#a2d5d5e83770deb3d97cb8e6fd9463bf8">More...</a><br /></td></tr>
 <tr class="separator:a2d5d5e83770deb3d97cb8e6fd9463bf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a800d795e493af32b698d5ede3afc2639"><td class="memItemLeft" align="right" valign="top"><a id="a800d795e493af32b698d5ede3afc2639"></a>
@@ -90,11 +90,11 @@ API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:ad01ecfa161414d0420ea0b93af6fd2fe"><td class="memItemLeft" align="right" valign="top">API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_keypress_invoker.html#ad01ecfa161414d0420ea0b93af6fd2fe">isRegistered</a> (const <a class="el" href="class_i_command.html">ICommand</a> &amp;command)</td></tr>
-<tr class="memdesc:ad01ecfa161414d0420ea0b93af6fd2fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to find a command in the commands list.  <a href="class_keypress_invoker.html#ad01ecfa161414d0420ea0b93af6fd2fe">More...</a><br /></td></tr>
+<tr class="memitem:ad01ecfa161414d0420ea0b93af6fd2fe"><td class="memItemLeft" align="right" valign="top"><a id="ad01ecfa161414d0420ea0b93af6fd2fe"></a>
+API bool&#160;</td><td class="memItemRight" valign="bottom"><b>isRegistered</b> (const <a class="el" href="class_i_command.html">ICommand</a> &amp;command)</td></tr>
 <tr class="separator:ad01ecfa161414d0420ea0b93af6fd2fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c0af02e63f6c287a1ccd480c52b0712"><td class="memItemLeft" align="right" valign="top">API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_keypress_invoker.html#a4c0af02e63f6c287a1ccd480c52b0712">isRegistered</a> (const KeyCode &amp;keyCode)</td></tr>
-<tr class="memdesc:a4c0af02e63f6c287a1ccd480c52b0712"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to find a keycode in the commands list.  <a href="class_keypress_invoker.html#a4c0af02e63f6c287a1ccd480c52b0712">More...</a><br /></td></tr>
+<tr class="memitem:a4c0af02e63f6c287a1ccd480c52b0712"><td class="memItemLeft" align="right" valign="top"><a id="a4c0af02e63f6c287a1ccd480c52b0712"></a>
+API bool&#160;</td><td class="memItemRight" valign="bottom"><b>isRegistered</b> (const KeyCode &amp;keyCode)</td></tr>
 <tr class="separator:a4c0af02e63f6c287a1ccd480c52b0712"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -130,64 +130,6 @@ queue&lt; KeyCode &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>exe
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="ad01ecfa161414d0420ea0b93af6fd2fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad01ecfa161414d0420ea0b93af6fd2fe">&#9670;&nbsp;</a></span>isRegistered() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool KeypressInvoker::isRegistered </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_i_command.html">ICommand</a> &amp;&#160;</td>
-          <td class="paramname"><em>command</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Attempts to find a command in the commands list. </p>
-<dl class="section return"><dt>Returns</dt><dd>returns true if the command is found </dd></dl>
-
-</div>
-</div>
-<a id="a4c0af02e63f6c287a1ccd480c52b0712"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c0af02e63f6c287a1ccd480c52b0712">&#9670;&nbsp;</a></span>isRegistered() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool KeypressInvoker::isRegistered </td>
-          <td>(</td>
-          <td class="paramtype">const KeyCode &amp;&#160;</td>
-          <td class="paramname"><em>keyCode</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Attempts to find a keycode in the commands list. </p>
-<dl class="section return"><dt>Returns</dt><dd>returns true if the keycode is found </dd></dl>
 
 </div>
 </div>
@@ -233,6 +175,9 @@ queue&lt; KeyCode &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>exe
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void KeypressInvoker::updateCommand </td>
@@ -252,6 +197,11 @@ queue&lt; KeyCode &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>exe
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Update the keycode that is set to this command. </p>

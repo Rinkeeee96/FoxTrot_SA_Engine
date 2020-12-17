@@ -9,6 +9,6 @@ var class_input_engine =
     [ "update", "class_input_engine.html#a40f0b299416a98b334dee568fd4adf58", null ],
     [ "dispatcher", "class_input_engine.html#ab642ad1c2ba61666d8fb927254392d55", null ],
     [ "engine", "class_input_engine.html#a49def99fcbe6584862ac9dcf4de4c2b4", null ],
-    [ "inputFacade", "class_input_engine.html#ac6586627bfe398e3e1e2e9eeb76e3e9f", null ],
+    [ "inputFacade", "class_input_engine.html#a88f8c9b9767327f6034c1209ad087349", null ],
     [ "keypressInvoker", "class_input_engine.html#a04505e4f109e77e9ec99f54f8b259001", null ]
 ];
