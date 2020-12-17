@@ -40,7 +40,7 @@ namespace UnitTestsGlitch
 			player.setTotalHealth(5);
 			player.setInvincible(true);
 			// Act
-			player.getStateMachine().changeState(new NormalState, &player);
+			player.getStateMachine().changeState(make_unique<NormalState>(), player);
 			player.onUpdate(1);
 			// Assert
 			Assert::IsFalse(player.getInvincible());

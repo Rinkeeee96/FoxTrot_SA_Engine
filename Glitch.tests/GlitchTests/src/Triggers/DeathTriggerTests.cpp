@@ -14,8 +14,15 @@ namespace UnitTestsGlitch
 		{
 			// Arrange
 			EventDispatcher dispatcher;
-			shared_ptr<DeathTrigger> entity = make_shared<DeathTrigger>(DeathTrigger{ 1, dispatcher });
-			shared_ptr<Player> player = make_shared<Player>(Player{ 2, dispatcher });
+			shared_ptr<DeathTrigger> entity = make_shared<DeathTrigger>(1, dispatcher);
+			shared_ptr<Player> player = make_shared<Player>(2, dispatcher);
+			auto result = player->buildSpritemap(1);
+			map<SpriteState, shared_ptr<SpriteObject>>::iterator it = result.begin();
+			while (it != result.end())
+			{
+				player->registerSprite(it->first, it->second);
+				it++;
+			}
 			player->setTotalHealth(5);
 			player->setCurrentHealth(5);
 			// Act
@@ -32,9 +39,16 @@ namespace UnitTestsGlitch
 		{
 			// Arrange
 			EventDispatcher dispatcher;
-			shared_ptr<DeathTrigger> entity = make_shared<DeathTrigger>(DeathTrigger{ 1, dispatcher });
-			shared_ptr<Slime> slime = make_shared<Slime>(Slime{ 2, dispatcher });
+			shared_ptr<DeathTrigger> entity = make_shared<DeathTrigger>(1, dispatcher);
+			shared_ptr<Slime> slime = make_shared<Slime>(2, dispatcher);
 			Player player{ 2, dispatcher };
+			auto result = player.buildSpritemap(1);
+			map<SpriteState, shared_ptr<SpriteObject>>::iterator it = result.begin();
+			while (it != result.end())
+			{
+				player.registerSprite(it->first, it->second);
+				it++;
+			}
 			player.setTotalHealth(5);
 			player.setCurrentHealth(5);
 

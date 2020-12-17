@@ -22,9 +22,9 @@ namespace UnitTestsGlitch
 
 			shared_ptr<Savegame> savegame = shared_ptr<Savegame>(new Savegame());
 			savegame->setCurrentGameData(1);
-			shared_ptr<SceneStateMachine> statemachine = make_shared<SceneStateMachine>(SceneStateMachine{ engine, savegame });
+			shared_ptr<SceneStateMachine> statemachine = make_shared<SceneStateMachine>(engine, savegame);
 			Level level{ 1, 100, 100, engine, statemachine };
-			shared_ptr<Player> player = make_shared<Player>(Player{ dispatcher });
+			shared_ptr<Player> player = make_shared<Player>(dispatcher);
 			level.addNewObjectToLayer(1, player, true, true);
 			level.setPlayer(player);
 			level.registerSavegame(savegame);

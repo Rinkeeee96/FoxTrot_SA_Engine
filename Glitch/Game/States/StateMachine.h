@@ -26,10 +26,6 @@ public:
     IState<T>& getGlobalState() const { return *this->globalState; };
 
     /// @brief 
-    /// get global state
-    IGlobalState<T>& getGlobalState() const { return *this->globalState; };
-
-    /// @brief 
     /// set global state
     void setGlobalState(unique_ptr<IState<T>> _globalState, T& entity) {
         this->globalState = move(_globalState);

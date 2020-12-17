@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "CppUnitTest.h"
-#include <Game/States/IGlobalState.h>
 #include <Game/States/IState.h>
 #include <Game/States/StateMachine.h>
 
@@ -21,15 +20,15 @@ namespace UnitTestsGlitch
 		int getExecuteCalls() const { return this->executeCalls; }
 		int getExitCalls() const { return this->exitCalls; }
 
-		void entry(MockObj* entity) override {
+		void entry(MockObj& entity) override {
 			entryCalls++;
 		}
 
-		virtual void execute(MockObj* entity) override {
+		virtual void execute(MockObj& entity) override {
 			executeCalls++;
 		}
 
-		virtual void exit(MockObj* entity) override {
+		virtual void exit(MockObj& entity) override {
 			exitCalls++;
 		}
 	};
@@ -45,27 +44,38 @@ namespace UnitTestsGlitch
 		int getExecuteCalls() const { return this->executeCalls; }
 		int getExitCalls() const { return this->exitCalls; }
 		
-		void entry(MockObj* entity) override {
+		void entry(MockObj& entity) override {
 			entryCalls++;
 		}
 
-		virtual void execute(MockObj* entity) override {
+		virtual void execute(MockObj& entity) override {
 			executeCalls++;
 		}
 
-		virtual void exit(MockObj* entity) override {
+		virtual void exit(MockObj& entity) override {
 			exitCalls++;
 		}
 	};
 
-	class mockGlobalState : public IGlobalState<MockObj> {
+	class mockGlobalState : public IState<MockObj> {
 	private:
-		int calls = 0;
+		int entryCalls = 0;
+		int executeCalls = 0;
+		int exitCalls = 0;
 	public:
 		~mockGlobalState() {}
-		int getCalls() const { return this->calls; }
-		virtual void execute(MockObj* entity) override {
-			calls++;
+		int getCalls() const { return this->executeCalls; }
+
+		void entry(MockObj& entity) override {
+			entryCalls++;
+		}
+
+		virtual void execute(MockObj& entity) override {
+			executeCalls++;
+		}
+
+		virtual void exit(MockObj& entity) override {
+			exitCalls++;
 		}
 	};
 
@@ -76,16 +86,19 @@ namespace UnitTestsGlitch
 		{
 			// Arrange
 			MockObj* obj = new MockObj;
-			mockFirstState* firstState = new mockFirstState;
-			mockSecondState* secondState = new mockSecondState;
-			mockGlobalState* globalState = new mockGlobalState;
+			unique_ptr<mockFirstState> firstState = make_unique<mockFirstState>();
+			unique_ptr<mockSecondState> secondState = make_unique<mockSecondState>();
+			unique_ptr<mockGlobalState> globalState = make_unique<mockGlobalState>();
+
+			mockSecondState* toCheck = secondState.get();
+
 			StateMachine<MockObj> statemachine;
-			statemachine.setCurrentState(firstState, obj);
-			statemachine.setGlobalState(globalState);
-			// Act
-			statemachine.changeState(secondState, obj);
+			statemachine.setCurrentState(std::move(firstState), *obj);
+			statemachine.setGlobalState(std::move(globalState), *obj);
+			// ActB
+			statemachine.changeState(std::move(secondState), *obj);
 			// Assert
-			Assert::AreEqual(secondState->getEntryCalls(), 1);
+			Assert::AreEqual(1, toCheck->getEntryCalls());
 		}
 
 		TEST_METHOD(StateMachine_Update_Should_Call_GlobalState_And_CurrentState_Update_Once)

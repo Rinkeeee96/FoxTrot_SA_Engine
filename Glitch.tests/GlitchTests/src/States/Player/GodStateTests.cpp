@@ -18,7 +18,7 @@ namespace UnitTestsGlitch
 			player.setCanJump(false);
 			player.setTotalHealth(5);
 			player.setCurrentHealth(3);
-			player.getStateMachine().changeState(new GodState, &player);
+			player.getStateMachine().changeState(make_unique<GodState>(), player);
 			// Act
 			player.onUpdate(1);
 			// Assert
@@ -33,7 +33,7 @@ namespace UnitTestsGlitch
 			player.setCanJump(false);
 			player.setTotalHealth(5);
 			player.setCurrentHealth(3);
-			player.getStateMachine().changeState(new GodState, &player);
+			player.getStateMachine().changeState(make_unique<GodState>(), player);
 			// Act
 			player.onUpdate(1);
 			// Assert
@@ -48,7 +48,7 @@ namespace UnitTestsGlitch
 			player.setCanJump(false);
 			player.setTotalHealth(5);
 			player.setCurrentHealth(3);
-			player.getStateMachine().changeState(new GodState, &player);
+			player.getStateMachine().changeState(make_unique<GodState>(), player);
 			// Act
 			player.onUpdate(1);
 			// Assert

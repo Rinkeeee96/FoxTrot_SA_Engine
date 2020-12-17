@@ -37,54 +37,61 @@ namespace UnitTestsGlitch
 		{
 			// Arrange
 			EventDispatcher dispatcher;
-			Slime entity{ 1, dispatcher };
-			Player player{ 2, dispatcher };
-			auto result = player.buildSpritemap(1);
+			shared_ptr<Slime> entity = make_shared<Slime>(1, dispatcher);
+			shared_ptr<Player> player = make_shared<Player>(2, dispatcher);
+			auto result = player->buildSpritemap(1);
 			map<SpriteState, shared_ptr<SpriteObject>>::iterator it = result.begin();
 			while (it != result.end())
 			{
-				player.registerSprite(it->first, it->second);
+				player->registerSprite(it->first, it->second);
 				it++;
 			}
-			player.setTotalHealth(5);
-			player.setCurrentHealth(5);
-			entity.setTotalHealth(5);
-			entity.setCurrentHealth(5);
-			entity.setPlayer(&player);
+			player->setTotalHealth(5);
+			player->setCurrentHealth(5);
+			entity->setTotalHealth(5);
+			entity->setCurrentHealth(5);
+			entity->setPlayer(player.get());
 			// Act
 			map<int, vector<Direction>> direction;
-			direction[player.getObjectId()] = { Direction::DOWN };
-			direction[entity.getObjectId()] = { Direction::UP };
+			direction[player->getObjectId()] = { Direction::DOWN };
+			direction[entity->getObjectId()] = { Direction::UP };
 
-			dispatcher.dispatchEvent<OnCollisionBeginEvent>((Event&)OnCollisionBeginEvent(make_shared<Player>(player), make_shared<Slime>(entity), direction));
+			dispatcher.dispatchEvent<OnCollisionBeginEvent>((Event&)OnCollisionBeginEvent(player, entity, direction));
 			// Assert
-			Assert::AreEqual(entity.getCurrentHealth(), 0);
-			Assert::IsTrue(entity.getIsDead());
-			Assert::AreEqual(player.getCurrentHealth(), 5);
-			Assert::IsFalse(player.getIsDead());
+			Assert::AreEqual(entity->getCurrentHealth(), 0);
+			Assert::IsTrue(entity->getIsDead());
+			Assert::AreEqual(player->getCurrentHealth(), 5);
+			Assert::IsFalse(player->getIsDead());
 		}
 
 		TEST_METHOD(Slime_On_Collision_Begin_Bottom_Should_Damage_Player)
 		{
 			// Arrange
 			EventDispatcher dispatcher;
-			Slime entity{ 1, dispatcher };
-			Player player{ 2, dispatcher };
-			player.setTotalHealth(5);
-			player.setCurrentHealth(5);
-			entity.setTotalHealth(5);
-			entity.setCurrentHealth(5);
-			entity.setPlayer(&player);
+			shared_ptr<Slime> entity = make_shared<Slime>(1, dispatcher);
+			shared_ptr<Player> player = make_shared<Player>(2, dispatcher);
+			auto result = player->buildSpritemap(1);
+			map<SpriteState, shared_ptr<SpriteObject>>::iterator it = result.begin();
+			while (it != result.end())
+			{
+				player->registerSprite(it->first, it->second);
+				it++;
+			}
+			player->setTotalHealth(5);
+			player->setCurrentHealth(5);
+			entity->setTotalHealth(5);
+			entity->setCurrentHealth(5);
+			entity->setPlayer(player.get());
 			// Act
 			map<int, vector<Direction>> direction;
-			direction[player.getObjectId()] = { Direction::UP };
-			direction[entity.getObjectId()] = { Direction::DOWN };
+			direction[player->getObjectId()] = { Direction::UP };
+			direction[entity->getObjectId()] = { Direction::DOWN };
 
-			dispatcher.dispatchEvent<OnCollisionBeginEvent>((Event&)OnCollisionBeginEvent(make_shared<Player>(player), make_shared<Slime>(entity), direction));
+			dispatcher.dispatchEvent<OnCollisionBeginEvent>((Event&)OnCollisionBeginEvent(player, entity, direction));
 			// Assert
-			Assert::AreNotEqual(player.getCurrentHealth(), 5);
-			Assert::AreEqual(entity.getCurrentHealth(), 5);
-			Assert::IsFalse(entity.getIsRemoved());
+			Assert::AreNotEqual(player->getCurrentHealth(), 5);
+			Assert::AreEqual(entity->getCurrentHealth(), 5);
+			Assert::IsFalse(entity->getIsRemoved());
 		}
 		TEST_METHOD(Slime_RemoveHealth_Invincible_Should_NotRemoveHealth)
 		{
