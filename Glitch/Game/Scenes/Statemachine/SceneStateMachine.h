@@ -24,7 +24,7 @@ private:
 	unique_ptr<Scene> loadLevel(const string& identifier);
 	unique_ptr<Engine>& engine;
 
-	shared_ptr<Scene> currentScene;
+	int currentSceneId = -1;
 	int sceneId = 0;
 	string currentLevelIdentifier = "";
 };

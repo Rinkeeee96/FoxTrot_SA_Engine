@@ -40,9 +40,8 @@ public:
 
 	//SceneManager calls
 	API void setCurrentScene(const int sceneID);
-	API shared_ptr<Scene> getCurrentScene();
-	API void insertScene(shared_ptr<Scene> scene);
-	API void deregisterScene(const int id);
+	API void insertScene(unique_ptr<Scene> scene);
+	API void deregisterCurrentScene();
 
 	// Sound calls
 	API void loadSound(const string& identifier, const string& path);
@@ -59,6 +58,7 @@ public:
 	API void setEngineRunning(bool run) { running = run; }
 
 	API void updateCurrentScene();
+	API void startCurrentScene(bool playSound);
 
 	KeypressInvoker* getKeypressedInvoker() { return keypressInvoker; }
 

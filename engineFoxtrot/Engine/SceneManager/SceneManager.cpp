@@ -36,19 +36,19 @@ bool SceneManager::checkIfSceneExists(const int sceneID)
 /// Able to insert a Scene into the scenemanager
 /// @param scene 
 /// Pointer to a scene
-void SceneManager::insertScene(shared_ptr<Scene> scene)
+void SceneManager::insertScene(unique_ptr<Scene> scene)
 {
 	if (scene == nullptr) return;
-	scenes[scene->getSceneID()] = scene;
+	scenes[scene->getSceneID()] = move(scene);
 }
 
 /// @brief 
 /// @param id 
-void SceneManager::deregisterScene(const int id)
+void SceneManager::deregisterCurrentScene()
 {
-	if (scenes.count(id) == 0) throw exception("scene does not exist");
-	scenes[id]->onDetach();
-	scenes.erase(scenes.find(id));
+	if (!currentScene) return;
+	currentScene->onDetach();
+	currentScene.reset();
 }
 
 /// @brief 
@@ -74,7 +74,9 @@ EventDispatcher& SceneManager::setCurrentScene(const int sceneID)
 {
 	if (scenes.empty()) throw exception("scene does not exist");
 
-	currentScene = getSceneWithID(sceneID);
+	if (currentScene)scenes[currentScene->getSceneID()] = move(currentScene);
+
+	currentScene = move(scenes[sceneID]);
 	//currentScene->onAttach();
 	if (DEBUG_SCENE_MANAGER)cout << "Setting current scene to " << sceneID << " with amount of obj: " << currentScene->getAllObjectsInScene().size() << endl;
 
@@ -88,7 +90,7 @@ EventDispatcher& SceneManager::setCurrentScene(const int sceneID)
 /// Identifier to a SceneID.
 /// @return
 /// Returns pointer to the found Scene. 
-shared_ptr<Scene> SceneManager::getSceneWithID(const int sceneID)
+unique_ptr<Scene>& SceneManager::getSceneWithID(const int sceneID)
 {
 	if (scenes.empty()) throw exception("scene does not exist");
 	if (scenes.find(sceneID) == scenes.end()) {

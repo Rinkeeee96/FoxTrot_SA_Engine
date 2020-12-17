@@ -93,9 +93,9 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	if (newScene == nullptr) throw exception("NewScene is Nullptr so cant set new scene");
 
 	// Detach and delete the old now inactive scene
-	if (currentScene != nullptr)
+	if (currentSceneId != -1)
 	{
-		engine->deregisterScene(currentScene->getSceneID());
+		engine->deregisterCurrentScene();
 	}
 
 	if (dynamic_cast<GameScene*>(newScene.get()))
@@ -105,14 +105,13 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	if (dynamic_cast<GeneralTransition*>(newScene.get()))
 		((GeneralTransition*)newScene.get())->setNextScene(transition);
 
-	currentScene = std::move(newScene);
+	currentSceneId = newScene->getSceneID();
 
-	engine->insertScene(currentScene);
-	engine->setCurrentScene(currentScene->getSceneID());
+	engine->insertScene(std::move(newScene));
+	engine->setCurrentScene(currentSceneId);
 
-	if (DEBUG_MAIN)cout << "Setting current Scene to: " << typeid(*(engine->getCurrentScene())).name() << endl;
+	engine->startCurrentScene(playSound);
 
-	currentScene->start(playSound);
 
 }
 
