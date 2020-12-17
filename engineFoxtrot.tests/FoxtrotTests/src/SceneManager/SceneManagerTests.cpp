@@ -15,10 +15,12 @@ namespace UnitTestsEngine
 		{
 			// Arrange
 			SceneManager scenemager;
-			shared_ptr<Scene> scene = shared_ptr<MockScene>(new MockScene);
+			unique_ptr<Scene> scene = unique_ptr<MockScene>(new MockScene);
 			// Act
-			scenemager.insertScene(scene);
-			scenemager.deregisterScene(1);
+			int id = scene->getSceneID();
+			scenemager.insertScene(move(scene));
+			scenemager.setCurrentScene(id);
+			scenemager.deregisterCurrentScene();
 			// Assert
 			Assert::IsTrue(true);
 		}
@@ -28,33 +30,7 @@ namespace UnitTestsEngine
 			SceneManager scenemager;
 			// Act
 			try {
-				scenemager.deregisterScene(0);
-			}
-			// Assert
-			catch (exception e) {
-				Assert::AreEqual(e.what(), "scene does not exist");
-			}
-		}
-		TEST_METHOD(GetSceneID_ExsitingScene_Should_Return_Scene)
-		{
-			// Arrange
-			SceneManager scenemager;
-			shared_ptr<Scene> scene = shared_ptr<MockScene>(new MockScene);
-			// Act
-			scenemager.insertScene(scene);
-			auto result = scenemager.getSceneWithID(1);
-			// Assert
-			Assert::AreEqual(result->getSceneID(), 1);
-
-		}
-
-		TEST_METHOD(GetSceneID_NonExsitingScene_Should_ThrowError)
-		{
-			// Arrange
-			SceneManager scenemager;
-			// Act
-			try {
-				scenemager.getSceneWithID(0);
+				scenemager.deregisterCurrentScene();
 			}
 			// Assert
 			catch (exception e) {
@@ -66,9 +42,9 @@ namespace UnitTestsEngine
 		{
 			// Arrange
 			SceneManager scenemager;
-			shared_ptr<Scene> scene = shared_ptr<MockScene>(new MockScene);
+			unique_ptr<Scene> scene = unique_ptr<MockScene>(new MockScene);
 			// Act
-			scenemager.insertScene(scene);
+			scenemager.insertScene(move(scene));
 			auto dispatcher = scenemager.setCurrentScene(1);
 			// Assert
 			Assert::IsTrue(true);

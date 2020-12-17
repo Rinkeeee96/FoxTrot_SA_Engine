@@ -38,7 +38,7 @@ public:
 		{
 			StopMovementCommand(*this, "stopMovement").execute(this->dispatcher);
 		}
-		stateMachine.update(this);
+		stateMachine.update(*this);
 	};
 	
 	StateMachine<Player>& getStateMachine() { return this->stateMachine; }

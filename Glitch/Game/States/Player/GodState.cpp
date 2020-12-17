@@ -5,21 +5,21 @@
 /// @brief	on entry sets player invincible on true
 ///			sets tint of player to gold
 /// @param entity 
-void GodState::entry(Player* entity) {
-	entity->setInvincible(true);
-	entity->setTint(255, 251, 135);
+void GodState::entry(Player& entity) {
+	entity.setInvincible(true);
+	entity.setTint(255, 251, 135);
 };
 
 /// @brief execute player health etc to max, cant die
 /// @param entity 
-void GodState::execute(Player* entity) {
-	entity->setCanJump(true);
-	entity->setTotalHealth(entity->getTotalHealth());
-	entity->setCurrentHealth(entity->getTotalHealth());
+void GodState::execute(Player& entity) {
+	entity.setCanJump(true);
+	entity.setTotalHealth(3);
+	entity.setCurrentHealth(3);
 };
 
 /// @brief exit
 /// @param entity 
-void GodState::exit(Player* entity) {
-	entity->removeTint();
+void GodState::exit(Player& entity) {
+	entity.removeTint();
 };

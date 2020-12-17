@@ -2,7 +2,6 @@
 #include "CharacterCommandFactory.h"
 #include "Game/characters/ICharacter.h"
 #include "CharacterCommandCreator.h"
-#include "Engine/Input/Commands/exceptions/unknownCommandException.h"
 /// @brief
 /// register a character command with a given identifier
 /// @param classname

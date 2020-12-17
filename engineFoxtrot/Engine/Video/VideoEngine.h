@@ -19,8 +19,8 @@
 #define CAMERA_BOX_X			785
 #define CAMERA_BOX_Y			365
 
-#define FPS_MESSAGE_WIDTH 100
-#define FPS_MESSAGE_HEIGHT 50
+#define FPS_MESSAGE_WIDTH		100
+#define FPS_MESSAGE_HEIGHT		50
 
 /// @brief 
 /// VideoEngine is the SDL2 wrapper
@@ -44,7 +44,7 @@ public:
 	API void update() override;
 	API void shutdown() override;
 
-	shared_ptr<Scene>* pointerToCurrentScene = nullptr;
+	unique_ptr<Scene>* pointerToCurrentScene = nullptr;
 
 	const IVideoFacade& getVideoFacade() const { return *this->videoFacade; }
 private:

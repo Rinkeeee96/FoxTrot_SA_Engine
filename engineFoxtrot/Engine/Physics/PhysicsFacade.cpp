@@ -4,9 +4,9 @@
 #include "box2d/box2d.h"
 
 /// @brief Constructor
-PhysicsFacade::PhysicsFacade(EventDispatcher& _dispatcher, unique_ptr<FrameData>& _frameData) : dispatcher{ _dispatcher }, frameData{_frameData}
+PhysicsFacade::PhysicsFacade(EventDispatcher& _dispatcher, unique_ptr<FrameData>& _frameData) 
+	: dispatcher{ _dispatcher }, frameData{_frameData} , world(make_unique<b2World>(b2Vec2(GRAVITY_SCALE, GRAVITY_FALL)))
 {
-	world = shared_ptr<b2World>(new b2World(b2Vec2(GRAVITY_SCALE, GRAVITY_FALL)));
 	world->SetContactListener(new ContactListenerAdapter(this, _dispatcher));
 }
 
@@ -60,13 +60,13 @@ shared_ptr<PhysicsBody> PhysicsFacade::getPhysicsObject(const int objectId)
 /// The position is set to the bottom left
 /// @param objectId 
 /// Identifier for ObjectID
-b2PolygonShape createShape(const PhysicsBody& object) {
+b2PolygonShape PhysicsFacade::createShape(shared_ptr<PhysicsBody> object) {
 	b2PolygonShape shape;
-	float halfH = object.getHeight() / 2; //Box2D needs the half height of a object
-	float halfW = object.getWidth() / 2; //Box2D needs the half width of a object
-	float posY = object.getPositionY() - object.getHeight() / 2; //Box2d needs the middle position
-	float posX = object.getPositionX() + object.getWidth() / 2; //Box2d needs the middle position
-	shape.SetAsBox(halfW, halfH, b2Vec2(posX, posY), object.getRotation());
+	float halfH = object->getHeight() / 2; //Box2D needs the half height of a object
+	float halfW = object->getWidth() / 2; //Box2D needs the half width of a object
+	float posY = object->getPositionY() - object->getHeight() / 2; //Box2d needs the middle position
+	float posX = object->getPositionX() + object->getWidth() / 2; //Box2d needs the middle position
+	shape.SetAsBox(halfW, halfH, b2Vec2(posX, posY), object->getRotation());
 	return shape;
 }
 
@@ -80,7 +80,7 @@ void PhysicsFacade::addStaticObject(shared_ptr<PhysicsBody> object) {
 	b2Body* body = world->CreateBody(&groundBodyDef);
 
 
-	b2PolygonShape groundBox = createShape(*object);
+	b2PolygonShape groundBox = createShape(object);
 	body->CreateFixture(&groundBox, 0.0f);
 
 
@@ -109,7 +109,7 @@ void PhysicsFacade::addDynamicObject(shared_ptr<PhysicsBody> object)
 	bodyDef.type = b2_dynamicBody;
 	b2Body* body = world->CreateBody(&bodyDef);
 
-	b2PolygonShape bodyBox = createShape(*object);
+	b2PolygonShape bodyBox = createShape(object);
 
 	b2FixtureDef fixtureDef;
 	fixtureDef.shape = &bodyBox;
@@ -245,6 +245,6 @@ void PhysicsFacade::cleanMap()
 {
 	bodies.clear();
 	world.reset();
-	world = shared_ptr<b2World>(new b2World(b2Vec2(GRAVITY_SCALE, GRAVITY_FALL)));
+	world = make_unique<b2World>(b2Vec2(GRAVITY_SCALE, GRAVITY_FALL));
 	world->SetContactListener(new ContactListenerAdapter(this, dispatcher));
 }

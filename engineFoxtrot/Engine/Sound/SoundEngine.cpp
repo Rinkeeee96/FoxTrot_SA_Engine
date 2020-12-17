@@ -193,3 +193,15 @@ bool SoundEngine::identifierIsLoaded(const string& identifier)
 {
 	return soundFacade->identifierIsLoaded(identifier);
 }
+
+/// @brief	Is called on soundEngine shutdown.
+///			Cleans the soundengine en deletes the soundfacade.
+void SoundEngine::shutdown() {
+	clean();
+}
+
+void SoundEngine::clean() {
+	if (soundFacade) {
+		soundFacade->flush();
+	}
+}

@@ -13,17 +13,18 @@ public:
 
 	// Scene modifiers
 	API EventDispatcher& setCurrentScene(const int sceneID);
-	API shared_ptr<Scene> getSceneWithID(const int sceneID);
-	API void insertScene(shared_ptr<Scene>);
-	API void deregisterScene(const int id);
+	API void insertScene(unique_ptr<Scene>);
+	API void deregisterCurrentScene();
 	
 	int getFirstFreeSceneID();
 
+	void updateCurrentScene(float deltaTime);
+
 	// Pointer
-	shared_ptr<Scene> currentScene = nullptr;
+	unique_ptr<Scene> currentScene = nullptr;
 private:
 	// Helper Functions
 	bool checkIfSceneExists(const int);
 	// TODO what happens when deleting a scene?
-	map<int, shared_ptr<Scene>> scenes;
+	map<int, unique_ptr<Scene>> scenes;
 };

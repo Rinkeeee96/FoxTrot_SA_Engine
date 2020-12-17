@@ -93,34 +93,27 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 	if (newScene == nullptr) throw exception("NewScene is Nullptr so cant set new scene");
 
 	// Detach and delete the old now inactive scene
-	if (currentScene != nullptr)
+	if (currentSceneId != -1)
 	{
-		engine->deregisterScene(currentScene->getSceneID());
+		engine->deregisterCurrentScene();
 	}
-	currentScene = std::move(newScene);
 
-	if (currentScene && dynamic_cast<GameScene*>(currentScene.get()))
-		((GameScene*)currentScene.get())->registerSavegame(savegame);
-
-	engine->insertScene(currentScene);
-	engine->setCurrentScene(currentScene->getSceneID());
+	if (dynamic_cast<GameScene*>(newScene.get()))
+		((GameScene*)newScene.get())->registerSavegame(savegame);
 
 	// Handle some scene specific things
-	if (currentScene && dynamic_cast<GeneralTransition*>(currentScene.get()))
-		((GeneralTransition*)currentScene.get())->setNextScene(transition);
+	if (dynamic_cast<GeneralTransition*>(newScene.get()))
+		((GeneralTransition*)newScene.get())->setNextScene(transition);
 
+	currentSceneId = newScene->getSceneID();
 
-	if (DEBUG_MAIN)cout << "Setting current Scene to: " << typeid(*(engine->getCurrentScene())).name() << endl;
+	engine->insertScene(std::move(newScene));
+	engine->setCurrentScene(currentSceneId);
 
-	currentScene->start(playSound);
+	engine->startCurrentScene(playSound);
+
 
 }
-
-/// @brief Calls current scene onUpdate function
-void SceneStateMachine::updateCurrentScene()
-{
-	if (currentScene)currentScene->onUpdate(engine->getDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
-};
 
 /// @brief Returns currentLevelIdentifier
 /// @return 

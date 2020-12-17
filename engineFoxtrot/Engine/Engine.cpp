@@ -31,29 +31,22 @@ void Engine::setCurrentScene(const int sceneID)
 	inputEngine.registerKeypressInvoker(this->keypressInvoker);
 	physicsEngine.start(*this->eventDispatcher);
 
-	sceneManager.getSceneWithID(sceneID)->onAttach();
-}
-
-/// @brief Returns the currentScene
-/// @return 
-shared_ptr<Scene> Engine::getCurrentScene()
-{
-	return sceneManager.currentScene;
+	if(sceneManager.currentScene)sceneManager.currentScene->onAttach();
 }
 
 /// @brief 
 /// @param scene
-void Engine::insertScene(shared_ptr<Scene> scene)
+void Engine::insertScene(unique_ptr<Scene> scene)
 {
-	sceneManager.insertScene(scene);
+	sceneManager.insertScene(move(scene));
 }
 
 /// @brief Deregister a scene according to the given sceneID
 /// @param id 
-void Engine::deregisterScene(const int id)
+void Engine::deregisterCurrentScene()
 {
 	inputEngine.shutdown();
-	sceneManager.deregisterScene(id);
+	sceneManager.deregisterCurrentScene();
 	videoEngine.clearVideoEngine();
 
 	soundEngine.shutdown();
@@ -77,6 +70,16 @@ void Engine::toggleFps() {
 void Engine::restartPhysicsWorld()
 {
 	physicsEngine.reloadPhysicsObjects();
+}
+
+void Engine::updateCurrentScene()
+{
+	sceneManager.updateCurrentScene(getDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
+}
+
+void Engine::startCurrentScene(bool playSound)
+{
+	sceneManager.currentScene->start(playSound);
 }
 
 /// @brief
@@ -122,6 +125,7 @@ void Engine::shutdown()
 		particleEngine.shutdown();
 		videoEngine.shutdown();
 		physicsEngine.shutdown();
+		soundEngine.shutdown();
 	}
 
 }

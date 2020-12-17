@@ -17,7 +17,7 @@ PhysicsEngine::PhysicsEngine(unique_ptr<FrameData>& _frameData) : frameData{ _fr
 /// @param dispatcher 
 void PhysicsEngine::start(EventDispatcher& dispatcher) {
 	this->dispatcher = &dispatcher;
-	physicsFacade = make_unique<PhysicsFacade>(PhysicsFacade(dispatcher,frameData));
+	physicsFacade = make_unique<PhysicsFacade>(dispatcher,frameData);
 
 	dispatcher.setEventCallback<ActionEvent>(BIND_EVENT_FN(PhysicsEngine::handleAction));
 	dispatcher.setEventCallback<ObjectStopEvent>(BIND_EVENT_FN(PhysicsEngine::stopObject));
@@ -46,6 +46,7 @@ void PhysicsEngine::update() {
 ///			Cleans the physicsEngine en deletes the physicsFacade.
 void PhysicsEngine::shutdown() {
 	clean();
+	paused = false;
 }
 
 /// @brief Reloads the physicsFacade objects map.

@@ -13,8 +13,6 @@ public:
 
 	void switchToScene(string const identifier, bool useTransitionScreen, bool playSound = true);
 
-	void updateCurrentScene();
-
 	string& getCurrentLevelIdentifier();
 
 	int levelToBuild = 0;
@@ -26,7 +24,7 @@ private:
 	unique_ptr<Scene> loadLevel(const string& identifier);
 	unique_ptr<Engine>& engine;
 
-	shared_ptr<Scene> currentScene;
+	int currentSceneId = -1;
 	int sceneId = 0;
 	string currentLevelIdentifier = "";
 };

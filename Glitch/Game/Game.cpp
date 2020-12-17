@@ -29,7 +29,7 @@ int Game::run() {
 			engine->updateFps();
 			engine->update();
 			// TODO get only the non static objects, without looping thru them again and again
-			stateMachine->updateCurrentScene();
+			engine->updateCurrentScene();
 			engine->updateFps();
 		}
 		

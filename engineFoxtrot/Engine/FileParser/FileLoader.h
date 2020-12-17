@@ -6,8 +6,9 @@
 class API FileLoader
 {
 private:
-
+	
 public:
+	virtual ~FileLoader() {};
 	ifstream readFile(string path);
 	bool validateDocument(string path, string validationPath);
 };

@@ -7,25 +7,25 @@
 /// on entry sets player invincible on true
 /// sets tint of player to red
 /// @param entity 
-void DamageCooldownState::entry(Player* entity) {
-	entity->setInvincible(true); 
+void DamageCooldownState::entry(Player& entity) {
+	entity.setInvincible(true); 
 	startTime = chrono::high_resolution_clock::now();
-	entity->setTint(255, 0, 43);
+	entity.setTint(255, 0, 43);
 };
 
 /// @brief executes checks wheter time in seconds has passed and sets state back to normal
 /// @param entity 
-void DamageCooldownState::execute(Player* entity) {
+void DamageCooldownState::execute(Player& entity) {
 	chrono::high_resolution_clock::time_point endTime = chrono::high_resolution_clock::now();
 	chrono::seconds seconds = std::chrono::duration_cast<chrono::seconds>(endTime - startTime);
 
 	if (seconds == std::chrono::seconds(TIME_OUT_IN_SECONDS)) {
-		entity->getStateMachine().changeState(new NormalState, entity);
+		entity.getStateMachine().changeState(make_unique<NormalState>(), entity);
 	}
 };
 
 /// @brief exit
 /// @param entity 
-void DamageCooldownState::exit(Player* entity) {
-	entity->removeTint();
+void DamageCooldownState::exit(Player& entity) {
+	entity.removeTint();
 };

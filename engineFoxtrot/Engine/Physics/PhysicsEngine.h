@@ -21,7 +21,7 @@ public:
 	API bool onPauseEvent(const Event& event);
 	API void reloadPhysicsObjects();
 
-	shared_ptr<Scene>* pointerToCurrentScene = nullptr;
+	unique_ptr<Scene>* pointerToCurrentScene = nullptr;
 
 	API void start(EventDispatcher& dispatcher) override;
 	API void update() override;
