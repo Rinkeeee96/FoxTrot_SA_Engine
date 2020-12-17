@@ -46,7 +46,7 @@ void SceneManager::insertScene(unique_ptr<Scene> scene)
 /// @param id 
 void SceneManager::deregisterCurrentScene()
 {
-	if (!currentScene) throw exception("scene does not exist");
+	if (!currentScene) throw exception("SceneManager: Scene does not exist");
 	currentScene->onDetach();
 	currentScene.reset();
 }
@@ -72,7 +72,7 @@ void SceneManager::updateCurrentScene(float deltaTime)
 /// Identifier to a SceneID.
 EventDispatcher& SceneManager::setCurrentScene(const int sceneID)
 {
-	if (scenes.empty()) throw exception("scene does not exist");
+	if (scenes.empty()) throw exception("SceneManager: Scene does not exist");
 
 	if (currentScene)scenes[currentScene->getSceneID()] = move(currentScene);
 

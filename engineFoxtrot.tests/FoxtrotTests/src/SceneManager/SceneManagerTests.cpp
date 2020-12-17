@@ -34,7 +34,7 @@ namespace UnitTestsEngine
 			}
 			// Assert
 			catch (exception e) {
-				Assert::AreEqual(e.what(), "scene does not exist");
+				Assert::AreEqual(e.what(), "SceneManager: Scene does not exist");
 			}
 		}
 
@@ -60,7 +60,7 @@ namespace UnitTestsEngine
 			}
 			// Assert
 			catch (exception e) {
-				Assert::AreEqual(e.what(), "scene does not exist");
+				Assert::AreEqual(e.what(), "SceneManager: Scene does not exist");
 			}
 		}
 	};

@@ -35,7 +35,7 @@ namespace UnitTestsEngine
 			// Assert
 			catch (exception e) {
 				Assert::IsFalse(result.is_open());
-				Assert::AreEqual(e.what(), "file not found exception");
+				Assert::AreEqual(e.what(), "FileLoader: file not found exception");
 			}
 		}
 	};

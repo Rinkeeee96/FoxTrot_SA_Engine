@@ -36,7 +36,7 @@ namespace UnitTestsEngine
 			}
 			// Assert
 			catch (exception e) {
-				Assert::AreEqual(e.what(), "object does not exist");
+				Assert::AreEqual(e.what(), "Layer: object does not exist");
 			}
 		}
 

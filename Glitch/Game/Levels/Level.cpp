@@ -146,7 +146,7 @@ void Level::setPlayer(shared_ptr<Object> object) {
 		startPosPlayerY = _player->getPositionY();
 	}
 	else {
-		throw exception("not a player object");
+		throw exception("Level: not a player object");
 	}
 }
 

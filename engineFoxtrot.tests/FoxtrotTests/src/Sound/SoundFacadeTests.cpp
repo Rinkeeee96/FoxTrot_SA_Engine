@@ -43,7 +43,7 @@ namespace UnitTestsEngine
 				soundFacade.identifierExists("IdontExist");
 			}
 			catch (exception e) {
-				Assert::AreEqual(e.what(), "identifier does not exist");
+				Assert::AreEqual(e.what(), "SoundFacade: identifier does not exist");
 			}
 		}
 
@@ -54,7 +54,7 @@ namespace UnitTestsEngine
 				soundFacade.playEffect("IdontExist", 1);
 			}
 			catch (exception e) {
-				Assert::AreEqual(e.what(), "identifier does not exist");
+				Assert::AreEqual(e.what(), "SoundFacade: identifier does not exist");
 			}
 
 		}
@@ -65,7 +65,7 @@ namespace UnitTestsEngine
 				soundFacade.identifierExists("IdontExist");
 			}
 			catch (exception e) {
-				Assert::AreEqual(e.what(), "identifier does not exist");
+				Assert::AreEqual(e.what(), "SoundFacade: identifier does not exist");
 			}
 		}
 
@@ -87,7 +87,7 @@ namespace UnitTestsEngine
 				soundFacade.fadeInMusic(-1);
 			}
 			catch (exception e) {
-				Assert::AreEqual(e.what(), "sound does not exist");
+				Assert::AreEqual(e.what(), "SoundFacade: sound does not exist");
 			}
 		}
 
@@ -101,7 +101,7 @@ namespace UnitTestsEngine
 			}
 			// Assert
 			catch (exception e) {
-				Assert::AreEqual(e.what(), "invalid fade time");
+				Assert::AreEqual(e.what(), "SoundFacade: invalid fade time");
 			}
 		}
 	};

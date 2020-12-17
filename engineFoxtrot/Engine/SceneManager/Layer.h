@@ -24,7 +24,7 @@ public:
 	//In here for the not friend classes who might need the objects in a layer
 	API map<int, shared_ptr<Object>> getObjectsInLayer() { return objects; }
 	API shared_ptr<Object> getSpecificObjectInLayer(int objectID) {
-		if (objects.count(objectID) == 0) throw exception("object does not exist");
+		if (objects.count(objectID) == 0) throw exception("Layer: object does not exist");
 		return objects[objectID]; 
 	}
 	API void addObjectInLayer(shared_ptr<Object> obj) { objects[obj->getObjectId()] = shared_ptr<Object>(obj); }
@@ -40,7 +40,7 @@ public:
 	}
 
 	API void removeObject(int objectID) { 
-		if (objects.count(objectID) == 0) throw exception("object does not exist");
+		if (objects.count(objectID) == 0) throw exception("Layer: object does not exist");
 		objects.erase(objectID); 
 	}
 	API void clearObjects() { objects.clear(); }
