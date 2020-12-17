@@ -105,31 +105,36 @@ namespace UnitTestsGlitch
 		{
 			// Arrange
 			MockObj* obj = new MockObj;
-			mockFirstState* firstState = new mockFirstState;
-			mockSecondState* secondState = new mockSecondState;
-			mockGlobalState* globalState = new mockGlobalState;
+			unique_ptr<mockFirstState> firstState = make_unique<mockFirstState>();
+			unique_ptr<mockSecondState> secondState = make_unique<mockSecondState>();
+			unique_ptr<mockGlobalState> globalState = make_unique<mockGlobalState>();
+
+			mockFirstState* toCheck1 = firstState.get();
+			mockGlobalState* toCheck2 = globalState.get();
+
 			StateMachine<MockObj> statemachine;
-			statemachine.setCurrentState(firstState, obj);
-			statemachine.setGlobalState(globalState);
+			statemachine.setCurrentState(std::move(firstState), *obj);
+			statemachine.setGlobalState(std::move(globalState), *obj);
 			// Act
-			statemachine.update(obj);
+			statemachine.update(*obj);
 			// Assert
-			Assert::AreEqual(firstState->getExecuteCalls(), 1);
-			Assert::AreEqual(globalState->getCalls(), 1);
+			Assert::AreEqual(toCheck1->getExecuteCalls(), 1);
+			Assert::AreEqual(toCheck2->getCalls(), 1);
 		}
 
 		TEST_METHOD(StateMachine_SetGlobalState_SetGlobalState)
 		{
 			// Arrange
 			MockObj* obj = new MockObj;
-			mockFirstState* firstState = new mockFirstState;
-			mockSecondState* secondState = new mockSecondState;
-			mockGlobalState* globalState = new mockGlobalState;
+			unique_ptr<mockFirstState> firstState = make_unique<mockFirstState>();
+			unique_ptr<mockSecondState> secondState = make_unique<mockSecondState>();
+			unique_ptr<mockGlobalState> globalState = make_unique<mockGlobalState>();
 			StateMachine<MockObj> statemachine;
 			// Act
-			statemachine.setCurrentState(firstState, obj);
-			statemachine.setGlobalState(globalState);
-			IGlobalState<MockObj>& result = statemachine.getGlobalState();
+			statemachine.setCurrentState(std::move(firstState), *obj);
+			statemachine.setGlobalState(std::move(globalState), *obj);
+
+			IState<MockObj>& result = statemachine.getGlobalState();
 			// Assert
 			if (typeid(mockGlobalState) == typeid(result)) {
 				Assert::IsTrue(true);
@@ -143,15 +148,16 @@ namespace UnitTestsGlitch
 		{
 			// Arrange
 			MockObj* obj = new MockObj;
-			mockFirstState* firstState = new mockFirstState;
-			mockSecondState* secondState = new mockSecondState;
-			mockGlobalState* globalState = new mockGlobalState;
+			unique_ptr<mockFirstState> firstState = make_unique<mockFirstState>();
+			unique_ptr<mockSecondState> secondState = make_unique<mockSecondState>();
+			unique_ptr<mockGlobalState> globalState = make_unique<mockGlobalState>();
+			mockFirstState* toCheck = firstState.get();
 			StateMachine<MockObj> statemachine;
-			statemachine.setGlobalState(globalState);
+			statemachine.setGlobalState(std::move(globalState), *obj);
 			// Act
-			statemachine.setCurrentState(firstState, obj);
+			statemachine.setCurrentState(std::move(firstState), *obj);
 			// Assert
-			Assert::AreEqual(firstState->getEntryCalls(), 1);
+			Assert::AreEqual(toCheck->getEntryCalls(), 1);
 		}
 	};
 }
