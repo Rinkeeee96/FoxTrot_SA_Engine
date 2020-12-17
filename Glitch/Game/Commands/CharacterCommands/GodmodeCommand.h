@@ -16,8 +16,8 @@ public:
 		IState<Player>& currentState = player.getStateMachine().getCurrentState();
 
 		if (typeid(currentState).name() == typeid(NormalState).name())
-			player.getStateMachine().changeState(new GodState, &player);
+			player.getStateMachine().changeState(make_unique<GodState>(), player);
 		else 
-			player.getStateMachine().changeState(new NormalState, &player);
+			player.getStateMachine().changeState(make_unique<NormalState>(), player);
 	}
 };

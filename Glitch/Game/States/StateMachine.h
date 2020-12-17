@@ -1,6 +1,5 @@
 #pragma once
 #include "IState.h"
-#include "IGlobalState.h"
 
 /// @brief 
 /// Statemachine
@@ -9,46 +8,44 @@ template <typename T>
 class StateMachine
 {
 private:
-    IState<T>* currentState;
-    IGlobalState<T>* globalState;
+    unique_ptr<IState<T>> currentState;
+    unique_ptr<IState<T>> globalState;
 public:
-    ~StateMachine() {
-        delete currentState;
-        delete globalState;
-    }
+    ~StateMachine() { }
 
     /// @brief 
     /// set current state
-    void setCurrentState(IState<T>* _state, T* entity) {
-        this->currentState = _state;
+    void setCurrentState(unique_ptr<IState<T>> _state, T& entity) {
+        this->currentState = move(_state);
         this->currentState->entry(entity);
     };
 
     /// @brief 
     /// get current state
     IState<T>& getCurrentState() const { return *this->currentState; };
+    IState<T>& getGlobalState() const { return *this->globalState; };
 
     /// @brief 
     /// set global state
-    void setGlobalState(IGlobalState<T>* _globalState) {
-        this->globalState = _globalState;
+    void setGlobalState(unique_ptr<IState<T>> _globalState, T& entity) {
+        this->globalState = move(_globalState);
+        this->currentState->entry(entity);
     };
 
     /// @brief 
     /// update current and global state
-    void update(T* entity) {
+    void update(T& entity) {
         this->currentState->execute(entity);
         this->globalState->execute(entity);
     };
 
     /// @brief 
     /// change state
-    void changeState(IState<T>* _state, T* entity) {
+    void changeState(unique_ptr<IState<T>> _state, T& entity) {
         if (currentState != _state && _state)
         {
             currentState->exit(entity);
-            delete currentState;
-            currentState = _state;
+            currentState = move(_state);
             currentState->entry(entity);
         }
     };
