@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_layer_8h_source.html',''); initResiza
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">//In here for the not friend classes who might need the objects in a layer</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    API map&lt;int, shared_ptr&lt;Object&gt;&gt; getObjectsInLayer() { <span class="keywordflow">return</span> objects; }</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    API shared_ptr&lt;Object&gt; getSpecificObjectInLayer(<span class="keywordtype">int</span> objectID) {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">if</span> (objects.count(objectID) == 0) <span class="keywordflow">throw</span> exception(<span class="stringliteral">&quot;object does not exist&quot;</span>);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">if</span> (objects.count(objectID) == 0) <span class="keywordflow">throw</span> exception(<span class="stringliteral">&quot;Layer: object does not exist&quot;</span>);</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">return</span> objects[objectID]; </div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    API <span class="keywordtype">void</span> addObjectInLayer(shared_ptr&lt;Object&gt; obj) { objects[obj-&gt;getObjectId()] = shared_ptr&lt;Object&gt;(obj); }</div>
@@ -99,7 +99,7 @@ $(document).ready(function(){initNavTree('_layer_8h_source.html',''); initResiza
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    API <span class="keywordtype">void</span> removeObject(<span class="keywordtype">int</span> objectID) { </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">if</span> (objects.count(objectID) == 0) <span class="keywordflow">throw</span> exception(<span class="stringliteral">&quot;object does not exist&quot;</span>);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">if</span> (objects.count(objectID) == 0) <span class="keywordflow">throw</span> exception(<span class="stringliteral">&quot;Layer: object does not exist&quot;</span>);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        objects.erase(objectID); </div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    API <span class="keywordtype">void</span> clearObjects() { objects.clear(); }</div>
