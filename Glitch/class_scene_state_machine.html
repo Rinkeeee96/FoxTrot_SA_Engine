@@ -88,10 +88,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a26137e740c92022293084968c98fb824"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_state_machine.html#a26137e740c92022293084968c98fb824">switchToScene</a> (string const identifier, bool useTransitionScreen, bool playSound=true)</td></tr>
 <tr class="memdesc:a26137e740c92022293084968c98fb824"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switch to the scene according the the identifier.  <a href="class_scene_state_machine.html#a26137e740c92022293084968c98fb824">More...</a><br /></td></tr>
 <tr class="separator:a26137e740c92022293084968c98fb824"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2f115b9c6dfabb8ae11da1805062f10"><td class="memItemLeft" align="right" valign="top"><a id="ae2f115b9c6dfabb8ae11da1805062f10"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_state_machine.html#ae2f115b9c6dfabb8ae11da1805062f10">updateCurrentScene</a> ()</td></tr>
-<tr class="memdesc:ae2f115b9c6dfabb8ae11da1805062f10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls current scene onUpdate function. <br /></td></tr>
-<tr class="separator:ae2f115b9c6dfabb8ae11da1805062f10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60c3e2c0de18d17852f42c3d1695f318"><td class="memItemLeft" align="right" valign="top">string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_state_machine.html#a60c3e2c0de18d17852f42c3d1695f318">getCurrentLevelIdentifier</a> ()</td></tr>
 <tr class="memdesc:a60c3e2c0de18d17852f42c3d1695f318"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns currentLevelIdentifier.  <a href="class_scene_state_machine.html#a60c3e2c0de18d17852f42c3d1695f318">More...</a><br /></td></tr>
 <tr class="separator:a60c3e2c0de18d17852f42c3d1695f318"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -119,9 +115,9 @@ shared_ptr&lt; <a class="el" href="class_scene_factory.html">SceneFactory</a> &g
 <tr class="memitem:a6f151d7114a2cff7bfc1a0cb667cea12"><td class="memItemLeft" align="right" valign="top"><a id="a6f151d7114a2cff7bfc1a0cb667cea12"></a>
 unique_ptr&lt; Engine &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>engine</b></td></tr>
 <tr class="separator:a6f151d7114a2cff7bfc1a0cb667cea12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7cc4534a276296a070a73629742699c4"><td class="memItemLeft" align="right" valign="top"><a id="a7cc4534a276296a070a73629742699c4"></a>
-shared_ptr&lt; Scene &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>currentScene</b></td></tr>
-<tr class="separator:a7cc4534a276296a070a73629742699c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad34677381a3163cb8542e7a82456b585"><td class="memItemLeft" align="right" valign="top"><a id="ad34677381a3163cb8542e7a82456b585"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>currentSceneId</b> = -1</td></tr>
+<tr class="separator:ad34677381a3163cb8542e7a82456b585"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8ae9091d17d0c949435033d5f962901"><td class="memItemLeft" align="right" valign="top"><a id="ab8ae9091d17d0c949435033d5f962901"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>sceneId</b> = 0</td></tr>
 <tr class="separator:ab8ae9091d17d0c949435033d5f962901"><td class="memSeparator" colspan="2">&#160;</td></tr>
