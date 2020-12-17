@@ -76,7 +76,7 @@ void Level::onUpdate(float deltaTime)
 	{
 		player->kill();
 		increaseTotalGameScore(100);
-		throwAchievement("Level " + to_string(stateMachine.levelToBuild) + " behaald!");
+		throwAchievement("Level " + to_string(stateMachine.get()->levelToBuild) + " behaald!");
 		SaveGameData save = savegame->getCurrentGameData();
 		save.levelData[stateMachine->levelToBuild].completed = true;
 		savegame->saveCurrentGameData(save);
@@ -251,7 +251,7 @@ void Level::loadScoreBoard()
 	addNewObjectToLayer(5, text2, false, true);
 
 
-	scoreText = new Text(textIDCount++, new ColoredText("Totale score: " + to_string(savegame->getCurrentGameData().totalScore), Color(0, 0, 0)), 200, 30, 1550, 90);
+	scoreText = shared_ptr<Text>(new Text(textIDCount++, new ColoredText("Totale score: " + to_string(savegame->getCurrentGameData().totalScore), Color(0, 0, 0)), 200, 30, 1550, 90));
 	scoreText->setDrawStatic(true);
 	addNewObjectToLayer(5, scoreText, false, true);
 

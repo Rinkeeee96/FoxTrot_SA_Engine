@@ -46,7 +46,7 @@ void Shop::loadBackground()
 	shared_ptr<SpriteObject> BG_LAYER_0 = shared_ptr<SpriteObject>(new SpriteObject(-1500, 1080, 1920, 1, 0, "Assets/Shop/Shop.png"));
 	shared_ptr<SpriteObject> DialogBox = shared_ptr<SpriteObject>(new SpriteObject(-1502, 170, 455, 1, 0, "Assets/Shop/Dialogbox1.png"));
 
-	auto* level1TextBtn = new Text(2, new ColoredText("Hoe kan ik je helpen?", Color(0, 0, 0)), 400, 100, 760, 865);
+	shared_ptr<Text> level1TextBtn = shared_ptr<Text>(new Text(2, new ColoredText("Hoe kan ik je helpen?", Color(0, 0, 0)), 400, 100, 760, 865));
 
 
 	shared_ptr<Drawable> layer0 = shared_ptr<Drawable>(new Drawable(-992));
@@ -81,7 +81,7 @@ void Shop::loadMusic()
 /// @brief Loads the buttons for this scene
 void Shop::loadButtons()
 {
-	auto* stopBtn = new SecondaryButton(-993, "Wereld", onStopBtnClick, this->dispatcher);
+	shared_ptr<SecondaryButton> stopBtn = shared_ptr<SecondaryButton>(new SecondaryButton(-993, "Wereld", onStopBtnClick, this->dispatcher));
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
