@@ -29,7 +29,7 @@ public:
     /// set global state
     void setGlobalState(unique_ptr<IState<T>> _globalState, T& entity) {
         this->globalState = move(_globalState);
-        this->currentState->entry(entity);
+        this->globalState->entry(entity);
     };
 
     /// @brief 

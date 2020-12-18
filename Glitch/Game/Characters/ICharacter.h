@@ -56,11 +56,12 @@ public:
 	virtual map<SpriteState, shared_ptr<SpriteObject>> buildSpritemap(int textureId) = 0;
 
 	void setInvincible(const bool invincible) { this->invincible = invincible; }
+	bool getInvincible() const { return this->invincible; }
 	virtual shared_ptr<ICharacter> clone(int id) = 0;
 protected:
 	int currentHealth = 0;
 	int totalHealth = 0;
-	bool invincible = true;
+	bool invincible = false;
 	bool canJump = false;
 	float spawnX = 0;
 	float spawnY = 0;

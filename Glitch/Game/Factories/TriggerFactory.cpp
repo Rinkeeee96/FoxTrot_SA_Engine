@@ -10,6 +10,9 @@ void TriggerFactory::registerTrigger(string name, shared_ptr<BaseTrigger> trigge
 	if (triggerMap.count(name) == 0) {
 		triggerMap.insert(pair<std::string, shared_ptr<BaseTrigger>>(name, trigger));
 	}
+	else {
+		throw exception("identifier already registered");
+	}
 }
 
 /// @brief Creates an empty triger to clone to
@@ -21,5 +24,7 @@ shared_ptr<BaseTrigger> TriggerFactory::create(string name, int id) {
 		shared_ptr<BaseTrigger> clone = triggerMap[name]->clone(id);
 		return clone;
 	}
-	throw exception("TriggerFactory: Entity not found");
+	else {
+		throw exception("identifier does not exist");
+	}
 }
