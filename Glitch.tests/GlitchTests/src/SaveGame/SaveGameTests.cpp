@@ -34,16 +34,6 @@ namespace UnitTestsGlitch
 			Assert::AreEqual((int)savegame.getCurrentGameData().achievements.size(), 1);
 		}
 
-		TEST_METHOD(SaveGame_Set_Current_GameData)
-		{
-			// Arrange
-			Savegame savegame;
-			// Act
-			savegame.setCurrentGameData(1);
-			// Assert
-			Assert::IsTrue(true);
-		}
-
 		TEST_METHOD(SaveGame_Get_Current_GameData_Should_Return_GameData_With_Id_One)
 		{
 			// Arrange
