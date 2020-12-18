@@ -15,17 +15,17 @@ public:
 	/// @brief
 	/// Returns the eventType of a specific event
 	/// @return EventType
-	virtual EventType GetEventType() const = 0;
+	virtual EventType getEventType() const = 0;
 	/// @brief
 	/// Returns the name of a specific event
-	virtual const char* GetName() const = 0;
+	virtual const char* getName() const = 0;
 
 	/// @brief
 	/// Returns the name of the event
-	virtual string ToString() const { return GetName(); }
+	virtual string toString() const { return getName(); }
 };
 
 inline ostream& operator<<(ostream& osStream, const Event& event)
 {
-	return osStream << event.ToString();
+	return osStream << event.toString();
 }

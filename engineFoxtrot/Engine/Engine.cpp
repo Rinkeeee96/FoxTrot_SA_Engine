@@ -1,24 +1,20 @@
 #include "stdafx.h"
 #include "Engine.h"
-#include "Events\AppTickEvent30.h"
-#include "Events\AppTickEvent60.h"
-#include "Events\Video\VideoLoadSpriteEvent.h"
-
+#include "Input/Commands/Engine/ToggleFpsCommand.h"
+#include "Input/Commands/Engine/ShutdownCommand.h"
 /// @brief 
-Engine::Engine()
-{
-	videoEngine.pointerToCurrentScene =	 &sceneManager.currentScene;
-	physicsEngine.pointerToCurrentScene = &sceneManager.currentScene;
-	particleEngine.pointerToCurrentScene = &sceneManager.currentScene;
-	frameData = new FrameData;
-
-	EventListeners();
-	//this->startTickThreads();
+/// Create default engine commands that cannot be removed, only overriden by changing the keycode in the invoker
+void Engine::constructDefaultCommands(KeypressInvoker* invoker) {
+	invoker->registerCommand(KeyCode::KEY_F1, new ToggleFpsCommand(*this));
+	invoker->registerCommand(KeyCode::KEY_F4, new ShutdownCommand(*this));
 }
 
 /// @brief 
-Engine::~Engine()
+/// Override the default invoker with a custom one from the application
+void Engine::useCustomCommandInvoker(KeypressInvoker* newInvoker)
 {
+	constructDefaultCommands(newInvoker);
+	this->keypressInvoker = newInvoker;
 }
 
 /// @brief 
@@ -27,56 +23,137 @@ Engine::~Engine()
 /// SceneID to set the currentSceneID to
 void Engine::setCurrentScene(const int sceneID)
 {
-	sceneManager.setCurrentScene(sceneID);
-}
+	this->eventDispatcher =  &sceneManager.setCurrentScene(sceneID);
 
-Scene* Engine::getCurrentScene()
-{
-	return sceneManager.currentScene;
-}
+	particleEngine.start(*this->eventDispatcher);
+	soundEngine.start(*this->eventDispatcher);
+	inputEngine.start(*this->eventDispatcher);
+	inputEngine.registerKeypressInvoker(this->keypressInvoker);
+	physicsEngine.start(*this->eventDispatcher);
 
-/// @brief 
-void Engine::pollEvents() 
-{
-	this->inputEngine.pollEvents();
+	if(sceneManager.currentScene)sceneManager.currentScene->onAttach();
 }
 
 /// @brief 
 /// @param scene
-void Engine::insertScene(Scene* scene)
+void Engine::insertScene(unique_ptr<Scene> scene)
 {
-	sceneManager.insertScene(scene);
+	sceneManager.insertScene(move(scene));
 }
 
-/// @brief 
-/// Load a animated sprite (PNG) into the AnimatedTexture map
-/// @param spriteObject 
-void Engine::loadSprite(const SpriteObject& spriteObject) {
-	bool exists = std::filesystem::exists(spriteObject.getFileName());
-	if (!exists)
-		throw ERROR_CODE_IMAGE_FILE_NOT_FOUND;
-	videoEngine.loadImage(spriteObject);
+/// @brief Deregister a scene according to the given sceneID
+/// @param id 
+void Engine::deregisterCurrentScene()
+{
+	inputEngine.shutdown();
+	sceneManager.deregisterCurrentScene();
+	videoEngine.clearVideoEngine();
+
+	soundEngine.shutdown();
+	particleEngine.shutdown();
+	physicsEngine.shutdown();
 }
 
+/// @brief
+/// Toggles fps visibility
+void Engine::toggleFps() {
+	videoEngine.toggleFps();
+}
 
+/// @brief Calls reloadPhysicsObject from the physicsEngine
+void Engine::restartPhysicsWorld()
+{
+	physicsEngine.reloadPhysicsObjects();
+}
+
+void Engine::updateCurrentScene()
+{
+	sceneManager.updateCurrentScene(getDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
+}
+
+void Engine::startCurrentScene(bool playSound)
+{
+	sceneManager.currentScene->start(playSound);
+}
+
+/// @brief
+/// Returns the deltaTime from the frameData class using default physics timestep
+/// @param timeStep
+/// Timestep to base deltaTime calculation on
+/// @returns float
+float Engine::getDeltaTime(int timeStep)
+{
+	return frameData->calculateDeltaTime(timeStep);
+}
+
+/// @brief The startup function for the engine is for setting the currentScene pointer and the general initialisation
+void Engine::start()
+{
+	frameData = make_unique<FrameData>();
+	videoEngine.pointerToCurrentScene = &sceneManager.currentScene;
+	physicsEngine.pointerToCurrentScene = &sceneManager.currentScene;
+	particleEngine.pointerToCurrentScene = &sceneManager.currentScene;
+
+	// register default invoker
+	useCustomCommandInvoker(new KeypressInvoker());
+
+	videoEngine.start(*this->eventDispatcher);
+}
+
+/// @brief Calls the update function on all the subsystems
+void Engine::update()
+{
+	frameData->updateFps();
+	particleEngine.update();
+	physicsEngine.update();
+	videoEngine.update();
+	inputEngine.update();
+}
+
+/// @brief Calls the shutdown function on all the subsystems
+void Engine::shutdown()
+{
+	if (this->running)
+	{
+		this->setEngineRunning(false);
+		inputEngine.shutdown();
+		particleEngine.shutdown();
+		videoEngine.shutdown();
+		physicsEngine.shutdown();
+		soundEngine.shutdown();
+	}
+
+}
+
+/// @brief Calls addFile from the sound engine.
+/// @param identifier 
+/// @param path 
 void Engine::loadSound(const string& identifier, const string& path)
 {
-	this->soundEngine.AddFile(identifier, path);
+	this->soundEngine.addFile(identifier, path);
 }
 
+/// @brief Calls setFile from the sound engine.
+/// @param sounds 
 void Engine::loadSound(map<string, string> sounds)
 {
-	this->soundEngine.SetFiles(sounds);
+	this->soundEngine.setFiles(sounds);
 }
 
-
-void Engine::EventListeners() {
-	EventSingleton::get_instance().setEventCallback<VideoLoadSpriteEvent>(BIND_EVENT_FN(Engine::Event_LoadSprite));
+/// @brief Calls playMusic from the sound engine.
+/// @param identifier 
+void Engine::startSound(const string& identifier) {
+	this->soundEngine.playMusic(identifier, 15);
 }
 
-bool Engine::Event_LoadSprite(Event& event) {
-	auto loadEvent = static_cast<VideoLoadSpriteEvent&>(event);
-	this->loadSprite(loadEvent.GetSpriteObject());
-	// TODO is this called in a single loop or once per sprite?
-	return false;
+/// @brief Calls stopMusic from the sound engine.
+/// @param identifier 
+void Engine::stopSound(const string& identifier) {
+	this->soundEngine.stopMusic();
+}
+
+/// @brief Calls onStopLoopedEffect from the sound engine.
+/// @param identifier 
+void Engine::stopLoopEffect(const string& identifier) {
+	this->soundEngine.onStopLoopedEffect(identifier);
 }

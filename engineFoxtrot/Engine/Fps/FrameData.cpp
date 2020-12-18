@@ -1,8 +1,6 @@
 #include "stdafx.h"
 #include "FrameData.h"
 
-double FrameData::gameFps = 0;
-double FrameData::renderFps = 0;
 
 FrameData::FrameData() {
 }
@@ -14,6 +12,16 @@ FrameData::~FrameData() {
 /// Sets the start time for the fps counter (use at beginning of loop)
 void FrameData::startTimer() {
 	startTime = chrono::high_resolution_clock::now();
+}
+
+/// @brief
+/// returns the current deltaTime (1 / fps of the last frame)
+/// @param timeStep
+/// The timestep to use when calculating deltaTime
+/// @returns const float
+const float FrameData::calculateDeltaTime(int timeStep)
+{
+	return static_cast<const float>(lastFrameFps != 0 ? timeStep / lastFrameFps : 1);
 }
 
 /// @brief
@@ -35,6 +43,18 @@ double FrameData::calculateAverageFps()
 
 	avgFps /= frametimes.size();
 
+	lastFrameFps = TIMESTEP / diff.count();
 	framesPerSecond = TIMESTEP / avgFps;
 	return framesPerSecond;
+}
+
+/// @brief
+/// Determines when to update the fps
+void FrameData::updateFps()
+{
+	if (reset)
+		this->startTimer();
+	else
+		this->fps = this->calculateAverageFps();
+	reset = !reset;
 }

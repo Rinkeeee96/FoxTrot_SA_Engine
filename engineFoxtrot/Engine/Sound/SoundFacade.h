@@ -2,9 +2,6 @@
 #include "ISoundFacade.h"
 #include "SceneManager/Objects/Object.h"
 
-#define EXAMPLE_SOUND	"Assets/Sound/b423b42.wav"
-#define EXAMPLE_SPRITE  "Assets/Sprites/simple.png"
-
 #define FIRST_AVAILABLE_CHANNEL -1
 #define DONT_LOOP 0
 #define LOOP_INDEFINITELY -1
@@ -22,36 +19,37 @@ typedef struct _Mix_Music Mix_Music;
 class SoundFacade : public ISoundFacade
 {
 public:
-	SoundFacade();
-	~SoundFacade();
+	API SoundFacade();
+	API ~SoundFacade();
 
-	bool isMix_PlayingMusic();
+	API bool isMix_PlayingMusic();
 
-	void SetFiles(map<string, string> files);
-	void AddFile(const string& identifier, const string& file);
-	void PlayEffect(const string& identifier, const int volume);
-	void LoadEffect(const string& identifier);
-	void UnloadEffect(const string& identifier);
-	void StartLoopedEffect(const string& effect, const int volume);
-	void StopLoopedEffect(const string& identifier);
-	void LoadMusic(const string& identifier);
-	void PlayMusic(const int volume);
-	void PlayMusic(const string& identifier, const int volume);
-	void ChangeMusic(const string& identifier);
-	void FadeOutMusic(const int fadeTime);
-	void FadeInMusic(const int fadeTime);
-	void FadeInMusic(const string& identifier, const int fadeTime);
-	void RewindMusic();
-	void StopMusic();
-	void PauseMusic();
-	void ResumeMusic();
-	void Flush();
-	bool IdentifierExists(const string& identifier);
-	bool IdentifierIsLoaded(const string& identifier);
+	API void setFiles(map<string, string> files);
+	API void addFile(const string& identifier, const string& file);
+	API void playEffect(const string& identifier, const int volume);
+	API void loadEffect(const string& identifier);
+	API void unloadEffect(const string& identifier);
+	API void startLoopedEffect(const string& effect, const int volume);
+	API void stopLoopedEffect(const string& identifier);
+	API void loadMusic(const string& identifier);
+	API void playMusic(const int volume);
+	API void playMusic(const string& identifier, const int volume);
+	API void changeMusic(const string& identifier);
+	API void fadeOutMusic(const int fadeTime);
+	API void fadeInMusic(const int fadeTime);
+	API void fadeInMusic(const string& identifier, const int fadeTime);
+	API void rewindMusic();
+	API void stopMusic();
+	API void pauseMusic();
+	API void resumeMusic();
+	API void flush();
+	API bool identifierExists(const string& identifier);
+	API bool identifierIsLoaded(const string& identifier);
 private:
 	map<string, string> soundPaths;
 	map<string, int> loopChannels;
 	Mix_Music* music;
+	// TODO clear on scene detach
 	map<std::string, Mix_Chunk*> loadedSoundEffects;
 
 };

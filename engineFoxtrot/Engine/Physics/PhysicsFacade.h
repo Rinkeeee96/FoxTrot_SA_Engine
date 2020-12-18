@@ -1,8 +1,8 @@
 #pragma once
 #include "IPhysicsFacade.h"
 #include "PhysicsBody.h"
-#include "Events/EventSingleton.h"
 #include "Events/Action/OnCollisionEvent.h"
+#include "Fps/FrameData.h"
 
 #define PI 3.14159f
 #define TOTAL_DEGREES 180.0f
@@ -21,41 +21,46 @@
 #define Y_AXIS_STATIC 0
 
 struct CollisionStruct {
-	PhysicsBody* object1 = nullptr;
-	PhysicsBody* object2 = nullptr;
+	shared_ptr<PhysicsBody> object1 = nullptr;
+	shared_ptr<PhysicsBody> object2 = nullptr;
 };
 
 class b2Fixture;
 class b2World;
 class b2Body;
+class b2PolygonShape;
 
 /// @brief 
 /// PhysicsFacade class. Class for update physics off objects
 class PhysicsFacade : public IPhysicsFacade
 {
 public:
-	PhysicsFacade();
-	~PhysicsFacade();
+	API PhysicsFacade(EventDispatcher& _dispatcher, unique_ptr<FrameData>& _frameData);
+	API ~PhysicsFacade();
 
-	void addStaticObject(PhysicsBody* object) override;
-	void addDynamicObject(PhysicsBody* object) override;
+	API void addStaticObject(shared_ptr<PhysicsBody> object) override;
+	API void addDynamicObject(shared_ptr<PhysicsBody> object) override;
 
-	PhysicsBody* getPhysicsObject(const int objectId) override;
+	API void MoveLeft(const int objectId) override;
+	API void MoveRight(const int objectId) override;
+	API void Jump(const int objectId) override;
+	API void Fall(const int objectId) override;
+	API shared_ptr<PhysicsBody> getPhysicsObject(const int objectId) override;
 
-	void MoveLeft(const int objectId) override;
-	void MoveRight(const int objectId) override;
-	void Jump(const int objectId) override;
-	void Fall(const int objectId) override;
-
-	CollisionStruct getObjectsByFixture(b2Fixture* fixture1, b2Fixture* fixture2);
-	void update() override;
-	void stopObject(int objectId);
-	void cleanMap();
+	API CollisionStruct getObjectsByFixture(b2Fixture* fixture1, b2Fixture* fixture2);
+	API void update() override;
+	API void stopObject(int objectId, bool stopVertical, bool stopHorizontal);
+	API void cleanMap();
 
 private:
-	b2World * world;
+	b2PolygonShape createShape(shared_ptr<PhysicsBody> object);
+	EventDispatcher& dispatcher;
+	unique_ptr<b2World> world;
 	const float timeStep = TIMESTEP_SEC / TIMESTEP_FRAMES;
 
-	map <PhysicsBody*, b2Body*> bodies;
+	// TODO clear on scene detach
+	map <shared_ptr<PhysicsBody>, b2Body*> bodies;
 	b2Body* findBody(const int objectId);
+
+	unique_ptr<FrameData>& frameData;
 };

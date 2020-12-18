@@ -1,38 +1,70 @@
 #pragma once
 
-#include "SceneSwitcher/SceneSwitcher.h"
+#include "Game/Scenes/GameScene.h"
 #include "Game/Buttons/PrimaryButton.h"
 #include "Game/Buttons/SecondaryButton.h"
 
 
+#define SPACING_INCREMENT 500
 
-class SaveScreen : public Scene
+/// @brief Class for the loading saves screen
+class SaveScreen : public GameScene
 {
 public:
-	SaveScreen(const int id) : Scene(id, WINDOW_HEIGHT, WINDOW_WIDTH) {};
+	SaveScreen(const int id, unique_ptr<Engine>& engine, shared_ptr<SceneStateMachine> _statemachine) : GameScene(id, engine, _statemachine) {};
 	~SaveScreen() {};
 
 	// Inherited via Scene
 	void onAttach() override;
 	void onDetach() override;
-	void start() override;
-	void onUpdate() override;
+	void start(bool playSound) override;
+	void onUpdate(float deltaTime) override;
 
 private:
 	void loadBackground();
 	void loadMusic();
 	void loadButtons();
+	void loadText();
 
-	//button functions
-	void onSave1BtnClick();
-	void onSave2BtnClick();
-	void onSave3BtnClick();
-	void onStopBtnClick();
+	function<void(void)> onSave1BtnClick = [this]() {
+		savegame->setCurrentGameData(1);
+		moveToNextScene = true;
+		useTransition = true;
+		nextScene = "Overworld";
+	};
 
-	Button* save1 = nullptr;
-	Button* save2 = nullptr;
-	Button* save3 = nullptr;
-	Button* stopBtn = nullptr;
+	function<void(void)> onSave2BtnClick = [this]() {
+		savegame->setCurrentGameData(2);
+		moveToNextScene = true;
+		useTransition = true;
+		nextScene = "Overworld";
+	};
+
+	function<void(void)> onSave3BtnClick = [this]() {
+		savegame->setCurrentGameData(3);
+		moveToNextScene = true;
+		useTransition = true;
+		nextScene = "Overworld";
+	};
+
+	function<void(void)> onStopBtnClick = [this]() {
+		moveToNextScene = true;
+		nextScene = "MainMenu";
+	};
+
+	function<void(void)> onSave1ExtraBtnClick = [this]() {
+		resetOrSaveSaveGame(1);
+	};
+
+	function<void(void)> onSave2ExtraBtnClick = [this]() {
+		resetOrSaveSaveGame(2);
+	};
+
+	function<void(void)> onSave3ExtraBtnClick = [this]() {
+		resetOrSaveSaveGame(3);
+	};
+
+	void resetOrSaveSaveGame(const int id);
 
 };
 

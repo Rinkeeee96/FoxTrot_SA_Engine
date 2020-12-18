@@ -1,33 +1,33 @@
 #pragma once
+#include "Game/Scenes/GameScene.h"
 
 #define TRANSITION_SCENE_DURATION_S		3
 
-/// @brief 
-class GeneralTransition : public Scene
+/// @brief Transition Screen
+class GeneralTransition : public GameScene
 {
 public:
-	GeneralTransition(const int id) : Scene(id, WINDOW_HEIGHT, WINDOW_WIDTH) {};
+	GeneralTransition(const int id, unique_ptr<Engine>& engine, shared_ptr<SceneStateMachine> _statemachine) : GameScene(id, engine, _statemachine) {};
 	~GeneralTransition() {};
 
 	// Inherited via Scene
 	virtual void onAttach() override;
 	virtual void onDetach() override;
-	virtual void start() override;
-	virtual void onUpdate() override;
+	virtual void start(bool playSound) override;
+	virtual void onUpdate(float deltaTime) override;
 
 	void setNextScene(string const identifier);
 
 private:
 	void loadBackground();
-	Drawable* progressBarFiller = nullptr;
-	Drawable* animation = nullptr;
+	shared_ptr<Drawable> progressBarFiller = nullptr;
+	shared_ptr<Drawable> animation = nullptr;
 
 	bool moveCharacter = false;
 
 	string nextScene = "";
 
-	chrono::high_resolution_clock::time_point startTime;
-	chrono::high_resolution_clock::time_point previousCallTime;
+	float timer = 0;
 };
 
 

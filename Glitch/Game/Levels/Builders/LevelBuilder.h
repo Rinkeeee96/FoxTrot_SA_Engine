@@ -13,9 +13,6 @@
 #define PARTICLE_LAYER_INDEX 5
 #define BACKGROUND_LAYER_INDEX 1
 
-#define ICHARACTER_HEIGHT 37
-#define ICHARACTER_WIDTH 50
-
 #define CHARACTER_PATH "Assets/Sprites/Character/"
 #define TILESET_PATH "Assets/Levels/Tilesets/"
 #define TILE_IMAGE_PATH "Assets/Levels/Tiles/"
@@ -23,24 +20,25 @@
 /// @brief 
 /// Builder class for creating a level
 class LevelBuilder : public AbstractLevelBuilder {
-
 private:
 	TriggerFactory triggerFactory;
 	std::unique_ptr<CharacterFactory> characterFactory;
 	FileLoader fileLoader;
 	map<int, TileSprite*> textureMap;
-	map<int, SpriteObject*> spriteMap;
+	map<int, shared_ptr<SpriteObject>> spriteMap;
 
 	// TODO Fix tileId in tilesets
 	Level* bLevel;
 
-	int currentTileId = 999;
+	bool getAlwaysDrawFromJson(nlohmann::json layerValue);
+
+	int currentTileId = 0;
 	int mapTileWidth = 16;
 	int mapTileHeight = 16;
 	int textureId = 0;
 	int id = 0;
 public:
-	LevelBuilder(Engine& _engine, int levelId);
+	LevelBuilder(unique_ptr<Engine>& _engine, int levelId, shared_ptr<SceneStateMachine> _statemachine);
 
 	void createLevel(nlohmann::json json) override;
 	void createEntities(nlohmann::json layerValue) override;
@@ -51,5 +49,6 @@ public:
 	void loadTileSets(nlohmann::json json) override;
 	void createTriggers(nlohmann::json json) override;
 	void initFactory() override;
+
 	virtual void create() override;
 };

@@ -2,62 +2,60 @@
 #include "VideoFacade.h"
 #include "Fps/FrameData.h"
 #include "Structs/HelperStructs.h"
-#include "Events/Action/FpsToggleEvent.h"
 #include "SceneManager/Scene.h"
 #include "ParticleSystem/ParticleAdapter.h"
+#include "General/ISubsystem.h"
 
+#define NO_RED					0
+#define NO_BLUE					0
+#define NO_GREEN				0
 
-#define NO_RED 0
-#define NO_BLUE 0
-#define NO_GREEN 0
+#define OFFSETFIX				275
 
-#define OFFSETFIX 275
-
-#define FPS_Y_POSITION_OFFSET 15
+#define FPS_Y_POSITION_OFFSET	15
 
 #define CAMERA_BOX_HEIGHT		350
 #define CAMERA_BOX_WIDTH		350
 #define CAMERA_BOX_X			785
 #define CAMERA_BOX_Y			365
 
-struct API Sprite
-{
-	int spriteID = 0;
-	const char* filename = "";
-};
+#define FPS_MESSAGE_WIDTH		100
+#define FPS_MESSAGE_HEIGHT		50
 
 /// @brief 
-/// Video is the SDL2 wrapper
-
-class API VideoEngine
+/// VideoEngine is the SDL2 wrapper
+class VideoEngine : public ISubsystem
 {
 public:
-	VideoEngine();
-	~VideoEngine();
+	API VideoEngine(unique_ptr<FrameData>& _frameData);
+	API ~VideoEngine();
 
-	void clearScreen();
-	void drawScreen();
-	void loadImage(const SpriteObject& spriteObject);
+	API void loadImage(const shared_ptr<SpriteObject> spriteObject);
+	API void renderCopy(shared_ptr<Drawable>);
+	API void toggleFps();
+	API void drawParticle(shared_ptr<ParticleAdapter> part);
+	API void calculateOffset(shared_ptr<Object> obj, int sceneWidth, int sceneHeight);
 
-	void renderCopy(Drawable& drawable);
+	API bool checkObjectInScreen(const shared_ptr<Object> obj);
 
-	void updateScreen();
+	API void clearVideoEngine();
 
+	API void start(EventDispatcher& dispatcher) override;
+	API void update() override;
+	API void shutdown() override;
+
+	unique_ptr<Scene>* pointerToCurrentScene = nullptr;
+
+	const IVideoFacade& getVideoFacade() const { return *this->videoFacade; }
+private:
 	void drawFps();
 	void drawFps(double fps, int xPos, int yPos, const string& prefix);
-	bool toggleFps(Event& fpsEvent);
+	void updateScreen();
+	void clearScreen();
+	void drawScreen();
 
-	bool receiveTick(Event& tickEvent);
-
-	bool drawParticle(ParticleAdapter* part);
-
-	void calculateOffset(Object& obj, int sceneWidth, int sceneHeight);
-
-	Scene** pointerToCurrentScene = nullptr;
-
-private:
-	IVideoFacade* videoFacade = new VideoFacade;
-
-	FrameData* frameData = nullptr;
+	unique_ptr<IVideoFacade> videoFacade = nullptr;
+	
+	unique_ptr<FrameData>& frameData;
 	bool shouldDrawFps = false;
 };

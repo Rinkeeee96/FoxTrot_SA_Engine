@@ -5,11 +5,11 @@
 /// Abstract builder class for creating a level
 class AbstractLevelBuilder : public ILevelBuilder {
 protected:
-	Engine& engine;
+	unique_ptr<Engine>& engine;
 public:
-	AbstractLevelBuilder(Engine& _engine) : engine(_engine) { }
+	AbstractLevelBuilder(unique_ptr<Engine>& _engine) : engine(_engine) { }
 
-	Level* getLevel() override { return level.get(); }
+	unique_ptr<Level> getLevel() override { return std::move(level); }
 
 	virtual void create() = 0;
 	virtual void createLevel(nlohmann::json json) = 0;

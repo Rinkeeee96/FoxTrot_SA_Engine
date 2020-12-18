@@ -1,5 +1,7 @@
 #pragma once
-#include "Scene.h"
+class EventDispatcher;
+class Engine;
+class Scene;
 
 /// @brief 
 /// Contains all scenes. Manages all scenes and objects.
@@ -10,22 +12,19 @@ public:
 	API ~SceneManager();
 
 	// Scene modifiers
-	void API setCurrentScene(const int sceneID);
-	API Scene* getSceneWithID(const int sceneID);
-	void API insertScene(Scene* scene);
+	API EventDispatcher& setCurrentScene(const int sceneID);
+	API void insertScene(unique_ptr<Scene>);
+	API void deregisterCurrentScene();
+	
 	int getFirstFreeSceneID();
 
+	void updateCurrentScene(float deltaTime);
+
 	// Pointer
-	Scene* currentScene = nullptr;
-
-protected:
-	
-
+	unique_ptr<Scene> currentScene = nullptr;
 private:
-
 	// Helper Functions
 	bool checkIfSceneExists(const int);
-
-	map<int,Scene*> scenes;
-
+	// TODO what happens when deleting a scene?
+	map<int, unique_ptr<Scene>> scenes;
 };

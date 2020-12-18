@@ -1,10 +1,29 @@
 #include "pch.h"
 #include "LevelBuilder.h"
+#include "Game/Characters/Enemies/IEnemy.h"
+#include "Game/Ground/IGround.h"
+#include "Game/Ground/BaseGround.h"
+#include "Game/Characters/Enemies/Slime.h"
+#include "Game/Factories/CharacterFactory.h"
 
-LevelBuilder::LevelBuilder(Engine& _engine, int levelId) : AbstractLevelBuilder(_engine), bLevel(new Level(levelId, 0, 0)) {
-	
+LevelBuilder::LevelBuilder(unique_ptr<Engine>& _engine, int levelId, shared_ptr<SceneStateMachine> _statemachine)
+	: AbstractLevelBuilder(_engine), bLevel(new Level(levelId, 0, 0, _engine, _statemachine)) {}
+
+/// @brief Gets the alwaysDraw objects from the json file
+/// @param layerValue 
+/// @return 
+bool LevelBuilder::getAlwaysDrawFromJson(nlohmann::json layerValue)
+{
+	for (auto& [objectKey, objectValue] : layerValue["properties"].items()) {
+		if (objectValue["name"] == "Always Draw") {
+			bool type = objectValue["value"];
+			return type;
+		}
+	}
+	return false;
 }
 
+/// @brief Creates a unique pointer for a level
 void LevelBuilder::create() {
 	level = unique_ptr<Level>(bLevel);
 }
@@ -13,9 +32,10 @@ void LevelBuilder::create() {
 /// Creates triggers objects and adds the triggers to the level
 /// @param json 
 void LevelBuilder::createTriggers(nlohmann::json layerValue) {
+	bool alwaysDrawLayer = getAlwaysDrawFromJson(layerValue);
 	for (auto& [objectKey, objectValue] : layerValue["objects"].items())
 	{
-		BaseTrigger* object = nullptr;
+		shared_ptr<BaseTrigger> object = nullptr;
 		for (auto& [objectPropertyKey, objectPropertyValue] : objectValue["properties"].items())
 		{
 			if (objectPropertyValue["name"] == "type") {
@@ -30,7 +50,7 @@ void LevelBuilder::createTriggers(nlohmann::json layerValue) {
 		object->setPositionY(objectValue["y"] + object->getHeight());
 		object->setStatic(true);
 
-		bLevel->addNewObjectToLayer(ENTITY_LAYER_INDEX, object, true);
+		bLevel->addNewObjectToLayer(ENTITY_LAYER_INDEX, object, true, alwaysDrawLayer);
 	}
 }
 
@@ -68,8 +88,8 @@ void LevelBuilder::createLevel(nlohmann::json json) {
 	bLevel->setSceneWidth(bLevel->getSceneWidth() * this->mapTileWidth);
 	bLevel->setSceneHeight(bLevel->getSceneHeight() * this->mapTileHeight);
 
-	this->triggerFactory.registerTrigger("death", new DeathTrigger());
-	this->triggerFactory.registerTrigger("win", new WinTrigger(*bLevel));
+	this->triggerFactory.registerTrigger("death", shared_ptr<DeathTrigger>(new DeathTrigger(bLevel->getEventDispatcher())));
+	this->triggerFactory.registerTrigger("win", shared_ptr<WinTrigger>(new WinTrigger(*bLevel, bLevel->getEventDispatcher())));
 	characterFactory = std::make_unique<CharacterFactory>(engine, *bLevel);
 	this->initFactory();
 }
@@ -78,10 +98,11 @@ void LevelBuilder::createLevel(nlohmann::json json) {
 /// Creates entities objects and adds the entities to the level
 /// @param json 
 void LevelBuilder::createEntities(nlohmann::json layerValue) {
-	vector<ICharacter*> temp;
+	bool alwaysDrawLayer = getAlwaysDrawFromJson(layerValue);
+	vector<shared_ptr<ICharacter>> temp;
 	for (auto& [objectKey, objectValue] : layerValue["objects"].items())
 	{
-		ICharacter* object = nullptr;
+		shared_ptr<ICharacter> object = nullptr;
 		for (auto& [objectPropertyKey, objectPropertyValue] : objectValue["properties"].items())
 		{
 			if (objectPropertyValue["name"] == "type") {
@@ -89,13 +110,15 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 			}
 		}
 		
-		if (object == nullptr) throw OBJECT_IS_NULLPTR;
+		if (object == nullptr) throw exception("LevelBuilder: Object is nullptr");
 
 		object->setHeight(objectValue["height"]);
 		object->setWidth(objectValue["width"]);
 		object->setRotation(objectValue["rotation"]);
 		object->setPositionX(objectValue["x"]);
 		object->setPositionY(objectValue["y"] + object->getHeight());
+		object->setSpawnX(object->getPositionX());
+		object->setSpawnY(object->getPositionY());
 		object->setStatic(false);
 
 		for (auto& [objectPropertyKey, objectPropertyValue] : objectValue["properties"].items())
@@ -122,18 +145,19 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 			}
 			else if (objectPropertyValue["name"] == "health") {
 				int healthString = objectPropertyValue["value"];
-				object->setHealth(healthString);
+				object->setTotalHealth(healthString);
+				object->setCurrentHealth(healthString);
 			}
 		}
-		bLevel->addNewObjectToLayer(ENTITY_LAYER_INDEX, object, true);
+		bLevel->addNewObjectToLayer(ENTITY_LAYER_INDEX, object, true, alwaysDrawLayer);
 		temp.push_back(object);
 	}
 	for (size_t i = 0; i < temp.size(); i++)
 	{
-		if (Player* _player = dynamic_cast<Player*>(temp[i])) {
+		if (Player* _player = dynamic_cast<Player*>(temp[i].get())) {
 			for (size_t j = 0; j < temp.size(); j++)
 			{
-				if (IEnemy* _enemy = dynamic_cast<IEnemy*>(temp[j])) {
+				if (IEnemy* _enemy = dynamic_cast<IEnemy*>(temp[j].get())) {
 					_enemy->setPlayer(_player);
 				}
 			}
@@ -146,9 +170,10 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 /// Creates background objects and background the tiles to the level
 /// @param json 
 void LevelBuilder::createBackground(nlohmann::json layerValue) {
+	bool alwaysDrawLayer = getAlwaysDrawFromJson(layerValue);
 	for (auto& [objectKey, objectValue] : layerValue["objects"].items())
 	{
-		IGround* tile = new BaseGround(id++);
+		shared_ptr<IGround> tile = shared_ptr<BaseGround>(new BaseGround(id++));
 
 		int gid = objectValue["gid"];
 		float width = objectValue["width"];
@@ -157,8 +182,7 @@ void LevelBuilder::createBackground(nlohmann::json layerValue) {
 		float y = objectValue["y"];
 
 		TileSprite* sprite = textureMap[gid];
-		SpriteObject* tileSprite = new SpriteObject(currentTileId++, sprite->height, sprite->width, 1, 300, sprite->path.c_str());
-		engine.loadSprite(*tileSprite);
+		shared_ptr<SpriteObject> tileSprite = shared_ptr<SpriteObject>(new SpriteObject(textureId++, sprite->height, sprite->width, 1, 300, sprite->path.c_str()));
 
 		tile->setWidth(width);
 		tile->setHeight(height);
@@ -169,7 +193,7 @@ void LevelBuilder::createBackground(nlohmann::json layerValue) {
 		tile->registerSprite(SpriteState::DEFAULT, tileSprite);
 		tile->changeToState(SpriteState::DEFAULT);
 
-		bLevel->addNewObjectToLayer(BACKGROUND_LAYER_INDEX, tile, false);
+		bLevel->addNewObjectToLayer(BACKGROUND_LAYER_INDEX, tile, false, alwaysDrawLayer);
 	}
 }
 
@@ -178,21 +202,21 @@ void LevelBuilder::createBackground(nlohmann::json layerValue) {
 /// @param json 
 void LevelBuilder::createDecoration(nlohmann::json layerValue)
 {
+	bool alwaysDrawLayer = getAlwaysDrawFromJson(layerValue);
 	float currentX = 0;
 	float currentY = 0;
 	size_t tileAmount = layerValue["data"].size();
 	for (int tileId : layerValue["data"]) {
 
 		if (tileId != 0) {
-			IGround* tile = new BaseGround(id++);
+			shared_ptr<IGround> tile = shared_ptr<BaseGround>(new BaseGround(id++));
 
-			SpriteObject* tileSprite = nullptr;
+			shared_ptr<SpriteObject> tileSprite = nullptr;
 			TileSprite* sprite = nullptr;
 
 			if (spriteMap.find(tileId) == spriteMap.end()) {
 				sprite = textureMap[tileId];
-				tileSprite = new SpriteObject(currentTileId++, sprite->height, sprite->width, 1, 300, sprite->path.c_str());
-				engine.loadSprite(*tileSprite);
+				tileSprite = make_unique<SpriteObject>(textureId++, sprite->height, sprite->width, 1, 300, sprite->path.c_str());
 			}
 			else {
 				tileSprite = spriteMap[tileId];
@@ -205,11 +229,10 @@ void LevelBuilder::createDecoration(nlohmann::json layerValue)
 			tile->setPositionY((currentY * mapTileHeight) + mapTileHeight);
 			tile->setScalable(true);
 			tile->setScale(2);
-
 			tile->registerSprite(SpriteState::DEFAULT, tileSprite);
 			tile->changeToState(SpriteState::DEFAULT);
 
-			bLevel->addNewObjectToLayer(DECORATION_LAYER_INDEX, tile, false);
+			bLevel->addNewObjectToLayer(DECORATION_LAYER_INDEX, tile, false, alwaysDrawLayer);
 		}
 
 		if (currentX == (layerValue["width"] - 1)) {
@@ -226,27 +249,31 @@ void LevelBuilder::createDecoration(nlohmann::json layerValue)
 /// @param json 
 void LevelBuilder::createParticle(nlohmann::json layerValue)
 {
+	bool alwaysDrawLayer = getAlwaysDrawFromJson(layerValue);
 	for (auto& [objectKey, objectValue] : layerValue["objects"].items())
 	{
 		ICharacter* object = nullptr;
 		for (auto& [objectPropertyKey, objectPropertyValue] : objectValue["properties"].items())
 		{
 			if (objectPropertyValue["name"] == "type") {
-					SpriteObject* particle1Sprite = new SpriteObject(currentTileId++, 20, 20, 5, 300, "Assets/Particles/fire.png");
-					engine.loadSprite(*particle1Sprite);
+				shared_ptr<SpriteObject> particle1Sprite = shared_ptr<SpriteObject>(new SpriteObject(textureId++, 20, 20, 5, 300, "Assets/Particles/fire.png"));
 
-					int type = objectPropertyValue["value"];
+				int type = objectPropertyValue["value"];
 
-					ParticleAdapter* part = new ParticleAdapter(id++);
-					part->registerSprite(SpriteState::DEFAULT, particle1Sprite);
-					part->changeToState(SpriteState::DEFAULT);
-					part->setPositionX(objectValue["x"]);
-					part->setPositionY(objectValue["y"] + particle1Sprite->getHeight());
-					part->setStyle((ParticleInit::ParticleStyle)type);
-					bLevel->addNewObjectToLayer(PARTICLE_LAYER_INDEX, part, false);
-				}
+				shared_ptr<ParticleAdapter> part = shared_ptr<ParticleAdapter>(new ParticleAdapter(id++));
+				part->registerSprite(SpriteState::DEFAULT, particle1Sprite);
+				part->changeToState(SpriteState::DEFAULT);
+				part->setPositionX(objectValue["x"]);
+				part->setPositionY(objectValue["y"] + particle1Sprite->getHeight());
+				part->setWidth(objectValue["width"]);
+				part->setHeight(objectValue["height"]);
+				part->setStyle((ParticleInit::ParticleStyle)type);
+
+
+				bLevel->addNewObjectToLayer(PARTICLE_LAYER_INDEX, part, false, alwaysDrawLayer);
+			}
 			else {
-				throw std::exception(GAME_ERRORCODES[INVALID_TYPE]);
+				throw exception("LevelBuilder: Invalid Type");;
 			}
 		}
 	}
@@ -256,22 +283,22 @@ void LevelBuilder::createParticle(nlohmann::json layerValue)
 /// Creates tile objects and adds the tiles to the level
 /// @param json 
 void LevelBuilder::createTiles(nlohmann::json layerValue) {
+	bool alwaysDrawLayer = getAlwaysDrawFromJson(layerValue);
 	int currentX = 0;
 	int currentY = 0;
 	size_t tileAmount = layerValue["data"].size();
 	for (int tileId : layerValue["data"]) {
 
 		if (tileId != 0) {
-			IGround* tile = new BaseGround(id++);
+			shared_ptr<IGround> tile = shared_ptr<BaseGround>(new BaseGround(id++));
 
-			SpriteObject* tileSprite = nullptr;
+			shared_ptr<SpriteObject> tileSprite = nullptr;
 			TileSprite* sprite = nullptr;
 
 			if (spriteMap.find(tileId) == spriteMap.end()) {
 				sprite = textureMap[tileId];
-				tileSprite = new SpriteObject(currentTileId, sprite->height, sprite->width, 1, 300, sprite->path.c_str());
+				tileSprite = shared_ptr<SpriteObject>(new SpriteObject(textureId++, sprite->height, sprite->width, 1, 300, sprite->path.c_str()));
 				currentTileId++;
-				engine.loadSprite(*tileSprite);
 			}
 			else {
 				tileSprite = spriteMap[tileId];
@@ -282,11 +309,10 @@ void LevelBuilder::createTiles(nlohmann::json layerValue) {
 			tile->setStatic(true);
 			tile->setPositionX(currentX * (float)mapTileWidth);
 			tile->setPositionY((currentY * (float)mapTileHeight) + sprite->height);
-
 			tile->registerSprite(SpriteState::DEFAULT, tileSprite);
 			tile->changeToState(SpriteState::DEFAULT);
 
-			bLevel->addNewObjectToLayer(GROUND_LAYER_INDEX, tile, true);
+			bLevel->addNewObjectToLayer(GROUND_LAYER_INDEX, tile, true, alwaysDrawLayer);
 		}
 
 		if (currentX == (layerValue["width"] - 1)) {
@@ -340,45 +366,16 @@ void LevelBuilder::loadTileSets(nlohmann::json json) {
 // @brief 
 /// Creates the characterfactory and registers sprites by the object, cant be done within Tiled
 void LevelBuilder::initFactory() {
-	auto tileTop = new SpriteObject(textureId++, 16, 16, 1, 300, "Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png");
-	auto playerDefault = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 1, 200, "Assets/Sprites/Character/adventure.png");
-	auto playerAirAttack = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 4, 300, "Assets/Sprites/Character/adventure_air_attack1.png");
-	auto playerRunRight = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 6, 200, "Assets/Sprites/Character/adventure_run_right.png");
-	auto playerSlide = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_slide.png");
-	auto playerFallLeft = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_fall_left.png");
-	auto playerFallRight = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_fall_right.png");
-	auto playerJumpLeft = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_jump_left.png");
-	auto playerRunLeft = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 6, 200, "Assets/Sprites/Character/adventure_run_left.png");
-	auto playerJumpRight = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_jump_right.png");
-	auto slimeDefault = new SpriteObject(textureId++, ICHARACTER_HEIGHT, ICHARACTER_WIDTH, 1, 200, "Assets/Levels/Tiles/slime_blue.png");
+	auto tileTop = shared_ptr<SpriteObject>(new SpriteObject(textureId++, 16, 16, 1, 300, "Assets/Sprites/World/LIGHT TILE WITHOUT TOP.png"));
 
-	engine.loadSprite(*tileTop);
-	engine.loadSprite(*playerDefault);
-	engine.loadSprite(*playerAirAttack);
-	engine.loadSprite(*playerRunRight);
-	engine.loadSprite(*playerSlide);
-	engine.loadSprite(*playerFallLeft);
-	engine.loadSprite(*playerFallRight);
-	engine.loadSprite(*playerJumpLeft);
-	engine.loadSprite(*playerRunLeft);
-	engine.loadSprite(*playerJumpRight);
-	engine.loadSprite(*slimeDefault);
+	characterFactory->registerCharacter("player", shared_ptr<Player>(new Player(bLevel->getEventDispatcher())), &textureId);
 
-	std::map<SpriteState, SpriteObject*> playerMap;
-	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, playerDefault));
-	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::AIR_ATTACK, playerAirAttack));
-	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::RUN_RIGHT, playerRunRight));
-	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::SLIDE, playerSlide));
-	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::AIR_FALL_LEFT, playerFallLeft));
-	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::AIR_JUMP_LEFT, playerJumpLeft));
-	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::AIR_FALL_RIGHT, playerFallRight));
-	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::AIR_JUMP_RIGHT, playerJumpRight));
-	playerMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::RUN_LEFT, playerRunLeft));
-	characterFactory->registerCharacter("player", new Player(), playerMap);
+	characterFactory->registerCharacter("slime", shared_ptr<Slime>(new Slime(bLevel->getEventDispatcher())), &textureId);
 
-	std::map<SpriteState, SpriteObject*> slimeMap;
-	slimeMap.insert(std::pair<SpriteState, SpriteObject*>(SpriteState::DEFAULT, slimeDefault));
-	characterFactory->registerCharacter("slime", new Slime(), slimeMap);
+	characterFactory->registerCharacter("fleye", shared_ptr<Fleye>(new Fleye(bLevel->getEventDispatcher())), &textureId);
 
-	std::map<std::string, std::map<SpriteState, SpriteObject*>> spriteObjectMap;
+	characterFactory->registerCharacter("jumpkin", shared_ptr<Jumpkin>(new Jumpkin(bLevel->getEventDispatcher())), &textureId);
+
+	std::map<std::string, std::map<SpriteState, shared_ptr<SpriteObject>>> spriteObjectMap;
 }
+

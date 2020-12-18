@@ -1,12 +1,18 @@
 #include "stdafx.h"
 #include "Scene.h"
 #include "SceneManager\Objects\Drawable.h"
+#include "Events/Key/KeyPressed.h"
+
+#define POP_UP_DEFAULT_WIDTH	400
+#define POP_UP_DEFAULT_HEIGHT	150
 
 /// @brief 
 /// @param sceneID 
-Scene::Scene(const int _sceneID, const int _sceneHeight, const int _sceneWidth) : sceneID(_sceneID), sceneHeight(_sceneHeight), sceneWidth(_sceneWidth)
+/// @param _sceneHeight
+/// @param _sceneWidth
+Scene::Scene(const int _sceneID, const int _sceneHeight, const int _sceneWidth) : 
+	sceneID(_sceneID), sceneHeight(_sceneHeight), sceneWidth(_sceneWidth)
 {
-
 }
 
 /// @brief 
@@ -22,14 +28,12 @@ Scene::~Scene()
 /// Returns true if Object is found in current scene else false.
 bool Scene::checkIfObjectExists(const int objectID)
 {
+	bool exists = false;
 	for (auto layer : layers)
 	{
-		if (layer.second->objects.find(objectID) != layer.second->objects.end())
-		{
-			return true;
-		}
+		exists = layer.second->objectExists(objectID);
 	}
-	return false;
+	return exists;
 }
 
 /// @brief 
@@ -45,7 +49,14 @@ const bool Scene::toggleLayer(const int zIndex, bool render)
 {
 	if (layers.find(zIndex) != layers.end())
 	{
-		layers[zIndex]->render = render;
+		if (render)
+		{
+			layers[zIndex]->onAttach();
+		} else {
+			layers[zIndex]->onDetach();
+		}
+
+		layers[zIndex]->setRender(render);
 		return render;
 	}
 	return false;
@@ -54,14 +65,14 @@ const bool Scene::toggleLayer(const int zIndex, bool render)
 /// @brief 
 /// Returns a filtered collection of all the drawables in the current scene TEMPORARY
 /// @return 
-vector <Drawable*> Scene::getAllDrawablesInScene()
+vector <shared_ptr<Drawable>> Scene::getAllDrawablesInScene()
 {
-	vector <Drawable*> returnVector;
+	vector <shared_ptr<Drawable>> returnVector;
 	for (auto layer : layers)
 	{
 		for (auto obj : layer.second->objects)
 		{
-			Drawable* drawable = dynamic_cast<Drawable*>(obj.second);
+			shared_ptr<Drawable> drawable = dynamic_pointer_cast<Drawable>(obj.second);
 			if (drawable != nullptr)
 				returnVector.push_back(drawable);
 		}
@@ -72,9 +83,9 @@ vector <Drawable*> Scene::getAllDrawablesInScene()
 /// @brief 
 /// Returns pointers to all available objects in the whole scene. 
 /// @return 
-vector <Object*> Scene::getAllObjectsInScene()
+vector <shared_ptr<Object>> Scene::getAllObjectsInScene()
 {
-	vector <Object*> returnVector;
+	vector <shared_ptr<Object>> returnVector;
 	for (auto layer : layers)
 	{
 		for (auto obj : layer.second->objects)
@@ -87,12 +98,15 @@ vector <Object*> Scene::getAllObjectsInScene()
 	}
 	return returnVector;
 }
-vector <Object*> Scene::getAllObjectsInSceneRenderPhysics()
+
+/// @brief Returns all objects in the scene with the renderPhysics value on true
+/// @return 
+vector <shared_ptr<Object>> Scene::getAllObjectsInSceneRenderPhysics()
 {
-	vector <Object*> returnVector;
+	vector <shared_ptr<Object>> returnVector;
 	for (auto layer : layers)
 	{
-		if (layer.second->renderPhysics) {
+		if (layer.second->getRenderPhysics()) {
 			for (auto obj : layer.second->objects) {
 				returnVector.push_back(obj.second);
 			}
@@ -107,19 +121,20 @@ vector <Object*> Scene::getAllObjectsInSceneRenderPhysics()
 /// Zindex of the layer that the object should be added to
 /// @param object 
 /// Pointer to the object
-const void Scene::addNewObjectToLayer(const int zIndex, Object* object, bool renderPhysics)
+const void Scene::addNewObjectToLayer(const int zIndex, shared_ptr<Object> object, bool renderPhysics, bool alwaysDrawLayer)
 {
-	if (object == nullptr) throw ERROR_CODE_SCENE_NO_OBJECT_FOUND;
+	if (object == nullptr) throw exception("Scene: No object found");
 
 	if (layers.find(zIndex) != layers.end())
 	{
-		layers[zIndex]->objects[object->getObjectId()] = object;
+		layers[zIndex]->addObjectInLayer(object);
 	}
 	else
 	{
-		layers[zIndex] = new Layer();
-		layers[zIndex]->renderPhysics = renderPhysics;
-		layers[zIndex]->objects[object->getObjectId()] = object;
+		layers[zIndex] = shared_ptr<Layer>(new Layer());
+		layers[zIndex]->setRenderPhysics(renderPhysics);
+		layers[zIndex]->addObjectInLayer(object);
+		layers[zIndex]->setAlwaysVisible(alwaysDrawLayer);
 	}
 }
 
@@ -129,41 +144,129 @@ const void Scene::addNewObjectToLayer(const int zIndex, Object* object, bool ren
 /// Identifier for objectID
 /// @return 
 /// Returns pointer to the found Object
-Object * Scene::getObject(const int objectID)
+shared_ptr<Object> Scene::getObject(const int objectID)
 {
 	for (auto layer : layers)
 	{
-		if (layer.second->objects.find(objectID) != layer.second->objects.end())
+		if (layer.second->objectExists(objectID))
 		{
-			return layer.second->objects[objectID];
+			return layer.second->getSpecificObjectInLayer(objectID);
 		}
 	}
-	throw ERROR_CODE_SCENE_NO_OBJECT_FOUND;
+	throw exception("Scene: Object does not exist");
 }
 
+/// @brief Deletes all objects in the scene when called.
 void Scene::onDetach()
 {
 	for (auto& layerContainer : layers)
 	{
-		Layer* layer = layerContainer.second;
-		for (const auto& [id, object] : layer->objects)
-			delete object;
+		auto layer = layerContainer.second;
 
-		layer->objects.clear();
-		delete layer;
+		layer->clearObjects();
 	}
 	layers.clear();
 }
 
-void Scene::removeObjectFromScene(Object* obj)
+/// @brief 
+/// Returns the id of the object to follow
+/// @return 
+/// If no ObjectToFollow will return -1
+int Scene::getObjectToFollowID() const
+{
+	if (objectToFollow != nullptr)
+	{
+		return objectToFollow->getObjectId();
+	}
+	else
+	{
+		return -1;
+	}
+
+}
+
+/// @brief Removes a specific object from the current scene
+/// @param obj 
+void Scene::removeObjectFromScene(shared_ptr<Drawable> obj)
 {
 	for (auto lay : layers) {
-		map<int, Object*>::iterator it = lay.second->objects.find(obj->getObjectId());
-		if (it != lay.second->objects.end()) {
-			lay.second->objects.erase(it);
+		if (lay.second->objectExists(obj->getObjectId())) {
+			lay.second->removeObject(obj->getObjectId());
 			obj->setIsRemoved(true);
 			return;
-			//delete obj;
 		}
+	}
+}
+
+/// @brief Removes a specific object from the current scene OVERLOADED FUNCTION
+/// @param obj 
+void Scene::removeObjectFromScene(shared_ptr<Object> obj)
+{
+	for (auto lay : layers) {
+		if (lay.second->objectExists(obj->getObjectId())) {
+			lay.second->removeObject(obj->getObjectId());
+			obj->setIsRemoved(true);
+			return;
+		}
+	}
+}
+
+/// @brief Returns the layers map in a scene
+/// @return 
+map<int, shared_ptr<Layer>> Scene::getLayers() const
+{
+	return layers;
+}
+
+/// @brief Create a layer on the active scene with the given zIndex
+/// @param zIndex 
+/// @param renderPhysics 
+/// @param alwaysDrawLayer 
+void Scene::createLayer(const int zIndex, bool renderPhysics, bool alwaysDrawLayer)
+{
+	layers[zIndex] = shared_ptr<Layer>(new Layer());
+	layers[zIndex]->setRenderPhysics(renderPhysics);
+	layers[zIndex]->setAlwaysVisible(alwaysDrawLayer);
+}
+
+/// @brief Finds the highest layer zIndex in the scene.
+/// @return 
+int Scene::getHighestLayerIndex() {
+	int zIndex = 0;
+
+	// Get highest zIndex
+	for (auto layer : layers) {
+		if (zIndex < layer.first)
+			zIndex = layer.first;
+	}
+	return zIndex;
+}
+
+/// @brief Creates a basic l with text
+/// @param xPosition 
+/// @param yPosition 
+/// @param text 
+int Scene::addLayerOnHighestZIndex(shared_ptr<Layer> _layer)
+{
+	int zIndex = getHighestLayerIndex() + 1;
+	layers[zIndex] = _layer;
+	return zIndex;
+}
+
+/// @brief 
+/// @param zIndex 
+/// @param _layer 
+void Scene::addLayerOnZIndex(const int zIndex, shared_ptr<Layer> _layer)
+{
+	layers[zIndex] = _layer;
+}
+
+/// @brief remove layer
+/// @param _zIndex no value means top layer.
+void Scene::removeLayer(const int zIndex) 
+{
+	if (layers.count(zIndex) > 0)
+	{
+		layers.erase(zIndex);
 	}
 }

@@ -1,38 +1,55 @@
 #include "stdafx.h"
 #include "InputEngine.h"
-#include "Events/Window/WindowCloseEvent.h"
+#include "Engine.h"
 
 /// @brief 
-InputEngine::InputEngine()
+InputEngine::InputEngine(Engine& _engine): 
+	engine(_engine)
 {
-	EventSingleton::get_instance().setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(InputEngine::onKeyPressed));
 }
 
 /// @brief 
 InputEngine::~InputEngine()
 {
 }
-
-bool InputEngine::onKeyPressed(Event& event) {
-	auto keyPressedEvent = static_cast<KeyPressedEvent&>(event);
-
-	switch (keyPressedEvent.GetKeyCode())
-	{
-	case KeyCode::KEY_F1: {
-		EventSingleton::get_instance().dispatchEvent<FpsToggleEvent>((Event&)FpsToggleEvent());
-		return true;
-	}
-	case KeyCode::KEY_F4: {
-		WindowCloseEvent event;
-		EventSingleton::get_instance().dispatchEvent<WindowCloseEvent>((Event&)WindowCloseEvent());
-		return true;
-	}
-    default:
-        return false;
-    }
+/// @brief Register a custom invoker
+/// @param _keypressInvoker
+void InputEngine::registerKeypressInvoker(KeypressInvoker* _keypressInvoker) {
+	keypressInvoker = _keypressInvoker;
 }
 
-void InputEngine::pollEvents() {
-	inputFacade->pollEvents();
+/// @brief Starts the InputEngine. Setting up the inputFacade. Connecting de dispatcher.
+/// @param dispatcher 
+void InputEngine::start(EventDispatcher& dispatcher) {
+	this->dispatcher = &dispatcher;
+	inputFacade = make_unique<InputFacade>(InputFacade(dispatcher));
+	dispatcher.setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(InputEngine::onKeyPressed));
+};
+
+/// @brief Polls for input from the inputFacade
+void InputEngine::update() { 
+	if(inputFacade)
+		inputFacade->pollEvents();
+
+	if (keypressInvoker)
+		keypressInvoker->executeCommandQueue(*this->dispatcher);
 }
 
+/// @brief Deletes the inputFacade
+void InputEngine::shutdown() {
+
+};
+
+/// @brief	Function is called when a keyPressed event is fired.
+///			If F1 is pressed FPS is toggled
+///			If F4 is pressed the game will shutdown
+/// @param event 
+/// @return 
+bool InputEngine::onKeyPressed(const Event& event) {
+	auto keyPressedEvent = static_cast<const KeyPressedEvent&>(event);
+
+	if(keypressInvoker)
+		keypressInvoker->enqueueCommand(keyPressedEvent.getKeyCode());
+
+	return false;
+}

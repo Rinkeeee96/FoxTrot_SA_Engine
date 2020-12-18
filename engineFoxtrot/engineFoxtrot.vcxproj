@@ -127,10 +127,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;BUILD_WINDOWS;BUILD_DLL;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\SDL2\include;$(projectDir)..\box2d-master\include;$(projectDir)Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\SDL2\include;$(projectDir)..\box2d-master\include;$(projectDir)Engine;$(SolutionDir)RapidJson\include;$(SolutionDir)Valijson\include;$(SolutionDir)Nlohmann\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName)_$(PlatformTarget).pch</PrecompiledHeaderOutputFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalOptions>/D _SILENCE_ALL_CXX17_DEPRECATION_WARNINGS %(AdditionalOptions)</AdditionalOptions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -163,6 +165,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Engine\Input\Commands\Creator\CommandFactory.cpp" />
+    <ClCompile Include="Engine\Input\Commands\KeypressInvoker.cpp" />
+    <ClCompile Include="Engine\FileParser\JsonValidator.cpp" />
     <ClCompile Include="Engine\SceneManager\Objects\Drawable.cpp" />
     <ClCompile Include="Engine\Engine.cpp" />
     <ClCompile Include="Engine\FileParser\FileLoader.cpp" />
@@ -171,7 +176,6 @@
     <ClCompile Include="Engine\Input\InputFacade.cpp" />
     <ClCompile Include="Engine\Input\InputEngine.cpp" />
     <ClCompile Include="Engine\ParticleSystem\ParticleLib\Particle.cpp" />
-    <ClCompile Include="Engine\ParticleSystem\ParticleAdapter.cpp" />
     <ClCompile Include="Engine\ParticleSystem\ParticleEngine.cpp" />
     <ClCompile Include="Engine\ParticleSystem\ParticleLib\ParticleInit.cpp" />
     <ClCompile Include="Engine\Physics\ContactListenerAdapter.cpp" />
@@ -183,7 +187,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Engine\Events\EventSingleton.cpp" />
     <ClCompile Include="Engine\SceneManager\Objects\Object.cpp" />
     <ClCompile Include="Engine\Physics\PhysicsBody.cpp" />
     <ClCompile Include="Engine\Physics\PhysicsEngine.cpp" />
@@ -197,14 +200,26 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="api.h" />
-    <ClInclude Include="Engine\Events\Action\RemoveEvent.h" />
+    <ClInclude Include="Engine\Events\Action\ToggleEventLayer.h" />
+    <ClInclude Include="Engine\Events\Action\TogglePause.h" />
+    <ClInclude Include="Engine\Events\InputMapping\CaptureInputEvent.h" />
+    <ClInclude Include="Engine\Events\InputMapping\ReleaseInputEvent.h" />
+    <ClInclude Include="Engine\Events\EventDispatcher.h" />
+    <ClInclude Include="Engine\FileParser\IFileValidator.h" />
+    <ClInclude Include="Engine\FileParser\JsonValidator.h" />
+    <ClInclude Include="Engine\General\ISubsystem.h" />
+    <ClInclude Include="Engine\Input\Commands\Creator\CommandCreator.h" />
+    <ClInclude Include="Engine\Input\Commands\Creator\CommandFactory.h" />
+    <ClInclude Include="Engine\Input\Commands\Creator\ICommandCreator.h" />
+    <ClInclude Include="Engine\Input\Commands\Engine\ShutdownCommand.h" />
+    <ClInclude Include="Engine\Input\Commands\Engine\ToggleFpsCommand.h" />
+    <ClInclude Include="Engine\Input\Commands\ICommand.h" />
+    <ClInclude Include="Engine\Input\Commands\KeypressInvoker.h" />
     <ClInclude Include="Engine\SceneManager\Objects\Drawable.h" />
     <ClInclude Include="Engine\core.h" />
     <ClInclude Include="Engine\Events\Action\ActionEvent.h" />
     <ClInclude Include="Engine\Events\Action\ObjectStopEvent.h" />
     <ClInclude Include="Engine\Events\Action\OnCollisionEvent.h" />
-    <ClInclude Include="Engine\Events\AppTickEvent30.h" />
-    <ClInclude Include="Engine\Events\AppTickEvent60.h" />
     <ClInclude Include="Engine\Events\Event.h" />
     <ClInclude Include="Engine\Events\codes\KeyCodes.h" />
     <ClInclude Include="Engine\Events\EventType.h" />
@@ -219,17 +234,10 @@
     <ClInclude Include="Engine\Events\mouse\MouseReleased.h" />
     <ClInclude Include="Engine\Events\Mouse\MouseScrolledEvent.h" />
     <ClInclude Include="Engine\Events\ObjectEventCodes.h" />
-    <ClInclude Include="Engine\Events\Sound\BaseSoundEvent.h" />
-    <ClInclude Include="Engine\Events\Sound\OnMusicStartEvent.h" />
-    <ClInclude Include="Engine\Events\Sound\OnMusicStopEvent.h" />
-    <ClInclude Include="Engine\Events\Sound\SoundAttachEvent.h" />
-    <ClInclude Include="Engine\Events\Video\VideoLoadSpriteEvent.h" />
-    <ClInclude Include="Engine\Events\Window\WindowCloseEvent.h" />
     <ClInclude Include="Engine\Events\Window\WindowResizeEvent.h" />
     <ClInclude Include="Engine\Fps\FrameData.h" />
     <ClInclude Include="Engine\General\Debug.h" />
     <ClInclude Include="Engine\Engine.h" />
-    <ClInclude Include="Engine\General\ErrorCodes.h" />
     <ClInclude Include="Engine\FileParser\FileLoader.h" />
     <ClInclude Include="Engine\General\GeneralDefines.h" />
     <ClInclude Include="Engine\Input\IInputFacade.h" />
@@ -254,7 +262,6 @@
     <ClInclude Include="Engine\SceneManager\Scene.h" />
     <ClInclude Include="Engine\SceneManager\SceneManager.h" />
     <ClInclude Include="Engine\General\Version.h" />
-    <ClInclude Include="Engine\Events\EventSingleton.h" />
     <ClInclude Include="Engine\Structs\HelperStructs.h" />
     <ClInclude Include="Engine\Video\IVideoFacade.h" />
     <ClInclude Include="Engine\Video\VideoEngine.h" />
@@ -262,7 +269,6 @@
     <ClInclude Include="Engine\Sound\ISoundFacade.h" />
     <ClInclude Include="Engine\Sound\SoundFacade.h" />
     <ClInclude Include="Engine\Sound\SoundEngine.h" />
-    <ClInclude Include="Engine\Events\Action\FpsToggleEvent.h" />
     <ClInclude Include="Main\Level.h" />
     <ClInclude Include="Main\SpriteState.h" />
   </ItemGroup>

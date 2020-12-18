@@ -1,20 +1,19 @@
 #pragma once
-#include "Game\General\GameErrorCodes.h"
 #include "Game\Characters\ICharacter.h"
 #include "Game\SpriteState.h"
-#include "Game\Levels\Level.h"
 
+class Level;
 /// @brief 
 /// Factory for creating entities
 class CharacterFactory {
 private:
-	map<string, ICharacter*> characterMap;
-	map<string, map<SpriteState, SpriteObject*>> spriteObjectMap;
-	Engine& engine;
+	map<string, shared_ptr<ICharacter>> characterMap;
+	map<string, map<SpriteState, shared_ptr<SpriteObject>>> spriteObjectMap;
+	unique_ptr<Engine>& engine;
 	Level& level;
 public:
-	CharacterFactory(Engine& _engine, Level& _level);
+	CharacterFactory(unique_ptr<Engine>& _engine, Level& _level);
 
-	void registerCharacter(string name, ICharacter* character, map<SpriteState, SpriteObject*> _spriteObjectMap);
-	ICharacter* create(string name, int id);
+	void registerCharacter(string name, shared_ptr<ICharacter> character, int* textureId);
+	shared_ptr<ICharacter> create(string name, int id);
 };

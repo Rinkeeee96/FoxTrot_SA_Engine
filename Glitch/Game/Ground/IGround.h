@@ -7,6 +7,6 @@ class IGround : public IGameObject {
 public:
 	IGround(const int id) : IGameObject(id) {}
 
-	virtual void onUpdate() = 0;
+	virtual void onUpdate(float deltaTime) = 0;
 };
 

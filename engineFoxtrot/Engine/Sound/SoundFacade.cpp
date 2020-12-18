@@ -18,13 +18,15 @@ SoundFacade::SoundFacade()
 }
 
 /// @brief 
+// TODO no sound memory is freed
 SoundFacade::~SoundFacade()
 {
+	flush();
     /*SDL_CloseAudioDevice(deviceId);
     SDL_FreeWAV(wavBuffer);*/
 }
 
-/// @brief 
+/// @brief returns if a song is playing
 /// @return 
 bool SoundFacade::isMix_PlayingMusic()
 {
@@ -34,7 +36,7 @@ bool SoundFacade::isMix_PlayingMusic()
 /// @brief
 /// Replaces the identifier,filepath map
 /// @param files
-void SoundFacade::SetFiles(map<string, string> files)
+void SoundFacade::setFiles(map<string, string> files)
 {
 	this->soundPaths = files;
 }
@@ -45,13 +47,13 @@ void SoundFacade::SetFiles(map<string, string> files)
 /// The identifier to link the file to
 /// @param file
 /// The file path to the music/effect
-void SoundFacade::AddFile(const string& identifier, const string& file) {
+void SoundFacade::addFile(const string& identifier, const string& file) {
 	this->soundPaths[identifier] = file;
 }
 
 /// @brief 
 /// Flushes the audio buffers
-void SoundFacade::Flush()
+void SoundFacade::flush()
 {
 	for (auto it = loadedSoundEffects.begin(); it != loadedSoundEffects.end(); /* don't increment here*/) {
 		it = loadedSoundEffects.erase(it);
@@ -67,16 +69,16 @@ void SoundFacade::Flush()
 /// The sound identifier saved when the file has been added
 /// @param volume
 /// The volume to play the effect at. Ranges from 1 to 128. Defaults to 128 if not given
-void SoundFacade::PlayEffect(const string& identifier, const int volume = MIX_MAX_VOLUME) {
+void SoundFacade::playEffect(const string& identifier, const int volume = MIX_MAX_VOLUME) {
 	if (soundPaths.find(identifier) != soundPaths.end() && loadedSoundEffects.find(identifier) == loadedSoundEffects.end()) {
-		LoadEffect(identifier);
+		loadEffect(identifier);
 	}
 	if (loadedSoundEffects.find(identifier) != loadedSoundEffects.end()) {
 		int channel = Mix_PlayChannel(FIRST_AVAILABLE_CHANNEL, loadedSoundEffects[identifier], DONT_LOOP);
 		Mix_Volume(channel, volume);
 	}
 	else {
-		throw ERROR_CODE_SVIFACADE_SOUND_IDENTIFIER_NOT_FOUND;
+		throw exception("SoundFacade: identifier does not exist");
 	}
 }
 
@@ -84,7 +86,7 @@ void SoundFacade::PlayEffect(const string& identifier, const int volume = MIX_MA
 /// Loads the effect that belongs to the given identifier into the buffer
 /// @param identifier 
 /// The sound identifier saved when the file has been added
-void SoundFacade::LoadEffect(const string& identifier) {
+void SoundFacade::loadEffect(const string& identifier) {
 	if (loadedSoundEffects.find(identifier) == loadedSoundEffects.end()) {
 		loadedSoundEffects[identifier] = Mix_LoadWAV(soundPaths.at(identifier).c_str());
 		if (!loadedSoundEffects[identifier]) {
@@ -92,7 +94,7 @@ void SoundFacade::LoadEffect(const string& identifier) {
 		}
 	}
 	else {
-		throw ERROR_CODE_SVIFACADE_SOUND_IDENTIFIER_NOT_FOUND;
+		throw exception("SoundFacade: cannot load effect");
 	}
 }
 
@@ -100,11 +102,11 @@ void SoundFacade::LoadEffect(const string& identifier) {
 /// Unloads the effect that belongs to the given identifier from the buffer
 /// @param identifier 
 /// The sound identifier saved when the file has been added
-void SoundFacade::UnloadEffect(const string& identifier) {
+void SoundFacade::unloadEffect(const string& identifier) {
 	if (loadedSoundEffects.find(identifier) == loadedSoundEffects.end()) {
-		throw ERROR_CODE_SVIFACADE_SOUND_IDENTIFIER_NOT_FOUND;
+		throw exception("SoundFacade: identifier does not exist");
 	}
-	StopLoopedEffect(identifier);
+	stopLoopedEffect(identifier);
 	loadedSoundEffects.erase(identifier);
 	loopChannels.erase(identifier);
 }
@@ -113,14 +115,14 @@ void SoundFacade::UnloadEffect(const string& identifier) {
 /// Indefinitely plays a loaded effect that belongs to the given identifier
 /// @param identifier 
 /// The sound identifier saved when the file has been added
-void SoundFacade::StartLoopedEffect(const string& identifier, const int volume) {
+void SoundFacade::startLoopedEffect(const string& identifier, const int volume) {
 	if (loadedSoundEffects.find(identifier) != loadedSoundEffects.end()) {
 		int channel = Mix_PlayChannel(FIRST_AVAILABLE_CHANNEL, loadedSoundEffects[identifier], LOOP_INDEFINITELY);
 		Mix_Volume(channel, volume);
 		loopChannels.insert(pair<string, int>(identifier, channel));
 	}
 	else {
-		throw ERROR_CODE_SVIFACADE_SOUND_IDENTIFIER_NOT_FOUND;
+		throw exception("SoundFacade: identifier does not exist");
 	}
 }
 
@@ -128,13 +130,13 @@ void SoundFacade::StartLoopedEffect(const string& identifier, const int volume) 
 /// Stops a looped effect
 /// @param identifier 
 /// The sound identifier saved when the file has been added
-void SoundFacade::StopLoopedEffect(const string& identifier) {
+void SoundFacade::stopLoopedEffect(const string& identifier) {
 	if (loopChannels.find(identifier) != loopChannels.end()) {
 		Mix_HaltChannel(loopChannels[identifier]);
 		loopChannels.erase(identifier);
 	}
 	else {
-		throw ERROR_CODE_SVIFACADE_SOUND_IDENTIFIER_NOT_FOUND;
+		throw exception("SoundFacade: identifier does not exist");
 	}
 }
 
@@ -142,7 +144,7 @@ void SoundFacade::StopLoopedEffect(const string& identifier) {
 /// Loads the music that belongs to the given identifier into the buffer
 /// @param identifier 
 /// The sound identifier saved when the file has been added
-void SoundFacade::LoadMusic(const string& identifier) {
+void SoundFacade::loadMusic(const string& identifier) {
 	if (music) {
 		Mix_FreeMusic(music);
 	}
@@ -156,7 +158,7 @@ void SoundFacade::LoadMusic(const string& identifier) {
 		}
 	}
 	else {
-		throw ERROR_CODE_SVIFACADE_SOUND_IDENTIFIER_NOT_FOUND;
+		throw exception("SoundFacade: identifier does not exist");
 	}
 }
 
@@ -164,13 +166,13 @@ void SoundFacade::LoadMusic(const string& identifier) {
 /// Plays the currently loaded music at the given volume
 /// @param volume 
 /// The volume to play the music at. Ranges from 0 to 128. Defaults to 128 if not given
-void SoundFacade::PlayMusic(const int volume = MIX_MAX_VOLUME) {
+void SoundFacade::playMusic(const int volume = MIX_MAX_VOLUME) {
 	if (music != NULL) {
 		Mix_VolumeMusic(volume);
 		Mix_PlayMusic(music, LOOP_INDEFINITELY);
 	}
 	else {
-		throw ERROR_CODE_SVIFACADE_NO_MUSIC_LOADED;
+		throw exception("SoundFacade: identifier does not exist");
 	}
 }
 
@@ -180,14 +182,14 @@ void SoundFacade::PlayMusic(const int volume = MIX_MAX_VOLUME) {
 /// The sound identifier saved when the file has been added
 /// @param volume
 /// The volume to play the music at. Ranges from 0 to 128. Defaults to 128 if not given
-void SoundFacade::PlayMusic(const string& identifier, const int volume = MIX_MAX_VOLUME) {
+void SoundFacade::playMusic(const string& identifier, const int volume = MIX_MAX_VOLUME) {
 	if (soundPaths.find(identifier) != soundPaths.end()) {
-		LoadMusic(identifier);
+		loadMusic(identifier);
 		Mix_VolumeMusic(volume);
 		Mix_PlayMusic(music, LOOP_INDEFINITELY);
 	}
 	else {
-		throw ERROR_CODE_SVIFACADE_SOUND_IDENTIFIER_NOT_FOUND;
+		throw exception("SoundFacade: identifier does not exist");
 	}
 }
 
@@ -195,18 +197,18 @@ void SoundFacade::PlayMusic(const string& identifier, const int volume = MIX_MAX
 /// Stops the currently playing music and swaps it with the music that belongs to the given identifier
 /// @param identifier 
 /// The sound identifier saved when the file has been added
-void SoundFacade::ChangeMusic(const string& identifier) {
-	StopMusic();
-	LoadMusic(identifier);
+void SoundFacade::changeMusic(const string& identifier) {
+	stopMusic();
+	loadMusic(identifier);
 }
 
 /// @brief 
 /// Fades out the currently playing music over the given time
 /// @param fadeTime 
 /// The amount of time it takes for the music to fade in ms
-void SoundFacade::FadeOutMusic(const int fadeTime) {
+void SoundFacade::fadeOutMusic(const int fadeTime) {
 	if (fadeTime < 0) {
-		throw ERROR_CODE_SVIFACADE_INVALID_FADETIME;
+		throw exception("SoundFacade: invalid fade time");
 	}
 	Mix_FadeOutMusic(fadeTime);
 }
@@ -215,14 +217,14 @@ void SoundFacade::FadeOutMusic(const int fadeTime) {
 /// Fades in the currently playing music over the given time
 /// @param fadeTime 
 /// The amount of time it takes for the music to fade in ms
-void SoundFacade::FadeInMusic(const int fadeTime) {
+void SoundFacade::fadeInMusic(const int fadeTime) {
 	if (music == NULL) {
-		throw ERROR_CODE_SVIFACADE_NO_MUSIC_LOADED;
+		throw exception("SoundFacade: sound does not exist");
 	}
 	if (fadeTime < 0) {
-		throw ERROR_CODE_SVIFACADE_INVALID_FADETIME;
+		throw exception("SoundFacade: invalid fade time");
 	}
-	RewindMusic();
+	rewindMusic();
 	Mix_FadeInMusic(music, LOOP_INDEFINITELY, fadeTime);
 }
 
@@ -232,39 +234,39 @@ void SoundFacade::FadeInMusic(const int fadeTime) {
 /// The sound identifier saved when the file has been added
 /// @param fadeTime 
 /// The amount of time it takes for the music to fade in ms
-void SoundFacade::FadeInMusic(const string& identifier, const int fadeTime) {
+void SoundFacade::fadeInMusic(const string& identifier, const int fadeTime) {
 	if (music == NULL) {
-		throw ERROR_CODE_SVIFACADE_NO_MUSIC_LOADED;
+		throw exception("SoundFacade: identifier does not exist");
 	}
 	if (fadeTime < 0) {
-		throw ERROR_CODE_SVIFACADE_INVALID_FADETIME;
+		throw exception("SoundFacade: Invalid fade time");
 	}
-	StopMusic();
-	LoadMusic(identifier);
+	stopMusic();
+	loadMusic(identifier);
 	Mix_FadeInMusic(music, LOOP_INDEFINITELY, fadeTime);
 }
 
 /// @brief 
 /// Rewinds the currently playing music
-void SoundFacade::RewindMusic() {
+void SoundFacade::rewindMusic() {
 	Mix_RewindMusic();
 }
 
 /// @brief 
 /// Stops the currently playing music
-void SoundFacade::StopMusic() {
+void SoundFacade::stopMusic() {
 	Mix_PauseMusic();
 }
 
 /// @brief 
 /// Pauses the currently playing music
-void SoundFacade::PauseMusic() {
+void SoundFacade::pauseMusic() {
 	Mix_PauseMusic();
 }
 
 /// @brief 
 /// Resumes the currently playing music
-void SoundFacade::ResumeMusic() {
+void SoundFacade::resumeMusic() {
 	Mix_ResumeMusic();
 }
 
@@ -272,17 +274,17 @@ void SoundFacade::ResumeMusic() {
 /// Checks whether the given identifier exists in the list of sounds
 /// @param identifier
 /// The identifer to check for
-bool SoundFacade::IdentifierExists(const string& identifier) {
+bool SoundFacade::identifierExists(const string& identifier) {
 	if (soundPaths.find(identifier) != soundPaths.end()) {
 		return true;
 	}
-	throw ERROR_CODE_SVIFACADE_SOUND_IDENTIFIER_NOT_FOUND;
+	throw exception("SoundFacade: identifier does not exist");
 }
 
 /// @brief
 /// Checks whether the given identifier has a sound loaded in a stream
 /// @param identifier
 /// The identifier to check for
-bool SoundFacade::IdentifierIsLoaded(const string& identifier) {
+bool SoundFacade::identifierIsLoaded(const string& identifier) {
 	return (loadedSoundEffects.find(identifier) != loadedSoundEffects.end());
 }

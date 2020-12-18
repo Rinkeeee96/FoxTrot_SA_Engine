@@ -12,27 +12,27 @@ public:
 	/// @brief
 	/// Gets the width of the resized screen
 	/// @return int new width of screen
-	uint32_t GetWidth() const { return m_Width; }
+	uint32_t getWidth() const { return m_Width; }
 
 	/// @brief
 	/// Gets the height of the resized screen
 	/// @return int new height of screen
-	uint32_t GetHeight() const { return m_Height; }
+	uint32_t getHeight() const { return m_Height; }
 
 	/// @brief
 	/// Returns the eventType of a specific event
 	/// @return EventType
-	EventType GetEventType() const override { return EventType::WindowClose; }
+	EventType getEventType() const override { return EventType::WindowResize; }
 	
 	/// @brief
 	/// Get the name of an event
 	/// @returns the name of the event
-	const char* GetName() const override { return "Window close"; }
+	const char* getName() const override { return "Window close"; }
 
 	/// @brief
 	/// Event to string
 	/// @return string with the width and height
-	string ToString() const override
+	string toString() const override
 	{
 		stringstream stream;
 		stream << "WindowResizeEvent: " << m_Width << ", " << m_Height;

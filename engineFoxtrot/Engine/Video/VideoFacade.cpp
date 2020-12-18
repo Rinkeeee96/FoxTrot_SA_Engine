@@ -18,15 +18,14 @@ VideoFacade::~VideoFacade()
 {
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
+	SDL_Quit();
 }
 
-// Tips:
-// http://lazyfoo.net/tutorials/SDL/07_texture_loading_and_rendering/index.php
 /// @brief 
 /// Inits SDL2
 void VideoFacade::initSDL()
 {
-	Uint32 flags = SDL_WINDOW_SHOWN | SDL_WINDOW_FULLSCREEN;
+	Uint32 flags = SDL_WINDOW_SHOWN /*| SDL_WINDOW_FULLSCREEN*/;
 	SDL_Init(SDL_INIT_EVERYTHING);
 	TTF_Init();
 	Sans = TTF_OpenFont(FONT_PATH, FONT_POINT_SIZE);
@@ -34,16 +33,16 @@ void VideoFacade::initSDL()
 	if (window == NULL)
 	{
 		printf("Window could not be created! SDL Error: %s\n", SDL_GetError());
-		throw ERROR_CODE_SVIFACADE_CANT_CREATE_WINDOW;
+		throw exception("VideoFacade: Cant create SDL2 window");
 	}
 	else
 	{
 		//Create renderer for window
-		renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+		renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 		if (renderer == NULL)
 		{
 			printf("Renderer could not be created! SDL Error: %s\n", SDL_GetError());
-			throw ERROR_CODE_SVIFACADE_CANT_CREATE_RENDERER;
+			throw exception("VideoFacade: Cant create SDL2 renderer");
 		}
 		else
 		{
@@ -79,34 +78,56 @@ void VideoFacade::drawScreen()
 /// Load a animated sprite into the texturemap map
 /// @param spriteObject 
 /// @param filename
-void VideoFacade::loadImage(const SpriteObject& spriteObject) {
-	if (spriteObject.getFileName() == NULL) throw exception(ERRORCODES[ERROR_CODE_SVIFACADE_FILENAME_IS_NULL]);
+void VideoFacade::loadImage(const shared_ptr<SpriteObject> spriteObject) {
+	if (spriteObject->getFileName() == NULL) 
+		throw exception("VideoFacade: Invalid file name");
 
-	int textureId = spriteObject.getTextureID();
+	int textureId = spriteObject->getTextureID();
 
 	if (textureMap[textureId] != nullptr)
 		return;
 
-	SDL_Surface* surface = IMG_Load(spriteObject.getFileName());
+	SDL_Surface* surface = IMG_Load(spriteObject->getFileName());
 	SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
 
 	textureMap[textureId] = texture;
 	SDL_FreeSurface(surface);
 }
 
+/// @brief Creates a SDL_rect acording to the object dimensions
+/// @param object 
+/// @return 
+SDL_Rect VideoFacade::createRect(shared_ptr<Drawable> object) {
+	SDL_Rect destination;
+	int x = object->getDrawStatic() ? (int)object->getPositionX() : (int)object->getPositionX() - xCameraOffset;
+	int y = object->getDrawStatic() ? (int)object->getPositionY() - (int)object->getHeight() : (int)object->getPositionY() - (int)object->getHeight() - yCameraOffset;
+
+	destination.x = x;
+	destination.y = y;
+	destination.w = (int)object->getWidth();
+	destination.h = (int)object->getHeight();
+	return destination;
+}
 /// @brief 
 /// Takes the sprites from the Textuture map animated and copys them to the screen
 /// @param object 
-void VideoFacade::renderCopy(Drawable& object)
+void VideoFacade::renderCopy(shared_ptr<Drawable> object, float deltaTime)
 {	
-	SpriteObject& sprite = object.GetCurrentSprite();
+	if (object->getIsText()) {
+		SDL_Rect destination = this->createRect(object);
+		drawMessageAt(*object->toString(), Position(destination.x, destination.y), ObjectSize(destination.w, destination.h), true);
+		return;
+	}
+	shared_ptr<SpriteObject> sprite = object->GetCurrentSprite();
 
-	if (textureMap[sprite.getTextureID()] == NULL) throw exception(ERRORCODES[ERROR_CODE_SVIFACADE_RENDERCOPY_SPRITE_ID_IS_NULL]);
+	if (!textureMap.count(sprite->getTextureID())) {
+		loadImage(sprite);
+	}
+	if (textureMap[sprite->getTextureID()] == NULL)  {
+		throw exception("VideoFacade: SpriteID is NULL");
+	}
 
-	//generate image 
-	Uint32 ticks = SDL_GetTicks();
-	Uint32 seconds = ticks / sprite.getAnimationDelay();
-	float leftpos = sprite.getLeftPos(seconds);
+	float leftpos = sprite->getLeftPos(deltaTime);
 	int top = 0;
 
 	//generate rectangele for selecting 1 image of a full sprite
@@ -114,47 +135,61 @@ void VideoFacade::renderCopy(Drawable& object)
 	//top = amount of pixels of the top (sprites are renderd of the top to bottom
 	//width = amount of pixels of the with of 1 image
 	//height = amount of pixels of the height of 1 image
-	SDL_Rect rect{ (int)leftpos, top, (int)sprite.getWidth(), (int)sprite.getHeight() };
+	SDL_Rect rect{ (int)leftpos, top, (int)sprite->getWidth(), (int)sprite->getHeight() };
 
 	//update collision box 
-	if (object.getScalable()) {
-		object.setWidth(sprite.getWidth() * object.getScale());
-		object.setHeight(sprite.getHeight() * object.getScale());
+	if (object->getScalable()) {
+		object->setWidth(sprite->getWidth() * object->getScale());
+		object->setHeight(sprite->getHeight() * object->getScale());
 	}
 
 	//generate stratch of image
 	SDL_Rect destination;
-	destination.x = (int)object.getPositionX() - xCameraOffset;
-	destination.y = (int)object.getPositionY() - (int)object.getHeight() - yCameraOffset;
-	destination.w = (int)object.getWidth();
-	destination.h = (int)object.getHeight();
+	int x = object->getDrawStatic() ? (int)object->getPositionX() : (int)object->getPositionX() - xCameraOffset;
+	int y = object->getDrawStatic() ? (int)object->getPositionY() - (int)object->getHeight() : (int)object->getPositionY() - (int)object->getHeight() - yCameraOffset;
 
-	SDL_RenderCopyEx(renderer, textureMap[sprite.getTextureID()], &rect, &destination, object.getRotation(), NULL, SDL_FLIP_NONE);
+	destination.x = x;
+	destination.y = y;
+	destination.w = (int)object->getWidth();
+	destination.h = (int)object->getHeight();
+
+	SDL_SetTextureColorMod(textureMap[sprite->getTextureID()], object->getTint().red, object->getTint().green, object->getTint().blue);
+	SDL_RenderCopyEx(renderer, textureMap[sprite->getTextureID()], &rect, &destination, object->getRotation(), NULL, SDL_FLIP_NONE);
 	// crude fix to draw text on top of a drawable, maybe fix with a callback function in the future, or a visitor?
-	if (object.toString() != nullptr)
-		drawMessageAt(*object.toString(), Position(destination.x, destination.y), ObjectSize(destination.w, destination.h));
+	if (object->toString() != nullptr)
+		drawMessageAt(*object->toString(), Position(destination.x, destination.y), ObjectSize(destination.w, destination.h));
 }
 
 /// @brief Function to draw Particles
-/// @param posX 
-/// @param startPosX 
-/// @param posY 
-/// @param startPosY 
-/// @param size 
-/// @param spriteID 
-/// @param colorR 
-/// @param colorG 
-/// @param colorB 
-/// @param colorA 
-/// @param rotation 
-void VideoFacade::drawParticle(const ParticleData& data, int spriteID)
+/// @param part 
+void VideoFacade::drawParticle(shared_ptr<ParticleAdapter> part)
 {
-	SDL_Rect r = { int(data.posx + data.startPosX - data.size / 2) - xCameraOffset, int(data.posy + data.startPosY - data.size / 2) - yCameraOffset, int(data.size), int(data.size) };
-	SDL_Color c = { Uint8(data.colorR * 255), Uint8(data.colorG * 255), Uint8(data.colorB * 255), Uint8(data.colorA * 255) };
-	SDL_SetTextureColorMod(textureMap[spriteID], c.r, c.g, c.b);
-	SDL_SetTextureAlphaMod(textureMap[spriteID], c.a);
-	SDL_SetTextureBlendMode(textureMap[spriteID], SDL_BLENDMODE_BLEND);
-	SDL_RenderCopyEx(renderer, textureMap[spriteID], nullptr, &r, data.rotation, nullptr, SDL_FLIP_NONE);
+	shared_ptr<SpriteObject> sprite = part->GetCurrentSprite();
+
+	if (!textureMap.count(sprite->getTextureID()))
+	{
+		loadImage(sprite);
+	}
+	if (textureMap[sprite->getTextureID()] == NULL)
+		throw exception("VideoFacade: SpriteID is NULL");
+
+
+	vector<ParticleData> particleData = part->getParticleDataVector();
+	for (unsigned int index = 0; index < part->getParticleCount(); index++)
+	{
+		auto& partData = particleData[index];
+
+		if (partData.size <= 0 || partData.colorA <= 0)
+		{
+			continue;
+		}
+		SDL_Rect r = { int(partData.posx + partData.startPosX - partData.size / 2) - xCameraOffset, int(partData.posy + partData.startPosY - partData.size / 2) - yCameraOffset, int(partData.size), int(partData.size) };
+		SDL_Color c = { Uint8(partData.colorR * 255), Uint8(partData.colorG * 255), Uint8(partData.colorB * 255), Uint8(partData.colorA * 255) };
+		SDL_SetTextureColorMod(textureMap[sprite->getTextureID()], c.r, c.g, c.b);
+		SDL_SetTextureAlphaMod(textureMap[sprite->getTextureID()], c.a);
+		SDL_SetTextureBlendMode(textureMap[sprite->getTextureID()], SDL_BLENDMODE_BLEND);
+		SDL_RenderCopyEx(renderer, textureMap[sprite->getTextureID()], nullptr, &r, partData.rotation, nullptr, SDL_FLIP_NONE);
+	}
 }
 
 /// @brief
@@ -165,10 +200,9 @@ void VideoFacade::drawParticle(const ParticleData& data, int spriteID)
 /// @param target
 /// the boundaries of the target that the text needs to be draw on top of
 /// A Position struct containing the position to draw the message at
-void VideoFacade::drawMessageAt(const ColoredText& message, const Position& pos, const ObjectSize& bounds)
+void VideoFacade::drawMessageAt(const ColoredText& message, const Position& pos, const ObjectSize& bounds, bool fromText)
 {
 	bool exists = std::filesystem::exists(FONT_PATH); // TODO dynamic fonts
-	// TODO check if message is in bounds
 	if (exists) {
 
 		SDL_Color color = {(Uint8)message.color.red, (Uint8)message.color.green, (Uint8)message.color.blue };
@@ -180,20 +214,34 @@ void VideoFacade::drawMessageAt(const ColoredText& message, const Position& pos,
 		SDL_Rect message_rect;
 		if (message.centered)
 		{
-			// TODO check width and height positioning relative to set x/y position	
-			xPos = pos.xPos + (bounds.width / 2) - MESSAGE_WIDTH / 2;
-			yPos = pos.yPos + (bounds.height / 2) - MESSAGE_HEIGHT / 2;
+			if (fromText) {
+				xPos = pos.xPos + (bounds.width / 2);
+				yPos = pos.yPos + (bounds.height / 2);
+			}
+			else {
+				xPos = pos.xPos + (bounds.width / 2) - MESSAGE_WIDTH / 2;
+				yPos = pos.yPos + (bounds.height / 2) - MESSAGE_HEIGHT / 2;
+			}
+			
 		}
 		else {
 			// If the message doesn't fit the screen, make it fit the screen
-			xPos = pos.xPos + MESSAGE_WIDTH > WINDOW_WIDTH ? WINDOW_WIDTH - MESSAGE_WIDTH : pos.xPos < 0 ? 0 : pos.xPos;
-			yPos = pos.yPos + MESSAGE_HEIGHT > WINDOW_HEIGHT ? WINDOW_HEIGHT - MESSAGE_HEIGHT : pos.yPos < 0 ? 0 : pos.yPos;
+			xPos = pos.xPos + bounds.width > WINDOW_WIDTH ? WINDOW_WIDTH - bounds.width : pos.xPos < 0 ? 0 : pos.xPos;
+			yPos = pos.yPos + bounds.height > WINDOW_HEIGHT ? WINDOW_HEIGHT - bounds.height : pos.yPos < 0 ? 0 : pos.yPos;
 		}
-
-		message_rect.x = xPos;
-		message_rect.y = yPos;
-		message_rect.w = MESSAGE_WIDTH;
-		message_rect.h = MESSAGE_HEIGHT;
+		
+		if (fromText) {
+			message_rect.x = xPos;
+			message_rect.y = yPos;
+			message_rect.w = bounds.width;
+			message_rect.h = bounds.height;
+		}
+		else {
+			message_rect.x = xPos;
+			message_rect.y = yPos;
+			message_rect.w = MESSAGE_WIDTH;
+			message_rect.h = MESSAGE_HEIGHT;
+		}
 
 		SDL_RenderCopy(renderer, messageTexture, NULL, &message_rect);
 
@@ -201,3 +249,16 @@ void VideoFacade::drawMessageAt(const ColoredText& message, const Position& pos,
 		SDL_DestroyTexture(messageTexture);
 	}
 }
+
+/// @brief Cleans the videoFacade
+void VideoFacade::clean()
+{
+	for (auto texture : textureMap)
+	{
+		SDL_DestroyTexture(texture.second);
+	}
+	textureMap.clear();
+	xCameraOffset = 0;
+	yCameraOffset = 0;
+}
+

@@ -1,12 +1,13 @@
 #include "stdafx.h"
 #include "ParticleEngine.h"
-#include "Events\AppTickEvent60.h"
-#include "Events\EventSingleton.h"
+#include "Events/Action/TogglePause.h"
+#include "Events/EventDispatcher.h"
 
 /// @brief Constructor
-ParticleEngine::ParticleEngine()
+/// @param _frameData
+/// A reference to the frameData class owned by Engine, used for accessing deltaTime
+ParticleEngine::ParticleEngine(unique_ptr<FrameData>& _frameData) : frameData{ _frameData }
 {
-	EventSingleton::get_instance().setEventCallback<AppTickEvent60>(BIND_EVENT_FN(ParticleEngine::onUpdate));
 }
 
 /// @brief Destructor
@@ -14,34 +15,60 @@ ParticleEngine::~ParticleEngine()
 {
 }
 
-/// @brief OnUpdate for updating particles
-/// @param tickEvent tick event listening to
-bool ParticleEngine::onUpdate(Event& tickEvent)
+/// @brief Does nothing. Needs to be here for syntax purpose
+/// @param dispatcher 
+void ParticleEngine::start(EventDispatcher& dispatcher)
 {
-	if ((*pointerToCurrentScene)->getAllDrawablesInScene().size() == 0) return false;
-	for (Drawable *particle : (*pointerToCurrentScene)->getAllDrawablesInScene())
+	dispatcher.setEventCallback<TogglePauseEvent>(BIND_EVENT_FN(ParticleEngine::onPauseEvent));
+}
+
+/// @brief  Update the particles postion. 
+///			Checks if the Particle Postion is the same as the ObjectPosition
+void ParticleEngine::update()
+{
+	if (isPaused()) return;
+	
+	if ((*pointerToCurrentScene)->getAllDrawablesInScene().size() == 0) return;
+	for (shared_ptr<Drawable> particle : (*pointerToCurrentScene)->getAllDrawablesInScene())
 	{
 		if (particle != nullptr && particle->getIsParticle())
 		{
-			((ParticleAdapter *)particle)->update();
+			(dynamic_pointer_cast<ParticleAdapter>(particle))->update(frameData->calculateDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
 
-			checkIfObjectValueAndParticleValueMatch((ParticleAdapter &)particle);
+			checkIfObjectValueAndParticleValueMatch(dynamic_pointer_cast<ParticleAdapter>(particle));
 		}
 	}
-	// do not handle the onupdate events, they are continuous
+}
+
+/// @brief Does nothing. Needs to be here for syntax purpose
+/// @param dispatcher 
+void ParticleEngine::shutdown()
+{
+}
+
+/// @brief Executes the on pause logic for the particle engine
+/// @param dispatcher
+bool ParticleEngine::onPauseEvent(const Event& event)
+{
+	auto pauseEvent = (TogglePauseEvent&)event;
+	paused = pauseEvent.isPaused();
 	return false;
 }
 
-void ParticleEngine::checkIfObjectValueAndParticleValueMatch(ParticleAdapter& particle)
+/// @brief	Checks if the postion of the Particle is the same as the position of the Object.
+///			If not equal they will be made equal.
+///			Particle position wil be updated to the object position 
+/// @param particle 
+void ParticleEngine::checkIfObjectValueAndParticleValueMatch(shared_ptr<ParticleAdapter> particle)
 {
-	if (particle.getPositionX() != particle.getPositionX())
+	if (((shared_ptr<Object>)particle)->getPositionX() != particle->getPositionX())
 	{
-		particle.setPositionX(particle.getPositionX());
+		particle->setPositionX(((shared_ptr<Object>)particle)->getPositionX());
 	}
 
-	if (particle.getPositionY() != particle.getPositionY())
+	if (((shared_ptr<Object>)particle)->getPositionY() != particle->getPositionY())
 	{
-		particle.setPositionY(particle.getPositionY());
+		particle->setPositionY(((shared_ptr<Object>)particle)->getPositionY());
 	}
 }
 

@@ -2,8 +2,10 @@
 #include "Savegame.h"
 
 
-Savegame Savegame::instance;
-
+/// @brief 
+/// Saves the savegamedata array to a json file
+/// @return 
+/// Failed or succes
 bool Savegame::saveGameDataToJsonFile()
 {
 	nlohmann::json json;
@@ -11,9 +13,7 @@ bool Savegame::saveGameDataToJsonFile()
 	{
 		nlohmann::json saveGameJson;
 
-		// Get Timestamp
-		const auto p1 = std::chrono::system_clock::now();
-		saveGameJson["timestamp"] = std::chrono::duration_cast<std::chrono::seconds>(p1.time_since_epoch()).count();
+		saveGameJson["timestamp"] = saveGame.second.saveGameTimeStamp;
 
 		saveGameJson["savegamename"] = saveGame.second.saveGameName;
 		saveGameJson["savegameid"] = saveGame.first;
@@ -23,15 +23,18 @@ bool Savegame::saveGameDataToJsonFile()
 		{
 			saveGameJson["achievements"].push_back(achievement);
 		}
+		int count = 0;
 		for (auto levelData : saveGame.second.levelData)
 		{
 			nlohmann::json levelDataJson;
-			levelDataJson["score"] = levelData.second.score;
-			levelDataJson["completed"] = levelData.second.completed;
+			levelDataJson["score"] = levelData.score;
+			levelDataJson["completed"] = levelData.completed;
+			levelDataJson["levelnr"] = count++;
 			saveGameJson["leveldata"].push_back(levelDataJson);
 		}
 		nlohmann::json characterData;
 		nlohmann::json items;
+		bool charData = false;
 		for (Item item : saveGame.second.characterData.inventory.items)
 		{
 			nlohmann::json itemJson;
@@ -39,70 +42,124 @@ bool Savegame::saveGameDataToJsonFile()
 			itemJson["itemcount"] = item.itemCount;
 
 			characterData["inventory"]["items"].push_back(itemJson);
+			charData = true;
 		}	
-		saveGameJson["characterdata"] = characterData;
-		json["saveGames"].push_back(saveGameJson);
+		if(charData)saveGameJson["characterdata"] = characterData;
+		json["savegames"].push_back(saveGameJson);
 	}
 	// Todo move to engine.
 	// Write Json data to file
-	std::ofstream file("saveGameData.json");
+	const char* path = "Assets/Savegame/saveGameData.json";
+	std::ofstream file(path); //open in constructor
 	file << json;
 
 
 	return true;
 }
 
+/// @brief 
+/// Reads a json file and parses it into savegame data map
+/// @param path 
+/// String path for the folder/file location
+/// @return 
+/// Returns true when it completes
 bool Savegame::readSaveGameDataFromJson(string& path)
 {
 	nlohmann::json json;
+	bool parseErrors = false;
+	ifstream filestream;
+	try
+	{
+		filestream = fileLoader.readFile(path);
+	}
+	catch (const std::exception&)
+	{
+		// If error is thrown this means the document is empty or non existant. 
+		// Doesnt matter in our case as we use 3 empty savegames. 
+		// Dont throw an error but we do notify the developer
+		cout << "Error thrown in fileloader, starting with 3 empty savegames" << endl;
+	}
+	bool validLevel;
+	try
+	{
+		validLevel = fileLoader.validateDocument(path, "Assets/Savegame/savegamedataschema.json");
+	}
+	catch (const std::exception& exc)
+	{
+		cout << "Something went wrong parsing the file, make sure the file is correctly structured" << "\n";
+		cout << exc.what() << "\n";
+		throw exc;
+	}
 
-	try {
-		auto filestream = fileLoader.readFile(path);
-		filestream >> json;
-		filestream.close();
 
+	if (validLevel) {
 		try {
+
+			filestream >> json;
 			parseJsonToMap(json);
 		}
 		catch (exception exc) {
 			cout << "Something went wrong parsing the file, make sure the file is correctly structured" << "\n";
-			cout << exc.what() << "\n";
-			throw exc;
+			cout << exc.what() << "\n";	
 		}
 	}
-	catch (exception exc) {
-		cout << "Something went wrong opening file, make sure the file exists" << "\n";
-		cout << exc.what() << "\n";
-		throw exc;
+	else {
+		throw exception("SaveGame: Something went wrong validating file, make sure the file is correct");
 	}
+
+	filestream.close();
 
 	return true;
 	
 }
 
+/// @brief 
+/// Sets the currentsavegame data to the given id
+/// @param id 
 void Savegame::setCurrentGameData(const int id)
 {
+	generateTimeStamp(id);
 	currentSaveGame = id;
 }
 
+/// @brief 
+/// Returns the current Savegame data
+/// @return 
 SaveGameData Savegame::getCurrentGameData()
 {
 	return saveGameDataMap[currentSaveGame];
 }
 
+/// @brief 
+/// Saves the given savegamedata into the current slot
+/// @param saveGame 
 void Savegame::saveCurrentGameData(SaveGameData saveGame)
 {
 	saveGameDataMap[currentSaveGame] = saveGame;
 }
+/// @brief Returns saveGameDataMap when not empty
+/// @param id 
+/// @return 
+SaveGameData Savegame::getSaveGameData(const int id)
+{
+	if (!isSaveGameDataEmpty(id))
+	{
+		return saveGameDataMap[id];
+	}
+	throw exception("SaveGame: Trying to get unknown SaveGame");
+}
 
+/// @brief 
+/// Parses the json file into the map
+/// @param json 
 void Savegame::parseJsonToMap(nlohmann::json json)
 {
-	for (auto jsonObject : json["saveGames"])
+	for (auto jsonObject : json["savegames"])
 	{
 		SaveGameData saveGameData;
-		if (!jsonObject.contains("timestamp")) throw exception("Timestamp unavailable in json file");
-		if (!jsonObject.contains("savegamename"))throw exception("savegamename unavailable in json file");
-		if (!jsonObject.contains("savegameid")) throw exception("savegameid unavailable in json file");
+		if (!jsonObject.contains("timestamp")) throw exception("SaveGame: Timestamp unavailable in json file");
+		if (!jsonObject.contains("savegamename"))throw exception("SaveGame: savegamename unavailable in json file");
+		if (!jsonObject.contains("savegameid")) throw exception("SaveGame: savegameid unavailable in json file");
 
 		saveGameData.saveGameName = jsonObject["savegamename"];
 		saveGameData.saveGameTimeStamp = jsonObject["timestamp"];
@@ -112,7 +169,16 @@ void Savegame::parseJsonToMap(nlohmann::json json)
 		{
 			saveGameData.totalScore = jsonObject["totalscore"];
 		}
-
+		if (jsonObject.contains("leveldata"))
+		{
+			for (auto itemJson : jsonObject["leveldata"])
+			{
+				LevelData levelD;
+				levelD.score = itemJson["score"];
+				levelD.completed = itemJson["completed"];
+				saveGameData.levelData[itemJson["levelnr"]] = levelD;
+			}
+		}
 		if (jsonObject.contains("achievements"))
 		{
 			for (auto achievement : jsonObject["achievements"])

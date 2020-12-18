@@ -1,22 +1,26 @@
 #pragma once
 #include "Game/Triggers/BaseTrigger.h"
 
+/// @brief Class for death trigger
 class DeathTrigger : public BaseTrigger
 {
 public:
-	DeathTrigger() : BaseTrigger() { }
-	DeathTrigger(const int _id) : BaseTrigger(_id) { }
+	DeathTrigger(EventDispatcher& _dispatcher) : BaseTrigger(_dispatcher) { }
+	DeathTrigger(const int _id, EventDispatcher& _dispatcher) : BaseTrigger(_id, _dispatcher) { }
 
-	virtual BaseTrigger* clone(const int id) override { return new DeathTrigger(id); }
+	shared_ptr<BaseTrigger> clone(const int id) override { return shared_ptr<BaseTrigger>(new DeathTrigger(id, dispatcher)); }
 
-	void onUpdate() override {}
+	void onUpdate(float deltaTime) override {}
 
-	virtual bool onCollisionBegin(Event& event) override {
-		auto collisionEvent = static_cast<OnCollisionBeginEvent&>(event);
-		if (collisionEvent.getObjectOne().getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo().getObjectId() != this->getObjectId()) return false;
+	/// @brief Is called when the player collides with a death trigger
+	/// @param event 
+	/// @return 
+	bool onCollisionBegin(const Event& event) override {
+		auto collisionEvent = static_cast<const OnCollisionBeginEvent&>(event);
+		if (collisionEvent.getObjectOne()->getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo()->getObjectId() != this->getObjectId()) return false;
 
-		if (ICharacter* character = dynamic_cast<ICharacter*>(&collisionEvent.getObjectOne())) character->kill();
-		else if (ICharacter* character = dynamic_cast<ICharacter*>(&collisionEvent.getObjectTwo())) character->kill();
-		return true;
+		if (shared_ptr<ICharacter> character = dynamic_pointer_cast<ICharacter>(collisionEvent.getObjectOne())) character->kill();
+		else if (shared_ptr<ICharacter> character = dynamic_pointer_cast<ICharacter>(collisionEvent.getObjectTwo())) character->kill();
+		return false;
 	}
 };

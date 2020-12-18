@@ -1,82 +1,41 @@
 #include "pch.h"
 #include "Game.h"
-
-bool Game::stopRun(Event& event) {
-	gameRunning = false;
-	return true;
-}
+#include "Commands/Builder/CommandBuilder.h"
+#include "Game/Commands/CharacterCommands/StopMovementCommand.h"
 
 Game::Game()
 {
-	SceneSwitcher::get_instance().setEngine(&engine);
+	engine = make_unique<Engine>();
+	commandBuilder = shared_ptr<ICommandBuilder>(new CommandBuilder());
+	savegame = shared_ptr<Savegame>(new Savegame());
+	stateMachine = make_unique<SceneStateMachine>(engine, savegame);
 }
 
-void Game::run() {
+/// @brief This function contains the game loop
+/// @return 
+int Game::run() {
 	try {
-		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
+		engine->start();
+		engine->useCustomCommandInvoker(commandBuilder->readBindingsAndCreateInvoker());
 
-		MainMenu* mainMenu = new MainMenu(sceneId++);
-		SceneSwitcher::get_instance().registerScene("MAIN_MENU", mainMenu);
+		string path = "Assets/SaveGame/saveGameData.json";
+		savegame->readSaveGameDataFromJson(path);
+		stateMachine->switchToScene("MainMenu", false);
 
-		GeneralTransition* generalTransitionScene = new GeneralTransition(sceneId++);
-		SceneSwitcher::get_instance().registerScene("GENERAL_TRANSITION_SCENE", generalTransitionScene);
-		
-		Overworld* overWorld = new Overworld(sceneId++);
-		SceneSwitcher::get_instance().registerScene("OVERWORLD", overWorld);
+		engine->setEngineRunning(true);
 
-		DeadScreen* deadScreen = new DeadScreen(sceneId++);
-		SceneSwitcher::get_instance().registerScene("DEAD_SCREEN", deadScreen);
-
-		WinScreen* winScreen = new WinScreen(sceneId++);
-		SceneSwitcher::get_instance().registerScene("WIN_SCREEN", winScreen);
-
-		SaveScreen* saveScreen = new SaveScreen(sceneId++);
-		SceneSwitcher::get_instance().registerScene("LOADSCREEN", saveScreen);
-
-		SceneSwitcher::get_instance().switchToScene("MAIN_MENU", false);
-		EventSingleton::get_instance().setEventCallback<WindowCloseEvent>(BIND_EVENT_FN(Game::stopRun));
-	}
-	catch (exception e) {
-		cout << e.what() << endl;
-		return;
-	}
-
-	LoadLevelFacade levelLoader{ engine };
-	LevelBuilder levelOneBuilder{ engine, sceneId++ };
-	try {
-		levelLoader.load("Assets/Levels/Maps/Level1.json", &levelOneBuilder);
-		auto level = levelOneBuilder.getLevel();
-		SceneSwitcher::get_instance().registerScene("LEVEL_1", level);
-	}
-	catch (exception e) {
-		cout << e.what() << endl;
-		return;
-	}
-
-	try {
-		while (gameRunning)
+		while (engine->getEngineRunning())
 		{
-			AppTickEvent60 appTick;
-			AppTickEvent30 appTick30;
-
-			engine.pollEvents();
-			EventSingleton::get_instance().dispatchEvent<AppTickEvent60>(appTick);
-			EventSingleton::get_instance().dispatchEvent<AppTickEvent30>(appTick30);
-
-			// TODO get only the non static objects, without looping thru them again and again
-			auto scene = engine.getCurrentScene();
-			scene->onUpdate();
-
-			this_thread::sleep_for(chrono::milliseconds(10));
+			engine->update();
+			engine->updateCurrentScene();
 		}
-
-		Savegame::get_instance().saveGameDataToJsonFile();
-
-	}
-	catch (int e) {
-		cout << ERRORCODES[e] << endl;
+		
+		if(EXPORT_GAME_DATA) 
+			savegame->saveGameDataToJsonFile();
 	}
 	catch (exception e) {
 		cout << e.what() << endl;
+		return EXIT_FAILURE;
 	}
+	return EXIT_SUCCESS;
 }

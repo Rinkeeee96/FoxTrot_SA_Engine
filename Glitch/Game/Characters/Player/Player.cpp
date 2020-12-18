@@ -1,43 +1,60 @@
 #include "pch.h"
 #include "Player.h"
 
-Player::Player(const int id) : ICharacter(id) {
+Player::Player(EventDispatcher& _dispatcher) : ICharacter(_dispatcher) {
+	this->stateMachine.setCurrentState(make_unique<NormalState>(), *this);
+	this->stateMachine.setGlobalState(make_unique<PlayerGlobalState>(), *this);
+};
+Player::Player(const int id, EventDispatcher& _dispatcher) : ICharacter(id, _dispatcher) {
 	this->setHeight(80);
 	this->setWidth(80);
 	this->setPositionX(100);
 	this->setPositionY(80);
 
-	this->setSpeed(6);
+	this->setSpeed(7);
 	this->setJumpHeight(10);
-	this->setDensity(200);
+	this->setDensity(10);
 	this->setFriction(0);
-	this->setRestitution(0);
+	this->setRestitution(0.1f);
+	this->setTotalHealth(3);
 	this->setStatic(false);
 	this->setRotatable(false);
 
-	this->setHealth(3);
+	this->setCurrentHealth(3);
+	this->setTotalHealth(3);
 	this->setScalable(true);
 	this->setScale(2);
 
-	EventSingleton::get_instance().setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Player::onCollisionBeginEvent));
-	EventSingleton::get_instance().setEventCallback<OnCollisionEndEvent>(BIND_EVENT_FN(Player::onCollisionEndEvent));
-	EventSingleton::get_instance().setEventCallback<KeyPressedEvent>(BIND_EVENT_FN(Player::onKeyPressed));
-	EventSingleton::get_instance().setEventCallback<KeyReleasedEvent>(BIND_EVENT_FN(Player::onKeyReleased));
+	this->stateMachine.setCurrentState(make_unique<NormalState>(), *this);
+	this->stateMachine.setGlobalState(make_unique<PlayerGlobalState>(), *this);
+
+	dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Player::onCollisionBeginEvent));
+	dispatcher.setEventCallback<OnCollisionEndEvent>(BIND_EVENT_FN(Player::onCollisionEndEvent));
+
+	dispatcher.setEventCallback<KeyPressedEvent>([this](const Event& event) -> bool {
+		releasedKeyLastFrame = false;
+		return false;
+	});
+
+	dispatcher.setEventCallback<KeyReleasedEvent>([this](const Event& event) -> bool {
+		releasedKeyLastFrame = true;
+		return false;
+	});
+
 }
 
 /// @brief 
-/// Handles when an collision event begins, when the direction of the collision happend on the bottom side of the player object, 
+/// Handles when an collision event begins, when the direction of the collision happend on the bottom side of the player object,
 /// set can jump true
-bool Player::onCollisionBeginEvent(Event& event) {
+bool Player::onCollisionBeginEvent(const Event& event) {
 	if (!getIsDead()) {
-		auto collisionEvent = static_cast<OnCollisionBeginEvent&>(event);
-		if (collisionEvent.getObjectOne().getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo().getObjectId() != this->getObjectId()) return false;
+		auto collisionEvent = static_cast<const OnCollisionBeginEvent&>(event);
+		if (collisionEvent.getObjectOne()->getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo()->getObjectId() != this->getObjectId()) return false;
 
 		auto map = collisionEvent.getDirectionMap();
 		auto collidedDirection = map[this->getObjectId()];
 
 		if (std::find(collidedDirection.begin(), collidedDirection.end(), Direction::DOWN) != collidedDirection.end()) {
-			this->canJump = true;
 			if (this->getXAxisVelocity() == 0)
 				this->changeToState(SpriteState::DEFAULT);
 			else if (this->getXAxisVelocity() > 0)
@@ -51,10 +68,10 @@ bool Player::onCollisionBeginEvent(Event& event) {
 
 /// @brief 
 /// Handles when an collision event ends, when the direction of the collision happend on the bottom side of the player object, set can jump false
-bool Player::onCollisionEndEvent(Event& event) {
+bool Player::onCollisionEndEvent(const Event& event) {
 	if (!getIsDead()) {
-		auto collisionEvent = static_cast<OnCollisionEndEvent&>(event);
-		if (collisionEvent.getObjectOne().getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo().getObjectId() != this->getObjectId()) return false;
+		auto collisionEvent = static_cast<const OnCollisionEndEvent&>(event);
+		if (collisionEvent.getObjectOne()->getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo()->getObjectId() != this->getObjectId()) return false;
 
 		auto map = collisionEvent.getDirectionMap();
 		auto collidedDirection = map[this->getObjectId()];
@@ -67,6 +84,8 @@ bool Player::onCollisionEndEvent(Event& event) {
 	return false;
 }
 
+/// @brief Set the x Velocity of a player. Also changes the sprite state
+/// @param val 
 void Player::setXAxisVelocity(const float val) {
 
 	if (val == 0 && this->getYAxisVelocity() == 0 && !changed) {
@@ -76,10 +95,11 @@ void Player::setXAxisVelocity(const float val) {
 	Object::setXAxisVelocity(val);
 }
 
+/// @brief Set the y Velocity of a player. Also changes the sprite state
+/// @param val 
 void Player::setYAxisVelocity(const float val) {
-
 	if (!canJump) {
-		if (val > 0 && !changed) {
+		if (val > RESTITUTION_CORRECTION && !changed) {
 			if (this->getXAxisVelocity() > 0 || this->currentSpriteState == SpriteState::AIR_JUMP_RIGHT)
 				this->changeToState(SpriteState::AIR_FALL_RIGHT);
 			else if (this->currentSpriteState != AIR_FALL_RIGHT)
@@ -89,69 +109,50 @@ void Player::setYAxisVelocity(const float val) {
 
 	if (val == 0) {
 		changed = false;
+		this->canJump = true;
 	}
 
 	Object::setYAxisVelocity(val);
 }
 
-/// @brief 
-/// Handles when an key pressed event happend, Player can move right, left and jump
-bool Player::onKeyPressed(Event& event) {
-	if (!getIsDead()) {
-		auto keyPressedEvent = static_cast<KeyPressedEvent&>(event);
-		// TODO command pattern
-		switch (keyPressedEvent.GetKeyCode())
-		{
-		case KeyCode::KEY_A:
-			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::LEFT, this->getObjectId()));
-			if (canJump)
-				this->changeToState(SpriteState::RUN_LEFT);
-			else if (this->getYAxisVelocity() > 0)
-				this->changeToState(SpriteState::AIR_FALL_LEFT);
-			else
-				this->changeToState(SpriteState::AIR_JUMP_LEFT);
-			break;
-		case KeyCode::KEY_D:
-			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::RIGHT, this->getObjectId()));
-			if (canJump) {
-				this->changeToState(SpriteState::RUN_RIGHT);
-			}
-			else if (this->getYAxisVelocity() > 0)
-				this->changeToState(SpriteState::AIR_FALL_RIGHT);
-			else
-				this->changeToState(SpriteState::AIR_JUMP_RIGHT);
-			break;
-		case KeyCode::KEY_SPACE:
-			if (canJump) {
-				if (this->getXAxisVelocity() > 0)
-					this->changeToState(SpriteState::AIR_JUMP_RIGHT);
-				else
-					this->changeToState(SpriteState::AIR_JUMP_LEFT);
-				EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
-			}
-			break;
-		default:
-			return false;
-		}
-		return true;
-	}
-	return false;
-}
-
-bool Player::onKeyReleased(Event& event)
+/// @brief
+/// Handles registration of a custom gamekeypressinvoker
+void Player::registerKeypressInvoker(GameKeypressInvoker *_invoker)
 {
-	if (!getIsDead()) {
-		auto keyReleasedEvent = static_cast<KeyReleasedEvent&>(event);
-
-		switch (keyReleasedEvent.GetKeyCode()) {
-		case KeyCode::KEY_A:
-		case KeyCode::KEY_D:
-			EventSingleton::get_instance().dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->objectId));
-		}
-
-		return false;
-	}
-	return false;
+	invoker = _invoker;
 }
 
-ICharacter* Player::clone(int id) { return new Player(id); }
+/// @brief Clone the player to a new Player
+/// @param id 
+/// @return 
+shared_ptr<ICharacter> Player::clone(int id) {
+	return shared_ptr<ICharacter>(new Player(id, this->dispatcher));
+}
+
+/// @brief
+/// Builds the spritemap for the Player
+map<SpriteState, shared_ptr<SpriteObject>> Player::buildSpritemap(int textureId) {
+	std::map<SpriteState, shared_ptr<SpriteObject>> spriteMap;
+
+	auto playerDefault = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 1, 200, "Assets/Sprites/Character/adventure.png"));
+	auto playerAirAttack = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 4, 300, "Assets/Sprites/Character/adventure_air_attack1.png"));
+	auto playerRunRight = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 6, 200, "Assets/Sprites/Character/adventure_run_right.png"));
+	auto playerSlide = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_slide.png"));
+	auto playerFallLeft = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_fall_left.png"));
+	auto playerFallRight = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_fall_right.png"));
+	auto playerJumpLeft = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_jump_left.png"));
+	auto playerRunLeft = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 6, 200, "Assets/Sprites/Character/adventure_run_left.png"));
+	auto playerJumpRight = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_jump_right.png"));
+
+	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::DEFAULT, playerDefault));
+	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::AIR_ATTACK, playerAirAttack));
+	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::RUN_RIGHT, playerRunRight));
+	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::SLIDE, playerSlide));
+	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::AIR_FALL_LEFT, playerFallLeft));
+	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::AIR_JUMP_LEFT, playerJumpLeft));
+	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::AIR_FALL_RIGHT, playerFallRight));
+	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::AIR_JUMP_RIGHT, playerJumpRight));
+	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::RUN_LEFT, playerRunLeft));
+
+	return spriteMap;
+}

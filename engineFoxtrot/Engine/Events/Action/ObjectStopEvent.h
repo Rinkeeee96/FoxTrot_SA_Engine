@@ -8,18 +8,23 @@
 class ObjectStopEvent : public Event
 {
 public:
-	ObjectStopEvent(int _objectId) :
-		objectId{ _objectId }{};
+	ObjectStopEvent(int _objectId, bool _stopVertical = false, bool _stopHorizontal = false) :
+		objectId{ _objectId }, stopVertical{ _stopVertical }, stopHorizontal{ _stopHorizontal } {};
 
 	/// @brief
 	/// Returns the eventType of a specific event
 	/// @return EventType
-	EventType GetEventType() const override { return EventType::ObjectStop; }
+	EventType getEventType() const override { return EventType::ObjectStop; }
+
 	/// @brief
 	/// Returns the name of the event
-	const char* GetName() const override { return "Object stop"; }
+	const char* getName() const override { return "Object stop"; }
 
-	const int GetObjectId() const { return objectId; }
+	const int getObjectId() const { return objectId; }
+	const bool getStopVertical() const { return stopVertical; }
+	const bool getStopHorizontal() const { return stopHorizontal; }
 protected:
 	int objectId;
+	bool stopVertical;
+	bool stopHorizontal;
 };

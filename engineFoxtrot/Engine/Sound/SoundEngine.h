@@ -2,44 +2,53 @@
 #include "SceneManager/Scene.h"
 #include "SoundFacade.h"
 #include "Events/Event.h"
+#include "General/ISubsystem.h"
+
+#define MAX_VOLUME 128
 
 /// @brief 
 /// SoundEngine is the Sound SDL2 wrapper
-class API SoundEngine
+class  SoundEngine : public ISubsystem
 {
 public:
 	SoundEngine();
 	~SoundEngine();
 
-	void SetFiles(map<string, string> files);
-	void AddFile(const string& identifier, const string& file);
-	void PlayEffect(const string& identifier, const int volume);
-	void LoadEffect(const string& identifier);
-	void UnloadEffect(const string& identifier);
-	void StartLoopedEffect(const string& effect, const int volume);
-	void StopLoopedEffect(const string& identifier);
-	void LoadMusic(const string& identifier);
-	void PlayMusic(const int volume);
-	void PlayMusic(const string& identifier, const int volume);
-	void ChangeMusic(const string& identifier);
-	void FadeOutMusic(const int fadeTime);
-	void FadeInMusic(const int fadeTime);
-	void FadeInMusic(const string& identifier, const int fadeTime);
-	void RewindMusic();
-	void StopMusic();
-	void PauseMusic();
-	void ResumeMusic();
-	void Flush();
+	API void start(EventDispatcher& dispatcher) override { };
+	API void update() override { };
+	API void shutdown() override;
+	API void clean();
+	 
+	API void setFiles(map<string, string> files);
+	API void addFile(const string& identifier, const string& file);
+	API void playEffect(const string& identifier, const int volume);
+	API void loadEffect(const string& identifier);
+	API void unloadEffect(const string& identifier);
+	API void startLoopedEffect(const string& effect, const int volume);
+	API void stopLoopedEffect(const string& identifier);
+	API void loadMusic(const string& identifier);
+	API void playMusic(const int volume);
+	API void playMusic(const string& identifier, const int volume);
+	API void changeMusic(const string& identifier);
+	API void fadeOutMusic(const int fadeTime);
+	API void fadeInMusic(const int fadeTime);
+	API void fadeInMusic(const string& identifier, const int fadeTime);
+	API void rewindMusic();
+	API void stopMusic();
+	API void pauseMusic();
+	API void resumeMusic();
+	API void flush();
+	 
+	API bool identifierExists(const string& identifier);
+	API bool identifierIsLoaded(const string& identifier);
+	
+	API bool onPlayEffect(const string& identifier, int volume, bool shouldLoop);
+	API void onStopLoopedEffect(const string& identifier);
 
-	bool IdentifierExists(const string& identifier);
-	bool IdentifierIsLoaded(const string& identifier);
 private:
 	void onChangeBackgroundMusic(const string& identifier, const int volume);
-	bool onPlayEffect(Event& event);
-	bool onStopLoopedEffect(Event& event);
 
-	bool onStartBackgroundMusicEvent(Event& event);
-	bool onLoadBackgroundMusicEvent(Event& event);
-	ISoundFacade* soundFacade = new SoundFacade;
+	// TODO clear on scene detach
+	unique_ptr<ISoundFacade> soundFacade = unique_ptr<SoundFacade>(new SoundFacade);
 
 };

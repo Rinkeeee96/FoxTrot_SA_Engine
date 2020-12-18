@@ -1,31 +1,36 @@
 #pragma once
 #include "api.h"
 #include "SceneManager/Objects/Button.h"
-#include "SceneSwitcher/SceneSwitcher.h"
+#include "Game/Scenes/GameScene.h"
 
-class WinScreen : public Scene
+/// @brief Class for the win screen
+class WinScreen : public GameScene
 {
 public:
-	WinScreen(const int id) : Scene(id, WINDOW_HEIGHT, WINDOW_WIDTH) {};
+	WinScreen(const int id, unique_ptr<Engine>& engine, shared_ptr<SceneStateMachine> _statemachine) : GameScene(id, engine, _statemachine) {};
 	~WinScreen();
 	// Inherited via Scene
 	void onAttach() override;
 	void onDetach() override;
-	void start() override;
-	void onUpdate() override;
+	void start(bool playSound) override;
+	void onUpdate(float deltaTime) override;
 private:
 	void LoadBackground();
 	void LoadMusic();
 	void LoadButtons();
 
-	//button functions
-	void OnMainBtnClick();
-	void onOverworldBtnClick();
+	function<void(void)> OnMainBtnClick = [this]() {
+		moveToNextScene = true;
+		nextScene = "MainMenu";
+	};
 
+	function<void(void)> onOverworldBtnClick = [this]() {
+		moveToNextScene = true;
+		nextScene = "Overworld";
+	};
+	bool falling = false;
 	int animationTick = 0;
-	Drawable* animation = nullptr;
-	Button* overBtn = nullptr;
-	Button* mainBtn = nullptr;
+	shared_ptr<Drawable> animation = nullptr;
 };
 
 inline WinScreen::~WinScreen()

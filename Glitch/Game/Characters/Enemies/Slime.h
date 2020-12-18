@@ -1,57 +1,20 @@
 #pragma once
-#include "Game/Characters/Enemies/IEnemy.h"
+#include "Game/Characters/Enemies/BaseEnemy.h"
 
 /// @brief 
 /// Slime class with correspondending AI logic
-class Slime : public IEnemy {
+class Slime : public BaseEnemy {
 public:
-	Slime() : IEnemy() {}
-	Slime(const int id) : IEnemy(id) {
-		EventSingleton::get_instance().setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Slime::onCollisionBeginEvent));
-	}
+	Slime(EventDispatcher& _dispatcher) : BaseEnemy(_dispatcher) {}
+	Slime(const int id, EventDispatcher& _dispatcher) : BaseEnemy(id, _dispatcher) {}
 
-	bool onCollisionBeginEvent(Event& event) {
-		auto collisionEvent = static_cast<OnCollisionBeginEvent&>(event);
-		if (collisionEvent.getObjectOne().getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo().getObjectId() != this->getObjectId()) return false;
+	void onUpdate(float deltaTime) override;
 
-		auto map = collisionEvent.getDirectionMap();
-		auto collidedDirection = map[this->getObjectId()];
+	map<SpriteState, shared_ptr<SpriteObject>> buildSpritemap(int textureId) override;
 
-		if (std::find(collidedDirection.begin(), collidedDirection.end(), Direction::UP) != collidedDirection.end()) {
-			this->kill();
-		}
-		else {
-			if (collisionEvent.getObjectOne().getObjectId() == this->getObjectId()) {
-				Object& otherE = collisionEvent.getObjectTwo();
+	shared_ptr<ICharacter> clone(int id) override { return shared_ptr<ICharacter>(new Slime(id, this->dispatcher)); }
 
-				if (this->player->getObjectId() == otherE.getObjectId()) {
-					this->player->kill();
-				}
-			}
-			else if (collisionEvent.getObjectTwo().getObjectId() == this->getObjectId()) {
-				Object& otherEntity = collisionEvent.getObjectOne();
-
-				if (this->player->getObjectId() == otherEntity.getObjectId()) {
-					this->player->kill();
-				}
-			}
-		}
-		return false;
-	}
-
-	void onUpdate() override {
-		bool playerIsInRange = player->getPositionX() >= this->getPositionX() - this->getWidth() &&
-			player->getPositionX() <= this->getPositionX() + this->width;
-		bool playerIsBelowMe = (player->getPositionY() + player->getHeight()) >= this->getPositionY();
-
-		bool positionedOnGround = this->getYAxisVelocity() == 0;
-		if(positionedOnGround)
-			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
-
-		if (playerIsInRange && playerIsBelowMe && !positionedOnGround){
-			EventSingleton::get_instance().dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::DOWN, this->getObjectId()));
-		}
-	};
-
-	ICharacter* clone(int id) override { return new Slime(id); }
+private:
+	float jumpTimer = 0;
+	bool jumping = false;
 };

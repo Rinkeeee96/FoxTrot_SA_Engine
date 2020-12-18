@@ -3,45 +3,39 @@
 #include "Events/Mouse/MousePressed.h"
 #include "SceneManager/Objects/Drawable.h"
 
+#define DEFAULT_STATE				1
+#define HOVER_STATE					2
+
+/// @brief Base class for buttons to be used in the game
 class Button : public Drawable
 {
 public:
-	API Button(int id, ColoredText _text, const function<void(void)> _onClick) :
-		Drawable(id), 
-		text(_text),
-		onClick(_onClick)
-	{
-		setSize(200, 50);
-		setStatic(true);
-		EventSingleton::get_instance().setEventCallback<MouseButtonPressed>(BIND_EVENT_FN(Button::isClicked));
-		EventSingleton::get_instance().setEventCallback<MouseMovedEvent>(BIND_EVENT_FN(Button::mouseOver));
-	}
-
-	API virtual ~Button() {
-		EventSingleton::get_instance().unSubscribe<MouseMovedEvent>(BIND_EVENT_FN(Button::isClicked));
-		EventSingleton::get_instance().unSubscribe<MouseButtonPressed>(BIND_EVENT_FN(Button::mouseOver));
-	}
+	API Button(int id, ColoredText _text, const function<void(void)> _onClick, shared_ptr<SpriteObject> _spriteObject,	EventDispatcher& _dispatcher);
+	virtual ~Button() {};
 
 	API const ColoredText* toString() { return &text; }
 
 	API void disable() { isEnabled = false; }
 	API void enable() { isEnabled = true; }
 
-	API void setSize(float width, float height) {
-		setWidth(width);
-		setHeight(height);
-	}
+	API void setSize(float width, float height);
 
-	API bool mouseOver(Event& event);
-	API bool isClicked(Event& event);
-	API void reset() { buttonPressed = false; }
+	API bool mouseOver(const Event& event);
+	API bool isClicked(const Event& event);
+
+	API void registerHoverSprite(shared_ptr<SpriteObject> spriteObject);
+
+protected:
+	bool hasHoverSprite = false;
+
 private:
 	bool isEnabled = true;
 	bool isMouseOver = false;
 	bool buttonPressed = false;
-	void onMouseOver();
 
 	const function<void(void)> onClick;
+
+	EventDispatcher& dispatcher;
 
 	ColoredText text;
 };
