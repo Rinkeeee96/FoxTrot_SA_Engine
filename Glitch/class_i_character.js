@@ -7,6 +7,7 @@ var class_i_character =
     [ "clone", "class_i_character.html#acc757aa69d4481932844ed2f6942b09b", null ],
     [ "getCanJump", "class_i_character.html#ac19ebfec3fc17d313825cf673436b8ed", null ],
     [ "getCurrentHealth", "class_i_character.html#a49f2f7e3f7c12a80c1e21f5d0796e10e", null ],
+    [ "getInvincible", "class_i_character.html#a3e7aed6d6d81d7df3ae41c5e98306984", null ],
     [ "getIsDead", "class_i_character.html#a442a0db016bff89c5d9585f6d98e6686", null ],
     [ "getSpawnX", "class_i_character.html#a03859c8360b4a51ca75454158b44dcce", null ],
     [ "getSpawnY", "class_i_character.html#a6439284844a1dad9eada1b6408949bd7", null ],

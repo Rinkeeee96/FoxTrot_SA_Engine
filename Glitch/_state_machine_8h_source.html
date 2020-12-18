@@ -84,7 +84,7 @@ $(document).ready(function(){initNavTree('_state_machine_8h_source.html',''); in
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_state_machine.html#a004f58e7ba10b2795b9204f8aecb018d">   30</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#a004f58e7ba10b2795b9204f8aecb018d">setGlobalState</a>(unique_ptr&lt;<a class="code" href="class_i_state.html">IState&lt;T&gt;</a>&gt; _globalState, T&amp; entity) {</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        this-&gt;globalState = move(_globalState);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        this-&gt;currentState-&gt;entry(entity);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        this-&gt;globalState-&gt;entry(entity);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    };</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_state_machine.html#a3bae0a6d138a9a8b4f7144a67c5dd2cc">   37</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#a3bae0a6d138a9a8b4f7144a67c5dd2cc">update</a>(T&amp; entity) {</div>

@@ -3,6 +3,7 @@ var class_level =
     [ "Level", "class_level.html#afaa92eb87a42590e9a3e4d6f8649c6c9", null ],
     [ "addHealthHud", "class_level.html#aaff15cd6338ab657d7f71e0480b7ec42", null ],
     [ "addHuds", "class_level.html#ac50a040b28987b19a4eec0e0e5761f1d", null ],
+    [ "getWin", "class_level.html#a49c5e682bf74fca68ff7d54efa50ad6d", null ],
     [ "increaseTotalGameScore", "class_level.html#a9a57b70efbc96cc30e77d8e90c1e058c", null ],
     [ "loadScoreBoard", "class_level.html#a7760b240af4f5205e51a3cf2f087aaa9", null ],
     [ "onAttach", "class_level.html#a90e2bb29f3efd410e60ea5bb1e5f72b5", null ],

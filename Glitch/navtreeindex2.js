@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"class_overworld.html#a6a79df3c9db30d56c21b19a13591b26f":[0,0,54,14],
+"class_overworld.html#a9d92673d6c0c10e2dcb8be3b07742f5f":[0,0,54,15],
 "class_overworld.html#aad6e59ddac59d435205299dbec1b5863":[0,0,54,16],
 "class_overworld.html#ab39bad533594f5aa573333ad6a74e15a":[0,0,54,4],
 "class_overworld.html#ac444fdeb4daf94c9224ae2081b117cdd":[0,0,54,9],
