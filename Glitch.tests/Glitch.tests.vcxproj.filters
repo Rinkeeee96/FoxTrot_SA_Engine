@@ -86,5 +86,11 @@
     <ClInclude Include="GlitchTests\src\mocks\MockSlime.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GlitchTests\src\mocks\MockObj.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GlitchTests\src\mocks\MockState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -2,83 +2,13 @@
 #include "CppUnitTest.h"
 #include <Game/States/IState.h>
 #include <Game/States/StateMachine.h>
+#include "../mocks/MockObj.h"
+#include "../mocks/MockState.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTestsGlitch
 {
-	class MockObj{ };
-
-	class mockFirstState : public IState<MockObj> {
-	private:
-		int entryCalls = 0;
-		int executeCalls = 0;
-		int exitCalls = 0;
-	public:
-		~mockFirstState() {}
-		int getEntryCalls() const { return this->entryCalls; }
-		int getExecuteCalls() const { return this->executeCalls; }
-		int getExitCalls() const { return this->exitCalls; }
-
-		void entry(MockObj& entity) override {
-			entryCalls++;
-		}
-
-		virtual void execute(MockObj& entity) override {
-			executeCalls++;
-		}
-
-		virtual void exit(MockObj& entity) override {
-			exitCalls++;
-		}
-	};
-
-	class mockSecondState : public IState<MockObj> {
-	private:
-		int entryCalls = 0;
-		int executeCalls = 0;
-		int exitCalls = 0;
-	public:
-		~mockSecondState() {}
-		int getEntryCalls() const { return this->entryCalls; }
-		int getExecuteCalls() const { return this->executeCalls; }
-		int getExitCalls() const { return this->exitCalls; }
-		
-		void entry(MockObj& entity) override {
-			entryCalls++;
-		}
-
-		virtual void execute(MockObj& entity) override {
-			executeCalls++;
-		}
-
-		virtual void exit(MockObj& entity) override {
-			exitCalls++;
-		}
-	};
-
-	class mockGlobalState : public IState<MockObj> {
-	private:
-		int entryCalls = 0;
-		int executeCalls = 0;
-		int exitCalls = 0;
-	public:
-		~mockGlobalState() {}
-		int getCalls() const { return this->executeCalls; }
-
-		void entry(MockObj& entity) override {
-			entryCalls++;
-		}
-
-		virtual void execute(MockObj& entity) override {
-			executeCalls++;
-		}
-
-		virtual void exit(MockObj& entity) override {
-			exitCalls++;
-		}
-	};
-
 	TEST_CLASS(StatesTests)
 	{
 	public:
@@ -86,11 +16,11 @@ namespace UnitTestsGlitch
 		{
 			// Arrange
 			MockObj* obj = new MockObj;
-			unique_ptr<mockFirstState> firstState = make_unique<mockFirstState>();
-			unique_ptr<mockSecondState> secondState = make_unique<mockSecondState>();
-			unique_ptr<mockGlobalState> globalState = make_unique<mockGlobalState>();
+			unique_ptr<MockState> firstState = make_unique<MockState>();
+			unique_ptr<MockState> secondState = make_unique<MockState>();
+			unique_ptr<MockState> globalState = make_unique<MockState>();
 
-			mockSecondState* toCheck = secondState.get();
+			MockState* toCheck = secondState.get();
 
 			StateMachine<MockObj> statemachine;
 			statemachine.setCurrentState(std::move(firstState), *obj);
@@ -105,12 +35,12 @@ namespace UnitTestsGlitch
 		{
 			// Arrange
 			MockObj* obj = new MockObj;
-			unique_ptr<mockFirstState> firstState = make_unique<mockFirstState>();
-			unique_ptr<mockSecondState> secondState = make_unique<mockSecondState>();
-			unique_ptr<mockGlobalState> globalState = make_unique<mockGlobalState>();
+			unique_ptr<MockState> firstState = make_unique<MockState>();
+			unique_ptr<MockState> secondState = make_unique<MockState>();
+			unique_ptr<MockState> globalState = make_unique<MockState>();
 
-			mockFirstState* toCheck1 = firstState.get();
-			mockGlobalState* toCheck2 = globalState.get();
+			MockState* toCheck1 = firstState.get();
+			MockState* toCheck2 = globalState.get();
 
 			StateMachine<MockObj> statemachine;
 			statemachine.setCurrentState(std::move(firstState), *obj);
@@ -126,9 +56,9 @@ namespace UnitTestsGlitch
 		{
 			// Arrange
 			MockObj* obj = new MockObj;
-			unique_ptr<mockFirstState> firstState = make_unique<mockFirstState>();
-			unique_ptr<mockSecondState> secondState = make_unique<mockSecondState>();
-			unique_ptr<mockGlobalState> globalState = make_unique<mockGlobalState>();
+			unique_ptr<MockState> firstState = make_unique<MockState>();
+			unique_ptr<MockState> secondState = make_unique<MockState>();
+			unique_ptr<MockState> globalState = make_unique<MockState>();
 			StateMachine<MockObj> statemachine;
 			// Act
 			statemachine.setCurrentState(std::move(firstState), *obj);
@@ -136,7 +66,7 @@ namespace UnitTestsGlitch
 
 			IState<MockObj>& result = statemachine.getGlobalState();
 			// Assert
-			if (typeid(mockGlobalState) == typeid(result)) {
+			if (typeid(MockState) == typeid(result)) {
 				Assert::IsTrue(true);
 			}
 			else {
@@ -148,10 +78,10 @@ namespace UnitTestsGlitch
 		{
 			// Arrange
 			MockObj* obj = new MockObj;
-			unique_ptr<mockFirstState> firstState = make_unique<mockFirstState>();
-			unique_ptr<mockSecondState> secondState = make_unique<mockSecondState>();
-			unique_ptr<mockGlobalState> globalState = make_unique<mockGlobalState>();
-			mockFirstState* toCheck = firstState.get();
+			unique_ptr<MockState> firstState = make_unique<MockState>();
+			unique_ptr<MockState> secondState = make_unique<MockState>();
+			unique_ptr<MockState> globalState = make_unique<MockState>();
+			MockState* toCheck = firstState.get();
 			StateMachine<MockObj> statemachine;
 			statemachine.setGlobalState(std::move(globalState), *obj);
 			// Act
