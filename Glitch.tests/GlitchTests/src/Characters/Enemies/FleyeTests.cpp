@@ -11,11 +11,6 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTestsGlitch
 {
-	/*
-		TODO:
-		bool onCollisionBeginEvent(const Event& event);
-		void onUpdate() -> AI
-	*/
 	TEST_CLASS(EnemyTests)
 	{
 	public:

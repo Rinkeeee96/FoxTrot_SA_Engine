@@ -13,11 +13,6 @@ namespace UnitTestsGlitch
 {
 	TEST_CLASS(EnemyTests)
 	{
-		/*
-			TODO:
-			bool onCollisionBeginEvent(const Event& event);
-			void onUpdate() -> AI
-		*/
 	public:
 		TEST_METHOD(Jumpkin_On_Update_Player_Left_Should_Turn_Left)
 		{

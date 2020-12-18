@@ -13,11 +13,6 @@ namespace UnitTestsGlitch
 {
 	TEST_CLASS(EnemyTests)
 	{
-		/*
-			TODO:
-			bool onCollisionBeginEvent(const Event& event);
-			void onUpdate() -> AI
-		*/
 	public:
 		TEST_METHOD(Slime_On_Update_Player_Beneath_Should_Go_Down)
 		{
