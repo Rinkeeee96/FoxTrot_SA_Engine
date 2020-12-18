@@ -35,8 +35,7 @@ namespace UnitTestsGlitch
 
 			shared_ptr<Fleye> fleye = make_shared<MockFleye>(1, scene->getEventDispatcher());
 			fleye->setPositionX(100);
-			fleye->setPositionY(600);
-			fleye->setStatic(true);
+			fleye->setPositionY(100);
 
 			auto result = fleye->buildSpritemap(1);
 			map<SpriteState, shared_ptr<SpriteObject>>::iterator it = result.begin();
@@ -51,7 +50,7 @@ namespace UnitTestsGlitch
 
 			shared_ptr <Player> player = make_shared<MockPlayer>(2, scene->getEventDispatcher());
 			player->setPositionX(100);
-			player->setPositionY(200);
+			player->setPositionY(400);
 
 			result = player->buildSpritemap(1);
 			it = result.begin();
@@ -140,21 +139,117 @@ namespace UnitTestsGlitch
 		TEST_METHOD(Fleye_On_Update_Player_Left_Should_Go_Left)
 		{
 			// Arrange
+			unique_ptr<Engine> engine = make_unique<Engine>();
+			CommandBuilder commandBuilder;
+			engine->start();
+			engine->useCustomCommandInvoker(commandBuilder.readBindingsAndCreateInvoker());
+
+			shared_ptr<Savegame> savegame = shared_ptr<Savegame>(new Savegame());
+			savegame->setCurrentGameData(1);
+			shared_ptr<SceneStateMachine> statemachine = make_shared<SceneStateMachine>(engine, savegame);
+
+			unique_ptr<MockScene> scene = make_unique<MockScene>();
+
+			shared_ptr<Fleye> fleye = make_shared<MockFleye>(1, scene->getEventDispatcher());
+			fleye->setPositionX(300);
+			fleye->setPositionY(100);
+
+			auto result = fleye->buildSpritemap(1);
+			map<SpriteState, shared_ptr<SpriteObject>>::iterator it = result.begin();
+			while (it != result.end())
+			{
+				fleye->registerSprite(it->first, it->second);
+				it++;
+			}
+			fleye->changeToState(0);
+
+			float oldX = fleye->getPositionX();
+
+			shared_ptr <Player> player = make_shared<MockPlayer>(2, scene->getEventDispatcher());
+			player->setPositionX(200);
+			player->setPositionY(200);
+
+			result = player->buildSpritemap(1);
+			it = result.begin();
+			while (it != result.end())
+			{
+				player->registerSprite(it->first, it->second);
+				it++;
+			}
+			player->changeToState(0);
+
+			fleye->setPlayer(player.get());
+
+			scene->addNewObjectToLayer(1, fleye, true, false);
+			scene->addNewObjectToLayer(1, player, true, false);
+			engine->insertScene(move(scene));
+			engine->setCurrentScene(1);
 
 			// Act
+			engine->update();
+			fleye->onUpdate(1);
+			engine->update();
 
 			// Assert
-			Assert::IsTrue(false);
+			Assert::IsTrue(fleye->getPositionX() < oldX);
 		}
 
 		TEST_METHOD(Fleye_On_Update_Player_Right_Should_Go_Right)
 		{
 			// Arrange
+			unique_ptr<Engine> engine = make_unique<Engine>();
+			CommandBuilder commandBuilder;
+			engine->start();
+			engine->useCustomCommandInvoker(commandBuilder.readBindingsAndCreateInvoker());
+
+			shared_ptr<Savegame> savegame = shared_ptr<Savegame>(new Savegame());
+			savegame->setCurrentGameData(1);
+			shared_ptr<SceneStateMachine> statemachine = make_shared<SceneStateMachine>(engine, savegame);
+
+			unique_ptr<MockScene> scene = make_unique<MockScene>();
+
+			shared_ptr<Fleye> fleye = make_shared<MockFleye>(1, scene->getEventDispatcher());
+			fleye->setPositionX(300);
+			fleye->setPositionY(100);
+
+			auto result = fleye->buildSpritemap(1);
+			map<SpriteState, shared_ptr<SpriteObject>>::iterator it = result.begin();
+			while (it != result.end())
+			{
+				fleye->registerSprite(it->first, it->second);
+				it++;
+			}
+			fleye->changeToState(0);
+
+			float oldX = fleye->getPositionX();
+
+			shared_ptr <Player> player = make_shared<MockPlayer>(2, scene->getEventDispatcher());
+			player->setPositionX(400);
+			player->setPositionY(200);
+
+			result = player->buildSpritemap(1);
+			it = result.begin();
+			while (it != result.end())
+			{
+				player->registerSprite(it->first, it->second);
+				it++;
+			}
+			player->changeToState(0);
+
+			fleye->setPlayer(player.get());
+
+			scene->addNewObjectToLayer(1, fleye, true, false);
+			scene->addNewObjectToLayer(1, player, true, false);
+			engine->insertScene(move(scene));
+			engine->setCurrentScene(1);
 
 			// Act
+			engine->update();
+			fleye->onUpdate(1);
+			engine->update();
 
 			// Assert
-			Assert::IsTrue(false);
+			Assert::IsTrue(fleye->getPositionX() > oldX);
 		}
 
 		TEST_METHOD(Fleye_On_Update_Player_In_Sight_Should_Move)
@@ -173,8 +268,7 @@ namespace UnitTestsGlitch
 
 			shared_ptr<Fleye> fleye = make_shared<MockFleye>(1, scene->getEventDispatcher());
 			fleye->setPositionX(300);
-			fleye->setPositionY(600);
-			fleye->setStatic(true);
+			fleye->setPositionY(100);
 
 			auto result = fleye->buildSpritemap(1);
 			map<SpriteState, shared_ptr<SpriteObject>>::iterator it = result.begin();
@@ -188,7 +282,7 @@ namespace UnitTestsGlitch
 			float oldX = fleye->getPositionX();
 
 			shared_ptr <Player> player = make_shared<MockPlayer>(2, scene->getEventDispatcher());
-			player->setPositionX(100);
+			player->setPositionX(200);
 			player->setPositionY(200);
 
 			result = player->buildSpritemap(1);

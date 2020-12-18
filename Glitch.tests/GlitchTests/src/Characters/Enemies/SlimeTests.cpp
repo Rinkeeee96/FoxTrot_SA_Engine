@@ -34,9 +34,9 @@ namespace UnitTestsGlitch
 			unique_ptr<MockScene> scene = make_unique<MockScene>();
 
 			shared_ptr<Slime> slime = make_shared<MockSlime>(1, scene->getEventDispatcher());
-			slime->setPositionX(300);
-			slime->setPositionY(200);
-			slime->setStatic(true);
+			slime->setPositionX(100);
+			slime->setPositionY(100);
+			slime->setGravity(0);
 
 			auto result = slime->buildSpritemap(1);
 			map<SpriteState, shared_ptr<SpriteObject>>::iterator it = result.begin();
@@ -49,7 +49,7 @@ namespace UnitTestsGlitch
 
 			float oldY = slime->getPositionY();
 
-			shared_ptr<Player> player = make_shared<MockPlayer>(2, scene->getEventDispatcher());
+			shared_ptr <Player> player = make_shared<MockPlayer>(2, scene->getEventDispatcher());
 			player->setPositionX(100);
 			player->setPositionY(400);
 
