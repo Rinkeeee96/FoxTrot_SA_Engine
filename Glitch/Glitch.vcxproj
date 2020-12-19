@@ -170,7 +170,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Game\Characters\Enemies\Scryo.h" />
+    <ClInclude Include="Game\Characters\Enemies\Skryo.h" />
     <ClInclude Include="Game\Commands\Builder\CommandBuilder.h" />
     <ClInclude Include="Game\Commands\CharacterCommands\CharacterCommands.h" />
     <ClInclude Include="Game\Commands\CharacterCommands\GodmodeCommand.h" />
@@ -248,7 +248,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Scenes\Shop\Shop.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Game\Characters\Enemies\Scryo.cpp" />
+    <ClCompile Include="Game\Characters\Enemies\Skryo.cpp" />
     <ClCompile Include="Game\Commands\Builder\CommandBuilder.cpp" />
     <ClCompile Include="Game\Commands\Creator\CharacterCommands\CharacterCommandFactory.cpp" />
     <ClCompile Include="Game\Commands\Creator\GlobalCommands\GlobalCommandFactory.cpp" />

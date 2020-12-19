@@ -37,13 +37,13 @@
          "image":"..\/..\/Sprites\/Enemies\/Fleye\/Fleye_idle.png",
          "imageheight":42,
          "imagewidth":42
-        }, 
-        {
-         "id":3,
-         "image":"..\/..\/Sprites\/Enemies\/Scryo\/Scryo.png",
-         "imageheight":35,
-         "imagewidth":35
-        }],
+        },
+  {
+    "id": 3,
+    "image": "..\/..\/Sprites\/Enemies\/Skryo\/Skryo.png",
+    "imageheight": 35,
+    "imagewidth": 35
+  }],
  "tilewidth":42,
  "type":"tileset",
  "version":1.4

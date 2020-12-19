@@ -4,7 +4,7 @@
 #define FLEYE_RANGE 900
 
 // Scryo
-#define SCRYO_RANGE 900
+#define SKRYO_RANGE 900
 
 // Jumpkin
 #define JUMPKIN_HORIZONTAL_RANGE 900

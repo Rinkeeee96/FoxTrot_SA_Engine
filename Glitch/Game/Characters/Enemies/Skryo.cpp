@@ -1,12 +1,12 @@
 #include "pch.h"
-#include "Scryo.h"
+#include "Skryo.h"
 
 /// @brief
 /// Checks if the player is within range and acts accordingly
-/// If the player is below the Scryo, it will swoop down towards the player
+/// If the player is below the Skryo, it will swoop down towards the player
 /// @param deltaTime
 /// DeltaTime should be used when calculating timers/manual movements
-void Scryo::onUpdate(float deltaTime) {
+void Skryo::onUpdate(float deltaTime) {
 	if (setup) {
 		startY = this->getPositionY();
 		setup = false;
@@ -22,7 +22,7 @@ void Scryo::onUpdate(float deltaTime) {
 	float distanceFromPlayer = sqrt(pow(xPositionDifference, 2) + pow(yPositionDifference, 2));
 
 	// Calculates if the enemy is in range of the player
-	bool playerIsInRange = distanceFromPlayer <= SCRYO_RANGE;
+	bool playerIsInRange = distanceFromPlayer <= SKRYO_RANGE;
 
 	// Checks if the player is lower than the player
 	bool playerIsLowerThanMe = this->getPositionY() < player->getPositionY();
@@ -54,13 +54,13 @@ void Scryo::onUpdate(float deltaTime) {
 }
 
 /// @brief
-/// Builds the spritemap for the Scryo
-map<SpriteState, shared_ptr<SpriteObject>> Scryo::buildSpritemap(int textureId) {
+/// Builds the spritemap for the Skryo
+map<SpriteState, shared_ptr<SpriteObject>> Skryo::buildSpritemap(int textureId) {
 	std::map<SpriteState, shared_ptr<SpriteObject>> spriteMap;
 
-	auto scryoDefault = shared_ptr<SpriteObject>(new SpriteObject(textureId++, 35, 35, 1, 200, "Assets/Sprites/Enemies/Scryo/Scryo.png"));
-	auto scryoRight = shared_ptr<SpriteObject>(new SpriteObject(textureId++, 35, 35, 16, 200, "Assets/Sprites/Enemies/Scryo/Scryo_right.png"));
-	auto scryoLeft = shared_ptr<SpriteObject>(new SpriteObject(textureId++, 35, 35, 16, 200, "Assets/Sprites/Enemies/Scryo/Scryo_left.png"));
+	auto scryoDefault = shared_ptr<SpriteObject>(new SpriteObject(textureId++, 35, 35, 1, 200, "Assets/Sprites/Enemies/Skryo/Skryo.png"));
+	auto scryoRight = shared_ptr<SpriteObject>(new SpriteObject(textureId++, 35, 35, 16, 200, "Assets/Sprites/Enemies/Skryo/Skryo_right.png"));
+	auto scryoLeft = shared_ptr<SpriteObject>(new SpriteObject(textureId++, 35, 35, 16, 200, "Assets/Sprites/Enemies/Skryo/Skryo_left.png"));
 
 	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::DEFAULT, scryoDefault));
 	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::RUN_RIGHT, scryoRight));
