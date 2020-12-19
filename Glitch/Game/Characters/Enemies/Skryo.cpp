@@ -12,10 +12,10 @@ void Skryo::onUpdate(float deltaTime) {
 		setup = false;
 	}
 
-	float scryoMiddleXPosition = this->getPositionX() + this->getWidth() / 2;
+	float skryoMiddleXPosition = this->getPositionX() + this->getWidth() / 2;
 
 	// Differences are calculated from the middle position of the object
-	float xPositionDifference = abs((player->getPositionX() + player->getWidth() / 2) - scryoMiddleXPosition);
+	float xPositionDifference = abs((player->getPositionX() + player->getWidth() / 2) - skryoMiddleXPosition);
 	float yPositionDifference = abs((player->getPositionY() + player->getHeight() / 2) - (this->getPositionY() + this->getHeight() / 2));
 
 	// Distance is calculated using the Pythagorean theorem from the middle of both objects
@@ -28,7 +28,7 @@ void Skryo::onUpdate(float deltaTime) {
 	bool playerIsLowerThanMe = this->getPositionY() < player->getPositionY();
 
 	// Checks if the player is within the same X coords as the enemy
-	bool playerIsWithinXLevelRange = (scryoMiddleXPosition >= player->getPositionX()) && (scryoMiddleXPosition <= (player->getPositionX() + player->getWidth()));
+	bool playerIsWithinXLevelRange = (skryoMiddleXPosition >= player->getPositionX()) && (skryoMiddleXPosition <= (player->getPositionX() + player->getWidth()));
 
 	// Direction is based on the x position of the player
 	Direction direction = player->getPositionX() < this->positionX ? Direction::LEFT : Direction::RIGHT;
@@ -58,13 +58,13 @@ void Skryo::onUpdate(float deltaTime) {
 map<SpriteState, shared_ptr<SpriteObject>> Skryo::buildSpritemap(int textureId) {
 	std::map<SpriteState, shared_ptr<SpriteObject>> spriteMap;
 
-	auto scryoDefault = shared_ptr<SpriteObject>(new SpriteObject(textureId++, 35, 35, 1, 200, "Assets/Sprites/Enemies/Skryo/Skryo.png"));
-	auto scryoRight = shared_ptr<SpriteObject>(new SpriteObject(textureId++, 35, 35, 16, 200, "Assets/Sprites/Enemies/Skryo/Skryo_right.png"));
-	auto scryoLeft = shared_ptr<SpriteObject>(new SpriteObject(textureId++, 35, 35, 16, 200, "Assets/Sprites/Enemies/Skryo/Skryo_left.png"));
+	auto skryoDefault = shared_ptr<SpriteObject>(new SpriteObject(textureId++, 35, 35, 1, 200, "Assets/Sprites/Enemies/Skryo/Skryo.png"));
+	auto skryoRight = shared_ptr<SpriteObject>(new SpriteObject(textureId++, 35, 35, 16, 200, "Assets/Sprites/Enemies/Skryo/Skryo_right.png"));
+	auto skryoLeft = shared_ptr<SpriteObject>(new SpriteObject(textureId++, 35, 35, 16, 200, "Assets/Sprites/Enemies/Skryo/Skryo_left.png"));
 
-	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::DEFAULT, scryoDefault));
-	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::RUN_RIGHT, scryoRight));
-	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::RUN_LEFT, scryoLeft));
+	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::DEFAULT, skryoDefault));
+	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::RUN_RIGHT, skryoRight));
+	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::RUN_LEFT, skryoLeft));
 
 	return spriteMap;
 }
