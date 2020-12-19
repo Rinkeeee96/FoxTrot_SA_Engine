@@ -16,19 +16,19 @@
  "margin":0,
  "name":"Enemies",
  "spacing":0,
- "tilecount":3,
+ "tilecount":4,
  "tiledversion":"1.4.3",
  "tileheight":42,
  "tiles":[
         {
          "id":0,
-         "image":"..\/..\/Sprites\/Enemies\/Slime\/Slime_idle.png",
-         "imageheight":16,
-         "imagewidth":16
+         "image":"..\/..\/Sprites\/Enemies\/Slime\/Slime_default.png",
+         "imageheight":23,
+         "imagewidth":31
         }, 
         {
          "id":1,
-         "image":"..\/..\/Sprites\/Enemies\/Jumpkin\/Jumpkin.png",
+         "image":"..\/..\/Sprites\/Enemies\/Jumpkin\/Jumpkin_default.png",
          "imageheight":40,
          "imagewidth":32
         }, 
@@ -37,6 +37,12 @@
          "image":"..\/..\/Sprites\/Enemies\/Fleye\/Fleye_idle.png",
          "imageheight":42,
          "imagewidth":42
+        }, 
+        {
+         "id":3,
+         "image":"..\/..\/Sprites\/Enemies\/Scryo\/Scryo.png",
+         "imageheight":35,
+         "imagewidth":35
         }],
  "tilewidth":42,
  "type":"tileset",

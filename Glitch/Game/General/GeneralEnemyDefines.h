@@ -3,6 +3,9 @@
 // Fleye
 #define FLEYE_RANGE 900
 
+// Scryo
+#define SCRYO_RANGE 900
+
 // Jumpkin
 #define JUMPKIN_HORIZONTAL_RANGE 900
 #define JUMPKIN_VERTICAL_RANGE 150

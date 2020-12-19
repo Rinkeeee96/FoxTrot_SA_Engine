@@ -4,6 +4,7 @@
 #include "Game/Ground/IGround.h"
 #include "Game/Ground/BaseGround.h"
 #include "Game/Characters/Enemies/Slime.h"
+#include "Game/Characters/Enemies/Scryo.h"
 #include "Game/Factories/CharacterFactory.h"
 
 LevelBuilder::LevelBuilder(unique_ptr<Engine>& _engine, int levelId, shared_ptr<SceneStateMachine> _statemachine)
@@ -375,6 +376,8 @@ void LevelBuilder::initFactory() {
 	characterFactory->registerCharacter("fleye", shared_ptr<Fleye>(new Fleye(bLevel->getEventDispatcher())), &textureId);
 
 	characterFactory->registerCharacter("jumpkin", shared_ptr<Jumpkin>(new Jumpkin(bLevel->getEventDispatcher())), &textureId);
+
+	characterFactory->registerCharacter("scryo", shared_ptr<Scryo>(new Scryo(bLevel->getEventDispatcher())), &textureId);
 
 	std::map<std::string, std::map<SpriteState, shared_ptr<SpriteObject>>> spriteObjectMap;
 }
