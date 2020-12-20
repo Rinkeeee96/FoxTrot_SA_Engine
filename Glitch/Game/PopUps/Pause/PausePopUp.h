@@ -5,8 +5,8 @@
 class PausePopUp : public IPopup
 {
 public:
-	PausePopUp(EventDispatcher& _dispacther, shared_ptr<SceneStateMachine> _stateMachine)
-		: IPopup(_dispacther, _stateMachine) {
+	PausePopUp(unique_ptr<Engine>& _engine, EventDispatcher& _dispacther, shared_ptr<SceneStateMachine> _stateMachine)
+		: IPopup(_engine, _dispacther, _stateMachine) {
 	};
 	// Inherited via BasePopup
 	void setupPopUp() override;

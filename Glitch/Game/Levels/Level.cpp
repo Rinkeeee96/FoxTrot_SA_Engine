@@ -33,8 +33,8 @@ void Level::start(bool playSound) {
 	inventoryPopupZIndex = this->getHighestLayerIndex() + 1;
 	pausePopupZIndex = inventoryPopupZIndex + 1;
 
-	this->addLayerOnZIndex(inventoryPopupZIndex, shared_ptr<Layer>(new InventoryPopup(this->dispatcher, this->stateMachine)));
-	this->addLayerOnZIndex(pausePopupZIndex, shared_ptr<Layer>(new PausePopUp(this->dispatcher, this->stateMachine)));
+	this->addLayerOnZIndex(inventoryPopupZIndex, shared_ptr<Layer>(new InventoryPopup(this->engine ,this->dispatcher, this->stateMachine)));
+	this->addLayerOnZIndex(pausePopupZIndex, shared_ptr<Layer>(new PausePopUp(this->engine, this->dispatcher, this->stateMachine)));
 
 	commandBuilder->linkCommandToToggle(gameInvoker, inventoryPopupZIndex, "inventory");
 	commandBuilder->linkCommandToToggle(gameInvoker, pausePopupZIndex, "pause");

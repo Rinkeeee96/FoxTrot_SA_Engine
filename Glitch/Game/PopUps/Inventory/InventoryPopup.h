@@ -6,8 +6,8 @@
 class InventoryPopup : public IPopup
 {
 public:
-	InventoryPopup(EventDispatcher& _dispatcher, shared_ptr<SceneStateMachine> _stateMachine)
-		: IPopup(_dispatcher, _stateMachine) {};
+	InventoryPopup(unique_ptr<Engine>& _engine, EventDispatcher& _dispatcher, shared_ptr<SceneStateMachine> _stateMachine)
+		: IPopup(_engine, _dispatcher, _stateMachine) {};
 
 	void setupPopUp() override;
 	virtual void cleanPopUp() override;

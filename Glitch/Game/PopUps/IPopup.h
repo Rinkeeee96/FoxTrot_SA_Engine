@@ -6,8 +6,8 @@
 class IPopup : public Layer
 {
 public:
-	IPopup(EventDispatcher& _dispatcher, shared_ptr<SceneStateMachine> _stateMachine) :
-		dispatcher(_dispatcher), stateMachine(_stateMachine) {};
+	IPopup(unique_ptr<Engine>& _engine ,EventDispatcher& _dispatcher, shared_ptr<SceneStateMachine> _stateMachine) :
+		engine{ _engine },dispatcher(_dispatcher), stateMachine(_stateMachine) {};
 
 	virtual void setupPopUp() = 0;
 	virtual void cleanPopUp() = 0;
@@ -16,6 +16,7 @@ public:
 	virtual void onDetach() override = 0;
 
 protected:
+	unique_ptr<Engine>& engine;
 	EventDispatcher& dispatcher;
 	shared_ptr<SceneStateMachine> stateMachine;
 };
