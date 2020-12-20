@@ -14,15 +14,25 @@ void HelpMenu::setupPopUp()
 
 		for (pair<KeyCode, string> command : invoker->getPlayerCommands())
 		{
-			Text text(textId--, 
-				new ColoredText(command.second,
+			const KeyCode& keyCode = command.first;
+			const string& identifier = command.second;
+
+			Text keycodeString(textId--, 
+				new ColoredText(keycodeStringMap[keyCode],
 					Color(0, 0, 0), 
 					false
 				),
 				200, 50, WINDOW_WIDTH_CENTER - 100, WINDOW_HEIGHT - (helpCommandStartOffset + 50)
 			);
-
-			PrimaryButton keycodeBtn{ buttonId--, "command.first",[]() {}, this->dispatcher }
+			// TODO make this a description (prob in json as attribute?)
+			Text description(textId--,
+				new ColoredText(keycodeStringMap[keyCode],
+					Color(0, 0, 0),
+					false
+				),
+				200, 50, WINDOW_WIDTH_CENTER - 100, WINDOW_HEIGHT - (helpCommandStartOffset + 50)
+			);
+			
 		};
 	}
 
