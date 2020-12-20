@@ -33,12 +33,8 @@ void Level::start(bool playSound) {
 	inventoryPopupZIndex = this->getHighestLayerIndex() + 1;
 	pausePopupZIndex = inventoryPopupZIndex + 1;
 
-	inventoryPopup = shared_ptr<InventoryPopup>(new InventoryPopup(this->dispatcher, this->stateMachine));
-
-	this->addLayerOnZIndex(inventoryPopupZIndex, inventoryPopup);
+	this->addLayerOnZIndex(inventoryPopupZIndex, shared_ptr<Layer>(new InventoryPopup(this->dispatcher, this->stateMachine)));
 	this->addLayerOnZIndex(pausePopupZIndex, shared_ptr<Layer>(new PausePopUp(this->dispatcher, this->stateMachine)));
-
-	cout << "start" << endl;
 
 	commandBuilder->linkCommandToToggle(gameInvoker, inventoryPopupZIndex, "inventory");
 	commandBuilder->linkCommandToToggle(gameInvoker, pausePopupZIndex, "pause");
@@ -46,7 +42,6 @@ void Level::start(bool playSound) {
 	player->respawn();
 	player->setCurrentHealth(3);
 	player->setTotalHealth(3);
-	player->inventory = savegame->getCurrentGameData().characterData.inventory;
 	this->addHuds();
 	loadScoreBoard();
 	this->win = false;
@@ -66,8 +61,6 @@ void Level::start(bool playSound) {
 void Level::onUpdate(float deltaTime)
 {
 	this->addHuds();
-
-	if (player && inventoryPopup)inventoryPopup->changeCoinCount(player->inventory.coins);
 
 	updateScoreBoard();
 
@@ -122,9 +115,6 @@ void Level::onUpdate(float deltaTime)
 // Destroys player commands and calls scene base
 void Level::onDetach()
 {
-	SaveGameData save = savegame->getCurrentGameData();
-	save.characterData.inventory = player->inventory;
-	savegame->saveCurrentGameData(save);
 	gameInvoker->destroyPlayercommands();
 
 	Scene::onDetach();

@@ -3,7 +3,6 @@
 #include "Game/General/GeneralGameDefines.h"
 
 /// @brief Struct for item data containing itemName and count
-
 struct Item
 {
 	string itemName;
@@ -13,8 +12,6 @@ struct Item
 /// @brief Struct for inventory containing a vector of Items
 struct Inventory
 {
-	int coins = 0;
-
 	vector<Item> items;
 };
 
