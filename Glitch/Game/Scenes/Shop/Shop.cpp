@@ -45,9 +45,45 @@ void Shop::loadBackground()
 {
 	shared_ptr<SpriteObject> BG_LAYER_0 = shared_ptr<SpriteObject>(new SpriteObject(-1500, 1080, 1920, 1, 0, "Assets/Shop/Shop.png"));
 	shared_ptr<SpriteObject> DialogBox = shared_ptr<SpriteObject>(new SpriteObject(-1502, 170, 455, 1, 0, "Assets/Shop/Dialogbox1.png"));
+	shared_ptr<SpriteObject> coin = shared_ptr<SpriteObject>(new SpriteObject(-40003, 887, 885, 1, 1, "Assets/Inventory/coin.png"));
 
-	shared_ptr<Text> level1TextBtn = shared_ptr<Text>(new Text(2, new ColoredText("How can I help you today?", Color(0, 0, 0)), 400, 100, 760, 865));
+	shared_ptr<Text> level1TextBtn = shared_ptr<Text>(new Text(2, new ColoredText("How can I help you today?", Color(0, 0, 0)), 400, 100, 840, 865));
 
+	shared_ptr<Text> heartText = shared_ptr<Text>(new Text(3, new ColoredText("Need extra help? Get some extra hearts!", Color(0, 0, 0)), 400, 80, 150, 260));
+	shared_ptr<Text> heartText2 = shared_ptr<Text>(new Text(4, new ColoredText("Will cost only 50 coins!", Color(0, 0, 0)), 400, 80, 150, 450));
+
+	shared_ptr<SpriteObject> HealthHUD = shared_ptr<SpriteObject>(new SpriteObject(-660, 50, 50, 1, 300, "Assets/Sprites/HUD/Full.png"));
+	shared_ptr<Drawable> health = shared_ptr<Drawable>(new Drawable(-700));
+	health->setStatic(true);
+	health->setPositionX(400);
+	health->setPositionY(350);
+	health->setWidth(50);
+	health->setHeight(50);
+	health->setDrawStatic(true);
+	health->registerSprite(SpriteState::DEFAULT, HealthHUD);
+	health->changeToState(SpriteState::DEFAULT);
+
+
+	shared_ptr<Drawable> healthBox = shared_ptr<Drawable>(new Drawable(-991));
+	healthBox->setStatic(true);
+	healthBox->setPositionX(300);
+	healthBox->setPositionY(700);
+	healthBox->setWidth(500);
+	healthBox->setHeight(500);
+	healthBox->registerSprite(SpriteState::DEFAULT, DialogBox);
+	healthBox->changeToState(SpriteState::DEFAULT);
+
+	text = shared_ptr<Text>(new Text(-39001, new ColoredText("10", Color(0, 0, 0), false), 30, 50, 850, 900));
+	text->setDrawStatic(true);
+
+	shared_ptr<Drawable> coinObj = shared_ptr<Drawable>(new Drawable(-39000));
+	coinObj->setHeight(50);
+	coinObj->setWidth(50);
+	coinObj->setDrawStatic(true);
+	coinObj->setPositionX(910);
+	coinObj->setPositionY(900);
+	coinObj->registerSprite(SpriteState::DEFAULT, coin);
+	coinObj->changeToState(SpriteState::DEFAULT);
 
 	shared_ptr<Drawable> layer0 = shared_ptr<Drawable>(new Drawable(-992));
 	layer0->setStatic(true);
@@ -70,6 +106,14 @@ void Shop::loadBackground()
 	addNewObjectToLayer(0, layer0, false, true);
 	addNewObjectToLayer(1, level1TextBtn, false, true);
 	addNewObjectToLayer(1, dialogBox, false, true);
+
+	addNewObjectToLayer(2, text, false, true);
+	addNewObjectToLayer(2, coinObj, false, true);
+	addNewObjectToLayer(2, health, false, true);
+	addNewObjectToLayer(2, healthBox, false, true);
+	addNewObjectToLayer(2, heartText, false, true);
+	addNewObjectToLayer(2, heartText2, false, true);
+
 }
 
 /// @brief Loads the music for this scene
@@ -85,5 +129,10 @@ void Shop::loadButtons()
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
+	shared_ptr<PrimaryButton> buy = shared_ptr<PrimaryButton>(new PrimaryButton(-970, "Buy", buyHeart, this->dispatcher));
+	buy->setPositionX(480);
+	buy->setPositionY(350);
+
 	addNewObjectToLayer(3, stopBtn);
+	addNewObjectToLayer(3, buy);
 }
