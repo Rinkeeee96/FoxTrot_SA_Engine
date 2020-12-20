@@ -15,6 +15,8 @@ public:
 private:
 	Engine* engine;
 
+	void parseKeycodeList(unordered_map<KeyCode, string> parseList, const string& header);
+
 	unordered_map<KeyCode, string> keycodeStringMap {
 		{KeyCode::KEY_UNKNOWN, "Unknown"},
 		{KeyCode::KEY_A, "A"},

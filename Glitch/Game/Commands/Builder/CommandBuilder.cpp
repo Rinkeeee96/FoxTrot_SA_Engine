@@ -43,10 +43,10 @@ player : {
 GameKeypressInvoker* CommandBuilder::readBindingsAndCreateInvoker() {
 	// bindings now belong "hardcoded" to the player
 	unordered_map<KeyCode, string> playerBindings = {
-		{ KeyCode::KEY_A, "moveLeft" },
-		{ KeyCode::KEY_D, "moveRight" },
-		{ KeyCode::KEY_G, "godmode" },
-		{ KeyCode::KEY_SPACE, "jump" }
+		{ KeyCode::KEY_A, "moveLeft"},
+		{ KeyCode::KEY_D, "moveRight"},
+		{ KeyCode::KEY_G, "godmode"},
+		{ KeyCode::KEY_SPACE, "jump"}
 	};
 
 	unordered_map<KeyCode, string> globalBindings = {
