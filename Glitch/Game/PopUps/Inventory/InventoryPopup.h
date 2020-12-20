@@ -1,15 +1,17 @@
 #pragma once
-#include "Game/PopUps/BasePopup.h"
+#include "Game/PopUps/Ipopup.h"
 #include "Game/Scenes/Statemachine/SceneStateMachine.h"
 
 /// @brief Inventory popup class
-class InventoryPopup : public BasePopup
+class InventoryPopup : public IPopup
 {
 public:
 	InventoryPopup(EventDispatcher& _dispatcher, shared_ptr<SceneStateMachine> _stateMachine)
-		: BasePopup(_dispatcher, _stateMachine) {};
+		: IPopup(_dispatcher, _stateMachine) {};
 
-	// Inherited via BasePopup
 	void setupPopUp() override;
+	virtual void cleanPopUp() override;
+	virtual void onAttach() override;
+	virtual void onDetach() override;
 };
 
