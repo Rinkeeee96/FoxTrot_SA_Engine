@@ -205,6 +205,24 @@ void PhysicsFacade::stopObject(int objectId, bool stopVertical, bool stopHorizon
 	body->SetLinearVelocity(vel);
 }
 
+void PhysicsFacade::moveObjectTo(Object& object, float x, float y, float speed)
+{
+	b2Body* body = findBody(object.getObjectId());
+	auto ob = getPhysicsObject(object.getObjectId());
+	if (!body || !ob) return;
+
+	float xModifer = x < object.getPositionX() ? -1 : 1;
+	float yModifer = y < object.getPositionY() ? -1 : 1;
+	float xPositionDifference = abs(x - (object.getPositionX() + object.getWidth() / 2));
+	float yPositionDifference = abs(y - (object.getPositionY() + object.getHeight() / 2));
+
+	float diffTotal = xPositionDifference + yPositionDifference;
+
+	b2Vec2 vel = b2Vec2{ xPositionDifference / diffTotal * speed * xModifer, yPositionDifference / diffTotal * speed * yModifer};
+
+	body->SetLinearVelocity(vel);
+}
+
 /// @brief 
 /// A function to add a linearImpulse to a object for moving to left
 /// @param objectId 

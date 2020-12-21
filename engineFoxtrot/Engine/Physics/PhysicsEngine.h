@@ -19,6 +19,7 @@ public:
 	API bool handleAction(const Event& event);
 	API bool handleUpdateBodyEvent(const Event& event);
 	API bool stopObject(const Event& event);
+	API bool moveObjectTo(const Event& event);
 	API bool onPauseEvent(const Event& event);
 	API void reloadPhysicsObjects();
 

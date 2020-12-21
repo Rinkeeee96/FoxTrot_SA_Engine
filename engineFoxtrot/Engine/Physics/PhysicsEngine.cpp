@@ -2,6 +2,7 @@
 #include "PhysicsFacade.h"
 #include "PhysicsEngine.h"
 #include "Events\Action\ObjectStopEvent.h"
+#include "Events\Action\ObjectMoveToEvent.h"
 #include "Events/Key/KeyPressed.h"
 #include "Events/Action/TogglePause.h"
 
@@ -21,6 +22,7 @@ void PhysicsEngine::start(EventDispatcher& dispatcher) {
 
 	dispatcher.setEventCallback<ActionEvent>(BIND_EVENT_FN(PhysicsEngine::handleAction));
 	dispatcher.setEventCallback<ObjectStopEvent>(BIND_EVENT_FN(PhysicsEngine::stopObject));
+	dispatcher.setEventCallback<ObjectMoveToEvent>(BIND_EVENT_FN(PhysicsEngine::moveObjectTo));
 
 	dispatcher.setEventCallback<TogglePauseEvent>(BIND_EVENT_FN(PhysicsEngine::onPauseEvent));
 	dispatcher.setEventCallback<UpdatePhysicsBodyEvent>(BIND_EVENT_FN(PhysicsEngine::handleUpdateBodyEvent));
@@ -102,6 +104,13 @@ bool PhysicsEngine::handleUpdateBodyEvent(const Event& event) {
 bool PhysicsEngine::stopObject(const Event& event) {
 	auto& e = static_cast<const ObjectStopEvent&>(event);
 	physicsFacade->stopObject(e.getObjectId(), e.getStopVertical(), e.getStopHorizontal());
+	return true;
+}
+
+bool PhysicsEngine::moveObjectTo(const Event& event)
+{
+	auto& e = static_cast<const ObjectMoveToEvent&>(event);
+	physicsFacade->moveObjectTo(e.getObject(), e.getMoveToX(), e.getMoveToY(), e.getSpeed());
 	return true;
 }
 

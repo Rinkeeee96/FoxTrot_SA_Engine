@@ -51,6 +51,7 @@ public:
 	API CollisionStruct getObjectsByFixture(b2Fixture* fixture1, b2Fixture* fixture2);
 	API void update() override;
 	API void stopObject(int objectId, bool stopVertical, bool stopHorizontal);
+	API void moveObjectTo(Object& object, float x, float y, float speed);
 	API void cleanMap();
 
 

@@ -25,6 +25,7 @@ void Skryo::onUpdate(float deltaTime) {
 	if (playerIsInRange && !dashing) {
 		dashTimer += deltaTime;
 		if (dashTimer >= SKRYO_DASH_COOLDOWN_TIME) {
+			dispatcher.dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->getObjectId(), true, true));
 			dashing = true;
 			dashTimer = 0;
 		}
@@ -37,9 +38,7 @@ void Skryo::onUpdate(float deltaTime) {
 		}
 		if (dashTimer >= SKRYO_DASH_ANIMATION_TIME) {
 			changeToState(direction == Direction::LEFT ? SpriteState::RUN_LEFT : SpriteState::RUN_RIGHT);
-			//dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(direction, this->getObjectId()));
-			this->setYAxisVelocity(100);
-			dispatcher.dispatchEvent<UpdatePhysicsBodyEvent>(UpdatePhysicsBodyEvent{ *this });
+			dispatcher.dispatchEvent<ObjectMoveToEvent>((Event&)ObjectMoveToEvent(*this, player->getPositionX(), player->getPositionY(), this->speed));
 			dashTimer = 0;
 			dashing = false;
 		}
