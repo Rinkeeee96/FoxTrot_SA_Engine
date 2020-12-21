@@ -17,5 +17,9 @@ private:
 	void loadMusic();
 	void loadButtons();
 	void loadSaveGame();
-	void loadAchievements();
+
+	function<void(void)> onStopBtnClick = [this]() {
+		moveToNextScene = true;
+		nextScene = "MainMenu";
+	};
 };

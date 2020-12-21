@@ -9,3 +9,4 @@
 #include "./Credits/CreditsScene.h"
 #include "./Story/ChapterOneScene.h"
 #include "./Shop/Shop.h"
+#include "./MappingScreen/MappingScene.h"

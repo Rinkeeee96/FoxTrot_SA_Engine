@@ -34,6 +34,9 @@ SceneStateMachine::SceneStateMachine(unique_ptr<Engine>& _engine, shared_ptr<Sav
 
 	CreatorImpl <Shop>* shop = new CreatorImpl <Shop>();
 	shop->registerClass("Shop", factory);
+
+	CreatorImpl <MappingScene>* mappingScreen = new CreatorImpl <MappingScene>();
+	mappingScreen->registerClass("MappingScreen", factory);
 }
 
 SceneStateMachine::~SceneStateMachine() {}
