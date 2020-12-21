@@ -2,6 +2,8 @@
 #include "Game/Ground/IGround.h"
 #include <Game/Characters/Player/Player.h>
 
+#define MIN_HEIGHT 500
+
 /// @brief 
 /// "Normal" ground class
 class MovingGround : public IGround {
@@ -50,7 +52,10 @@ public:
 	void setStatic(const bool) override { }
 
 	virtual void onUpdate(float deltaTime) override {
-		this->setPositionY(this->getPositionY() + 1);
+		if (this->getPositionY() - deltaTime * 100 > MIN_HEIGHT) {
+			return;
+		}
+		this->setPositionY(this->getPositionY() - deltaTime * 100);
 		UpdatePhysicsBodyEvent e{ *this };
 		dispatcher.dispatchEvent<UpdatePhysicsBodyEvent>(e);
 	};

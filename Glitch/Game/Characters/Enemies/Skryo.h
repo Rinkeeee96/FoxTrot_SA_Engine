@@ -18,7 +18,6 @@ public:
 	shared_ptr<ICharacter> clone(int id) override { return shared_ptr<ICharacter>(new Skryo(id, this->dispatcher)); }
 
 private:
-	bool goingUp = false;
-	bool setup = true;
-	float startY = 0;
+	bool dashing = false;
+	float dashTimer = 0;
 };

@@ -283,6 +283,8 @@ void PhysicsFacade::updatePhysicsBody(int objId, Object& obj) {
 	result->setRestitution(obj.getRestitution());
 	result->setPositionX(obj.getPositionX());
 	result->setPositionY(obj.getPositionY());
+	result->setXAxisVelocity(obj.getXAxisVelocity());
+	result->setYAxisVelocity(obj.getYAxisVelocity());
 
 	auto body = this->findBody(objId);
 	for (b2Fixture* f = body->GetFixtureList(); f; f = f->GetNext())

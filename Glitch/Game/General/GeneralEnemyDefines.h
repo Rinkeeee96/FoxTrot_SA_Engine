@@ -5,6 +5,8 @@
 
 // Skryo
 #define SKRYO_RANGE 900
+#define SKRYO_DASH_ANIMATION_TIME 1.5f
+#define SKRYO_DASH_COOLDOWN_TIME 1.5f
 
 // Jumpkin
 #define JUMPKIN_HORIZONTAL_RANGE 900
