@@ -56,6 +56,7 @@ void HelpMenu::parseKeycodeList(unordered_map<KeyCode, string> parseList, const 
 
 void HelpMenu::cleanPopUp()
 {
+	this->clearObjects();
 }
 
 void HelpMenu::onAttach()
