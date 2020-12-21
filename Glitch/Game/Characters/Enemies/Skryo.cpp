@@ -45,8 +45,8 @@ void Skryo::onUpdate(float deltaTime) {
 	}
 
 	if (!playerIsInRange) {
-		changeToState(SpriteState::DEFAULT);
-		dispatcher.dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->getObjectId(), false));
+		changeToState(direction == Direction::LEFT ? SpriteState::RUN_LEFT : SpriteState::RUN_RIGHT);
+		dispatcher.dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->getObjectId(), true, true));
 	}
 }
 
