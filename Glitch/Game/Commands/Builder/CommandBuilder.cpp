@@ -26,10 +26,9 @@ CommandBuilder::CommandBuilder()
 GameKeypressInvoker* CommandBuilder::readBindingsAndCreateInvoker() {
 
 	bool parseError = false;
-
+	// binding "out" variables
 	unordered_map<KeyCode, string> playerBindings;
 	unordered_map<KeyCode, string> globalBindings;
-	pair<unordered_map<KeyCode, string>, unordered_map<KeyCode, string>> pair;
 
 	GameKeypressInvoker* invoker = nullptr;
 
@@ -38,22 +37,14 @@ GameKeypressInvoker* CommandBuilder::readBindingsAndCreateInvoker() {
 	{
 		stream = fileLoader.readFile(keybindingConfigFilepath);
 		stream >> json;
-		pair = parseKeybindings();
-
-		playerBindings = pair.first;
-		globalBindings = pair.second;
-
+		parseKeybindings(playerBindings, globalBindings);
 		invoker = new GameKeypressInvoker(playerBindings, globalBindings);
 	}
-	catch (const std::exception&)
+	catch (const std::exception& e)
 	{
-		cout << "Keybindings file not found, resetting..." << endl;
-		pair = this->createDefaultbindings();
-		playerBindings = pair.first;
-		globalBindings = pair.second;
-
+		cout <<"Error while parsing keybindings \n" << e.what() << ", resetting..." << endl;
+		this->createDefaultbindings(playerBindings, globalBindings);
 		invoker = new GameKeypressInvoker(playerBindings, globalBindings);
-
 		this->saveKeybindings(invoker);
 	}
 	return invoker;
@@ -69,32 +60,28 @@ void CommandBuilder::parseCommandList(nlohmann::json& subCollection, unordered_m
 	}
 }
 
-pair<unordered_map<KeyCode, string>, unordered_map<KeyCode, string>> CommandBuilder::parseKeybindings()
+void CommandBuilder::parseKeybindings(unordered_map<KeyCode, string>& playerBindings, unordered_map<KeyCode, string>& globalBindings)
 {
-	unordered_map<KeyCode, string> playerBindings;
-	//for (auto& player : json["player"])
-		//playerBindings.emplace(parseCommandList(player));
+	// TODO ensure multiplayer bindings are supported (put this here for future reference)
+	for (auto& player : json["player"])
+		parseCommandList(player, playerBindings);
 	
-	unordered_map<KeyCode, string> globalBindings = parseCommandList(json["global"]);
-
-	return make_pair(playerBindings, globalBindings);
+	parseCommandList(json["global"], globalBindings);
 }
 
-pair<unordered_map<KeyCode, string>, unordered_map<KeyCode, string>> CommandBuilder::createDefaultbindings()
+void CommandBuilder::createDefaultbindings(unordered_map<KeyCode, string>& playerBindings, unordered_map<KeyCode, string>& globalBindings)
 {
-	unordered_map<KeyCode, string> playerBindings = {
+	playerBindings = {
 		{ KeyCode::KEY_A, "moveLeft" },
 		{ KeyCode::KEY_D, "moveRight" },
 		{ KeyCode::KEY_G, "godmode" },
 		{ KeyCode::KEY_SPACE, "jump" }
 	};
 
-	unordered_map<KeyCode, string> globalBindings = {
+	globalBindings = {
 		{ KeyCode::KEY_P, "pause" },
 		{ KeyCode::KEY_I, "inventory" }
 	};
-
-	return make_pair(playerBindings, globalBindings);
 }
 
 /// @brief
