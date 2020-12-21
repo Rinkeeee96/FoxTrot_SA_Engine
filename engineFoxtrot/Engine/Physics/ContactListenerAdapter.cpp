@@ -34,12 +34,10 @@ map<int, vector<Direction>> ContactListenerAdapter::getCollisionDirection(Collis
 	auto obj2 = vector<Direction>();
 
 	if (object1minX > object2maxX) {
-		// right // left
 		obj1.push_back(Direction::RIGHT);
 		obj2.push_back(Direction::LEFT);
 	}
 	else if (object1maxX < object2minX) {
-		// left	// right
 		obj1.push_back(Direction::LEFT);
 		obj2.push_back(Direction::RIGHT);
 	}
@@ -65,7 +63,6 @@ void ContactListenerAdapter::EndContact(b2Contact* contact) {
 
 	auto result = facade->getObjectsByFixture(fixtureOne, fixtureTwo);
 	if (result.object1 != nullptr && result.object2 != nullptr) {
-
 		map<int, vector<Direction>> direction = getCollisionDirection(result);
 
 		dispatcher.dispatchEvent<OnCollisionEndEvent>((Event&)OnCollisionEndEvent(result.object1->getObject(), result.object2->getObject(), direction));

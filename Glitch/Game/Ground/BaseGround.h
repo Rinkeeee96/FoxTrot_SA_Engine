@@ -9,6 +9,7 @@ private:
 	EventDispatcher& dispatcher;
 public:
 	BaseGround(EventDispatcher& _dispatcher, const int id) : IGround(id), dispatcher{ _dispatcher } {
+		this->staticObject = BodyType::KINEMATIC;
 		dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(BaseGround::onCollisionBeginEvent));
 	}
 
@@ -46,5 +47,9 @@ public:
 		return true;
 	}
 
-	virtual void onUpdate(float deltaTime) override {};
+	virtual void onUpdate(float deltaTime) override {
+		/*this->setPositionY(this->getPositionY() + 1);
+		UpdatePhysicsBodyEvent e{ *this };
+		dispatcher.dispatchEvent<UpdatePhysicsBodyEvent>(e);*/
+	};
 };

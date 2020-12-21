@@ -29,10 +29,7 @@ float PhysicsBody::getWidth() const { return width; }
 void PhysicsBody::setRestitution(const float r) { this->restitution = r; this->object->setRestitution(r); }
 float PhysicsBody::getRestitution() const { return this->restitution;}
 
-void PhysicsBody::setFriction(const float f) { 
-	this->friction = f;  
-	this->object->setFriction(f);
-}
+void PhysicsBody::setFriction(const float f) { this->object->setFriction(f); }
 float PhysicsBody::getFriction() const { return this->friction; }
 
 void PhysicsBody::setDensity(const float d) { this->density = d;  this->object->setDensity(d);}

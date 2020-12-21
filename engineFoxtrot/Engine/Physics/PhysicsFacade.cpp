@@ -79,10 +79,35 @@ void PhysicsFacade::addStaticObject(shared_ptr<PhysicsBody> object) {
 	groundBodyDef.type = b2_staticBody;
 	b2Body* body = world->CreateBody(&groundBodyDef);
 
-
 	b2PolygonShape groundBox = createShape(object);
 	body->CreateFixture(&groundBox, 0.0f);
 
+	b2FixtureDef fixtureDef;
+	fixtureDef.shape = &groundBox;
+	fixtureDef.density = object->getDensity();
+	fixtureDef.friction = object->getFriction();
+	fixtureDef.restitution = object->getRestitution();
+	if (!object->getRotatable()) body->SetFixedRotation(true);
+	body->CreateFixture(&fixtureDef);
+
+	float posY = object->getPositionY() - object->getHeight() / 2; //Box2d needs the middle position
+	float posX = object->getPositionX() + object->getWidth() / 2; //Box2d needs the middle position
+	groundBodyDef.position.Set(posX, posY);
+
+	bodies.insert(pair<shared_ptr<PhysicsBody>, b2Body*>(object, body));
+}
+
+/// @brief 
+/// A function for register a non static object
+/// @param Object 
+/// The object to register
+void PhysicsFacade::addKinamaticObject(shared_ptr<PhysicsBody> object) {
+	b2BodyDef groundBodyDef;
+	groundBodyDef.type = b2_kinematicBody;
+	b2Body* body = world->CreateBody(&groundBodyDef);
+
+	b2PolygonShape groundBox = createShape(object);
+	body->CreateFixture(&groundBox, 0.0f);
 
 	b2FixtureDef fixtureDef;
 	fixtureDef.shape = &groundBox;
@@ -256,6 +281,8 @@ void PhysicsFacade::updatePhysicsBody(int objId, Object& obj) {
 	result->setDensity(obj.getDensity());
 	result->setFriction(obj.getFriction());
 	result->setRestitution(obj.getRestitution());
+	result->setPositionX(obj.getPositionX());
+	result->setPositionY(obj.getPositionY());
 
 	auto body = this->findBody(objId);
 	for (b2Fixture* f = body->GetFixtureList(); f; f = f->GetNext())
@@ -264,4 +291,7 @@ void PhysicsFacade::updatePhysicsBody(int objId, Object& obj) {
 		f->SetFriction(obj.getFriction());
 		f->SetRestitution(obj.getRestitution());
 	}
+	b2Vec2 vel = body->GetLinearVelocity();
+	vel.y = 1;
+	body->SetLinearVelocity(vel);
 }
