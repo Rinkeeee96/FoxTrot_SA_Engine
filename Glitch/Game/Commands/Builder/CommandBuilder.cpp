@@ -191,6 +191,6 @@ void CommandBuilder::parseCollectionToJson(nlohmann::json& json, unordered_map<K
 		const string& identifier = bindingPair.second;
 		int parsedKeycode = static_cast<int>(keycode);
 		// 4 : "identifier"
-		json[to_string(parsedKeycode)] = identifier;
+		json[identifier] = parsedKeycode;
 	}
 }
