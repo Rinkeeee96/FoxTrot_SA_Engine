@@ -4,7 +4,7 @@
 
 void HelpMenu::setupPopUp()
 {
-	shared_ptr<SpriteObject> backgroundSprite = shared_ptr<SpriteObject>(new SpriteObject(-564577, 200, 500, 1, 1, "Assets/Sprites/PopUp/PopUpBlackBorder.png"));
+	shared_ptr<SpriteObject> backgroundSprite = shared_ptr<SpriteObject>(new SpriteObject(-564577, 300, 500, 1, 1, "Assets/Sprites/PopUp/PopUpText-300x500.png"));
 	shared_ptr<Drawable> background = shared_ptr<Drawable>(new Drawable(-564574));
 	background->setHeight(700);
 	background->setWidth(500);
