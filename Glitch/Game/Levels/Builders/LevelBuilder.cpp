@@ -294,8 +294,6 @@ void LevelBuilder::createTiles(nlohmann::json layerValue) {
 	for (int tileId : layerValue["data"]) {
 
 		if (tileId != 0) {
-			shared_ptr<IGround> tile = shared_ptr<BaseGround>(new BaseGround(bLevel->getEventDispatcher(), id++));
-
 			shared_ptr<SpriteObject> tileSprite = nullptr;
 			TileSprite* sprite = nullptr;
 
@@ -306,6 +304,19 @@ void LevelBuilder::createTiles(nlohmann::json layerValue) {
 			}
 			else {
 				tileSprite = spriteMap[tileId];
+			}
+
+			shared_ptr<IGround> tile;
+
+			if (sprite->properties.size() == 0) {
+				tile = shared_ptr<BaseGround>(new BaseGround(bLevel->getEventDispatcher(), id++));
+			}
+
+			// TODO Factory
+			for (auto [Key, Value] : sprite->properties) {
+				if (Key == "type" && Value == "ice") {
+					tile = shared_ptr<SnowyGround>(new SnowyGround(bLevel->getEventDispatcher(), id++));
+				}
 			}
 
 			tile->setWidth(sprite->width);
@@ -356,6 +367,10 @@ void LevelBuilder::loadTileSets(nlohmann::json json) {
 							const string spritePath = TILE_IMAGE_PATH + spriteFilename;
 
 							TileSprite* currentTile = new TileSprite(spritePath, spriteWidth, spriteHeight);
+
+							for (auto& [Key, Value] : spriteValue["properties"].items()) {
+								currentTile->properties.insert(pair<string, string>(Value["name"], Value["value"]));
+							}
 
 							textureMap.insert(pair<int, TileSprite*>(currentGid, currentTile));
 							currentGid++;
