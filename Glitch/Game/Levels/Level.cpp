@@ -31,13 +31,16 @@ void Level::start(bool playSound) {
 
 	// TODO kan ik de inventory layers aanmaken in de onAttach?
 	inventoryPopupZIndex = this->getHighestLayerIndex() + 1;
-	pausePopupZIndex = inventoryPopupZIndex + 1;
+	helpPopupZIndex = inventoryPopupZIndex + 1;
+	pausePopupZIndex = helpPopupZIndex + 1;
 
 	this->addLayerOnZIndex(inventoryPopupZIndex, shared_ptr<Layer>(new InventoryPopup(this->engine ,this->dispatcher, this->stateMachine)));
 	this->addLayerOnZIndex(pausePopupZIndex, shared_ptr<Layer>(new PausePopUp(this->engine, this->dispatcher, this->stateMachine)));
+	this->addLayerOnZIndex(helpPopupZIndex, shared_ptr<Layer>(new HelpMenu(this->engine, this->dispatcher, this->stateMachine)));
 
 	commandBuilder->linkCommandToToggle(gameInvoker, inventoryPopupZIndex, "inventory");
 	commandBuilder->linkCommandToToggle(gameInvoker, pausePopupZIndex, "pause");
+	commandBuilder->linkCommandToToggle(gameInvoker, helpPopupZIndex, "help");
 
 	player->respawn();
 	player->setCurrentHealth(3);

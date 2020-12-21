@@ -4,29 +4,40 @@
 
 void HelpMenu::setupPopUp()
 {
+	shared_ptr<SpriteObject> backgroundSprite = shared_ptr<SpriteObject>(new SpriteObject(-564577, 200, 500, 1, 1, "Assets/Sprites/PopUp/PopUpBlackBorder.png"));
+	shared_ptr<Drawable> background = shared_ptr<Drawable>(new Drawable(-564574));
+	background->setHeight(700);
+	background->setWidth(500);
+	background->setDrawStatic(true);
+
+	background->setPositionX(WINDOW_WIDTH_CENTER - 250);
+	background->setPositionY(WINDOW_HEIGHT_CENTER + 300);
+
+	background->registerSprite(SpriteState::DEFAULT, backgroundSprite);
+	background->changeToState(SpriteState::DEFAULT);
+	addObjectInLayer(background);
+
 	auto invoker = (GameKeypressInvoker*)engine->getKeypressedInvoker();
 	if (invoker)
 	{
 		parseKeycodeList(invoker->getPlayerCommands(), "player controls");
+		helpCommandStartOffset += 60;
 		parseKeycodeList(invoker->getGlobalCommands(), "misc and global commands");
 	}
 }
 
 void HelpMenu::parseKeycodeList(unordered_map<KeyCode, string> parseList, const string& header) {
-	int textId = -1;
-	// set a large enough offset so the id's won't overlap......
-	int buttonId = -900;
-	int helpCommandStartOffset = 300;
 	// set the header for the section
-	addObjectInLayer(shared_ptr<Text>(
-	new Text(textId,
-		new ColoredText(header,
-			Color(0, 0, 0),
-			false
-		),
-		250, 80, WINDOW_WIDTH_CENTER - 100, WINDOW_HEIGHT - (helpCommandStartOffset + 50)
-		)
-	));
+	shared_ptr<Text> text = shared_ptr<Text>(
+		new Text(textId--,
+			new ColoredText(header,
+				Color(0, 0, 0),
+				false
+			),
+			250.f, 80.f, WINDOW_WIDTH_CENTER - 120.f, (helpCommandStartOffset += 50.f))
+	);
+	addObjectInLayer(text);
+
 	// parse and add the keycodes to the screen
 	for (pair<KeyCode, string> command : parseList)
 	{
@@ -38,7 +49,7 @@ void HelpMenu::parseKeycodeList(unordered_map<KeyCode, string> parseList, const 
 				Color(0, 0, 0),
 				false
 			),
-			80, 20, WINDOW_WIDTH_CENTER - 100, WINDOW_HEIGHT - (helpCommandStartOffset + 50)
+			50.f, 50.f, WINDOW_WIDTH_CENTER - 120.f, (helpCommandStartOffset += 50.f)
 		));
 		// TODO make this a description (prob in json as attribute?) for now this works
 		shared_ptr<Text> description = shared_ptr<Text>(new Text(textId--,
@@ -46,8 +57,8 @@ void HelpMenu::parseKeycodeList(unordered_map<KeyCode, string> parseList, const 
 				Color(0, 0, 0),
 				false
 			),
-			200, 50, WINDOW_WIDTH_CENTER - 100, WINDOW_HEIGHT - (helpCommandStartOffset * 2 + 50)
-		));
+			200.f, 50.f, WINDOW_WIDTH_CENTER - 50.f, helpCommandStartOffset)
+		);
 
 		addObjectInLayer(keycodeString);
 		addObjectInLayer(description);
@@ -56,6 +67,8 @@ void HelpMenu::parseKeycodeList(unordered_map<KeyCode, string> parseList, const 
 
 void HelpMenu::cleanPopUp()
 {
+	textId = -1;
+	helpCommandStartOffset = 250;
 	this->clearObjects();
 }
 
