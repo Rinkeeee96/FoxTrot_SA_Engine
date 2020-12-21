@@ -24,18 +24,23 @@ void MainMenu::loadButtons() {
 	startBtn->setPositionX(CENTER_X - startBtn->getWidth() / 2);
 	startBtn->setPositionY(CENTER_Y - startBtn->getHeight() / 2);
 
+	shared_ptr<PrimaryButton> mappingBtn = shared_ptr<PrimaryButton>(new PrimaryButton(13, "Mapping", onMappingBtnClick, this->dispatcher));
+	mappingBtn->setPositionX(CENTER_X - mappingBtn->getWidth() / 2);
+	mappingBtn->setPositionY(CENTER_Y - mappingBtn->getHeight() / 2 + 100);
+
 	shared_ptr<PrimaryButton> creditsBtn = shared_ptr<PrimaryButton>(new PrimaryButton(12, "Credits", onCreditsBtnClick, this->dispatcher));
 	creditsBtn->setPositionX(CENTER_X - creditsBtn->getWidth() / 2);
 	creditsBtn->setPositionY(CENTER_Y - creditsBtn->getHeight() / 2 + 200);
 
-	shared_ptr<SecondaryButton> stopBtn = shared_ptr<SecondaryButton>(new SecondaryButton(13, "Exit", onStopBtnClick, this->dispatcher));
+	shared_ptr<SecondaryButton> stopBtn = shared_ptr<SecondaryButton>(new SecondaryButton(14, "Exit", onStopBtnClick, this->dispatcher));
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
 
 	addNewObjectToLayer(3, startBtn);
-	addNewObjectToLayer(3, stopBtn);
+	addNewObjectToLayer(3, mappingBtn);
 	addNewObjectToLayer(3, creditsBtn);
+	addNewObjectToLayer(3, stopBtn);
 }
 
 /// @brief 
