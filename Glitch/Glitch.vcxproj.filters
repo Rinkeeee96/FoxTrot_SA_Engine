@@ -129,4 +129,7 @@
   <ItemGroup>
     <Text Include="Assets\Levels\Story\ChapterOne.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Config\keybindings.json" />
+  </ItemGroup>
 </Project>

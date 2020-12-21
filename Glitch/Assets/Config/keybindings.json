@@ -1,0 +1,14 @@
+{
+	"global": {
+		"pause" : 1,
+		"inventory": 12
+	},
+	"player": [
+		{
+			"moveLeft": 4,
+			"moveRight": 7,
+			"godMode": 10,
+			"jump": 44
+		}
+	]
+}
