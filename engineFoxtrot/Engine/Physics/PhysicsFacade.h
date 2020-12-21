@@ -39,6 +39,7 @@ public:
 	API ~PhysicsFacade();
 
 	API void addStaticObject(shared_ptr<PhysicsBody> object) override;
+	API void addKinamaticObject(shared_ptr<PhysicsBody> object) override;
 	API void addDynamicObject(shared_ptr<PhysicsBody> object) override;
 
 	API void MoveLeft(const int objectId) override;

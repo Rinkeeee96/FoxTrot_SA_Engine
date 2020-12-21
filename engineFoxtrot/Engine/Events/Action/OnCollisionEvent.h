@@ -63,8 +63,7 @@ class UpdatePhysicsBodyEvent : public Event
 {
 public:
 	API UpdatePhysicsBodyEvent(Object& _object) :
-		object{ _object }
-	{};
+		object{ _object } {};
 
 	/// @brief
 	/// The id of one of the objects where collision happend

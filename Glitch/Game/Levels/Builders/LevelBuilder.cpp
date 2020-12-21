@@ -4,6 +4,7 @@
 #include "Game/Ground/IGround.h"
 #include "Game/Ground/BaseGround.h"
 #include "Game/Ground/SnowyGround.h"
+#include "Game/Ground/MovingGround.h"
 #include "Game/Ground/BouncingGround.h"
 #include "Game/Characters/Enemies/Slime.h"
 #include "Game/Characters/Enemies/Skryo.h"

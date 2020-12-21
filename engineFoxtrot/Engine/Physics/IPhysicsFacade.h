@@ -10,6 +10,7 @@ public:
 	virtual ~IPhysicsFacade() {};
 
 	virtual void addStaticObject(shared_ptr<PhysicsBody> object) = 0;
+	virtual void addKinamaticObject(shared_ptr<PhysicsBody> object) = 0;
 	virtual void addDynamicObject(shared_ptr<PhysicsBody> object) = 0;
 
 	virtual shared_ptr<PhysicsBody> getPhysicsObject(const int objectId) = 0;

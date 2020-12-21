@@ -72,20 +72,20 @@ bool PhysicsEngine::handleAction(const Event& event) {
 	auto objectId = actionEvent.getObjectId();
 	switch (direction)
 	{
-		case Direction::UP:
-			this->physicsFacade->Jump(objectId);
-			return true;
-		case Direction::LEFT:
-			this->physicsFacade->MoveLeft(objectId);
-			return true;
-		case Direction::RIGHT:
-			this->physicsFacade->MoveRight(objectId);
-			return true;
-		case Direction::DOWN:
-			this->physicsFacade->Fall(objectId);
-			return true;
-		default:
-			return false;
+	case Direction::UP:
+		this->physicsFacade->Jump(objectId);
+		return true;
+	case Direction::LEFT:
+		this->physicsFacade->MoveLeft(objectId);
+		return true;
+	case Direction::RIGHT:
+		this->physicsFacade->MoveRight(objectId);
+		return true;
+	case Direction::DOWN:
+		this->physicsFacade->Fall(objectId);
+		return true;
+	default:
+		return false;
 	}
 }
 
@@ -124,7 +124,7 @@ PhysicsEngine::~PhysicsEngine()
 /// A function to create all objects in the facade
 void PhysicsEngine::registerObjectInCurrentVectorWithPhysicsEngine()
 {
-	if(DEBUG_PHYSICS_ENGINE)cout << "Size pointertoObj: " << (*pointerToCurrentScene)->getAllObjectsInSceneRenderPhysics().size() << endl;
+	if (DEBUG_PHYSICS_ENGINE)cout << "Size pointertoObj: " << (*pointerToCurrentScene)->getAllObjectsInSceneRenderPhysics().size() << endl;
 	for (auto object : (*pointerToCurrentScene)->getAllObjectsInSceneRenderPhysics())
 	{
 		auto phyObj = shared_ptr<PhysicsBody>(new PhysicsBody(object));
@@ -138,7 +138,12 @@ void PhysicsEngine::registerObjectInCurrentVectorWithPhysicsEngine()
 		}
 		else
 		{
-			physicsFacade->addDynamicObject(phyObj);
+			if(object->getBodyType() == BodyType::KINEMATIC) {
+				physicsFacade->addKinamaticObject(phyObj);
+			}
+			else{
+				physicsFacade->addDynamicObject(phyObj);
+			}
 		}
 	}
 }
