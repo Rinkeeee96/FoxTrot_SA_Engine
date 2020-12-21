@@ -30,10 +30,10 @@ private:
 	void initCharacterFactory();
 	void initGlobalCommandFactory();
 
-	void parseCollectionToJson(nlohmann::json& json, unordered_map<KeyCode, string>& collection);
+	void parseKeybindingsToJson(nlohmann::json& json, unordered_map<KeyCode, string>& collection);
 
 	void parseCommandList(nlohmann::json& subCollection, unordered_map<KeyCode, string>& commandListRef);
 
-	void parseKeybindings(unordered_map<KeyCode, string>& playerBindings, unordered_map<KeyCode, string>& globalBindings);
+	void parseKeybindingsToMap(unordered_map<KeyCode, string>& playerBindings, unordered_map<KeyCode, string>& globalBindings);
 	void createDefaultbindings(unordered_map<KeyCode, string>& playerBindings, unordered_map<KeyCode, string>& globalBindings);
 };

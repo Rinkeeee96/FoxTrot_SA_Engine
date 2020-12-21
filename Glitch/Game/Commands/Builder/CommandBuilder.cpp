@@ -23,6 +23,9 @@ CommandBuilder::CommandBuilder()
 /// @brief
 /// read the bindings from the given input source, create a new game keypress invoker and
 /// register the bindings in pairs
+/// @returns
+/// GamekeypressInvoker with the bindings that were registered in the config file.
+/// When it fails it attempts to go back to the default bindings
 GameKeypressInvoker* CommandBuilder::readBindingsAndCreateInvoker() {
 
 	bool parseError = false;
@@ -37,7 +40,7 @@ GameKeypressInvoker* CommandBuilder::readBindingsAndCreateInvoker() {
 	{
 		stream = fileLoader.readFile(keybindingConfigFilepath);
 		stream >> json;
-		parseKeybindings(playerBindings, globalBindings);
+		parseKeybindingsToMap(playerBindings, globalBindings);
 		invoker = new GameKeypressInvoker(playerBindings, globalBindings);
 	}
 	catch (const std::exception& e)
@@ -49,7 +52,13 @@ GameKeypressInvoker* CommandBuilder::readBindingsAndCreateInvoker() {
 	}
 	return invoker;
 }
-
+/// @brief
+/// Wrapper method for parsing the generic keybinding list on the lowest level since the structure is equal
+/// places them directly into the given map
+/// @param commandListRef
+/// the list to place the parsed commands into
+/// @param subCollection
+/// the subcollection containing the bindings on the lowest level of the json structure
 void CommandBuilder::parseCommandList(nlohmann::json& subCollection, unordered_map<KeyCode, string>& commandListRef)
 {
 	for (nlohmann::json::iterator it = subCollection.begin(); it != subCollection.end(); ++it) {
@@ -59,8 +68,11 @@ void CommandBuilder::parseCommandList(nlohmann::json& subCollection, unordered_m
 		commandListRef[keycode] = identifier;
 	}
 }
-
-void CommandBuilder::parseKeybindings(unordered_map<KeyCode, string>& playerBindings, unordered_map<KeyCode, string>& globalBindings)
+/// @brief
+/// wrapper method for parsing the bindings for each list since the player is structured as an array
+/// @param playerBindings
+/// @param globalBindings
+void CommandBuilder::parseKeybindingsToMap(unordered_map<KeyCode, string>& playerBindings, unordered_map<KeyCode, string>& globalBindings)
 {
 	// TODO ensure multiplayer bindings are supported (put this here for future reference)
 	for (auto& player : json["player"])
@@ -68,7 +80,48 @@ void CommandBuilder::parseKeybindings(unordered_map<KeyCode, string>& playerBind
 	
 	parseCommandList(json["global"], globalBindings);
 }
+/// @brief
+/// Converts the given keybinding collection to a json in key value pairs.
+void CommandBuilder::parseKeybindingsToJson(nlohmann::json& json, unordered_map<KeyCode, string>& collection)
+{
+	for (pair<KeyCode, string> bindingPair : collection)
+	{
+		KeyCode& keycode = bindingPair.first;
+		const string& identifier = bindingPair.second;
+		int parsedKeycode = static_cast<int>(keycode);
+		json[identifier] = parsedKeycode;
+	}
+}
 
+/// @brief
+/// Saves the keybindings that are currently stored in the game keypress invoker, overwrites the last file.
+/// @param invoker
+/// the invoker which contains the bindings to save
+void CommandBuilder::saveKeybindings(GameKeypressInvoker* invoker)
+{
+	nlohmann::json outputJson;
+
+	nlohmann::json playerBindings;
+	nlohmann::json globalBindings;
+	parseKeybindingsToJson(playerBindings, invoker->getPlayerCommands());
+	parseKeybindingsToJson(globalBindings, invoker->getGlobalCommands());
+
+	std::ofstream file(keybindingConfigFilepath);
+	outputJson["global"] = globalBindings;
+	outputJson["player"] = playerBindings;
+
+	// update the local json
+	json = outputJson;
+	// store the configuration in the output file
+	file << json;
+}
+
+
+/// @brief
+/// create the default keybindings, this method is generally called when bindings cannot be loaded
+/// to prevent the user from being locked out
+/// @param playerBindings
+/// @param globalBindings
 void CommandBuilder::createDefaultbindings(unordered_map<KeyCode, string>& playerBindings, unordered_map<KeyCode, string>& globalBindings)
 {
 	playerBindings = {
@@ -121,24 +174,6 @@ void CommandBuilder::linkCommandToToggle(GameKeypressInvoker* invoker, int layer
 		globalCommandFactory->createCommand(identifier, layerId)
 	);
 }
-void CommandBuilder::saveKeybindings(GameKeypressInvoker* invoker)
-{
-	nlohmann::json outputJson;
-
-	nlohmann::json playerBindings;
-	nlohmann::json globalBindings;
-	parseCollectionToJson(playerBindings, invoker->getPlayerCommands());
-	parseCollectionToJson(globalBindings, invoker->getGlobalCommands());
-
-	std::ofstream file(keybindingConfigFilepath);
-	outputJson["global"] = globalBindings;
-	outputJson["player"] = playerBindings;
-
-	// update the local json
-	json = outputJson;
-	// store the configuration in the output file
-	file << json;
-}
 
 /// @brief
 /// initialise the character command factory and register it's commands
@@ -167,15 +202,4 @@ void CommandBuilder::initGlobalCommandFactory()
 
 	toggleInventoryCommand->registerClass(globalCommandFactory);
 	togglePauseCommand->registerClass(globalCommandFactory);
-}
-
-void CommandBuilder::parseCollectionToJson(nlohmann::json& json, unordered_map<KeyCode, string>& collection)
-{
-	for (pair<KeyCode, string> bindingPair : collection)
-	{
-		KeyCode& keycode = bindingPair.first;
-		const string& identifier = bindingPair.second;
-		int parsedKeycode = static_cast<int>(keycode);
-		json[identifier] = parsedKeycode;
-	}
 }
