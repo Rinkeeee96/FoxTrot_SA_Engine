@@ -17,12 +17,12 @@
          "image":"..\/..\/Sprites\/Decals\/tutorial_walk.png",
          "imageheight":64,
          "imagewidth":48
-        }, 
+        },
         {
-         "id":1,
-         "image":"..\/..\/Sprites\/Decals\/tutorial_fall.png",
-         "imageheight":60,
-         "imagewidth":22
+          "id": 1,
+          "image": "..\/..\/Sprites\/Decals\/tutorial_slime.png",
+          "imageheight": 60,
+          "imagewidth": 91
         }, 
         {
          "id":2,
