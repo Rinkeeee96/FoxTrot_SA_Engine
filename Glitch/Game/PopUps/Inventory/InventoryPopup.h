@@ -11,10 +11,5 @@ public:
 
 	// Inherited via BasePopup
 	void setupPopUp() override;
-
-	void changeCoinCount(const int coin);
-
-private:
-	shared_ptr<Text> text;
 };
 
