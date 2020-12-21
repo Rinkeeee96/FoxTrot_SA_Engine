@@ -155,13 +155,15 @@ void PhysicsFacade::update() {
 	for (auto& it : bodies)
 	{
 		b2Body* body = it.second;
-		if (body->GetType() == b2_staticBody) continue;
-
+		
+		if (body->GetType() == b2_staticBody) {
+			continue;
+		}
 		auto object = it.first;
 		if (!object) return;
 		object->setPositionX(body->GetWorldCenter().x - object->getWidth() / 2);
 		object->setPositionY(body->GetWorldCenter().y + object->getHeight() / 2);
-
+		
 		if (object->getRotatable()) object->setRotation(body->GetAngle() * (TOTAL_DEGREES / PI));
 		object->setYAxisVelocity(body->GetLinearVelocity().y);
 		object->setXAxisVelocity(body->GetLinearVelocity().x);
@@ -247,4 +249,19 @@ void PhysicsFacade::cleanMap()
 	world.reset();
 	world = make_unique<b2World>(b2Vec2(GRAVITY_SCALE, GRAVITY_FALL));
 	world->SetContactListener(new ContactListenerAdapter(this, dispatcher));
+}
+
+void PhysicsFacade::updatePhysicsBody(int objId, Object& obj) {
+	auto result = this->getPhysicsObject(objId);
+	result->setDensity(obj.getDensity());
+	result->setFriction(obj.getFriction());
+	result->setRestitution(obj.getRestitution());
+
+	auto body = this->findBody(objId);
+	for (b2Fixture* f = body->GetFixtureList(); f; f = f->GetNext())
+	{
+		f->SetDensity(obj.getDensity());
+		f->SetFriction(obj.getFriction());
+		f->SetRestitution(obj.getRestitution());
+	}
 }

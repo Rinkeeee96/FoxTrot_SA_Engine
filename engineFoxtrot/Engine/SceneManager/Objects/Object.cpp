@@ -44,7 +44,9 @@ float Object::getRestitution() const { return this->restitution;}
 void Object::setRestitution(const float val) {this->restitution = val;}
 
 float Object::getFriction() const {return this->friction;}
-void Object::setFriction(const float val) {this->friction = val;}
+void Object::setFriction(const float val) {
+	this->friction = val;
+}
 
 float Object::getDensity() const {	return this->density;}
 void Object::setDensity(const float val) {this->density = val;}

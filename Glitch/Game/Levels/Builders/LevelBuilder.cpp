@@ -3,6 +3,8 @@
 #include "Game/Characters/Enemies/IEnemy.h"
 #include "Game/Ground/IGround.h"
 #include "Game/Ground/BaseGround.h"
+#include "Game/Ground/SnowyGround.h"
+#include "Game/Ground/BouncingGround.h"
 #include "Game/Characters/Enemies/Slime.h"
 #include "Game/Characters/Enemies/Skryo.h"
 #include "Game/Factories/CharacterFactory.h"
@@ -159,7 +161,7 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 			for (size_t j = 0; j < temp.size(); j++)
 			{
 				if (IEnemy* _enemy = dynamic_cast<IEnemy*>(temp[j].get())) {
-					_enemy->setPlayer(_player);
+					_enemy->setPlayer(&bLevel->getPlayer());
 				}
 			}
 			break;
@@ -174,7 +176,7 @@ void LevelBuilder::createBackground(nlohmann::json layerValue) {
 	bool alwaysDrawLayer = getAlwaysDrawFromJson(layerValue);
 	for (auto& [objectKey, objectValue] : layerValue["objects"].items())
 	{
-		shared_ptr<IGround> tile = shared_ptr<BaseGround>(new BaseGround(id++));
+		shared_ptr<IGround> tile = shared_ptr<BaseGround>(new BaseGround(bLevel->getEventDispatcher(), id++));
 
 		int gid = objectValue["gid"];
 		float width = objectValue["width"];
@@ -210,7 +212,7 @@ void LevelBuilder::createDecoration(nlohmann::json layerValue)
 	for (int tileId : layerValue["data"]) {
 
 		if (tileId != 0) {
-			shared_ptr<IGround> tile = shared_ptr<BaseGround>(new BaseGround(id++));
+			shared_ptr<IGround> tile = shared_ptr<BaseGround>(new BaseGround(bLevel->getEventDispatcher(), id++));
 
 			shared_ptr<SpriteObject> tileSprite = nullptr;
 			TileSprite* sprite = nullptr;
@@ -291,7 +293,7 @@ void LevelBuilder::createTiles(nlohmann::json layerValue) {
 	for (int tileId : layerValue["data"]) {
 
 		if (tileId != 0) {
-			shared_ptr<IGround> tile = shared_ptr<BaseGround>(new BaseGround(id++));
+			shared_ptr<IGround> tile = shared_ptr<BaseGround>(new BaseGround(bLevel->getEventDispatcher(), id++));
 
 			shared_ptr<SpriteObject> tileSprite = nullptr;
 			TileSprite* sprite = nullptr;

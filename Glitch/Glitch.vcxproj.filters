@@ -124,6 +124,9 @@
     <ClInclude Include="Game\Commands\Creator\GlobalCommands\GlobalCommandCreator.h" />
     <ClInclude Include="Game\Commands\Creator\GlobalCommands\GlobalCommandFactory.h" />
     <ClInclude Include="Game\Commands\Creator\GlobalCommands\IGlobalCommandCreator.h" />
+    <ClInclude Include="Game\Ground\SnowyGround.h" />
+    <ClInclude Include="Game\Ground\MovingGround.h" />
+    <ClInclude Include="Game\Ground\BouncingGround.h" />
     <ClInclude Include="Game\Characters\Enemies\Skryo.h" />
   </ItemGroup>
   <ItemGroup>

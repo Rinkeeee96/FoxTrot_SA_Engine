@@ -23,6 +23,7 @@ void PhysicsEngine::start(EventDispatcher& dispatcher) {
 	dispatcher.setEventCallback<ObjectStopEvent>(BIND_EVENT_FN(PhysicsEngine::stopObject));
 
 	dispatcher.setEventCallback<TogglePauseEvent>(BIND_EVENT_FN(PhysicsEngine::onPauseEvent));
+	dispatcher.setEventCallback<UpdatePhysicsBodyEvent>(BIND_EVENT_FN(PhysicsEngine::handleUpdateBodyEvent));
 };
 
 
@@ -86,6 +87,13 @@ bool PhysicsEngine::handleAction(const Event& event) {
 		default:
 			return false;
 	}
+}
+
+bool PhysicsEngine::handleUpdateBodyEvent(const Event& event) {
+	auto actionEvent = static_cast<const UpdatePhysicsBodyEvent&>(event);
+
+	physicsFacade->updatePhysicsBody(actionEvent.getObject().getObjectId(), actionEvent.getObject());
+	return true;
 }
 
 /// @brief Stops the vertical movement of an object.
