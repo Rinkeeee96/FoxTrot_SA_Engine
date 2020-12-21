@@ -52,6 +52,7 @@ GameKeypressInvoker* CommandBuilder::readBindingsAndCreateInvoker() {
 	}
 	return invoker;
 }
+
 /// @brief
 /// Wrapper method for parsing the generic keybinding list on the lowest level since the structure is equal
 /// places them directly into the given map
@@ -68,6 +69,7 @@ void CommandBuilder::parseCommandList(nlohmann::json& subCollection, unordered_m
 		commandListRef[keycode] = identifier;
 	}
 }
+
 /// @brief
 /// wrapper method for parsing the bindings for each list since the player is structured as an array
 /// @param playerBindings
@@ -80,6 +82,7 @@ void CommandBuilder::parseKeybindingsToMap(unordered_map<KeyCode, string>& playe
 	
 	parseCommandList(json["global"], globalBindings);
 }
+
 /// @brief
 /// Converts the given keybinding collection to a json in key value pairs.
 void CommandBuilder::parseKeybindingsToJson(nlohmann::json& json, unordered_map<KeyCode, string>& collection)
