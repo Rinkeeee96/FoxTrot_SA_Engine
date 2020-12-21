@@ -1,5 +1,7 @@
 ﻿#pragma once
 #include "Game/PopUps/IPopup.h"
+
+/// @brief Class for the Helpscreen PopUp.
 class HelpMenu : public IPopup
 {
 public:

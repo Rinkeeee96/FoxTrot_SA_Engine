@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "HelpMenu.h"
 
-
+/// @brief The setup function to create the Pop up layer
 void HelpMenu::setupPopUp()
 {
 	shared_ptr<SpriteObject> backgroundSprite = shared_ptr<SpriteObject>(new SpriteObject(-564577, 300, 500, 1, 1, "Assets/Sprites/PopUp/PopUpText-300x500.png"));
@@ -26,6 +26,9 @@ void HelpMenu::setupPopUp()
 	}
 }
 
+/// @brief Function that creates text functions from the set keycode's
+/// @param parseList 
+/// @param header 
 void HelpMenu::parseKeycodeList(unordered_map<KeyCode, string> parseList, const string& header) {
 	// set the header for the section
 	shared_ptr<Text> text = shared_ptr<Text>(
@@ -65,6 +68,7 @@ void HelpMenu::parseKeycodeList(unordered_map<KeyCode, string> parseList, const 
 	};
 }
 
+/// @brief Cleans the popUp
 void HelpMenu::cleanPopUp()
 {
 	textId = -1;
@@ -72,6 +76,7 @@ void HelpMenu::cleanPopUp()
 	this->clearObjects();
 }
 
+/// @brief Function called on the attach.
 void HelpMenu::onAttach()
 {
 	TogglePauseEvent pauseEvent(true);
@@ -81,6 +86,7 @@ void HelpMenu::onAttach()
 	this->setupPopUp();
 }
 
+/// @brief Function called on the detach.
 void HelpMenu::onDetach()
 {
 	TogglePauseEvent pauseEvent(false);

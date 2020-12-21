@@ -2,7 +2,7 @@
 #include "Engine/SceneManager/Layer.h"
 #include "Game/Scenes/Statemachine/SceneStateMachine.h"
 #include "Engine\Events\Action\TogglePause.h"
-
+/// @brief Interface class for a popUp
 class IPopup : public Layer
 {
 public:
