@@ -32,7 +32,7 @@ private:
 
 	void parseCollectionToJson(nlohmann::json& json, unordered_map<KeyCode, string>& collection);
 
-	unordered_map<KeyCode, string> parseCommandList(nlohmann::json& subCollection);
+	void parseCommandList(nlohmann::json& subCollection, unordered_map<KeyCode, string>& commandListRef);
 
 	pair<unordered_map<KeyCode, string>, unordered_map<KeyCode, string>> parseKeybindings();
 	pair<unordered_map<KeyCode, string>, unordered_map<KeyCode, string>> createDefaultbindings();

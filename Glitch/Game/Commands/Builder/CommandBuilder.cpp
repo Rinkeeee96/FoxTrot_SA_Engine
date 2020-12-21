@@ -59,15 +59,14 @@ GameKeypressInvoker* CommandBuilder::readBindingsAndCreateInvoker() {
 	return invoker;
 }
 
-unordered_map<KeyCode, string> CommandBuilder::parseCommandList(nlohmann::json& subCollection)
+void CommandBuilder::parseCommandList(nlohmann::json& subCollection, unordered_map<KeyCode, string>& commandListRef)
 {
-	unordered_map<KeyCode, string> returnList;
 	for (nlohmann::json::iterator it = subCollection.begin(); it != subCollection.end(); ++it) {
-		KeyCode keycode = static_cast<KeyCode>(stoi(it.key()));
-		string identifier = it.value();
-		returnList[keycode] = identifier;
+		string identifier = it.key();
+		KeyCode keycode = it.value();
+
+		commandListRef[keycode] = identifier;
 	}
-	return returnList;
 }
 
 pair<unordered_map<KeyCode, string>, unordered_map<KeyCode, string>> CommandBuilder::parseKeybindings()
