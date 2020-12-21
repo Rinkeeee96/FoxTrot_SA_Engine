@@ -33,7 +33,15 @@ private:
 
 	function<void(void)> onLevel3BtnClick = [this]() {
 		moveToNextScene = true;
+		nextScene = "Level_3";
+	};
+	function<void(void)> onLevel4BtnClick = [this]() {
+		moveToNextScene = true;
 		nextScene = "Level_4";
+	};
+	function<void(void)> onLevel5BtnClick = [this]() {
+		moveToNextScene = true;
+		nextScene = "Level_5";
 	};
 
 	function<void(void)> onStopBtnClick = [this]() {
