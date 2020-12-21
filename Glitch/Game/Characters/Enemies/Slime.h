@@ -1,11 +1,16 @@
 #pragma once
 #include "Game/Characters/Enemies/BaseEnemy.h"
 
+enum class SlimeType {
+	Green,
+	Ice
+};
+
 /// @brief 
 /// Slime class with correspondending AI logic
 class Slime : public BaseEnemy {
 public:
-	Slime(EventDispatcher& _dispatcher) : BaseEnemy(_dispatcher) {}
+	Slime(EventDispatcher& _dispatcher, SlimeType _type = SlimeType::Green) : BaseEnemy(_dispatcher), type{_type} {}
 	Slime(const int id, EventDispatcher& _dispatcher) : BaseEnemy(id, _dispatcher) {}
 
 	void onUpdate(float deltaTime) override;
@@ -17,4 +22,9 @@ public:
 private:
 	float jumpTimer = 0;
 	bool jumping = false;
+
+	SlimeType type;
+
+	map<SpriteState, shared_ptr<SpriteObject>> buildNormalSlimeMap(int textureId);
+	map<SpriteState, shared_ptr<SpriteObject>> buildIceSlimeMap(int textureId);
 };

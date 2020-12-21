@@ -390,6 +390,7 @@ void LevelBuilder::initFactory() {
 	characterFactory->registerCharacter("player", shared_ptr<Player>(new Player(bLevel->getEventDispatcher())), &textureId);
 
 	characterFactory->registerCharacter("slime", shared_ptr<Slime>(new Slime(bLevel->getEventDispatcher())), &textureId);
+	characterFactory->registerCharacter("iceslime", shared_ptr<Slime>(new Slime(bLevel->getEventDispatcher(), SlimeType::Ice)), &textureId);
 
 	characterFactory->registerCharacter("fleye", shared_ptr<Fleye>(new Fleye(bLevel->getEventDispatcher())), &textureId);
 
