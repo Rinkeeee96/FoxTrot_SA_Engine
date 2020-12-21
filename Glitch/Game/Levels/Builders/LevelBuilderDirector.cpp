@@ -17,6 +17,17 @@ void LevelBuilderDirector::construct(nlohmann::json json, ILevelBuilder* builder
 		if (key == "layers") {
 			for (auto& [layerKey, layerValue] : value.items())
 			{
+				if (layerValue["name"] == "Entities")
+				{
+					builder->createEntities(layerValue);
+				}
+			}
+		}
+	}
+	for (auto& [key, value] : json.items()) {
+		if (key == "layers") {
+			for (auto& [layerKey, layerValue] : value.items())
+			{
 				if (layerValue["name"] == "Triggers") {
 					builder->createTriggers(layerValue);
 				}
@@ -32,10 +43,6 @@ void LevelBuilderDirector::construct(nlohmann::json json, ILevelBuilder* builder
 				}
 				if (layerValue["name"] == "Particles") {
 					builder->createParticle(layerValue);
-				}
-				if (layerValue["name"] == "Entities")
-				{
-					builder->createEntities(layerValue);
 				}
 			}
 		}

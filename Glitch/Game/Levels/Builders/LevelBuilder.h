@@ -36,7 +36,7 @@ private:
 	int mapTileWidth = 16;
 	int mapTileHeight = 16;
 	int textureId = 0;
-	int id = 0;
+	int id = 1;
 public:
 	LevelBuilder(unique_ptr<Engine>& _engine, int levelId, shared_ptr<SceneStateMachine> _statemachine);
 

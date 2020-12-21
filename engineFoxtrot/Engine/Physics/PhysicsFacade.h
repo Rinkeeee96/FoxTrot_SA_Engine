@@ -52,6 +52,8 @@ public:
 	API void stopObject(int objectId, bool stopVertical, bool stopHorizontal);
 	API void cleanMap();
 
+
+	API void updatePhysicsBody(int objId, Object& obj) override;
 private:
 	b2PolygonShape createShape(shared_ptr<PhysicsBody> object);
 	EventDispatcher& dispatcher;

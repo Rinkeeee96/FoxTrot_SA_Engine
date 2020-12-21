@@ -17,6 +17,7 @@ public:
 	API void registerObjectInCurrentVectorWithPhysicsEngine();
 
 	API bool handleAction(const Event& event);
+	API bool handleUpdateBodyEvent(const Event& event);
 	API bool stopObject(const Event& event);
 	API bool onPauseEvent(const Event& event);
 	API void reloadPhysicsObjects();
@@ -26,7 +27,6 @@ public:
 	API void start(EventDispatcher& dispatcher) override;
 	API void update() override;
 	API void shutdown() override;
-
 private:
 	void clean();
 	unique_ptr<IPhysicsFacade> physicsFacade;

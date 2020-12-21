@@ -12,6 +12,7 @@ public:
 	Level(const int id, const int _sceneHeight, const int _sceneWidth, unique_ptr<Engine>& engine, shared_ptr<SceneStateMachine> _stateMachine);
 
 	void setPlayer(shared_ptr<Object> object);
+	Player& getPlayer() { return *this->player.get(); };
 	void setSound(map<string, string> sounds);
 	void onAttach() override;
 	void start(bool playSound) override;

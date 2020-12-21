@@ -4,12 +4,12 @@
 
 /// @brief 
 /// "Normal" ground class
-class BaseGround : public IGround {
+class BouncingGround : public IGround {
 private:
 	EventDispatcher& dispatcher;
 public:
-	BaseGround(EventDispatcher& _dispatcher, const int id) : IGround(id), dispatcher{ _dispatcher } {
-		dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(BaseGround::onCollisionBeginEvent));
+	BouncingGround(EventDispatcher& _dispatcher, const int id) : IGround(id), dispatcher{ _dispatcher } {
+		dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(BouncingGround::onCollisionBeginEvent));
 	}
 
 	bool onCollisionBeginEvent(const Event& event) {
@@ -24,9 +24,7 @@ public:
 				shared_ptr<Object> otherEntity = collisionEvent.getObjectTwo();
 
 				if (Player* player = dynamic_cast<Player*>(otherEntity.get())) {
-					player->setDensity(10);
-					player->setFriction(0);
-					player->setRestitution(0.1f);
+					player->setRestitution(1.0f);
 					UpdatePhysicsBodyEvent e{ *player };
 					dispatcher.dispatchEvent<UpdatePhysicsBodyEvent>(e);
 				}
@@ -35,9 +33,7 @@ public:
 				shared_ptr<Object> otherEntity = collisionEvent.getObjectTwo();
 
 				if (Player* player = dynamic_cast<Player*>(otherEntity.get())) {
-					player->setDensity(10);
-					player->setFriction(0);
-					player->setRestitution(0.1f);
+					player->setRestitution(1.0f);
 					UpdatePhysicsBodyEvent e{ *player };
 					dispatcher.dispatchEvent<UpdatePhysicsBodyEvent>(e);
 				}
@@ -46,5 +42,6 @@ public:
 		return true;
 	}
 
-	virtual void onUpdate(float deltaTime) override {};
+
+	virtual void onUpdate(float deltaTime) override { };
 };
