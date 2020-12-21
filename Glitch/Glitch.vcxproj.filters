@@ -45,6 +45,7 @@
     <ClCompile Include="Game\PopUps\Achievement\AchievementPopup.cpp" />
     <ClCompile Include="Game\Commands\Creator\GlobalCommands\GlobalCommandFactory.cpp" />
     <ClCompile Include="Game\Commands\GlobalCommand.h" />
+    <ClCompile Include="Game\Scenes\MappingScreen\MappingScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
@@ -123,6 +124,7 @@
     <ClInclude Include="Game\Commands\Creator\GlobalCommands\GlobalCommandCreator.h" />
     <ClInclude Include="Game\Commands\Creator\GlobalCommands\GlobalCommandFactory.h" />
     <ClInclude Include="Game\Commands\Creator\GlobalCommands\IGlobalCommandCreator.h" />
+    <ClInclude Include="Game\Scenes\MappingScreen\MappingScene.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\Levels\Story\ChapterOne.txt" />
