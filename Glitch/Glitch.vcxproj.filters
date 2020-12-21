@@ -46,6 +46,7 @@
     <ClCompile Include="Game\Commands\Creator\GlobalCommands\GlobalCommandFactory.cpp" />
     <ClCompile Include="Game\Commands\GlobalCommand.h" />
     <ClCompile Include="Game\Characters\Enemies\Skryo.cpp" />
+    <ClCompile Include="Game\Characters\Enemies\SlimeBoss.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
@@ -128,6 +129,7 @@
     <ClInclude Include="Game\Ground\MovingGround.h" />
     <ClInclude Include="Game\Ground\BouncingGround.h" />
     <ClInclude Include="Game\Characters\Enemies\Skryo.h" />
+    <ClInclude Include="Game\Characters\Enemies\SlimeBoss.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\Levels\Story\ChapterOne.txt" />
