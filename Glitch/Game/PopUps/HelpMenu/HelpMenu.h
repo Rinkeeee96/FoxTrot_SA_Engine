@@ -4,8 +4,21 @@ class HelpMenu : public IPopup
 {
 public:
 	HelpMenu(unique_ptr<Engine>& _engine, EventDispatcher& _dispatcher, shared_ptr<SceneStateMachine> _stateMachine) :
-		IPopup(_engine, _dispatcher, _stateMachine) {
-		keycodeStringMap = {
+		IPopup(_engine, _dispatcher, _stateMachine) {};
+	~HelpMenu() {};
+	// Inherited via IPopup
+	void setupPopUp() override;
+	void cleanPopUp() override;
+	void onAttach() override;
+	void onDetach() override;
+
+private:
+	void parseKeycodeList(unordered_map<KeyCode, string> parseList, const string& header);
+
+	float helpCommandStartOffset = 250;
+	int textId = -1;
+
+	unordered_map<KeyCode, string> keycodeStringMap = {
 			{KeyCode::KEY_UNKNOWN, "Unknown"},
 			{KeyCode::KEY_A, "A"},
 			{KeyCode::KEY_B, "B"},
@@ -99,20 +112,5 @@ public:
 			{KeyCode::KEY_RSHIFT, "Right shift"},
 			{KeyCode::KEY_RALT, "Left alt"},
 			{KeyCode::KEY_RGUI, "Right windows"}
-		};
 	};
-	~HelpMenu() {};
-	// Inherited via IPopup
-	void setupPopUp() override;
-	void cleanPopUp() override;
-	void onAttach() override;
-	void onDetach() override;
-
-private:
-	void parseKeycodeList(unordered_map<KeyCode, string> parseList, const string& header);
-
-	unordered_map<KeyCode, string> keycodeStringMap;
-
-	float helpCommandStartOffset = 250;
-	int textId = -1;
 };
