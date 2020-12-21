@@ -190,7 +190,6 @@ void CommandBuilder::parseCollectionToJson(nlohmann::json& json, unordered_map<K
 		KeyCode& keycode = bindingPair.first;
 		const string& identifier = bindingPair.second;
 		int parsedKeycode = static_cast<int>(keycode);
-		// 4 : "identifier"
 		json[identifier] = parsedKeycode;
 	}
 }
