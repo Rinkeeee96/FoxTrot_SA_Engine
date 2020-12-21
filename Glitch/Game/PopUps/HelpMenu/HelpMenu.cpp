@@ -7,10 +7,10 @@ void HelpMenu::setupPopUp()
 	shared_ptr<SpriteObject> backgroundSprite = shared_ptr<SpriteObject>(new SpriteObject(-564577, 300, 500, 1, 1, "Assets/Sprites/PopUp/PopUpText-300x500.png"));
 	shared_ptr<Drawable> background = shared_ptr<Drawable>(new Drawable(-564574));
 	background->setHeight(700);
-	background->setWidth(500);
+	background->setWidth(1000);
 	background->setDrawStatic(true);
 
-	background->setPositionX(WINDOW_WIDTH_CENTER - 250);
+	background->setPositionX(WINDOW_WIDTH_CENTER - 500);
 	background->setPositionY(WINDOW_HEIGHT_CENTER + 300);
 
 	background->registerSprite(SpriteState::DEFAULT, backgroundSprite);
@@ -21,7 +21,7 @@ void HelpMenu::setupPopUp()
 	if (invoker)
 	{
 		parseKeycodeList(invoker->getPlayerCommands(), "player controls");
-		helpCommandStartOffset += 60;
+		helpCommandStartOffset += 80;
 		parseKeycodeList(invoker->getGlobalCommands(), "misc and global commands");
 	}
 }
@@ -31,10 +31,10 @@ void HelpMenu::parseKeycodeList(unordered_map<KeyCode, string> parseList, const 
 	shared_ptr<Text> text = shared_ptr<Text>(
 		new Text(textId--,
 			new ColoredText(header,
-				Color(0, 0, 0),
+				Color(130, 41, 18),
 				false
 			),
-			250.f, 80.f, WINDOW_WIDTH_CENTER - 120.f, (helpCommandStartOffset += 50.f))
+			((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * header.length(), 70.f, WINDOW_WIDTH_CENTER - 450.f, (helpCommandStartOffset += 50.f))
 	);
 	addObjectInLayer(text);
 
@@ -49,7 +49,7 @@ void HelpMenu::parseKeycodeList(unordered_map<KeyCode, string> parseList, const 
 				Color(0, 0, 0),
 				false
 			),
-			50.f, 50.f, WINDOW_WIDTH_CENTER - 120.f, (helpCommandStartOffset += 50.f)
+			((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1, 50.f, WINDOW_WIDTH_CENTER - 450.f, (helpCommandStartOffset += 50.f)
 		));
 		// TODO make this a description (prob in json as attribute?) for now this works
 		shared_ptr<Text> description = shared_ptr<Text>(new Text(textId--,
@@ -57,7 +57,7 @@ void HelpMenu::parseKeycodeList(unordered_map<KeyCode, string> parseList, const 
 				Color(0, 0, 0),
 				false
 			),
-			200.f, 50.f, WINDOW_WIDTH_CENTER - 50.f, helpCommandStartOffset)
+			((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * identifier.length(), 50.f, WINDOW_WIDTH_CENTER - 380.f, helpCommandStartOffset)
 		);
 
 		addObjectInLayer(keycodeString);
