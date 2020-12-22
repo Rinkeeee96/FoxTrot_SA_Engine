@@ -49,17 +49,19 @@ void MappingScene::loadMusic()
 
 void MappingScene::loadButtons()
 {
-	auto invoker = (GameKeypressInvoker*)engine->getKeypressedInvoker();
 	auto playerCommandsMap = invoker->getPlayerCommands();
 	auto globalCommandsMap = invoker->getGlobalCommands();
 
-	parseKeycodeList(invoker->getPlayerCommands(), "player controls");
+	parseKeycodeList(invoker->getPlayerCommands(), "Player controls");
 	
 	listStartX = 850;
 	listStartY = 400;
 
-	parseKeycodeList(invoker->getGlobalCommands(), "misc and global commands");
+	parseKeycodeList(invoker->getGlobalCommands(), "Misc and global commands");
 
+	listStartX = 200;
+	listStartY = 500;
+	createButtons();
 
 
 	shared_ptr<SecondaryButton> stopBtn = shared_ptr<SecondaryButton>(new SecondaryButton(-993, "To Main Menu", onStopBtnClick, this->dispatcher));
@@ -104,32 +106,118 @@ void MappingScene::parseKeycodeList(unordered_map<KeyCode, string> parseList, co
 	// parse and add the keycodes to the screen
 	for (pair<KeyCode, string> command : parseList)
 	{
-		const KeyCode& keyCode = command.first;
+		
 		const string& identifier = command.second;
-
-		shared_ptr<PrimaryButton> keycodeBtn = shared_ptr<PrimaryButton>(new PrimaryButton(textId--, "", onStopBtnClick, this->dispatcher));
-		keycodeBtn->setWidth((((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1)+25);
-		keycodeBtn->setHeight(45);
-		keycodeBtn->setPositionX(listStartX);
-		keycodeBtn->setPositionY(listStartY += 50.f);
-
-		shared_ptr<Text> keycodeString = shared_ptr<Text>(new Text(textId--,
-			new ColoredText(keycodeStringMap[keyCode],
-				Color(0, 0, 0),
-				false
-			),
-			((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1, 50.f, listStartX + 10, listStartY));
 		// TODO make this a description (prob in json as attribute?) for now this works
 		shared_ptr<Text> description = shared_ptr<Text>(new Text(textId--,
 			new ColoredText(identifier,
 				Color(0, 0, 0),
 				false
 			),
-			((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * identifier.length(), 50.f, listStartX + 100, listStartY)
-			);
+			((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * identifier.length(), 50.f, listStartX + 80, listStartY += 50));
 
-		addNewObjectToLayer(4, keycodeBtn);
-		addNewObjectToLayer(5, keycodeString);
+		
 		addNewObjectToLayer(4, description);
 	};
+}
+
+void MappingScene::createButtons() {
+	shared_ptr<PrimaryButton> godModeBtn = shared_ptr<PrimaryButton>(new PrimaryButton(textId--, "", onStopBtnClick, this->dispatcher));
+	godModeBtn->setWidth((((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1) + 25);
+	godModeBtn->setHeight(45);
+	godModeBtn->setPositionX(listStartX);
+	godModeBtn->setPositionY(listStartY);
+
+	shared_ptr<Text> godModeString = shared_ptr<Text>(new Text(textId--,
+		new ColoredText(keycodeStringMap[KeyCode(invoker->getKeycodeFromIdentifier("godmode"))],
+			Color(0, 0, 0),
+			false
+		),
+			((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1, 50.f, listStartX + 10, listStartY));
+
+	addNewObjectToLayer(4, godModeBtn);
+	addNewObjectToLayer(5, godModeString);
+
+	shared_ptr<PrimaryButton> jumpBtn = shared_ptr<PrimaryButton>(new PrimaryButton(textId--, "", onJumpBtnClick, this->dispatcher));
+	jumpBtn->setWidth((((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1) + 25);
+	jumpBtn->setHeight(45);
+	jumpBtn->setPositionX(listStartX);
+	jumpBtn->setPositionY(listStartY += 50);
+
+	shared_ptr<Text> jumpString = shared_ptr<Text>(new Text(textId--,
+		new ColoredText(keycodeStringMap[KeyCode(invoker->getKeycodeFromIdentifier("jump"))],
+			Color(0, 0, 0),
+			false
+		),
+			((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1, 50.f, listStartX + 10, listStartY));
+
+	addNewObjectToLayer(4, jumpBtn);
+	addNewObjectToLayer(5, jumpString);
+
+	shared_ptr<PrimaryButton> leftBtn = shared_ptr<PrimaryButton>(new PrimaryButton(textId--, "", onMoveLeftBtnClick, this->dispatcher));
+	leftBtn->setWidth((((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1) + 25);
+	leftBtn->setHeight(45);
+	leftBtn->setPositionX(listStartX);
+	leftBtn->setPositionY(listStartY += 50);
+
+	shared_ptr<Text> moveLeftString = shared_ptr<Text>(new Text(textId--,
+		new ColoredText(keycodeStringMap[KeyCode(invoker->getKeycodeFromIdentifier("moveLeft"))],
+			Color(0, 0, 0),
+			false
+		),
+			((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1, 50.f, listStartX + 10, listStartY));
+
+	addNewObjectToLayer(4, leftBtn);
+	addNewObjectToLayer(5, moveLeftString);
+
+	shared_ptr<PrimaryButton> rightBtn = shared_ptr<PrimaryButton>(new PrimaryButton(textId--, "", onMoveRightBtnClick, this->dispatcher));
+	rightBtn->setWidth((((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1) + 25);
+	rightBtn->setHeight(45);
+	rightBtn->setPositionX(listStartX);
+	rightBtn->setPositionY(listStartY += 50);
+
+	shared_ptr<Text> moveRightString = shared_ptr<Text>(new Text(textId--,
+		new ColoredText(keycodeStringMap[KeyCode(invoker->getKeycodeFromIdentifier("moveRight"))],
+			Color(0, 0, 0),
+			false
+		),
+		((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1, 50.f, listStartX + 10, listStartY));
+
+	addNewObjectToLayer(4, rightBtn);
+	addNewObjectToLayer(5, moveRightString);
+
+	listStartX = 850;
+	listStartY = 500;
+
+	shared_ptr<PrimaryButton> inventoryBtn = shared_ptr<PrimaryButton>(new PrimaryButton(textId--, "", onInventoryBtnClick, this->dispatcher));
+	inventoryBtn->setWidth((((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1) + 25);
+	inventoryBtn->setHeight(45);
+	inventoryBtn->setPositionX(listStartX);
+	inventoryBtn->setPositionY(listStartY);
+
+	shared_ptr<Text> inventoryString = shared_ptr<Text>(new Text(textId--,
+		new ColoredText(keycodeStringMap[KeyCode(invoker->getKeycodeFromIdentifier("inventory"))],
+			Color(0, 0, 0),
+			false
+		),
+		((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1, 50.f, listStartX + 10, listStartY));
+
+	addNewObjectToLayer(4, inventoryBtn);
+	addNewObjectToLayer(5, inventoryString);
+
+	shared_ptr<PrimaryButton> pauseBtn = shared_ptr<PrimaryButton>(new PrimaryButton(textId--, "", onPauseBtnClick, this->dispatcher));
+	pauseBtn->setWidth((((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1) + 25);
+	pauseBtn->setHeight(45);
+	pauseBtn->setPositionX(listStartX);
+	pauseBtn->setPositionY(listStartY += 50);
+
+	shared_ptr<Text> pauseString = shared_ptr<Text>(new Text(textId--,
+		new ColoredText(keycodeStringMap[KeyCode(invoker->getKeycodeFromIdentifier("pause"))],
+			Color(0, 0, 0),
+			false
+		),
+		((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1, 50.f, listStartX + 10, listStartY));
+
+	addNewObjectToLayer(4, pauseBtn);
+	addNewObjectToLayer(5, pauseString);
 }

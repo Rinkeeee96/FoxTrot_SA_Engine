@@ -88,5 +88,7 @@ const KeyCode& GameKeypressInvoker::getKeycodeFromIdentifier(const string& ident
 			return pair.first;
 	}
 
+	return KeyCode::KEY_UNKNOWN;
+
 	//throw exception("no keycode registered for " + identifier);
 }

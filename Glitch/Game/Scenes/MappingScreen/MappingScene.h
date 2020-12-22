@@ -1,10 +1,13 @@
 #pragma once
 #include "Game/Scenes/GameScene.h"
+#include "Game/Commands/GameKeypressInvoker.h"
 
 class MappingScene : public GameScene
 {
 public:
-	MappingScene(const int id, unique_ptr<Engine>& engine, shared_ptr<SceneStateMachine> _statemachine) : GameScene(id, engine, _statemachine) {};
+	MappingScene(const int id, unique_ptr<Engine>& engine, shared_ptr<SceneStateMachine> _statemachine) : GameScene(id, engine, _statemachine) {
+		invoker = (GameKeypressInvoker*)engine->getKeypressedInvoker();
+	};
 	~MappingScene() {};
 
 	void onAttach() override;
@@ -24,8 +27,39 @@ private:
 	void loadSaveGame();
 
 	void parseKeycodeList(unordered_map<KeyCode, string> parseList, const string& header);
+	GameKeypressInvoker* invoker = nullptr;
 
+	void createButtons();
 
+	function<void(void)> onGodModeBtnClick = [this]() {
+		moveToNextScene = true;
+		nextScene = "MainMenu";
+	};
+
+	function<void(void)> onJumpBtnClick = [this]() {
+		moveToNextScene = true;
+		nextScene = "MainMenu";
+	};
+
+	function<void(void)> onMoveLeftBtnClick = [this]() {
+		moveToNextScene = true;
+		nextScene = "MainMenu";
+	};
+
+	function<void(void)> onMoveRightBtnClick = [this]() {
+		moveToNextScene = true;
+		nextScene = "MainMenu";
+	};
+
+	function<void(void)> onInventoryBtnClick = [this]() {
+		moveToNextScene = true;
+		nextScene = "MainMenu";
+	};
+
+	function<void(void)> onPauseBtnClick = [this]() {
+		moveToNextScene = true;
+		nextScene = "MainMenu";
+	};
 
 	function<void(void)> onStopBtnClick = [this]() {
 		moveToNextScene = true;
