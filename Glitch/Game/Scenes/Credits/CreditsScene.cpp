@@ -117,10 +117,12 @@ void CreditsScene::onDetach()
 }
 
 
+/// @brief 
+/// Load the animatio for the screen
 void CreditsScene::loadAnimations() {
 
-	shared_ptr<SpriteObject> BG_LAYER_ADVENTRUE_JUMP = shared_ptr<SpriteObject>(new SpriteObject(-992883, 24, 33, 1, 300, "Assets/Sprites/Enemies/Slime/Slime_action_2.png"));
-	shared_ptr<SpriteObject> BG_LAYER_ADVENTRUE_FALL = shared_ptr<SpriteObject>(new SpriteObject(-992884, 24, 33, 1, 300, "Assets/Sprites/Enemies/Slime/Slime_action_3.png"));
+	shared_ptr<SpriteObject> SLIME_JUMP = shared_ptr<SpriteObject>(new SpriteObject(-992883, 24, 33, 1, 300, "Assets/Sprites/Enemies/Slime/Slime_action_2.png"));
+	shared_ptr<SpriteObject> SLIME_FALL = shared_ptr<SpriteObject>(new SpriteObject(-992884, 24, 33, 1, 300, "Assets/Sprites/Enemies/Slime/Slime_action_3.png"));
 
 	animation = shared_ptr<Drawable>(new Drawable(35));
 	animation->setStatic(true);
@@ -128,15 +130,17 @@ void CreditsScene::loadAnimations() {
 	animation->setPositionY(948);
 	animation->setWidth(213);
 	animation->setHeight(177);
-	animation->registerSprite(SpriteState::DEFAULT, BG_LAYER_ADVENTRUE_JUMP);
-	animation->registerSprite(SpriteState::AIR_JUMP_RIGHT, BG_LAYER_ADVENTRUE_JUMP);
-	animation->registerSprite(SpriteState::AIR_FALL_RIGHT, BG_LAYER_ADVENTRUE_FALL);
+	animation->registerSprite(SpriteState::DEFAULT, SLIME_JUMP);
+	animation->registerSprite(SpriteState::AIR_JUMP_RIGHT, SLIME_JUMP);
+	animation->registerSprite(SpriteState::AIR_FALL_RIGHT, SLIME_FALL);
 	animation->changeToState(SpriteState::DEFAULT);
 	animation->setScalable(false);
 
 	addNewObjectToLayer(2, animation);
 }
 
+/// @brief 
+/// Handle the fake animation in the screen
 void CreditsScene::handleAnimation(float deltaTime) {
 	if (animation->getPositionY() < 648) {
 		animation->changeToState(SpriteState::AIR_FALL_RIGHT);
