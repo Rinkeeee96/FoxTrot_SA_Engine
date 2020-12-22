@@ -32,3 +32,26 @@ void InventoryPopup::setupPopUp()
 	addObjectInLayer(leftInventory);
 	addObjectInLayer(rightInventory);
 }
+
+void InventoryPopup::cleanPopUp()
+{
+	this->clearObjects();
+}
+
+void InventoryPopup::onAttach()
+{
+	TogglePauseEvent pauseEvent(true);
+	dispatcher.dispatchEvent<TogglePauseEvent>(pauseEvent);
+	setAlwaysVisible(true);
+
+	this->setupPopUp();
+}
+
+void InventoryPopup::onDetach()
+{
+	TogglePauseEvent pauseEvent(false);
+	dispatcher.dispatchEvent<TogglePauseEvent>(pauseEvent);
+	setAlwaysVisible(false);
+
+	this->cleanPopUp();
+}
