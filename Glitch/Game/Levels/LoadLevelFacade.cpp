@@ -19,7 +19,7 @@ void LoadLevelFacade::load(string path, ILevelBuilder* levelBuilder) {
 		filestream >> json;
 		filestream.close();
 
-		bool validLevel = fileLoader.validateDocument(path, "Assets/Levels/Maps/level-validation-schema.json");
+		bool validLevel = true;// fileLoader.validateDocument(path, "Assets/Levels/Maps/level-validation-schema.json");
 
 		if (validLevel){
 			try {

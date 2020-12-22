@@ -8,6 +8,8 @@
 #include "Game/PopUps/Popups.h"
 #include "Engine/Events/Action/ToggleEventLayer.h"
 
+#include "Game/Characters/Enemies/BaseEnemy.h"
+
 Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, unique_ptr<Engine>& engine, shared_ptr<SceneStateMachine> _stateMachine)
 				: GameScene::GameScene(id, _sceneHeight, _sceneWidth, engine, _stateMachine), commandBuilder{new CommandBuilder()},
 	gameInvoker(dynamic_cast<GameKeypressInvoker*>(engine->getKeypressedInvoker()))
@@ -176,6 +178,42 @@ void Level::addHuds() {
 	{
 		this->addHealthHud(startingID, startingXAxis, xAxisChange, current, EmptyHealthHUD);
 	}
+	if (boss.get()) {
+		this->addBossHud();
+	}
+}
+
+void Level::addBossHud() {
+	shared_ptr<SpriteObject> PROGRESSBAR_EMPTY = shared_ptr<SpriteObject>(new SpriteObject(-503, 24, 192, 1, 1, "Assets/LoadingBar/progress-bar-empty.png"));
+	shared_ptr<SpriteObject> PROGRESSBAR_FULL = shared_ptr<SpriteObject>(new SpriteObject(-504, 24, 192, 1, 1, "Assets/LoadingBar/progress-bar-full.png"));
+
+	shared_ptr<Drawable> filler = shared_ptr<Drawable>(new Drawable(-1233));
+	filler->setStatic(true);
+	filler->setPositionX(350);
+	filler->setPositionY(200 - 35);
+	filler->setHeight(55);
+	filler->setDrawStatic(true);
+	filler->registerSprite(SpriteState::DEFAULT, PROGRESSBAR_FULL);
+	filler->changeToState(SpriteState::DEFAULT);
+
+	auto w = 1220 / this->boss->getTotalHealth();
+	filler->setWidth(w * this->boss->getCurrentHealth());
+
+	addNewObjectToLayer(101, filler, false, true);
+	this->huds.push_back(filler);
+
+	shared_ptr<Drawable> health = shared_ptr<Drawable>(new Drawable(-1230));
+	health->setStatic(true);
+	health->setPositionX(300);
+	health->setPositionY(200);
+	health->setWidth(1320);
+	health->setHeight(125);
+	health->setDrawStatic(true);
+	health->registerSprite(SpriteState::DEFAULT, PROGRESSBAR_EMPTY);
+	health->changeToState(SpriteState::DEFAULT);
+
+	addNewObjectToLayer(100, health, false, true);
+	this->huds.push_back(health);
 }
 
 /// @brief

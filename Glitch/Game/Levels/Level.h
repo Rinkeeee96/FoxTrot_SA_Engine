@@ -3,6 +3,7 @@
 #include "Game/Commands/Builder/ICommandBuilder.h"
 #include "Game/States/Player/GodState.h"
 
+class IEnemy;
 class Player;
 /// @brief 
 /// Level class. Level has all the information. 
@@ -12,7 +13,9 @@ public:
 	Level(const int id, const int _sceneHeight, const int _sceneWidth, unique_ptr<Engine>& engine, shared_ptr<SceneStateMachine> _stateMachine);
 
 	void setPlayer(shared_ptr<Object> object);
+	void setBoss(shared_ptr<ICharacter> object) { this->boss = object; };
 	Player& getPlayer() { return *this->player.get(); };
+	ICharacter& getBoss() { return *this->boss.get(); };
 	void setSound(map<string, string> sounds);
 	void onAttach() override;
 	void start(bool playSound) override;
@@ -21,12 +24,13 @@ public:
 	void onUpdate(float deltaTime) override;
 
 	void addHuds();
+	void addBossHud();
 
 	bool onToggleLayerEvent(const Event& event);
 	void setWin(const bool val) { this->win = val; }
 	bool getWin() const { return this->win; }
 
-private:
+protected:
 	void addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, shared_ptr<SpriteObject> HUD);
 	vector<shared_ptr<Drawable>> huds;
 
@@ -40,6 +44,7 @@ private:
 	map<string, string> sounds;
 	shared_ptr<Object> follow = nullptr;
 	shared_ptr<Player> player = nullptr;
+	shared_ptr<ICharacter> boss = nullptr;
 	bool win = false;
 
 	shared_ptr<ICommandBuilder> commandBuilder;

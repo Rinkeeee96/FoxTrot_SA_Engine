@@ -8,6 +8,7 @@
 #include "Game/Ground/BouncingGround.h"
 #include "Game/Characters/Enemies/Slime.h"
 #include "Game/Characters/Enemies/Skryo.h"
+#include "Game/Characters/Enemies/SlimeBoss.h"
 #include "Game/Factories/CharacterFactory.h"
 
 LevelBuilder::LevelBuilder(unique_ptr<Engine>& _engine, int levelId, shared_ptr<SceneStateMachine> _statemachine)
@@ -397,6 +398,8 @@ void LevelBuilder::initFactory() {
 	characterFactory->registerCharacter("jumpkin", shared_ptr<Jumpkin>(new Jumpkin(bLevel->getEventDispatcher())), &textureId);
 
 	characterFactory->registerCharacter("skryo", shared_ptr<Skryo>(new Skryo(bLevel->getEventDispatcher())), &textureId);
+
+	characterFactory->registerCharacter("slimeboss", shared_ptr<SlimeBoss>(new SlimeBoss(*bLevel, bLevel->getEventDispatcher())), &textureId);
 
 	std::map<std::string, std::map<SpriteState, shared_ptr<SpriteObject>>> spriteObjectMap;
 }

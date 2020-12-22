@@ -14,7 +14,20 @@ bool BaseEnemy::onCollisionBeginEvent(const Event& event) {
 	auto collidedDirection = map[this->getObjectId()];
 
 	if (std::find(collidedDirection.begin(), collidedDirection.end(), Direction::UP) != collidedDirection.end()) {
-		this->kill();
+		if (collisionEvent.getObjectOne()->getObjectId() == this->getObjectId()) {
+			shared_ptr<Object> otherEntity = collisionEvent.getObjectTwo();
+
+			if (this->player->getObjectId() == otherEntity->getObjectId()) {
+				this->kill();
+			}
+		}
+		else if (collisionEvent.getObjectTwo()->getObjectId() == this->getObjectId()) {
+			shared_ptr<Object> otherEntity = collisionEvent.getObjectOne();
+
+			if (this->player->getObjectId() == otherEntity->getObjectId()) {
+				this->kill();
+			}
+		}
 	}
 	else {
 		if (collisionEvent.getObjectOne()->getObjectId() == this->getObjectId()) {

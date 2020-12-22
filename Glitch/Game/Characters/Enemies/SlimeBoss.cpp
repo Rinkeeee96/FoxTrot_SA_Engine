@@ -1,5 +1,53 @@
 #include "pch.h"
 #include "SlimeBoss.h"
+#include <Game/Levels/Level.h>
+
+SlimeBoss::SlimeBoss(Level& _level, EventDispatcher& _dispatcher) : IEnemy(_dispatcher), level(_level) {}
+SlimeBoss::SlimeBoss(Level& _level, const int id, EventDispatcher& _dispatcher) : IEnemy(id, _dispatcher), level(_level) { 
+	_dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(SlimeBoss::onCollisionBeginEvent));
+}
+
+bool SlimeBoss::onCollisionBeginEvent(const Event& event) {
+	auto collisionEvent = static_cast<const OnCollisionBeginEvent&>(event);
+	if (collisionEvent.getObjectOne()->getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo()->getObjectId() != this->getObjectId()) return false;
+
+	auto map = collisionEvent.getDirectionMap();
+	auto collidedDirection = map[this->getObjectId()];
+
+	if (std::find(collidedDirection.begin(), collidedDirection.end(), Direction::UP) != collidedDirection.end()) {
+		if (collisionEvent.getObjectOne()->getObjectId() == this->getObjectId()) {
+			shared_ptr<Object> otherEntity = collisionEvent.getObjectTwo();
+
+			if (this->player->getObjectId() == otherEntity->getObjectId()) {
+				this->currentHealth--;
+			}
+		}
+		else if (collisionEvent.getObjectTwo()->getObjectId() == this->getObjectId()) {
+			shared_ptr<Object> otherEntity = collisionEvent.getObjectOne();
+
+			if (this->player->getObjectId() == otherEntity->getObjectId()) {
+				this->currentHealth--;
+			}
+		}
+	}
+	else {
+		if (collisionEvent.getObjectOne()->getObjectId() == this->getObjectId()) {
+			shared_ptr<Object> otherEntity = collisionEvent.getObjectTwo();
+
+			if (this->player->getObjectId() == otherEntity->getObjectId()) {
+				this->doDamage();
+			}
+		}
+		else if (collisionEvent.getObjectTwo()->getObjectId() == this->getObjectId()) {
+			shared_ptr<Object> otherEntity = collisionEvent.getObjectOne();
+
+			if (this->player->getObjectId() == otherEntity->getObjectId()) {
+				this->doDamage();
+			}
+		}
+	}
+	return false;
+}
 
 /// @brief
 /// Checks if the player is within range and acts accordingly
@@ -8,6 +56,10 @@
 /// @param deltaTime
 /// DeltaTime should be used when calculating timers/manual movements
 void SlimeBoss::onUpdate(float deltaTime) {
+	if (this->getIsDead()) {
+		this->level.setWin(true);
+		return;
+	}
 	bool positionedOnGround = this->getYAxisVelocity() == 0;
 	float slimeMiddleXPosition = this->getPositionX() + (this->getWidth() / 2);
 	bool playerIsLowerThanMe = this->getPositionY() < player->getPositionY();

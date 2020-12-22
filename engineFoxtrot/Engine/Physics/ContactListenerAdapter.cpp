@@ -33,11 +33,11 @@ map<int, vector<Direction>> ContactListenerAdapter::getCollisionDirection(Collis
 	auto obj1 = vector<Direction>();
 	auto obj2 = vector<Direction>();
 
-	if (object1minX > object2maxX) {
+	if (object1minX > object2maxX + 3) {
 		obj1.push_back(Direction::RIGHT);
 		obj2.push_back(Direction::LEFT);
 	}
-	else if (object1maxX < object2minX) {
+	else if (object1maxX < object2minX - 3) {
 		obj1.push_back(Direction::LEFT);
 		obj2.push_back(Direction::RIGHT);
 	}
