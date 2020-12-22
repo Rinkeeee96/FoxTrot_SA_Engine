@@ -72,7 +72,7 @@ void GeneralTransition::loadBackground()
 	ad->registerSprite(SpriteState::DEFAULT, LOGO);
 	ad->changeToState(SpriteState::DEFAULT);
 
-	shared_ptr<Text> advertisment = shared_ptr<Text>(new Text(-510, new ColoredText("Advertisment:", Color(0, 0, 0)), 120, 30, 1420, 895));
+	shared_ptr<Text> advertisment = shared_ptr<Text>(new Text(-510, new ColoredText("Advertisement:", Color(0, 0, 0)), 120, 30, 1420, 895));
 	
 	
 	addNewObjectToLayer(0, layer0, false, true);
