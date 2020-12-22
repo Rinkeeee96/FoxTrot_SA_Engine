@@ -197,6 +197,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Game.h" />
     <ClInclude Include="Game\General\GeneralEnemyDefines.h" />
     <ClInclude Include="Game\General\GeneralGameDefines.h" />
+    <ClInclude Include="Game\General\KeyCodeStringMap.h" />
     <ClInclude Include="Game\IGameObject.h" />
     <ClInclude Include="Game\Levels\Builders\AbstractLevelBuilder.h" />
     <ClInclude Include="Game\Characters\Player\Player.h" />
@@ -205,8 +206,8 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Levels\LoadLevelFacade.h" />
     <ClInclude Include="Game\Buttons\PrimaryButton.h" />
     <ClInclude Include="Game\Buttons\SecondaryButton.h" />
-    <ClInclude Include="Game\PopUps\BasePopup.h" />
     <ClInclude Include="Game\PopUps\Achievement\AchievementPopup.h" />
+    <ClInclude Include="Game\PopUps\IPopup.h" />
     <ClInclude Include="Game\PopUps\Popups.h" />
     <ClInclude Include="Game\SaveGame\Savegame.h" />
     <ClInclude Include="Game\Scenes\Credits\CreditsScene.h" />
@@ -235,6 +236,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\SpriteState.h" />
     <ClInclude Include="Game\PopUps\Pause\PausePopUp.h" />
     <ClInclude Include="Game\PopUps\Inventory\InventoryPopup.h" />
+    <ClInclude Include="Game\PopUps\HelpMenu\HelpMenu.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Game\Levels\Builders\ILevelBuilder.h" />
     <ClInclude Include="Game\Levels\Builders\LevelBuilderDirector.h" />
@@ -282,6 +284,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClCompile Include="Glitch.cpp" />
     <ClCompile Include="Game\PopUps\Pause\PausePopUp.cpp" />
     <ClCompile Include="Game\PopUps\Inventory\InventoryPopup.cpp" />
+    <ClCompile Include="Game\PopUps\HelpMenu\HelpMenu.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>

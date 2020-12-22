@@ -23,7 +23,6 @@ void Overworld::onAttach()
 void Overworld::loadButtons() {
 	shared_ptr<SpriteObject> defaultBtnSprite = shared_ptr<SpriteObject>(new SpriteObject(101013, 11, 15, 1, 300, "Assets/Buttons/village_orange.png"));
 	shared_ptr<SpriteObject> hoverBtnSprite = shared_ptr<SpriteObject>(new SpriteObject(101012, 11, 15, 1, 300, "Assets/Buttons/village_gray.png"));
-	shared_ptr<SpriteObject> transSprite = shared_ptr<SpriteObject>(new SpriteObject(101014, 10, 10, 1, 300, "Assets/transparant.png"));
 
 	shared_ptr<Button> shop = shared_ptr<Button>(new Button(10, ColoredText("", Color(255, 255, 255)), onShopBtnClick, defaultBtnSprite, this->dispatcher));
 	shop->setWidth(32);
@@ -125,14 +124,17 @@ void Overworld::loadButtons() {
 /// @brief 
 void Overworld::loadSaveGame()
 {
-	shared_ptr<SpriteObject> emptyBlock = shared_ptr<SpriteObject>(new SpriteObject(-2500, 309, 253, 1, 300, "Assets/Inventory/text_background.png"));
+	shared_ptr<SpriteObject> block_300x100 = shared_ptr<SpriteObject>(new SpriteObject(-2500, 100, 300, 1, 300, "Assets/Textblocks/block_300x100.png"));
+	shared_ptr<SpriteObject> block_200x500 = shared_ptr<SpriteObject>(new SpriteObject(-2501, 500, 200, 1, 300, "Assets/Textblocks/block_200x500.png"));
+	shared_ptr<SpriteObject> emptyBlock = shared_ptr<SpriteObject>(new SpriteObject(-2502, 309, 253, 1, 300, "Assets/Inventory/text_background.png"));
+
 	shared_ptr<Drawable> block1 = shared_ptr<Drawable>(new Drawable(-2501));
 	block1->setStatic(true);
 	block1->setPositionX(1600);
 	block1->setPositionY(120);
 	block1->setWidth(300);
 	block1->setHeight(100);
-	block1->registerSprite(SpriteState::DEFAULT, emptyBlock);
+	block1->registerSprite(SpriteState::DEFAULT, block_300x100);
 	block1->changeToState(SpriteState::DEFAULT);
 
 
@@ -142,7 +144,7 @@ void Overworld::loadSaveGame()
 	achievements->setPositionY(800);
 	achievements->setWidth(200);
 	achievements->setHeight(500);
-	achievements->registerSprite(SpriteState::DEFAULT, emptyBlock);
+	achievements->registerSprite(SpriteState::DEFAULT, block_200x500);
 	achievements->changeToState(SpriteState::DEFAULT);
 
 	int textIDCount = 100;
