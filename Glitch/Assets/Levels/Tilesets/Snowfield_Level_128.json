@@ -21,7 +21,7 @@
          "name":"Snow",
          "tile":-1
         }],
- "tilecount":17,
+ "tilecount":18,
  "tiledversion":"1.4.3",
  "tileheight":128,
  "tiles":[
@@ -142,6 +142,18 @@
                  "name":"type",
                  "type":"string",
                  "value":"ice"
+                }]
+        }, 
+        {
+         "id":17,
+         "image":"..\/Tiles\/bouncepad.png",
+         "imageheight":128,
+         "imagewidth":128,
+         "properties":[
+                {
+                 "name":"type",
+                 "type":"string",
+                 "value":"bounce"
                 }]
         }],
  "tilewidth":128,

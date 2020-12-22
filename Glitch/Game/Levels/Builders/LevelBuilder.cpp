@@ -318,6 +318,9 @@ void LevelBuilder::createTiles(nlohmann::json layerValue) {
 				if (Key == "type" && Value == "ice") {
 					tile = shared_ptr<SnowyGround>(new SnowyGround(bLevel->getEventDispatcher(), id++));
 				}
+				if (Key == "type" && Value == "bounce") {
+					tile = shared_ptr<BouncingGround>(new BouncingGround(bLevel->getEventDispatcher(), id++));
+				}
 			}
 
 			tile->setWidth(sprite->width);
