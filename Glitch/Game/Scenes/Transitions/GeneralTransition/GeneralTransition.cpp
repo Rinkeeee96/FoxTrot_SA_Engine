@@ -96,7 +96,7 @@ void GeneralTransition::onUpdate(float deltaTime)
 	animation->setPositionX(animation->getPositionX() + (600 * deltaTime));
 	if (animation->getPositionX() > WINDOW_WIDTH)
 	{
-		//stateMachine->switchToScene(nextScene,false);
+		stateMachine->switchToScene(nextScene,false);
 	}
 }
 
