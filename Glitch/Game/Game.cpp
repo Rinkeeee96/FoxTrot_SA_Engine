@@ -14,7 +14,7 @@ Game::Game()
 /// @brief This function contains the game loop
 /// @return 
 int Game::run() {
-	try {
+	//try {
 		engine->start();
 		engine->useCustomCommandInvoker(commandBuilder->readBindingsAndCreateInvoker());
 
@@ -32,10 +32,10 @@ int Game::run() {
 		
 		if(EXPORT_GAME_DATA) 
 			savegame->saveGameDataToJsonFile();
-	}
+	/*}
 	catch (exception e) {
 		cout << e.what() << endl;
 		return EXIT_FAILURE;
-	}
+	}*/
 	return EXIT_SUCCESS;
 }
