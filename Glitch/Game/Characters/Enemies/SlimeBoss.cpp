@@ -27,6 +27,7 @@ bool SlimeBoss::onCollisionBeginEvent(const Event& event) {
 
 			if (this->player->getObjectId() == otherEntity->getObjectId()) {
 				if (!this->invincible) this->currentHealth--;
+				dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::DOWN, player->getObjectId()));
 			}
 		}
 		else if (collisionEvent.getObjectTwo()->getObjectId() == this->getObjectId()) {
@@ -34,6 +35,7 @@ bool SlimeBoss::onCollisionBeginEvent(const Event& event) {
 
 			if (this->player->getObjectId() == otherEntity->getObjectId()) {
 				if(!this->invincible) this->currentHealth--;
+				dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::DOWN, player->getObjectId()));
 			}
 		}
 	}
@@ -41,16 +43,12 @@ bool SlimeBoss::onCollisionBeginEvent(const Event& event) {
 		if (collisionEvent.getObjectOne()->getObjectId() == this->getObjectId()) {
 			shared_ptr<Object> otherEntity = collisionEvent.getObjectTwo();
 
-			if (this->player->getObjectId() == otherEntity->getObjectId()) {
-				this->doDamage();
-			}
+			if (this->player->getObjectId() == otherEntity->getObjectId()) { this->doDamage(); }
 		}
 		else if (collisionEvent.getObjectTwo()->getObjectId() == this->getObjectId()) {
 			shared_ptr<Object> otherEntity = collisionEvent.getObjectOne();
 
-			if (this->player->getObjectId() == otherEntity->getObjectId()) {
-				this->doDamage();
-			}
+			if (this->player->getObjectId() == otherEntity->getObjectId()) { this->doDamage(); }
 		}
 	}
 	return false;
@@ -60,10 +58,10 @@ void SlimeBoss::spawnEnemies() {
 	int startingId = 99999;
 	int startingTextureId = 99999;
 
-	this->createSlime(startingId++, startingTextureId, 1200, 840);
+	this->createSlime(startingId++, startingTextureId, 1350, 840);
 
 	startingTextureId = 99999 + 10;
-	this->createSlime(startingId++, startingTextureId, 1400, 840);
+	this->createSlime(startingId++, startingTextureId, 1450, 840);
 
 	startingTextureId = 99999 + 20;
 	this->createSlime(startingId++, startingTextureId, 100, 840);
@@ -84,7 +82,7 @@ void SlimeBoss::createSlime(int id, int startingTextureId, int x, int y) {
 	slime1->setTotalHealth(3);
 	slime1->setCurrentHealth(3);
 	slime1->setFriction(0);
-	slime1->setDensity(50);
+	slime1->setDensity(50000);
 	slime1->setJumpHeight(15);
 	slime1->setRestitution(0);
 	slime1->setSpeed(4);
