@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "HelpMenu.h"
+#include "Game/General/KeyCodeStringMap.h"
 
 /// @brief The setup function to create the Pop up layer
 void HelpMenu::setupPopUp()

@@ -1,5 +1,4 @@
 ﻿#pragma once
-#include "Game/General/KeyCodeStringMap.h"
 #include "Game/PopUps/IPopup.h"
 
 /// @brief Class for the Helpscreen PopUp.
