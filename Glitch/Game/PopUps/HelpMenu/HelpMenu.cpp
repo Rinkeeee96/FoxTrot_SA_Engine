@@ -20,9 +20,9 @@ void HelpMenu::setupPopUp()
 	auto invoker = (GameKeypressInvoker*)engine->getKeypressedInvoker();
 	if (invoker)
 	{
-		parseKeycodeList(invoker->getPlayerCommands(), "player controls");
+		parseKeycodeList(invoker->getPlayerCommands(), "Player controls");
 		helpCommandStartOffset += 80;
-		parseKeycodeList(invoker->getGlobalCommands(), "misc and global commands");
+		parseKeycodeList(invoker->getGlobalCommands(), "Misc and global commands");
 	}
 }
 
