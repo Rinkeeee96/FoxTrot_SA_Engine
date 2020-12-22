@@ -14,18 +14,18 @@
          "id":3,
          "name":"Background",
          "objects":[
-                {
-                 "gid":115,
-                 "height":1104.24,
-                 "id":8,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":3093.39878787878,
-                 "x":0,
-                 "y":1117.81939393939
-                }],
+          {
+            "gid": 115,
+            "height": 1104.24,
+            "id": 8,
+            "name": "",
+            "rotation": 0,
+            "type": "",
+            "visible": true,
+            "width": 3093.39878787878,
+            "x": 0,
+            "y": 1099.88
+          }],
          "offsetx":-9.09090909090889,
          "offsety":3.03030303030306,
          "opacity":1,
