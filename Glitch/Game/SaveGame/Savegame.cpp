@@ -46,6 +46,7 @@ bool Savegame::saveGameDataToJsonFile()
 		}	
 
 		characterData["inventory"]["coins"] = saveGame.second.characterData.inventory.coins;
+		characterData["health"] = saveGame.second.characterData.totalHealth;
 		saveGameJson["characterdata"] = characterData;
 		json["savegames"].push_back(saveGameJson);
 	}
@@ -208,6 +209,7 @@ void Savegame::parseJsonToMap(nlohmann::json json)
 				saveGameData.characterData.inventory.coins = jsonObject["characterdata"]["inventory"]["coins"];
 				// Parse other inventory things in future
 			}
+			saveGameData.characterData.totalHealth = jsonObject["characterdata"]["health"];
 			// Parse other character data in future
 		}
 		saveGameDataMap[id] = saveGameData;

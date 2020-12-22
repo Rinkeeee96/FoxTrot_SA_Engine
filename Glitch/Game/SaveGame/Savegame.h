@@ -29,6 +29,8 @@ struct LevelData
 struct CharacterData
 {
 	Inventory inventory;
+
+	int totalHealth = 3;
 };
 
 #define Achievement string
