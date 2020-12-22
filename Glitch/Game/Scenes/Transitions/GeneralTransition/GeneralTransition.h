@@ -20,10 +20,8 @@ public:
 
 private:
 	void loadBackground();
-	shared_ptr<Drawable> progressBarFiller = nullptr;
 	shared_ptr<Drawable> animation = nullptr;
 
-	bool moveCharacter = false;
 	string nextScene = "";
 	float timer = 0;
 };
