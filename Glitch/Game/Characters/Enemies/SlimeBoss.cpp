@@ -26,14 +26,14 @@ bool SlimeBoss::onCollisionBeginEvent(const Event& event) {
 			shared_ptr<Object> otherEntity = collisionEvent.getObjectTwo();
 
 			if (this->player->getObjectId() == otherEntity->getObjectId()) {
-				if (!this->invincible) this->currentHealth =- 5;
+				if (!this->invincible) this->currentHealth =- 4;
 			}
 		}
 		else if (collisionEvent.getObjectTwo()->getObjectId() == this->getObjectId()) {
 			shared_ptr<Object> otherEntity = collisionEvent.getObjectOne();
 
 			if (this->player->getObjectId() == otherEntity->getObjectId()) {
-				if(!this->invincible) this->currentHealth += -5;
+				if(!this->invincible) this->currentHealth += -4;
 			}
 		}
 	}
@@ -134,13 +134,13 @@ void SlimeBoss::onUpdate(float deltaTime) {
 
 	if (jumping) {
 		jumpTimer += deltaTime;
-		if (jumpTimer < (SLIME_JUMP_ANIMATION_TIME / 2)) {
+		if (jumpTimer < (jumpSpeedTimer / 2)) {
 			changeToState(SpriteState::ACTION_2);
 		}
-		else if (jumpTimer >= (SLIME_JUMP_ANIMATION_TIME / 2) && jumpTimer < SLIME_JUMP_ANIMATION_TIME) {
+		else if (jumpTimer >= (jumpSpeedTimer / 2) && jumpTimer < jumpSpeedTimer) {
 			changeToState(SpriteState::ACTION_1);
 		}
-		else if (jumpTimer >= SLIME_JUMP_ANIMATION_TIME) {
+		else if (jumpTimer >= jumpSpeedTimer) {
 			changeToState(SpriteState::ACTION_3);
 			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
 			jumpTimer = 0;

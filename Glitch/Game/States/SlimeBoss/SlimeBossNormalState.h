@@ -19,6 +19,8 @@ private:
     int currentHealth = 0;
     bool startTimeOut = false;
     bool triggered = false;
+    bool upgradeTrigger1 = false;
+    bool upgradeTrigger2 = false;
 
     chrono::high_resolution_clock::time_point startTime;
 };

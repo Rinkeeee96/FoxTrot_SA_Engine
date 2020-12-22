@@ -23,9 +23,13 @@ public:
 	StateMachine<SlimeBoss>& getStateMachine() { return this->stateMachine; }
 
 	void spawnEnemies();
+
+	void setJumSpeedTime(float f) { this->jumpSpeedTimer = f; }
+	float getJumSpeedTime() { return this->jumpSpeedTimer; }
 private:
 	float jumpTimer = 0;
 	bool jumping = false;
+	float jumpSpeedTimer = 2;
 	Level& level;
 	StateMachine<SlimeBoss> stateMachine;
 };
