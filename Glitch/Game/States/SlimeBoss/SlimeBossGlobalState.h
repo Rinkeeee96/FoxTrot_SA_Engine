@@ -12,4 +12,8 @@ public:
     void entry(SlimeBoss& entity) override;
     void execute(SlimeBoss& entity) override;
     void exit(SlimeBoss& entity) override;
+private:
+    bool triggered = false;
+    bool upgradeTrigger1 = false;
+    bool upgradeTrigger2 = false;
 };

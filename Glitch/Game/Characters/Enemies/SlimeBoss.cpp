@@ -26,14 +26,14 @@ bool SlimeBoss::onCollisionBeginEvent(const Event& event) {
 			shared_ptr<Object> otherEntity = collisionEvent.getObjectTwo();
 
 			if (this->player->getObjectId() == otherEntity->getObjectId()) {
-				if (!this->invincible) this->currentHealth =- 4;
+				if (!this->invincible) this->currentHealth--;
 			}
 		}
 		else if (collisionEvent.getObjectTwo()->getObjectId() == this->getObjectId()) {
 			shared_ptr<Object> otherEntity = collisionEvent.getObjectOne();
 
 			if (this->player->getObjectId() == otherEntity->getObjectId()) {
-				if(!this->invincible) this->currentHealth += -4;
+				if(!this->invincible) this->currentHealth--;
 			}
 		}
 	}
@@ -57,33 +57,27 @@ bool SlimeBoss::onCollisionBeginEvent(const Event& event) {
 }
 
 void SlimeBoss::spawnEnemies() {
-	shared_ptr<Slime> slime = shared_ptr<Slime>(new Slime(99999, level.getEventDispatcher()));
-	slime->setPositionX(1200);
-	slime->setPositionY(840);
-	slime->setHeight(37);
-	slime->setWidth(37);
-	slime->setTotalHealth(3);
-	slime->setCurrentHealth(3);
-	slime->setPlayer(this->player);
-	slime->setTotalHealth(3);
-	slime->setCurrentHealth(3);
-	slime->setFriction(0);
-	slime->setDensity(50);
-	slime->setJumpHeight(20);
-	slime->setRestitution(0);
-	slime->setSpeed(4);
-	auto result = slime->buildSpritemap(99999);
-	map<SpriteState, shared_ptr<SpriteObject>>::iterator it = result.begin();
-	while (it != result.end())
-	{
-		slime->registerSprite(it->first, it->second);
-		it++;
-	}
-	slime->changeToState(0);
+	int startingId = 99999;
+	int startingTextureId = 99999;
 
-	shared_ptr<Slime> slime1 = shared_ptr<Slime>(new Slime(999999, level.getEventDispatcher()));
-	slime1->setPositionX(1400);
-	slime1->setPositionY(840);
+	this->createSlime(startingId++, startingTextureId, 1200, 840);
+
+	startingTextureId = 99999 + 10;
+	this->createSlime(startingId++, startingTextureId, 1400, 840);
+
+	startingTextureId = 99999 + 20;
+	this->createSlime(startingId++, startingTextureId, 100, 840);
+
+
+	startingTextureId = 99999 + 30;
+	this->createSlime(startingId++, startingTextureId, 300, 840);
+	level.restartPhysics();
+}
+
+void SlimeBoss::createSlime(int id, int startingTextureId, int x, int y) {
+	shared_ptr<Slime> slime1 = shared_ptr<Slime>(new Slime(id, level.getEventDispatcher()));
+	slime1->setPositionX(x);
+	slime1->setPositionY(y);
 	slime1->setHeight(37);
 	slime1->setWidth(37);
 	slime1->setPlayer(this->player);
@@ -91,21 +85,18 @@ void SlimeBoss::spawnEnemies() {
 	slime1->setCurrentHealth(3);
 	slime1->setFriction(0);
 	slime1->setDensity(50);
-	slime1->setJumpHeight(20);
+	slime1->setJumpHeight(15);
 	slime1->setRestitution(0);
 	slime1->setSpeed(4);
-	result = slime1->buildSpritemap(999999);
-	it = result.begin();
+	auto result = slime1->buildSpritemap(startingTextureId);
+	map<SpriteState, shared_ptr<SpriteObject>>::iterator it = result.begin();
 	while (it != result.end())
 	{
 		slime1->registerSprite(it->first, it->second);
 		it++;
 	}
 	slime1->changeToState(0);
-
-	level.addNewObjectToLayer(4, slime, true, false);
 	level.addNewObjectToLayer(4, slime1, true, false);
-	level.restartPhysics();
 }
 
 /// @brief
@@ -119,17 +110,24 @@ void SlimeBoss::onUpdate(float deltaTime) {
 		this->level.setWin(true);
 		return;
 	}
+
+	// Differences are calculated from the middle position of the object
+	float xPositionDifference = abs((player->getPositionX() + player->getWidth() / 2) - (this->getPositionX() + this->getWidth() / 2));
+	float yPositionDifference = abs((player->getPositionY() + player->getHeight() / 2) - (this->getPositionY() + this->getHeight() / 2));
+
+	// Distance is calculated using the Pythagorean theorem from the middle of both objects
+	float distanceFromPlayer = sqrt(pow(xPositionDifference, 2) + pow(yPositionDifference, 2));
+
+	// Direction is based on the x position of the player
+	Direction direction = player->getPositionX() < this->positionX ? Direction::LEFT : Direction::RIGHT;
+
 	bool positionedOnGround = this->getYAxisVelocity() == 0;
-	float slimeMiddleXPosition = this->getPositionX() + (this->getWidth() / 2);
-	bool playerIsLowerThanMe = this->getPositionY() < player->getPositionY();
-	bool playerIsWithinXLevelRange = (slimeMiddleXPosition >= player->getPositionX()) && (slimeMiddleXPosition <= (player->getPositionX() + player->getWidth()));
 
-	if (positionedOnGround && !jumping) {
-		jumping = true;
-	}
-
-	if (playerIsLowerThanMe && playerIsWithinXLevelRange) {
-		dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::DOWN, this->getObjectId()));
+	if (positionedOnGround) {
+		if (!jumping) {
+			dispatcher.dispatchEvent<ObjectStopEvent>((Event&)ObjectStopEvent(this->getObjectId(), false));
+			jumping = true;
+		}
 	}
 
 	if (jumping) {
@@ -140,9 +138,10 @@ void SlimeBoss::onUpdate(float deltaTime) {
 		else if (jumpTimer >= (jumpSpeedTimer / 2) && jumpTimer < jumpSpeedTimer) {
 			changeToState(SpriteState::ACTION_1);
 		}
-		else if (jumpTimer >= jumpSpeedTimer) {
+		if (jumpTimer >= jumpSpeedTimer) {
 			changeToState(SpriteState::ACTION_3);
 			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
+			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(direction, this->getObjectId()));
 			jumpTimer = 0;
 			jumping = false;
 		}

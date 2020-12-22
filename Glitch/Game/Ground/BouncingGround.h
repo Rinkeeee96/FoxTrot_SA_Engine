@@ -7,8 +7,9 @@
 class BouncingGround : public IGround {
 private:
 	EventDispatcher& dispatcher;
+	Level& level;
 public:
-	BouncingGround(EventDispatcher& _dispatcher, const int id) : IGround(id), dispatcher{ _dispatcher } {
+	BouncingGround(Level& _level, EventDispatcher& _dispatcher, const int id) : IGround(id), dispatcher{ _dispatcher }, level{ _level } {
 		dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(BouncingGround::onCollisionBeginEvent));
 	}
 
@@ -24,24 +25,19 @@ public:
 				shared_ptr<Object> otherEntity = collisionEvent.getObjectTwo();
 
 				if (Player* player = dynamic_cast<Player*>(otherEntity.get())) {
-					player->setRestitution(1.0f);
-					UpdatePhysicsBodyEvent e{ *player };
-					dispatcher.dispatchEvent<UpdatePhysicsBodyEvent>(e);
+					dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, player->getObjectId()));
 				}
 			}
 			else if (collisionEvent.getObjectTwo()->getObjectId() == this->getObjectId()) {
 				shared_ptr<Object> otherEntity = collisionEvent.getObjectTwo();
 
 				if (Player* player = dynamic_cast<Player*>(otherEntity.get())) {
-					player->setRestitution(1.0f);
-					UpdatePhysicsBodyEvent e{ *player };
-					dispatcher.dispatchEvent<UpdatePhysicsBodyEvent>(e);
+					dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, player->getObjectId()));
 				}
 			}
 		}
 		return true;
 	}
-
 
 	virtual void onUpdate(float deltaTime) override { };
 };

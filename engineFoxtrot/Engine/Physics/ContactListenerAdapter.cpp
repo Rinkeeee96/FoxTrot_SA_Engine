@@ -41,7 +41,7 @@ map<int, vector<Direction>> ContactListenerAdapter::getCollisionDirection(Collis
 		obj1.push_back(Direction::LEFT);
 		obj2.push_back(Direction::RIGHT);
 	}
-	else if (object1minY < object2minY) {
+	if (object1minY < object2minY) {
 		obj1.push_back(Direction::DOWN);
 		obj2.push_back(Direction::UP);
 	}

@@ -181,9 +181,8 @@ void PhysicsFacade::update() {
 	{
 		b2Body* body = it.second;
 		
-		if (body->GetType() == b2_staticBody) {
-			continue;
-		}
+		if (body->GetType() == b2_staticBody) continue;
+
 		auto object = it.first;
 		if (!object) return;
 		object->setPositionX(body->GetWorldCenter().x - object->getWidth() / 2);
