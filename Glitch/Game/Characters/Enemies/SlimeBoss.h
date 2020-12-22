@@ -1,5 +1,8 @@
 #pragma once
 #include "Game/Characters/Enemies/BaseEnemy.h"
+#include "Game/States/StateMachine.h"
+#include "Game/States/SlimeBoss/SlimeBossGlobalState.h"
+#include "Game/States/SlimeBoss/SlimeBossNormalState.h"
 
 class Level;
 
@@ -17,8 +20,10 @@ public:
 
 	shared_ptr<ICharacter> clone(int id) override { return shared_ptr<ICharacter>(new SlimeBoss(level, id, this->dispatcher)); }
 
+	StateMachine<SlimeBoss>& getStateMachine() { return this->stateMachine; }
 private:
 	float jumpTimer = 0;
 	bool jumping = false;
 	Level& level;
+	StateMachine<SlimeBoss> stateMachine;
 };

@@ -92,7 +92,7 @@
                         {
                          "name":"density",
                          "type":"int",
-                         "value":50
+                         "value":50000
                         }, 
                         {
                          "name":"friction",

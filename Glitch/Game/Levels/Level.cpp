@@ -190,7 +190,7 @@ void Level::addBossHud() {
 	shared_ptr<Drawable> filler = shared_ptr<Drawable>(new Drawable(-1233));
 	filler->setStatic(true);
 	filler->setPositionX(350);
-	filler->setPositionY(200 - 35);
+	filler->setPositionY(250 - 35);
 	filler->setHeight(55);
 	filler->setDrawStatic(true);
 	filler->registerSprite(SpriteState::DEFAULT, PROGRESSBAR_FULL);
@@ -205,7 +205,7 @@ void Level::addBossHud() {
 	shared_ptr<Drawable> health = shared_ptr<Drawable>(new Drawable(-1230));
 	health->setStatic(true);
 	health->setPositionX(300);
-	health->setPositionY(200);
+	health->setPositionY(250);
 	health->setWidth(1320);
 	health->setHeight(125);
 	health->setDrawStatic(true);

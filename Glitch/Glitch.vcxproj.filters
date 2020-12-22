@@ -47,6 +47,10 @@
     <ClCompile Include="Game\Commands\GlobalCommand.h" />
     <ClCompile Include="Game\Characters\Enemies\Skryo.cpp" />
     <ClCompile Include="Game\Characters\Enemies\SlimeBoss.cpp" />
+    <ClCompile Include="Game\States\SlimeBoss\SlimeBossGlobalState.cpp" />
+    <ClCompile Include="Game\States\SlimeBoss\SlimeBossNormalState.cpp" />
+    <ClCompile Include="Game\States\SlimeBoss\SlimeBossDamageCooldownState.cpp" />
+    <ClCompile Include="Game\States\SlimeBoss\SlimeBossTransformState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
@@ -130,6 +134,10 @@
     <ClInclude Include="Game\Ground\BouncingGround.h" />
     <ClInclude Include="Game\Characters\Enemies\Skryo.h" />
     <ClInclude Include="Game\Characters\Enemies\SlimeBoss.h" />
+    <ClInclude Include="Game\States\SlimeBoss\SlimeBossGlobalState.h" />
+    <ClInclude Include="Game\States\SlimeBoss\SlimeBossNormalState.h" />
+    <ClInclude Include="Game\States\SlimeBoss\SlimeBossDamageCooldownState.h" />
+    <ClInclude Include="Game\States\SlimeBoss\SlimeBossTransformState.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\Levels\Story\ChapterOne.txt" />

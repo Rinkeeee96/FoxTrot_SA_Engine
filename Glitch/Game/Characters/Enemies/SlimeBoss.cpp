@@ -2,9 +2,14 @@
 #include "SlimeBoss.h"
 #include <Game/Levels/Level.h>
 
-SlimeBoss::SlimeBoss(Level& _level, EventDispatcher& _dispatcher) : IEnemy(_dispatcher), level(_level) {}
+SlimeBoss::SlimeBoss(Level& _level, EventDispatcher& _dispatcher) : IEnemy(_dispatcher), level(_level) {
+	this->stateMachine.setCurrentState(make_unique<SlimeBossNormalState>(), *this);
+	this->stateMachine.setGlobalState(make_unique<SlimeBossGlobalState>(), *this);
+}
 SlimeBoss::SlimeBoss(Level& _level, const int id, EventDispatcher& _dispatcher) : IEnemy(id, _dispatcher), level(_level) { 
 	_dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(SlimeBoss::onCollisionBeginEvent));
+	this->stateMachine.setCurrentState(make_unique<SlimeBossNormalState>(), *this);
+	this->stateMachine.setGlobalState(make_unique<SlimeBossGlobalState>(), *this);
 }
 
 bool SlimeBoss::onCollisionBeginEvent(const Event& event) {
@@ -19,14 +24,14 @@ bool SlimeBoss::onCollisionBeginEvent(const Event& event) {
 			shared_ptr<Object> otherEntity = collisionEvent.getObjectTwo();
 
 			if (this->player->getObjectId() == otherEntity->getObjectId()) {
-				this->currentHealth--;
+				if (!this->invincible) this->currentHealth--;
 			}
 		}
 		else if (collisionEvent.getObjectTwo()->getObjectId() == this->getObjectId()) {
 			shared_ptr<Object> otherEntity = collisionEvent.getObjectOne();
 
 			if (this->player->getObjectId() == otherEntity->getObjectId()) {
-				this->currentHealth--;
+				if(!this->invincible) this->currentHealth--;
 			}
 		}
 	}
@@ -88,6 +93,7 @@ void SlimeBoss::onUpdate(float deltaTime) {
 			jumping = false;
 		}
 	}
+	stateMachine.update(*this);
 }
 
 /// @brief
