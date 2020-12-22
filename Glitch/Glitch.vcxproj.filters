@@ -50,6 +50,7 @@
     <ClCompile Include="Game\States\SlimeBoss\SlimeBossGlobalState.cpp" />
     <ClCompile Include="Game\States\SlimeBoss\SlimeBossNormalState.cpp" />
     <ClCompile Include="Game\States\SlimeBoss\SlimeBossDamageCooldownState.cpp" />
+    <ClCompile Include="Game\PopUps\HelpMenu\HelpMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
@@ -136,6 +137,8 @@
     <ClInclude Include="Game\States\SlimeBoss\SlimeBossGlobalState.h" />
     <ClInclude Include="Game\States\SlimeBoss\SlimeBossNormalState.h" />
     <ClInclude Include="Game\States\SlimeBoss\SlimeBossDamageCooldownState.h" />
+    <ClInclude Include="Game\PopUps\HelpMenu\HelpMenu.h" />
+    <ClInclude Include="Game\PopUps\IPopup.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\Levels\Story\ChapterOne.txt" />
