@@ -14,6 +14,7 @@ void CreditsScene::onAttach()
 	loadText();
 	loadBackground();
 	loadMusic();
+	loadAnimations();
 }
 
 /// @brief 
@@ -93,16 +94,19 @@ void CreditsScene::start(bool playSound)
 
 void CreditsScene::onUpdate(float deltaTime)
 {
-	if (moveToNextScene)
-	{
-		stateMachine->switchToScene(nextScene, useTransition, playSound);
-	}
-
 	for (size_t i = 0; i < this->text.size(); i++)
 	{
 		this->text[i]->setPositionY(this->text[i]->getPositionY() - 1);
 		if (text[i]->getPositionY() == 0) this->text[i]->setPositionY(WINDOW_HEIGHT);
 	}
+
+	handleAnimation(deltaTime);
+
+	if (moveToNextScene)
+	{
+		stateMachine->switchToScene(nextScene, useTransition, playSound);
+	}
+
 }
 
 /// @brief 
@@ -110,4 +114,43 @@ void CreditsScene::onUpdate(float deltaTime)
 void CreditsScene::onDetach()
 {
 	Scene::onDetach();
+}
+
+
+void CreditsScene::loadAnimations() {
+
+	shared_ptr<SpriteObject> BG_LAYER_ADVENTRUE_JUMP = shared_ptr<SpriteObject>(new SpriteObject(-992883, 24, 33, 1, 300, "Assets/Sprites/Enemies/Slime/Slime_action_2.png"));
+	shared_ptr<SpriteObject> BG_LAYER_ADVENTRUE_FALL = shared_ptr<SpriteObject>(new SpriteObject(-992884, 24, 33, 1, 300, "Assets/Sprites/Enemies/Slime/Slime_action_3.png"));
+
+	animation = shared_ptr<Drawable>(new Drawable(35));
+	animation->setStatic(true);
+	animation->setPositionX(1675);
+	animation->setPositionY(948);
+	animation->setWidth(213);
+	animation->setHeight(177);
+	animation->registerSprite(SpriteState::DEFAULT, BG_LAYER_ADVENTRUE_JUMP);
+	animation->registerSprite(SpriteState::AIR_JUMP_RIGHT, BG_LAYER_ADVENTRUE_JUMP);
+	animation->registerSprite(SpriteState::AIR_FALL_RIGHT, BG_LAYER_ADVENTRUE_FALL);
+	animation->changeToState(SpriteState::DEFAULT);
+	animation->setScalable(false);
+
+	addNewObjectToLayer(2, animation);
+}
+
+void CreditsScene::handleAnimation(float deltaTime) {
+	if (animation->getPositionY() < 648) {
+		animation->changeToState(SpriteState::AIR_FALL_RIGHT);
+		falling = true;
+	}
+	else if (animation->getPositionY() > 860) {
+		animation->changeToState(SpriteState::AIR_JUMP_RIGHT);
+		falling = false;
+	}
+
+	if (falling) {
+		animation->setPositionY(animation->getPositionY() + deltaTime * 300);
+	}
+	else {
+		animation->setPositionY(animation->getPositionY() + deltaTime * -300);
+	}
 }

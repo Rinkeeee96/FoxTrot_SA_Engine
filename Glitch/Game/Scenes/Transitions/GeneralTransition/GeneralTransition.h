@@ -24,9 +24,7 @@ private:
 	shared_ptr<Drawable> animation = nullptr;
 
 	bool moveCharacter = false;
-
 	string nextScene = "";
-
 	float timer = 0;
 };
 
