@@ -40,8 +40,16 @@ GameKeypressInvoker* CommandBuilder::readBindingsAndCreateInvoker() {
 	{
 		stream = fileLoader.readFile(keybindingConfigFilepath);
 		stream >> json;
-		parseKeybindingsToMap(playerBindings, globalBindings);
-		invoker = new GameKeypressInvoker(playerBindings, globalBindings);
+		stream.close();
+
+		bool validConfigFile = fileLoader.validateDocument(keybindingConfigFilepath, "Assets/Config/keybinding-validation-schema.json");
+		if (validConfigFile) {
+			parseKeybindingsToMap(playerBindings, globalBindings);
+			invoker = new GameKeypressInvoker(playerBindings, globalBindings);
+		}
+		else {
+			throw exception("CommandBuilder: Something went wrong validating file, make sure the file is correct");
+		}
 	}
 	catch (const std::exception& e)
 	{
