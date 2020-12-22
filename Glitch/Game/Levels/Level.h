@@ -26,6 +26,7 @@ public:
 	void addHuds();
 	void addBossHud();
 
+	void restartPhysics();
 	bool onToggleLayerEvent(const Event& event);
 	void setWin(const bool val) { this->win = val; }
 	bool getWin() const { return this->win; }
@@ -59,4 +60,5 @@ protected:
 
 	float startPosPlayerX = 0;
 	float startPosPlayerY = 0;
+	bool shouldRestart  = false;
 };

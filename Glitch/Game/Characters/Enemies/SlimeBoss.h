@@ -21,6 +21,8 @@ public:
 	shared_ptr<ICharacter> clone(int id) override { return shared_ptr<ICharacter>(new SlimeBoss(level, id, this->dispatcher)); }
 
 	StateMachine<SlimeBoss>& getStateMachine() { return this->stateMachine; }
+
+	void spawnEnemies();
 private:
 	float jumpTimer = 0;
 	bool jumping = false;

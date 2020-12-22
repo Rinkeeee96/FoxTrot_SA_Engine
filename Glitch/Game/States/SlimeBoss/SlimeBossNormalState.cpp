@@ -13,6 +13,13 @@ void SlimeBossNormalState::entry(SlimeBoss& entity) {
 /// @brief if hit sets DamageCooldownState
 /// @param entity 
 void SlimeBossNormalState::execute(SlimeBoss& entity) {
+	if (entity.getCurrentHealth() <= entity.getTotalHealth() / 2) {
+		if (!this->triggered) {
+			// todo spawn enemies
+			entity.spawnEnemies();
+			triggered = true;
+		}
+	}
 	if (entity.getCurrentHealth() != currentHealth) {
 		entity.getStateMachine().changeState(make_unique<SlimeBossDamageCooldownState>(), entity);
 	}

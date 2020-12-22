@@ -236,7 +236,6 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\States\SlimeBoss\SlimeBossDamageCooldownState.h" />
     <ClInclude Include="Game\States\SlimeBoss\SlimeBossNormalState.h" />
     <ClInclude Include="Game\States\SlimeBoss\SlimeBossGlobalState.h" />
-    <ClInclude Include="Game\States\SlimeBoss\SlimeBossTransformState.h" />
     <ClInclude Include="Game\States\StateMachine.h" />
     <ClInclude Include="Glitch.h" />
     <ClInclude Include="Game\Scenes\Overworld\Overworld.h" />
@@ -293,7 +292,6 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClCompile Include="Game\States\SlimeBoss\SlimeBossDamageCooldownState.cpp" />
     <ClCompile Include="Game\States\SlimeBoss\SlimeBossNormalState.cpp" />
     <ClCompile Include="Game\States\SlimeBoss\SlimeBossGlobalState.cpp" />
-    <ClCompile Include="Game\States\SlimeBoss\SlimeBossTransformState.cpp" />
     <ClCompile Include="Glitch.cpp" />
     <ClCompile Include="Game\PopUps\Pause\PausePopUp.cpp" />
     <ClCompile Include="Game\PopUps\Inventory\InventoryPopup.cpp" />

@@ -100,14 +100,18 @@ void Level::onUpdate(float deltaTime)
 			if (character->getIsDead() && !character->getIsRemoved())
 			{
 				// TODO Death animation
-				object->setIsRemoved(true);
+ 				object->setIsRemoved(true);
 				removeObjectFromScene(object);
-				engine->restartPhysicsWorld();
+				this->restartPhysics();
 				increaseTotalGameScore(10);
 				throwAchievement("First Kill");
 			}
 		}
 	}
+}
+
+void Level::restartPhysics() {
+	engine->restartPhysicsWorld();
 }
 
 /// @brief

@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "SlimeBoss.h"
 #include <Game/Levels/Level.h>
+#include <Game/Characters/Enemies/Fleye.h>
+#include <Game/Characters/Enemies/Slime.h>
 
 SlimeBoss::SlimeBoss(Level& _level, EventDispatcher& _dispatcher) : IEnemy(_dispatcher), level(_level) {
 	this->stateMachine.setCurrentState(make_unique<SlimeBossNormalState>(), *this);
@@ -24,14 +26,14 @@ bool SlimeBoss::onCollisionBeginEvent(const Event& event) {
 			shared_ptr<Object> otherEntity = collisionEvent.getObjectTwo();
 
 			if (this->player->getObjectId() == otherEntity->getObjectId()) {
-				if (!this->invincible) this->currentHealth--;
+				if (!this->invincible) this->currentHealth =- 5;
 			}
 		}
 		else if (collisionEvent.getObjectTwo()->getObjectId() == this->getObjectId()) {
 			shared_ptr<Object> otherEntity = collisionEvent.getObjectOne();
 
 			if (this->player->getObjectId() == otherEntity->getObjectId()) {
-				if(!this->invincible) this->currentHealth--;
+				if(!this->invincible) this->currentHealth += -5;
 			}
 		}
 	}
@@ -52,6 +54,58 @@ bool SlimeBoss::onCollisionBeginEvent(const Event& event) {
 		}
 	}
 	return false;
+}
+
+void SlimeBoss::spawnEnemies() {
+	shared_ptr<Slime> slime = shared_ptr<Slime>(new Slime(99999, level.getEventDispatcher()));
+	slime->setPositionX(1200);
+	slime->setPositionY(840);
+	slime->setHeight(37);
+	slime->setWidth(37);
+	slime->setTotalHealth(3);
+	slime->setCurrentHealth(3);
+	slime->setPlayer(this->player);
+	slime->setTotalHealth(3);
+	slime->setCurrentHealth(3);
+	slime->setFriction(0);
+	slime->setDensity(50);
+	slime->setJumpHeight(20);
+	slime->setRestitution(0);
+	slime->setSpeed(4);
+	auto result = slime->buildSpritemap(99999);
+	map<SpriteState, shared_ptr<SpriteObject>>::iterator it = result.begin();
+	while (it != result.end())
+	{
+		slime->registerSprite(it->first, it->second);
+		it++;
+	}
+	slime->changeToState(0);
+
+	shared_ptr<Slime> slime1 = shared_ptr<Slime>(new Slime(999999, level.getEventDispatcher()));
+	slime1->setPositionX(1400);
+	slime1->setPositionY(840);
+	slime1->setHeight(37);
+	slime1->setWidth(37);
+	slime1->setPlayer(this->player);
+	slime1->setTotalHealth(3);
+	slime1->setCurrentHealth(3);
+	slime1->setFriction(0);
+	slime1->setDensity(50);
+	slime1->setJumpHeight(20);
+	slime1->setRestitution(0);
+	slime1->setSpeed(4);
+	result = slime1->buildSpritemap(999999);
+	it = result.begin();
+	while (it != result.end())
+	{
+		slime1->registerSprite(it->first, it->second);
+		it++;
+	}
+	slime1->changeToState(0);
+
+	level.addNewObjectToLayer(4, slime, true, false);
+	level.addNewObjectToLayer(4, slime1, true, false);
+	level.restartPhysics();
 }
 
 /// @brief
