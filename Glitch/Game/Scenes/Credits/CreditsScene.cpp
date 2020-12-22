@@ -63,31 +63,19 @@ void CreditsScene::loadBackground() {
 	bgLayer->registerSprite(SpriteState::DEFAULT, bg);
 	bgLayer->changeToState(SpriteState::DEFAULT);
 
-	shared_ptr<SpriteObject>fgTop = shared_ptr<SpriteObject>(new SpriteObject(-1010, 1080, 1920, 1, 300, "Assets/Backgrounds/credits_foreground_top.png"));
+	shared_ptr<SpriteObject>BG_IMAGE = shared_ptr<SpriteObject>(new SpriteObject(-1011, 1080, 1920, 1, 300, "Assets/Backgrounds/game_win_layer_0.png"));
 
-	shared_ptr<Drawable> foregroundTop = shared_ptr<Drawable>(new Drawable(14));
-	foregroundTop->setStatic(true);
-	foregroundTop->setPositionX(0);
-	foregroundTop->setPositionY(0 + 250);
-	foregroundTop->setWidth(1920);
-	foregroundTop->setHeight(250);
-	foregroundTop->registerSprite(SpriteState::DEFAULT, fgTop);
-	foregroundTop->changeToState(SpriteState::DEFAULT);
+	shared_ptr<Drawable> bgImage = shared_ptr<Drawable>(new Drawable(15));
+	bgImage->setStatic(true);
+	bgImage->setPositionX(0);
+	bgImage->setPositionY(1080);
+	bgImage->setWidth(1920);
+	bgImage->setHeight(1080);
+	bgImage->registerSprite(SpriteState::DEFAULT, BG_IMAGE);
+	bgImage->changeToState(SpriteState::DEFAULT);
 
-	shared_ptr<SpriteObject>BG_LAYER_1 = shared_ptr<SpriteObject>(new SpriteObject(-1011, 1080, 1920, 1, 300, "Assets/Backgrounds/credits_foreground_bottom.png"));
-
-	shared_ptr<Drawable> foregroundBottom = shared_ptr<Drawable>(new Drawable(15));
-	foregroundBottom->setStatic(true);
-	foregroundBottom->setPositionX(0);
-	foregroundBottom->setPositionY(1080);
-	foregroundBottom->setWidth(1920);
-	foregroundBottom->setHeight(250);
-	foregroundBottom->registerSprite(SpriteState::DEFAULT, BG_LAYER_1);
-	foregroundBottom->changeToState(SpriteState::DEFAULT);
-
-	addNewObjectToLayer(0, bgLayer, false, true);
-	addNewObjectToLayer(4, foregroundTop, false, true);
-	addNewObjectToLayer(4, foregroundBottom, false, true);
+	addNewObjectToLayer(4, bgLayer, false, true);
+	addNewObjectToLayer(0, bgImage, false, true);
 }
 
 /// @brief 
