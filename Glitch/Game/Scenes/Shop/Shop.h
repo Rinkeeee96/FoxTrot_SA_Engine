@@ -1,6 +1,12 @@
 #pragma once
 #include "Game/Scenes/GameScene.h"
 
+// Prices
+
+
+#define HEALTH_PRICE 50
+
+
 
 class Player;
 
@@ -24,14 +30,23 @@ private:
 
 	shared_ptr<Text> text;
 
+	bool handlePurchase = false;
+
 	function<void(void)> onStopBtnClick = [this]() {
 		moveToNextScene = true;
 		nextScene = "Overworld";
 	};
 
-	function<void(void)> buyHeart = [this]() {
-		
+	function<void(void)> doSomethingYouStupidCunt = [this]() {
+		cout << "Button called" << endl;
+		handlePurchase = true;
+		moveToNextScene = true;
+		nextScene = "Shop";
 	};
+
+
+
+
 
 };
 

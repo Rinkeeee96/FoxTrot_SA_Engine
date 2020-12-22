@@ -34,6 +34,16 @@ void Shop::start(bool playSound)
 /// DeltaTime should be used when calculating timers/manual movements
 void Shop::onUpdate(float deltaTime)
 {
+	if (handlePurchase)
+	{
+		// Dont check coin count as button should be disabled when under 50 coins
+		if (!savegame) return;
+		SaveGameData save = savegame->getCurrentGameData();
+		save.characterData.totalHealth++;
+		save.characterData.inventory.coins -= 50;
+		savegame->saveCurrentGameData(save);
+	}
+
 	if (moveToNextScene)
 	{
 		stateMachine->switchToScene(nextScene, useTransition, playSound);
@@ -50,7 +60,7 @@ void Shop::loadBackground()
 	shared_ptr<Text> level1TextBtn = shared_ptr<Text>(new Text(2, new ColoredText("How can I help you today?", Color(0, 0, 0)), 400, 100, 840, 865));
 
 	shared_ptr<Text> heartText = shared_ptr<Text>(new Text(3, new ColoredText("Need extra help? Get some extra hearts!", Color(0, 0, 0)), 400, 80, 150, 260));
-	shared_ptr<Text> heartText2 = shared_ptr<Text>(new Text(4, new ColoredText("Will cost only 50 coins!", Color(0, 0, 0)), 400, 80, 150, 450));
+	shared_ptr<Text> heartText2 = shared_ptr<Text>(new Text(4, new ColoredText("Will cost only " + to_string(HEALTH_PRICE) + " coins!", Color(0, 0, 0)), 400, 80, 150, 450));
 
 	shared_ptr<SpriteObject> HealthHUD = shared_ptr<SpriteObject>(new SpriteObject(-660, 50, 50, 1, 300, "Assets/Sprites/HUD/Full.png"));
 	shared_ptr<Drawable> health = shared_ptr<Drawable>(new Drawable(-700));
@@ -73,7 +83,7 @@ void Shop::loadBackground()
 	healthBox->registerSprite(SpriteState::DEFAULT, DialogBox);
 	healthBox->changeToState(SpriteState::DEFAULT);
 
-	text = shared_ptr<Text>(new Text(-39001, new ColoredText("10", Color(0, 0, 0), false), 30, 50, 850, 900));
+	text = shared_ptr<Text>(new Text(-39001, new ColoredText(to_string(savegame->getCurrentGameData().characterData.inventory.coins), Color(0, 0, 0), false), 30, 50, 850, 900));
 	text->setDrawStatic(true);
 
 	shared_ptr<Drawable> coinObj = shared_ptr<Drawable>(new Drawable(-39000));
@@ -129,9 +139,16 @@ void Shop::loadButtons()
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
-	shared_ptr<PrimaryButton> buy = shared_ptr<PrimaryButton>(new PrimaryButton(-970, "Buy", buyHeart, this->dispatcher));
+	string name = "Buy!";
+	if (savegame->getCurrentGameData().characterData.inventory.coins < HEALTH_PRICE)
+	{
+		name = "Not enough coins";
+	}
+	shared_ptr<PrimaryButton> buy = shared_ptr<PrimaryButton>(new PrimaryButton(-970, name, doSomethingYouStupidCunt, this->dispatcher));
 	buy->setPositionX(480);
 	buy->setPositionY(350);
+	if (savegame->getCurrentGameData().characterData.inventory.coins < HEALTH_PRICE) buy->disable();
+
 
 	addNewObjectToLayer(3, stopBtn);
 	addNewObjectToLayer(3, buy);

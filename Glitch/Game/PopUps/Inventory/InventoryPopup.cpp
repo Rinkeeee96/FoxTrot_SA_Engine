@@ -12,7 +12,7 @@ void InventoryPopup::setupPopUp()
 	shared_ptr<SpriteObject> leftInven = shared_ptr<SpriteObject>(new SpriteObject(-40002, 402, 255, 1, 1, "Assets/Inventory/left.png"));
 	shared_ptr<SpriteObject> coin = shared_ptr<SpriteObject>(new SpriteObject(-40003, 887, 885, 1, 1, "Assets/Inventory/coin.png"));
 
-	text = shared_ptr<Text>(new Text(-39001, new ColoredText("0", Color(0, 0, 0), false),30, 50,450 , 815));
+	text = shared_ptr<Text>(new Text(-39001, new ColoredText("0", Color(0, 0, 0), false),30, 50,450 , 805));
 	text->setDrawStatic(true);
 
 	shared_ptr<Drawable> leftInventory = shared_ptr<Drawable>(new Drawable(-40004));

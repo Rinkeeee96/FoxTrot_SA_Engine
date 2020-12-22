@@ -46,8 +46,8 @@ void Level::start(bool playSound) {
 	commandBuilder->linkCommandToToggle(gameInvoker, helpPopupZIndex, "help");
 
 	player->respawn();
-	player->setCurrentHealth(3);
-	player->setTotalHealth(3);
+	player->setTotalHealth(savegame->getCurrentGameData().characterData.totalHealth);
+	player->setCurrentHealth(savegame->getCurrentGameData().characterData.totalHealth);
 	player->inventory = savegame->getCurrentGameData().characterData.inventory;
 	this->addHuds();
 	loadScoreBoard();

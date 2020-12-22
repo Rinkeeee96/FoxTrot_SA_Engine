@@ -15,7 +15,7 @@ bool BaseEnemy::onCollisionBeginEvent(const Event& event) {
 
 	if (std::find(collidedDirection.begin(), collidedDirection.end(), Direction::UP) != collidedDirection.end()) {
 		this->kill();
-		this->player->inventory.coins++;
+		this->player->inventory.coins = 100;
 	}
 	else {
 		if (collisionEvent.getObjectOne()->getObjectId() == this->getObjectId()) {
