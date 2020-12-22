@@ -22,6 +22,7 @@ var class_level =
     [ "commandBuilder", "class_level.html#a6aaf51bbb3788659affa419727fddfe6", null ],
     [ "follow", "class_level.html#acae596c07a8fdc75a977dca8c8b684b3", null ],
     [ "gameInvoker", "class_level.html#a0b3f9a51236868e6948b6db54d890a63", null ],
+    [ "helpPopupZIndex", "class_level.html#a320f6bfc271ed57b74421354cd1d845e", null ],
     [ "huds", "class_level.html#a3f6edfa80132c0136b274422f3125ddc", null ],
     [ "inventoryOpen", "class_level.html#ae97c332fcd7deff32ab10495a8a25487", null ],
     [ "inventoryPopupZIndex", "class_level.html#ac19cf7fd157db3f2699dedac2dd608f1", null ],
