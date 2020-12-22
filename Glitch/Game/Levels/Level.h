@@ -45,6 +45,8 @@ private:
 	GameKeypressInvoker* gameInvoker;
 	int pausePopupZIndex = 0;
 	int inventoryPopupZIndex = 0;
+	int helpPopupZIndex = 0;
+
 	int achievementZIndex = 0;
 
 	bool inventoryOpen = false;

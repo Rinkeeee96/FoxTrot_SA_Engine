@@ -45,6 +45,7 @@
     <ClCompile Include="Game\PopUps\Achievement\AchievementPopup.cpp" />
     <ClCompile Include="Game\Commands\Creator\GlobalCommands\GlobalCommandFactory.cpp" />
     <ClCompile Include="Game\Commands\GlobalCommand.h" />
+    <ClCompile Include="Game\PopUps\HelpMenu\HelpMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Slime.h" />
@@ -116,13 +117,15 @@
     <ClInclude Include="Game\PopUps\Inventory\InventoryPopup.h" />
     <ClInclude Include="Game\Scenes\Shop\Shop.h" />
     <ClInclude Include="Game\General\GeneralEnemyDefines.h" />
-    <ClInclude Include="Game\PopUps\BasePopup.h" />
     <ClInclude Include="Game\Commands\GlobalCommands\ToggleLayerCommand.h" />
     <ClInclude Include="Game\Scenes\Shop\Shop.h" />
     <ClInclude Include="Game\PopUps\Achievement\AchievementPopup.h" />
     <ClInclude Include="Game\Commands\Creator\GlobalCommands\GlobalCommandCreator.h" />
     <ClInclude Include="Game\Commands\Creator\GlobalCommands\GlobalCommandFactory.h" />
     <ClInclude Include="Game\Commands\Creator\GlobalCommands\IGlobalCommandCreator.h" />
+    <ClInclude Include="Game\PopUps\HelpMenu\HelpMenu.h" />
+    <ClInclude Include="Game\PopUps\IPopup.h" />
+    <ClInclude Include="Game\General\KeyCodeStringMap.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\Levels\Story\ChapterOne.txt" />

@@ -43,3 +43,26 @@ void PausePopUp::onBackButtonClick()
 {
 	stateMachine->switchToScene("Overworld", false);
 }
+
+void PausePopUp::cleanPopUp()
+{
+	this->clearObjects();
+}
+
+void PausePopUp::onAttach()
+{
+	TogglePauseEvent pauseEvent(true);
+	dispatcher.dispatchEvent<TogglePauseEvent>(pauseEvent);
+	setAlwaysVisible(true);
+
+	this->setupPopUp();
+}
+
+void PausePopUp::onDetach()
+{
+	TogglePauseEvent pauseEvent(false);
+	dispatcher.dispatchEvent<TogglePauseEvent>(pauseEvent);
+	setAlwaysVisible(false);
+
+	this->cleanPopUp();
+}
