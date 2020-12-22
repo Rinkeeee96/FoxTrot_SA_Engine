@@ -122,7 +122,7 @@ void MappingScene::parseKeycodeList(unordered_map<KeyCode, string> parseList, co
 }
 
 void MappingScene::createButtons() {
-	shared_ptr<PrimaryButton> godModeBtn = shared_ptr<PrimaryButton>(new PrimaryButton(textId--, "", onStopBtnClick, this->dispatcher));
+	shared_ptr<PrimaryButton> godModeBtn = shared_ptr<PrimaryButton>(new PrimaryButton(textId--, "", onGodModeBtnClick, this->dispatcher));
 	godModeBtn->setWidth((((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1) + 25);
 	godModeBtn->setHeight(45);
 	godModeBtn->setPositionX(listStartX);

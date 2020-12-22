@@ -44,7 +44,7 @@ namespace UnitTestsGlitch
 			MockCommand m;
 			// Act
 			try {
-				result->updateCommand(KeyCode::KEY_G, &m);
+				result->updateCommand(KeyCode::KEY_G, m.getIdentifier());
 			}
 			catch (exception e) {
 				Assert::AreEqual("KeypressInvoker: trying to update an unregistered command", e.what());

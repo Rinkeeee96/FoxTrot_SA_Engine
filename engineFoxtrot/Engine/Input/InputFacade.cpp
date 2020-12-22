@@ -53,3 +53,22 @@ void InputFacade::pollEvents() {
 		}
 	}
 }
+
+KeyCode InputFacade::getSingleKeyStroke()
+{
+	SDL_Event sdl_event;
+	if (&sdl_event)
+	{
+		while (true) {
+			while (SDL_PollEvent(&sdl_event))
+			{
+				switch (sdl_event.type) {
+					case SDL_KEYDOWN:
+					{
+						return KeyCode(sdl_event.key.keysym.scancode);
+					}
+				}
+			}
+		}
+	}
+}

@@ -13,17 +13,17 @@ public:
 	{}
 
 	unordered_map<KeyCode, string>& getPlayerCommands();
-	void updatePlayerCommand(KeyCode code, ICommand* command);
+	void updatePlayerCommand(KeyCode code, const string& identifier);
 	void destroyPlayercommands();
 
 	unordered_map<KeyCode, string>& getGlobalCommands();
-	void updateGlobalCommand(KeyCode code, ICommand* command);
+	void updateGlobalCommand(KeyCode code, const string& identifier);
 	const KeyCode& getKeycodeFromIdentifier(const string& identifier);
 	void destroyGlobalCommands();
 
 private:
 	unordered_map<KeyCode, string> playerCommands;
 	unordered_map<KeyCode, string> globalCommands;
-	void updateCollection(unordered_map<KeyCode, string>& commandList, KeyCode code, ICommand* command);
+	void updateCollection(unordered_map<KeyCode, string>& commandList, KeyCode code, const string& identifier);
 	void destroyCollection(unordered_map<KeyCode, string>& commandList);
 };

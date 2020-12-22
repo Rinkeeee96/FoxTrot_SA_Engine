@@ -22,7 +22,14 @@ void KeypressInvoker::registerCommand(KeyCode code, ICommand* command) {
 /// The new keycode for the command in the map
 /// @param command
 /// A shared pointer to the command which needs to be updated
-void KeypressInvoker::updateCommand(KeyCode code, ICommand* command) {
+void KeypressInvoker::updateCommand(KeyCode code, const string& identifier) {
+	ICommand* command = nullptr;
+	for (auto it = commands.begin(); it != commands.end(); ++it) {
+		if (it->second->getIdentifier() == identifier) {
+			command = it->second;
+		}
+	}
+
 
 	if (! isRegistered(*command))
 		throw exception("KeypressInvoker: trying to update an unregistered command");
@@ -89,4 +96,12 @@ bool KeypressInvoker::isRegistered(const ICommand& command) {
 
 bool KeypressInvoker::isRegistered(const KeyCode& keyCode) {
 	return commands.find(keyCode) != commands.end();
+}
+
+ICommand* KeypressInvoker::getCommandByIdentifier(const string& identifier) {
+	for (auto it : commands) {
+		if (it.second->getIdentifier() == identifier) {
+			return it.second;
+		}
+	}
 }

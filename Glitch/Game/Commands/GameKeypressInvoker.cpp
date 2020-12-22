@@ -9,18 +9,18 @@ unordered_map<KeyCode, string>& GameKeypressInvoker::getGlobalCommands() { retur
 /// update a the playercommands
 /// @param code the new keycode for a command
 /// @param command the command to update
-void GameKeypressInvoker::updatePlayerCommand(KeyCode code, ICommand* command)
+void GameKeypressInvoker::updatePlayerCommand(KeyCode code, const string& identifier)
 {
-	updateCollection(playerCommands, code, command);
+	updateCollection(playerCommands, code, identifier);
 }
 
 /// @brief
 /// update a the global commands
 /// @param code the new keycode for a command
 /// @param command the command to update
-void GameKeypressInvoker::updateGlobalCommand(KeyCode code, ICommand* command)
+void GameKeypressInvoker::updateGlobalCommand(KeyCode code, const string& identifier)
 {
-	updateCollection(globalCommands, code, command);
+	updateCollection(globalCommands, code, identifier);
 }
 
 /// @brief
@@ -52,22 +52,22 @@ void GameKeypressInvoker::destroyCollection(unordered_map<KeyCode, string>& comm
 /// @param commandList the list with commands
 /// @param code the new keycode for a command
 /// @param command the command to update
-void GameKeypressInvoker::updateCollection(unordered_map<KeyCode, string>& commandList, KeyCode code, ICommand* command) {
-	for (auto commandIt = commandList.begin(); commandIt->second != command->getIdentifier(); ++commandIt)
+void GameKeypressInvoker::updateCollection(unordered_map<KeyCode, string>& commandList, KeyCode code, const string& identifier) {
+	for (auto commandIt = commandList.begin(); commandIt != commandList.end(); ++commandIt)
 	{
-		if ((commandIt->second == command->getIdentifier()))
+		if ((commandIt->second == identifier))
 		{
 			// swap the commands with a custom method instead of the built in 
 			// because we cannot use keycodes
 			string oldCommand = commandList[code];
-			commandList[code] = command->getIdentifier();
+			commandList[code] = identifier;
 			commandIt->second = oldCommand;
 
 			continue;
 		}
 	}
 
-	KeypressInvoker::updateCommand(code, command);
+	KeypressInvoker::updateCommand(code, identifier);
 }
 
 /// @brief

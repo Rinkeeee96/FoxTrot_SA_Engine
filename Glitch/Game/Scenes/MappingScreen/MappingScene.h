@@ -31,34 +31,54 @@ private:
 
 	void createButtons();
 
+
 	function<void(void)> onGodModeBtnClick = [this]() {
-		moveToNextScene = true;
-		nextScene = "MainMenu";
+		// Get new keycode
+		KeyCode keyCode = engine->getSingleKeyStroke();
+
+		// Set new keycode in map
+		invoker->updatePlayerCommand(keyCode, "godmode");
 	};
 
 	function<void(void)> onJumpBtnClick = [this]() {
-		moveToNextScene = true;
-		nextScene = "MainMenu";
+		// Get new keycode
+		KeyCode keyCode = engine->getSingleKeyStroke();
+
+		// Set new keycode in map
+		invoker->updatePlayerCommand(keyCode, "jump");
 	};
 
 	function<void(void)> onMoveLeftBtnClick = [this]() {
-		moveToNextScene = true;
-		nextScene = "MainMenu";
+		// Get new keycode
+		KeyCode keyCode = engine->getSingleKeyStroke();
+
+		// Set new keycode in map
+		invoker->updatePlayerCommand(keyCode, "moveLeft");
 	};
 
 	function<void(void)> onMoveRightBtnClick = [this]() {
-		moveToNextScene = true;
-		nextScene = "MainMenu";
+		// Get new keycode
+		KeyCode keyCode = engine->getSingleKeyStroke();
+
+		// Set new keycode in map
+		invoker->updatePlayerCommand(keyCode, "moveRight");
 	};
 
 	function<void(void)> onInventoryBtnClick = [this]() {
-		moveToNextScene = true;
-		nextScene = "MainMenu";
+		// Get new keycode
+		KeyCode keyCode = engine->getSingleKeyStroke();
+
+		// Set new keycode in map
+		invoker->updatePlayerCommand(keyCode, "inventory");
 	};
 
 	function<void(void)> onPauseBtnClick = [this]() {
-		moveToNextScene = true;
-		nextScene = "MainMenu";
+		// Get new keycode
+		KeyCode keyCode = engine->getSingleKeyStroke();
+
+		// Set new keycode in map
+		invoker->updatePlayerCommand(keyCode, "pause");
+		cout << "command changed" << endl;
 	};
 
 	function<void(void)> onStopBtnClick = [this]() {
