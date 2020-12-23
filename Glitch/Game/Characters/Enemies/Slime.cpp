@@ -44,10 +44,10 @@ map<SpriteState, shared_ptr<SpriteObject>> Slime::buildSpritemap(int textureId) 
 	switch (type) {
 	case SlimeType::Green:
 		return buildNormalSlimeMap(textureId);
-		break;
 	case SlimeType::Ice:
 		return buildIceSlimeMap(textureId);
-		break;
+	default:
+		return buildNormalSlimeMap(textureId);
 	}
 }
 

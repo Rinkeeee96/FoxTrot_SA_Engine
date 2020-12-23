@@ -7,6 +7,7 @@ public:
 		this->setWidth(50);
 		this->setHeight(50);
 
+		
 		this->setSpeed(100);
 		this->setJumpHeight(4);
 		this->setDensity(1000000);

@@ -11,7 +11,7 @@ enum class SlimeType {
 class Slime : public BaseEnemy {
 public:
 	Slime(EventDispatcher& _dispatcher, SlimeType _type = SlimeType::Green) : BaseEnemy(_dispatcher), type{_type} {}
-	Slime(const int id, EventDispatcher& _dispatcher) : BaseEnemy(id, _dispatcher) {}
+	Slime(const int id, EventDispatcher& _dispatcher, SlimeType _type = SlimeType::Green) : BaseEnemy(id, _dispatcher) {}
 
 	void onUpdate(float deltaTime) override;
 
