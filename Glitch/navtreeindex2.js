@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"class_move_right_command.html":[0,0,53],
 "class_move_right_command.html#a54e85d28fe56ab17a6c131ba6ff26596":[0,0,53,1],
 "class_move_right_command.html#ad73396b0c79ffc42322bc072f2c9a7df":[0,0,53,0],
 "class_normal_state.html":[0,0,54],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "struct_save_game_data.html#aa52734ce7fd5ea47a02e4e85e6adc858":[0,0,61,4],
 "struct_save_game_data.html#ab638c14b07dd4ad3dd44920fadfb6e8e":[0,0,61,7],
 "struct_save_game_data.html#ac09c4d9eeea365a6ab8600b722674faa":[0,0,61,3],
-"struct_save_game_data.html#ad747b7ef1d8dd22eeb155cdf5330448c":[0,0,61,0],
-"struct_save_game_data.html#ae8cae6259ec33055c1c65839e80f5702":[0,0,61,6]
+"struct_save_game_data.html#ad747b7ef1d8dd22eeb155cdf5330448c":[0,0,61,0]
 };

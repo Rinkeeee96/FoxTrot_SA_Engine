@@ -2,6 +2,7 @@ var class_general_transition =
 [
     [ "GeneralTransition", "class_general_transition.html#af9c19ea0ac9aef5563c8f431dc6a54d6", null ],
     [ "~GeneralTransition", "class_general_transition.html#a1ddd96d6322044929cf2d5af5ce9535b", null ],
+    [ "getFileAdfileCount", "class_general_transition.html#a472cab40123435e06430d6a988f4375b", null ],
     [ "loadBackground", "class_general_transition.html#a71a79a43b313a2f39266e06884dc9d7a", null ],
     [ "onAttach", "class_general_transition.html#a082421e8569f82c38066a64c774baa5e", null ],
     [ "onDetach", "class_general_transition.html#a188c5a1edb86388389b8e9c9cc814db9", null ],
