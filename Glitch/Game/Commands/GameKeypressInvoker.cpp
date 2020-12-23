@@ -11,7 +11,7 @@ unordered_map<KeyCode, string>& GameKeypressInvoker::getGlobalCommands() { retur
 /// @param command the command to update
 void GameKeypressInvoker::updatePlayerCommand(KeyCode code, const string& identifier)
 {
-	updateCollection(playerCommands, code, identifier);
+	updateKeycodeInCollection(playerCommands, code, identifier);
 }
 
 /// @brief
@@ -20,7 +20,7 @@ void GameKeypressInvoker::updatePlayerCommand(KeyCode code, const string& identi
 /// @param command the command to update
 void GameKeypressInvoker::updateGlobalCommand(KeyCode code, const string& identifier)
 {
-	updateCollection(globalCommands, code, identifier);
+	updateKeycodeInCollection(globalCommands, code, identifier);
 }
 
 /// @brief
@@ -48,22 +48,30 @@ void GameKeypressInvoker::destroyCollection(unordered_map<KeyCode, string>& comm
 }
 
 /// @brief
-/// update a collection within the gamekeypressinvoker
+/// update a keycode / command binding collection within the gamekeypressinvoker
 /// @param commandList the list with commands
 /// @param code the new keycode for a command
 /// @param command the command to update
-void GameKeypressInvoker::updateCollection(unordered_map<KeyCode, string>& commandList, KeyCode code, const string& identifier) {
+void GameKeypressInvoker::updateKeycodeInCollection(unordered_map<KeyCode, string>& commandList, KeyCode code, const string& identifier) {
 	for (auto commandIt = commandList.begin(); commandIt != commandList.end(); ++commandIt)
 	{
 		if ((commandIt->second == identifier))
 		{
 			// swap the commands with a custom method instead of the built in 
 			// because we cannot use keycodes
-			string oldCommand = commandList[code];
-			commandList[code] = identifier;
-			commandIt->second = oldCommand;
+			if (! commandList[code].empty())
+			{
+				string oldCommand = commandList[code];
+				commandList[code] = identifier;
+				commandIt->second = oldCommand;
+			}
+			else {
+				commandList[code] = identifier;
+				commandList.erase(commandIt);
+				
+			}
 
-			continue;
+			return;
 		}
 	}
 

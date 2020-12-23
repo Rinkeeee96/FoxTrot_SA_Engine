@@ -24,6 +24,6 @@ public:
 private:
 	unordered_map<KeyCode, string> playerCommands;
 	unordered_map<KeyCode, string> globalCommands;
-	void updateCollection(unordered_map<KeyCode, string>& commandList, KeyCode code, const string& identifier);
+	void updateKeycodeInCollection(unordered_map<KeyCode, string>& commandList, KeyCode code, const string& identifier);
 	void destroyCollection(unordered_map<KeyCode, string>& commandList);
 };
