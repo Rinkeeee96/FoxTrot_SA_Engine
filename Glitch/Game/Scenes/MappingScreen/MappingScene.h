@@ -1,6 +1,7 @@
 #pragma once
 #include "Game/Scenes/GameScene.h"
 #include "Game/Commands/GameKeypressInvoker.h"
+#include "Game/Commands/Builder/CommandBuilder.h"
 
 class MappingScene : public GameScene
 {
@@ -28,57 +29,50 @@ private:
 
 	void parseKeycodeList(unordered_map<KeyCode, string> parseList, const string& header);
 	GameKeypressInvoker* invoker = nullptr;
+	CommandBuilder builder;
 
 	void createButtons();
 
-
-	function<void(void)> onGodModeBtnClick = [this]() {
+	void updateCommand(const string& identifier) {
 		// Get new keycode
 		KeyCode keyCode = engine->getSingleKeyStroke();
 
 		// Set new keycode in map
-		invoker->updatePlayerCommand(keyCode, "godmode");
+		invoker->updatePlayerCommand(keyCode, identifier);
+		// save the json file
+		builder.saveKeybindings(invoker);
+
+		listStartX = 200;
+		listStartY = 500;
+		removeLayer(4);
+		removeLayer(5);
+
+		createButtons();
+	}
+
+
+	function<void(void)> onGodModeBtnClick = [this]() {
+		updateCommand("godmode");
 	};
 
 	function<void(void)> onJumpBtnClick = [this]() {
-		// Get new keycode
-		KeyCode keyCode = engine->getSingleKeyStroke();
-
-		// Set new keycode in map
-		invoker->updatePlayerCommand(keyCode, "jump");
+		updateCommand("jump");
 	};
 
 	function<void(void)> onMoveLeftBtnClick = [this]() {
-		// Get new keycode
-		KeyCode keyCode = engine->getSingleKeyStroke();
-
-		// Set new keycode in map
-		invoker->updatePlayerCommand(keyCode, "moveLeft");
+		updateCommand("moveLeft");
 	};
 
 	function<void(void)> onMoveRightBtnClick = [this]() {
-		// Get new keycode
-		KeyCode keyCode = engine->getSingleKeyStroke();
-
-		// Set new keycode in map
-		invoker->updatePlayerCommand(keyCode, "moveRight");
+		updateCommand("moveRight");
 	};
 
 	function<void(void)> onInventoryBtnClick = [this]() {
-		// Get new keycode
-		KeyCode keyCode = engine->getSingleKeyStroke();
-
-		// Set new keycode in map
-		invoker->updatePlayerCommand(keyCode, "inventory");
+		updateCommand("inventory");
 	};
 
 	function<void(void)> onPauseBtnClick = [this]() {
-		// Get new keycode
-		KeyCode keyCode = engine->getSingleKeyStroke();
-
-		// Set new keycode in map
-		invoker->updatePlayerCommand(keyCode, "pause");
-		cout << "command changed" << endl;
+		updateCommand("pause");
 	};
 
 	function<void(void)> onStopBtnClick = [this]() {

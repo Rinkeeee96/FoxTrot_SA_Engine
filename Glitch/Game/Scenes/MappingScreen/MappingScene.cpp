@@ -68,7 +68,7 @@ void MappingScene::loadButtons()
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
-	addNewObjectToLayer(4, stopBtn);
+	addNewObjectToLayer(3, stopBtn);
 }
 
 void MappingScene::loadSaveGame()
