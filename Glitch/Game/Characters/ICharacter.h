@@ -44,7 +44,9 @@ public:
 	int getTotalHealth() const { return this->totalHealth; }
 	void setTotalHealth(int val) { this->totalHealth = val; }
 
-	void kill() { this->currentHealth = 0; }
+	void kill() { 
+		this->currentHealth = 0; 
+	}
     void respawn() { this->setPositionX(spawnX); this->setPositionY(spawnY); }
 	bool getIsDead() const { return this->currentHealth == 0; }
 

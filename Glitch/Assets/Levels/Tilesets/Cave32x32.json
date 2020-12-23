@@ -8,9 +8,9 @@
  "margin":0,
  "name":"Cave32x32",
  "spacing":0,
- "tilecount":15,
+ "tilecount":21,
  "tiledversion":"1.4.2",
- "tileheight":32,
+ "tileheight":300,
  "tiles":[
         {
          "id":0,
@@ -101,8 +101,44 @@
          "image":"..\/Tiles\/terrain_center_bottomm32x32.png",
          "imageheight":32,
          "imagewidth":32
+        }, 
+        {
+         "id":15,
+         "image":"..\/Tiles\/Spike.png",
+         "imageheight":300,
+         "imagewidth":340
+        }, 
+        {
+         "id":16,
+         "image":"..\/Tiles\/spike_down.png",
+         "imageheight":300,
+         "imagewidth":340
+        }, 
+        {
+         "id":17,
+         "image":"..\/Tiles\/Spike32x32.png",
+         "imageheight":32,
+         "imagewidth":31
+        }, 
+        {
+         "id":18,
+         "image":"..\/Tiles\/Spike_down32x32.png",
+         "imageheight":32,
+         "imagewidth":31
+        }, 
+        {
+         "id":19,
+         "image":"..\/Tiles\/Spike_down16x16.png",
+         "imageheight":16,
+         "imagewidth":15
+        }, 
+        {
+         "id":20,
+         "image":"..\/Tiles\/Spike_top16x16.png",
+         "imageheight":16,
+         "imagewidth":15
         }],
- "tilewidth":32,
+ "tilewidth":340,
  "type":"tileset",
  "version":1.4
 }
