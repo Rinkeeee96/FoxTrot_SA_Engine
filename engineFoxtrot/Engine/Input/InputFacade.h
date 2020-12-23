@@ -19,6 +19,7 @@ public:
     ~InputFacade() {};
 
 	void pollEvents() override;
+    KeyCode getSingleKeyStroke() override;
 
 private:
     EventDispatcher& dispatcher;

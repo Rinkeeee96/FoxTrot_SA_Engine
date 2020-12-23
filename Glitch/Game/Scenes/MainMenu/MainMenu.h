@@ -29,6 +29,11 @@ private:
 		engine->setEngineRunning(false);
 	};
 
+	function<void(void)> onMappingBtnClick = [this]() {
+		moveToNextScene = true;
+		nextScene = "MappingScreen";
+	};
+
 	function<void(void)> onCreditsBtnClick = [this]() {
 		moveToNextScene = true;
 		nextScene = "CreditsSreen";

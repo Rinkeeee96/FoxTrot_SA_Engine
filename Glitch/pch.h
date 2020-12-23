@@ -1,5 +1,6 @@
 #pragma once
 
+#include <conio.h>
 #include <vector> 
 #include <iostream>
 #include <math.h>

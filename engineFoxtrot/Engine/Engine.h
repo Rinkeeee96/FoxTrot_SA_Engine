@@ -62,6 +62,8 @@ public:
 
 	API float getDeltaTime(int timeStep);
 	API void restartPhysicsWorld();
+
+	API KeyCode getSingleKeyStroke();
 private:
 	void constructDefaultCommands(KeypressInvoker* invoker);
 	EventDispatcher* eventDispatcher;

@@ -6,21 +6,21 @@ unordered_map<KeyCode, string>& GameKeypressInvoker::getPlayerCommands() { retur
 unordered_map<KeyCode, string>& GameKeypressInvoker::getGlobalCommands() { return globalCommands; }
 
 /// @brief
-/// update a the playercommands
+/// update a playercommand
 /// @param code the new keycode for a command
 /// @param command the command to update
-void GameKeypressInvoker::updatePlayerCommand(KeyCode code, ICommand* command)
+void GameKeypressInvoker::updatePlayerCommand(KeyCode code, const string& identifier)
 {
-	updateCollection(playerCommands, code, command);
+	updateKeycodeInCollection(playerCommands, code, identifier);
 }
 
 /// @brief
-/// update a the global commands
+/// update a global command
 /// @param code the new keycode for a command
 /// @param command the command to update
-void GameKeypressInvoker::updateGlobalCommand(KeyCode code, ICommand* command)
+void GameKeypressInvoker::updateGlobalCommand(KeyCode code, const string& identifier)
 {
-	updateCollection(globalCommands, code, command);
+	updateKeycodeInCollection(globalCommands, code, identifier);
 }
 
 /// @brief
@@ -48,26 +48,30 @@ void GameKeypressInvoker::destroyCollection(unordered_map<KeyCode, string>& comm
 }
 
 /// @brief
-/// update a collection within the gamekeypressinvoker
+/// update a keycode / command binding collection within the gamekeypressinvoker
 /// @param commandList the list with commands
 /// @param code the new keycode for a command
 /// @param command the command to update
-void GameKeypressInvoker::updateCollection(unordered_map<KeyCode, string>& commandList, KeyCode code, ICommand* command) {
-	for (auto commandIt = commandList.begin(); commandIt->second != command->getIdentifier(); ++commandIt)
+void GameKeypressInvoker::updateKeycodeInCollection(unordered_map<KeyCode, string>& commandList, KeyCode code, const string& identifier) {
+	for (auto commandIt = commandList.begin(); commandIt != commandList.end(); ++commandIt)
 	{
-		if ((commandIt->second == command->getIdentifier()))
+		if ((commandIt->second == identifier))
 		{
 			// swap the commands with a custom method instead of the built in 
 			// because we cannot use keycodes
-			string oldCommand = commandList[code];
-			commandList[code] = command->getIdentifier();
-			commandIt->second = oldCommand;
-
-			continue;
+			if (! commandList[code].empty())
+			{
+				string oldCommand = commandList[code];
+				commandList[code] = identifier;
+				commandIt->second = oldCommand;
+			}
+			else {
+				commandList[code] = identifier;
+				commandList.erase(commandIt);
+			}
+			return;
 		}
 	}
-
-	KeypressInvoker::updateCommand(code, command);
 }
 
 /// @brief
@@ -87,6 +91,8 @@ const KeyCode& GameKeypressInvoker::getKeycodeFromIdentifier(const string& ident
 		if (identifier == pair.second)
 			return pair.first;
 	}
+
+	return KeyCode::KEY_UNKNOWN;
 
 	//throw exception("no keycode registered for " + identifier);
 }
