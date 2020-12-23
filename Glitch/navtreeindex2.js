@@ -1,5 +1,9 @@
 var NAVTREEINDEX2 =
 {
+"class_move_right_command.html#a54e85d28fe56ab17a6c131ba6ff26596":[0,0,53,1],
+"class_move_right_command.html#ad73396b0c79ffc42322bc072f2c9a7df":[0,0,53,0],
+"class_normal_state.html":[0,0,54],
+"class_normal_state.html#a0eb249de89f94fb39408beb2eb7e1b57":[0,0,54,3],
 "class_normal_state.html#a57fe085d85f42532f95e3399c508ae77":[0,0,54,0],
 "class_normal_state.html#a644bae947c2748e14259b518d17e8d38":[0,0,54,2],
 "class_normal_state.html#a983a2c923f068c0b7ac669557b938926":[0,0,54,5],
