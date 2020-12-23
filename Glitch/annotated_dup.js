@@ -52,6 +52,7 @@ var annotated_dup =
     [ "LevelData", "struct_level_data.html", "struct_level_data" ],
     [ "LoadLevelFacade", "class_load_level_facade.html", "class_load_level_facade" ],
     [ "MainMenu", "class_main_menu.html", "class_main_menu" ],
+    [ "MappingScene", "class_mapping_scene.html", "class_mapping_scene" ],
     [ "MoveLeftCommand", "class_move_left_command.html", "class_move_left_command" ],
     [ "MoveRightCommand", "class_move_right_command.html", "class_move_right_command" ],
     [ "NormalState", "class_normal_state.html", "class_normal_state" ],

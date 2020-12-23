@@ -100,6 +100,7 @@ var hierarchy =
         [ "GeneralTransition", "class_general_transition.html", null ],
         [ "Level", "class_level.html", null ],
         [ "MainMenu", "class_main_menu.html", null ],
+        [ "MappingScene", "class_mapping_scene.html", null ],
         [ "Overworld", "class_overworld.html", null ],
         [ "SaveScreen", "class_save_screen.html", null ],
         [ "Shop", "class_shop.html", null ],
