@@ -68,9 +68,7 @@ void GameKeypressInvoker::updateKeycodeInCollection(unordered_map<KeyCode, strin
 			else {
 				commandList[code] = identifier;
 				commandList.erase(commandIt);
-				
 			}
-
 			return;
 		}
 	}
