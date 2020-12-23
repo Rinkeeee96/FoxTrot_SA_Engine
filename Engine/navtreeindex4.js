@@ -1,5 +1,10 @@
 var NAVTREEINDEX4 =
 {
+"class_video_facade.html#abc08e3fe9377666f846917d4ad234d24":[1,0,67,9],
+"class_video_facade.html#aca351f606045d14b99642e55f10a99bd":[1,0,67,2],
+"class_video_facade.html#adbf77e34edae86295290dbb651255cbf":[1,0,67,4],
+"class_video_facade.html#ae98c664027935e2a960ecf25dff1d4a8":[1,0,67,3],
+"class_video_facade.html#afa8cfa2158d507d92a9313c79267a8b7":[1,0,67,5],
 "class_video_facade.html#afc5632d73fe9f80ce7e6e0915512e74c":[1,0,67,17],
 "class_video_facade.html#afe6a926f0923fc672ac9e49283b221d9":[1,0,67,16],
 "class_window_resize_event.html":[1,0,68],
@@ -37,8 +42,8 @@ var NAVTREEINDEX4 =
 "dir_f5588563a21b289f1b68727b7157a599.html":[2,0,0,5,0],
 "dir_fd8b0673c717371c7973e7210347eb64.html":[2,0,0,0,1],
 "files.html":[2,0],
-"functions.html":[1,3,0],
 "functions.html":[1,3,0,0],
+"functions.html":[1,3,0],
 "functions_a.html":[1,3,0,1],
 "functions_b.html":[1,3,0,2],
 "functions_c.html":[1,3,0,3],

@@ -2,6 +2,7 @@ var class_input_engine =
 [
     [ "InputEngine", "class_input_engine.html#a6a20294376216586c550c50ae736a817", null ],
     [ "~InputEngine", "class_input_engine.html#a87d0ba81ed29ed938fac7faa728a3663", null ],
+    [ "getSingleKeyStroke", "class_input_engine.html#a2ffd6a32a6671ce70f283fdfa0700e52", null ],
     [ "onKeyPressed", "class_input_engine.html#ab7226dfe2df84a0c0279b411e9c90225", null ],
     [ "registerKeypressInvoker", "class_input_engine.html#aba8f5f8cbea770b91d8251def4e7db57", null ],
     [ "shutdown", "class_input_engine.html#aa545a112b41abd4b1a9d0a82123eb894", null ],
