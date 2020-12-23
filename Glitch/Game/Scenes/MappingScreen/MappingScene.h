@@ -61,6 +61,10 @@ private:
 		updateGlobalCommand("pause");
 	};
 
+	function<void(void)> onHelpBtnClick = [this]() {
+		updateGlobalCommand("help");
+	};
+
 	function<void(void)> onStopBtnClick = [this]() {
 		moveToNextScene = true;
 		nextScene = "MainMenu";

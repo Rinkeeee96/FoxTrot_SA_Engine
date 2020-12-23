@@ -65,7 +65,7 @@ void MappingScene::loadButtons()
 	createButtons();
 
 
-	shared_ptr<SecondaryButton> stopBtn = shared_ptr<SecondaryButton>(new SecondaryButton(-993, "To Main Menu", onStopBtnClick, this->dispatcher));
+	shared_ptr<SecondaryButton> stopBtn = shared_ptr<SecondaryButton>(new SecondaryButton(-9993, "To Main Menu", onStopBtnClick, this->dispatcher));
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
@@ -103,23 +103,6 @@ void MappingScene::parseKeycodeList(unordered_map<KeyCode, string> parseList, co
 			((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * header.length(), 70.f, listStartX, (listStartY += 50.f))
 		);
 	addNewObjectToLayer(4, text);
-
-	// parse and add the keycodes to the screen
-	for (pair<KeyCode, string> command : parseList)
-	{
-		
-		const string& identifier = command.second;
-		// TODO make this a description (prob in json as attribute?) for now this works
-		shared_ptr<Text> description = shared_ptr<Text>(new Text(textId--,
-			new ColoredText(identifier,
-				Color(0, 0, 0),
-				false
-			),
-			((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * identifier.length(), 50.f, listStartX + 80, listStartY += 50));
-
-		
-		addNewObjectToLayer(4, description);
-	};
 }
 
 void MappingScene::createButtons() {
@@ -129,6 +112,13 @@ void MappingScene::createButtons() {
 	godModeBtn->setPositionX(listStartX);
 	godModeBtn->setPositionY(listStartY);
 
+	shared_ptr<Text> godModeIdentifierString = shared_ptr<Text>(new Text(textId--,
+		new ColoredText("God mode",
+			Color(0, 0, 0),
+			false
+		),
+		((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * string("God mode").length(), 50.f, listStartX + 80, listStartY));
+
 	shared_ptr<Text> godModeString = shared_ptr<Text>(new Text(textId--,
 		new ColoredText(keycodeStringMap[KeyCode(invoker->getKeycodeFromIdentifier("godmode"))],
 			Color(0, 0, 0),
@@ -136,6 +126,7 @@ void MappingScene::createButtons() {
 		),
 			((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1, 50.f, listStartX + 10, listStartY));
 
+	addNewObjectToLayer(4, godModeIdentifierString);
 	addNewObjectToLayer(4, godModeBtn);
 	addNewObjectToLayer(5, godModeString);
 
@@ -145,6 +136,13 @@ void MappingScene::createButtons() {
 	jumpBtn->setPositionX(listStartX);
 	jumpBtn->setPositionY(listStartY += 50);
 
+	shared_ptr<Text> jumpIdentifierString = shared_ptr<Text>(new Text(textId--,
+		new ColoredText("Jump",
+			Color(0, 0, 0),
+			false
+		),
+		((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * string("Jump").length(), 50.f, listStartX + 80, listStartY));
+
 	shared_ptr<Text> jumpString = shared_ptr<Text>(new Text(textId--,
 		new ColoredText(keycodeStringMap[KeyCode(invoker->getKeycodeFromIdentifier("jump"))],
 			Color(0, 0, 0),
@@ -152,6 +150,7 @@ void MappingScene::createButtons() {
 		),
 			((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1, 50.f, listStartX + 10, listStartY));
 
+	addNewObjectToLayer(4, jumpIdentifierString);
 	addNewObjectToLayer(4, jumpBtn);
 	addNewObjectToLayer(5, jumpString);
 
@@ -161,6 +160,13 @@ void MappingScene::createButtons() {
 	leftBtn->setPositionX(listStartX);
 	leftBtn->setPositionY(listStartY += 50);
 
+	shared_ptr<Text> leftIdentifierString = shared_ptr<Text>(new Text(textId--,
+		new ColoredText("Move left",
+			Color(0, 0, 0),
+			false
+		),
+		((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * string("Move left").length(), 50.f, listStartX + 80, listStartY));
+
 	shared_ptr<Text> moveLeftString = shared_ptr<Text>(new Text(textId--,
 		new ColoredText(keycodeStringMap[KeyCode(invoker->getKeycodeFromIdentifier("moveLeft"))],
 			Color(0, 0, 0),
@@ -168,6 +174,7 @@ void MappingScene::createButtons() {
 		),
 			((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1, 50.f, listStartX + 10, listStartY));
 
+	addNewObjectToLayer(4, leftIdentifierString);
 	addNewObjectToLayer(4, leftBtn);
 	addNewObjectToLayer(5, moveLeftString);
 
@@ -177,6 +184,13 @@ void MappingScene::createButtons() {
 	rightBtn->setPositionX(listStartX);
 	rightBtn->setPositionY(listStartY += 50);
 
+	shared_ptr<Text> rightIdentifierString = shared_ptr<Text>(new Text(textId--,
+		new ColoredText("Move right",
+			Color(0, 0, 0),
+			false
+		),
+		((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * string("Move right").length(), 50.f, listStartX + 80, listStartY));
+
 	shared_ptr<Text> moveRightString = shared_ptr<Text>(new Text(textId--,
 		new ColoredText(keycodeStringMap[KeyCode(invoker->getKeycodeFromIdentifier("moveRight"))],
 			Color(0, 0, 0),
@@ -184,33 +198,25 @@ void MappingScene::createButtons() {
 		),
 		((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1, 50.f, listStartX + 10, listStartY));
 
+	addNewObjectToLayer(4, rightIdentifierString);
 	addNewObjectToLayer(4, rightBtn);
 	addNewObjectToLayer(5, moveRightString);
 
 	listStartX = 850;
 	listStartY = 500;
 
-	shared_ptr<PrimaryButton> pauseBtn = shared_ptr<PrimaryButton>(new PrimaryButton(textId--, "", onPauseBtnClick, this->dispatcher));
-	pauseBtn->setWidth((((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1) + 25);
-	pauseBtn->setHeight(45);
-	pauseBtn->setPositionX(listStartX);
-	pauseBtn->setPositionY(listStartY);
-
-	shared_ptr<Text> pauseString = shared_ptr<Text>(new Text(textId--,
-		new ColoredText(keycodeStringMap[KeyCode(invoker->getKeycodeFromIdentifier("pause"))],
-			Color(0, 0, 0),
-			false
-		),
-		((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1, 50.f, listStartX + 10, listStartY));
-
-	addNewObjectToLayer(4, pauseBtn);
-	addNewObjectToLayer(5, pauseString);
-
 	shared_ptr<PrimaryButton> inventoryBtn = shared_ptr<PrimaryButton>(new PrimaryButton(textId--, "", onInventoryBtnClick, this->dispatcher));
 	inventoryBtn->setWidth((((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1) + 25);
 	inventoryBtn->setHeight(45);
 	inventoryBtn->setPositionX(listStartX);
-	inventoryBtn->setPositionY(listStartY += 50);
+	inventoryBtn->setPositionY(listStartY);
+
+	shared_ptr<Text> inventoryIdentifierString = shared_ptr<Text>(new Text(textId--,
+		new ColoredText("Inventory",
+			Color(0, 0, 0),
+			false
+		),
+		((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * string("Inventory").length(), 50.f, listStartX + 80, listStartY));
 
 	shared_ptr<Text> inventoryString = shared_ptr<Text>(new Text(textId--,
 		new ColoredText(keycodeStringMap[KeyCode(invoker->getKeycodeFromIdentifier("inventory"))],
@@ -219,8 +225,57 @@ void MappingScene::createButtons() {
 		),
 		((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1, 50.f, listStartX + 10, listStartY));
 
+	addNewObjectToLayer(4, inventoryIdentifierString);
 	addNewObjectToLayer(4, inventoryBtn);
 	addNewObjectToLayer(5, inventoryString);
+
+	shared_ptr<PrimaryButton> pauseBtn = shared_ptr<PrimaryButton>(new PrimaryButton(textId--, "", onPauseBtnClick, this->dispatcher));
+	pauseBtn->setWidth((((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1) + 25);
+	pauseBtn->setHeight(45);
+	pauseBtn->setPositionX(listStartX);
+	pauseBtn->setPositionY(listStartY += 50);
+
+	shared_ptr<Text> pauseString = shared_ptr<Text>(new Text(textId--,
+		new ColoredText(keycodeStringMap[KeyCode(invoker->getKeycodeFromIdentifier("pause"))],
+			Color(0, 0, 0),
+			false
+		),
+		((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1, 50.f, listStartX + 10, listStartY));
+
+	shared_ptr<Text> pauseIdentifierString = shared_ptr<Text>(new Text(textId--,
+		new ColoredText("Pause game",
+			Color(0, 0, 0),
+			false
+		),
+		((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * string("Pause game").length(), 50.f, listStartX + 80, listStartY));
+
+	addNewObjectToLayer(4, pauseIdentifierString);
+	addNewObjectToLayer(4, pauseBtn);
+	addNewObjectToLayer(5, pauseString);
+
+	shared_ptr<PrimaryButton> helpBtn = shared_ptr<PrimaryButton>(new PrimaryButton(textId--, "", onHelpBtnClick, this->dispatcher));
+	helpBtn->setWidth((((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1) + 25);
+	helpBtn->setHeight(45);
+	helpBtn->setPositionX(listStartX);
+	helpBtn->setPositionY(listStartY += 50);
+
+	shared_ptr<Text> helpString = shared_ptr<Text>(new Text(textId--,
+		new ColoredText(keycodeStringMap[KeyCode(invoker->getKeycodeFromIdentifier("help"))],
+			Color(0, 0, 0),
+			false
+		),
+		((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1, 50.f, listStartX + 10, listStartY));
+
+	shared_ptr<Text> helpIdentifierString = shared_ptr<Text>(new Text(textId--,
+		new ColoredText("Help screen",
+			Color(0, 0, 0),
+			false
+		),
+		((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * string("Help screen").length(), 50.f, listStartX + 80, listStartY));
+
+	addNewObjectToLayer(4, helpIdentifierString);
+	addNewObjectToLayer(4, helpBtn);
+	addNewObjectToLayer(5, helpString);
 }
 
 void MappingScene::updatePlayerCommand(const string& identifier)
