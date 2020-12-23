@@ -72,8 +72,6 @@ void GameKeypressInvoker::updateKeycodeInCollection(unordered_map<KeyCode, strin
 			return;
 		}
 	}
-
-	//KeypressInvoker::updateCommand(code, identifier);
 }
 
 /// @brief
