@@ -29,7 +29,6 @@ CommandBuilder::CommandBuilder()
 GameKeypressInvoker* CommandBuilder::readBindingsAndCreateInvoker() {
 
 	bool parseError = false;
-	// binding "out" variables
 	unordered_map<KeyCode, string> playerBindings;
 	unordered_map<KeyCode, string> globalBindings;
 
@@ -53,7 +52,6 @@ GameKeypressInvoker* CommandBuilder::readBindingsAndCreateInvoker() {
 	}
 	catch (const std::exception& e)
 	{
-		cout <<"Error while parsing keybindings \n" << e.what() << ", resetting..." << endl;
 		this->createDefaultbindings(playerBindings, globalBindings);
 		invoker = new GameKeypressInvoker(playerBindings, globalBindings);
 		this->saveKeybindings(invoker);

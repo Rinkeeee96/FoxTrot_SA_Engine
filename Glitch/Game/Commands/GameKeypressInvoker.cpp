@@ -6,7 +6,7 @@ unordered_map<KeyCode, string>& GameKeypressInvoker::getPlayerCommands() { retur
 unordered_map<KeyCode, string>& GameKeypressInvoker::getGlobalCommands() { return globalCommands; }
 
 /// @brief
-/// update a the playercommands
+/// update a playercommand
 /// @param code the new keycode for a command
 /// @param command the command to update
 void GameKeypressInvoker::updatePlayerCommand(KeyCode code, const string& identifier)
@@ -15,7 +15,7 @@ void GameKeypressInvoker::updatePlayerCommand(KeyCode code, const string& identi
 }
 
 /// @brief
-/// update a the global commands
+/// update a global command
 /// @param code the new keycode for a command
 /// @param command the command to update
 void GameKeypressInvoker::updateGlobalCommand(KeyCode code, const string& identifier)
