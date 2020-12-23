@@ -66,6 +66,11 @@ void Engine::restartPhysicsWorld()
 	physicsEngine.reloadPhysicsObjects();
 }
 
+KeyCode Engine::getSingleKeyStroke()
+{
+	return inputEngine.getSingleKeyStroke();
+}
+
 void Engine::updateCurrentScene()
 {
 	sceneManager.updateCurrentScene(getDeltaTime(DELTATIME_TIMESTEP_PHYSICS));

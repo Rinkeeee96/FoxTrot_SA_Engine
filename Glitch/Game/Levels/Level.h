@@ -39,6 +39,7 @@ protected:
 	void increaseTotalGameScore(const int amount);
 
 	shared_ptr<Text> scoreText = nullptr;
+	shared_ptr<Text> helpText = nullptr;
 	void loadScoreBoard();
 	void updateScoreBoard();
 

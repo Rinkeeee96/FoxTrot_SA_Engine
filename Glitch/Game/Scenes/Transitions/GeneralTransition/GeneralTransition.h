@@ -18,6 +18,8 @@ public:
 
 	void setNextScene(string const identifier);
 
+	int getFileAdfileCount();
+
 private:
 	void loadBackground();
 	shared_ptr<Drawable> animation = nullptr;

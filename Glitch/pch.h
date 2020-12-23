@@ -1,5 +1,6 @@
 #pragma once
 
+#include <conio.h>
 #include <vector> 
 #include <iostream>
 #include <math.h>
@@ -17,6 +18,7 @@
 #include <filesystem>
 #include <algorithm>
 #include <ctime>
+#include <random>
 #include "api.h"
 
 #include "SceneManager/Objects/Button.h"
