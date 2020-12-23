@@ -1,1 +1,13 @@
-{"global":{"inventory":12,"pause":52},"player":{"godmode":79,"jump":82,"moveLeft":80,"moveRight":7}}
+{
+  "global": {
+    "inventory": 12,
+    "pause": 52,
+    "help": 11
+  },
+  "player": {
+    "godmode": 79,
+    "jump": 82,
+    "moveLeft": 80,
+    "moveRight": 7
+  }
+}
