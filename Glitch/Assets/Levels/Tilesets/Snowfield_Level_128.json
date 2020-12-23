@@ -1,0 +1,162 @@
+{ "columns":0,
+ "editorsettings":
+    {
+     "export":
+        {
+         "format":"",
+         "target":"."
+        }
+    },
+ "grid":
+    {
+     "height":1,
+     "orientation":"orthogonal",
+     "width":1
+    },
+ "margin":0,
+ "name":"Snowfield_Level_128",
+ "spacing":0,
+ "terrains":[
+        {
+         "name":"Snow",
+         "tile":-1
+        }],
+ "tilecount":18,
+ "tiledversion":"1.4.3",
+ "tileheight":128,
+ "tiles":[
+        {
+         "id":0,
+         "image":"..\/Tiles\/snowfield_level_tile (1).png",
+         "imageheight":93,
+         "imagewidth":128
+        }, 
+        {
+         "id":1,
+         "image":"..\/Tiles\/snowfield_level_tile (2).png",
+         "imageheight":93,
+         "imagewidth":128
+        }, 
+        {
+         "id":2,
+         "image":"..\/Tiles\/snowfield_level_tile (3).png",
+         "imageheight":93,
+         "imagewidth":128
+        }, 
+        {
+         "id":3,
+         "image":"..\/Tiles\/snowfield_level_tile (4).png",
+         "imageheight":128,
+         "imagewidth":128,
+         "terrain":[0, -1, -1, -1]
+        }, 
+        {
+         "id":4,
+         "image":"..\/Tiles\/snowfield_level_tile (5).png",
+         "imageheight":128,
+         "imagewidth":128,
+         "terrain":[-1, 0, -1, -1]
+        }, 
+        {
+         "id":5,
+         "image":"..\/Tiles\/snowfield_level_tile (6).png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":6,
+         "image":"..\/Tiles\/snowfield_level_tile (7).png",
+         "imageheight":128,
+         "imagewidth":128,
+         "terrain":[0, -1, 0, 0]
+        }, 
+        {
+         "id":7,
+         "image":"..\/Tiles\/snowfield_level_tile (8).png",
+         "imageheight":128,
+         "imagewidth":128,
+         "terrain":[0, 0, -1, -1]
+        }, 
+        {
+         "id":8,
+         "image":"..\/Tiles\/snowfield_level_tile (9).png",
+         "imageheight":128,
+         "imagewidth":128,
+         "terrain":[-1, 0, 0, 0]
+        }, 
+        {
+         "id":9,
+         "image":"..\/Tiles\/snowfield_level_tile (10).png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":10,
+         "image":"..\/Tiles\/snowfield_level_tile (11).png",
+         "imageheight":128,
+         "imagewidth":128,
+         "terrain":[0, -1, 0, -1]
+        }, 
+        {
+         "id":11,
+         "image":"..\/Tiles\/snowfield_level_tile (12).png",
+         "imageheight":128,
+         "imagewidth":128,
+         "terrain":[0, 0, 0, 0]
+        }, 
+        {
+         "id":12,
+         "image":"..\/Tiles\/snowfield_level_tile (13).png",
+         "imageheight":128,
+         "imagewidth":128,
+         "terrain":[-1, 0, -1, 0]
+        }, 
+        {
+         "id":13,
+         "image":"..\/Tiles\/snowfield_level_tile (14).png",
+         "imageheight":128,
+         "imagewidth":128,
+         "terrain":[-1, -1, 0, -1]
+        }, 
+        {
+         "id":14,
+         "image":"..\/Tiles\/snowfield_level_tile (15).png",
+         "imageheight":128,
+         "imagewidth":128,
+         "terrain":[-1, -1, 0, 0]
+        }, 
+        {
+         "id":15,
+         "image":"..\/Tiles\/snowfield_level_tile (16).png",
+         "imageheight":128,
+         "imagewidth":128,
+         "terrain":[-1, -1, -1, 0]
+        }, 
+        {
+         "id":16,
+         "image":"..\/Tiles\/snowfield_level_tile (17).png",
+         "imageheight":128,
+         "imagewidth":128,
+         "properties":[
+                {
+                 "name":"type",
+                 "type":"string",
+                 "value":"ice"
+                }]
+        }, 
+        {
+         "id":17,
+         "image":"..\/Tiles\/bouncepad.png",
+         "imageheight":128,
+         "imagewidth":128,
+         "properties":[
+                {
+                 "name":"type",
+                 "type":"string",
+                 "value":"bounce"
+                }]
+        }],
+ "tilewidth":128,
+ "type":"tileset",
+ "version":1.4
+}
