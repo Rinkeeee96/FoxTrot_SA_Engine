@@ -84,10 +84,7 @@ void CommandBuilder::parseCommandList(nlohmann::json& subCollection, unordered_m
 /// @param globalBindings
 void CommandBuilder::parseKeybindingsToMap(unordered_map<KeyCode, string>& playerBindings, unordered_map<KeyCode, string>& globalBindings)
 {
-	// TODO ensure multiplayer bindings are supported (put this here for future reference)
-	for (auto& player : json["player"])
-		parseCommandList(player, playerBindings);
-	
+	parseCommandList(json["player"], playerBindings);
 	parseCommandList(json["global"], globalBindings);
 }
 
