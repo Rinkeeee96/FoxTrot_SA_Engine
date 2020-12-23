@@ -138,7 +138,7 @@
                             },
                             "value": {
                               "type": "string",
-                              "enum": [ "player", "slime", "jumpkin", "fleye" ]
+                              "enum": [ "player", "slime", "iceslime", "jumpkin", "fleye", "skryo" ]
                             }
                           }
                         },
