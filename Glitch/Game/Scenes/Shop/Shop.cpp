@@ -140,14 +140,21 @@ void Shop::loadButtons()
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
 	string name = "Buy!";
+	bool lock = false;
 	if (savegame->getCurrentGameData().characterData.inventory.coins < HEALTH_PRICE)
 	{
 		name = "Not enough coins";
+		lock = true;
 	}
-	shared_ptr<PrimaryButton> buy = shared_ptr<PrimaryButton>(new PrimaryButton(-970, name, doSomethingYouStupidCunt, this->dispatcher));
+	if (savegame->getCurrentGameData().characterData.totalHealth >= 10)
+	{
+		name = "Max amount of health!";
+		lock = true;
+	}
+	shared_ptr<PrimaryButton> buy = shared_ptr<PrimaryButton>(new PrimaryButton(-970, name, onShopBuyClick, this->dispatcher));
 	buy->setPositionX(480);
 	buy->setPositionY(350);
-	if (savegame->getCurrentGameData().characterData.inventory.coins < HEALTH_PRICE) buy->disable();
+	if (lock) buy->disable();
 
 
 	addNewObjectToLayer(3, stopBtn);

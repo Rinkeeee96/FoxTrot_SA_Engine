@@ -40,8 +40,6 @@ void Level::start(bool playSound) {
 	this->addLayerOnZIndex(inventoryPopupZIndex, inventoryPopup);
 	this->addLayerOnZIndex(pausePopupZIndex, shared_ptr<Layer>(new PausePopUp(this->engine, this->dispatcher, this->stateMachine)));
 
-	cout << "start" << endl;
-
 	commandBuilder->linkCommandToToggle(gameInvoker, inventoryPopupZIndex, "inventory");
 	commandBuilder->linkCommandToToggle(gameInvoker, pausePopupZIndex, "pause");
 	commandBuilder->linkCommandToToggle(gameInvoker, helpPopupZIndex, "help");
@@ -92,7 +90,6 @@ void Level::onUpdate(float deltaTime)
 
 	if (this->win)
 	{
-		player->kill();
 		increaseTotalGameScore(100);
 		throwAchievement("Level " + to_string(stateMachine.get()->levelToBuild) + " completed!");
 		SaveGameData save = savegame->getCurrentGameData();
@@ -134,9 +131,16 @@ void Level::onUpdate(float deltaTime)
 void Level::onDetach()
 {
 	SaveGameData save = savegame->getCurrentGameData();
+
+	if (player->getCurrentHealth() > 0) save.characterData.totalHealth = player->getCurrentHealth();
+	else
+		save.characterData.totalHealth = 1;
+	
 	save.characterData.inventory = player->inventory;
 	savegame->saveCurrentGameData(save);
 	gameInvoker->destroyPlayercommands();
+
+
 
 	Scene::onDetach();
 }

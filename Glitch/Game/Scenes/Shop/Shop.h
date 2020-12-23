@@ -1,13 +1,6 @@
 #pragma once
 #include "Game/Scenes/GameScene.h"
 
-// Prices
-
-
-#define HEALTH_PRICE 50
-
-
-
 class Player;
 
 /// @brief Class for the shop screen
@@ -37,7 +30,7 @@ private:
 		nextScene = "Overworld";
 	};
 
-	function<void(void)> doSomethingYouStupidCunt = [this]() {
+	function<void(void)> onShopBuyClick = [this]() {
 		cout << "Button called" << endl;
 		handlePurchase = true;
 		moveToNextScene = true;

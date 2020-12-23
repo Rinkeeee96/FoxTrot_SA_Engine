@@ -5,6 +5,5 @@
 
 #define EXPORT_GAME_DATA true
 
-
-
+#define HEALTH_PRICE 25
 
