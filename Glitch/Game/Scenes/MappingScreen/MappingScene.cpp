@@ -189,27 +189,11 @@ void MappingScene::createButtons() {
 	listStartX = 850;
 	listStartY = 500;
 
-	shared_ptr<PrimaryButton> inventoryBtn = shared_ptr<PrimaryButton>(new PrimaryButton(textId--, "", onInventoryBtnClick, this->dispatcher));
-	inventoryBtn->setWidth((((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1) + 25);
-	inventoryBtn->setHeight(45);
-	inventoryBtn->setPositionX(listStartX);
-	inventoryBtn->setPositionY(listStartY);
-
-	shared_ptr<Text> inventoryString = shared_ptr<Text>(new Text(textId--,
-		new ColoredText(keycodeStringMap[KeyCode(invoker->getKeycodeFromIdentifier("inventory"))],
-			Color(0, 0, 0),
-			false
-		),
-		((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1, 50.f, listStartX + 10, listStartY));
-
-	addNewObjectToLayer(4, inventoryBtn);
-	addNewObjectToLayer(5, inventoryString);
-
 	shared_ptr<PrimaryButton> pauseBtn = shared_ptr<PrimaryButton>(new PrimaryButton(textId--, "", onPauseBtnClick, this->dispatcher));
 	pauseBtn->setWidth((((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1) + 25);
 	pauseBtn->setHeight(45);
 	pauseBtn->setPositionX(listStartX);
-	pauseBtn->setPositionY(listStartY += 50);
+	pauseBtn->setPositionY(listStartY);
 
 	shared_ptr<Text> pauseString = shared_ptr<Text>(new Text(textId--,
 		new ColoredText(keycodeStringMap[KeyCode(invoker->getKeycodeFromIdentifier("pause"))],
@@ -220,4 +204,58 @@ void MappingScene::createButtons() {
 
 	addNewObjectToLayer(4, pauseBtn);
 	addNewObjectToLayer(5, pauseString);
+
+	shared_ptr<PrimaryButton> inventoryBtn = shared_ptr<PrimaryButton>(new PrimaryButton(textId--, "", onInventoryBtnClick, this->dispatcher));
+	inventoryBtn->setWidth((((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1) + 25);
+	inventoryBtn->setHeight(45);
+	inventoryBtn->setPositionX(listStartX);
+	inventoryBtn->setPositionY(listStartY += 50);
+
+	shared_ptr<Text> inventoryString = shared_ptr<Text>(new Text(textId--,
+		new ColoredText(keycodeStringMap[KeyCode(invoker->getKeycodeFromIdentifier("inventory"))],
+			Color(0, 0, 0),
+			false
+		),
+		((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1, 50.f, listStartX + 10, listStartY));
+
+	addNewObjectToLayer(4, inventoryBtn);
+	addNewObjectToLayer(5, inventoryString);
+}
+
+void MappingScene::updatePlayerCommand(const string& identifier)
+{
+	// Get new keycode
+	KeyCode keyCode = engine->getSingleKeyStroke();
+
+	// Set new keycode in map
+	invoker->updatePlayerCommand(keyCode, identifier);
+	// save the json file
+	builder.saveKeybindings(invoker);
+
+	listStartX = 200;
+	listStartY = 400;
+	removeLayer(3);
+	removeLayer(4);
+	removeLayer(5);
+
+	loadButtons();
+}
+
+void MappingScene::updateGlobalCommand(const string& identifier)
+{
+	// Get new keycode
+	KeyCode keyCode = engine->getSingleKeyStroke();
+
+	// Set new keycode in map
+	invoker->updateGlobalCommand(keyCode, identifier);
+	// save the json file
+	builder.saveKeybindings(invoker);
+
+	listStartX = 200;
+	listStartY = 400;
+	removeLayer(3);
+	removeLayer(4);
+	removeLayer(5);
+
+	loadButtons();
 }

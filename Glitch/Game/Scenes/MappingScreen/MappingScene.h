@@ -33,46 +33,32 @@ private:
 
 	void createButtons();
 
-	void updateCommand(const string& identifier) {
-		// Get new keycode
-		KeyCode keyCode = engine->getSingleKeyStroke();
-
-		// Set new keycode in map
-		invoker->updatePlayerCommand(keyCode, identifier);
-		// save the json file
-		builder.saveKeybindings(invoker);
-
-		listStartX = 200;
-		listStartY = 500;
-		removeLayer(4);
-		removeLayer(5);
-
-		createButtons();
-	}
+	void updatePlayerCommand(const string& identifier);
+	void updateGlobalCommand(const string& identifier);
 
 
 	function<void(void)> onGodModeBtnClick = [this]() {
-		updateCommand("godmode");
+		updatePlayerCommand("godmode");
 	};
 
 	function<void(void)> onJumpBtnClick = [this]() {
-		updateCommand("jump");
+		updatePlayerCommand("jump");
 	};
 
 	function<void(void)> onMoveLeftBtnClick = [this]() {
-		updateCommand("moveLeft");
+		updatePlayerCommand("moveLeft");
 	};
 
 	function<void(void)> onMoveRightBtnClick = [this]() {
-		updateCommand("moveRight");
+		updatePlayerCommand("moveRight");
 	};
 
 	function<void(void)> onInventoryBtnClick = [this]() {
-		updateCommand("inventory");
+		updateGlobalCommand("inventory");
 	};
 
 	function<void(void)> onPauseBtnClick = [this]() {
-		updateCommand("pause");
+		updateGlobalCommand("pause");
 	};
 
 	function<void(void)> onStopBtnClick = [this]() {
