@@ -23,7 +23,6 @@ private:
 	shared_ptr<Drawable> animation = nullptr;
 
 	string nextScene = "";
-
 	float timer = 0;
 };
 
