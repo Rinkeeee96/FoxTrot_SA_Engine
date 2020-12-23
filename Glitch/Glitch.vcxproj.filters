@@ -49,7 +49,6 @@
     <ClCompile Include="Game\Scenes\Statemachine\SceneStateMachine.cpp" />
     <ClCompile Include="Game\Scenes\Shop\Shop.cpp" />
     <ClCompile Include="Game\Scenes\MappingScreen\MappingScene.cpp" />
-    <ClCompile Include="Game\States\SlimeBoss\SlimeBossTransformState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Skryo.h" />
