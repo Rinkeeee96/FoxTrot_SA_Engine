@@ -29,8 +29,8 @@
         {
          "id":1,
          "image":"..\/Tiles\/tutorial_slime.png",
-         "imageheight":60,
-         "imagewidth":91
+         "imageheight":72,
+         "imagewidth":59
         }, 
         {
          "id":2,
