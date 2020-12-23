@@ -230,7 +230,8 @@
                           "type": "string",
                           "enum": [
                             "win",
-                            "death"
+                            "death",
+                            "music"
                           ]
                         }
                       },
