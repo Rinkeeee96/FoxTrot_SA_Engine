@@ -237,6 +237,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\States\SlimeBoss\SlimeBossNormalState.h" />
     <ClInclude Include="Game\States\SlimeBoss\SlimeBossGlobalState.h" />
     <ClInclude Include="Game\States\StateMachine.h" />
+    <ClInclude Include="Game\Triggers\MusicTrigger.h" />
     <ClInclude Include="Glitch.h" />
     <ClInclude Include="Game\Scenes\Overworld\Overworld.h" />
     <ClInclude Include="Game\Levels\Level.h" />

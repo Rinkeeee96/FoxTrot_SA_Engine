@@ -10,6 +10,7 @@
 #include "Game/Characters/Enemies/Skryo.h"
 #include "Game/Characters/Enemies/SlimeBoss.h"
 #include "Game/Factories/CharacterFactory.h"
+#include <Game/Triggers/MusicTrigger.h>
 
 LevelBuilder::LevelBuilder(unique_ptr<Engine>& _engine, int levelId, shared_ptr<SceneStateMachine> _statemachine)
 	: AbstractLevelBuilder(_engine), bLevel(new Level(levelId, 0, 0, _engine, _statemachine)) {}
@@ -95,6 +96,7 @@ void LevelBuilder::createLevel(nlohmann::json json) {
 
 	this->triggerFactory.registerTrigger("death", shared_ptr<DeathTrigger>(new DeathTrigger(bLevel->getEventDispatcher())));
 	this->triggerFactory.registerTrigger("win", shared_ptr<WinTrigger>(new WinTrigger(*bLevel, bLevel->getEventDispatcher())));
+	this->triggerFactory.registerTrigger("music", shared_ptr<MusicTrigger>(new MusicTrigger(*bLevel, bLevel->getEngine(), bLevel->getEventDispatcher())));
 	characterFactory = std::make_unique<CharacterFactory>(engine, *bLevel);
 	this->initFactory();
 }

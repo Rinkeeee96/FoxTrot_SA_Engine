@@ -14,6 +14,8 @@ SlimeBoss::SlimeBoss(Level& _level, const int id, EventDispatcher& _dispatcher) 
 	this->stateMachine.setGlobalState(make_unique<SlimeBossGlobalState>(), *this);
 }
 
+/// @brief 
+/// Checks whether should hit himself or do damage to the player
 bool SlimeBoss::onCollisionBeginEvent(const Event& event) {
 	auto collisionEvent = static_cast<const OnCollisionBeginEvent&>(event);
 	if (collisionEvent.getObjectOne()->getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo()->getObjectId() != this->getObjectId()) return false;
@@ -54,24 +56,28 @@ bool SlimeBoss::onCollisionBeginEvent(const Event& event) {
 	return false;
 }
 
+/// @brief 
+/// SpawnSlime
 void SlimeBoss::spawnEnemies() {
 	int startingId = 99999;
 	int startingTextureId = 99999;
 
-	this->createSlime(startingId++, startingTextureId, 1350, 840);
+	this->createSlime(startingId++, startingTextureId, 3261, 2307);
 
 	startingTextureId = 99999 + 10;
-	this->createSlime(startingId++, startingTextureId, 1450, 840);
+	this->createSlime(startingId++, startingTextureId, 3471, 2307);
 
 	startingTextureId = 99999 + 20;
-	this->createSlime(startingId++, startingTextureId, 100, 840);
+	this->createSlime(startingId++, startingTextureId, 4419, 2307);
 
 
 	startingTextureId = 99999 + 30;
-	this->createSlime(startingId++, startingTextureId, 300, 840);
+	this->createSlime(startingId++, startingTextureId, 4649, 2307);
 	level.restartPhysics();
 }
 
+/// @brief 
+/// Adds new slime to the level
 void SlimeBoss::createSlime(int id, int startingTextureId, int x, int y) {
 	shared_ptr<Slime> slime1 = shared_ptr<Slime>(new Slime(id, level.getEventDispatcher()));
 	slime1->setPositionX(x);
@@ -148,7 +154,7 @@ void SlimeBoss::onUpdate(float deltaTime) {
 }
 
 /// @brief
-/// Builds the spritemap for the Slime
+/// Builds the spritemap for the SlimeBoss
 map<SpriteState, shared_ptr<SpriteObject>> SlimeBoss::buildSpritemap(int textureId) {
 	std::map<SpriteState, shared_ptr<SpriteObject>> spriteMap;
 

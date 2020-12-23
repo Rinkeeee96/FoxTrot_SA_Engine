@@ -3,7 +3,7 @@
 #include <Game/Characters/Player/Player.h>
 
 /// @brief 
-/// "Normal" ground class
+/// "Snowy" ground class
 class SnowyGround : public IGround {
 private:
 	EventDispatcher& dispatcher;
@@ -12,6 +12,9 @@ public:
 		dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(SnowyGround::onCollisionBeginEvent));
 	}
 
+	/// @brief 
+	/// Sets friction of player to 6 when collision begins
+	/// @param OnCollisionBeginEvent
 	bool onCollisionBeginEvent(const Event& event) {
 		auto collisionEvent = static_cast<const OnCollisionBeginEvent&>(event);
 		if (collisionEvent.getObjectOne()->getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo()->getObjectId() != this->getObjectId()) return false;
@@ -24,7 +27,7 @@ public:
 				shared_ptr<Object> otherEntity = collisionEvent.getObjectTwo();
 
 				if (Player* player = dynamic_cast<Player*>(otherEntity.get())) {
-					player->setFriction(3.0f);
+					player->setFriction(6.0f);
 					UpdatePhysicsBodyEvent e{ *player };
 					dispatcher.dispatchEvent<UpdatePhysicsBodyEvent>(e);
 				}
@@ -33,7 +36,7 @@ public:
 				shared_ptr<Object> otherEntity = collisionEvent.getObjectTwo();
 
 				if (Player* player = dynamic_cast<Player*>(otherEntity.get())) {
-					player->setFriction(3.0f);
+					player->setFriction(6.0f);
 					UpdatePhysicsBodyEvent e{ *player };
 					dispatcher.dispatchEvent<UpdatePhysicsBodyEvent>(e);
 				}

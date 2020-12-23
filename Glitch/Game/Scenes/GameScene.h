@@ -21,6 +21,7 @@ public:
 	virtual void onUpdate(float deltaTime) override = 0;
 	virtual void onDetach() override = 0;
 
+	unique_ptr<Engine>& getEngine() { return this->engine; }
 	void registerSavegame(shared_ptr<Savegame> _savegame);
 protected:
 	shared_ptr<SceneStateMachine> stateMachine;

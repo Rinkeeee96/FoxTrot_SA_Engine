@@ -3,7 +3,7 @@
 #include <Game/Characters/Player/Player.h>
 
 /// @brief 
-/// "Normal" ground class
+/// "Bouncing" ground class
 class BouncingGround : public IGround {
 private:
 	EventDispatcher& dispatcher;
@@ -13,6 +13,9 @@ public:
 		dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(BouncingGround::onCollisionBeginEvent));
 	}
 
+	/// @brief 
+	/// Calls player jump on collision begin
+	/// @param OnCollisionBeginEvent
 	bool onCollisionBeginEvent(const Event& event) {
 		auto collisionEvent = static_cast<const OnCollisionBeginEvent&>(event);
 		if (collisionEvent.getObjectOne()->getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo()->getObjectId() != this->getObjectId()) return false;

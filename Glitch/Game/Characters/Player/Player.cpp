@@ -79,6 +79,7 @@ bool Player::onCollisionEndEvent(const Event& event) {
 		if (std::find(collidedDirection.begin(), collidedDirection.end(), Direction::DOWN) != collidedDirection.end()) {
 			this->canJump = false;
 		}
+		else if(collidedDirection.size() == 0) this->canJump = false;
 	}
 
 	return false;

@@ -136,6 +136,7 @@
     <ClInclude Include="Game\States\SlimeBoss\SlimeBossGlobalState.h" />
     <ClInclude Include="Game\States\SlimeBoss\SlimeBossNormalState.h" />
     <ClInclude Include="Game\States\SlimeBoss\SlimeBossDamageCooldownState.h" />
+    <ClInclude Include="Game\Triggers\MusicTrigger.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\Levels\Story\ChapterOne.txt" />
