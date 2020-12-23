@@ -20,7 +20,9 @@ void GeneralTransition::start(bool playSound){}
 /// Loads all the sprites 
 void GeneralTransition::loadBackground()
 {
-	int randomNumber = 1 + (rand() % static_cast<int>(3 - 1 + 1));
+	int fileCount = this->getFileAdfileCount();
+
+	int randomNumber = 1 + (rand() % static_cast<int>(fileCount - 1 + 1));
 	string* imageLoc = new string("Assets/Advertisments/" + to_string(randomNumber) + ".png");
 
 	shared_ptr<SpriteObject> BG_LAYER_0 = shared_ptr<SpriteObject>(new SpriteObject(-500, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_0.png"));
@@ -105,6 +107,19 @@ void GeneralTransition::onUpdate(float deltaTime)
 
 /// @brief Sets the next scene identifier
 /// @param identifier 
+int GeneralTransition::getFileAdfileCount()
+{
+	auto dirIter = filesystem::directory_iterator("Assets/Advertisments/");
+
+	int fileCount = std::count_if(
+		begin(dirIter),
+		end(dirIter),
+		[](auto& entry) { return entry.is_regular_file(); }
+	);
+
+	return fileCount;
+}
+
 void GeneralTransition::setNextScene(string const identifier)
 {
 	nextScene = identifier;
