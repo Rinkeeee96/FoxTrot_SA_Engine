@@ -19,23 +19,6 @@ namespace UnitTestsGlitch
 	TEST_CLASS(CommandTests)
 	{
 	public:
-		TEST_METHOD(KeypressInvoker_Init_Should_InitializeCorrectly)
-		{
-			// Arrange
-			CommandBuilder commandBuilder;
-			// Act
-			GameKeypressInvoker* result = commandBuilder.readBindingsAndCreateInvoker();
-			// Assert
-			Assert::AreEqual((int)result->getGlobalCommands().count(KeyCode::KEY_P), 1);
-			Assert::AreEqual((int)result->getGlobalCommands().count(KeyCode::KEY_I), 1);
-
-			Assert::AreEqual((int)result->getPlayerCommands().count(KeyCode::KEY_G), 1);
-			Assert::AreEqual((int)result->getPlayerCommands().count(KeyCode::KEY_A), 1);
-			Assert::AreEqual((int)result->getPlayerCommands().count(KeyCode::KEY_D), 1);
-			Assert::AreEqual((int)result->getPlayerCommands().count(KeyCode::KEY_SPACE), 1);
-			delete result;
-		}
-
 		TEST_METHOD(KeypressInvoker_Update_Command__Existing_Should_ThrowError)
 		{
 			// Arrange
