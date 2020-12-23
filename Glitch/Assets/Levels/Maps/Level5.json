@@ -221,54 +221,6 @@
                  "width":48.606,
                  "x":1381.697,
                  "y":1080.6515
-                }, 
-                {
-                 "gid":148,
-                 "height":46.697,
-                 "id":35,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"density",
-                         "type":"int",
-                         "value":50000
-                        }, 
-                        {
-                         "name":"friction",
-                         "type":"int",
-                         "value":0
-                        }, 
-                        {
-                         "name":"health",
-                         "type":"int",
-                         "value":10
-                        }, 
-                        {
-                         "name":"jump_height",
-                         "type":"int",
-                         "value":7
-                        }, 
-                        {
-                         "name":"restitution",
-                         "type":"int",
-                         "value":0
-                        }, 
-                        {
-                         "name":"speed",
-                         "type":"int",
-                         "value":4
-                        }, 
-                        {
-                         "name":"type",
-                         "type":"string",
-                         "value":"slime"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":48.606,
-                 "x":1775.697,
-                 "y":1072.6515
                 }],
          "opacity":1,
          "properties":[
@@ -319,7 +271,7 @@
                  "visible":true,
                  "width":1237.39,
                  "x":3495.305,
-                 "y":1698
+                 "y":1698 
                 }, 
                 {
                  "height":5.5,
@@ -337,24 +289,7 @@
                  "width":159.39,
                  "x":3329.97166666667,
                  "y":1664
-                }, 
-                {
-                 "height":104,
-                 "id":26,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"type",
-                         "type":"string",
-                         "value":"death"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":false,
-                 "width":256.056666666667,
-                 "x":1889.97166666667,
-                 "y":1640
-                }, 
+                },  
                 {
                  "height":30.666666666667,
                  "id":30,
@@ -371,7 +306,7 @@
                  "width":186.723333333333,
                  "x":1550.42621212121,
                  "y":1949.15151515152
-                }, 
+                },
                 {
                  "height":31.9999666666667,
                  "id":31,
@@ -387,7 +322,7 @@
                  "visible":true,
                  "width":138.723333333333,
                  "x":2495.305,
-                 "y":1629.66668333333
+                 "y":1629.66668333333 
                 }],
          "opacity":1,
          "properties":[
