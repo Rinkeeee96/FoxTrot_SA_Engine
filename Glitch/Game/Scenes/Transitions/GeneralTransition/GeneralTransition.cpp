@@ -20,10 +20,13 @@ void GeneralTransition::start(bool playSound){}
 /// Loads all the sprites 
 void GeneralTransition::loadBackground()
 {
+	int randomNumber = 1 + (rand() % static_cast<int>(3 - 1 + 1));
+	string* imageLoc = new string("Assets/Advertisments/" + to_string(randomNumber) + ".png");
+
 	shared_ptr<SpriteObject> BG_LAYER_0 = shared_ptr<SpriteObject>(new SpriteObject(-500, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_0.png"));
 	shared_ptr<SpriteObject> BG_LAYER_ADVENTRUE = shared_ptr<SpriteObject>(new SpriteObject(-501, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png"));
 	shared_ptr<SpriteObject> BG_LAYER_2 = shared_ptr<SpriteObject>(new SpriteObject(-502, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_2.png"));
-	shared_ptr<SpriteObject> LOGO = shared_ptr<SpriteObject>(new SpriteObject(-503, 185, 606, 1, 300, "Assets/Advertisments/Avans_Hogeschool_Logo.png"));
+	shared_ptr<SpriteObject> AD_IMAGE = shared_ptr<SpriteObject>(new SpriteObject(-503, 185, 606, 1, 300, imageLoc->c_str()));
 	shared_ptr<SpriteObject> ADVERTISMENT_BLOCK = shared_ptr<SpriteObject>(new SpriteObject(-504, 309, 253, 1, 300, "Assets/Inventory/text_background.png"));
 
 	shared_ptr<Drawable> layer0 = shared_ptr<Drawable>(new Drawable(-505));
@@ -69,7 +72,7 @@ void GeneralTransition::loadBackground()
 	ad->setPositionY(1040);
 	ad->setWidth(431);
 	ad->setHeight(127);
-	ad->registerSprite(SpriteState::DEFAULT, LOGO);
+	ad->registerSprite(SpriteState::DEFAULT, AD_IMAGE);
 	ad->changeToState(SpriteState::DEFAULT);
 
 	shared_ptr<Text> advertisment = shared_ptr<Text>(new Text(-510, new ColoredText("Advertisement:", Color(0, 0, 0)), 120, 30, 1420, 895));
