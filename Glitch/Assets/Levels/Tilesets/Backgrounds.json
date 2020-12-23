@@ -16,8 +16,8 @@
  "margin":0,
  "name":"Backgrounds",
  "spacing":0,
- "tilecount":3,
- "tiledversion":"1.4.3",
+ "tilecount":6,
+ "tiledversion":"1.4.2",
  "tileheight":1080,
  "tiles":[
         {
@@ -36,7 +36,25 @@
          "id":2,
          "image":"..\/Tiles\/Snowfield_Background.png",
          "imageheight":734,
-         "imagewidth":1835
+         "imagewidth":1503
+        }, 
+        {
+         "id":3,
+         "image":"..\/Tiles\/bg3.png",
+         "imageheight":184,
+         "imagewidth":320
+        }, 
+        {
+         "id":4,
+         "image":"..\/Tiles\/bg1.png",
+         "imageheight":184,
+         "imagewidth":320
+        }, 
+        {
+         "id":5,
+         "image":"..\/Tiles\/bg2.png",
+         "imageheight":184,
+         "imagewidth":320
         }],
  "tilewidth":1920,
  "type":"tileset",

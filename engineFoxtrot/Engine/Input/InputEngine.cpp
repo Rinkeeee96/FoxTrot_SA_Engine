@@ -18,6 +18,11 @@ void InputEngine::registerKeypressInvoker(KeypressInvoker* _keypressInvoker) {
 	keypressInvoker = _keypressInvoker;
 }
 
+KeyCode InputEngine::getSingleKeyStroke()
+{
+	return inputFacade->getSingleKeyStroke();
+}
+
 /// @brief Starts the InputEngine. Setting up the inputFacade. Connecting de dispatcher.
 /// @param dispatcher 
 void InputEngine::start(EventDispatcher& dispatcher) {

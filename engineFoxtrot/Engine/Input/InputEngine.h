@@ -16,6 +16,7 @@ public:
 	API ~InputEngine();
 
 	API void registerKeypressInvoker(KeypressInvoker* _keypressInvoker);
+	API KeyCode getSingleKeyStroke();
 
 	API void start(EventDispatcher& dispatcher) override;
 	API void update() override;
