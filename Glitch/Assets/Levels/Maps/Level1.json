@@ -306,24 +306,7 @@
          "draworder":"topdown",
          "id":4,
          "name":"Particles",
-         "objects":[
-                {
-                 "height":300,
-                 "id":2,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"type",
-                         "type":"int",
-                         "value":4
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":400,
-                 "x":1729.75,
-                 "y":1000.5
-                }],
+         "objects":[],
          "opacity":1,
          "properties":[
                 {
