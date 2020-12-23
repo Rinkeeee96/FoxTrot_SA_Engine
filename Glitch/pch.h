@@ -18,6 +18,7 @@
 #include <filesystem>
 #include <algorithm>
 #include <ctime>
+#include <random>
 #include "api.h"
 
 #include "SceneManager/Objects/Button.h"
