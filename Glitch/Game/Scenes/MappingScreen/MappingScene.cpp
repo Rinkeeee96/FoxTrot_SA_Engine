@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "MappingScene.h"
 #include "Game/Game.h"
+#include "Game/General/KeyCodeStringMap.h"
 
 void MappingScene::onAttach()
 {
