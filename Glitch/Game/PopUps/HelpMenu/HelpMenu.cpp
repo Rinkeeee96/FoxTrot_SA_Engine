@@ -40,6 +40,7 @@ void HelpMenu::parseKeycodeList(unordered_map<KeyCode, string> parseList, const 
 			),
 			((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * header.length(), 70.f, WINDOW_WIDTH_CENTER - 450.f, (helpCommandStartOffset += 50.f))
 	);
+	text->setDrawStatic(true);
 	addObjectInLayer(text);
 
 	// parse and add the keycodes to the screen
@@ -63,6 +64,9 @@ void HelpMenu::parseKeycodeList(unordered_map<KeyCode, string> parseList, const 
 			),
 			((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * identifier.length(), 50.f, WINDOW_WIDTH_CENTER - 380.f, helpCommandStartOffset)
 		);
+
+		description->setDrawStatic(true);
+		keycodeString->setDrawStatic(true);
 
 		addObjectInLayer(keycodeString);
 		addObjectInLayer(description);
