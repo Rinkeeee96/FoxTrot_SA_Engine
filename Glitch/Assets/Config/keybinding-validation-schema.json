@@ -28,28 +28,34 @@
     },
     "player": {
       "type": "object",
-        "properties": {
-          "godmode": {
-            "type": "number",
-            "minimum": 0,
-            "maximum": 231
-          },
-          "moveLeft": {
-            "type": "number",
-            "minimum": 0,
-            "maximum": 231
-          },
-          "jump": {
-            "type": "number",
-            "minimum": 0,
-            "maximum": 231
-          },
-          "moveRight": {
-            "type": "number",
-            "minimum": 0,
-            "maximum": 231
-          }
+      "properties": {
+        "godmode": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 231
+        },
+        "moveLeft": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 231
+        },
+        "jump": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 231
+        },
+        "moveRight": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 231
         }
+      },
+      "required": [
+        "godmode",
+        "moveLeft",
+        "moveRight",
+        "jump"
+      ]
     }
   },
   "required": [
