@@ -15,16 +15,52 @@
          "name":"Background",
          "objects":[
                 {
-                 "gid":115,
-                 "height":2588.24,
-                 "id":8,
+                 "gid":119,
+                 "height":2732,
+                 "id":40,
                  "name":"",
-                 "rotation":0.0145121601529445,
+                 "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":5233.39878787878,
-                 "x":-34.3276972150311,
-                 "y":2569.21718785223
+                 "width":4868,
+                 "x":-90.909090909091,
+                 "y":2623.63636363636
+                }, 
+                {
+                 "gid":118,
+                 "height":2536,
+                 "id":41,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4784,
+                 "x":24,
+                 "y":2556
+                }, 
+                {
+                 "gid":118,
+                 "height":184,
+                 "id":42,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":320,
+                 "x":3232,
+                 "y":868
+                }, 
+                {
+                 "gid":120,
+                 "height":2640,
+                 "id":43,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4816,
+                 "x":-32,
+                 "y":2588
                 }],
          "opacity":1,
          "properties":[
@@ -371,8 +407,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":10,
- "nextobjectid":36,
+ "nextlayerid":11,
+ "nextobjectid":45,
  "orientation":"orthogonal",
  "properties":[
         {
