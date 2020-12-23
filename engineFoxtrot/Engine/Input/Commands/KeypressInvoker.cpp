@@ -56,6 +56,7 @@ void KeypressInvoker::updateCommand(KeyCode code, const string& identifier) {
 void KeypressInvoker::deleteCommandThatBelongsTo(const KeyCode& keycode) {
 	if (isRegistered(keycode))
 	{
+		delete commands[keycode];
 		commands.erase(keycode);
 	}
 }
