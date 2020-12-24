@@ -76,7 +76,7 @@ void InventoryPopup::onDetach()
 /// @param coin 
 void InventoryPopup::changeCoinCount(const int coin)
 {
-	string coinS = to_string(coin);
-	if(text)text->changeText(coinS);
+	string coins = to_string(coin);
+	if(text)text->changeText(coins);
 }
 
