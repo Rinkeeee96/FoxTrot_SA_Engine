@@ -44,7 +44,12 @@ public:
 	
 	StateMachine<Player>& getStateMachine() { return this->stateMachine; }
 	shared_ptr<ICharacter> clone(int id) override;
+
+	Inventory inventory;
+
 private:
 	GameKeypressInvoker* invoker; 
 	StateMachine<Player> stateMachine;
+
+	
 };

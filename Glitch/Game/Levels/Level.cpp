@@ -37,7 +37,9 @@ void Level::start(bool playSound) {
 	helpPopupZIndex = inventoryPopupZIndex + 1;
 	pausePopupZIndex = helpPopupZIndex + 1;
 
-	this->addLayerOnZIndex(inventoryPopupZIndex, shared_ptr<Layer>(new InventoryPopup(this->engine ,this->dispatcher, this->stateMachine)));
+	inventoryPopup = shared_ptr<InventoryPopup>(new InventoryPopup(this->engine, this->dispatcher, this->stateMachine));
+
+	this->addLayerOnZIndex(inventoryPopupZIndex, inventoryPopup);
 	this->addLayerOnZIndex(pausePopupZIndex, shared_ptr<Layer>(new PausePopUp(this->engine, this->dispatcher, this->stateMachine)));
 	this->addLayerOnZIndex(helpPopupZIndex, shared_ptr<Layer>(new HelpMenu(this->engine, this->dispatcher, this->stateMachine)));
 
@@ -54,8 +56,9 @@ void Level::start(bool playSound) {
 	addNewObjectToLayer(8, helpText, false, true);
 
 	player->respawn();
-	player->setCurrentHealth(3);
-	player->setTotalHealth(3);
+	player->setTotalHealth(savegame->getCurrentGameData().characterData.totalHealth);
+	player->setCurrentHealth(savegame->getCurrentGameData().characterData.totalHealth);
+	player->inventory = savegame->getCurrentGameData().characterData.inventory;
 	this->addHuds();
 	loadScoreBoard();
 	this->win = false;
@@ -76,6 +79,8 @@ void Level::onUpdate(float deltaTime)
 {
 	this->addHuds();
 
+	if (player && inventoryPopup)inventoryPopup->changeCoinCount(player->inventory.coins);
+
 	updateScoreBoard();
 
 	chrono::duration<double> diffFromPreviousCall = chrono::duration_cast<chrono::duration<double>>(chrono::high_resolution_clock::now() - timeAchievementPopupThrown);
@@ -88,7 +93,6 @@ void Level::onUpdate(float deltaTime)
 
 	if (this->win)
 	{
-		player->kill();
 		increaseTotalGameScore(100);
 		throwAchievement("Level " + to_string(stateMachine.get()->levelToBuild) + " completed!");
 		SaveGameData save = savegame->getCurrentGameData();
@@ -130,7 +134,17 @@ void Level::restartPhysics() {
 // Destroys player commands and calls scene base
 void Level::onDetach()
 {
+	SaveGameData save = savegame->getCurrentGameData();
+
+	if (player->getCurrentHealth() > 0) save.characterData.totalHealth = player->getCurrentHealth();
+	else
+		save.characterData.totalHealth = 1;
+	
+	save.characterData.inventory = player->inventory;
+	savegame->saveCurrentGameData(save);
 	gameInvoker->destroyPlayercommands();
+
+
 
 	Scene::onDetach();
 }

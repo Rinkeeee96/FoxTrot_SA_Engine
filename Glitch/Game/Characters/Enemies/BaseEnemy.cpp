@@ -19,6 +19,8 @@ bool BaseEnemy::onCollisionBeginEvent(const Event& event) {
 
 			if (this->player->getObjectId() == otherEntity->getObjectId()) {
 				this->kill();
+				int randomNumber = 1 + (rand() % static_cast<int>(5 - 1 + 1));
+				this->player->inventory.coins += randomNumber;
 			}
 		}
 		else if (collisionEvent.getObjectTwo()->getObjectId() == this->getObjectId()) {
@@ -26,6 +28,8 @@ bool BaseEnemy::onCollisionBeginEvent(const Event& event) {
 
 			if (this->player->getObjectId() == otherEntity->getObjectId()) {
 				this->kill();
+				int randomNumber = 1 + (rand() % static_cast<int>(5 - 1 + 1));
+				this->player->inventory.coins += randomNumber;
 			}
 		}
 	}

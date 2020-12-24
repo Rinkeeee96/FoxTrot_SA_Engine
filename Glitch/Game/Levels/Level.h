@@ -4,6 +4,7 @@
 #include "Game/States/Player/GodState.h"
 
 class IEnemy;
+class InventoryPopup;
 class Player;
 /// @brief 
 /// Level class. Level has all the information. 
@@ -35,6 +36,8 @@ protected:
 	void addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, shared_ptr<SpriteObject> HUD);
 	vector<shared_ptr<Drawable>> huds;
 
+	shared_ptr<InventoryPopup> inventoryPopup;
+
 	void throwAchievement(Achievement achievement);
 	void increaseTotalGameScore(const int amount);
 
@@ -57,7 +60,6 @@ protected:
 
 	int achievementZIndex = 0;
 
-	bool inventoryOpen = false;
 	bool activeAchievementPopup = false;
 	chrono::high_resolution_clock::time_point timeAchievementPopupThrown;
 
