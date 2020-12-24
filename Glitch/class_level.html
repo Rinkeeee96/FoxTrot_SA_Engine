@@ -60,8 +60,8 @@ $(document).ready(function(){initNavTree('class_level.html',''); initResizable()
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_level-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Level Class Reference</div>  </div>
@@ -90,6 +90,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:afaa92eb87a42590e9a3e4d6f8649c6c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2b173546e9d7c7769d90e9218a905b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level.html#aa2b173546e9d7c7769d90e9218a905b0">setPlayer</a> (shared_ptr&lt; Object &gt; object)</td></tr>
 <tr class="separator:aa2b173546e9d7c7769d90e9218a905b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92b38af5c3fe23655c0c8b6440e8ce97"><td class="memItemLeft" align="right" valign="top"><a id="a92b38af5c3fe23655c0c8b6440e8ce97"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setBoss</b> (shared_ptr&lt; <a class="el" href="class_i_character.html">ICharacter</a> &gt; object)</td></tr>
+<tr class="separator:a92b38af5c3fe23655c0c8b6440e8ce97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0fb48b5aa189b7aba78b3598d98312f"><td class="memItemLeft" align="right" valign="top"><a id="ac0fb48b5aa189b7aba78b3598d98312f"></a>
+<a class="el" href="class_player.html">Player</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getPlayer</b> ()</td></tr>
+<tr class="separator:ac0fb48b5aa189b7aba78b3598d98312f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2d06519c133f66babba44d53878e355"><td class="memItemLeft" align="right" valign="top"><a id="ac2d06519c133f66babba44d53878e355"></a>
+<a class="el" href="class_i_character.html">ICharacter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getBoss</b> ()</td></tr>
+<tr class="separator:ac2d06519c133f66babba44d53878e355"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb745760ed67fe01f3492762f52d089a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level.html#adb745760ed67fe01f3492762f52d089a">setSound</a> (map&lt; string, string &gt; sounds)</td></tr>
 <tr class="separator:adb745760ed67fe01f3492762f52d089a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90e2bb29f3efd410e60ea5bb1e5f72b5"><td class="memItemLeft" align="right" valign="top"><a id="a90e2bb29f3efd410e60ea5bb1e5f72b5"></a>
@@ -114,6 +123,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>onDetach</b> () overr
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level.html#ac50a040b28987b19a4eec0e0e5761f1d">addHuds</a> ()</td></tr>
 <tr class="memdesc:ac50a040b28987b19a4eec0e0e5761f1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add HUD for lifes of player. <br /></td></tr>
 <tr class="separator:ac50a040b28987b19a4eec0e0e5761f1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66f2035bee09d64c576bec703b2e5d06"><td class="memItemLeft" align="right" valign="top"><a id="a66f2035bee09d64c576bec703b2e5d06"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>addBossHud</b> ()</td></tr>
+<tr class="separator:a66f2035bee09d64c576bec703b2e5d06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5d6a0a077b149abb4fa40260465e469"><td class="memItemLeft" align="right" valign="top"><a id="ab5d6a0a077b149abb4fa40260465e469"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>restartPhysics</b> ()</td></tr>
+<tr class="separator:ab5d6a0a077b149abb4fa40260465e469"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86c44a60389014217ded82984895afb2"><td class="memItemLeft" align="right" valign="top"><a id="a86c44a60389014217ded82984895afb2"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level.html#a86c44a60389014217ded82984895afb2">onToggleLayerEvent</a> (const Event &amp;event)</td></tr>
 <tr class="memdesc:a86c44a60389014217ded82984895afb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">toggle a layer received from the event and set its state oposite to its current render state "toggeling" it <br /></td></tr>
@@ -131,12 +146,15 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>getWin</b> () const</
 <tr class="memitem:aa30ce2155e8eeef74e93dda570805e01 inherit pub_methods_class_game_scene"><td class="memItemLeft" align="right" valign="top"><a id="aa30ce2155e8eeef74e93dda570805e01"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>GameScene</b> (const int id, const int _sceneHeight, const int _sceneWidth, unique_ptr&lt; Engine &gt; &amp;_engine, shared_ptr&lt; <a class="el" href="class_scene_state_machine.html">SceneStateMachine</a> &gt; _sceneStateMachine)</td></tr>
 <tr class="separator:aa30ce2155e8eeef74e93dda570805e01 inherit pub_methods_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae358d001d9ca809698c175ff623cdaf5 inherit pub_methods_class_game_scene"><td class="memItemLeft" align="right" valign="top"><a id="ae358d001d9ca809698c175ff623cdaf5"></a>
+unique_ptr&lt; Engine &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getEngine</b> ()</td></tr>
+<tr class="separator:ae358d001d9ca809698c175ff623cdaf5 inherit pub_methods_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa692bb4e4737fa6b5e34d6e6c600c933 inherit pub_methods_class_game_scene"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_scene.html#aa692bb4e4737fa6b5e34d6e6c600c933">registerSavegame</a> (shared_ptr&lt; <a class="el" href="class_savegame.html">Savegame</a> &gt; _savegame)</td></tr>
 <tr class="memdesc:aa692bb4e4737fa6b5e34d6e6c600c933 inherit pub_methods_class_game_scene"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register the savegame pointer.  <a href="class_game_scene.html#aa692bb4e4737fa6b5e34d6e6c600c933">More...</a><br /></td></tr>
 <tr class="separator:aa692bb4e4737fa6b5e34d6e6c600c933 inherit pub_methods_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
 <tr class="memitem:aaff15cd6338ab657d7f71e0480b7ec42"><td class="memItemLeft" align="right" valign="top"><a id="aaff15cd6338ab657d7f71e0480b7ec42"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level.html#aaff15cd6338ab657d7f71e0480b7ec42">addHealthHud</a> (int &amp;startingID, int &amp;startingXAxis, int &amp;xAxisChange, int &amp;current, shared_ptr&lt; SpriteObject &gt; HUD)</td></tr>
 <tr class="memdesc:aaff15cd6338ab657d7f71e0480b7ec42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add single HUD for lifes of player. <br /></td></tr>
@@ -156,8 +174,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:a5a2557f68a9c5dae75cafd0be4ddba4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the scoreboard. <br /></td></tr>
 <tr class="separator:a5a2557f68a9c5dae75cafd0be4ddba4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
 <tr class="memitem:a3f6edfa80132c0136b274422f3125ddc"><td class="memItemLeft" align="right" valign="top"><a id="a3f6edfa80132c0136b274422f3125ddc"></a>
 vector&lt; shared_ptr&lt; Drawable &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>huds</b></td></tr>
 <tr class="separator:a3f6edfa80132c0136b274422f3125ddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -179,6 +197,9 @@ shared_ptr&lt; Object &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
 <tr class="memitem:a9526d51909a17163924473203621d7d9"><td class="memItemLeft" align="right" valign="top"><a id="a9526d51909a17163924473203621d7d9"></a>
 shared_ptr&lt; <a class="el" href="class_player.html">Player</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>player</b> = nullptr</td></tr>
 <tr class="separator:a9526d51909a17163924473203621d7d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d2d80e76a98ae95c0c59865523817fa"><td class="memItemLeft" align="right" valign="top"><a id="a7d2d80e76a98ae95c0c59865523817fa"></a>
+shared_ptr&lt; <a class="el" href="class_i_character.html">ICharacter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>boss</b> = nullptr</td></tr>
+<tr class="separator:a7d2d80e76a98ae95c0c59865523817fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a761df3a67a67f916632a07e59ba01431"><td class="memItemLeft" align="right" valign="top"><a id="a761df3a67a67f916632a07e59ba01431"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>win</b> = false</td></tr>
 <tr class="separator:a761df3a67a67f916632a07e59ba01431"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -212,9 +233,9 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>startPosPlayerX</b> 
 <tr class="memitem:afc41de5b1f855b3aa4ad571f963260ff"><td class="memItemLeft" align="right" valign="top"><a id="afc41de5b1f855b3aa4ad571f963260ff"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>startPosPlayerY</b> = 0</td></tr>
 <tr class="separator:afc41de5b1f855b3aa4ad571f963260ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
+<tr class="memitem:a2af826afba8fa9758ddb8c0b8abf3928"><td class="memItemLeft" align="right" valign="top"><a id="a2af826afba8fa9758ddb8c0b8abf3928"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>shouldRestart</b> = false</td></tr>
+<tr class="separator:a2af826afba8fa9758ddb8c0b8abf3928"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_game_scene"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_game_scene')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_game_scene.html">GameScene</a></td></tr>
 <tr class="memitem:aa29730ca964c431178e3b4816c225870 inherit pro_attribs_class_game_scene"><td class="memItemLeft" align="right" valign="top"><a id="aa29730ca964c431178e3b4816c225870"></a>
 shared_ptr&lt; <a class="el" href="class_scene_state_machine.html">SceneStateMachine</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>stateMachine</b></td></tr>
@@ -261,7 +282,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>playSound</b> = false
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -381,7 +402,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>playSound</b> = false
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

@@ -30,8 +30,8 @@ var NAVTREE =
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
-        [ "Functions", "functions_func.html", null ]
+        [ "All", "functions.html", "functions_dup" ],
+        [ "Functions", "functions_func.html", "functions_func" ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -43,9 +43,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_abstract_level_builder_8h_source.html",
-"class_game_keypress_invoker.html#a72064d91113999e8a91d7ff36ced9c28",
-"class_main_menu.html#a3bccc57bcdadb82720c7e54da65038da",
-"dir_9ad927aa76680c968cd1d14f1ebade2b.html"
+"class_fleye.html#aa7d3e64401cbec238eaf085146de3d2b",
+"class_level_builder.html#a684f84ed76205856b5463fc5e4ab988c",
+"class_slime_boss_damage_cooldown_state.html#af7f9e2c0feaa4b4cc6f9ebe66ee04cbe"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -17,13 +17,17 @@ var hierarchy =
             [ "BaseEnemy", "class_base_enemy.html", [
               [ "Fleye", "class_fleye.html", null ],
               [ "Jumpkin", "class_jumpkin.html", null ],
+              [ "Skryo", "class_skryo.html", null ],
               [ "Slime", "class_slime.html", null ]
-            ] ]
+            ] ],
+            [ "SlimeBoss", "class_slime_boss.html", null ]
           ] ],
           [ "Player", "class_player.html", null ]
         ] ],
         [ "IGround", "class_i_ground.html", [
-          [ "BaseGround", "class_base_ground.html", null ]
+          [ "BaseGround", "class_base_ground.html", null ],
+          [ "BouncingGround", "class_bouncing_ground.html", null ],
+          [ "SnowyGround", "class_snowy_ground.html", null ]
         ] ]
       ] ]
     ] ],
@@ -67,6 +71,11 @@ var hierarchy =
       [ "NormalState", "class_normal_state.html", null ],
       [ "PlayerGlobalState", "class_player_global_state.html", null ]
     ] ],
+    [ "IState< SlimeBoss >", "class_i_state.html", [
+      [ "SlimeBossDamageCooldownState", "class_slime_boss_damage_cooldown_state.html", null ],
+      [ "SlimeBossGlobalState", "class_slime_boss_global_state.html", null ],
+      [ "SlimeBossNormalState", "class_slime_boss_normal_state.html", null ]
+    ] ],
     [ "Item", "struct_item.html", null ],
     [ "KeypressInvoker", null, [
       [ "GameKeypressInvoker", "class_game_keypress_invoker.html", null ]
@@ -85,6 +94,8 @@ var hierarchy =
     [ "Object", null, [
       [ "BaseTrigger", "class_base_trigger.html", [
         [ "DeathTrigger", "class_death_trigger.html", null ],
+        [ "MusicTrigger", "class_music_trigger.html", null ],
+        [ "SpikeTrigger", "class_spike_trigger.html", null ],
         [ "WinTrigger", "class_win_trigger.html", null ]
       ] ]
     ] ],
@@ -110,6 +121,7 @@ var hierarchy =
     [ "SceneFactory", "class_scene_factory.html", null ],
     [ "StateMachine< T >", "class_state_machine.html", null ],
     [ "StateMachine< Player >", "class_state_machine.html", null ],
+    [ "StateMachine< SlimeBoss >", "class_state_machine.html", null ],
     [ "TileSprite", "class_tile_sprite.html", null ],
     [ "TriggerFactory", "class_trigger_factory.html", null ]
 ];
