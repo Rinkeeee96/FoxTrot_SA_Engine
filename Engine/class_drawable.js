@@ -5,6 +5,7 @@ var class_drawable =
     [ "~Drawable", "class_drawable.html#a866615bcd4df07420dba046ac61180ae", null ],
     [ "changeToState", "class_drawable.html#a5c7a5ed9163633d454d78f215b311ea0", null ],
     [ "GetCurrentSprite", "class_drawable.html#a7ea2cda55647bf4fa0b2ec30d1d5abc9", null ],
+    [ "getCurrentState", "class_drawable.html#ac372ce798ac501541e7c5128bbdd2cbd", null ],
     [ "getDrawStatic", "class_drawable.html#af5d155e7f4f61e2ca3032eedd794ce40", null ],
     [ "getIsText", "class_drawable.html#a7b0a2749e8adc024995cf32bcce31d11", null ],
     [ "getTint", "class_drawable.html#a03814334f76c6288718a1e19cef32df7", null ],

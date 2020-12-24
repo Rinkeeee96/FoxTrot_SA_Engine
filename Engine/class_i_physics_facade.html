@@ -85,6 +85,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aab55787432f84cf3e5d4095e74407ce1"><td class="memItemLeft" align="right" valign="top"><a id="aab55787432f84cf3e5d4095e74407ce1"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>addStaticObject</b> (shared_ptr&lt; <a class="el" href="class_physics_body.html">PhysicsBody</a> &gt; object)=0</td></tr>
 <tr class="separator:aab55787432f84cf3e5d4095e74407ce1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fddbf7cf90e880a02ee8ba3db2ca768"><td class="memItemLeft" align="right" valign="top"><a id="a0fddbf7cf90e880a02ee8ba3db2ca768"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>addKinamaticObject</b> (shared_ptr&lt; <a class="el" href="class_physics_body.html">PhysicsBody</a> &gt; object)=0</td></tr>
+<tr class="separator:a0fddbf7cf90e880a02ee8ba3db2ca768"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa773358bf44d50bef5ee7dd2c4c83d01"><td class="memItemLeft" align="right" valign="top"><a id="aa773358bf44d50bef5ee7dd2c4c83d01"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>addDynamicObject</b> (shared_ptr&lt; <a class="el" href="class_physics_body.html">PhysicsBody</a> &gt; object)=0</td></tr>
 <tr class="separator:aa773358bf44d50bef5ee7dd2c4c83d01"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -103,12 +106,18 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Jump</b> (con
 <tr class="memitem:ac202dadfd926af04b3c4096bd4632f91"><td class="memItemLeft" align="right" valign="top"><a id="ac202dadfd926af04b3c4096bd4632f91"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Fall</b> (const int objectId)=0</td></tr>
 <tr class="separator:ac202dadfd926af04b3c4096bd4632f91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6df58a7334b2fba94a0611dddac14a2"><td class="memItemLeft" align="right" valign="top"><a id="af6df58a7334b2fba94a0611dddac14a2"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updatePhysicsBody</b> (<a class="el" href="class_object.html">Object</a> &amp;obj)=0</td></tr>
+<tr class="separator:af6df58a7334b2fba94a0611dddac14a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7042b06e70573e0023382e4735de38fb"><td class="memItemLeft" align="right" valign="top"><a id="a7042b06e70573e0023382e4735de38fb"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()=0</td></tr>
 <tr class="separator:a7042b06e70573e0023382e4735de38fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a127464f04b6e8acebaf7649b0686c768"><td class="memItemLeft" align="right" valign="top"><a id="a127464f04b6e8acebaf7649b0686c768"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>stopObject</b> (int objectId, bool stopVertical, bool stopHorizontal)=0</td></tr>
 <tr class="separator:a127464f04b6e8acebaf7649b0686c768"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2f1ebabad19b1e1d8c04272ff56f387"><td class="memItemLeft" align="right" valign="top"><a id="ae2f1ebabad19b1e1d8c04272ff56f387"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>moveObjectTo</b> (<a class="el" href="class_object.html">Object</a> &amp;object, float x, float y)=0</td></tr>
+<tr class="separator:ae2f1ebabad19b1e1d8c04272ff56f387"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2ecdb1dedc70836fdf57ab544407e0e"><td class="memItemLeft" align="right" valign="top"><a id="af2ecdb1dedc70836fdf57ab544407e0e"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>cleanMap</b> ()=0</td></tr>
 <tr class="separator:af2ecdb1dedc70836fdf57ab544407e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
