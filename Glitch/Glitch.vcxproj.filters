@@ -48,10 +48,7 @@
     <ClCompile Include="Game\Levels\Builders\LevelBuilder.cpp" />
     <ClCompile Include="Game\Scenes\Statemachine\SceneStateMachine.cpp" />
     <ClCompile Include="Game\Scenes\Shop\Shop.cpp" />
-<<<<<<< HEAD
-=======
     <ClCompile Include="Game\Scenes\MappingScreen\MappingScene.cpp" />
->>>>>>> 5267aedc21d0fdd8f9d930c544437311ebb0040d
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Skryo.h" />
@@ -140,12 +137,9 @@
     <ClInclude Include="Game\Triggers\WinTrigger.h" />
     <ClInclude Include="Game\Scenes\Statemachine\SceneStateMachine.h" />
     <ClInclude Include="Game\Scenes\Shop\Shop.h" />
-<<<<<<< HEAD
     <ClInclude Include="Game\Triggers\SpikeTrigger.h" />
-=======
     <ClInclude Include="Game\Scenes\MappingScreen\MappingScene.h" />
     <ClInclude Include="Game\General\KeyCodeStringMap.h" />
->>>>>>> 5267aedc21d0fdd8f9d930c544437311ebb0040d
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\Levels\Story\ChapterOne.txt" />
