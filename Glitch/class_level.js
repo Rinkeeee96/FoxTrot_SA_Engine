@@ -25,7 +25,7 @@ var class_level =
     [ "helpPopupZIndex", "class_level.html#a320f6bfc271ed57b74421354cd1d845e", null ],
     [ "helpText", "class_level.html#a83e3958b442175639053a9baa8cb704f", null ],
     [ "huds", "class_level.html#a3f6edfa80132c0136b274422f3125ddc", null ],
-    [ "inventoryOpen", "class_level.html#ae97c332fcd7deff32ab10495a8a25487", null ],
+    [ "inventoryPopup", "class_level.html#a0a580d135617ed18531ca85ac6555ef3", null ],
     [ "inventoryPopupZIndex", "class_level.html#ac19cf7fd157db3f2699dedac2dd608f1", null ],
     [ "pausePopupZIndex", "class_level.html#a31f46b6fec86dbed768e944cb47fac1e", null ],
     [ "player", "class_level.html#a9526d51909a17163924473203621d7d9", null ],

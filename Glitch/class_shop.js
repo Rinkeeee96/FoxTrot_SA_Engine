@@ -9,5 +9,8 @@ var class_shop =
     [ "onDetach", "class_shop.html#ab932e161c889ef99c97c23b8c98b8122", null ],
     [ "onUpdate", "class_shop.html#a3eb722674861d87b7723fd9bd3144f3e", null ],
     [ "start", "class_shop.html#a45344919c83661cec891206beadddb3d", null ],
-    [ "onStopBtnClick", "class_shop.html#ae893fe5ba15f4bddae9c0b4a24878a47", null ]
+    [ "handlePurchase", "class_shop.html#aae2050fc63d33cdb478bf3beaa8160eb", null ],
+    [ "onShopBuyClick", "class_shop.html#a389b1c4cd7ddae6e383e87e41187188f", null ],
+    [ "onStopBtnClick", "class_shop.html#ae893fe5ba15f4bddae9c0b4a24878a47", null ],
+    [ "text", "class_shop.html#af7d522139d3c86381d40a7688ebdfb27", null ]
 ];

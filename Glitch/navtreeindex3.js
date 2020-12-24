@@ -1,5 +1,11 @@
 var NAVTREEINDEX3 =
 {
+"dir_9ad927aa76680c968cd1d14f1ebade2b.html":[1,0,0,9,9,0],
+"dir_a94f265d07ce4e6d67781cf2064ecf36.html":[1,0,0,2,2,0],
+"dir_aa426bb6ebb3f840bc35dc60d43e2e4e.html":[1,0,0,1,0],
+"dir_ac058bb3ce294d3f3c4ec9e13a1eb9d6.html":[1,0,0,7,3],
+"dir_afba35ce66c5127214c3803580fa1d42.html":[1,0,0,1],
+"dir_b1e93f19bf07560244d632004703fadc.html":[1,0,0,4],
 "dir_b5e7a9449b6fa3ffe8f181ed6e8ceb3d.html":[1,0,0,6,0],
 "dir_bb1f4b283c0cb61dbd794dd1a69c5bd6.html":[1,0,0,8],
 "dir_c240c0a9cdf92dbbb311a84355625df6.html":[1,0,0,9,5],
@@ -25,8 +31,10 @@ var NAVTREEINDEX3 =
 "pch_8h_source.html":[1,0,2],
 "struct_character_data.html":[0,0,9],
 "struct_character_data.html#a8e0ea1d1f9468f9ef12e59ac94d651d2":[0,0,9,0],
+"struct_character_data.html#af73a7d9b1314767f5d6eaef710c2a374":[0,0,9,1],
 "struct_inventory.html":[0,0,39],
-"struct_inventory.html#a18014f68af4346bda890947a26e3e202":[0,0,39,0],
+"struct_inventory.html#a18014f68af4346bda890947a26e3e202":[0,0,39,1],
+"struct_inventory.html#a8bfdf974d03de1f50550555989864fbe":[0,0,39,0],
 "struct_item.html":[0,0,43],
 "struct_item.html#ade81676582b84c8b1c87ab1107528d6b":[0,0,43,0],
 "struct_item.html#af7a09a8db2072c632d84a992e76408b9":[0,0,43,1],

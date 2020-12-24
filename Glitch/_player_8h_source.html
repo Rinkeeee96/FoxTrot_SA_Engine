@@ -104,15 +104,21 @@ $(document).ready(function(){initNavTree('_player_8h_source.html',''); initResiz
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    </div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="class_state_machine.html">StateMachine&lt;Player&gt;</a>&amp; getStateMachine() { <span class="keywordflow">return</span> this-&gt;stateMachine; }</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    shared_ptr&lt;ICharacter&gt; <a class="code" href="class_player.html#a7f8da86158f0ae1f3e277488640da573">clone</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="class_game_keypress_invoker.html">GameKeypressInvoker</a>* invoker; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="class_state_machine.html">StateMachine&lt;Player&gt;</a> stateMachine;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;};</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="struct_inventory.html">Inventory</a> inventory;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="class_game_keypress_invoker.html">GameKeypressInvoker</a>* invoker; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="class_state_machine.html">StateMachine&lt;Player&gt;</a> stateMachine;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_player_html_a7f8da86158f0ae1f3e277488640da573"><div class="ttname"><a href="class_player.html#a7f8da86158f0ae1f3e277488640da573">Player::clone</a></div><div class="ttdeci">shared_ptr&lt; ICharacter &gt; clone(int id) override</div><div class="ttdoc">Clone the player to a new Player.</div><div class="ttdef"><b>Definition:</b> Player.cpp:128</div></div>
 <div class="ttc" id="aclass_player_html_a8b78b00ca7778f6308436e27ad2a7784"><div class="ttname"><a href="class_player.html#a8b78b00ca7778f6308436e27ad2a7784">Player::setXAxisVelocity</a></div><div class="ttdeci">void setXAxisVelocity(const float val) override</div><div class="ttdoc">Set the x Velocity of a player. Also changes the sprite state.</div><div class="ttdef"><b>Definition:</b> Player.cpp:89</div></div>
 <div class="ttc" id="aclass_player_html_a6fc91c9068678cc10778f55071fa319a"><div class="ttname"><a href="class_player.html#a6fc91c9068678cc10778f55071fa319a">Player::setYAxisVelocity</a></div><div class="ttdeci">void setYAxisVelocity(const float val) override</div><div class="ttdoc">Set the y Velocity of a player. Also changes the sprite state.</div><div class="ttdef"><b>Definition:</b> Player.cpp:100</div></div>
+<div class="ttc" id="astruct_inventory_html"><div class="ttname"><a href="struct_inventory.html">Inventory</a></div><div class="ttdoc">Struct for inventory containing a vector of Items.</div><div class="ttdef"><b>Definition:</b> Savegame.h:15</div></div>
 <div class="ttc" id="aclass_player_html_a9aa203a39db537fbb96c89a800a130c1"><div class="ttname"><a href="class_player.html#a9aa203a39db537fbb96c89a800a130c1">Player::onCollisionEndEvent</a></div><div class="ttdeci">bool onCollisionEndEvent(const Event &amp;event)</div><div class="ttdoc">Handles when an collision event ends, when the direction of the collision happend on the bottom side ...</div><div class="ttdef"><b>Definition:</b> Player.cpp:71</div></div>
 <div class="ttc" id="aclass_state_machine_html"><div class="ttname"><a href="class_state_machine.html">StateMachine&lt; Player &gt;</a></div></div>
 <div class="ttc" id="aclass_stop_movement_command_html"><div class="ttname"><a href="class_stop_movement_command.html">StopMovementCommand</a></div><div class="ttdef"><b>Definition:</b> StopMovementCommand.h:4</div></div>
