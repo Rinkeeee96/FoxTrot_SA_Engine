@@ -45,7 +45,27 @@ void JsonValidator::validate(JsonDocument& document, JsonDocument& validationDoc
 	valijson::Validator validator;
 	valijson::adapters::RapidJsonAdapter validateAdapter(document);
 
-	if (!validator.validate(schema, validateAdapter, NULL)) {
+
+	valijson::ValidationResults results;
+	if (!validator.validate(schema, validateAdapter, &results))
+	{
+		std::stringstream err_oss;
+
+		valijson::ValidationResults::Error error;
+		int error_num = 1;
+		while (results.popError(error))
+		{
+			std::string context;
+			std::vector<std::string>::iterator itr = error.context.begin();
+			for (; itr != error.context.end(); itr++)
+				context += *itr;
+
+			err_oss << "Error #" << error_num << std::endl
+				<< "  context: " << context << std::endl
+				<< "  desc:    " << error.description << std::endl;
+			std::cout << err_oss.str();
+			++error_num;
+		}
 		docIsValid = false;
 	}
 	else {

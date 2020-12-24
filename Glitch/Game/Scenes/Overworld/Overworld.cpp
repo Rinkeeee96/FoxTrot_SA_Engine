@@ -59,8 +59,8 @@ void Overworld::loadButtons() {
 	shared_ptr<Button> level2Btn = shared_ptr<Button>(new Button(3, ColoredText("", Color(255, 255, 255)), onLevel2BtnClick, defaultBtnSprite, this->dispatcher));
 	level2Btn->setWidth(32);
 	level2Btn->setHeight(32);
-	level2Btn->setPositionX(795);
-	level2Btn->setPositionY(850);
+	level2Btn->setPositionX(950);
+	level2Btn->setPositionY(700);
 	level2Btn->registerHoverSprite(hoverBtnSprite);
 
 	string level2Name = "Locked";
@@ -68,7 +68,7 @@ void Overworld::loadButtons() {
 	{
 		level2Name = "Level 2, Score: " + to_string(savegame->getCurrentGameData().levelData[1].score);
 	}
-	shared_ptr<Text> level2TextBtn = shared_ptr<Text>(new Text(4, new ColoredText(level2Name, Color(0, 0, 0)), 120, 30, 795, 870));
+	shared_ptr<Text> level2TextBtn = shared_ptr<Text>(new Text(4, new ColoredText(level2Name, Color(0, 0, 0)), 120, 30, 950, 700));
 
 	if (!savegame->getCurrentGameData().levelData[1].completed)
 	{
@@ -83,28 +83,69 @@ void Overworld::loadButtons() {
 	shared_ptr<Button> level3Btn = shared_ptr<Button>(new Button(5, ColoredText("", Color(255, 255, 255)), onLevel3BtnClick, defaultBtnSprite, this->dispatcher));
 	level3Btn->setWidth(32);
 	level3Btn->setHeight(32);
-	level3Btn->setPositionX(1500);
-	level3Btn->setPositionY(880);
+	level3Btn->setPositionX(1000);
+	level3Btn->setPositionY(906);
 	level3Btn->registerHoverSprite(hoverBtnSprite);
 
-	shared_ptr<Text> level3TextBtn = shared_ptr<Text>(new Text(6, new ColoredText(level3Name, Color(0, 0, 0)), 120, 30, 1500, 890));
+	shared_ptr<Text> level3TextBtn = shared_ptr<Text>(new Text(6, new ColoredText(level3Name, Color(0, 0, 0)), 120, 30, 1000, 906));
 	if (!savegame->getCurrentGameData().levelData[2].completed)
 	{
 		level3Btn->disable();
 	}
 
-	shared_ptr<SecondaryButton> stopBtn = shared_ptr<SecondaryButton>(new SecondaryButton(7, "To Main Menu", onStopBtnClick, this->dispatcher));
+
+	string level4Name = "Locked";
+	if (savegame->getCurrentGameData().levelData[3].completed)
+	{
+		level4Name = "Level 4, Score: " + to_string(savegame->getCurrentGameData().levelData[3].score);
+	}
+	shared_ptr<Button> level4Btn = shared_ptr<Button>(new Button(7, ColoredText("", Color(255, 255, 255)), onLevel4BtnClick, defaultBtnSprite, this->dispatcher));
+	level4Btn->setWidth(32);
+	level4Btn->setHeight(32);
+	level4Btn->setPositionX(1500);
+	level4Btn->setPositionY(880);
+	level4Btn->registerHoverSprite(hoverBtnSprite);
+
+	shared_ptr<Text> level4TextBtn = shared_ptr<Text>(new Text(8, new ColoredText(level4Name, Color(0, 0, 0)), 120, 30, 1500, 890));
+	if (!savegame->getCurrentGameData().levelData[3].completed)
+	{
+		level4Btn->disable();
+	}
+
+
+	shared_ptr<SecondaryButton> stopBtn = shared_ptr<SecondaryButton>(new SecondaryButton(9, "To Main Menu", onStopBtnClick, this->dispatcher));
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
-	shared_ptr<Button> chapterOne = shared_ptr<Button>(new Button(8, ColoredText("", Color(0, 0, 0)), onChapterOneClick, defaultBtnSprite, this->dispatcher));
+	shared_ptr<Button> chapterOne = shared_ptr<Button>(new Button(55, ColoredText("", Color(0, 0, 0)), onChapterOneClick, defaultBtnSprite, this->dispatcher));
 	chapterOne->setWidth(50);
 	chapterOne->setHeight(50);
 	chapterOne->setPositionX(295);
 	chapterOne->setPositionY(363);
 	chapterOne->registerHoverSprite(hoverBtnSprite);
 
-	shared_ptr<Text> chapterOneTxt = shared_ptr<Text>(new Text(9, new ColoredText("Chapter one", Color(0, 0, 0), false), 100, 50, 295 - 25, 393));
+	shared_ptr<Text> chapterOneTxt = shared_ptr<Text>(new Text(56, new ColoredText("Chapter one", Color(0, 0, 0), false), 100, 50, 295 - 25, 393));
+
+
+
+	string level5Name = "Locked";
+	if (savegame->getCurrentGameData().levelData[4].completed)
+	{
+		level5Name = "Level 5, Score: " + to_string(savegame->getCurrentGameData().levelData[4].score);
+	}
+	shared_ptr<Button> level5Btn = shared_ptr<Button>(new Button(23, ColoredText("", Color(255, 255, 255)), onLevel5BtnClick, defaultBtnSprite, this->dispatcher));
+	level5Btn->setWidth(32);
+	level5Btn->setHeight(32);
+	level5Btn->setPositionX(1548);
+	level5Btn->setPositionY(618);
+	level5Btn->registerHoverSprite(hoverBtnSprite);
+	shared_ptr<Text> level5TextBtn = shared_ptr<Text>(new Text(24, new ColoredText(level5Name, Color(0, 0, 0)), 120, 30, 1548, 618));
+	if (!savegame->getCurrentGameData().levelData[4].completed)
+	{
+		level5Btn->disable();
+	}
+
+
 
 	addNewObjectToLayer(3, chapterOne);
 	addNewObjectToLayer(3, chapterOneTxt);
@@ -114,6 +155,10 @@ void Overworld::loadButtons() {
 	addNewObjectToLayer(3, level2TextBtn);
 	addNewObjectToLayer(3, level3Btn);
 	addNewObjectToLayer(3, level3TextBtn);
+	addNewObjectToLayer(3, level4Btn);
+	addNewObjectToLayer(3, level4TextBtn);
+	addNewObjectToLayer(3, level5Btn);
+	addNewObjectToLayer(3, level5TextBtn);
 	addNewObjectToLayer(3, stopBtn);
 	addNewObjectToLayer(3, shop);
 	addNewObjectToLayer(3, shopText);
@@ -176,7 +221,6 @@ void Overworld::loadAchievements()
 
 		linecount += 30;
 	}
-
 }
 
 /// @brief 

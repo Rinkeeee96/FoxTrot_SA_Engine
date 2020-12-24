@@ -4,6 +4,11 @@
 
 #define BASE_GRAVITY 1
 
+enum class API BodyType {
+	DYNAMIC,
+	STATIC,
+	KINEMATIC
+};
 /// @brief 
 /// Object class. Object is linked with a sprite id in SVI. 
 class Object
@@ -33,9 +38,10 @@ public:
 	API void setWidth(const float);
 	API float getWidth() const;
 	
-	API void setStatic(const bool);
+	API virtual void setStatic(const bool);
 	API bool getStatic() const;
-	
+	API BodyType getBodyType() const;
+
 	API void setRestitution(const float val);
 	API float getRestitution() const;
 	
@@ -96,7 +102,7 @@ protected:
 	float density = 0;
 	float friction = 0;
 	float restitution = 0;
-	bool staticObject = false;
+	BodyType staticObject = BodyType::DYNAMIC;
 	float gravity = BASE_GRAVITY;
 	// ----------------
 	// unknown

@@ -127,7 +127,6 @@
     <ClInclude Include="Engine\Events\EventType.h" />
     <ClInclude Include="Engine\General\Debug.h" />
     <ClInclude Include="Engine\Engine.h" />
-    <ClInclude Include="Engine\General\ErrorCodes.h" />
     <ClInclude Include="Engine\General\GeneralDefines.h" />
     <ClInclude Include="Engine\Input\IInputFacade.h" />
     <ClInclude Include="Engine\Input\InputFacade.h" />
@@ -184,6 +183,7 @@
     <ClInclude Include="Engine\Input\Commands\Creator\CommandCreator.h" />
     <ClInclude Include="Engine\Input\Commands\Creator\CommandFactory.h" />
     <ClInclude Include="Engine\Input\Commands\Creator\ICommandCreator.h" />
+    <ClInclude Include="Engine\Events\Action\ObjectMoveToEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

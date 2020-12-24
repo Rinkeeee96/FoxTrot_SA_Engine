@@ -3,19 +3,18 @@
 #include <Game/Characters/Player/Player.h>
 
 /// @brief 
-/// "Normal" ground class
-class BaseGround : public IGround {
+/// "Snowy" ground class
+class SnowyGround : public IGround {
 private:
 	EventDispatcher& dispatcher;
 public:
-	BaseGround(EventDispatcher& _dispatcher, const int id) : IGround(id), dispatcher{ _dispatcher } {
-		this->staticObject = BodyType::KINEMATIC;
-		dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(BaseGround::onCollisionBeginEvent));
+	SnowyGround(EventDispatcher& _dispatcher, const int id) : IGround(id), dispatcher{ _dispatcher } {
+		dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(SnowyGround::onCollisionBeginEvent));
 	}
 
-	/// @brief This function is called when a object has collision
-	/// @param event 
-	/// @return 
+	/// @brief 
+	/// Sets friction of player to 6 when collision begins
+	/// @param OnCollisionBeginEvent
 	bool onCollisionBeginEvent(const Event& event) {
 		auto collisionEvent = static_cast<const OnCollisionBeginEvent&>(event);
 		if (collisionEvent.getObjectOne()->getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo()->getObjectId() != this->getObjectId()) return false;
@@ -24,13 +23,11 @@ public:
 		auto collidedDirection = map[this->getObjectId()];
 
 		if (std::find(collidedDirection.begin(), collidedDirection.end(), Direction::UP) != collidedDirection.end()) {
-			if (collisionEvent.getObjectOne()->getObjectId() == this->getObjectId()) {
+			if(collisionEvent.getObjectOne()->getObjectId() == this->getObjectId()) {
 				shared_ptr<Object> otherEntity = collisionEvent.getObjectTwo();
 
 				if (Player* player = dynamic_cast<Player*>(otherEntity.get())) {
-					player->setDensity(10);
-					player->setFriction(0);
-					player->setRestitution(0.1f);
+					player->setFriction(6.0f);
 					UpdatePhysicsBodyEvent e{ *player };
 					dispatcher.dispatchEvent<UpdatePhysicsBodyEvent>(e);
 				}
@@ -39,9 +36,7 @@ public:
 				shared_ptr<Object> otherEntity = collisionEvent.getObjectTwo();
 
 				if (Player* player = dynamic_cast<Player*>(otherEntity.get())) {
-					player->setDensity(10);
-					player->setFriction(0);
-					player->setRestitution(0.1f);
+					player->setFriction(6.0f);
 					UpdatePhysicsBodyEvent e{ *player };
 					dispatcher.dispatchEvent<UpdatePhysicsBodyEvent>(e);
 				}
@@ -50,5 +45,6 @@ public:
 		return true;
 	}
 
-	virtual void onUpdate(float deltaTime) override { };
+	virtual void onUpdate(float deltaTime) override {
+	};
 };

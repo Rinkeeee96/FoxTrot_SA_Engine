@@ -1,7 +1,7 @@
 #pragma once
 #include "Game/Triggers/BaseTrigger.h"
 
-/// @brief Class for death trigger
+/// @brief Class for death trigger, base class BaseTrigger
 class DeathTrigger : public BaseTrigger
 {
 public:

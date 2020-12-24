@@ -36,7 +36,8 @@ public:
 	void onUpdate(float deltaTime) override {
 		if (releasedKeyLastFrame)
 		{
-			StopMovementCommand(*this, "stopMovement").execute(this->dispatcher);
+			if(this->friction == 0 || (this->getYAxisVelocity() < -5 || this->getYAxisVelocity() > 5))
+				StopMovementCommand(*this, "stopMovement").execute(this->dispatcher);
 		}
 		stateMachine.update(*this);
 	};

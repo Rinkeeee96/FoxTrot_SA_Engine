@@ -39,6 +39,7 @@ public:
 	API ~PhysicsFacade();
 
 	API void addStaticObject(shared_ptr<PhysicsBody> object) override;
+	API void addKinamaticObject(shared_ptr<PhysicsBody> object) override;
 	API void addDynamicObject(shared_ptr<PhysicsBody> object) override;
 
 	API void MoveLeft(const int objectId) override;
@@ -50,8 +51,11 @@ public:
 	API CollisionStruct getObjectsByFixture(b2Fixture* fixture1, b2Fixture* fixture2);
 	API void update() override;
 	API void stopObject(int objectId, bool stopVertical, bool stopHorizontal);
+	API void moveObjectTo(Object& object, float x, float y);
 	API void cleanMap();
 
+
+	API void updatePhysicsBody(Object& obj) override;
 private:
 	b2PolygonShape createShape(shared_ptr<PhysicsBody> object);
 	EventDispatcher& dispatcher;

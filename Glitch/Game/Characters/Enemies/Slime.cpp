@@ -41,12 +41,47 @@ void Slime::onUpdate(float deltaTime) {
 /// @brief
 /// Builds the spritemap for the Slime
 map<SpriteState, shared_ptr<SpriteObject>> Slime::buildSpritemap(int textureId) {
+	switch (type) {
+	case SlimeType::Green:
+		return buildNormalSlimeMap(textureId);
+	case SlimeType::Ice:
+		return buildIceSlimeMap(textureId);
+	default:
+		return buildNormalSlimeMap(textureId);
+	}
+}
+
+/// @brief Builds the spriteObject map for a normal slime
+/// @param textureId 
+/// @return 
+map<SpriteState, shared_ptr<SpriteObject>> Slime::buildNormalSlimeMap(int textureId)
+{
 	std::map<SpriteState, shared_ptr<SpriteObject>> spriteMap;
 
 	auto slimeDefault = shared_ptr<SpriteObject>(new SpriteObject(textureId++, SLIME_IDLE_SPRITE_HEIGHT, SLIME_IDLE_SPRITE_WIDTH, 1, 200, "Assets/Sprites/Enemies/Slime/Slime_default.png"));
 	auto slimeAction1 = shared_ptr<SpriteObject>(new SpriteObject(textureId++, SLIME_ACTION_SPRITE_HEIGHT, SLIME_ACTION_SPRITE_WIDTH, 1, 200, "Assets/Sprites/Enemies/Slime/Slime_action_1.png"));
 	auto slimeAction2 = shared_ptr<SpriteObject>(new SpriteObject(textureId++, SLIME_ACTION_SPRITE_HEIGHT, SLIME_ACTION_SPRITE_WIDTH, 1, 200, "Assets/Sprites/Enemies/Slime/Slime_action_2.png"));
 	auto slimeAction3 = shared_ptr<SpriteObject>(new SpriteObject(textureId++, SLIME_ACTION_SPRITE_HEIGHT, SLIME_ACTION_SPRITE_WIDTH, 1, 200, "Assets/Sprites/Enemies/Slime/Slime_action_3.png"));
+
+	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::DEFAULT, slimeDefault));
+	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::ACTION_1, slimeAction1));
+	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::ACTION_2, slimeAction2));
+	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::ACTION_3, slimeAction3));
+
+	return spriteMap;
+}
+
+/// @brief Builds the spriteObject map for an ice slime
+/// @param textureId 
+/// @return 
+map<SpriteState, shared_ptr<SpriteObject>> Slime::buildIceSlimeMap(int textureId)
+{
+	std::map<SpriteState, shared_ptr<SpriteObject>> spriteMap;
+
+	auto slimeDefault = shared_ptr<SpriteObject>(new SpriteObject(textureId++, SLIME_IDLE_SPRITE_HEIGHT, SLIME_IDLE_SPRITE_WIDTH, 1, 200, "Assets/Sprites/Enemies/Slime/Icy_slime_default.png"));
+	auto slimeAction1 = shared_ptr<SpriteObject>(new SpriteObject(textureId++, SLIME_ACTION_SPRITE_HEIGHT, SLIME_ACTION_SPRITE_WIDTH, 1, 200, "Assets/Sprites/Enemies/Slime/Icy_slime_action_1.png"));
+	auto slimeAction2 = shared_ptr<SpriteObject>(new SpriteObject(textureId++, SLIME_ACTION_SPRITE_HEIGHT, SLIME_ACTION_SPRITE_WIDTH, 1, 200, "Assets/Sprites/Enemies/Slime/Icy_slime_action_2.png"));
+	auto slimeAction3 = shared_ptr<SpriteObject>(new SpriteObject(textureId++, SLIME_ACTION_SPRITE_HEIGHT, SLIME_ACTION_SPRITE_WIDTH, 1, 200, "Assets/Sprites/Enemies/Slime/Icy_slime_action_3.png"));
 
 	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::DEFAULT, slimeDefault));
 	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::ACTION_1, slimeAction1));

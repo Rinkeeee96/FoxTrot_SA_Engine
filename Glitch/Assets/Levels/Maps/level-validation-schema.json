@@ -231,7 +231,8 @@
                           "enum": [
                             "win",
                             "death",
-                            "music"
+                            "music",
+                            "spike"
                           ]
                         }
                       },
