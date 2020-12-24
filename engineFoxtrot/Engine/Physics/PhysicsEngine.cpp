@@ -92,29 +92,34 @@ bool PhysicsEngine::handleAction(const Event& event) {
 }
 
 /// @brief
-/// Hanles update body events
-/// @param Event UpdatePhysicsBodyEvent with updated object
-/// @returns bool handled
+/// Handles the UpdatePhysicsEvent and updates the physics body belonging to the object
+/// @param event
+/// The given UpdatePhysicsBodyEvent
+/// @return bool
 bool PhysicsEngine::handleUpdateBodyEvent(const Event& event) {
 	auto actionEvent = static_cast<const UpdatePhysicsBodyEvent&>(event);
 
-	physicsFacade->updatePhysicsBody(actionEvent.getObject().getObjectId(), actionEvent.getObject());
+	physicsFacade->updatePhysicsBody(actionEvent.getObject());
 	return true;
 }
 
 /// @brief Stops the vertical movement of an object.
 /// @param event 
-/// @return 
+/// @return bool
 bool PhysicsEngine::stopObject(const Event& event) {
 	auto& e = static_cast<const ObjectStopEvent&>(event);
 	physicsFacade->stopObject(e.getObjectId(), e.getStopVertical(), e.getStopHorizontal());
 	return true;
 }
 
+/// @brief Sets the velocity of the given object towards the given position
+/// @param event
+/// The ObjectMoveToEvent
+/// @return bool
 bool PhysicsEngine::moveObjectTo(const Event& event)
 {
 	auto& e = static_cast<const ObjectMoveToEvent&>(event);
-	physicsFacade->moveObjectTo(e.getObject(), e.getMoveToX(), e.getMoveToY(), e.getSpeed());
+	physicsFacade->moveObjectTo(e.getObject(), e.getMoveToX(), e.getMoveToY());
 	return true;
 }
 

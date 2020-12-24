@@ -194,6 +194,14 @@ void PhysicsFacade::update() {
 	}
 }
 
+/// @brief 
+/// A function to stop an object from moving vertically, horizontally or both
+/// @param objectId 
+/// Identifier for ObjectID
+/// @param stopVertical
+/// Whether the object should stop moving vertically 
+/// @param stopHorizontal
+/// Whether the object should stop moving horizontally 
 void PhysicsFacade::stopObject(int objectId, bool stopVertical, bool stopHorizontal) {
 	b2Body* body = findBody(objectId);
 	auto ob = getPhysicsObject(objectId);
@@ -204,7 +212,15 @@ void PhysicsFacade::stopObject(int objectId, bool stopVertical, bool stopHorizon
 	body->SetLinearVelocity(vel);
 }
 
-void PhysicsFacade::moveObjectTo(Object& object, float x, float y, float speed)
+/// @brief
+/// Sets the given object's velocity towards the given x and y position, based on it's speed
+/// @param object
+/// The object to set the velocity of
+/// @param x
+/// The x position to move to
+/// @param y
+/// The y position to move to
+void PhysicsFacade::moveObjectTo(Object& object, float x, float y)
 {
 	b2Body* body = findBody(object.getObjectId());
 	auto ob = getPhysicsObject(object.getObjectId());
@@ -217,7 +233,7 @@ void PhysicsFacade::moveObjectTo(Object& object, float x, float y, float speed)
 
 	float diffTotal = xPositionDifference + yPositionDifference;
 
-	b2Vec2 vel = b2Vec2{ xPositionDifference / diffTotal * speed * xModifer, yPositionDifference / diffTotal * speed * yModifer};
+	b2Vec2 vel = b2Vec2{ xPositionDifference / diffTotal * object.getSpeed() * xModifer, yPositionDifference / diffTotal * object.getSpeed() * yModifer};
 
 	body->SetLinearVelocity(vel);
 }
@@ -293,8 +309,14 @@ void PhysicsFacade::cleanMap()
 	world->SetContactListener(new ContactListenerAdapter(this, dispatcher));
 }
 
-void PhysicsFacade::updatePhysicsBody(int objId, Object& obj) {
-	auto result = this->getPhysicsObject(objId);
+/// @brief
+/// Updates the physics body to the new obj values of the given object
+/// @param objId
+/// The id of the object to update
+/// @param obj
+/// The object to update from
+void PhysicsFacade::updatePhysicsBody(Object& obj) {
+	auto result = this->getPhysicsObject(obj.getObjectId());
 	result->setDensity(obj.getDensity());
 	result->setFriction(obj.getFriction());
 	result->setRestitution(obj.getRestitution());
@@ -303,7 +325,7 @@ void PhysicsFacade::updatePhysicsBody(int objId, Object& obj) {
 	result->setXAxisVelocity(obj.getXAxisVelocity());
 	result->setYAxisVelocity(obj.getYAxisVelocity());
 
-	auto body = this->findBody(objId);
+	auto body = this->findBody(obj.getObjectId());
 	for (b2Fixture* f = body->GetFixtureList(); f; f = f->GetNext())
 	{
 		f->SetDensity(obj.getDensity());
