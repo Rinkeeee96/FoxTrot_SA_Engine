@@ -6,12 +6,11 @@
 class ObjectMoveToEvent : public Event
 {
 public:
-	ObjectMoveToEvent(Object& _object, float _x, float _y, float _speed) : object{ _object }, x{ _x }, y{ _y }, speed{_speed} {};
+	ObjectMoveToEvent(Object& _object, float _x, float _y) : object{ _object }, x{ _x }, y{ _y } {};
 
 	Object& getObject() const { return object; }
 	float getMoveToX() const { return x; }
 	float getMoveToY() const { return y; }
-	float getSpeed() const { return speed; }
 
 	/// @brief
 	/// Returns the eventType of a specific event

@@ -38,7 +38,7 @@ void Skryo::onUpdate(float deltaTime) {
 		}
 		if (dashTimer >= SKRYO_DASH_ANIMATION_TIME) {
 			changeToState(direction == Direction::LEFT ? SpriteState::RUN_LEFT : SpriteState::RUN_RIGHT);
-			dispatcher.dispatchEvent<ObjectMoveToEvent>((Event&)ObjectMoveToEvent(*this, player->getPositionX(), player->getPositionY(), this->speed));
+			dispatcher.dispatchEvent<ObjectMoveToEvent>((Event&)ObjectMoveToEvent(*this, player->getPositionX(), player->getPositionY()));
 			dashTimer = 0;
 			dashing = false;
 		}

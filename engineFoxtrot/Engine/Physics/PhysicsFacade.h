@@ -51,11 +51,11 @@ public:
 	API CollisionStruct getObjectsByFixture(b2Fixture* fixture1, b2Fixture* fixture2);
 	API void update() override;
 	API void stopObject(int objectId, bool stopVertical, bool stopHorizontal);
-	API void moveObjectTo(Object& object, float x, float y, float speed);
+	API void moveObjectTo(Object& object, float x, float y);
 	API void cleanMap();
 
 
-	API void updatePhysicsBody(int objId, Object& obj) override;
+	API void updatePhysicsBody(Object& obj) override;
 private:
 	b2PolygonShape createShape(shared_ptr<PhysicsBody> object);
 	EventDispatcher& dispatcher;
