@@ -1,6 +1,7 @@
 #pragma once
 #include "Game/Scenes/GameScene.h"
 
+class Player;
 
 /// @brief Class for the shop screen
 class Shop : public GameScene
@@ -20,10 +21,25 @@ private:
 	void loadMusic();
 	void loadButtons();
 
+	shared_ptr<Text> text;
+
+	bool handlePurchase = false;
+
 	function<void(void)> onStopBtnClick = [this]() {
 		moveToNextScene = true;
 		nextScene = "Overworld";
 	};
+
+	function<void(void)> onShopBuyClick = [this]() {
+		cout << "Button called" << endl;
+		handlePurchase = true;
+		moveToNextScene = true;
+		nextScene = "Shop";
+	};
+
+
+
+
 
 };
 

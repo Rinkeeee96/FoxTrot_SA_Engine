@@ -44,7 +44,10 @@ bool Savegame::saveGameDataToJsonFile()
 			characterData["inventory"]["items"].push_back(itemJson);
 			charData = true;
 		}	
-		if(charData)saveGameJson["characterdata"] = characterData;
+
+		characterData["inventory"]["coins"] = saveGame.second.characterData.inventory.coins;
+		characterData["health"] = saveGame.second.characterData.totalHealth;
+		saveGameJson["characterdata"] = characterData;
 		json["savegames"].push_back(saveGameJson);
 	}
 	// Todo move to engine.
@@ -202,8 +205,11 @@ void Savegame::parseJsonToMap(nlohmann::json json)
 					}
 					// Parse other item things in future
 				}
+
+				saveGameData.characterData.inventory.coins = jsonObject["characterdata"]["inventory"]["coins"];
 				// Parse other inventory things in future
 			}
+			saveGameData.characterData.totalHealth = jsonObject["characterdata"]["health"];
 			// Parse other character data in future
 		}
 		saveGameDataMap[id] = saveGameData;

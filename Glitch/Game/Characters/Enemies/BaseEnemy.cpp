@@ -15,6 +15,8 @@ bool BaseEnemy::onCollisionBeginEvent(const Event& event) {
 
 	if (std::find(collidedDirection.begin(), collidedDirection.end(), Direction::UP) != collidedDirection.end()) {
 		this->kill();
+		int randomNumber = 1 + (rand() % static_cast<int>(5 - 1 + 1));
+		this->player->inventory.coins += randomNumber;
 	}
 	else {
 		if (collisionEvent.getObjectOne()->getObjectId() == this->getObjectId()) {
