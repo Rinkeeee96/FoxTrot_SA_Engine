@@ -51,6 +51,9 @@ map<SpriteState, shared_ptr<SpriteObject>> Slime::buildSpritemap(int textureId) 
 	}
 }
 
+/// @brief Builds the spriteObject map for a normal slime
+/// @param textureId 
+/// @return 
 map<SpriteState, shared_ptr<SpriteObject>> Slime::buildNormalSlimeMap(int textureId)
 {
 	std::map<SpriteState, shared_ptr<SpriteObject>> spriteMap;
@@ -68,6 +71,9 @@ map<SpriteState, shared_ptr<SpriteObject>> Slime::buildNormalSlimeMap(int textur
 	return spriteMap;
 }
 
+/// @brief Builds the spriteObject map for an ice slime
+/// @param textureId 
+/// @return 
 map<SpriteState, shared_ptr<SpriteObject>> Slime::buildIceSlimeMap(int textureId)
 {
 	std::map<SpriteState, shared_ptr<SpriteObject>> spriteMap;

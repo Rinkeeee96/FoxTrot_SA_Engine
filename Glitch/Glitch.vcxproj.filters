@@ -23,6 +23,7 @@
     <ClCompile Include="Game\Scenes\Credits\CreditsScene.cpp" />
     <ClCompile Include="Game\Scenes\Factory\FactoryMethod.cpp" />
     <ClCompile Include="Game\Scenes\GameScene.cpp" />
+    <ClCompile Include="Game\Scenes\MappingScreen\MappingScene.cpp" />
     <ClCompile Include="Game\Scenes\Overworld\Overworld.cpp" />
     <ClCompile Include="Game\SaveGame\Savegame.cpp" />
     <ClCompile Include="Game\Scenes\MainMenu\MainMenu.cpp" />
@@ -48,7 +49,6 @@
     <ClCompile Include="Game\Levels\Builders\LevelBuilder.cpp" />
     <ClCompile Include="Game\Scenes\Statemachine\SceneStateMachine.cpp" />
     <ClCompile Include="Game\Scenes\Shop\Shop.cpp" />
-    <ClCompile Include="Game\Scenes\MappingScreen\MappingScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Skryo.h" />
@@ -80,8 +80,8 @@
     <ClInclude Include="Game\Game.h" />
     <ClInclude Include="Game\General\GeneralEnemyDefines.h" />
     <ClInclude Include="Game\General\GeneralGameDefines.h" />
+    <ClInclude Include="Game\General\KeyCodeStringMap.h" />
     <ClInclude Include="Game\Ground\BouncingGround.h" />
-    <ClInclude Include="Game\Ground\MovingGround.h" />
     <ClInclude Include="Game\Ground\SnowyGround.h" />
     <ClInclude Include="Game\IGameObject.h" />
     <ClInclude Include="Game\Levels\Builders\AbstractLevelBuilder.h" />
@@ -103,6 +103,7 @@
     <ClInclude Include="Game\Scenes\Factory\FactoryMethod.h" />
     <ClInclude Include="Game\Scenes\GameScene.h" />
     <ClInclude Include="Game\Scenes\MainMenu\MainMenu.h" />
+    <ClInclude Include="Game\Scenes\MappingScreen\MappingScene.h" />
     <ClInclude Include="Game\Scenes\SaveScreen\SaveScreen.h" />
     <ClInclude Include="Game\Scenes\Scenes.h" />
     <ClInclude Include="Game\Scenes\Story\ChapterOneScene.h" />
@@ -121,6 +122,7 @@
     <ClInclude Include="Game\States\SlimeBoss\SlimeBossGlobalState.h" />
     <ClInclude Include="Game\States\StateMachine.h" />
     <ClInclude Include="Game\Triggers\MusicTrigger.h" />
+    <ClInclude Include="Game\Triggers\SpikeTrigger.h" />
     <ClInclude Include="Glitch.h" />
     <ClInclude Include="Game\Scenes\Overworld\Overworld.h" />
     <ClInclude Include="Game\Levels\Level.h" />
@@ -137,9 +139,6 @@
     <ClInclude Include="Game\Triggers\WinTrigger.h" />
     <ClInclude Include="Game\Scenes\Statemachine\SceneStateMachine.h" />
     <ClInclude Include="Game\Scenes\Shop\Shop.h" />
-    <ClInclude Include="Game\Triggers\SpikeTrigger.h" />
-    <ClInclude Include="Game\Scenes\MappingScreen\MappingScene.h" />
-    <ClInclude Include="Game\General\KeyCodeStringMap.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\Levels\Story\ChapterOne.txt" />
