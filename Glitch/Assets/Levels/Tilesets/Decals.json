@@ -16,9 +16,9 @@
  "margin":0,
  "name":"Decals",
  "spacing":0,
- "tilecount":4,
+ "tilecount":5,
  "tiledversion":"1.4.3",
- "tileheight":70,
+ "tileheight":72,
  "tiles":[
         {
          "id":0,
@@ -43,8 +43,14 @@
          "image":"..\/Tiles\/help.png",
          "imageheight":70,
          "imagewidth":150
+        }, 
+        {
+         "id":4,
+         "image":"..\/Tiles\/coins.png",
+         "imageheight":70,
+         "imagewidth":168
         }],
- "tilewidth":150,
+ "tilewidth":168,
  "type":"tileset",
  "version":1.4
 }
