@@ -5,6 +5,7 @@
 #include <Game/Characters/Enemies/Slime.h>
 
 SlimeBoss::SlimeBoss(Level& _level, EventDispatcher& _dispatcher) : IEnemy(_dispatcher), level(_level) {
+	this->invincible = false;
 	this->stateMachine.setCurrentState(make_unique<SlimeBossNormalState>(), *this);
 	this->stateMachine.setGlobalState(make_unique<SlimeBossGlobalState>(), *this);
 }
@@ -29,7 +30,6 @@ bool SlimeBoss::onCollisionBeginEvent(const Event& event) {
 
 			if (this->player->getObjectId() == otherEntity->getObjectId()) {
 				if (!this->invincible) this->currentHealth--;
-				dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::DOWN, player->getObjectId()));
 			}
 		}
 		else if (collisionEvent.getObjectTwo()->getObjectId() == this->getObjectId()) {
@@ -37,7 +37,6 @@ bool SlimeBoss::onCollisionBeginEvent(const Event& event) {
 
 			if (this->player->getObjectId() == otherEntity->getObjectId()) {
 				if(!this->invincible) this->currentHealth--;
-				dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::DOWN, player->getObjectId()));
 			}
 		}
 	}

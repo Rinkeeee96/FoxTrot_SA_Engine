@@ -169,6 +169,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch.tests\TestAssetsGame" "$(OutDir)TestA
   <ItemGroup>
     <ClCompile Include="GlitchTests\src\Characters\Enemies\FleyeTests.cpp" />
     <ClCompile Include="GlitchTests\src\Characters\Enemies\JumpkinTests.cpp" />
+    <ClCompile Include="GlitchTests\src\Characters\Enemies\SlimeBossTests.cpp" />
     <ClCompile Include="GlitchTests\src\Characters\PlayerTests.cpp" />
     <ClCompile Include="GlitchTests\src\Characters\Enemies\SlimeTests.cpp" />
     <ClCompile Include="GlitchTests\src\Commands\GameKeypressInvokerTests.cpp" />
@@ -191,6 +192,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch.tests\TestAssetsGame" "$(OutDir)TestA
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GlitchTests\src\mocks\MockSlimeBoss.h" />
     <ClInclude Include="GlitchTests\src\mocks\MockState.h" />
     <ClInclude Include="GlitchTests\src\mocks\MockFleye.h" />
     <ClInclude Include="GlitchTests\src\mocks\MockJumpkin.h" />
@@ -198,6 +200,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch.tests\TestAssetsGame" "$(OutDir)TestA
     <ClInclude Include="GlitchTests\src\mocks\MockPlayer.h" />
     <ClInclude Include="GlitchTests\src\mocks\MockScene.h" />
     <ClInclude Include="GlitchTests\src\mocks\MockSlime.h" />
+    <ClInclude Include="GlitchTests\src\States\SlimeBoss\SlimeBossGodState.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
