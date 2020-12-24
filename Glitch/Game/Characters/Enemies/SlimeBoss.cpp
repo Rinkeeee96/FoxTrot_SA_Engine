@@ -3,12 +3,18 @@
 #include <Game/Levels/Level.h>
 #include <Game/Characters/Enemies/Fleye.h>
 #include <Game/Characters/Enemies/Slime.h>
-
+/// @brief Constructor setting statemachine
+/// @param _level 
+/// @param _dispatcher 
 SlimeBoss::SlimeBoss(Level& _level, EventDispatcher& _dispatcher) : IEnemy(_dispatcher), level(_level) {
 	this->invincible = false;
 	this->stateMachine.setCurrentState(make_unique<SlimeBossNormalState>(), *this);
 	this->stateMachine.setGlobalState(make_unique<SlimeBossGlobalState>(), *this);
 }
+
+/// @brief Constructor setting statemachine
+/// @param _level 
+/// @param _dispatcher 
 SlimeBoss::SlimeBoss(Level& _level, const int id, EventDispatcher& _dispatcher) : IEnemy(id, _dispatcher), level(_level) { 
 	_dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(SlimeBoss::onCollisionBeginEvent));
 	this->stateMachine.setCurrentState(make_unique<SlimeBossNormalState>(), *this);

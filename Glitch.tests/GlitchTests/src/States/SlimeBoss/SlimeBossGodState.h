@@ -95,35 +95,5 @@ namespace UnitTestsGlitch
 				Assert::IsTrue(false);
 			}
 		}
-
-		//TEST_METHOD(DamageCooldownState_Less_Than_One_Second_Should_Keep_DamageCooldownState)
-		//{
-		//	// Arrange
-		//	EventDispatcher dispatcher;
-		//	Player player{ 2, dispatcher };
-		//	player.setCanJump(false);
-		//	player.setTotalHealth(5);
-		//	player.setInvincible(true);
-		//	chrono::high_resolution_clock::time_point startTime = chrono::high_resolution_clock::now();
-		//	// Act
-
-		//	player.getStateMachine().changeState(make_unique<DamageCooldownState>(), player);
-		//	player.onUpdate(1);
-
-		//	chrono::high_resolution_clock::time_point endTime = chrono::high_resolution_clock::now();
-		//	std::chrono::milliseconds miliSeconds = std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime);
-		//	std::chrono::milliseconds ml{ 900 };
-		//	std::this_thread::sleep_for(std::chrono::milliseconds(ml - miliSeconds));
-		//	player.onUpdate(1);
-		//	// Assert
-		//	IState<Player>& result = player.getStateMachine().getCurrentState();
-		//	// Assert
-		//	if (typeid(DamageCooldownState) == typeid(result)) {
-		//		Assert::IsTrue(true);
-		//	}
-		//	else {
-		//		Assert::IsTrue(false);
-		//	}
-		//}
 	};
 }

@@ -13,6 +13,9 @@ public:
 		dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(BaseGround::onCollisionBeginEvent));
 	}
 
+	/// @brief This function is called when a object has collision
+	/// @param event 
+	/// @return 
 	bool onCollisionBeginEvent(const Event& event) {
 		auto collisionEvent = static_cast<const OnCollisionBeginEvent&>(event);
 		if (collisionEvent.getObjectOne()->getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo()->getObjectId() != this->getObjectId()) return false;
