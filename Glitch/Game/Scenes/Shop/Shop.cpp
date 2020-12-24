@@ -40,7 +40,7 @@ void Shop::onUpdate(float deltaTime)
 		if (!savegame) return;
 		SaveGameData save = savegame->getCurrentGameData();
 		save.characterData.totalHealth++;
-		save.characterData.inventory.coins -= 50;
+		save.characterData.inventory.coins -= HEALTH_PRICE;
 		savegame->saveCurrentGameData(save);
 	}
 
