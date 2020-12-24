@@ -91,6 +91,10 @@ bool PhysicsEngine::handleAction(const Event& event) {
 	}
 }
 
+/// @brief
+/// Hanles update body events
+/// @param Event UpdatePhysicsBodyEvent with updated object
+/// @returns bool handled
 bool PhysicsEngine::handleUpdateBodyEvent(const Event& event) {
 	auto actionEvent = static_cast<const UpdatePhysicsBodyEvent&>(event);
 

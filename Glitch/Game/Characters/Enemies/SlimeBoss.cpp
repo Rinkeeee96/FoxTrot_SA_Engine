@@ -17,6 +17,7 @@ SlimeBoss::SlimeBoss(Level& _level, const int id, EventDispatcher& _dispatcher) 
 
 /// @brief 
 /// Checks whether should hit himself or do damage to the player
+/// @param OnCollisionBeginEvent
 bool SlimeBoss::onCollisionBeginEvent(const Event& event) {
 	auto collisionEvent = static_cast<const OnCollisionBeginEvent&>(event);
 	if (collisionEvent.getObjectOne()->getObjectId() != this->getObjectId() && collisionEvent.getObjectTwo()->getObjectId() != this->getObjectId()) return false;

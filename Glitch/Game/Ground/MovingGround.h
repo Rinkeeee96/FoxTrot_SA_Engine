@@ -16,6 +16,8 @@ public:
 	 
 	void setStatic(const bool) override { }
 
+	/// @brief
+	/// Moves ground
 	virtual void onUpdate(float deltaTime) override {
 		if (this->getPositionY() - deltaTime * 100 > MIN_HEIGHT) {
 			return;
