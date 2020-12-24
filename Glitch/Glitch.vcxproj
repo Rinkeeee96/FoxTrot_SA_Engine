@@ -199,6 +199,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Game.h" />
     <ClInclude Include="Game\General\GeneralEnemyDefines.h" />
     <ClInclude Include="Game\General\GeneralGameDefines.h" />
+    <ClInclude Include="Game\General\KeyCodeStringMap.h" />
     <ClInclude Include="Game\Ground\BouncingGround.h" />
     <ClInclude Include="Game\Ground\MovingGround.h" />
     <ClInclude Include="Game\Ground\SnowyGround.h" />
@@ -222,6 +223,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Scenes\Factory\FactoryMethod.h" />
     <ClInclude Include="Game\Scenes\GameScene.h" />
     <ClInclude Include="Game\Scenes\MainMenu\MainMenu.h" />
+    <ClInclude Include="Game\Scenes\MappingScreen\MappingScene.h" />
     <ClInclude Include="Game\Scenes\SaveScreen\SaveScreen.h" />
     <ClInclude Include="Game\Scenes\Scenes.h" />
     <ClInclude Include="Game\Scenes\Story\ChapterOneScene.h" />
@@ -281,6 +283,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClCompile Include="Game\Scenes\Credits\CreditsScene.cpp" />
     <ClCompile Include="Game\Scenes\Factory\FactoryMethod.cpp" />
     <ClCompile Include="Game\Scenes\GameScene.cpp" />
+    <ClCompile Include="Game\Scenes\MappingScreen\MappingScene.cpp" />
     <ClCompile Include="Game\Scenes\Overworld\Overworld.cpp" />
     <ClCompile Include="Game\SaveGame\Savegame.cpp" />
     <ClCompile Include="Game\Scenes\MainMenu\MainMenu.cpp" />

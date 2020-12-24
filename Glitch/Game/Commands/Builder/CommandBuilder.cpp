@@ -20,72 +20,128 @@ CommandBuilder::CommandBuilder()
 	initGlobalCommandFactory();
 }
 
-// TODO read keybinds from file
-/*
-global: {
-	KEY_P: "pause",
-	.....
-},
-player : {
-	{
-		KEY_A : "walkLeft",
-		KEY_D : "walkRight"
-		....
-	},
-	{
-		....
-	}
-}
-*/
 /// @brief
 /// read the bindings from the given input source, create a new game keypress invoker and
 /// register the bindings in pairs
+/// @returns
+/// GamekeypressInvoker with the bindings that were registered in the config file.
+/// When it fails it attempts to go back to the default bindings
 GameKeypressInvoker* CommandBuilder::readBindingsAndCreateInvoker() {
-	// bindings now belong "hardcoded" to the player
-	unordered_map<KeyCode, string> playerBindings = {
-		{ KeyCode::KEY_A, "moveLeft"},
-		{ KeyCode::KEY_D, "moveRight"},
-		{ KeyCode::KEY_G, "godmode"},
-		{ KeyCode::KEY_SPACE, "jump"}
+
+	bool parseError = false;
+	unordered_map<KeyCode, string> playerBindings;
+	unordered_map<KeyCode, string> globalBindings;
+
+	GameKeypressInvoker* invoker = nullptr;
+
+	ifstream stream;
+	try
+	{
+		stream = fileLoader.readFile(keybindingConfigFilepath);
+		stream >> json;
+		stream.close();
+
+		bool validConfigFile = fileLoader.validateDocument(keybindingConfigFilepath, "Assets/Config/keybinding-validation-schema.json");
+		if (validConfigFile) {
+			parseKeybindingsToMap(playerBindings, globalBindings);
+			invoker = new GameKeypressInvoker(playerBindings, globalBindings);
+		}
+		else {
+			throw exception("CommandBuilder: Something went wrong validating file, make sure the file is correct");
+		}
+	}
+	catch (const std::exception& e)
+	{
+		this->createDefaultbindings(playerBindings, globalBindings);
+		invoker = new GameKeypressInvoker(playerBindings, globalBindings);
+		this->saveKeybindings(invoker);
+	}
+	return invoker;
+}
+
+/// @brief
+/// Wrapper method for parsing the generic keybinding list on the lowest level since the structure is equal
+/// places them directly into the given map
+/// @param commandListRef
+/// the list to place the parsed commands into
+/// @param subCollection
+/// the subcollection containing the bindings on the lowest level of the json structure
+void CommandBuilder::parseCommandList(nlohmann::json& subCollection, unordered_map<KeyCode, string>& commandListRef)
+{
+	for (nlohmann::json::iterator it = subCollection.begin(); it != subCollection.end(); ++it) {
+		string identifier = it.key();
+		KeyCode keycode = it.value();
+
+		commandListRef[keycode] = identifier;
+	}
+}
+
+/// @brief
+/// wrapper method for parsing the bindings for each list since the player is structured as an array
+/// @param playerBindings
+/// @param globalBindings
+void CommandBuilder::parseKeybindingsToMap(unordered_map<KeyCode, string>& playerBindings, unordered_map<KeyCode, string>& globalBindings)
+{
+	parseCommandList(json["player"], playerBindings);
+	parseCommandList(json["global"], globalBindings);
+}
+
+/// @brief
+/// Converts the given keybinding collection to a json in key value pairs.
+void CommandBuilder::parseKeybindingsToJson(nlohmann::json& json, unordered_map<KeyCode, string>& collection)
+{
+	for (pair<KeyCode, string> bindingPair : collection)
+	{
+		KeyCode& keycode = bindingPair.first;
+		const string& identifier = bindingPair.second;
+		int parsedKeycode = static_cast<int>(keycode);
+		json[identifier] = parsedKeycode;
+	}
+}
+
+/// @brief
+/// Saves the keybindings that are currently stored in the game keypress invoker, overwrites the last file.
+/// @param invoker
+/// the invoker which contains the bindings to save
+void CommandBuilder::saveKeybindings(GameKeypressInvoker* invoker)
+{
+	nlohmann::json outputJson;
+
+	nlohmann::json playerBindings;
+	nlohmann::json globalBindings;
+	parseKeybindingsToJson(playerBindings, invoker->getPlayerCommands());
+	parseKeybindingsToJson(globalBindings, invoker->getGlobalCommands());
+
+	std::ofstream file(keybindingConfigFilepath);
+	outputJson["global"] = globalBindings;
+	outputJson["player"] = playerBindings;
+
+	// update the local json
+	json = outputJson;
+	// store the configuration in the output file
+	file << json;
+}
+
+
+/// @brief
+/// create the default keybindings, this method is generally called when bindings cannot be loaded
+/// to prevent the user from being locked out
+/// @param playerBindings
+/// @param globalBindings
+void CommandBuilder::createDefaultbindings(unordered_map<KeyCode, string>& playerBindings, unordered_map<KeyCode, string>& globalBindings)
+{
+	playerBindings = {
+		{ KeyCode::KEY_A, "moveLeft" },
+		{ KeyCode::KEY_D, "moveRight" },
+		{ KeyCode::KEY_G, "godmode" },
+		{ KeyCode::KEY_SPACE, "jump" }
 	};
 
-	unordered_map<KeyCode, string> globalBindings = {
-		{ KeyCode::KEY_P, "pause" },
+	globalBindings = {
 		{ KeyCode::KEY_H, "help" },
+		{ KeyCode::KEY_P, "pause" },
 		{ KeyCode::KEY_I, "inventory" }
 	};
-
-	return new GameKeypressInvoker(playerBindings, globalBindings);
-}
-/// @brief
-/// initialise the character command factory and register it's commands
-void CommandBuilder::initCharacterFactory()
-{
-	characterCommandFactory = std::shared_ptr<CharacterCommandFactory>(new CharacterCommandFactory());
-
-	auto* jumpCommand = new CharacterCommandCreator<JumpCommand>("jump");
-	auto* moveLeftCommand = new CharacterCommandCreator<MoveLeftCommand>("moveLeft");
-	auto* moveRightCommand = new CharacterCommandCreator<MoveRightCommand>("moveRight");
-	auto* godmodeCommand = new CharacterCommandCreator<GodmodeCommand>("godmode");
-
-	godmodeCommand->registerClass(characterCommandFactory);
-	jumpCommand->registerClass(characterCommandFactory);
-	moveLeftCommand->registerClass(characterCommandFactory);
-	moveRightCommand->registerClass(characterCommandFactory);
-}
-
-/// @brief
-/// initialise the global command factory and register it's commands
-void CommandBuilder::initGlobalCommandFactory()
-{
-	globalCommandFactory = std::shared_ptr<GlobalCommandFactory>(new GlobalCommandFactory());
-	auto toggleInventoryCommand = new GlobalCommandCreator<ToggleLayerCommand>("inventory");
-	auto togglePauseCommand = new GlobalCommandCreator<ToggleLayerCommand>("pause");
-	auto toggleHelpCommand = new GlobalCommandCreator<ToggleLayerCommand>("help");
-
-	toggleInventoryCommand->registerClass(globalCommandFactory);
-	togglePauseCommand->registerClass(globalCommandFactory);
-	toggleHelpCommand->registerClass(globalCommandFactory);
 }
 
 /// @brief
@@ -124,4 +180,35 @@ void CommandBuilder::linkCommandToToggle(GameKeypressInvoker* invoker, int layer
 		invoker->getKeycodeFromIdentifier(identifier),
 		globalCommandFactory->createCommand(identifier, layerId)
 	);
-};
+}
+
+/// @brief
+/// initialise the character command factory and register it's commands
+void CommandBuilder::initCharacterFactory()
+{
+	characterCommandFactory = std::shared_ptr<CharacterCommandFactory>(new CharacterCommandFactory());
+
+	auto* jumpCommand = new CharacterCommandCreator<JumpCommand>("jump");
+	auto* moveLeftCommand = new CharacterCommandCreator<MoveLeftCommand>("moveLeft");
+	auto* moveRightCommand = new CharacterCommandCreator<MoveRightCommand>("moveRight");
+	auto* godmodeCommand = new CharacterCommandCreator<GodmodeCommand>("godmode");
+
+	godmodeCommand->registerClass(characterCommandFactory);
+	jumpCommand->registerClass(characterCommandFactory);
+	moveLeftCommand->registerClass(characterCommandFactory);
+	moveRightCommand->registerClass(characterCommandFactory);
+}
+
+/// @brief
+/// initialise the global command factory and register it's commands
+void CommandBuilder::initGlobalCommandFactory()
+{
+	globalCommandFactory = std::shared_ptr<GlobalCommandFactory>(new GlobalCommandFactory());
+	auto toggleInventoryCommand = new GlobalCommandCreator<ToggleLayerCommand>("inventory");
+	auto togglePauseCommand = new GlobalCommandCreator<ToggleLayerCommand>("pause");
+	auto toggleHelpCommand = new GlobalCommandCreator<ToggleLayerCommand>("help");
+
+	toggleInventoryCommand->registerClass(globalCommandFactory);
+	togglePauseCommand->registerClass(globalCommandFactory);
+	toggleHelpCommand->registerClass(globalCommandFactory);
+}
