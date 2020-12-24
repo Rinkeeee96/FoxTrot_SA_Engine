@@ -1,6 +1,6 @@
 #pragma once
 #include "api.h"
-unordered_map<KeyCode, string> keycodeStringMap = {
+static unordered_map<KeyCode, string> keycodeStringMap = {
 			{KeyCode::KEY_UNKNOWN, "Unknown"},
 			{KeyCode::KEY_A, "A"},
 			{KeyCode::KEY_B, "B"},
