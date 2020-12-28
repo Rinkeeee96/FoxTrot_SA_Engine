@@ -13,6 +13,7 @@ public:
 	virtual void cleanPopUp() override;
 	virtual void onAttach() override;
 	virtual void onDetach() override;
+	void onUpdate() override {};
 
 	void changeCoinCount(const int coin);
 

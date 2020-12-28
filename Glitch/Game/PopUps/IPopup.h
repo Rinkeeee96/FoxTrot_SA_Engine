@@ -14,6 +14,7 @@ public:
 
 	virtual void onAttach() override = 0;
 	virtual void onDetach() override = 0;
+	virtual void onUpdate() = 0;
 
 protected:
 	unique_ptr<Engine>& engine;

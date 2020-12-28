@@ -13,6 +13,7 @@ public:
 	void cleanPopUp() override;
 	void onAttach() override;
 	void onDetach() override;
+	void onUpdate() override {};
 
 private:
 	void parseKeycodeList(unordered_map<KeyCode, string> parseList, const string& header);
