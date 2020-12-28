@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"class_slime_boss.html#a269d7d0f21c885664d151e55f21be2bf":[0,0,73,13],
 "class_slime_boss.html#a2bf4c69711804f0a52cbfd53006378bb":[0,0,73,14],
 "class_slime_boss.html#a3561a49e98cd50d1f6380a77ff9324a5":[0,0,73,4],
 "class_slime_boss.html#a3b30baceabc6cdb66741c89b44e95878":[0,0,73,12],
@@ -149,8 +150,8 @@ var NAVTREEINDEX3 =
 "functions_c.html":[0,3,0,2],
 "functions_d.html":[0,3,0,3],
 "functions_e.html":[0,3,0,4],
-"functions_func.html":[0,3,1],
 "functions_func.html":[0,3,1,0],
+"functions_func.html":[0,3,1],
 "functions_func_b.html":[0,3,1,1],
 "functions_func_c.html":[0,3,1,2],
 "functions_func_d.html":[0,3,1,3],

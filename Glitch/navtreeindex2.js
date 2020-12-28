@@ -1,10 +1,11 @@
 var NAVTREEINDEX2 =
 {
+"class_level.html#ac2d06519c133f66babba44d53878e355":[0,0,48,1],
 "class_level.html#acae596c07a8fdc75a977dca8c8b684b3":[0,0,48,23],
 "class_level.html#adb745760ed67fe01f3492762f52d089a":[0,0,48,14],
 "class_level.html#af7409935392ae2169974b0a58bf5ebe2":[0,0,48,19],
 "class_level.html#afaa92eb87a42590e9a3e4d6f8649c6c9":[0,0,48,0],
-"class_level.html#afc41de5b1f855b3aa4ad571f963260ff":[0,0,48,37],
+"class_level.html#afc41de5b1f855b3aa4ad571f963260ff":[0,0,48,38],
 "class_level_builder.html":[0,0,49],
 "class_level_builder.html#a0e25b70106249720fe144c31e8ff5030":[0,0,49,7],
 "class_level_builder.html#a1357745c300d60711dfa66b98031a978":[0,0,49,11],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "class_slime.html#ad9c0d2e8e72888f2cf0b1f8344ca182e":[0,0,72,9],
 "class_slime_boss.html":[0,0,73],
 "class_slime_boss.html#a045a0f5d752f0df61c8104d92f5cfca1":[0,0,73,15],
-"class_slime_boss.html#a04ed885b806d1eddb5b087c66e12718e":[0,0,73,0],
-"class_slime_boss.html#a269d7d0f21c885664d151e55f21be2bf":[0,0,73,13]
+"class_slime_boss.html#a04ed885b806d1eddb5b087c66e12718e":[0,0,73,0]
 };

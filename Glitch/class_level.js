@@ -29,6 +29,7 @@ var class_level =
     [ "helpText", "class_level.html#a83e3958b442175639053a9baa8cb704f", null ],
     [ "hudPopUp", "class_level.html#a6bcc366a4427b631d61a782e7bf3ca96", null ],
     [ "hudPopUpZIndex", "class_level.html#a2ccad9b92e78028ba1288da824bef2f7", null ],
+    [ "init", "class_level.html#a0c15269260b38ce3cb4b76ba4829592d", null ],
     [ "inventoryPopup", "class_level.html#a0a580d135617ed18531ca85ac6555ef3", null ],
     [ "inventoryPopupZIndex", "class_level.html#ac19cf7fd157db3f2699dedac2dd608f1", null ],
     [ "pausePopupZIndex", "class_level.html#a31f46b6fec86dbed768e944cb47fac1e", null ],
