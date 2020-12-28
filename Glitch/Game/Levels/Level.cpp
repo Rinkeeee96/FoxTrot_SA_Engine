@@ -177,7 +177,7 @@ void Level::onDetach()
 }
 /// @brief
 /// toggle a layer received from the event and set its state oposite to its current render state
-/// "toggeling" it
+/// "toggeling" it, it only toggles when layers with a higher z index aren't toggled
 bool Level::onToggleLayerEvent(const Event& event) {
 	auto layerEvent = dynamic_cast<const ToggleLayerEvent&>(event);
 
@@ -196,20 +196,6 @@ bool Level::onToggleLayerEvent(const Event& event) {
 	}
 
 	this->toggleLayer(layerIndex, !currentRenderstate);
-
-	/*for_each(layers.begin(), layers.end(), [&layerIndex, &layerAboveMeIsRendered](pair<const int, shared_ptr<Layer>> pair) {
-		if (pair.first > layerIndex)
-		{
-			layerAboveMeIsRendered = pair.second->getRender();		
-		}
-
-	});*/
-
-	/*if (! layerAboveMeIsRendered)
-	{
-		this->toggleLayer(layerIndex, ! currentRenderstate);
-	}*/
-
 	return true;
 }
 
