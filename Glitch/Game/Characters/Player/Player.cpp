@@ -135,20 +135,19 @@ shared_ptr<ICharacter> Player::clone(int id) {
 map<SpriteState, shared_ptr<SpriteObject>> Player::buildSpritemap(int textureId) {
 	std::map<SpriteState, shared_ptr<SpriteObject>> spriteMap;
 
-	auto playerDefault = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 1, 200, "Assets/Sprites/Character/adventure.png"));
-	auto playerAirAttack = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 4, 300, "Assets/Sprites/Character/adventure_air_attack1.png"));
+	auto playerDefault = shared_ptr<SpriteObject>(new SpriteObject(textureId++, 28, 24, 1, 200, "Assets/Sprites/Character/adventure.png"));
+
 	auto playerRunRight = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 6, 200, "Assets/Sprites/Character/adventure_run_right.png"));
-	auto playerSlide = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_slide.png"));
-	auto playerFallLeft = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_fall_left.png"));
-	auto playerFallRight = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_fall_right.png"));
-	auto playerJumpLeft = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_jump_left.png"));
 	auto playerRunLeft = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 6, 200, "Assets/Sprites/Character/adventure_run_left.png"));
-	auto playerJumpRight = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_jump_right.png"));
+
+	auto playerFallLeft = shared_ptr<SpriteObject>(new SpriteObject(textureId++, 31, 19, 2, 300, "Assets/Sprites/Character/adventure_fall_left.png"));
+	auto playerFallRight = shared_ptr<SpriteObject>(new SpriteObject(textureId++, 31, 19, 2, 300, "Assets/Sprites/Character/adventure_fall_right.png"));
+
+	auto playerJumpLeft = shared_ptr<SpriteObject>(new SpriteObject(textureId++, 33, 24, 2, 300, "Assets/Sprites/Character/adventure_jump_left.png"));
+	auto playerJumpRight = shared_ptr<SpriteObject>(new SpriteObject(textureId++, 33, 24, 2, 300, "Assets/Sprites/Character/adventure_jump_right.png"));
 
 	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::DEFAULT, playerDefault));
-	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::AIR_ATTACK, playerAirAttack));
 	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::RUN_RIGHT, playerRunRight));
-	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::SLIDE, playerSlide));
 	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::AIR_FALL_LEFT, playerFallLeft));
 	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::AIR_JUMP_LEFT, playerJumpLeft));
 	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::AIR_FALL_RIGHT, playerFallRight));
