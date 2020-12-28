@@ -15,52 +15,16 @@
          "name":"Background",
          "objects":[
                 {
-                 "gid":119,
-                 "height":2732,
-                 "id":40,
+                 "gid":121,
+                 "height":2769,
+                 "id":45,
                  "name":"",
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":4868,
+                 "width":4792,
                  "x":0,
-                 "y":2623.63636363636
-                }, 
-                {
-                 "gid":118,
-                 "height":2536,
-                 "id":41,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":4784,
-                 "x":24,
-                 "y":2556
-                }, 
-                {
-                 "gid":118,
-                 "height":184,
-                 "id":42,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":320,
-                 "x":3232,
-                 "y":868
-                }, 
-                {
-                 "gid":120,
-                 "height":2640,
-                 "id":43,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":4816,
-                 "x":0,
-                 "y":2588
+                 "y":2585
                 }],
          "opacity":1,
          "properties":[
@@ -408,7 +372,7 @@
          "y":0
         }],
  "nextlayerid":11,
- "nextobjectid":45,
+ "nextobjectid":46,
  "orientation":"orthogonal",
  "properties":[
         {
@@ -417,7 +381,7 @@
          "value":"file_example_WAV_2MG.wav"
         }],
  "renderorder":"right-down",
- "tiledversion":"1.4.2",
+ "tiledversion":"1.4.3",
  "tileheight":32,
  "tilesets":[
         {
