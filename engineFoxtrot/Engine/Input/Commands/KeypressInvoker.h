@@ -18,6 +18,6 @@ protected:
 	API bool isRegistered(const ICommand& command);
 	API bool isRegistered(const KeyCode& keyCode);
 private:
-	unordered_map<KeyCode, ICommand*> commands;
-	queue<KeyCode> executionQueue;
+	unordered_map<KeyCode, ICommand*> commands = unordered_map<KeyCode, ICommand*>();
+	queue<KeyCode> executionQueue = queue<KeyCode>();
 };

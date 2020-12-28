@@ -100,7 +100,7 @@ void Engine::start()
 	particleEngine.pointerToCurrentScene = &sceneManager.currentScene;
 
 	// register default invoker
-	useCustomCommandInvoker(new KeypressInvoker());
+	//useCustomCommandInvoker(new KeypressInvoker());
 
 	videoEngine.start(*this->eventDispatcher);
 }

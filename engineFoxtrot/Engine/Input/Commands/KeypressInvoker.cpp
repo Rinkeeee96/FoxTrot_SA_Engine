@@ -86,6 +86,7 @@ void KeypressInvoker::enqueueCommand(const KeyCode& code) {
 
 
 bool KeypressInvoker::isRegistered(const ICommand& command) {
+	if (commands.empty()) return false;
 	auto it = commands.begin();
 	while (it != commands.end())
 	{

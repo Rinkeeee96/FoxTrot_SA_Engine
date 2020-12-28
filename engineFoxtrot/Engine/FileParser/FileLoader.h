@@ -9,6 +9,6 @@ private:
 	
 public:
 	virtual ~FileLoader() {};
-	ifstream readFile(string path);
+	ifstream readFile(const string& path);
 	bool validateDocument(string path, string validationPath);
 };

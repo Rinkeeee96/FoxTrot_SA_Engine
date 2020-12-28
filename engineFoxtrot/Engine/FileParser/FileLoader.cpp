@@ -6,8 +6,9 @@
 /// Reads a file and returns the stream, strem should be closed
 /// @param path to the file
 /// @throws file not found exception
-ifstream FileLoader::readFile(string path) {
-	bool exists = filesystem::exists(path);
+ifstream FileLoader::readFile(const string& path) {
+	filesystem::path path_{ path };
+	bool exists = filesystem::exists(path_);
 
 	if (exists) {
 		ifstream ifstream(path);

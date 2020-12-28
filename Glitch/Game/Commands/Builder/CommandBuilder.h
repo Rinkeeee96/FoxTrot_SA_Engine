@@ -23,7 +23,7 @@ private:
 	shared_ptr<CharacterCommandFactory> characterCommandFactory;
 	shared_ptr<GlobalCommandFactory> globalCommandFactory;
 
-	const string keybindingConfigFilepath = "Assets/config/keybindings.json";
+	string keybindingConfigFilepath = "Assets/config/keybindings.json";
 	nlohmann::json json;
 	FileLoader fileLoader;
 
