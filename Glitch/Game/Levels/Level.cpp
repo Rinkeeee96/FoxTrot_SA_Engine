@@ -91,10 +91,6 @@ void Level::onUpdate(float deltaTime)
 		activeAchievementPopup = false;
 	}
 
-	if (this->shouldChangeToScene) {
-		stateMachine->switchToScene(this->next, false);
-		return;
-	}
 	if (this->win)
 	{
 		increaseTotalGameScore(100);
@@ -102,7 +98,12 @@ void Level::onUpdate(float deltaTime)
 		SaveGameData save = savegame->getCurrentGameData();
 		save.levelData[stateMachine->levelToBuild].completed = true;
 		savegame->saveCurrentGameData(save);
-		stateMachine->switchToScene("WinScreen", false);
+		if (this->shouldChangeToScene) {
+			stateMachine->switchToScene(this->next, false);
+		}
+		else {
+			stateMachine->switchToScene("WinScreen", false);
+		}
 		return;
 	}
 	if (player->getIsDead())
