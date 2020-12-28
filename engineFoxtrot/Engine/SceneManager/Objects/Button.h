@@ -27,7 +27,7 @@ public:
 
 	/// @brief 
 	/// Change the text in the button
-	API void changeText(string& newText) {
+	API void changeText(const string& newText) {
 		text.text = newText;
 	}
 protected:
