@@ -23,32 +23,32 @@
         {
          "id":0,
          "image":"..\/Tiles\/tutorial_walk.png",
-         "imageheight":64,
-         "imagewidth":48
+         "imageheight":128,
+         "imagewidth":96
         }, 
         {
          "id":1,
          "image":"..\/Tiles\/tutorial_slime.png",
-         "imageheight":72,
-         "imagewidth":59
+         "imageheight":144,
+         "imagewidth":118
         }, 
         {
          "id":2,
          "image":"..\/Tiles\/tutorial_jump.png",
-         "imageheight":64,
-         "imagewidth":22
+         "imageheight":128,
+         "imagewidth":44
         }, 
         {
          "id":3,
          "image":"..\/Tiles\/help.png",
-         "imageheight":70,
-         "imagewidth":150
+         "imageheight":140,
+         "imagewidth":300
         }, 
         {
          "id":4,
          "image":"..\/Tiles\/coins.png",
-         "imageheight":70,
-         "imagewidth":168
+         "imageheight":140,
+         "imagewidth":336
         }],
  "tilewidth":168,
  "type":"tileset",
