@@ -2,7 +2,7 @@
 #include "Game/PopUps/Ipopup.h"
 #include "Game/Scenes/Statemachine/SceneStateMachine.h"
 
-
+/// @brief Class for the Heads up display PopUp
 class HudPopUp : public IPopup
 {
 public:
@@ -11,9 +11,9 @@ public:
 	~HudPopUp() {};
 
 	void setupPopUp() override;
-	void cleanPopUp() override;
-	void onAttach() override;
-	void onDetach() override;
+	void cleanPopUp() override {};
+	void onAttach() override {};
+	void onDetach() override {};
 
 	void onUpdate();
 

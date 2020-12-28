@@ -1,23 +1,13 @@
 #include "pch.h"
 #include "HudPopUp.h"
 
+/// @brief Sets the layer to always visible
 void HudPopUp::setupPopUp()
 {
 	setAlwaysVisible(true);
 }
 
-void HudPopUp::cleanPopUp()
-{
-}
-
-void HudPopUp::onAttach()
-{
-}
-
-void HudPopUp::onDetach()
-{
-}
-
+/// @brief Updates the hearts / boss health bar
 void HudPopUp::onUpdate()
 {
 	this->huds.clear();
@@ -53,6 +43,12 @@ void HudPopUp::setBoss(shared_ptr<ICharacter> _boss)
 	boss = _boss;
 }
 
+/// @brief Draws the hearts
+/// @param startingID 
+/// @param startingXAxis 
+/// @param xAxisChange 
+/// @param current 
+/// @param HUD 
 void HudPopUp::addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, shared_ptr<SpriteObject> HUD) {
 	shared_ptr<Drawable> health = shared_ptr<Drawable>(new Drawable(startingID--));
 	health->setStatic(true);
@@ -69,6 +65,7 @@ void HudPopUp::addHealthHud(int& startingID, int& startingXAxis, int& xAxisChang
 	current++;
 }
 
+/// @brief Draws the boss health bar
 void HudPopUp::addBossHud() {
 	shared_ptr<SpriteObject> PROGRESSBAR_EMPTY = shared_ptr<SpriteObject>(new SpriteObject(-503, 24, 192, 1, 1, "Assets/LoadingBar/progress-bar-empty.png"));
 	shared_ptr<SpriteObject> PROGRESSBAR_FULL = shared_ptr<SpriteObject>(new SpriteObject(-504, 24, 192, 1, 1, "Assets/LoadingBar/progress-bar-full.png"));
