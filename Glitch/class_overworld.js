@@ -12,8 +12,6 @@ var class_overworld =
     [ "onUpdate", "class_overworld.html#ac444fdeb4daf94c9224ae2081b117cdd", null ],
     [ "start", "class_overworld.html#a5f63a6667d3e64705feccaaa360f91fd", null ],
     [ "onChapterOneClick", "class_overworld.html#a4d351dd299ccfa9dffd59e04fa7240b4", null ],
-    [ "onChapterThreeClick", "class_overworld.html#aa4a0ebd5e49d0fff8a4c8356d57828e3", null ],
-    [ "onChapterTwoClick", "class_overworld.html#a8ab0ced99c5a5099e4c6b7f97a23a534", null ],
     [ "onLevel1BtnClick", "class_overworld.html#aeabe9b77d5fb32cc8b925860da690714", null ],
     [ "onLevel2BtnClick", "class_overworld.html#aed007c84f7e165dbb2d7b5e89c1d1fcf", null ],
     [ "onLevel3BtnClick", "class_overworld.html#a6a79df3c9db30d56c21b19a13591b26f", null ],

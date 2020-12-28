@@ -12,5 +12,6 @@ var class_main_menu =
     [ "onCreditsBtnClick", "class_main_menu.html#aee0f80f1442dee85c534ba7ffbd8f977", null ],
     [ "onMappingBtnClick", "class_main_menu.html#a2a21528981b3259985b81e656721fe9e", null ],
     [ "onStartBtnClick", "class_main_menu.html#ad1efc5cf82fa3e333f0614e7d5db9988", null ],
-    [ "onStopBtnClick", "class_main_menu.html#a65e256e808bf3d1bea43e0eb7e9f5960", null ]
+    [ "onStopBtnClick", "class_main_menu.html#a65e256e808bf3d1bea43e0eb7e9f5960", null ],
+    [ "playMusicCredits", "class_main_menu.html#a7c970dd16fe20051b1cc59458dd5b0d3", null ]
 ];

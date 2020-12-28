@@ -104,9 +104,7 @@ var hierarchy =
     [ "Scene", null, [
       [ "GameScene", "class_game_scene.html", [
         [ "ChapterScene", "class_chapter_scene.html", [
-          [ "ChapterOneScene", "class_chapter_one_scene.html", null ],
-          [ "ChapterThreeScene", "class_chapter_three_scene.html", null ],
-          [ "ChapterTwoScene", "class_chapter_two_scene.html", null ]
+          [ "ChapterOneScene", "class_chapter_one_scene.html", null ]
         ] ],
         [ "CreditsScene", "class_credits_scene.html", null ],
         [ "DeathScreen", "class_death_screen.html", null ],
