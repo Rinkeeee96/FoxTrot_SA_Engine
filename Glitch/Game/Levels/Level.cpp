@@ -111,7 +111,12 @@ void Level::onUpdate(float deltaTime)
 		SaveGameData save = savegame->getCurrentGameData();
 		save.levelData[stateMachine->levelToBuild].completed = true;
 		savegame->saveCurrentGameData(save);
-		stateMachine->switchToScene("WinScreen", false);
+		if (this->shouldChangeToScene) {
+			stateMachine->switchToScene(this->next, false);
+		}
+		else {
+			stateMachine->switchToScene("WinScreen", false);
+		}
 		return;
 	}
 	if (player->getIsDead())
@@ -137,6 +142,15 @@ void Level::onUpdate(float deltaTime)
 			}
 		}
 	}
+}
+
+/// @brief
+// Set changes to scene to true with the string as next scene, the next game loop changes scene
+// @param shouldChange bool
+// @param _next identifier to next scene
+void Level::changeToScene(bool shouldChange, string _next) {
+	this->shouldChangeToScene = shouldChange;
+	this->next = _next;
 }
 
 void Level::restartPhysics() {
