@@ -158,6 +158,17 @@ void VideoFacade::renderCopy(shared_ptr<Drawable> object, float deltaTime)
 	// crude fix to draw text on top of a drawable, maybe fix with a callback function in the future, or a visitor?
 	if (object->toString() != nullptr)
 		drawMessageAt(*object->toString(), Position(destination.x, destination.y), ObjectSize(destination.w, destination.h));
+
+	if (DEBUG_VIEW) {
+		SDL_Rect rect3;
+		rect3.x = x;
+		rect3.y = y;
+		rect3.w = (int)object->getWidth();
+		rect3.h = (int)object->getHeight();
+
+		SDL_SetRenderDrawColor(renderer, 255, 0, 0, 0);
+		SDL_RenderDrawRect(renderer, &rect3);
+	}
 }
 
 /// @brief Function to draw Particles
