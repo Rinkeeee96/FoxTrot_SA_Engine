@@ -9,10 +9,10 @@
 /// Loads all buttons/backgrounds for the shop scene
 void Shop::onAttach()
 {
-
 	loadButtons();
 	loadBackground();
 	loadMusic();
+	calculateCurrentPrice();
 
 }
 
@@ -40,8 +40,9 @@ void Shop::onUpdate(float deltaTime)
 		if (!savegame) return;
 		SaveGameData save = savegame->getCurrentGameData();
 		save.characterData.totalHealth++;
-		save.characterData.inventory.coins -= HEALTH_PRICE;
-		savegame->saveCurrentGameData(save);
+		save.characterData.inventory.coins -= currentPrice;
+		savegame->saveCurrentGameData(save); 
+		calculateCurrentPrice();
 	}
 
 	if (moveToNextScene)
@@ -60,7 +61,7 @@ void Shop::loadBackground()
 	shared_ptr<Text> level1TextBtn = shared_ptr<Text>(new Text(2, new ColoredText("How can I help you today?", Color(0, 0, 0)), 400, 100, 840, 865));
 
 	shared_ptr<Text> heartText = shared_ptr<Text>(new Text(3, new ColoredText("Need extra help? Get some extra hearts!", Color(0, 0, 0)), 400, 80, 150, 260));
-	shared_ptr<Text> heartText2 = shared_ptr<Text>(new Text(4, new ColoredText("Will cost only " + to_string(HEALTH_PRICE) + " coins!", Color(0, 0, 0)), 400, 80, 150, 450));
+	heartText2 = shared_ptr<Text>(new Text(4, new ColoredText("Will cost only " + to_string(currentPrice) + " coins!", Color(0, 0, 0)), 400, 80, 150, 450));
 
 	shared_ptr<SpriteObject> HealthHUD = shared_ptr<SpriteObject>(new SpriteObject(-660, 50, 50, 1, 300, "Assets/Sprites/HUD/Full.png"));
 	shared_ptr<Drawable> health = shared_ptr<Drawable>(new Drawable(-700));
@@ -139,9 +140,33 @@ void Shop::loadButtons()
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
+	buyBTN = shared_ptr<PrimaryButton>(new PrimaryButton(-970, "", onShopBuyClick, this->dispatcher));
+
+	buyBTN->setPositionX(480);
+	buyBTN->setPositionY(350);
+	buyBTN->disable();
+
+	addNewObjectToLayer(3, stopBtn);
+	addNewObjectToLayer(3, buyBTN);
+}
+
+
+/// @brief Calculate the current price for a new health item in the shop
+void Shop::calculateCurrentPrice() {
+	int price = HEALTH_PRICE;
+	for (int i = 0; i < savegame->getCurrentGameData().characterData.totalHealth-1; i++) {
+		price *= INFLATION;
+	}
+	currentPrice = price;
+	updateTextBoxes();
+}
+
+/// @brief 
+/// A function change all changable textboxes after a update off the currentPrice
+void Shop::updateTextBoxes() {
 	string name = "Buy!";
 	bool lock = false;
-	if (savegame->getCurrentGameData().characterData.inventory.coins < HEALTH_PRICE)
+	if (savegame->getCurrentGameData().characterData.inventory.coins < currentPrice)
 	{
 		name = "Not enough coins";
 		lock = true;
@@ -151,12 +176,18 @@ void Shop::loadButtons()
 		name = "Max amount of health!";
 		lock = true;
 	}
-	shared_ptr<PrimaryButton> buy = shared_ptr<PrimaryButton>(new PrimaryButton(-970, name, onShopBuyClick, this->dispatcher));
-	buy->setPositionX(480);
-	buy->setPositionY(350);
-	if (lock) buy->disable();
+	buyBTN->changeText(name);
 
+	if (lock) { 
+		buyBTN->disable(); 
+	}
+	else { 
+		buyBTN->enable(); 
+	}
 
-	addNewObjectToLayer(3, stopBtn);
-	addNewObjectToLayer(3, buy);
+	string cost = "Will cost only " + to_string(currentPrice) + " coins!";
+	heartText2->changeText(cost);
+
+	string coins = to_string(savegame->getCurrentGameData().characterData.inventory.coins);
+	text->changeText(coins);
 }
