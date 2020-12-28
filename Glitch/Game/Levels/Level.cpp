@@ -76,6 +76,8 @@ void Level::start(bool playSound) {
 			engine->startSound(s.first);
 		}
 	}
+
+	this->restartPhysics();
 }
 
 /// @brief Updates the level data such as objects that are removed or player is dead or won the level
@@ -83,6 +85,11 @@ void Level::start(bool playSound) {
 /// DeltaTime should be used when calculating timers/manual movements
 void Level::onUpdate(float deltaTime)
 {
+	if (init) {
+		this->restartPhysics();
+		init = false;
+	}
+
 	hudPopUp->onUpdate();
 
 	if (player && inventoryPopup)inventoryPopup->changeCoinCount(player->inventory.coins);
