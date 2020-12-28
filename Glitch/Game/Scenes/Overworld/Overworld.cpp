@@ -84,10 +84,10 @@ void Overworld::loadButtons() {
 	level3Btn->setWidth(32);
 	level3Btn->setHeight(32);
 	level3Btn->setPositionX(1100);
-	level3Btn->setPositionY(690);
+	level3Btn->setPositionY(720);
 	level3Btn->registerHoverSprite(hoverBtnSprite);
 
-	shared_ptr<Text> level3TextBtn = shared_ptr<Text>(new Text(6, new ColoredText(level3Name, Color(0, 0, 0)), 120, 30, 1000, 705));
+	shared_ptr<Text> level3TextBtn = shared_ptr<Text>(new Text(6, new ColoredText(level3Name, Color(0, 0, 0)), 120, 30, 1000, 735));
 	if (!savegame->getCurrentGameData().levelData[2].completed)
 	{
 		level3Btn->disable();
@@ -136,10 +136,10 @@ void Overworld::loadButtons() {
 	shared_ptr<Button> level5Btn = shared_ptr<Button>(new Button(23, ColoredText("", Color(255, 255, 255)), onLevel5BtnClick, defaultBtnSprite, this->dispatcher));
 	level5Btn->setWidth(32);
 	level5Btn->setHeight(32);
-	level5Btn->setPositionX(1495);
+	level5Btn->setPositionX(1465);
 	level5Btn->setPositionY(340);
 	level5Btn->registerHoverSprite(hoverBtnSprite);
-	shared_ptr<Text> level5TextBtn = shared_ptr<Text>(new Text(24, new ColoredText(level5Name, Color(0, 0, 0)), 120, 30, 1390, 360));
+	shared_ptr<Text> level5TextBtn = shared_ptr<Text>(new Text(24, new ColoredText(level5Name, Color(0, 0, 0)), 120, 30, 1360, 360));
 	if (!savegame->getCurrentGameData().levelData[4].completed)
 	{
 		level5Btn->disable();
