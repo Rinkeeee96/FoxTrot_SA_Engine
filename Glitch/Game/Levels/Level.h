@@ -32,15 +32,13 @@ public:
 
 	void changeToScene(bool shouldChange, string _next); 
 protected:
-	bool shouldChangeToScene = false;
-	int levelScore = 0;
+  bool shouldChangeToScene = false;
 	string next;
 	shared_ptr<InventoryPopup> inventoryPopup = nullptr;
 	shared_ptr<HudPopUp> hudPopUp = nullptr;
 
 	void throwAchievement(Achievement achievement);
 	void increaseTotalGameScore(const int amount);
-	void handleLevelScore();
 
 	shared_ptr<Text> scoreText = nullptr;
 	shared_ptr<Text> helpText = nullptr;
