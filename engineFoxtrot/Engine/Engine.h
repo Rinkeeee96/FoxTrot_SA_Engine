@@ -60,6 +60,7 @@ public:
 
 	KeypressInvoker* getKeypressedInvoker() { return keypressInvoker; }
 
+	API void setDeltaTimeMultiplier(float multiplier);
 	API float getDeltaTime(int timeStep);
 	API void restartPhysicsWorld();
 

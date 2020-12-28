@@ -81,6 +81,11 @@ void Engine::startCurrentScene(bool playSound)
 	sceneManager.currentScene->start(playSound);
 }
 
+void Engine::setDeltaTimeMultiplier(float multiplier)
+{
+	this->frameData->setMultiplier(multiplier);
+}
+
 /// @brief
 /// Returns the deltaTime from the frameData class using default physics timestep
 /// @param timeStep
