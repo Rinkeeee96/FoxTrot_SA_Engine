@@ -51,6 +51,7 @@
     <ClCompile Include="Game\Scenes\Shop\Shop.cpp" />
     <ClCompile Include="Game\Scenes\Story\ChapterTwoScene.cpp" />
     <ClCompile Include="Game\Scenes\Story\ChapterThreeScene.cpp" />
+    <ClCompile Include="Game\PopUps\hud\HudPopUp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Skryo.h" />
@@ -143,6 +144,7 @@
     <ClInclude Include="Game\Scenes\Shop\Shop.h" />
     <ClInclude Include="Game\Scenes\Story\ChapterTwoScene.h" />
     <ClInclude Include="Game\Scenes\Story\ChapterThreeScene.h" />
+    <ClInclude Include="Game\PopUps\hud\HudPopUp.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\Levels\Story\ChapterOne.txt" />
