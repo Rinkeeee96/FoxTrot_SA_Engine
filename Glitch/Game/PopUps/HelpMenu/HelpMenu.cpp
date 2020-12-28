@@ -81,22 +81,14 @@ void HelpMenu::cleanPopUp()
 	this->clearObjects();
 }
 
-/// @brief Function called on the attach.
 void HelpMenu::onAttach()
 {
-	TogglePauseEvent pauseEvent(true);
-	dispatcher.dispatchEvent<TogglePauseEvent>(pauseEvent);
-	setAlwaysVisible(true);
-
-	this->setupPopUp();
+	this->stateMachine->registerActivePopup(this);
+	PauseablePopup::onAttach();
 }
 
-/// @brief Function called on the detach.
 void HelpMenu::onDetach()
 {
-	TogglePauseEvent pauseEvent(false);
-	dispatcher.dispatchEvent<TogglePauseEvent>(pauseEvent);
-	setAlwaysVisible(false);
-
-	this->cleanPopUp();
+	this->stateMachine->deregisterActivePopup(this);
+	PauseablePopup::onDetach();
 }

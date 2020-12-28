@@ -51,18 +51,12 @@ void PausePopUp::cleanPopUp()
 
 void PausePopUp::onAttach()
 {
-	TogglePauseEvent pauseEvent(true);
-	dispatcher.dispatchEvent<TogglePauseEvent>(pauseEvent);
-	setAlwaysVisible(true);
-
-	this->setupPopUp();
+	this->stateMachine->registerActivePopup(this);
+	PauseablePopup::onAttach();
 }
 
 void PausePopUp::onDetach()
 {
-	TogglePauseEvent pauseEvent(false);
-	dispatcher.dispatchEvent<TogglePauseEvent>(pauseEvent);
-	setAlwaysVisible(false);
-
-	this->cleanPopUp();
+	this->stateMachine->deregisterActivePopup(this);
+	PauseablePopup::onDetach();
 }

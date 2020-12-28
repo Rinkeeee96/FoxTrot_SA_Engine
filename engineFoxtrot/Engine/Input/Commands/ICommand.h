@@ -19,6 +19,10 @@ public:
 	/// the current dispatcher assigned to a scene
 	API virtual void execute(EventDispatcher& dispatcher) = 0;
 	API const string& getIdentifier() { return identifier; }
+	
+	/// @brief
+	/// Returns whether this command can execute in the "pause" state
+	API bool canExecuteOnPause() { return ! freezeOnPause; }
 private:
 	/// @brief
 	/// the identifier given to this command by the builder
