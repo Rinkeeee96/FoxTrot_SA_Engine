@@ -259,7 +259,7 @@ void Level::addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, 
 	health->registerSprite(SpriteState::DEFAULT, HUD);
 	health->changeToState(SpriteState::DEFAULT);
 	
-	addNewObjectToLayer(102, health, false, true);
+	addNewObjectToLayer(100, health, false, true);
 	this->huds.push_back(health);
 	current++;
 }
