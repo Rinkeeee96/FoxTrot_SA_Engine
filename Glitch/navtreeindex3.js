@@ -1,5 +1,10 @@
 var NAVTREEINDEX3 =
 {
+"class_slime.html#ac60b24386580c522070d1153e9f0f149":[0,0,72,6],
+"class_slime.html#ad9c0d2e8e72888f2cf0b1f8344ca182e":[0,0,72,9],
+"class_slime_boss.html":[0,0,73],
+"class_slime_boss.html#a045a0f5d752f0df61c8104d92f5cfca1":[0,0,73,15],
+"class_slime_boss.html#a04ed885b806d1eddb5b087c66e12718e":[0,0,73,0],
 "class_slime_boss.html#a269d7d0f21c885664d151e55f21be2bf":[0,0,73,13],
 "class_slime_boss.html#a2bf4c69711804f0a52cbfd53006378bb":[0,0,73,14],
 "class_slime_boss.html#a3561a49e98cd50d1f6380a77ff9324a5":[0,0,73,4],

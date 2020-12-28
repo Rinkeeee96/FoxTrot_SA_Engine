@@ -64,59 +64,67 @@ $(document).ready(function(){initNavTree('_shop_8h_source.html',''); initResizab
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;Game/Scenes/GameScene.h&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">class </span><a class="code" href="class_player.html">Player</a>;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_shop.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_shop.html">Shop</a> : <span class="keyword">public</span> <a class="code" href="class_game_scene.html">GameScene</a></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="class_shop.html">Shop</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, unique_ptr&lt;Engine&gt;&amp; engine, shared_ptr&lt;SceneStateMachine&gt; _statemachine) : <a class="code" href="class_game_scene.html">GameScene</a>(<span class="keywordtype">id</span>, engine, _statemachine) {};</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    ~<a class="code" href="class_shop.html">Shop</a>() {};</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="comment">// Inherited via Scene</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_shop.html#a15e60e62cd4441930a6c977fbc8c9526">onAttach</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">void</span> onDetach() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_shop.html#a45344919c83661cec891206beadddb3d">start</a>(<span class="keywordtype">bool</span> playSound) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_shop.html#a3eb722674861d87b7723fd9bd3144f3e">onUpdate</a>(<span class="keywordtype">float</span> deltaTime) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Game/Buttons/PrimaryButton.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">class </span><a class="code" href="class_player.html">Player</a>;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_shop.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_shop.html">Shop</a> : <span class="keyword">public</span> <a class="code" href="class_game_scene.html">GameScene</a></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_shop.html">Shop</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, unique_ptr&lt;Engine&gt;&amp; engine, shared_ptr&lt;SceneStateMachine&gt; _statemachine) : <a class="code" href="class_game_scene.html">GameScene</a>(<span class="keywordtype">id</span>, engine, _statemachine) {};</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    ~<a class="code" href="class_shop.html">Shop</a>() {};</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="comment">// Inherited via Scene</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_shop.html#a15e60e62cd4441930a6c977fbc8c9526">onAttach</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">void</span> onDetach() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_shop.html#a45344919c83661cec891206beadddb3d">start</a>(<span class="keywordtype">bool</span> playSound) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_shop.html#a3eb722674861d87b7723fd9bd3144f3e">onUpdate</a>(<span class="keywordtype">float</span> deltaTime) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_shop.html#a38660f1c8a7d71cfa2139acd81e0a82b">loadBackground</a>();</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_shop.html#ad2b568538cd59b795535dba2fd54171a">loadMusic</a>();</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_shop.html#a31573e4c3846f0277f9a142f201634b7">loadButtons</a>();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    shared_ptr&lt;Text&gt; text;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">bool</span> handlePurchase = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">function</span>&lt;void(<span class="keywordtype">void</span>)&gt; onStopBtnClick = [<span class="keyword">this</span>]() {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        moveToNextScene = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        nextScene = <span class="stringliteral">&quot;Overworld&quot;</span>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    };</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">function</span>&lt;void(<span class="keywordtype">void</span>)&gt; onShopBuyClick = [<span class="keyword">this</span>]() {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        cout &lt;&lt; <span class="stringliteral">&quot;Button called&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        handlePurchase = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        moveToNextScene = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        nextScene = <span class="stringliteral">&quot;Shop&quot;</span>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    };</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_shop.html#acf8935d49b6b68851a2b2b5284c7abba">calculateCurrentPrice</a>();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_shop.html#a401134318fd4f148bcd6698de647fac1">updateTextBoxes</a>();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">int</span> currentPrice = 0;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    shared_ptr&lt;Text&gt; text = <span class="keyword">nullptr</span>; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    shared_ptr&lt;Text&gt; heartText2 = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    shared_ptr&lt;PrimaryButton&gt; buyBTN = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">bool</span> handlePurchase = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">function</span>&lt;void(<span class="keywordtype">void</span>)&gt; onStopBtnClick = [<span class="keyword">this</span>]() {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        moveToNextScene = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        nextScene = <span class="stringliteral">&quot;Overworld&quot;</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    };</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">function</span>&lt;void(<span class="keywordtype">void</span>)&gt; onShopBuyClick = [<span class="keyword">this</span>]() {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        cout &lt;&lt; <span class="stringliteral">&quot;Button called&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        handlePurchase = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        moveToNextScene = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        nextScene = <span class="stringliteral">&quot;Shop&quot;</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    };</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_game_scene_html"><div class="ttname"><a href="class_game_scene.html">GameScene</a></div><div class="ttdoc">Base class for game scenes, derived from engine scene.</div><div class="ttdef"><b>Definition:</b> GameScene.h:11</div></div>
-<div class="ttc" id="aclass_shop_html_ad2b568538cd59b795535dba2fd54171a"><div class="ttname"><a href="class_shop.html#ad2b568538cd59b795535dba2fd54171a">Shop::loadMusic</a></div><div class="ttdeci">void loadMusic()</div><div class="ttdoc">Loads the music for this scene.</div><div class="ttdef"><b>Definition:</b> Shop.cpp:130</div></div>
+<div class="ttc" id="aclass_shop_html_ad2b568538cd59b795535dba2fd54171a"><div class="ttname"><a href="class_shop.html#ad2b568538cd59b795535dba2fd54171a">Shop::loadMusic</a></div><div class="ttdeci">void loadMusic()</div><div class="ttdoc">Loads the music for this scene.</div><div class="ttdef"><b>Definition:</b> Shop.cpp:131</div></div>
 <div class="ttc" id="aclass_shop_html_a3eb722674861d87b7723fd9bd3144f3e"><div class="ttname"><a href="class_shop.html#a3eb722674861d87b7723fd9bd3144f3e">Shop::onUpdate</a></div><div class="ttdeci">void onUpdate(float deltaTime) override</div><div class="ttdef"><b>Definition:</b> Shop.cpp:35</div></div>
+<div class="ttc" id="aclass_shop_html_acf8935d49b6b68851a2b2b5284c7abba"><div class="ttname"><a href="class_shop.html#acf8935d49b6b68851a2b2b5284c7abba">Shop::calculateCurrentPrice</a></div><div class="ttdeci">void calculateCurrentPrice()</div><div class="ttdoc">Calculate the current price for a new health item in the shop.</div><div class="ttdef"><b>Definition:</b> Shop.cpp:155</div></div>
 <div class="ttc" id="aclass_shop_html_a15e60e62cd4441930a6c977fbc8c9526"><div class="ttname"><a href="class_shop.html#a15e60e62cd4441930a6c977fbc8c9526">Shop::onAttach</a></div><div class="ttdeci">void onAttach() override</div><div class="ttdoc">Loads all buttons/backgrounds for the shop scene.</div><div class="ttdef"><b>Definition:</b> Shop.cpp:10</div></div>
-<div class="ttc" id="aclass_shop_html_a31573e4c3846f0277f9a142f201634b7"><div class="ttname"><a href="class_shop.html#a31573e4c3846f0277f9a142f201634b7">Shop::loadButtons</a></div><div class="ttdeci">void loadButtons()</div><div class="ttdoc">Loads the buttons for this scene.</div><div class="ttdef"><b>Definition:</b> Shop.cpp:136</div></div>
+<div class="ttc" id="aclass_shop_html_a31573e4c3846f0277f9a142f201634b7"><div class="ttname"><a href="class_shop.html#a31573e4c3846f0277f9a142f201634b7">Shop::loadButtons</a></div><div class="ttdeci">void loadButtons()</div><div class="ttdoc">Loads the buttons for this scene.</div><div class="ttdef"><b>Definition:</b> Shop.cpp:137</div></div>
 <div class="ttc" id="aclass_shop_html_a45344919c83661cec891206beadddb3d"><div class="ttname"><a href="class_shop.html#a45344919c83661cec891206beadddb3d">Shop::start</a></div><div class="ttdeci">void start(bool playSound) override</div><div class="ttdoc">Starts the scene's sound.</div><div class="ttdef"><b>Definition:</b> Shop.cpp:27</div></div>
-<div class="ttc" id="aclass_shop_html_a38660f1c8a7d71cfa2139acd81e0a82b"><div class="ttname"><a href="class_shop.html#a38660f1c8a7d71cfa2139acd81e0a82b">Shop::loadBackground</a></div><div class="ttdeci">void loadBackground()</div><div class="ttdoc">Loads the screen backGground.</div><div class="ttdef"><b>Definition:</b> Shop.cpp:54</div></div>
-<div class="ttc" id="aclass_shop_html"><div class="ttname"><a href="class_shop.html">Shop</a></div><div class="ttdoc">Class for the shop screen.</div><div class="ttdef"><b>Definition:</b> Shop.h:8</div></div>
+<div class="ttc" id="aclass_shop_html_a38660f1c8a7d71cfa2139acd81e0a82b"><div class="ttname"><a href="class_shop.html#a38660f1c8a7d71cfa2139acd81e0a82b">Shop::loadBackground</a></div><div class="ttdeci">void loadBackground()</div><div class="ttdoc">Loads the screen backGground.</div><div class="ttdef"><b>Definition:</b> Shop.cpp:55</div></div>
+<div class="ttc" id="aclass_shop_html_a401134318fd4f148bcd6698de647fac1"><div class="ttname"><a href="class_shop.html#a401134318fd4f148bcd6698de647fac1">Shop::updateTextBoxes</a></div><div class="ttdeci">void updateTextBoxes()</div><div class="ttdoc">A function change all changable textboxes after a update off the currentPrice.</div><div class="ttdef"><b>Definition:</b> Shop.cpp:166</div></div>
+<div class="ttc" id="aclass_shop_html"><div class="ttname"><a href="class_shop.html">Shop</a></div><div class="ttdoc">Class for the shop screen.</div><div class="ttdef"><b>Definition:</b> Shop.h:9</div></div>
 <div class="ttc" id="aclass_player_html"><div class="ttname"><a href="class_player.html">Player</a></div><div class="ttdoc">Handles player logic, stats and movement.</div><div class="ttdef"><b>Definition:</b> Player.h:17</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

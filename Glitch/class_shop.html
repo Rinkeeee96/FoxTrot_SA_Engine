@@ -127,12 +127,29 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shop.html#a31573e4c3846f0277f9a142f201634b7">loadButtons</a> ()</td></tr>
 <tr class="memdesc:a31573e4c3846f0277f9a142f201634b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the buttons for this scene. <br /></td></tr>
 <tr class="separator:a31573e4c3846f0277f9a142f201634b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf8935d49b6b68851a2b2b5284c7abba"><td class="memItemLeft" align="right" valign="top"><a id="acf8935d49b6b68851a2b2b5284c7abba"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shop.html#acf8935d49b6b68851a2b2b5284c7abba">calculateCurrentPrice</a> ()</td></tr>
+<tr class="memdesc:acf8935d49b6b68851a2b2b5284c7abba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the current price for a new health item in the shop. <br /></td></tr>
+<tr class="separator:acf8935d49b6b68851a2b2b5284c7abba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a401134318fd4f148bcd6698de647fac1"><td class="memItemLeft" align="right" valign="top"><a id="a401134318fd4f148bcd6698de647fac1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shop.html#a401134318fd4f148bcd6698de647fac1">updateTextBoxes</a> ()</td></tr>
+<tr class="memdesc:a401134318fd4f148bcd6698de647fac1"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function change all changable textboxes after a update off the currentPrice. <br /></td></tr>
+<tr class="separator:a401134318fd4f148bcd6698de647fac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:a77fea54b65e55df28c29c18b8760a420"><td class="memItemLeft" align="right" valign="top"><a id="a77fea54b65e55df28c29c18b8760a420"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>currentPrice</b> = 0</td></tr>
+<tr class="separator:a77fea54b65e55df28c29c18b8760a420"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7d522139d3c86381d40a7688ebdfb27"><td class="memItemLeft" align="right" valign="top"><a id="af7d522139d3c86381d40a7688ebdfb27"></a>
-shared_ptr&lt; Text &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>text</b></td></tr>
+shared_ptr&lt; Text &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>text</b> = nullptr</td></tr>
 <tr class="separator:af7d522139d3c86381d40a7688ebdfb27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8090068c219bbec83ca1547b39a30ec5"><td class="memItemLeft" align="right" valign="top"><a id="a8090068c219bbec83ca1547b39a30ec5"></a>
+shared_ptr&lt; Text &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>heartText2</b> = nullptr</td></tr>
+<tr class="separator:a8090068c219bbec83ca1547b39a30ec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32423e7be394bf33b41eb9e655795f5d"><td class="memItemLeft" align="right" valign="top"><a id="a32423e7be394bf33b41eb9e655795f5d"></a>
+shared_ptr&lt; <a class="el" href="class_primary_button.html">PrimaryButton</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>buyBTN</b> = nullptr</td></tr>
+<tr class="separator:a32423e7be394bf33b41eb9e655795f5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae2050fc63d33cdb478bf3beaa8160eb"><td class="memItemLeft" align="right" valign="top"><a id="aae2050fc63d33cdb478bf3beaa8160eb"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>handlePurchase</b> = false</td></tr>
 <tr class="separator:aae2050fc63d33cdb478bf3beaa8160eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
