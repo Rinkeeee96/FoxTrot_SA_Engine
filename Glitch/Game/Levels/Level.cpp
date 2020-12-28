@@ -31,8 +31,16 @@ void Level::onAttach() {
 /// @brief
 /// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
 void Level::start(bool playSound) {
+	loadScoreBoard();
+		
+	string helpstring{ "Help: " };
+	KeyCode k = gameInvoker->getKeycodeFromIdentifier("help");
+	helpstring.append(keycodeStringMap[k]);
 
-	// TODO kan ik de inventory layers aanmaken in de onAttach?
+	helpText = shared_ptr<Text>(new Text(-99999999, new ColoredText(helpstring, Color(0, 0, 0)), 80, 30, 1770, 130));
+	helpText->setDrawStatic(true);
+	addNewObjectToLayer(8, helpText, false, true);
+
 	hudPopUpZIndex = this->getHighestLayerIndex() + 1;
 	inventoryPopupZIndex = hudPopUpZIndex + 1;
 	helpPopupZIndex = inventoryPopupZIndex + 1;
@@ -49,14 +57,6 @@ void Level::start(bool playSound) {
 	commandBuilder->linkCommandToToggle(gameInvoker, inventoryPopupZIndex, "inventory");
 	commandBuilder->linkCommandToToggle(gameInvoker, pausePopupZIndex, "pause");
 	commandBuilder->linkCommandToToggle(gameInvoker, helpPopupZIndex, "help");
-	
-	string helpstring{ "Help: " };
-	KeyCode k = gameInvoker->getKeycodeFromIdentifier("help");
-	helpstring.append(keycodeStringMap[k]);
-
-	helpText = shared_ptr<Text>(new Text(-99999999, new ColoredText(helpstring, Color(0, 0, 0)), 80, 30, 1770, 130));
-	helpText->setDrawStatic(true);
-	addNewObjectToLayer(8, helpText, false, true);
 
 	player->respawn();
 	player->setTotalHealth(savegame->getCurrentGameData().characterData.totalHealth);
@@ -66,7 +66,7 @@ void Level::start(bool playSound) {
 	hudPopUp->setPlayer(player);
 	hudPopUp->setBoss(boss);
 
-	loadScoreBoard();
+	
 	this->win = false;
 
 	this->setObjectToFollow(this->follow);
