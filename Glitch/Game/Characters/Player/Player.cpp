@@ -135,7 +135,7 @@ shared_ptr<ICharacter> Player::clone(int id) {
 map<SpriteState, shared_ptr<SpriteObject>> Player::buildSpritemap(int textureId) {
 	std::map<SpriteState, shared_ptr<SpriteObject>> spriteMap;
 
-	auto playerDefault = shared_ptr<SpriteObject>(new SpriteObject(textureId++, 28, 24, 1, 200, "Assets/Sprites/Character/adventure.png"));
+	auto playerDefault = shared_ptr<SpriteObject>(new SpriteObject(textureId++, 28, 17, 1, 200, "Assets/Sprites/Character/adventure.png"));
 
 	auto playerRunRight = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 6, 200, "Assets/Sprites/Character/adventure_run_right.png"));
 	auto playerRunLeft = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 6, 200, "Assets/Sprites/Character/adventure_run_left.png"));

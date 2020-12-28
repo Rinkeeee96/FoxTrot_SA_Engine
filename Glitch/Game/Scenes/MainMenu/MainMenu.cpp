@@ -47,7 +47,7 @@ void MainMenu::loadButtons() {
 /// Create the background for this scene
 void MainMenu::loadBackground() {
 	shared_ptr<SpriteObject> BG_LAYER_0 = shared_ptr<SpriteObject>(new SpriteObject(-1010, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_0.png"));
-	shared_ptr<SpriteObject> BG_LAYER_ADVENTRUE = shared_ptr<SpriteObject>(new SpriteObject(-1011, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png"));
+	shared_ptr<SpriteObject> BG_LAYER_ADVENTRUE = shared_ptr<SpriteObject>(new SpriteObject(-1011, 28, 28, 6, 300, "Assets/Sprites/Character/adventure_run_right.png"));
 	shared_ptr<SpriteObject> BG_LAYER_2 = shared_ptr<SpriteObject>(new SpriteObject(-1012, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_2.png"));
 
 	shared_ptr<Drawable> layer0 = shared_ptr<Drawable>(new Drawable(14));
