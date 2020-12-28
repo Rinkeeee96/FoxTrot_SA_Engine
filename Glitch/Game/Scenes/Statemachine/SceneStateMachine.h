@@ -23,9 +23,21 @@ public:
 	int activePopupCount() { return activePopups.size(); }
 
 	void deregisterActivePopup(IPopup* popupToDeregister) {
-		for_each(activePopups.begin(), activePopups.end(), [&popupToDeregister](IPopup* p) {
-			return popupToDeregister == p;
-		});
+
+		/*auto el = std::find(activePopups.begin(), activePopups.end(), popupToDeregister);
+		auto p = std::remove_if(activePopups.begin(), el, (popupToDeregister == *el));
+
+		activePopups.erase(p, el);*/
+
+
+		activePopups.erase(
+			std::remove_if(
+				activePopups.begin(),
+				activePopups.end(),
+				[&popupToDeregister](const auto& p) { return popupToDeregister == p; }
+			),
+			activePopups.end()
+		);
 	}
 
 	int levelToBuild = 0;

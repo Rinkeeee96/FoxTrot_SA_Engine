@@ -84,11 +84,23 @@ void HelpMenu::cleanPopUp()
 void HelpMenu::onAttach()
 {
 	this->stateMachine->registerActivePopup(this);
-	PauseablePopup::onAttach();
+	this->setupPopUp();
+	setAlwaysVisible(true);
+
+	if (this->stateMachine->activePopupCount() <= 1) {
+		TogglePauseEvent pauseEvent(true);
+		dispatcher.dispatchEvent<TogglePauseEvent>(pauseEvent);
+	}
 }
 
 void HelpMenu::onDetach()
 {
 	this->stateMachine->deregisterActivePopup(this);
-	PauseablePopup::onDetach();
+	this->cleanPopUp();
+	setAlwaysVisible(false);
+
+	if (this->stateMachine->activePopupCount() <= 0) {
+		TogglePauseEvent pauseEvent(false);
+		dispatcher.dispatchEvent<TogglePauseEvent>(pauseEvent);
+	}
 }

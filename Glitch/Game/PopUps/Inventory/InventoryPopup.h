@@ -1,13 +1,13 @@
 #pragma once
-#include "Game/PopUps/PauseablePopup.h"
+#include "Game/PopUps/IPopup.h"
 #include "Game/Scenes/Statemachine/SceneStateMachine.h"
 
 /// @brief Inventory popup class
-class InventoryPopup : public PauseablePopup
+class InventoryPopup : public IPopup
 {
 public:
 	InventoryPopup(unique_ptr<Engine>& _engine, EventDispatcher& _dispatcher, shared_ptr<SceneStateMachine> _stateMachine)
-		: PauseablePopup(_engine, _dispatcher, _stateMachine) {};
+		: IPopup(_engine, _dispatcher, _stateMachine) {};
 
 	void setupPopUp() override;
 	virtual void cleanPopUp() override;

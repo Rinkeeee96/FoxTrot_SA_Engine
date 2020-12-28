@@ -1,12 +1,12 @@
 ﻿#pragma once
-#include "Game/PopUps/PauseablePopup.h"
+#include "Game/PopUps/IPopup.h"
 
 /// @brief Class for the Helpscreen PopUp.
-class HelpMenu : public PauseablePopup
+class HelpMenu : public IPopup
 {
 public:
 	HelpMenu(unique_ptr<Engine>& _engine, EventDispatcher& _dispatcher, shared_ptr<SceneStateMachine> _stateMachine) :
-		PauseablePopup(_engine, _dispatcher, _stateMachine) {};
+		IPopup(_engine, _dispatcher, _stateMachine) {};
 	// Inherited via IPopup
 	void setupPopUp() override;
 	void cleanPopUp() override;

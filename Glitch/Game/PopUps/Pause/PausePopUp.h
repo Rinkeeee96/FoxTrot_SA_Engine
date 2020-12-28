@@ -1,12 +1,12 @@
 #pragma once
-#include "Game/PopUps/PauseablePopup.h"
+#include "Game/PopUps/IPopup.h"
 
 /// @brief Pause Pop Up
-class PausePopUp : public PauseablePopup
+class PausePopUp : public IPopup
 {
 public:
 	PausePopUp(unique_ptr<Engine>& _engine, EventDispatcher& _dispacther, shared_ptr<SceneStateMachine> _stateMachine)
-		: PauseablePopup(_engine, _dispacther, _stateMachine) {
+		: IPopup(_engine, _dispacther, _stateMachine) {
 	};
 	// Inherited via BasePopup
 	void setupPopUp() override;
