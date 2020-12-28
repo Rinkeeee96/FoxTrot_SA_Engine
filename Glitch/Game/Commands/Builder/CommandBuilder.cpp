@@ -205,7 +205,7 @@ void CommandBuilder::initGlobalCommandFactory()
 {
 	globalCommandFactory = std::shared_ptr<GlobalCommandFactory>(new GlobalCommandFactory());
 	auto toggleInventoryCommand = new GlobalCommandCreator<ToggleLayerCommand>("inventory");
-	auto togglePauseCommand = new GlobalCommandCreator<ToggleLayerCommand>("pause");
+	auto togglePauseCommand = new GlobalCommandCreator<ToggleLayerCommand>("pause", false);
 	auto toggleHelpCommand = new GlobalCommandCreator<ToggleLayerCommand>("help");
 
 	toggleInventoryCommand->registerClass(globalCommandFactory);

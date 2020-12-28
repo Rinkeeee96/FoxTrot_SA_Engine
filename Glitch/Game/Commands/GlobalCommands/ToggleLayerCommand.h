@@ -7,7 +7,7 @@
 class ToggleLayerCommand : public GlobalCommand
 {
 public:
-	ToggleLayerCommand(const int _layerId, string identifier) : GlobalCommand(_layerId, identifier) {}
+	ToggleLayerCommand(const int _layerId, string identifier, bool _freeze = true) : GlobalCommand(_layerId, identifier, _freeze) {}
 	// Inherited via ICommand
 	void execute(EventDispatcher& dispatcher) override {
 		ToggleLayerEvent toggleLayer(layerId);

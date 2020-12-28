@@ -4,7 +4,14 @@ class EventDispatcher;
 class ICommand
 {
 public:
-	API ICommand(string _identifier) : identifier{ _identifier } {}
+	/// @param _freezeOnPause
+	/// this paramter controls whether the command should be deactivated
+	/// in the "pause" state, defaults to true to enforce a freezed state if not overridden
+	/// @param _identifier
+	/// this is the identifier given to this command, for identification purposes which require
+	/// identification to know what command this is
+	API ICommand(string _identifier, bool _freezeOnPause = true) : identifier{ _identifier }, 
+		freezeOnPause{ _freezeOnPause } {}
 
 	/// @brief
 	/// Execute the command 
@@ -17,4 +24,7 @@ private:
 	/// the identifier given to this command by the builder
 	/// this is used for identification in the invoker
 	const string identifier;
+	/// @brief
+	/// this determines whether the command can be executed in the "paused" state
+	const bool freezeOnPause;
 };
