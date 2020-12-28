@@ -235,8 +235,6 @@ void LevelBuilder::createDecoration(nlohmann::json layerValue)
 			tile->setStatic(true);
 			tile->setPositionX(currentX * mapTileWidth);
 			tile->setPositionY((currentY * mapTileHeight) + mapTileHeight);
-			tile->setScalable(true);
-			tile->setScale(2);
 			tile->registerSprite(SpriteState::DEFAULT, tileSprite);
 			tile->changeToState(SpriteState::DEFAULT);
 
