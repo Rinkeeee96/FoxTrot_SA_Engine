@@ -30,7 +30,10 @@ public:
 	void setWin(const bool val) { this->win = val; }
 	bool getWin() const { return this->win; }
 
+	void changeToScene(bool shouldChange, string _next); 
 protected:
+  bool shouldChangeToScene = false;
+	string next;
 	shared_ptr<InventoryPopup> inventoryPopup = nullptr;
 	shared_ptr<HudPopUp> hudPopUp = nullptr;
 
