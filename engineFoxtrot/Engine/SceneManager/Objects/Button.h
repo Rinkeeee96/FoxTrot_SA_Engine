@@ -25,6 +25,9 @@ public:
 
 	API void registerHoverSprite(shared_ptr<SpriteObject> spriteObject);
 
+	API void changeText(string& newText) {
+		text.text = newText;
+	}
 protected:
 	bool hasHoverSprite = false;
 
