@@ -32,14 +32,11 @@ public:
 	void setWin(const bool val) { this->win = val; }
 	bool getWin() const { return this->win; }
 
-	void changeToScene(bool shouldChange, string _next) {
-		this->changeToSceneToScene = shouldChange;
-		this->next = _next;
-	}
+	void changeToScene(bool shouldChange, string _next); 
 protected:
 	void addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, shared_ptr<SpriteObject> HUD);
 
-	bool changeToSceneToScene = false;
+	bool shouldChangeToScene = false;
 	string next;
 
 	vector<shared_ptr<Drawable>> huds;
