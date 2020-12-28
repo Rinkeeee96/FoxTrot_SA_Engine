@@ -91,6 +91,10 @@ void Level::onUpdate(float deltaTime)
 		activeAchievementPopup = false;
 	}
 
+	if (this->changeToSceneToScene) {
+		stateMachine->switchToScene(this->next, false);
+		return;
+	}
 	if (this->win)
 	{
 		increaseTotalGameScore(100);

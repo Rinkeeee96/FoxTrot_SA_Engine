@@ -58,6 +58,14 @@ private:
 		moveToNextScene = true;
 		nextScene = "ChapterOne";
 	};
+	function<void(void)> onChapterTwoClick = [this]() {
+		moveToNextScene = true;
+		nextScene = "ChapterTwo";
+	};
+	function<void(void)> onChapterThreeClick = [this]() {
+		moveToNextScene = true;
+		nextScene = "ChapterThree";
+	};
 
 	function<void(void)> onShopBtnClick = [this]() {
 		moveToNextScene = true;
