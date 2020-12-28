@@ -23,18 +23,21 @@ namespace UnitTestsGlitch
 			shared_ptr<Savegame> savegame = shared_ptr<Savegame>(new Savegame());
 			savegame->setCurrentGameData(1);
 			shared_ptr<SceneStateMachine> statemachine = make_shared<SceneStateMachine>(engine, savegame);
-			Level level{ 1, 100, 100, engine, statemachine };
+			unique_ptr<Level> level = make_unique<Level>( 1, 100, 100, engine, statemachine );
+			Level* levelptr = level.get();
+			engine->insertScene(std::move(level));
+			engine->setCurrentScene(1);
 			shared_ptr<Player> player = make_shared<Player>(dispatcher);
-			level.addNewObjectToLayer(1, player, true, true);
-			level.setPlayer(player);
-			level.registerSavegame(savegame);
-			level.start(false);
-			level.createLayer(1, true, true);
+			levelptr->addNewObjectToLayer(1, player, true, true);
+			levelptr->setPlayer(player);
+			levelptr->registerSavegame(savegame);
+			levelptr->start(false);
+			levelptr->createLayer(1, true, true);
 			// Act
 			player->kill();
-			level.onUpdate(1);
+			levelptr->onUpdate(1);
 			// Assert
-			Assert::IsFalse(level.getWin());
+			Assert::IsFalse(levelptr->getWin());
 		}
 	};
 }
