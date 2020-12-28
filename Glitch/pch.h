@@ -19,6 +19,7 @@
 #include <algorithm>
 #include <ctime>
 #include <random>
+#include <iterator>
 #include "api.h"
 
 #include "SceneManager/Objects/Button.h"

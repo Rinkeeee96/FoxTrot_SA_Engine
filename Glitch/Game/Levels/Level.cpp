@@ -184,7 +184,32 @@ bool Level::onToggleLayerEvent(const Event& event) {
 	int layerIndex = layerEvent.getLayerIndex();
 	bool currentRenderstate = this->getLayers()[layerIndex]->getRender();
 
-	this->toggleLayer(layerIndex, ! currentRenderstate);
+	bool layerAboveMeIsRendered = false;
+	// runs in o n
+	for (size_t i = layerIndex + 1; i <= this->getHighestLayerIndex(); i++)
+	{
+		shared_ptr<Layer> layer = this->layers[i];
+		layerAboveMeIsRendered = layer->getRender();
+
+		if (layerAboveMeIsRendered) 
+			return true;
+	}
+
+	this->toggleLayer(layerIndex, !currentRenderstate);
+
+	/*for_each(layers.begin(), layers.end(), [&layerIndex, &layerAboveMeIsRendered](pair<const int, shared_ptr<Layer>> pair) {
+		if (pair.first > layerIndex)
+		{
+			layerAboveMeIsRendered = pair.second->getRender();		
+		}
+
+	});*/
+
+	/*if (! layerAboveMeIsRendered)
+	{
+		this->toggleLayer(layerIndex, ! currentRenderstate);
+	}*/
+
 	return true;
 }
 
