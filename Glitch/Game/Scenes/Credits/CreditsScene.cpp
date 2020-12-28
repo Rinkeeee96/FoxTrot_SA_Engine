@@ -82,14 +82,14 @@ void CreditsScene::loadBackground() {
 /// @brief 
 /// Load the sounds for this scene
 void CreditsScene::loadMusic() {
-	engine->loadSound("WIN_SOUND", "Assets/Sound/TremLoadingloopl.wav");
+	engine->loadSound("GOOD_GAME", "Assets/Sound/applause.wav");
 }
 
 /// @brief 
 /// Create the sounds for this scene
 void CreditsScene::start(bool playSound)
 {
-	if(playSound)engine->startSound("WIN_SOUND");
+	if(playSound)engine->startSound("GOOD_GAME");
 }
 
 void CreditsScene::onUpdate(float deltaTime)
@@ -104,7 +104,7 @@ void CreditsScene::onUpdate(float deltaTime)
 
 	if (moveToNextScene)
 	{
-		stateMachine->switchToScene(nextScene, useTransition, playSound);
+		stateMachine->switchToScene(nextScene, useTransition, true);
 	}
 
 }
