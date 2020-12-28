@@ -23,7 +23,7 @@ ifstream FileLoader::readFile(const string& path) {
 /// @param path to the file
 /// @param path to the validation file
 /// @return boolean
-bool FileLoader::validateDocument(string path, string validationPath) {
+bool FileLoader::validateDocument(const string& path, const string& validationPath) {
 	auto fileType = path.substr(path.find_last_of(".") + 1);
 
 	if (fileType == "json") {

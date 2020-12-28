@@ -6,6 +6,9 @@
 class KeypressInvoker
 {
 public:
+	API KeypressInvoker() {
+		commands.clear();
+	};
 	API virtual ~KeypressInvoker() {};
 	API void registerCommand(KeyCode code, ICommand* command);
 	API virtual void updateCommand(KeyCode code, const string& identifier);
@@ -18,6 +21,6 @@ protected:
 	API bool isRegistered(const ICommand& command);
 	API bool isRegistered(const KeyCode& keyCode);
 private:
-	unordered_map<KeyCode, ICommand*> commands = unordered_map<KeyCode, ICommand*>();
-	queue<KeyCode> executionQueue = queue<KeyCode>();
+	unordered_map<KeyCode, ICommand*> commands;
+	queue<KeyCode> executionQueue;
 };
