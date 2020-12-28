@@ -86,16 +86,15 @@ void Overworld::loadButtons() {
 	shared_ptr<Button> level3Btn = shared_ptr<Button>(new Button(5, ColoredText("", Color(255, 255, 255)), onLevel3BtnClick, defaultBtnSprite, this->dispatcher));
 	level3Btn->setWidth(32);
 	level3Btn->setHeight(32);
-	level3Btn->setPositionX(1100);
+	level3Btn->setPositionX(1000);
 	level3Btn->setPositionY(720);
 	level3Btn->registerHoverSprite(hoverBtnSprite);
 
-	shared_ptr<Text> level3TextBtn = shared_ptr<Text>(new Text(6, new ColoredText(level3Name, Color(0, 0, 0)), 120, 30, 1000, 735));
+	shared_ptr<Text> level3TextBtn = shared_ptr<Text>(new Text(6, new ColoredText(level3Name, Color(0, 0, 0)), 120, 30, 900, 735));
 	if (!savegame->getCurrentGameData().levelData[2].completed)
 	{
 		level3Btn->disable();
 	}
-
 
 	string level4Name = "Locked";
 	if (savegame->getCurrentGameData().levelData[3].completed)
@@ -115,54 +114,46 @@ void Overworld::loadButtons() {
 		level4Btn->disable();
 	}
 
-
 	shared_ptr<SecondaryButton> stopBtn = shared_ptr<SecondaryButton>(new SecondaryButton(9, "To Main Menu", onStopBtnClick, this->dispatcher));
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
-	shared_ptr<Button> chapterOne = shared_ptr<Button>(new Button(55, ColoredText("", Color(0, 0, 0)), onChapterOneClick, defaultBtnSprite, this->dispatcher));
-	chapterOne->setWidth(50);
-	chapterOne->setHeight(50);
-	chapterOne->setPositionX(280);
-	chapterOne->setPositionY(535);
-	chapterOne->registerHoverSprite(hoverBtnSprite);
+	shared_ptr<Button> chapterOne = shared_ptr<Button>(new Button(55, ColoredText("", Color(0, 0, 0)), onChapterOneClick, bookBtnSprite, this->dispatcher));
+	chapterOne->setWidth(32);
+	chapterOne->setHeight(32);
+	chapterOne->setPositionX(290);
+	chapterOne->setPositionY(525);
+	chapterOne->registerHoverSprite(bookHoverBtnSprite);
 
-	shared_ptr<Text> chapterOneTxt = shared_ptr<Text>(new Text(56, new ColoredText("Chapter one", Color(0, 0, 0), false), 100, 50, 280 - 25, 535 + 30));
+	shared_ptr<Text> chapterOneTxt = shared_ptr<Text>(new Text(56, new ColoredText("Chapter one", Color(0, 0, 0), false), 100, 50, 290 - 35, 535 + 30));
 
 
 
 	shared_ptr<Button> chapterTwo = shared_ptr<Button>(new Button(76, ColoredText("", Color(0, 0, 0)), onChapterTwoClick, bookBtnSprite, this->dispatcher));
 	chapterTwo->setWidth(32);
 	chapterTwo->setHeight(32);
-	chapterTwo->setPositionX(1260);
-	chapterTwo->setPositionY(891);
+	chapterTwo->setPositionX(1265);
+	chapterTwo->setPositionY(720);
 	chapterTwo->registerHoverSprite(bookHoverBtnSprite);
 	if (!savegame->getCurrentGameData().levelData[3].completed)
 	{
 		chapterTwo->disable();
 	}
 
-	shared_ptr<Text> chapterTwoTxt = shared_ptr<Text>(new Text(77, new ColoredText("Chapter two", Color(0, 0, 0), false), 100, 50, 1260 - 25, 891 + 30));
-
-
+	shared_ptr<Text> chapterTwoTxt = shared_ptr<Text>(new Text(77, new ColoredText("Chapter two", Color(0, 0, 0), false), 100, 50, 1270 - 35, 720 + 35));
 
 	shared_ptr<Button> chapterThree = shared_ptr<Button>(new Button(78, ColoredText("", Color(0, 0, 0)), onChapterThreeClick, bookBtnSprite, this->dispatcher));
 	chapterThree->setWidth(32);
 	chapterThree->setHeight(32);
-	chapterThree->setPositionX(1526);
-	chapterThree->setPositionY(385);
+	chapterThree->setPositionX(1760);
+	chapterThree->setPositionY(320);
 	chapterThree->registerHoverSprite(bookHoverBtnSprite);
 
-	shared_ptr<Text> chapterThreeTxt = shared_ptr<Text>(new Text(79, new ColoredText("Chapter three", Color(0, 0, 0), false), 100, 50, 1526 - 25, 385 + 30));
+	shared_ptr<Text> chapterThreeTxt = shared_ptr<Text>(new Text(79, new ColoredText("Chapter three", Color(0, 0, 0), false), 100, 50, 1760 - 35, 320 + 35));
 	if (!savegame->getCurrentGameData().levelData[5].completed)
 	{
 		chapterThree->disable();
 	}
-
-
-
-
-
 
 	string level5Name = "Locked";
 	if (savegame->getCurrentGameData().levelData[4].completed)
@@ -180,8 +171,6 @@ void Overworld::loadButtons() {
 	{
 		level5Btn->disable();
 	}
-
-
 
 	addNewObjectToLayer(3, chapterOne);
 	addNewObjectToLayer(3, chapterOneTxt);
