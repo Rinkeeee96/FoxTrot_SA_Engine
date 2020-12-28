@@ -25,6 +25,11 @@ public:
 
 	API void registerHoverSprite(shared_ptr<SpriteObject> spriteObject);
 
+	/// @brief 
+	/// Change the text in the button
+	API void changeText(const string& newText) {
+		text.text = newText;
+	}
 protected:
 	bool hasHoverSprite = false;
 
