@@ -8,6 +8,8 @@ var annotated_dup =
     [ "BouncingGround", "class_bouncing_ground.html", "class_bouncing_ground" ],
     [ "ChapterOneScene", "class_chapter_one_scene.html", "class_chapter_one_scene" ],
     [ "ChapterScene", "class_chapter_scene.html", "class_chapter_scene" ],
+    [ "ChapterThreeScene", "class_chapter_three_scene.html", "class_chapter_three_scene" ],
+    [ "ChapterTwoScene", "class_chapter_two_scene.html", "class_chapter_two_scene" ],
     [ "CharacterCommandCreator", "class_character_command_creator.html", "class_character_command_creator" ],
     [ "CharacterCommandFactory", "class_character_command_factory.html", "class_character_command_factory" ],
     [ "CharacterData", "struct_character_data.html", "struct_character_data" ],
