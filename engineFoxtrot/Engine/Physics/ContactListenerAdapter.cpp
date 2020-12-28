@@ -30,8 +30,42 @@ map<int, vector<Direction>> ContactListenerAdapter::getCollisionDirection(Collis
 	auto object2maxY = result.object2->getPositionY() + result.object2->getHeight();
 	auto object2maxX = result.object2->getPositionX() + result.object2->getWidth();
 
+	Rectangle left{ object1minX - 0.1f, object1maxY, 0.1f, result.object1->getHeight() };
+	Rectangle right{ object1maxX + 0.1f, object1maxY, 0.1f, result.object1->getHeight() };
+	
+	Rectangle bottom{ object1minX - 0.1f,object1minY, result.object1->getWidth(), 0.1f };
+	Rectangle top{ object1minX + 0.1f, object1maxY, result.object1->getWidth(), 0.1f };
+
+
+	Rectangle objectRectangle{ result.object2->getPositionX(), result.object2->getPositionY(), result.object2->getWidth(), result.object2->getHeight() };
+
+	auto collisionTop = top.overlaps(objectRectangle);
+	auto collisionBottom = bottom.overlaps(objectRectangle);
+	auto collisionLeft = left.overlaps(objectRectangle);
+	auto collisionRight = right.overlaps(objectRectangle);
+
 	auto obj1 = vector<Direction>();
 	auto obj2 = vector<Direction>();
+	if (collisionTop) {
+		obj1.push_back(Direction::DOWN);
+		obj2.push_back(Direction::UP);
+	}
+	if (collisionBottom) {
+		obj1.push_back(Direction::UP);
+		obj2.push_back(Direction::DOWN);
+	}
+	if (collisionLeft) {
+		obj1.push_back(Direction::LEFT);
+		obj2.push_back(Direction::RIGHT);
+	}
+	if (collisionRight) {
+		obj1.push_back(Direction::RIGHT);
+		obj2.push_back(Direction::LEFT);
+	}
+	direction.insert(pair<int, vector<Direction>>(result.object1->getObjectId(), obj1));
+	direction.insert(pair<int, vector<Direction>>(result.object2->getObjectId(), obj2));
+	return direction;
+
 
 	if (object1minX > object2maxX + 3) {
 		obj1.push_back(Direction::RIGHT);

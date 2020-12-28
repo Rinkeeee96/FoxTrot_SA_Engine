@@ -5,6 +5,18 @@
 #include "box2d/box2d.h"
 #include <math.h>
 
+struct Rectangle {
+	float x, y;
+	float width, height;
+
+	Rectangle(float _x, float _y, float _width, float _height) : x(_x), y(_y), width(_width), height(_height) {}
+
+	bool overlaps(Rectangle r) {
+		return x < r.x + r.width && x + width > r.x && y < r.y + r.height && y + height > r.y;
+	}
+};
+
+
 /// @brief Contact listener for collision between objects
 class ContactListenerAdapter : public b2ContactListener
 {
