@@ -140,7 +140,7 @@ void Shop::loadButtons()
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
-	buyBTN = shared_ptr<PrimaryButton>(new PrimaryButton(-970, "Test", onShopBuyClick, this->dispatcher));
+	buyBTN = shared_ptr<PrimaryButton>(new PrimaryButton(-970, "", onShopBuyClick, this->dispatcher));
 
 	buyBTN->setPositionX(480);
 	buyBTN->setPositionY(350);
