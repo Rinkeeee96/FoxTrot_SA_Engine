@@ -122,8 +122,8 @@ void Overworld::loadButtons() {
 
 
 	shared_ptr<Button> chapterOne = shared_ptr<Button>(new Button(55, ColoredText("", Color(0, 0, 0)), onChapterOneClick, bookBtnSprite, this->dispatcher));
-	chapterOne->setWidth(50);
-	chapterOne->setHeight(50);
+	chapterOne->setWidth(32);
+	chapterOne->setHeight(32);
 	chapterOne->setPositionX(295);
 	chapterOne->setPositionY(363);
 	chapterOne->registerHoverSprite(bookHoverBtnSprite);
@@ -133,8 +133,8 @@ void Overworld::loadButtons() {
 
 
 	shared_ptr<Button> chapterTwo = shared_ptr<Button>(new Button(76, ColoredText("", Color(0, 0, 0)), onChapterTwoClick, bookBtnSprite, this->dispatcher));
-	chapterTwo->setWidth(50);
-	chapterTwo->setHeight(50);
+	chapterTwo->setWidth(32);
+	chapterTwo->setHeight(32);
 	chapterTwo->setPositionX(1260);
 	chapterTwo->setPositionY(891);
 	chapterTwo->registerHoverSprite(bookHoverBtnSprite);
@@ -144,8 +144,8 @@ void Overworld::loadButtons() {
 
 
 	shared_ptr<Button> chapterThree = shared_ptr<Button>(new Button(78, ColoredText("", Color(0, 0, 0)), onChapterThreeClick, bookBtnSprite, this->dispatcher));
-	chapterThree->setWidth(50);
-	chapterThree->setHeight(50);
+	chapterThree->setWidth(32);
+	chapterThree->setHeight(32);
 	chapterThree->setPositionX(1526);
 	chapterThree->setPositionY(385);
 	chapterThree->registerHoverSprite(bookHoverBtnSprite);
