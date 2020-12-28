@@ -77,12 +77,13 @@ $(document).ready(function(){initNavTree('_i_popup_8h_source.html',''); initResi
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> onAttach() <span class="keyword">override</span> = 0;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> onDetach() <span class="keyword">override</span> = 0;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    unique_ptr&lt;Engine&gt;&amp; engine;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    EventDispatcher&amp; dispatcher;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    shared_ptr&lt;SceneStateMachine&gt; stateMachine;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> onUpdate() = 0;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    unique_ptr&lt;Engine&gt;&amp; engine;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    EventDispatcher&amp; dispatcher;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    shared_ptr&lt;SceneStateMachine&gt; stateMachine;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_i_popup_html"><div class="ttname"><a href="class_i_popup.html">IPopup</a></div><div class="ttdoc">Interface class for a popUp.</div><div class="ttdef"><b>Definition:</b> IPopup.h:7</div></div>

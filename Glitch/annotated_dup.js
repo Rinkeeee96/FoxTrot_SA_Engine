@@ -31,6 +31,7 @@ var annotated_dup =
     [ "GodmodeCommand", "class_godmode_command.html", "class_godmode_command" ],
     [ "GodState", "class_god_state.html", "class_god_state" ],
     [ "HelpMenu", "class_help_menu.html", "class_help_menu" ],
+    [ "HudPopUp", "class_hud_pop_up.html", "class_hud_pop_up" ],
     [ "ICharacter", "class_i_character.html", "class_i_character" ],
     [ "ICharacterCommand", "class_i_character_command.html", "class_i_character_command" ],
     [ "ICharacterCommandCreator", "class_i_character_command_creator.html", "class_i_character_command_creator" ],

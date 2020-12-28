@@ -84,6 +84,7 @@ var hierarchy =
       [ "AchievementPopup", "class_achievement_popup.html", null ],
       [ "IPopup", "class_i_popup.html", [
         [ "HelpMenu", "class_help_menu.html", null ],
+        [ "HudPopUp", "class_hud_pop_up.html", null ],
         [ "InventoryPopup", "class_inventory_popup.html", null ],
         [ "PausePopUp", "class_pause_pop_up.html", null ]
       ] ]

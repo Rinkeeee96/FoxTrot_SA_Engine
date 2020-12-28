@@ -1,9 +1,6 @@
 var class_level =
 [
     [ "Level", "class_level.html#afaa92eb87a42590e9a3e4d6f8649c6c9", null ],
-    [ "addBossHud", "class_level.html#a66f2035bee09d64c576bec703b2e5d06", null ],
-    [ "addHealthHud", "class_level.html#aaff15cd6338ab657d7f71e0480b7ec42", null ],
-    [ "addHuds", "class_level.html#ac50a040b28987b19a4eec0e0e5761f1d", null ],
     [ "getBoss", "class_level.html#ac2d06519c133f66babba44d53878e355", null ],
     [ "getPlayer", "class_level.html#ac0fb48b5aa189b7aba78b3598d98312f", null ],
     [ "getWin", "class_level.html#a49c5e682bf74fca68ff7d54efa50ad6d", null ],
@@ -30,7 +27,8 @@ var class_level =
     [ "gameInvoker", "class_level.html#a0b3f9a51236868e6948b6db54d890a63", null ],
     [ "helpPopupZIndex", "class_level.html#a320f6bfc271ed57b74421354cd1d845e", null ],
     [ "helpText", "class_level.html#a83e3958b442175639053a9baa8cb704f", null ],
-    [ "huds", "class_level.html#a3f6edfa80132c0136b274422f3125ddc", null ],
+    [ "hudPopUp", "class_level.html#a6bcc366a4427b631d61a782e7bf3ca96", null ],
+    [ "hudPopUpZIndex", "class_level.html#a2ccad9b92e78028ba1288da824bef2f7", null ],
     [ "inventoryPopup", "class_level.html#a0a580d135617ed18531ca85ac6555ef3", null ],
     [ "inventoryPopupZIndex", "class_level.html#ac19cf7fd157db3f2699dedac2dd608f1", null ],
     [ "pausePopupZIndex", "class_level.html#a31f46b6fec86dbed768e944cb47fac1e", null ],

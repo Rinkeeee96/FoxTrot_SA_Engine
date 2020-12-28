@@ -119,13 +119,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>onDetach</b> () overr
 <tr class="memitem:a0e3edb18dde673610b6a95f04dff3cc4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level.html#a0e3edb18dde673610b6a95f04dff3cc4">onUpdate</a> (float deltaTime) override</td></tr>
 <tr class="memdesc:a0e3edb18dde673610b6a95f04dff3cc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the level data such as objects that are removed or player is dead or won the level.  <a href="class_level.html#a0e3edb18dde673610b6a95f04dff3cc4">More...</a><br /></td></tr>
 <tr class="separator:a0e3edb18dde673610b6a95f04dff3cc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac50a040b28987b19a4eec0e0e5761f1d"><td class="memItemLeft" align="right" valign="top"><a id="ac50a040b28987b19a4eec0e0e5761f1d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level.html#ac50a040b28987b19a4eec0e0e5761f1d">addHuds</a> ()</td></tr>
-<tr class="memdesc:ac50a040b28987b19a4eec0e0e5761f1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add HUD for lifes of player. <br /></td></tr>
-<tr class="separator:ac50a040b28987b19a4eec0e0e5761f1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66f2035bee09d64c576bec703b2e5d06"><td class="memItemLeft" align="right" valign="top"><a id="a66f2035bee09d64c576bec703b2e5d06"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addBossHud</b> ()</td></tr>
-<tr class="separator:a66f2035bee09d64c576bec703b2e5d06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5d6a0a077b149abb4fa40260465e469"><td class="memItemLeft" align="right" valign="top"><a id="ab5d6a0a077b149abb4fa40260465e469"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>restartPhysics</b> ()</td></tr>
 <tr class="separator:ab5d6a0a077b149abb4fa40260465e469"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,10 +148,6 @@ unique_ptr&lt; Engine &gt; &amp;&#160;</td><td class="memItemRight" valign="bott
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:aaff15cd6338ab657d7f71e0480b7ec42"><td class="memItemLeft" align="right" valign="top"><a id="aaff15cd6338ab657d7f71e0480b7ec42"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level.html#aaff15cd6338ab657d7f71e0480b7ec42">addHealthHud</a> (int &amp;startingID, int &amp;startingXAxis, int &amp;xAxisChange, int &amp;current, shared_ptr&lt; SpriteObject &gt; HUD)</td></tr>
-<tr class="memdesc:aaff15cd6338ab657d7f71e0480b7ec42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add single HUD for lifes of player. <br /></td></tr>
-<tr class="separator:aaff15cd6338ab657d7f71e0480b7ec42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9df9091adb54f5b34e60f62ab3892bea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level.html#a9df9091adb54f5b34e60f62ab3892bea">throwAchievement</a> (Achievement achievement)</td></tr>
 <tr class="memdesc:a9df9091adb54f5b34e60f62ab3892bea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activates the achievement popup and adds the Achievement param to the Achievement vector. If a achievement is already given, it wont be added or shown.  <a href="class_level.html#a9df9091adb54f5b34e60f62ab3892bea">More...</a><br /></td></tr>
 <tr class="separator:a9df9091adb54f5b34e60f62ab3892bea"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -176,12 +165,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a3f6edfa80132c0136b274422f3125ddc"><td class="memItemLeft" align="right" valign="top"><a id="a3f6edfa80132c0136b274422f3125ddc"></a>
-vector&lt; shared_ptr&lt; Drawable &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>huds</b></td></tr>
-<tr class="separator:a3f6edfa80132c0136b274422f3125ddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a580d135617ed18531ca85ac6555ef3"><td class="memItemLeft" align="right" valign="top"><a id="a0a580d135617ed18531ca85ac6555ef3"></a>
-shared_ptr&lt; <a class="el" href="class_inventory_popup.html">InventoryPopup</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>inventoryPopup</b></td></tr>
+shared_ptr&lt; <a class="el" href="class_inventory_popup.html">InventoryPopup</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>inventoryPopup</b> = nullptr</td></tr>
 <tr class="separator:a0a580d135617ed18531ca85ac6555ef3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bcc366a4427b631d61a782e7bf3ca96"><td class="memItemLeft" align="right" valign="top"><a id="a6bcc366a4427b631d61a782e7bf3ca96"></a>
+shared_ptr&lt; <a class="el" href="class_hud_pop_up.html">HudPopUp</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>hudPopUp</b> = nullptr</td></tr>
+<tr class="separator:a6bcc366a4427b631d61a782e7bf3ca96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4478b384f6cf488d78f696b8a530406"><td class="memItemLeft" align="right" valign="top"><a id="aa4478b384f6cf488d78f696b8a530406"></a>
 shared_ptr&lt; Text &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>scoreText</b> = nullptr</td></tr>
 <tr class="separator:aa4478b384f6cf488d78f696b8a530406"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -218,6 +207,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>inventoryPopupZIndex</
 <tr class="memitem:a320f6bfc271ed57b74421354cd1d845e"><td class="memItemLeft" align="right" valign="top"><a id="a320f6bfc271ed57b74421354cd1d845e"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>helpPopupZIndex</b> = 0</td></tr>
 <tr class="separator:a320f6bfc271ed57b74421354cd1d845e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ccad9b92e78028ba1288da824bef2f7"><td class="memItemLeft" align="right" valign="top"><a id="a2ccad9b92e78028ba1288da824bef2f7"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>hudPopUpZIndex</b> = 0</td></tr>
+<tr class="separator:a2ccad9b92e78028ba1288da824bef2f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7409935392ae2169974b0a58bf5ebe2"><td class="memItemLeft" align="right" valign="top"><a id="af7409935392ae2169974b0a58bf5ebe2"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>achievementZIndex</b> = 0</td></tr>
 <tr class="separator:af7409935392ae2169974b0a58bf5ebe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
