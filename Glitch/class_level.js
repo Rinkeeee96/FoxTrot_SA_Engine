@@ -1,6 +1,7 @@
 var class_level =
 [
     [ "Level", "class_level.html#afaa92eb87a42590e9a3e4d6f8649c6c9", null ],
+    [ "changeToScene", "class_level.html#ab18c65d7aed554e7f6012dd1c49b17fa", null ],
     [ "getBoss", "class_level.html#ac2d06519c133f66babba44d53878e355", null ],
     [ "getPlayer", "class_level.html#ac0fb48b5aa189b7aba78b3598d98312f", null ],
     [ "getWin", "class_level.html#a49c5e682bf74fca68ff7d54efa50ad6d", null ],
@@ -32,9 +33,11 @@ var class_level =
     [ "init", "class_level.html#a0c15269260b38ce3cb4b76ba4829592d", null ],
     [ "inventoryPopup", "class_level.html#a0a580d135617ed18531ca85ac6555ef3", null ],
     [ "inventoryPopupZIndex", "class_level.html#ac19cf7fd157db3f2699dedac2dd608f1", null ],
+    [ "next", "class_level.html#a4c7fd53c658d764f74a990b5eea1a2b4", null ],
     [ "pausePopupZIndex", "class_level.html#a31f46b6fec86dbed768e944cb47fac1e", null ],
     [ "player", "class_level.html#a9526d51909a17163924473203621d7d9", null ],
     [ "scoreText", "class_level.html#aa4478b384f6cf488d78f696b8a530406", null ],
+    [ "shouldChangeToScene", "class_level.html#a8a44a152ff3a019c93d8c9b98a0fd196", null ],
     [ "shouldRestart", "class_level.html#a2af826afba8fa9758ddb8c0b8abf3928", null ],
     [ "sounds", "class_level.html#a0504dae4cd7bae17c912a309ea9572b3", null ],
     [ "startPosPlayerX", "class_level.html#aa42b25959d9a6e85d30e8e9d5e82b07c", null ],
