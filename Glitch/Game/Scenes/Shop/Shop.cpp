@@ -161,6 +161,8 @@ void Shop::calculateCurrentPrice() {
 	updateTextBoxes();
 }
 
+/// @brief 
+/// A function change all changable textboxes after a update off the currentPrice
 void Shop::updateTextBoxes() {
 	string name = "Buy!";
 	bool lock = false;
@@ -175,8 +177,13 @@ void Shop::updateTextBoxes() {
 		lock = true;
 	}
 	buyBTN->changeText(name);
-	if (lock) { buyBTN->disable(); }
-	else { buyBTN->enable(); }
+
+	if (lock) { 
+		buyBTN->disable(); 
+	}
+	else { 
+		buyBTN->enable(); 
+	}
 
 	string cost = "Will cost only " + to_string(currentPrice) + " coins!";
 	heartText2->changeText(cost);

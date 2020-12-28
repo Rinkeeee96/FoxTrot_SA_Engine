@@ -25,6 +25,8 @@ public:
 
 	API void registerHoverSprite(shared_ptr<SpriteObject> spriteObject);
 
+	/// @brief 
+	/// Change the text in the button
 	API void changeText(string& newText) {
 		text.text = newText;
 	}
