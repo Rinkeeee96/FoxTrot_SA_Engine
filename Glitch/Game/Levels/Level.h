@@ -66,4 +66,6 @@ protected:
 	float startPosPlayerX = 0;
 	float startPosPlayerY = 0;
 	bool shouldRestart  = false;
+
+	bool init = true;
 };
