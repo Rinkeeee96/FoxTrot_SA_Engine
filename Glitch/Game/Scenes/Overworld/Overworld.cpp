@@ -127,7 +127,6 @@ void Overworld::loadButtons() {
 	chapterOne->setPositionX(295);
 	chapterOne->setPositionY(363);
 	chapterOne->registerHoverSprite(bookHoverBtnSprite);
-
 	shared_ptr<Text> chapterOneTxt = shared_ptr<Text>(new Text(56, new ColoredText("Chapter one", Color(0, 0, 0), false), 100, 50, 295 - 25, 393));
 
 
@@ -138,6 +137,10 @@ void Overworld::loadButtons() {
 	chapterTwo->setPositionX(1260);
 	chapterTwo->setPositionY(891);
 	chapterTwo->registerHoverSprite(bookHoverBtnSprite);
+	if (!savegame->getCurrentGameData().levelData[3].completed)
+	{
+		chapterTwo->disable();
+	}
 
 	shared_ptr<Text> chapterTwoTxt = shared_ptr<Text>(new Text(77, new ColoredText("Chapter two", Color(0, 0, 0), false), 100, 50, 1260 - 25, 891 + 30));
 
@@ -151,6 +154,11 @@ void Overworld::loadButtons() {
 	chapterThree->registerHoverSprite(bookHoverBtnSprite);
 
 	shared_ptr<Text> chapterThreeTxt = shared_ptr<Text>(new Text(79, new ColoredText("Chapter three", Color(0, 0, 0), false), 100, 50, 1526 - 25, 385 + 30));
+	if (!savegame->getCurrentGameData().levelData[5].completed)
+	{
+		chapterThree->disable();
+	}
+
 
 
 
