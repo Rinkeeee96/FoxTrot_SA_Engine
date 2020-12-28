@@ -170,6 +170,8 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Game\Scenes\Story\ChapterThreeScene.h" />
+    <ClInclude Include="Game\Scenes\Story\ChapterTwoScene.h" />
     <ClInclude Include="Game\Characters\Enemies\Skryo.h" />
     <ClInclude Include="Game\Characters\Enemies\SlimeBoss.h" />
     <ClInclude Include="Game\Commands\Builder\CommandBuilder.h" />
@@ -248,6 +250,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\SpriteState.h" />
     <ClInclude Include="Game\PopUps\Pause\PausePopUp.h" />
     <ClInclude Include="Game\PopUps\Inventory\InventoryPopup.h" />
+    <ClInclude Include="Game\PopUps\hud\HudPopUp.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Game\Levels\Builders\ILevelBuilder.h" />
     <ClInclude Include="Game\Levels\Builders\LevelBuilderDirector.h" />
@@ -260,6 +263,8 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="Game\Scenes\Shop\Shop.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Game\Scenes\Story\ChapterThreeScene.cpp" />
+    <ClCompile Include="Game\Scenes\Story\ChapterTwoScene.cpp" />
     <ClCompile Include="Game\Characters\Enemies\Skryo.cpp" />
     <ClCompile Include="Game\Characters\Enemies\SlimeBoss.cpp" />
     <ClCompile Include="Game\Commands\Builder\CommandBuilder.cpp" />
@@ -302,6 +307,7 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
     <ClCompile Include="Glitch.cpp" />
     <ClCompile Include="Game\PopUps\Pause\PausePopUp.cpp" />
     <ClCompile Include="Game\PopUps\Inventory\InventoryPopup.cpp" />
+    <ClCompile Include="Game\PopUps\hud\HudPopUp.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
@@ -318,6 +324,8 @@ xcopy /e /h /c /i /y "$(SolutionDir)Glitch\Assets" "$(OutDir)Assets"</Command>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\Levels\Story\ChapterOne.txt" />
+    <Text Include="Assets\Levels\Story\ChapterThree.txt" />
+    <Text Include="Assets\Levels\Story\ChapterTwo.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

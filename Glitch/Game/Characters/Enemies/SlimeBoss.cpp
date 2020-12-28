@@ -117,7 +117,7 @@ void SlimeBoss::createSlime(int id, int startingTextureId, int x, int y) {
 /// DeltaTime should be used when calculating timers/manual movements
 void SlimeBoss::onUpdate(float deltaTime) {
 	if (this->getIsDead()) {
-		this->level.setWin(true);
+		this->level.changeToScene(true, "ChapterThree");
 		return;
 	}
 

@@ -31,22 +31,8 @@ void Level::onAttach() {
 /// @brief
 /// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
 void Level::start(bool playSound) {
-
-	// TODO kan ik de inventory layers aanmaken in de onAttach?
-	inventoryPopupZIndex = this->getHighestLayerIndex() + 1;
-	helpPopupZIndex = inventoryPopupZIndex + 1;
-	pausePopupZIndex = helpPopupZIndex + 1;
-
-	inventoryPopup = shared_ptr<InventoryPopup>(new InventoryPopup(this->engine, this->dispatcher, this->stateMachine));
-
-	this->addLayerOnZIndex(inventoryPopupZIndex, inventoryPopup);
-	this->addLayerOnZIndex(pausePopupZIndex, shared_ptr<Layer>(new PausePopUp(this->engine, this->dispatcher, this->stateMachine)));
-	this->addLayerOnZIndex(helpPopupZIndex, shared_ptr<Layer>(new HelpMenu(this->engine, this->dispatcher, this->stateMachine)));
-
-	commandBuilder->linkCommandToToggle(gameInvoker, inventoryPopupZIndex, "inventory");
-	commandBuilder->linkCommandToToggle(gameInvoker, pausePopupZIndex, "pause");
-	commandBuilder->linkCommandToToggle(gameInvoker, helpPopupZIndex, "help");
-	
+	loadScoreBoard();
+		
 	string helpstring{ "Help: " };
 	KeyCode k = gameInvoker->getKeycodeFromIdentifier("help");
 	helpstring.append(keycodeStringMap[k]);
@@ -55,12 +41,32 @@ void Level::start(bool playSound) {
 	helpText->setDrawStatic(true);
 	addNewObjectToLayer(8, helpText, false, true);
 
+	hudPopUpZIndex = this->getHighestLayerIndex() + 1;
+	inventoryPopupZIndex = hudPopUpZIndex + 1;
+	helpPopupZIndex = inventoryPopupZIndex + 1;
+	pausePopupZIndex = helpPopupZIndex + 1;
+
+	inventoryPopup = shared_ptr<InventoryPopup>(new InventoryPopup(this->engine, this->dispatcher, this->stateMachine));
+	hudPopUp = shared_ptr<HudPopUp>(new HudPopUp(this->engine, this->dispatcher, this->stateMachine));
+
+	this->addLayerOnZIndex(inventoryPopupZIndex, inventoryPopup);
+	this->addLayerOnZIndex(pausePopupZIndex, shared_ptr<Layer>(new PausePopUp(this->engine, this->dispatcher, this->stateMachine)));
+	this->addLayerOnZIndex(helpPopupZIndex, shared_ptr<Layer>(new HelpMenu(this->engine, this->dispatcher, this->stateMachine)));
+	this->addLayerOnZIndex(hudPopUpZIndex, hudPopUp);
+
+	commandBuilder->linkCommandToToggle(gameInvoker, inventoryPopupZIndex, "inventory");
+	commandBuilder->linkCommandToToggle(gameInvoker, pausePopupZIndex, "pause");
+	commandBuilder->linkCommandToToggle(gameInvoker, helpPopupZIndex, "help");
+
 	player->respawn();
 	player->setTotalHealth(savegame->getCurrentGameData().characterData.totalHealth);
 	player->setCurrentHealth(savegame->getCurrentGameData().characterData.totalHealth);
 	player->inventory = savegame->getCurrentGameData().characterData.inventory;
-	this->addHuds();
-	loadScoreBoard();
+	
+	hudPopUp->setPlayer(player);
+	hudPopUp->setBoss(boss);
+
+	
 	this->win = false;
 
 	this->setObjectToFollow(this->follow);
@@ -70,6 +76,8 @@ void Level::start(bool playSound) {
 			engine->startSound(s.first);
 		}
 	}
+
+	this->restartPhysics();
 }
 
 /// @brief Updates the level data such as objects that are removed or player is dead or won the level
@@ -77,7 +85,12 @@ void Level::start(bool playSound) {
 /// DeltaTime should be used when calculating timers/manual movements
 void Level::onUpdate(float deltaTime)
 {
-	this->addHuds();
+	if (init) {
+		this->restartPhysics();
+		init = false;
+	}
+
+	hudPopUp->onUpdate();
 
 	if (player && inventoryPopup)inventoryPopup->changeCoinCount(player->inventory.coins);
 
@@ -98,7 +111,12 @@ void Level::onUpdate(float deltaTime)
 		SaveGameData save = savegame->getCurrentGameData();
 		save.levelData[stateMachine->levelToBuild].completed = true;
 		savegame->saveCurrentGameData(save);
-		stateMachine->switchToScene("WinScreen", false);
+		if (this->shouldChangeToScene) {
+			stateMachine->switchToScene(this->next, false);
+		}
+		else {
+			stateMachine->switchToScene("WinScreen", false);
+		}
 		return;
 	}
 	if (player->getIsDead())
@@ -124,6 +142,15 @@ void Level::onUpdate(float deltaTime)
 			}
 		}
 	}
+}
+
+/// @brief
+// Set changes to scene to true with the string as next scene, the next game loop changes scene
+// @param shouldChange bool
+// @param _next identifier to next scene
+void Level::changeToScene(bool shouldChange, string _next) {
+	this->shouldChangeToScene = shouldChange;
+	this->next = _next;
 }
 
 void Level::restartPhysics() {
@@ -185,83 +212,6 @@ void Level::setPlayer(shared_ptr<Object> object) {
 void Level::setSound(map<string, string> _sounds)
 {
 	sounds = _sounds;
-}
-
-/// @brief
-/// Add HUD for lifes of player
-void Level::addHuds() {
-	this->huds.clear();
-	// Health HUDS
-	int startingID = -662;
-	int xAxisChange = 75;
-	int startingXAxis = 25;
-	int current = 0;
-	shared_ptr<SpriteObject> HealthHUD = shared_ptr<SpriteObject>(new SpriteObject(-660, 50, 50, 1, 300, "Assets/Sprites/HUD/Full.png"));
-	shared_ptr<SpriteObject> EmptyHealthHUD = shared_ptr<SpriteObject>(new SpriteObject(-661, 50, 50, 1, 300, "Assets/Sprites/HUD/Empty.png"));
-
-	for (size_t i = 0; i < player->getCurrentHealth(); i++)
-	{
-		this->addHealthHud(startingID, startingXAxis, xAxisChange, current, HealthHUD);
-	}
-	int damageTaken = player->getTotalHealth() - player->getCurrentHealth();
-	for (size_t i = 0; i < damageTaken; i++)
-	{
-		this->addHealthHud(startingID, startingXAxis, xAxisChange, current, EmptyHealthHUD);
-	}
-	if (boss.get()) {
-		this->addBossHud();
-	}
-}
-
-void Level::addBossHud() {
-	shared_ptr<SpriteObject> PROGRESSBAR_EMPTY = shared_ptr<SpriteObject>(new SpriteObject(-503, 24, 192, 1, 1, "Assets/LoadingBar/progress-bar-empty.png"));
-	shared_ptr<SpriteObject> PROGRESSBAR_FULL = shared_ptr<SpriteObject>(new SpriteObject(-504, 24, 192, 1, 1, "Assets/LoadingBar/progress-bar-full.png"));
-
-	shared_ptr<Drawable> filler = shared_ptr<Drawable>(new Drawable(-1233));
-	filler->setStatic(true);
-	filler->setPositionX(500);
-	filler->setPositionY(150 - 35);
-	filler->setHeight(55);
-	filler->setDrawStatic(true);
-	filler->registerSprite(SpriteState::DEFAULT, PROGRESSBAR_FULL);
-	filler->changeToState(SpriteState::DEFAULT);
-
-	auto w = 920 / this->boss->getTotalHealth();
-	filler->setWidth(w * this->boss->getCurrentHealth());
-
-	addNewObjectToLayer(101, filler, false, true);
-	this->huds.push_back(filler);
-
-	shared_ptr<Drawable> health = shared_ptr<Drawable>(new Drawable(-1230));
-	health->setStatic(true);
-	health->setPositionX(460);
-	health->setPositionY(150);
-	health->setWidth(1000);
-	health->setHeight(125);
-	health->setDrawStatic(true);
-	health->registerSprite(SpriteState::DEFAULT, PROGRESSBAR_EMPTY);
-	health->changeToState(SpriteState::DEFAULT);
-
-	addNewObjectToLayer(100, health, false, true);
-	this->huds.push_back(health);
-}
-
-/// @brief
-/// Add single HUD for lifes of player
-void Level::addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, shared_ptr<SpriteObject> HUD) {
-	shared_ptr<Drawable> health = shared_ptr<Drawable>(new Drawable(startingID--));
-	health->setStatic(true);
-	health->setPositionX(((startingXAxis + (float)(xAxisChange * (current + 1)))));
-	health->setPositionY(100);
-	health->setWidth(50);
-	health->setHeight(50);
-	health->setDrawStatic(true);
-	health->registerSprite(SpriteState::DEFAULT, HUD);
-	health->changeToState(SpriteState::DEFAULT);
-	
-	addNewObjectToLayer(100, health, false, true);
-	this->huds.push_back(health);
-	current++;
 }
 
 /// @brief 

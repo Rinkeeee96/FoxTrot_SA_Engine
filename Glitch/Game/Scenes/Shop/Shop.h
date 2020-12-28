@@ -1,5 +1,6 @@
 #pragma once
 #include "Game/Scenes/GameScene.h"
+#include "Game/Buttons/PrimaryButton.h"
 
 class Player;
 
@@ -15,13 +16,18 @@ public:
 	void onDetach() override;
 	void start(bool playSound) override;
 	void onUpdate(float deltaTime) override;
-
 private:
 	void loadBackground();
 	void loadMusic();
 	void loadButtons();
+	void calculateCurrentPrice();
+	void updateTextBoxes();
+	int currentPrice = 0;
 
-	shared_ptr<Text> text;
+	shared_ptr<Text> text = nullptr; 
+	shared_ptr<Text> heartText2 = nullptr;
+
+	shared_ptr<PrimaryButton> buyBTN = nullptr;
 
 	bool handlePurchase = false;
 

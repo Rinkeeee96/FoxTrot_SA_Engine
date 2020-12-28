@@ -5,6 +5,7 @@
 
 class IEnemy;
 class InventoryPopup;
+class HudPopUp;
 class Player;
 /// @brief 
 /// Level class. Level has all the information. 
@@ -24,19 +25,17 @@ public:
 	void onDetach() override;
 	void onUpdate(float deltaTime) override;
 
-	void addHuds();
-	void addBossHud();
-
 	void restartPhysics();
 	bool onToggleLayerEvent(const Event& event);
 	void setWin(const bool val) { this->win = val; }
 	bool getWin() const { return this->win; }
 
+	void changeToScene(bool shouldChange, string _next); 
 protected:
-	void addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, shared_ptr<SpriteObject> HUD);
-	vector<shared_ptr<Drawable>> huds;
-
-	shared_ptr<InventoryPopup> inventoryPopup;
+  bool shouldChangeToScene = false;
+	string next;
+	shared_ptr<InventoryPopup> inventoryPopup = nullptr;
+	shared_ptr<HudPopUp> hudPopUp = nullptr;
 
 	void throwAchievement(Achievement achievement);
 	void increaseTotalGameScore(const int amount);
@@ -57,6 +56,7 @@ protected:
 	int pausePopupZIndex = 0;
 	int inventoryPopupZIndex = 0;
 	int helpPopupZIndex = 0;
+	int hudPopUpZIndex = 0;
 
 	int achievementZIndex = 0;
 
@@ -66,4 +66,6 @@ protected:
 	float startPosPlayerX = 0;
 	float startPosPlayerY = 0;
 	bool shouldRestart  = false;
+
+	bool init = true;
 };

@@ -10,6 +10,7 @@ public:
 	};
 	// Inherited via BasePopup
 	void setupPopUp() override;
+	void onUpdate() override {};
 private:
 	void onBackButtonClick();
 

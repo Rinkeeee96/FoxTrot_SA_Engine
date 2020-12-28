@@ -24,6 +24,9 @@ void Overworld::loadButtons() {
 	shared_ptr<SpriteObject> defaultBtnSprite = shared_ptr<SpriteObject>(new SpriteObject(101013, 11, 15, 1, 300, "Assets/Buttons/village_orange.png"));
 	shared_ptr<SpriteObject> hoverBtnSprite = shared_ptr<SpriteObject>(new SpriteObject(101012, 11, 15, 1, 300, "Assets/Buttons/village_gray.png"));
 
+	shared_ptr<SpriteObject> bookBtnSprite = shared_ptr<SpriteObject>(new SpriteObject(101014, 300, 300, 1, 300, "Assets/Buttons/book.png"));
+	shared_ptr<SpriteObject> bookHoverBtnSprite = shared_ptr<SpriteObject>(new SpriteObject(101015, 300, 300, 1, 300, "Assets/Buttons/book_hoover.png"));
+
 	shared_ptr<Button> shop = shared_ptr<Button>(new Button(10, ColoredText("", Color(255, 255, 255)), onShopBtnClick, defaultBtnSprite, this->dispatcher));
 	shop->setWidth(32);
 	shop->setHeight(32);
@@ -128,6 +131,39 @@ void Overworld::loadButtons() {
 
 
 
+	shared_ptr<Button> chapterTwo = shared_ptr<Button>(new Button(76, ColoredText("", Color(0, 0, 0)), onChapterTwoClick, bookBtnSprite, this->dispatcher));
+	chapterTwo->setWidth(32);
+	chapterTwo->setHeight(32);
+	chapterTwo->setPositionX(1260);
+	chapterTwo->setPositionY(891);
+	chapterTwo->registerHoverSprite(bookHoverBtnSprite);
+	if (!savegame->getCurrentGameData().levelData[3].completed)
+	{
+		chapterTwo->disable();
+	}
+
+	shared_ptr<Text> chapterTwoTxt = shared_ptr<Text>(new Text(77, new ColoredText("Chapter two", Color(0, 0, 0), false), 100, 50, 1260 - 25, 891 + 30));
+
+
+
+	shared_ptr<Button> chapterThree = shared_ptr<Button>(new Button(78, ColoredText("", Color(0, 0, 0)), onChapterThreeClick, bookBtnSprite, this->dispatcher));
+	chapterThree->setWidth(32);
+	chapterThree->setHeight(32);
+	chapterThree->setPositionX(1526);
+	chapterThree->setPositionY(385);
+	chapterThree->registerHoverSprite(bookHoverBtnSprite);
+
+	shared_ptr<Text> chapterThreeTxt = shared_ptr<Text>(new Text(79, new ColoredText("Chapter three", Color(0, 0, 0), false), 100, 50, 1526 - 25, 385 + 30));
+	if (!savegame->getCurrentGameData().levelData[5].completed)
+	{
+		chapterThree->disable();
+	}
+
+
+
+
+
+
 	string level5Name = "Locked";
 	if (savegame->getCurrentGameData().levelData[4].completed)
 	{
@@ -149,6 +185,10 @@ void Overworld::loadButtons() {
 
 	addNewObjectToLayer(3, chapterOne);
 	addNewObjectToLayer(3, chapterOneTxt);
+	addNewObjectToLayer(3, chapterTwo);
+	addNewObjectToLayer(3, chapterTwoTxt);
+	addNewObjectToLayer(3, chapterThree);
+	addNewObjectToLayer(3, chapterThreeTxt);
 	addNewObjectToLayer(3, level1Btn);
 	addNewObjectToLayer(3, level1TextBtn);
 	addNewObjectToLayer(3, level2Btn);
