@@ -103,7 +103,7 @@ void MainMenu::onUpdate(float deltaTime)
 {
 	if (moveToNextScene)
 	{
-		stateMachine->switchToScene(nextScene, useTransition, playSound);
+		stateMachine->switchToScene(nextScene, useTransition, playSound|playMusicCredits);
 	}
 }
 
