@@ -10,5 +10,5 @@ private:
 public:
 	virtual ~FileLoader() {};
 	ifstream readFile(const string& path);
-	bool validateDocument(const string& path, const string& validationPath);
+	bool validateDocument(string& path, string& validationPath);
 };

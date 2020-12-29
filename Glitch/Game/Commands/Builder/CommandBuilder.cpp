@@ -40,8 +40,8 @@ GameKeypressInvoker* CommandBuilder::readBindingsAndCreateInvoker() {
 		stream = fileLoader.readFile(keybindingConfigFilepath);
 		stream >> json;
 		stream.close();
-
-		bool validConfigFile = fileLoader.validateDocument(keybindingConfigFilepath, "Assets/Config/keybinding-validation-schema.json");
+		string valiPath = "Assets/Config/keybinding-validation-schema.json";
+		bool validConfigFile = fileLoader.validateDocument(keybindingConfigFilepath, valiPath);
 		if (validConfigFile) {
 			parseKeybindingsToMap(playerBindings, globalBindings);
 			invoker = new GameKeypressInvoker(playerBindings, globalBindings);

@@ -85,7 +85,8 @@ bool Savegame::readSaveGameDataFromJson(string& path)
 	bool validLevel;
 	try
 	{
-		validLevel = fileLoader.validateDocument(path, "Assets/Savegame/savegamedataschema.json");
+		string valiPath = "Assets/Savegame/savegamedataschema.json";
+		validLevel = fileLoader.validateDocument(path, valiPath);
 	}
 	catch (const std::exception& exc)
 	{
