@@ -22,7 +22,7 @@ public:
 	const char* getName() const override { return "Move to Event"; }
 private:
 	Object& object;
-	float x;
-	float y;
-	float speed;
+	float x = 0;
+	float y = 0;
+	float speed = 0;
 };

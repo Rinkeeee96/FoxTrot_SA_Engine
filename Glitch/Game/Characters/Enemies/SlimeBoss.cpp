@@ -84,7 +84,7 @@ void SlimeBoss::spawnEnemies() {
 
 /// @brief 
 /// Adds new slime to the level
-void SlimeBoss::createSlime(int id, int startingTextureId, int x, int y) {
+void SlimeBoss::createSlime(int id, int startingTextureId, float x, float y) {
 	shared_ptr<Slime> slime1 = shared_ptr<Slime>(new Slime(id, level.getEventDispatcher()));
 	slime1->setPositionX(x);
 	slime1->setPositionY(y);

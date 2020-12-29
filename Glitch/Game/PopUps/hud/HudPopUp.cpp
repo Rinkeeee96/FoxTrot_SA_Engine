@@ -80,7 +80,7 @@ void HudPopUp::addBossHud() {
 	filler->changeToState(SpriteState::DEFAULT);
 
 	auto w = 920 / this->boss->getTotalHealth();
-	filler->setWidth(w * this->boss->getCurrentHealth());
+	filler->setWidth((float)(w * this->boss->getCurrentHealth()));
 
 	shared_ptr<Drawable> health = shared_ptr<Drawable>(new Drawable(-1233));
 	health->setStatic(true);

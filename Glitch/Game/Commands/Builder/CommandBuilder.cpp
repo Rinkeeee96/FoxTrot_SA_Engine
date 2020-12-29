@@ -50,7 +50,7 @@ GameKeypressInvoker* CommandBuilder::readBindingsAndCreateInvoker() {
 			throw exception("CommandBuilder: Something went wrong validating file, make sure the file is correct");
 		}
 	}
-	catch (const std::exception& e)
+	catch (exception e)
 	{
 		this->createDefaultbindings(playerBindings, globalBindings);
 		invoker = new GameKeypressInvoker(playerBindings, globalBindings);

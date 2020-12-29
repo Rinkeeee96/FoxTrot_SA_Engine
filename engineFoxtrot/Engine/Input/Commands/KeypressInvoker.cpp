@@ -105,4 +105,5 @@ ICommand* KeypressInvoker::getCommandByIdentifier(const string& identifier) {
 			return it.second;
 		}
 	}
+	return NULL;
 }
