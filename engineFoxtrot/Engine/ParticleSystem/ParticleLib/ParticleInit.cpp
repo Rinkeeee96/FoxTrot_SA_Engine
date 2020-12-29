@@ -680,6 +680,64 @@ void ParticleInit::setStyle(ParticleStyle style)
         _posVar = { 1.0f * x_, 0.0f };
         break;
     }
+    case ParticleInit::ParticleStyle::TORCH:
+    {
+        initWithTotalParticles(250);
+
+        // duration
+        _duration = DURATION_INFINITY;
+
+        // Gravity Mode
+        this->_emitterMode = Mode::GRAVITY;
+
+        // Gravity Mode: gravity
+        this->modeA.gravity = { 0, 0 };
+
+        // Gravity Mode: radial acceleration
+        this->modeA.radialAccel = 0;
+        this->modeA.radialAccelVar = 0;
+
+        // Gravity Mode: speed of particles
+        this->modeA.speed = -20;
+        this->modeA.speedVar = 20;
+
+        // starting angle
+        _angle = 90;
+        _angleVar = 10;
+
+        // life of particles
+        _life = 2.5f;
+        _lifeVar = 0.25f;
+
+        // size, in pixels
+        _startSize = 10.0f;
+        _startSizeVar = 2.0f;
+        _endSize = START_SIZE_EQUAL_TO_END_SIZE;
+
+        // emits per frame
+        _emissionRate = _totalParticles / _life;
+
+        // color of particles
+        _startColor.red = 0.76f;
+        _startColor.green = 0.25f;
+        _startColor.blue = 0.12f;
+        _startColor.alpha = 1.0f;
+        _startColorVar.red = 0.0f;
+        _startColorVar.green = 0.0f;
+        _startColorVar.blue = 0.0f;
+        _startColorVar.alpha = 0.0f;
+        _endColor.red = 0.0f;
+        _endColor.green = 0.0f;
+        _endColor.blue = 0.0f;
+        _endColor.alpha = 0.0f;
+        _endColorVar.red = 0.0f;
+        _endColorVar.green = 0.0f;
+        _endColorVar.blue = 0.0f;
+        _endColorVar.alpha = 0.0f;
+
+        _posVar = { 2.0f, 0.0f };
+        break;
+    }
     default:
         break;
     }

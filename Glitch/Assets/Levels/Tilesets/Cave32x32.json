@@ -16,7 +16,7 @@
  "margin":0,
  "name":"Cave32x32",
  "spacing":0,
- "tilecount":22,
+ "tilecount":26,
  "tiledversion":"1.4.3",
  "tileheight":300,
  "tiles":[
@@ -149,6 +149,30 @@
         {
          "id":21,
          "image":"..\/Tiles\/cavebgtile.png",
+         "imageheight":32,
+         "imagewidth":32
+        }, 
+        {
+         "id":22,
+         "image":"..\/Tiles\/walltorch1.png",
+         "imageheight":37,
+         "imagewidth":32
+        }, 
+        {
+         "id":23,
+         "image":"..\/Tiles\/walltorch2.png",
+         "imageheight":35,
+         "imagewidth":32
+        }, 
+        {
+         "id":24,
+         "image":"..\/Tiles\/walltorch3.png",
+         "imageheight":26,
+         "imagewidth":32
+        }, 
+        {
+         "id":25,
+         "image":"..\/Tiles\/walltorch4.png",
          "imageheight":32,
          "imagewidth":32
         }],
