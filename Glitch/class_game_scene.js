@@ -2,7 +2,6 @@ var class_game_scene =
 [
     [ "GameScene", "class_game_scene.html#a8e7210ed3ecaca1dd5250831be2128c8", null ],
     [ "GameScene", "class_game_scene.html#aa30ce2155e8eeef74e93dda570805e01", null ],
-    [ "getEngine", "class_game_scene.html#ae358d001d9ca809698c175ff623cdaf5", null ],
     [ "onAttach", "class_game_scene.html#a3eb5d44e08e9c368970b1fd3cff3c883", null ],
     [ "onDetach", "class_game_scene.html#a52ce20b0100654e993e97f504b79ccd5", null ],
     [ "onUpdate", "class_game_scene.html#a9f255feaf433d1ad7f10b8c90c62ea71", null ],
