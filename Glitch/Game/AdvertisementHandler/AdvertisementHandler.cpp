@@ -99,8 +99,8 @@ void AdvertisementHandler::getLatestAdvertisements()
 
 	if (adPaths.size() <= 0) return;
 
+	// Verify how many ads we have locally and store it. 
+	// If we have ads online that we dont have locally we download them
 	downloadMissingAds();
-
-    // Parse Json 
 }
 
