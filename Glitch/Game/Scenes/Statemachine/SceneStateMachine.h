@@ -23,13 +23,6 @@ public:
 	int activePopupCount() { return activePopups.size(); }
 
 	void deregisterActivePopup(IPopup* popupToDeregister) {
-
-		/*auto el = std::find(activePopups.begin(), activePopups.end(), popupToDeregister);
-		auto p = std::remove_if(activePopups.begin(), el, (popupToDeregister == *el));
-
-		activePopups.erase(p, el);*/
-
-
 		activePopups.erase(
 			std::remove_if(
 				activePopups.begin(),
