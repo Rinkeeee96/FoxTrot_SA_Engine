@@ -47,14 +47,18 @@ void AdvertisementHandler::downloadMissingAds()
 		cout << fileName << endl;
 		// Verify if we have the file locally
 
-		string basePath = "./Assets/Advertisement/";
-		bool result = fileLoader.doesFileExist(basePath + fileName);
+		bool result = fileLoader.doesFileExist(BASE_PATH_AD_FOLDER + fileName);
 		if (!result)
 		{
+			cout << "File does not exists locally, downloading!" << endl;
 			// Doesnt exists offline so download it.
 			string url = ad;
-			string path = "./Assets/Advertisements/" + fileName;
+			string path = BASE_PATH_AD_FOLDER + fileName;
 			fileLoader.downloadFile(url, path);
+		}
+		else
+		{
+			cout << "File exists locally, no need to download" << endl;
 		}
 	}
 }
@@ -111,7 +115,7 @@ void AdvertisementHandler::getLatestAdvertisements()
     // Get Json
     // https://raw.githubusercontent.com/Rinkeeee96/FoxTrot_SA_Engine/master/Glitch/Assets/Advertisements/advertisements.json
     string url = "https://raw.githubusercontent.com/Rinkeeee96/FoxTrot_SA_Engine/master/Glitch/Assets/Advertisements/advertisements.json";
-    string path = "./Assets/Advertisements/ads.json";
+    string path = JSON_AD_PATH;
     fileLoader.downloadFile(url,path);
 
 	bool result = readFileAndParseJson(path);
