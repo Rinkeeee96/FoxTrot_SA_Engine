@@ -26,7 +26,7 @@ void GeneralTransition::loadBackground()
 	string* imageLoc = new string("Assets/Advertisments/" + to_string(randomNumber) + ".png");
 
 	shared_ptr<SpriteObject> BG_LAYER_0 = shared_ptr<SpriteObject>(new SpriteObject(-500, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_0.png"));
-	shared_ptr<SpriteObject> BG_LAYER_ADVENTRUE = shared_ptr<SpriteObject>(new SpriteObject(-501, 28, 28, 6, 300, "Assets/Sprites/Character/adventure_run_right.png"));
+	shared_ptr<SpriteObject> BG_LAYER_ADVENTRUE = shared_ptr<SpriteObject>(new SpriteObject(-501, 31, 33, 6, 300, "Assets/Sprites/Character/adventure_run_right.png"));
 	shared_ptr<SpriteObject> BG_LAYER_2 = shared_ptr<SpriteObject>(new SpriteObject(-502, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_2.png"));
 	shared_ptr<SpriteObject> AD_IMAGE = shared_ptr<SpriteObject>(new SpriteObject(-503, 185, 606, 1, 300, imageLoc->c_str()));
 	shared_ptr<SpriteObject> ADVERTISMENT_BLOCK = shared_ptr<SpriteObject>(new SpriteObject(-504, 309, 253, 1, 300, "Assets/Inventory/text_background.png"));

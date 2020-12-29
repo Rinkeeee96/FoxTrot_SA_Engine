@@ -39,9 +39,9 @@ void WinScreen::LoadButtons() {
 /// Create the background for this scene
 void WinScreen::LoadBackground() {
 	shared_ptr<SpriteObject> BG_LAYER_0 = shared_ptr<SpriteObject>(new SpriteObject(-992882, 1080, 1920, 1, 300, "Assets/Backgrounds/game_win_layer_0.png"));
-	shared_ptr<SpriteObject> BG_LAYER_ADVENTRUE_JUMP = shared_ptr<SpriteObject>(new SpriteObject(-992883, 33, 24, 2, 300, "Assets/Sprites/Character/adventure_jump_right.png"));
-	shared_ptr<SpriteObject> BG_LAYER_ADVENTRUE_FALL = shared_ptr<SpriteObject>(new SpriteObject(-992884, 31, 19, 2, 300, "Assets/Sprites/Character/adventure_fall_right.png"));
-	shared_ptr<SpriteObject> BG_LAYER_ADVENTRUE = shared_ptr<SpriteObject>(new SpriteObject(-992885, 28, 28, 6, 300, "Assets/Sprites/Character/adventure_run_right.png"));
+	shared_ptr<SpriteObject> BG_LAYER_ADVENTRUE_JUMP = shared_ptr<SpriteObject>(new SpriteObject(-992883, 31, 33, 2, 300, "Assets/Sprites/Character/adventure_jump_right.png"));
+	shared_ptr<SpriteObject> BG_LAYER_ADVENTRUE_FALL = shared_ptr<SpriteObject>(new SpriteObject(-992884, 31, 33, 2, 300, "Assets/Sprites/Character/adventure_fall_right.png"));
+	shared_ptr<SpriteObject> BG_LAYER_ADVENTRUE = shared_ptr<SpriteObject>(new SpriteObject(-992885, 31, 33, 6, 300, "Assets/Sprites/Character/adventure_run_right.png"));
 	shared_ptr<SpriteObject> particleSprite = shared_ptr<SpriteObject>(new SpriteObject(-992886, 20, 20, 20, 300, "Assets/Particles/fire.png"));
 
 
@@ -59,7 +59,7 @@ void WinScreen::LoadBackground() {
 	animation->setPositionX(175);
 	animation->setPositionY(1030);
 	animation->setWidth(370);
-	animation->setHeight(500);
+	animation->setHeight(370);
 	animation->registerSprite(SpriteState::DEFAULT, BG_LAYER_ADVENTRUE_JUMP);
 	animation->registerSprite(SpriteState::AIR_JUMP_RIGHT, BG_LAYER_ADVENTRUE_JUMP);
 	animation->registerSprite(SpriteState::AIR_FALL_RIGHT, BG_LAYER_ADVENTRUE_FALL);
