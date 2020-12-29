@@ -7,6 +7,7 @@ var class_engine =
     [ "getDeltaTime", "class_engine.html#a87ef2163210af4b480375091d94e6895", null ],
     [ "getEngineRunning", "class_engine.html#aa1d2632aba5caf68005ce340bcdaa252", null ],
     [ "getKeypressedInvoker", "class_engine.html#a720008e4aaa071d9a4aebb6ed0066f60", null ],
+    [ "getSingleKeyStroke", "class_engine.html#ab85f7fd457d6c0f93ef65857822aa494", null ],
     [ "insertScene", "class_engine.html#ad18c3be05163ac05b5153afc24dc29d0", null ],
     [ "loadSound", "class_engine.html#aece87efecfa18b9de057737b0c239011", null ],
     [ "loadSound", "class_engine.html#a12d740aa16e10017280776280c6dbf42", null ],
