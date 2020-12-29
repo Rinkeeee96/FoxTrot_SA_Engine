@@ -1,7 +1,6 @@
 var class_help_menu =
 [
     [ "HelpMenu", "class_help_menu.html#ad5c74b9b6531cacc39d8828de268d8e6", null ],
-    [ "~HelpMenu", "class_help_menu.html#a7d877106021a8653d4f26b4cb63ac6cc", null ],
     [ "cleanPopUp", "class_help_menu.html#aeeedb13c2874cc6aa94f2bf3814e4085", null ],
     [ "onAttach", "class_help_menu.html#ab7969a6b8c6f1eeadd1d0d38a94645ce", null ],
     [ "onDetach", "class_help_menu.html#acc5388442cbe30823a32fa5b357b6395", null ],

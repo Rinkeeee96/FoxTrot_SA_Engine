@@ -70,27 +70,24 @@ $(document).ready(function(){initNavTree('_help_menu_8h_source.html',''); initRe
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_help_menu.html">HelpMenu</a>(unique_ptr&lt;Engine&gt;&amp; _engine, EventDispatcher&amp; _dispatcher, shared_ptr&lt;SceneStateMachine&gt; _stateMachine) :</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        <a class="code" href="class_i_popup.html">IPopup</a>(_engine, _dispatcher, _stateMachine) {};</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    ~<a class="code" href="class_help_menu.html">HelpMenu</a>() {};</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="comment">// Inherited via IPopup</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_help_menu.html#ae3d6468b1ff285b56bdb98cfb6d1d27b">setupPopUp</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_help_menu.html#aeeedb13c2874cc6aa94f2bf3814e4085">cleanPopUp</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_help_menu.html#ab7969a6b8c6f1eeadd1d0d38a94645ce">onAttach</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_help_menu.html#acc5388442cbe30823a32fa5b357b6395">onDetach</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">void</span> onUpdate()<span class="keyword"> override </span>{};</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_help_menu.html#a949265c73419d2d44d765ffd8e6d4933">parseKeycodeList</a>(unordered_map&lt;KeyCode, string&gt; parseList, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; header);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">float</span> helpCommandStartOffset = 250;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">int</span> textId = -1;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="comment">// Inherited via IPopup</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_help_menu.html#ae3d6468b1ff285b56bdb98cfb6d1d27b">setupPopUp</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_help_menu.html#aeeedb13c2874cc6aa94f2bf3814e4085">cleanPopUp</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">void</span> onAttach() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">void</span> onDetach() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">void</span> onUpdate()<span class="keyword"> override </span>{};</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_help_menu.html#a949265c73419d2d44d765ffd8e6d4933">parseKeycodeList</a>(unordered_map&lt;KeyCode, string&gt; parseList, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; header);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">float</span> helpCommandStartOffset = 250;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">int</span> textId = -1;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_help_menu_html_ab7969a6b8c6f1eeadd1d0d38a94645ce"><div class="ttname"><a href="class_help_menu.html#ab7969a6b8c6f1eeadd1d0d38a94645ce">HelpMenu::onAttach</a></div><div class="ttdeci">void onAttach() override</div><div class="ttdoc">Function called on the attach.</div><div class="ttdef"><b>Definition:</b> HelpMenu.cpp:85</div></div>
 <div class="ttc" id="aclass_i_popup_html"><div class="ttname"><a href="class_i_popup.html">IPopup</a></div><div class="ttdoc">Interface class for a popUp.</div><div class="ttdef"><b>Definition:</b> IPopup.h:7</div></div>
 <div class="ttc" id="aclass_help_menu_html_aeeedb13c2874cc6aa94f2bf3814e4085"><div class="ttname"><a href="class_help_menu.html#aeeedb13c2874cc6aa94f2bf3814e4085">HelpMenu::cleanPopUp</a></div><div class="ttdeci">void cleanPopUp() override</div><div class="ttdoc">Cleans the popUp.</div><div class="ttdef"><b>Definition:</b> HelpMenu.cpp:77</div></div>
 <div class="ttc" id="aclass_help_menu_html"><div class="ttname"><a href="class_help_menu.html">HelpMenu</a></div><div class="ttdoc">Class for the Helpscreen PopUp.</div><div class="ttdef"><b>Definition:</b> HelpMenu.h:6</div></div>
-<div class="ttc" id="aclass_help_menu_html_acc5388442cbe30823a32fa5b357b6395"><div class="ttname"><a href="class_help_menu.html#acc5388442cbe30823a32fa5b357b6395">HelpMenu::onDetach</a></div><div class="ttdeci">void onDetach() override</div><div class="ttdoc">Function called on the detach.</div><div class="ttdef"><b>Definition:</b> HelpMenu.cpp:95</div></div>
 <div class="ttc" id="aclass_help_menu_html_a949265c73419d2d44d765ffd8e6d4933"><div class="ttname"><a href="class_help_menu.html#a949265c73419d2d44d765ffd8e6d4933">HelpMenu::parseKeycodeList</a></div><div class="ttdeci">void parseKeycodeList(unordered_map&lt; KeyCode, string &gt; parseList, const string &amp;header)</div><div class="ttdoc">Function that creates text functions from the set keycode's.</div><div class="ttdef"><b>Definition:</b> HelpMenu.cpp:33</div></div>
 <div class="ttc" id="aclass_help_menu_html_ae3d6468b1ff285b56bdb98cfb6d1d27b"><div class="ttname"><a href="class_help_menu.html#ae3d6468b1ff285b56bdb98cfb6d1d27b">HelpMenu::setupPopUp</a></div><div class="ttdeci">void setupPopUp() override</div><div class="ttdoc">The setup function to create the Pop up layer.</div><div class="ttdef"><b>Definition:</b> HelpMenu.cpp:6</div></div>
 <!-- start footer part -->
