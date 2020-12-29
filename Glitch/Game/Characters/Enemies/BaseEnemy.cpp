@@ -14,22 +14,41 @@ bool BaseEnemy::onCollisionBeginEvent(const Event& event) {
 	auto collidedDirection = map[this->getObjectId()];
 
 	if (std::find(collidedDirection.begin(), collidedDirection.end(), Direction::UP) != collidedDirection.end()) {
+
 		if (collisionEvent.getObjectOne()->getObjectId() == this->getObjectId()) {
+
+
 			shared_ptr<Object> otherEntity = collisionEvent.getObjectTwo();
 
 			if (this->player->getObjectId() == otherEntity->getObjectId()) {
-				this->kill();
-				int randomNumber = 1 + (rand() % static_cast<int>(5 - 1 + 1));
-				this->player->inventory.coins += randomNumber;
+				collidedDirection = map[otherEntity->getObjectId()];
+				if (std::find(collidedDirection.begin(), collidedDirection.end(), Direction::DOWN) != collidedDirection.end()) {
+					if (std::find(collidedDirection.begin(), collidedDirection.end(), Direction::UP) != collidedDirection.end()) {
+						this->doDamage();
+					}
+					else {
+						this->kill();
+						int randomNumber = 1 + (rand() % static_cast<int>(5 - 1 + 1));
+						this->player->inventory.coins += randomNumber;
+					}
+				}
 			}
 		}
 		else if (collisionEvent.getObjectTwo()->getObjectId() == this->getObjectId()) {
 			shared_ptr<Object> otherEntity = collisionEvent.getObjectOne();
 
 			if (this->player->getObjectId() == otherEntity->getObjectId()) {
-				this->kill();
-				int randomNumber = 1 + (rand() % static_cast<int>(5 - 1 + 1));
-				this->player->inventory.coins += randomNumber;
+				collidedDirection = map[otherEntity->getObjectId()];
+				if (std::find(collidedDirection.begin(), collidedDirection.end(), Direction::DOWN) != collidedDirection.end()) {
+					if (std::find(collidedDirection.begin(), collidedDirection.end(), Direction::UP) != collidedDirection.end()) {
+						this->doDamage();
+					}
+					else {
+						this->kill();
+						int randomNumber = 1 + (rand() % static_cast<int>(5 - 1 + 1));
+						this->player->inventory.coins += randomNumber;
+					}
+				}
 			}
 		}
 	}
