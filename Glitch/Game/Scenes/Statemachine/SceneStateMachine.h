@@ -20,7 +20,7 @@ public:
 		activePopups.push_back(popup);
 	}
 
-	int activePopupCount() { return activePopups.size(); }
+	int activePopupCount() { return (int)activePopups.size(); }
 
 	void deregisterActivePopup(IPopup* popupToDeregister) {
 		activePopups.erase(

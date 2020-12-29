@@ -23,5 +23,5 @@ protected:
 private:
 	unordered_map<KeyCode, ICommand*> commands;
 	queue<KeyCode> executionQueue;
-	bool isPaused;
+	bool isPaused = false;;
 };

@@ -111,7 +111,7 @@ int GeneralTransition::getFileAdfileCount()
 {
 	auto dirIter = filesystem::directory_iterator("Assets/Advertisments/");
 
-	int fileCount = std::count_if(
+	int fileCount = (int)std::count_if(
 		begin(dirIter),
 		end(dirIter),
 		[](auto& entry) { return entry.is_regular_file(); }
