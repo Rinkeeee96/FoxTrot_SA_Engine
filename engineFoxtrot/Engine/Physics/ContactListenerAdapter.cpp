@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "ContactListenerAdapter.h"
+#include "Structs/HelperStructs.h"
 
 /// @brief 
 /// Fires Event when a contact between two objects begin
