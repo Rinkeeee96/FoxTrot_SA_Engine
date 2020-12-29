@@ -94,7 +94,7 @@ void SaveScreen::loadBackground()
 	animation->setPositionX(175);
 	animation->setPositionY(875);
 	animation->setWidth(370);
-	animation->setHeight(500);
+	animation->setHeight(370);
 	animation->registerSprite(SpriteState::DEFAULT, BG_LAYER_ADVENTRUE);
 	animation->changeToState(SpriteState::DEFAULT);
 	animation->setScalable(false);
