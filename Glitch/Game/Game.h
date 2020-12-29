@@ -2,7 +2,6 @@
 #include "Game/Characters/Player/Player.h"
 #include "Game/Scenes/Statemachine/SceneStateMachine.h"
 #include "Game/SaveGame/Savegame.h"
-#include "Game/AdvertisementHandler/AdvertisementHandler.h"
 
 /// @brief 
 /// Game class runs the game

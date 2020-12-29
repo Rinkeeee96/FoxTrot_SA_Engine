@@ -10,7 +10,7 @@ class GeneralTransition : public GameScene
 public:
 	GeneralTransition(const int id, unique_ptr<Engine>& engine, shared_ptr<SceneStateMachine> _statemachine) : GameScene(id, engine, _statemachine) 
 	{
-		adHandler = unique_ptr<AdvertisementHandler>(new AdvertisementHandler{ engine });
+		adHandler = unique_ptr<AdvertisementHandler>(new AdvertisementHandler());
 	};
 	~GeneralTransition() {};
 
@@ -22,13 +22,13 @@ public:
 
 	void setNextScene(string const identifier);
 
-	int getFileAdfileCount();
-
 private:
+
+	string getRandomAdFileName();
+
 	void loadBackground();
 	shared_ptr<Drawable> animation = nullptr;
 
-	bool loadAds = true;
 	unique_ptr<AdvertisementHandler> adHandler;
 
 	string nextScene = "";

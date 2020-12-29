@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "AdvertisementHandler.h"
 
-AdvertisementHandler::AdvertisementHandler(unique_ptr<Engine>& _engine) : engine(_engine)
+AdvertisementHandler::AdvertisementHandler()
 {
 
 }
@@ -60,6 +60,8 @@ void AdvertisementHandler::downloadMissingAds()
 		{
 			cout << "File exists locally, no need to download" << endl;
 		}
+
+		adFileNames.push_back(fileName);
 	}
 }
 
@@ -92,7 +94,6 @@ bool AdvertisementHandler::readFileAndParseJson(const string& path)
 
 	if (validLevel) {
 		try {
-
 			filestream >> json;
 			adPaths = parseJson(json);
 			filestream.close();
@@ -110,7 +111,7 @@ bool AdvertisementHandler::readFileAndParseJson(const string& path)
 	return false;
 }
 
-void AdvertisementHandler::getLatestAdvertisements()
+void AdvertisementHandler::downloadLatestAdvertisements()
 {
     // Get Json
     // https://raw.githubusercontent.com/Rinkeeee96/FoxTrot_SA_Engine/master/Glitch/Assets/Advertisements/advertisements.json
@@ -135,5 +136,10 @@ void AdvertisementHandler::getLatestAdvertisements()
 
 
 	
+}
+
+vector<string> AdvertisementHandler::getAvailableAdFileNames()
+{
+	return adFileNames;
 }
 

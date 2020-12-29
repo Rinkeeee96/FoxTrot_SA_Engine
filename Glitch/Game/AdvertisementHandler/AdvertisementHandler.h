@@ -6,20 +6,23 @@
 class AdvertisementHandler
 {
 public:
-	AdvertisementHandler(unique_ptr<Engine>& engine);
+	AdvertisementHandler();
 	~AdvertisementHandler();
 
-	void getLatestAdvertisements();
+	void downloadLatestAdvertisements();
+
+	vector<string> getAvailableAdFileNames();
 
 private:
 	vector<string> adPaths;
+
+	vector<string> adFileNames;
 	void downloadMissingAds();
 
 	bool readFileAndParseJson(const string& path);
 	vector<string> parseJson(nlohmann::json json);
 
 	FileLoader fileLoader;
-	unique_ptr<Engine>& engine;
 };
 
 
