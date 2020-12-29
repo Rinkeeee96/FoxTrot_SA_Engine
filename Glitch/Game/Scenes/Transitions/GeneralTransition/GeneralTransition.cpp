@@ -115,7 +115,7 @@ void GeneralTransition::onUpdate(float deltaTime)
 string GeneralTransition::getRandomAdFileName()
 {
 	vector<string> ads = adHandler->getAvailableAdFileNames();
-	int randomNumber = 0 + (rand() % static_cast<int>(ads.size() - 2 + 1));
+	int randomNumber = 0 + (rand() % static_cast<int>(ads.size() - 1 + 1));
 	return ads[randomNumber];
 }
 
