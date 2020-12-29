@@ -96,6 +96,12 @@ void GeneralTransition::loadBackground()
 /// DeltaTime should be used when calculating timers/manual movements
 void GeneralTransition::onUpdate(float deltaTime)
 {
+	// Dont want this in startup as the scene needs to be loaded first. 
+	if (loadAds)
+	{
+		adHandler->getLatestAdvertisements();
+		loadAds = false;
+	}
 	timer += deltaTime;
 
 	animation->setPositionX(animation->getPositionX() + (600 * deltaTime));

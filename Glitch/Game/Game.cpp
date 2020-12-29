@@ -9,7 +9,6 @@ Game::Game()
 	commandBuilder = shared_ptr<ICommandBuilder>(new CommandBuilder());
 	savegame = shared_ptr<Savegame>(new Savegame());
 	stateMachine = make_unique<SceneStateMachine>(engine, savegame);
-	adHandler = unique_ptr<AdvertisementHandler>(new AdvertisementHandler{engine});
 }
 
 /// @brief This function contains the game loop
@@ -17,7 +16,6 @@ Game::Game()
 int Game::run() {
 	try {
 		engine->start();
-		adHandler->getLatestAdvertisements();
 		engine->useCustomCommandInvoker(commandBuilder->readBindingsAndCreateInvoker());
 
 		string path = "Assets/SaveGame/saveGameData.json";

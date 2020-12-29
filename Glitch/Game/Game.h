@@ -18,8 +18,6 @@ private:
 
 	shared_ptr<SceneStateMachine> stateMachine;
 
-	unique_ptr<AdvertisementHandler> adHandler;
-
 	bool gameRunning = true;
 };
 
