@@ -1,5 +1,5 @@
 #pragma once
-#include "Game/PopUps/Ipopup.h"
+#include "Game/PopUps/IPopup.h"
 #include "Game/Scenes/Statemachine/SceneStateMachine.h"
 
 /// @brief Inventory popup class
