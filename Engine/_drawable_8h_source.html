@@ -79,66 +79,64 @@ $(document).ready(function(){initNavTree('_drawable_8h_source.html',''); initRes
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    API <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_drawable.html#ab7fb209364a7c7080823b35ed768b223">registerSprite</a>(<span class="keywordtype">int</span> state, shared_ptr&lt;SpriteObject&gt; spriteObject);</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    API <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_drawable.html#a5c7a5ed9163633d454d78f215b311ea0">changeToState</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> state);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    API <span class="keywordtype">int</span> <a class="code" href="class_drawable.html#ac372ce798ac501541e7c5128bbdd2cbd">getCurrentState</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    API <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="struct_colored_text.html">ColoredText</a>* toString() { <span class="keywordflow">return</span> <span class="keyword">nullptr</span>; }</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> onUpdate(<span class="keywordtype">float</span> deltaTime)<span class="keyword"> override </span>{ }</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    API <span class="keyword">virtual</span> <span class="keywordtype">void</span> setTint(<span class="keywordtype">int</span> r, <span class="keywordtype">int</span> g, <span class="keywordtype">int</span> b) { this-&gt;tint = <a class="code" href="struct_color.html">Color</a>{ r, g, b }; }</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    API <span class="keyword">virtual</span> <span class="keywordtype">void</span> removeTint() { this-&gt;tint = <a class="code" href="struct_color.html">Color</a>{ 255, 255, 255 };}</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    API <span class="keyword">virtual</span> <a class="code" href="struct_color.html">Color</a> getTint() { <span class="keywordflow">return</span> this-&gt;tint; }</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">bool</span> getIsText()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;isText; }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">bool</span> getDrawStatic() { <span class="keywordflow">return</span> this-&gt;drawStatic; }</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> setDrawStatic(<span class="keywordtype">bool</span> val) { this-&gt;drawStatic = val; }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">// TODO particle related things</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">bool</span> isText = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="struct_color.html">Color</a> tint{ 255, 255, 255 };</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">bool</span> drawStatic = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">int</span> currentSpriteState = 0;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    shared_ptr&lt;SpriteObject&gt; currentSprite = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">// TODO delete on scene detach in destructor when object is destroyed</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    map&lt;const int, shared_ptr&lt;SpriteObject&gt;&gt; textures;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_text.html">   45</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_text.html">Text</a> : <span class="keyword">public</span> <a class="code" href="class_drawable.html">Drawable</a> {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="class_text.html">Text</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> _id, <a class="code" href="struct_colored_text.html">ColoredText</a>* _colortext, <span class="keywordtype">float</span> _width, <span class="keywordtype">float</span> _height, <span class="keywordtype">float</span> _x, <span class="keywordtype">float</span> _y)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        : colortext(_colortext), <a class="code" href="class_drawable.html">Drawable</a>(_id)</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        Object::setHeight(_height);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        Object::setWidth(_width);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        Object::setPositionX(_x);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        Object::setPositionY(_y);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        this-&gt;isText = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    ~<a class="code" href="class_text.html">Text</a>() {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">delete</span> colortext;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    API <span class="keywordtype">void</span> changeText(<span class="keywordtype">string</span>&amp; text) </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        this-&gt;colortext-&gt;text = text;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    };</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    API <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="struct_colored_text.html">ColoredText</a>* toString() { <span class="keywordflow">return</span> colortext; }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="struct_colored_text.html">ColoredText</a>* colortext = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    API <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="struct_colored_text.html">ColoredText</a>* toString() { <span class="keywordflow">return</span> <span class="keyword">nullptr</span>; }</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> onUpdate(<span class="keywordtype">float</span> deltaTime)<span class="keyword"> override </span>{ }</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    API <span class="keyword">virtual</span> <span class="keywordtype">void</span> setTint(<span class="keywordtype">int</span> r, <span class="keywordtype">int</span> g, <span class="keywordtype">int</span> b) { this-&gt;tint = <a class="code" href="struct_color.html">Color</a>{ r, g, b }; }</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    API <span class="keyword">virtual</span> <span class="keywordtype">void</span> removeTint() { this-&gt;tint = <a class="code" href="struct_color.html">Color</a>{ 255, 255, 255 };}</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    API <span class="keyword">virtual</span> <a class="code" href="struct_color.html">Color</a> getTint() { <span class="keywordflow">return</span> this-&gt;tint; }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">bool</span> getIsText()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;isText; }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">bool</span> getDrawStatic() { <span class="keywordflow">return</span> this-&gt;drawStatic; }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> setDrawStatic(<span class="keywordtype">bool</span> val) { this-&gt;drawStatic = val; }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">// TODO particle related things</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">bool</span> isText = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="struct_color.html">Color</a> tint{ 255, 255, 255 };</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">bool</span> drawStatic = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">int</span> currentSpriteState = 0;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    shared_ptr&lt;SpriteObject&gt; currentSprite = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">// TODO delete on scene detach in destructor when object is destroyed</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    map&lt;const int, shared_ptr&lt;SpriteObject&gt;&gt; textures;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_text.html">   44</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_text.html">Text</a> : <span class="keyword">public</span> <a class="code" href="class_drawable.html">Drawable</a> {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="class_text.html">Text</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> _id, <a class="code" href="struct_colored_text.html">ColoredText</a>* _colortext, <span class="keywordtype">float</span> _width, <span class="keywordtype">float</span> _height, <span class="keywordtype">float</span> _x, <span class="keywordtype">float</span> _y)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        : colortext(_colortext), <a class="code" href="class_drawable.html">Drawable</a>(_id)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        Object::setHeight(_height);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        Object::setWidth(_width);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        Object::setPositionX(_x);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        Object::setPositionY(_y);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        this-&gt;isText = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    ~<a class="code" href="class_text.html">Text</a>() {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">delete</span> colortext;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    API <span class="keywordtype">void</span> changeText(<span class="keywordtype">string</span>&amp; text) </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        this-&gt;colortext-&gt;text = text;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    };</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    API <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="struct_colored_text.html">ColoredText</a>* toString() { <span class="keywordflow">return</span> colortext; }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="struct_colored_text.html">ColoredText</a>* colortext = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;};</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_drawable_html_ac372ce798ac501541e7c5128bbdd2cbd"><div class="ttname"><a href="class_drawable.html#ac372ce798ac501541e7c5128bbdd2cbd">Drawable::getCurrentState</a></div><div class="ttdeci">API int getCurrentState() const</div><div class="ttdoc">get sprite state</div><div class="ttdef"><b>Definition:</b> Drawable.cpp:27</div></div>
 <div class="ttc" id="astruct_colored_text_html"><div class="ttname"><a href="struct_colored_text.html">ColoredText</a></div><div class="ttdoc">Struct for ColoredText, has the Color struct and a Text string.</div><div class="ttdef"><b>Definition:</b> HelperStructs.h:16</div></div>
-<div class="ttc" id="aclass_text_html"><div class="ttname"><a href="class_text.html">Text</a></div><div class="ttdoc">Text class that should be drawn on the screen.</div><div class="ttdef"><b>Definition:</b> Drawable.h:45</div></div>
+<div class="ttc" id="aclass_text_html"><div class="ttname"><a href="class_text.html">Text</a></div><div class="ttdoc">Text class that should be drawn on the screen.</div><div class="ttdef"><b>Definition:</b> Drawable.h:44</div></div>
 <div class="ttc" id="aclass_drawable_html"><div class="ttname"><a href="class_drawable.html">Drawable</a></div><div class="ttdoc">Base class for all objects that can be drawn.</div><div class="ttdef"><b>Definition:</b> Drawable.h:6</div></div>
-<div class="ttc" id="aclass_object_html"><div class="ttname"><a href="class_object.html">Object</a></div><div class="ttdoc">Object class. Object is linked with a sprite id in SVI.</div><div class="ttdef"><b>Definition:</b> Object.h:15</div></div>
+<div class="ttc" id="aclass_object_html"><div class="ttname"><a href="class_object.html">Object</a></div><div class="ttdoc">Object class. Object is linked with a sprite id in SVI.</div><div class="ttdef"><b>Definition:</b> Object.h:10</div></div>
 <div class="ttc" id="aclass_drawable_html_a5c7a5ed9163633d454d78f215b311ea0"><div class="ttname"><a href="class_drawable.html#a5c7a5ed9163633d454d78f215b311ea0">Drawable::changeToState</a></div><div class="ttdeci">virtual API void changeToState(const int state)</div><div class="ttdoc">change the state change the textureID to the current state</div><div class="ttdef"><b>Definition:</b> Drawable.cpp:16</div></div>
 <div class="ttc" id="aclass_drawable_html_ab7fb209364a7c7080823b35ed768b223"><div class="ttname"><a href="class_drawable.html#ab7fb209364a7c7080823b35ed768b223">Drawable::registerSprite</a></div><div class="ttdeci">virtual API void registerSprite(int state, shared_ptr&lt; SpriteObject &gt; spriteObject)</div><div class="ttdoc">register a new state or overwrite a existing state and dispatch an event that signals to load the spr...</div><div class="ttdef"><b>Definition:</b> Drawable.cpp:8</div></div>
 <div class="ttc" id="astruct_color_html"><div class="ttname"><a href="struct_color.html">Color</a></div><div class="ttdoc">Struct for Color, has the RGB values.</div><div class="ttdef"><b>Definition:</b> HelperStructs.h:5</div></div>
