@@ -23,7 +23,6 @@ var hierarchy =
       ] ],
       [ "MouseMovedEvent", "class_mouse_moved_event.html", null ],
       [ "MouseScrolledEvent", "class_mouse_scrolled_event.html", null ],
-      [ "ObjectMoveToEvent", "class_object_move_to_event.html", null ],
       [ "ObjectStopEvent", "class_object_stop_event.html", null ],
       [ "OnCollisionEvent", "class_on_collision_event.html", [
         [ "OnCollisionBeginEvent", "class_on_collision_begin_event.html", null ],
@@ -32,7 +31,6 @@ var hierarchy =
       [ "ReleaseInputEvent", "class_release_input_event.html", null ],
       [ "ToggleLayerEvent", "class_toggle_layer_event.html", null ],
       [ "TogglePauseEvent", "class_toggle_pause_event.html", null ],
-      [ "UpdatePhysicsBodyEvent", "class_update_physics_body_event.html", null ],
       [ "WindowResizeEvent", "class_window_resize_event.html", null ]
     ] ],
     [ "EventDispatcher", "class_event_dispatcher.html", null ],
