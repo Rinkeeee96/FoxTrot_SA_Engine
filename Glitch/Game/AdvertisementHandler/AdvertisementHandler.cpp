@@ -11,6 +11,41 @@ AdvertisementHandler::~AdvertisementHandler()
 
 }
 
+void AdvertisementHandler::parseJson(nlohmann::json json)
+{
+	if (json.contains("URLS") && json.contains("URLCount"))
+	{
+		vector<string> paths;
+		for (auto jsonObject : json["URLS"])
+		{
+			// Remove the ""
+			string path = jsonObject;
+			path.substr(1,path.size()-1);
+			paths.push_back(path);
+		}
+
+		// Verify if the amount of paths is correct
+		if (json["URLCount"] == paths.size())
+		{
+			adPaths = paths;
+		}
+		// Else just dont use the ads
+	}
+	else
+	{
+		throw exception("Json does not contain expected elements");
+	}
+}
+
+void AdvertisementHandler::downloadMissingAds()
+{
+	// First check if we dont have the ads locally
+	for (auto ad : adPaths)
+	{
+
+	}
+}
+
 void AdvertisementHandler::getLatestAdvertisements()
 {
     // Get Json
@@ -29,8 +64,7 @@ void AdvertisementHandler::getLatestAdvertisements()
 	catch (const std::exception&)
 	{
 		// If error is thrown this means the document is empty or non existant. 
-		// Doesnt matter in our case as we use 3 empty savegames. 
-		// Dont throw an error but we do notify the developer
+		// Doesnt matter in our case as we will work with the ads we have
 		cout << "Error thrown in fileloader, starting with 3 empty savegames" << endl;
 	}
 	bool validLevel = true;
@@ -50,7 +84,7 @@ void AdvertisementHandler::getLatestAdvertisements()
 		try {
 
 			filestream >> json;
-			// handle Json
+			parseJson(json);
 		}
 		catch (exception exc) {
 			cout << "Something went wrong parsing the file, make sure the file is correctly structured" << "\n";
@@ -62,6 +96,10 @@ void AdvertisementHandler::getLatestAdvertisements()
 	}
 
 	filestream.close();
+
+	if (adPaths.size() <= 0) return;
+
+	downloadMissingAds();
 
     // Parse Json 
 }
