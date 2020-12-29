@@ -76,7 +76,7 @@ void KeypressInvoker::executeCommandQueue(EventDispatcher& dispatcher)
 
 /// @brief
 /// Attempts to execute a command for a given keycode,
-/// fails silently when no bind is registered to prevent unwanted exceptions
+/// fails silently when the keycode has no binding or when it cannot execute to prevent unwanted exceptions
 /// @param code
 /// Keycode for the to execute command
 void KeypressInvoker::enqueueCommand(const KeyCode& code) {

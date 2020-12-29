@@ -7,7 +7,6 @@ class HelpMenu : public IPopup
 public:
 	HelpMenu(unique_ptr<Engine>& _engine, EventDispatcher& _dispatcher, shared_ptr<SceneStateMachine> _stateMachine) :
 		IPopup(_engine, _dispatcher, _stateMachine) {};
-	~HelpMenu() {};
 	// Inherited via IPopup
 	void setupPopUp() override;
 	void cleanPopUp() override;
