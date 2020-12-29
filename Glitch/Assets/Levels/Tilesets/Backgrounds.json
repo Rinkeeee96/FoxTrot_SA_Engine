@@ -16,8 +16,8 @@
  "margin":0,
  "name":"Backgrounds",
  "spacing":0,
- "tilecount":7,
- "tiledversion":"1.4.2",
+ "tilecount":9,
+ "tiledversion":"1.4.3",
  "tileheight":1080,
  "tiles":[
         {
@@ -59,8 +59,20 @@
         {
          "id":6,
          "image":"..\/Tiles\/cavebg.png",
-         "imageheight":550,
-         "imagewidth":1000
+         "imageheight":184,
+         "imagewidth":320
+        }, 
+        {
+         "id":7,
+         "image":"..\/Tiles\/Grassland_background_tower.png",
+         "imageheight":1080,
+         "imagewidth":1920
+        }, 
+        {
+         "id":8,
+         "image":"..\/Tiles\/Tower_foreground.png",
+         "imageheight":147,
+         "imagewidth":204
         }],
  "tilewidth":1920,
  "type":"tileset",

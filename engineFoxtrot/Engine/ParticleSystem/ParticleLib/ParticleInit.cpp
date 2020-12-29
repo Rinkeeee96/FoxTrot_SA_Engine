@@ -16,7 +16,7 @@ void ParticleInit::setStyle(ParticleStyle style)
     {
     case ParticleInit::ParticleStyle::FIRE:
     {
-        initWithTotalParticles(250);
+        initWithTotalParticles(400);
 
         // duration
         _duration = DURATION_INFINITY;
@@ -40,8 +40,8 @@ void ParticleInit::setStyle(ParticleStyle style)
         _angleVar = 10;
 
         // life of particles
-        _life = 3;
-        _lifeVar = 0.25f;
+        _life = 4;
+        _lifeVar = 0.5f;
 
         // size, in pixels
         _startSize = 54.0f;
@@ -69,7 +69,7 @@ void ParticleInit::setStyle(ParticleStyle style)
         _endColorVar.blue = 0.0f;
         _endColorVar.alpha = 0.0f;
 
-        _posVar = { 40.0f, 20.0f };
+        _posVar = { 120.0f, 20.0f };
         break;
     }
     case ParticleInit::ParticleStyle::FIRE_WORK:
