@@ -45,7 +45,7 @@ var NAVTREEINDEX =
 "_abstract_level_builder_8h_source.html",
 "class_death_screen.html",
 "class_level.html#a4ab4e3ab1b2ca5844725b742afc8161f",
-"class_shop.html#a38660f1c8a7d71cfa2139acd81e0a82b"
+"class_shop.html#a32423e7be394bf33b41eb9e655795f5d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
