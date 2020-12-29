@@ -5,3 +5,4 @@ x64
 *.vcxproj.user
 Debug
 saveGameData.json
+Glitch/Assets/Levels/Glitch.tiled-session
