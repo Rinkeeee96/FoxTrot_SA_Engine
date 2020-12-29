@@ -60,6 +60,7 @@ $(document).ready(function(){initNavTree('class_base_ground.html',''); initResiz
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_base_ground-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">BaseGround Class Reference</div>  </div>
@@ -83,9 +84,12 @@ Inheritance diagram for BaseGround:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac13d9102d446f9f8a9b8f5ec72f83de4"><td class="memItemLeft" align="right" valign="top"><a id="ac13d9102d446f9f8a9b8f5ec72f83de4"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>BaseGround</b> (const int id)</td></tr>
-<tr class="separator:ac13d9102d446f9f8a9b8f5ec72f83de4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1aab5d2e8708a91f15e724400b55c46"><td class="memItemLeft" align="right" valign="top"><a id="ad1aab5d2e8708a91f15e724400b55c46"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>BaseGround</b> (EventDispatcher &amp;_dispatcher, const int id)</td></tr>
+<tr class="separator:ad1aab5d2e8708a91f15e724400b55c46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28ffe851ccd35fc3b22584cd610cd25e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_ground.html#a28ffe851ccd35fc3b22584cd610cd25e">onCollisionBeginEvent</a> (const Event &amp;event)</td></tr>
+<tr class="memdesc:a28ffe851ccd35fc3b22584cd610cd25e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is called when a object has collision.  <a href="class_base_ground.html#a28ffe851ccd35fc3b22584cd610cd25e">More...</a><br /></td></tr>
+<tr class="separator:a28ffe851ccd35fc3b22584cd610cd25e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc5febb753346615323c5d32339c5ccc"><td class="memItemLeft" align="right" valign="top"><a id="afc5febb753346615323c5d32339c5ccc"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>onUpdate</b> (float deltaTime) override</td></tr>
 <tr class="separator:afc5febb753346615323c5d32339c5ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -97,10 +101,53 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>onUpdate</b> 
 <tr class="memitem:a610b0565533fb0694b30aab4ddb55a0c inherit pub_methods_class_i_game_object"><td class="memItemLeft" align="right" valign="top"><a id="a610b0565533fb0694b30aab4ddb55a0c"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>IGameObject</b> (const int id)</td></tr>
 <tr class="separator:a610b0565533fb0694b30aab4ddb55a0c inherit pub_methods_class_i_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ae604b74c77e5f24e613f2878a2e3a511"><td class="memItemLeft" align="right" valign="top"><a id="ae604b74c77e5f24e613f2878a2e3a511"></a>
+EventDispatcher &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>dispatcher</b></td></tr>
+<tr class="separator:ae604b74c77e5f24e613f2878a2e3a511"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>"Normal" ground class </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a28ffe851ccd35fc3b22584cd610cd25e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28ffe851ccd35fc3b22584cd610cd25e">&#9670;&nbsp;</a></span>onCollisionBeginEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool BaseGround::onCollisionBeginEvent </td>
+          <td>(</td>
+          <td class="paramtype">const Event &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This function is called when a object has collision. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>Game/Ground/<a class="el" href="_base_ground_8h_source.html">BaseGround.h</a></li>
 </ul>
 </div><!-- contents -->
