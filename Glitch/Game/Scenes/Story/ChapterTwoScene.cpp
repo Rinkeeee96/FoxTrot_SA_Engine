@@ -1,15 +1,12 @@
 #include "pch.h"
-#include "ChapterOneScene.h"
+#include "ChapterTwoScene.h"
 #include "Game/SpriteState.h"
 #include "Game/Buttons/PrimaryButton.h"
 #include "Game/Buttons/SecondaryButton.h"
 #include "Game/Game.h"
 
-#define CENTER_X  (WINDOW_WIDTH / 2)
-#define CENTER_Y (WINDOW_HEIGHT / 2)
-
 /// @brief Loads al the text, buttons and background for this scene
-void ChapterOneScene::onAttach()
+void ChapterTwoScene::onAttach()
 {
 	loadButtons();
 	loadText();
@@ -19,8 +16,8 @@ void ChapterOneScene::onAttach()
 
 /// @brief 
 /// Create all text for this scene
-void ChapterOneScene::loadText() {
-	this->setTextFromFile("Assets/Levels/Story/ChapterOne.txt", 4);
+void ChapterTwoScene::loadText() {
+	this->setTextFromFile("Assets/Levels/Story/ChapterTwo.txt", 4);
 
 	for (size_t i = 0; i < this->text.size(); i++)
 	{
@@ -30,7 +27,7 @@ void ChapterOneScene::loadText() {
 
 /// @brief 
 /// Create the background for this scene
-void ChapterOneScene::loadBackground() {
+void ChapterTwoScene::loadBackground() {
 	shared_ptr<SpriteObject> background = shared_ptr<SpriteObject>(new SpriteObject(-33, 1080, 1920, 1, 300, "Assets/Backgrounds/dark_bg.png"));
 	shared_ptr<Drawable> backgroundLayer = shared_ptr<Drawable>(new Drawable(0));
 	backgroundLayer->setStatic(true);
@@ -68,13 +65,13 @@ void ChapterOneScene::loadBackground() {
 
 /// @brief 
 /// Load the sounds for this scene
-void ChapterOneScene::loadMusic() {
+void ChapterTwoScene::loadMusic() {
 	engine->loadSound("BACKGROUND", "Assets/Sound/TremLoadingloopl.wav");
 }
 
 /// @brief 
 /// Create the sounds for this scene
-void ChapterOneScene::start(bool playSound)
+void ChapterTwoScene::start(bool playSound)
 {
 	if (playSound)engine->startSound("BACKGROUND");
 	this->speed_ = BASE_TEXT_SPEED;
@@ -82,7 +79,7 @@ void ChapterOneScene::start(bool playSound)
 
 /// @brief 
 /// Remove the sounds of the soundengine
-void ChapterOneScene::onDetach()
+void ChapterTwoScene::onDetach()
 {
 	ChapterScene::onDetach();
 }

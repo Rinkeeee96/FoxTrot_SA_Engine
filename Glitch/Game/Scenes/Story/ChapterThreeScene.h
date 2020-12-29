@@ -4,11 +4,11 @@
 #include "Game/Scenes/Story/ChapterScene/ChapterScene.h"
 
 /// @brief Class for the chapter one screen
-class ChapterOneScene : public ChapterScene
+class ChapterThreeScene : public ChapterScene
 {
 public:
-	ChapterOneScene(const int id, unique_ptr<Engine>& _engine, shared_ptr<SceneStateMachine> _statemachine) : ChapterScene(id, _engine, _statemachine) {};
-	~ChapterOneScene() { };
+	ChapterThreeScene(const int id, unique_ptr<Engine>& _engine, shared_ptr<SceneStateMachine> _statemachine) : ChapterScene(id, _engine, _statemachine) {};
+	~ChapterThreeScene() { };
 	// Inherited via Scene
 	void onAttach() override;
 	void start(bool playSound) override;

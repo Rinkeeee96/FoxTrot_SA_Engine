@@ -31,8 +31,16 @@ void Level::onAttach() {
 /// @brief
 /// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
 void Level::start(bool playSound) {
+	loadScoreBoard();
+		
+	string helpstring{ "Help: " };
+	KeyCode k = gameInvoker->getKeycodeFromIdentifier("help");
+	helpstring.append(keycodeStringMap[k]);
 
-	// TODO kan ik de inventory layers aanmaken in de onAttach?
+	helpText = shared_ptr<Text>(new Text(-99999999, new ColoredText(helpstring, Color(0, 0, 0)), 80, 30, 1770, 130));
+	helpText->setDrawStatic(true);
+	addNewObjectToLayer(8, helpText, false, true);
+
 	hudPopUpZIndex = this->getHighestLayerIndex() + 1;
 	inventoryPopupZIndex = hudPopUpZIndex + 1;
 	helpPopupZIndex = inventoryPopupZIndex + 1;
@@ -49,14 +57,6 @@ void Level::start(bool playSound) {
 	commandBuilder->linkCommandToToggle(gameInvoker, inventoryPopupZIndex, "inventory");
 	commandBuilder->linkCommandToToggle(gameInvoker, pausePopupZIndex, "pause");
 	commandBuilder->linkCommandToToggle(gameInvoker, helpPopupZIndex, "help");
-	
-	string helpstring{ "Help: " };
-	KeyCode k = gameInvoker->getKeycodeFromIdentifier("help");
-	helpstring.append(keycodeStringMap[k]);
-
-	helpText = shared_ptr<Text>(new Text(-99999999, new ColoredText(helpstring, Color(0, 0, 0)), 80, 30, 1770, 130));
-	helpText->setDrawStatic(true);
-	addNewObjectToLayer(8, helpText, false, true);
 
 	player->respawn();
 	player->setTotalHealth(savegame->getCurrentGameData().characterData.totalHealth);
@@ -66,7 +66,7 @@ void Level::start(bool playSound) {
 	hudPopUp->setPlayer(player);
 	hudPopUp->setBoss(boss);
 
-	loadScoreBoard();
+	
 	this->win = false;
 
 	this->setObjectToFollow(this->follow);
@@ -111,7 +111,12 @@ void Level::onUpdate(float deltaTime)
 		SaveGameData save = savegame->getCurrentGameData();
 		save.levelData[stateMachine->levelToBuild].completed = true;
 		savegame->saveCurrentGameData(save);
-		stateMachine->switchToScene("WinScreen", false);
+		if (this->shouldChangeToScene) {
+			stateMachine->switchToScene(this->next, false);
+		}
+		else {
+			stateMachine->switchToScene("WinScreen", false);
+		}
 		return;
 	}
 	if (player->getIsDead())
@@ -137,6 +142,15 @@ void Level::onUpdate(float deltaTime)
 			}
 		}
 	}
+}
+
+/// @brief
+// Set changes to scene to true with the string as next scene, the next game loop changes scene
+// @param shouldChange bool
+// @param _next identifier to next scene
+void Level::changeToScene(bool shouldChange, string _next) {
+	this->shouldChangeToScene = shouldChange;
+	this->next = _next;
 }
 
 void Level::restartPhysics() {
