@@ -108,7 +108,7 @@ void Overworld::loadButtons() {
 	level4Btn->setPositionY(690);
 	level4Btn->registerHoverSprite(hoverBtnSprite);
 
-	shared_ptr<Text> level4TextBtn = shared_ptr<Text>(new Text(8, new ColoredText(level4Name, Color(0, 0, 0)), 120, 30, 1400, 705));
+	shared_ptr<Text> level4TextBtn = shared_ptr<Text>(new Text(8, new ColoredText(level4Name, Color(0, 0, 0)), 120, 30, 1315, 650));
 	if (!savegame->getCurrentGameData().levelData[3].completed)
 	{
 		level4Btn->disable();
