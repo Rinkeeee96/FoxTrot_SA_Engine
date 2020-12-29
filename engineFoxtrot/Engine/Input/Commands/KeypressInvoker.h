@@ -14,10 +14,14 @@ public:
 	API void enqueueCommand(const KeyCode& code);
 	API ICommand* getCommandByIdentifier(const string& identifier);
 
+	void pause() { isPaused = true; };
+	void unpause() { isPaused = false; };
+
 protected:
 	API bool isRegistered(const ICommand& command);
 	API bool isRegistered(const KeyCode& keyCode);
 private:
 	unordered_map<KeyCode, ICommand*> commands;
 	queue<KeyCode> executionQueue;
+	bool isPaused;
 };

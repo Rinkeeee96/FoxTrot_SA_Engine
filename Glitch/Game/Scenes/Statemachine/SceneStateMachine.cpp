@@ -118,6 +118,8 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 
 	currentSceneId = newScene->getSceneID();
 
+	activePopups.clear();
+
 	engine->insertScene(std::move(newScene));
 	engine->setCurrentScene(currentSceneId);
 
