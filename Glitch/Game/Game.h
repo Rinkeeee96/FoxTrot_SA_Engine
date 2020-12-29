@@ -2,6 +2,7 @@
 #include "Game/Characters/Player/Player.h"
 #include "Game/Scenes/Statemachine/SceneStateMachine.h"
 #include "Game/SaveGame/Savegame.h"
+#include "Game/AdvertisementHandler/AdvertisementHandler.h"
 
 /// @brief 
 /// Game class runs the game
@@ -16,6 +17,8 @@ private:
 	shared_ptr<Savegame> savegame;
 
 	shared_ptr<SceneStateMachine> stateMachine;
+
+	unique_ptr<AdvertisementHandler> adHandler;
 
 	bool gameRunning = true;
 };

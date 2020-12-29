@@ -2,6 +2,14 @@
 #include "FileLoader.h"
 #include <FileParser\JsonValidator.h>
 
+#include<Windows.h>
+
+#include <tchar.h>
+#include <urlmon.h>
+#pragma comment(lib, "urlmon.lib")
+#pragma comment(lib,"wininet.lib")
+
+
 /// @brief 
 /// Reads a file and returns the stream, strem should be closed
 /// @param path to the file
@@ -32,4 +40,14 @@ bool FileLoader::validateDocument(string path, string validationPath) {
 		throw exception("FileLoader: unsupported file type");
 	}
 	return false;
+}
+
+///  @brief
+/// Downloads a file from the web and saves it to the given filepath
+void FileLoader::downloadFile(const string& url, const string& pathAndFilename)
+{
+	HRESULT hr;
+	const char* t = url.c_str();
+	const char* p = pathAndFilename.c_str();
+	hr = URLDownloadToFileA(0, t, p, 0, 0);
 }
