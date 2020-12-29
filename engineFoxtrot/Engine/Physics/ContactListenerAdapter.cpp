@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "ContactListenerAdapter.h"
+#include <Structs\HelperStructs.h>
 
 /// @brief 
 /// Fires Event when a contact between two objects begin
@@ -30,24 +31,37 @@ map<int, vector<Direction>> ContactListenerAdapter::getCollisionDirection(Collis
 	auto object2maxY = result.object2->getPositionY() + result.object2->getHeight();
 	auto object2maxX = result.object2->getPositionX() + result.object2->getWidth();
 
+	Rectangle left{ object1minX * 32 - 10.0f, object1minY * 32 - result.object1->getHeight() * 32 + 5.0f, 10.0f, result.object1->getHeight() * 32 - 10.0f };
+	Rectangle right{ object1maxX * 32 , object1minY * 32 - result.object1->getHeight() * 32 + 5.0f, 10.0f, result.object1->getHeight() * 32 - 10.0f };
+
+	Rectangle top{ object1minX * 32 + 5.0f, object1minY * 32 - result.object1->getHeight() * 32 - 10.0f, result.object1->getWidth() * 32 - 10.0f, 10.0f };
+	Rectangle bottom{ object1minX * 32 + 5.0f, object1maxY * 32 - result.object1->getHeight() * 32 , result.object1->getWidth() * 32 - 10.0f, 10.0f };
+
+
+	Rectangle objectRectangle{ result.object2->getPositionX() * 32, result.object2->getPositionY() * 32 - result.object2->getHeight() * 32 , result.object2->getWidth() * 32, result.object2->getHeight() * 32 };
+
+	auto collisionTop = top.overlaps(objectRectangle);
+	auto collisionBottom = bottom.overlaps(objectRectangle);
+	auto collisionLeft = left.overlaps(objectRectangle);
+	auto collisionRight = right.overlaps(objectRectangle);
+
 	auto obj1 = vector<Direction>();
 	auto obj2 = vector<Direction>();
-
-	if (object1minX > object2maxX + 3) {
-		obj1.push_back(Direction::RIGHT);
-		obj2.push_back(Direction::LEFT);
+	if (collisionTop) {
+		obj1.push_back(Direction::UP);
+		obj2.push_back(Direction::DOWN);
 	}
-	else if (object1maxX < object2minX - 3) {
-		obj1.push_back(Direction::LEFT);
-		obj2.push_back(Direction::RIGHT);
-	}
-	if (object1minY < object2minY) {
+	if (collisionBottom) {
 		obj1.push_back(Direction::DOWN);
 		obj2.push_back(Direction::UP);
 	}
-	else if (object1maxY > object2maxY) {
-		obj1.push_back(Direction::UP);
-		obj2.push_back(Direction::DOWN);
+	if (collisionLeft) {
+		obj1.push_back(Direction::LEFT);
+		obj2.push_back(Direction::RIGHT);
+	}
+	if (collisionRight) {
+		obj1.push_back(Direction::RIGHT);
+		obj2.push_back(Direction::LEFT);
 	}
 	direction.insert(pair<int, vector<Direction>>(result.object1->getObjectId(), obj1));
 	direction.insert(pair<int, vector<Direction>>(result.object2->getObjectId(), obj2));

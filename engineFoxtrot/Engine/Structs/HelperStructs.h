@@ -34,3 +34,15 @@ struct ObjectSize
 	ObjectSize(int _w, int _h) : width{ _w }, height{ _h } {}
 	int width, height;
 };
+
+/// @brief Rectangle struct contains a rectangle information.
+struct Rectangle {
+	float x, y;
+	float width, height;
+
+	Rectangle(float _x, float _y, float _width, float _height) : x(_x), y(_y), width(_width), height(_height) {}
+
+	bool overlaps(Rectangle r) {
+		return x < r.x + r.width && x + width > r.x && y < r.y + r.height && y + height > r.y;
+	}
+};
