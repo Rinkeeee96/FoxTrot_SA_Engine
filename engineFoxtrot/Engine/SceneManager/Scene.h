@@ -66,9 +66,9 @@ protected:
 
 	bool hasActivePopUp = false;
 	bool paused = false;
+	map<int, shared_ptr<Layer>> layers;
 private:
 	const int sceneID = 0;
-	map<int, shared_ptr<Layer>> layers;
 
 
 	shared_ptr<Object> objectToFollow = nullptr;

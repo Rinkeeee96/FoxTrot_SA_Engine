@@ -55,21 +55,28 @@ void InventoryPopup::cleanPopUp()
 
 void InventoryPopup::onAttach()
 {
-	TogglePauseEvent pauseEvent(true);
-	dispatcher.dispatchEvent<TogglePauseEvent>(pauseEvent);
+	this->stateMachine->registerActivePopup(this);
+	this->setupPopUp();
 	setAlwaysVisible(true);
 
-	this->setupPopUp();
+	if (this->stateMachine->activePopupCount() <= 1) {
+		TogglePauseEvent pauseEvent(true);
+		dispatcher.dispatchEvent<TogglePauseEvent>(pauseEvent);
+	}
 }
 
 void InventoryPopup::onDetach()
 {
-	TogglePauseEvent pauseEvent(false);
-	dispatcher.dispatchEvent<TogglePauseEvent>(pauseEvent);
+	this->stateMachine->deregisterActivePopup(this);
+	this->cleanPopUp();
 	setAlwaysVisible(false);
 
-	this->cleanPopUp();
+	if (this->stateMachine->activePopupCount() <= 0) {
+		TogglePauseEvent pauseEvent(false);
+		dispatcher.dispatchEvent<TogglePauseEvent>(pauseEvent);
+	}
 }
+
 
 
 /// @brief 

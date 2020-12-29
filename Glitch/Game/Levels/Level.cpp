@@ -111,6 +111,7 @@ void Level::onUpdate(float deltaTime)
 		SaveGameData save = savegame->getCurrentGameData();
 		save.levelData[stateMachine->levelToBuild].completed = true;
 		savegame->saveCurrentGameData(save);
+		handleLevelScore();
 		if (this->shouldChangeToScene) {
 			stateMachine->switchToScene(this->next, false);
 		}
@@ -177,14 +178,25 @@ void Level::onDetach()
 }
 /// @brief
 /// toggle a layer received from the event and set its state oposite to its current render state
-/// "toggeling" it
+/// "toggeling" it, it only toggles when layers with a higher z index aren't toggled
 bool Level::onToggleLayerEvent(const Event& event) {
 	auto layerEvent = dynamic_cast<const ToggleLayerEvent&>(event);
 
 	int layerIndex = layerEvent.getLayerIndex();
 	bool currentRenderstate = this->getLayers()[layerIndex]->getRender();
 
-	this->toggleLayer(layerIndex, ! currentRenderstate);
+	bool layerAboveMeIsRendered = false;
+	// runs in o n
+	for (size_t i = layerIndex + 1; i <= this->getHighestLayerIndex(); i++)
+	{
+		shared_ptr<Layer> layer = this->layers[i];
+		layerAboveMeIsRendered = layer->getRender();
+
+		if (layerAboveMeIsRendered) 
+			return true;
+	}
+
+	this->toggleLayer(layerIndex, !currentRenderstate);
 	return true;
 }
 
@@ -238,10 +250,20 @@ void Level::throwAchievement(Achievement achievement)
 /// @param amount 
 void Level::increaseTotalGameScore(const int amount)
 {
+	levelScore += amount;
+}
+
+void Level::handleLevelScore()
+{
 	SaveGameData temp = savegame->getCurrentGameData();
-	temp.levelData[stateMachine->levelToBuild - 1].score += amount;
-	temp.totalScore += amount;
-	savegame->saveCurrentGameData(temp);
+	if (levelScore > temp.levelData[stateMachine->levelToBuild - 1].score)
+	{
+		int oldScore = temp.levelData[stateMachine->levelToBuild - 1].score;
+		temp.levelData[stateMachine->levelToBuild - 1].score = levelScore;
+		temp.totalScore -= oldScore;
+		temp.totalScore += levelScore;
+		savegame->saveCurrentGameData(temp);
+	}
 }
 
 /// @brief 
@@ -265,7 +287,7 @@ void Level::loadScoreBoard()
 	text2->setDrawStatic(true);
 	addNewObjectToLayer(5, text2, false, true);
 
-	scoreText = shared_ptr<Text>(new Text(textIDCount++, new ColoredText("Total score: " + to_string(savegame->getCurrentGameData().totalScore), Color(0, 0, 0)), 200, 30, 1550, 90));
+	scoreText = shared_ptr<Text>(new Text(textIDCount++, new ColoredText("Score: " + to_string(savegame->getCurrentGameData().totalScore), Color(0, 0, 0)), 200, 30, 1550, 90));
 	scoreText->setDrawStatic(true);
 	addNewObjectToLayer(5, scoreText, false, true);
 
@@ -276,7 +298,7 @@ void Level::loadScoreBoard()
 /// Updates the scoreboard
 void Level::updateScoreBoard()
 {
-	string text = "Total score: " + to_string(savegame->getCurrentGameData().totalScore);
+	string text = "Total score: " + to_string(levelScore);
 	scoreText->changeText(text);
 }
 
