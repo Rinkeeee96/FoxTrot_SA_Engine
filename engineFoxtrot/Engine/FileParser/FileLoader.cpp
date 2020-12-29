@@ -2,6 +2,12 @@
 #include "FileLoader.h"
 #include <FileParser\JsonValidator.h>
 
+#include <filesystem>
+#include <iostream>
+#include <fstream>
+#include <cstdint>
+namespace fs = std::filesystem;
+
 #include<Windows.h>
 
 #include <tchar.h>
@@ -40,6 +46,11 @@ bool FileLoader::validateDocument(string path, string validationPath) {
 		throw exception("FileLoader: unsupported file type");
 	}
 	return false;
+}
+
+bool FileLoader::doesFileExist(const string& path)
+{
+	return fs::exists(path);
 }
 
 ///  @brief

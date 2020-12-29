@@ -11,7 +11,7 @@ AdvertisementHandler::~AdvertisementHandler()
 
 }
 
-void AdvertisementHandler::parseJson(nlohmann::json json)
+vector<string> AdvertisementHandler::parseJson(nlohmann::json json)
 {
 	if (json.contains("URLS") && json.contains("URLCount"))
 	{
@@ -25,11 +25,12 @@ void AdvertisementHandler::parseJson(nlohmann::json json)
 		}
 
 		// Verify if the amount of paths is correct
-		if (json["URLCount"] == paths.size())
+		if (json["URLCount"] != paths.size())
 		{
-			adPaths = paths;
+			// Dont know what to do else
 		}
-		// Else just dont use the ads
+
+		return paths;
 	}
 	else
 	{
@@ -42,20 +43,26 @@ void AdvertisementHandler::downloadMissingAds()
 	// First check if we dont have the ads locally
 	for (auto ad : adPaths)
 	{
+		auto fileName = ad.substr(ad.find_last_of("/")+1);
+		cout << fileName << endl;
+		// Verify if we have the file locally
 
+		string basePath = "./Assets/Advertisement/";
+		bool result = fileLoader.doesFileExist(basePath + fileName);
+		if (!result)
+		{
+			// Doesnt exists offline so download it.
+			string url = ad;
+			string path = "./Assets/Advertisements/" + fileName;
+			fileLoader.downloadFile(url, path);
+		}
 	}
 }
 
-void AdvertisementHandler::getLatestAdvertisements()
-{
-    // Get Json
-    // https://raw.githubusercontent.com/Rinkeeee96/FoxTrot_SA_Engine/master/Glitch/Assets/Advertisements/advertisements.json
-    string url = "https://raw.githubusercontent.com/Rinkeeee96/FoxTrot_SA_Engine/master/Glitch/Assets/Advertisements/advertisements.json";
-    string path = "./Assets/Advertisements/ads.json";
-    fileLoader.downloadFile(url,path);
 
+bool AdvertisementHandler::readFileAndParseJson(const string& path)
+{
 	nlohmann::json json;
-	bool parseErrors = false;
 	ifstream filestream;
 	try
 	{
@@ -65,7 +72,7 @@ void AdvertisementHandler::getLatestAdvertisements()
 	{
 		// If error is thrown this means the document is empty or non existant. 
 		// Doesnt matter in our case as we will work with the ads we have
-		cout << "Error thrown in fileloader, starting with 3 empty savegames" << endl;
+		cout << "Ad file empty or non existent, using blank" << endl;
 	}
 	bool validLevel = true;
 	//try
@@ -79,12 +86,13 @@ void AdvertisementHandler::getLatestAdvertisements()
 	//	throw exc;
 	//}
 
-
 	if (validLevel) {
 		try {
 
 			filestream >> json;
-			parseJson(json);
+			adPaths = parseJson(json);
+			filestream.close();
+			return true;
 		}
 		catch (exception exc) {
 			cout << "Something went wrong parsing the file, make sure the file is correctly structured" << "\n";
@@ -94,13 +102,34 @@ void AdvertisementHandler::getLatestAdvertisements()
 	else {
 		throw exception("SaveGame: Something went wrong validating file, make sure the file is correct");
 	}
-
 	filestream.close();
+	return false;
+}
 
-	if (adPaths.size() <= 0) return;
+void AdvertisementHandler::getLatestAdvertisements()
+{
+    // Get Json
+    // https://raw.githubusercontent.com/Rinkeeee96/FoxTrot_SA_Engine/master/Glitch/Assets/Advertisements/advertisements.json
+    string url = "https://raw.githubusercontent.com/Rinkeeee96/FoxTrot_SA_Engine/master/Glitch/Assets/Advertisements/advertisements.json";
+    string path = "./Assets/Advertisements/ads.json";
+    fileLoader.downloadFile(url,path);
+
+	bool result = readFileAndParseJson(path);
 
 	// Verify how many ads we have locally and store it. 
 	// If we have ads online that we dont have locally we download them
-	downloadMissingAds();
+	if (result && adPaths.size() >= 0)
+	{
+		// The file has been downloaded and is parsed. Links have been placed into the vector
+		downloadMissingAds();
+	}
+	else
+	{
+		// The file has not been downloaded and the vector is empty
+	}
+
+
+
+	
 }
 

@@ -13,7 +13,9 @@ public:
 private:
 	vector<string> adPaths;
 	void downloadMissingAds();
-	void parseJson(nlohmann::json json);
+
+	bool readFileAndParseJson(const string& path);
+	vector<string> parseJson(nlohmann::json json);
 
 	FileLoader fileLoader;
 	unique_ptr<Engine>& engine;
