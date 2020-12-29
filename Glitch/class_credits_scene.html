@@ -108,9 +108,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>onUpdate</b> (float d
 <tr class="memitem:aa30ce2155e8eeef74e93dda570805e01 inherit pub_methods_class_game_scene"><td class="memItemLeft" align="right" valign="top"><a id="aa30ce2155e8eeef74e93dda570805e01"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>GameScene</b> (const int id, const int _sceneHeight, const int _sceneWidth, unique_ptr&lt; Engine &gt; &amp;_engine, shared_ptr&lt; <a class="el" href="class_scene_state_machine.html">SceneStateMachine</a> &gt; _sceneStateMachine)</td></tr>
 <tr class="separator:aa30ce2155e8eeef74e93dda570805e01 inherit pub_methods_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae358d001d9ca809698c175ff623cdaf5 inherit pub_methods_class_game_scene"><td class="memItemLeft" align="right" valign="top"><a id="ae358d001d9ca809698c175ff623cdaf5"></a>
-unique_ptr&lt; Engine &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getEngine</b> ()</td></tr>
-<tr class="separator:ae358d001d9ca809698c175ff623cdaf5 inherit pub_methods_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa692bb4e4737fa6b5e34d6e6c600c933 inherit pub_methods_class_game_scene"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_scene.html#aa692bb4e4737fa6b5e34d6e6c600c933">registerSavegame</a> (shared_ptr&lt; <a class="el" href="class_savegame.html">Savegame</a> &gt; _savegame)</td></tr>
 <tr class="memdesc:aa692bb4e4737fa6b5e34d6e6c600c933 inherit pub_methods_class_game_scene"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register the savegame pointer.  <a href="class_game_scene.html#aa692bb4e4737fa6b5e34d6e6c600c933">More...</a><br /></td></tr>
 <tr class="separator:aa692bb4e4737fa6b5e34d6e6c600c933 inherit pub_methods_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -133,14 +130,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_credits_scene.html#ae130e69c9167a09ebe7821cc88a61477">loadButtons</a> ()</td></tr>
 <tr class="memdesc:ae130e69c9167a09ebe7821cc88a61477"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create all buttons for this scene. <br /></td></tr>
 <tr class="separator:ae130e69c9167a09ebe7821cc88a61477"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82e7ca964b6b3b413a1fb9741b386f2f"><td class="memItemLeft" align="right" valign="top"><a id="a82e7ca964b6b3b413a1fb9741b386f2f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_credits_scene.html#a82e7ca964b6b3b413a1fb9741b386f2f">loadAnimations</a> ()</td></tr>
-<tr class="memdesc:a82e7ca964b6b3b413a1fb9741b386f2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load the animatio for the screen. <br /></td></tr>
-<tr class="separator:a82e7ca964b6b3b413a1fb9741b386f2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad98e16bff682b0e07d6892a898285c3"><td class="memItemLeft" align="right" valign="top"><a id="aad98e16bff682b0e07d6892a898285c3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_credits_scene.html#aad98e16bff682b0e07d6892a898285c3">handleAnimation</a> (float deltaTime)</td></tr>
-<tr class="memdesc:aad98e16bff682b0e07d6892a898285c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle the fake animation in the screen. <br /></td></tr>
-<tr class="separator:aad98e16bff682b0e07d6892a898285c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -149,12 +138,6 @@ vector&lt; shared_ptr&lt; Text &gt; &gt;&#160;</td><td class="memItemRight" vali
 <tr class="separator:a4754327fddfd423d48e0f0569f9e118f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3df15cce09d3300bbdc556c850e58e1"><td class="memItemLeft" align="right" valign="top">function&lt; void(void)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>onBackClick</b></td></tr>
 <tr class="separator:af3df15cce09d3300bbdc556c850e58e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:addc1bfd3bd6c6bd1f930abcf2398e58a"><td class="memItemLeft" align="right" valign="top"><a id="addc1bfd3bd6c6bd1f930abcf2398e58a"></a>
-shared_ptr&lt; Drawable &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>animation</b> = nullptr</td></tr>
-<tr class="separator:addc1bfd3bd6c6bd1f930abcf2398e58a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad95809ec3597ad309a91d6407967d482"><td class="memItemLeft" align="right" valign="top"><a id="ad95809ec3597ad309a91d6407967d482"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>falling</b> = false</td></tr>
-<tr class="separator:ad95809ec3597ad309a91d6407967d482"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
