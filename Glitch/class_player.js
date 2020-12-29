@@ -11,7 +11,6 @@ var class_player =
     [ "registerKeypressInvoker", "class_player.html#a1d764e532d68c59d149c1a07fd3e1bda", null ],
     [ "setXAxisVelocity", "class_player.html#a8b78b00ca7778f6308436e27ad2a7784", null ],
     [ "setYAxisVelocity", "class_player.html#a6fc91c9068678cc10778f55071fa319a", null ],
-    [ "inventory", "class_player.html#ab8d436b5727749f7be05ffdf744d1041", null ],
     [ "invoker", "class_player.html#a7940ccc9372f80c8008a3013ff6ab87b", null ],
     [ "releasedKeyLastFrame", "class_player.html#ab0ee0d37b3471e9086d7de924b2be2da", null ],
     [ "stateMachine", "class_player.html#a42aeff92483dd5cdcfbaa7fd7557606b", null ]

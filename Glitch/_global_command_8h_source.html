@@ -69,7 +69,7 @@ $(document).ready(function(){initNavTree('_global_command_8h_source.html',''); i
 <div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="class_global_command.html">    5</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_global_command.html">GlobalCommand</a> : <span class="keyword">public</span> ICommand</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_global_command.html">GlobalCommand</a>(<span class="keywordtype">int</span> _layerId, <span class="keywordtype">string</span> identifier, <span class="keywordtype">bool</span> _freezeOnPause) : layerId{ _layerId }, ICommand(identifier, _freezeOnPause) {}</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_global_command.html">GlobalCommand</a>(<span class="keywordtype">int</span> _layerId, <span class="keywordtype">string</span> identifier) : layerId{ _layerId }, ICommand(identifier) {}</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> execute(EventDispatcher&amp; dispatcher) <span class="keyword">override</span> = 0;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordtype">int</span> layerId;</div>
