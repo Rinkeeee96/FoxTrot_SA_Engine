@@ -7,8 +7,11 @@ var class_keypress_invoker =
     [ "getCommandByIdentifier", "class_keypress_invoker.html#a7563ad504e930451e00add1bf15869a7", null ],
     [ "isRegistered", "class_keypress_invoker.html#ad01ecfa161414d0420ea0b93af6fd2fe", null ],
     [ "isRegistered", "class_keypress_invoker.html#a4c0af02e63f6c287a1ccd480c52b0712", null ],
+    [ "pause", "class_keypress_invoker.html#a6609bb334ab9fc9adb4c0f5043c9bb02", null ],
     [ "registerCommand", "class_keypress_invoker.html#ab56d9d836c09a3260b63026d3ead62d8", null ],
+    [ "unpause", "class_keypress_invoker.html#a664d8aaeedb5dd54c10d904071e533b3", null ],
     [ "updateCommand", "class_keypress_invoker.html#a1cba51dec2598fbca6420864f162134b", null ],
     [ "commands", "class_keypress_invoker.html#a8f691188c23f2cc980318a3f7b53b322", null ],
-    [ "executionQueue", "class_keypress_invoker.html#ae95240f96221bf5b7917c281e99eb5e6", null ]
+    [ "executionQueue", "class_keypress_invoker.html#ae95240f96221bf5b7917c281e99eb5e6", null ],
+    [ "isPaused", "class_keypress_invoker.html#aeefad7b5ba8e7139755f1fd460bb11b2", null ]
 ];

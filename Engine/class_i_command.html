@@ -79,15 +79,18 @@ Inheritance diagram for ICommand:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aad83eb126a5c98cc337e9854ccad9efc"><td class="memItemLeft" align="right" valign="top"><a id="aad83eb126a5c98cc337e9854ccad9efc"></a>
-API&#160;</td><td class="memItemRight" valign="bottom"><b>ICommand</b> (string _identifier)</td></tr>
-<tr class="separator:aad83eb126a5c98cc337e9854ccad9efc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75cc18a071260626c1cbf6732cadc5c3"><td class="memItemLeft" align="right" valign="top">API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_command.html#a75cc18a071260626c1cbf6732cadc5c3">ICommand</a> (string _identifier, bool _freezeOnPause=true)</td></tr>
+<tr class="separator:a75cc18a071260626c1cbf6732cadc5c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2dcc06648b55fecbe2d99fbcf1e944d4"><td class="memItemLeft" align="right" valign="top">virtual API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_command.html#a2dcc06648b55fecbe2d99fbcf1e944d4">execute</a> (<a class="el" href="class_event_dispatcher.html">EventDispatcher</a> &amp;dispatcher)=0</td></tr>
 <tr class="memdesc:a2dcc06648b55fecbe2d99fbcf1e944d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute the command.  <a href="class_i_command.html#a2dcc06648b55fecbe2d99fbcf1e944d4">More...</a><br /></td></tr>
 <tr class="separator:a2dcc06648b55fecbe2d99fbcf1e944d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a364c07dd1ce2442777ec0a750dc4999b"><td class="memItemLeft" align="right" valign="top"><a id="a364c07dd1ce2442777ec0a750dc4999b"></a>
 API const string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getIdentifier</b> ()</td></tr>
 <tr class="separator:a364c07dd1ce2442777ec0a750dc4999b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad5e12a6e8d8ed16659d180b56957768"><td class="memItemLeft" align="right" valign="top"><a id="aad5e12a6e8d8ed16659d180b56957768"></a>
+API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_command.html#aad5e12a6e8d8ed16659d180b56957768">canExecuteOnPause</a> ()</td></tr>
+<tr class="memdesc:aad5e12a6e8d8ed16659d180b56957768"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether this command can execute in the "pause" state. <br /></td></tr>
+<tr class="separator:aad5e12a6e8d8ed16659d180b56957768"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -95,7 +98,55 @@ Private Attributes</h2></td></tr>
 const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_command.html#a691cf4524d6a44a422982eb2f3a245d7">identifier</a></td></tr>
 <tr class="memdesc:a691cf4524d6a44a422982eb2f3a245d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">the identifier given to this command by the builder this is used for identification in the invoker <br /></td></tr>
 <tr class="separator:a691cf4524d6a44a422982eb2f3a245d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a176c36b4004f2ee99c00bfd915e5e77b"><td class="memItemLeft" align="right" valign="top"><a id="a176c36b4004f2ee99c00bfd915e5e77b"></a>
+const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_command.html#a176c36b4004f2ee99c00bfd915e5e77b">freezeOnPause</a></td></tr>
+<tr class="memdesc:a176c36b4004f2ee99c00bfd915e5e77b"><td class="mdescLeft">&#160;</td><td class="mdescRight">this determines whether the command can be executed in the "paused" state <br /></td></tr>
+<tr class="separator:a176c36b4004f2ee99c00bfd915e5e77b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a75cc18a071260626c1cbf6732cadc5c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75cc18a071260626c1cbf6732cadc5c3">&#9670;&nbsp;</a></span>ICommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">API ICommand::ICommand </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>_identifier</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>_freezeOnPause</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_freezeOnPause</td><td>this paramter controls whether the command should be deactivated in the "pause" state, defaults to true to enforce a freezed state if not overridden </td></tr>
+    <tr><td class="paramname">_identifier</td><td>this is the identifier given to this command, for identification purposes which require identification to know what command this is </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a2dcc06648b55fecbe2d99fbcf1e944d4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2dcc06648b55fecbe2d99fbcf1e944d4">&#9670;&nbsp;</a></span>execute()</h2>
