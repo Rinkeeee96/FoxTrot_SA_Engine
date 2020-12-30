@@ -1,5 +1,6 @@
 #pragma once
 #include "Game/Scenes/GameScene.h"
+/// @brief Scene for the game info screen
 class GameInfo : public GameScene
 {
 public:
