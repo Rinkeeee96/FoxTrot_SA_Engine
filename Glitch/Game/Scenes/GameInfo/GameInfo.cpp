@@ -19,12 +19,12 @@ void GameInfo::onAttach()
 void GameInfo::loadText() {
 	
 	this->text = splitText(
-		"This is a 2d platformer \n\n Story \n\n The story is told by optional chapter markers on the map, you can click on them to read the story! \n Gameplay \n \n play each level to the end and win by grabbing the present! \n if the game is too hard you can buy extra hearts in the shop, beware, their cost increases over time.. \n \n enemies \n\n Kill enemies by jumping on top of them!"
+		"Story \n\nThe story is told by optional chapter markers on the map, you can click on them to read the story! \n \nGameplay \nPlay each level to the end and win by grabbing the present! \nif the game is too hard you can buy extra hearts in the shop, beware, their cost increases over time.. \n \nEnemies \n\nKill enemies by jumping on top of them! \n"
 		, 1);
 
 	for (size_t i = 0; i < this->text.size(); i++)
 	{
-		addNewObjectToLayer(3, this->text[i]);
+		addNewObjectToLayer(4, this->text[i]);
 	}
 }
 /// @brief 
@@ -49,21 +49,9 @@ void GameInfo::loadBackground() {
 	bgLayer->setWidth(1920);
 	bgLayer->setHeight(1080);
 	bgLayer->registerSprite(SpriteState::DEFAULT, bg);
-	bgLayer->changeToState(SpriteState::DEFAULT);
+	bgLayer->changeToState(SpriteState::DEFAULT);	
 
-	shared_ptr<SpriteObject>BG_IMAGE = shared_ptr<SpriteObject>(new SpriteObject(-1011, 1080, 1920, 1, 300, "Assets/Backgrounds/game_win_layer_0.png"));
-
-	shared_ptr<Drawable> bgImage = shared_ptr<Drawable>(new Drawable(15));
-	bgImage->setStatic(true);
-	bgImage->setPositionX(0);
-	bgImage->setPositionY(1080);
-	bgImage->setWidth(1920);
-	bgImage->setHeight(1080);
-	bgImage->registerSprite(SpriteState::DEFAULT, BG_IMAGE);
-	bgImage->changeToState(SpriteState::DEFAULT);
-
-	addNewObjectToLayer(4, bgLayer, false, true);
-	addNewObjectToLayer(0, bgImage, false, true);
+	addNewObjectToLayer(3, bgLayer, false, true);
 }
 
 /// @brief 
@@ -106,7 +94,7 @@ vector<string> GameInfo::splitToLines(string stringToSplit, int maximumLineLengt
 /// Splits text on \n 
 /// @param the text
 vector<shared_ptr<Text>> GameInfo::splitText(string text, int startingId) {
-	auto startingPos = START_Y_POS;
+	auto startingPos = 250;
 
 	vector<shared_ptr<Text>> ret;
 	std::string delimiter = "\n";
@@ -120,7 +108,7 @@ vector<shared_ptr<Text>> GameInfo::splitText(string text, int startingId) {
 		for (size_t i = 0; i < result.size(); i++)
 		{
 			startingPos = startingPos + TEXT_HEIGHT;
-			ret.push_back(shared_ptr<Text>(new Text(startingId++, new ColoredText(result[i], Color(255, 255, 255), false), ((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER) * result[i].length(), TEXT_HEIGHT, 25, (float)(WINDOW_HEIGHT + startingPos))));
+			ret.push_back(shared_ptr<Text>(new Text(startingId++, new ColoredText(result[i], Color(0, 0, 0), false), ((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER) * result[i].length(), TEXT_HEIGHT, 25, (float)(startingPos))));
 		}
 		text.erase(0, pos + delimiter.length());
 	}
