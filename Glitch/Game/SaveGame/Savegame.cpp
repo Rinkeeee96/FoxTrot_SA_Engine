@@ -85,7 +85,7 @@ bool Savegame::readSaveGameDataFromJson(string& path)
 	}
 	if (!parseErrors)
 	{
-		bool validLevel;
+		bool validLevel = false;
 
 		try
 		{
@@ -93,9 +93,9 @@ bool Savegame::readSaveGameDataFromJson(string& path)
 		}
 		catch (const std::exception& exc)
 		{
-			cout << "Something went wrong parsing the file, make sure the file is correctly structured" << "\n";
-			cout << exc.what() << "\n";
-			throw exc;
+			cout << "Savegame:: Something went wrong parsing the file, make sure the file is correctly structured" << "\n";
+			cout << "Using empty savegames" << endl;
+			cout << exc.what() << endl;
 		}
 		if (validLevel) {
 			try {
@@ -108,10 +108,6 @@ bool Savegame::readSaveGameDataFromJson(string& path)
 				cout << exc.what() << "\n";
 			}
 		}
-		else {
-			throw exception("SaveGame: Something went wrong validating file, make sure the file is correct");
-		}
-
 	}
 	filestream.close();
 
