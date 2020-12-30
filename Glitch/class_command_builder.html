@@ -79,9 +79,8 @@ Inheritance diagram for CommandBuilder:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8b6523104008081d14f4242f55996a30"><td class="memItemLeft" align="right" valign="top"><a id="a8b6523104008081d14f4242f55996a30"></a>
-<a class="el" href="class_game_keypress_invoker.html">GameKeypressInvoker</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_builder.html#a8b6523104008081d14f4242f55996a30">readBindingsAndCreateInvoker</a> () override</td></tr>
-<tr class="memdesc:a8b6523104008081d14f4242f55996a30"><td class="mdescLeft">&#160;</td><td class="mdescRight">read the bindings from the given input source, create a new game keypress invoker and register the bindings in pairs <br /></td></tr>
+<tr class="memitem:a8b6523104008081d14f4242f55996a30"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_game_keypress_invoker.html">GameKeypressInvoker</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_builder.html#a8b6523104008081d14f4242f55996a30">readBindingsAndCreateInvoker</a> () override</td></tr>
+<tr class="memdesc:a8b6523104008081d14f4242f55996a30"><td class="mdescLeft">&#160;</td><td class="mdescRight">read the bindings from the given input source, create a new game keypress invoker and register the bindings in pairs  <a href="class_command_builder.html#a8b6523104008081d14f4242f55996a30">More...</a><br /></td></tr>
 <tr class="separator:a8b6523104008081d14f4242f55996a30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47e6e7996c36e89ec71bf50e54f3494a"><td class="memItemLeft" align="right" valign="top"><a id="a47e6e7996c36e89ec71bf50e54f3494a"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_builder.html#a47e6e7996c36e89ec71bf50e54f3494a">buildPlayerCommands</a> (<a class="el" href="class_player.html">Player</a> &amp;player, <a class="el" href="class_game_keypress_invoker.html">GameKeypressInvoker</a> *invoker) override</td></tr>
@@ -90,6 +89,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a44c1c392bc7ea6e3bdbc69a9ff93d481"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_builder.html#a44c1c392bc7ea6e3bdbc69a9ff93d481">linkCommandToToggle</a> (<a class="el" href="class_game_keypress_invoker.html">GameKeypressInvoker</a> *invoker, int layerId, const string &amp;identifier) override</td></tr>
 <tr class="memdesc:a44c1c392bc7ea6e3bdbc69a9ff93d481"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds and links layers to a given identifier, bubbles exception thrown in invoker.  <a href="class_command_builder.html#a44c1c392bc7ea6e3bdbc69a9ff93d481">More...</a><br /></td></tr>
 <tr class="separator:a44c1c392bc7ea6e3bdbc69a9ff93d481"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf665c18b3deca7ea24c85a05dcc108b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_builder.html#abf665c18b3deca7ea24c85a05dcc108b">saveKeybindings</a> (<a class="el" href="class_game_keypress_invoker.html">GameKeypressInvoker</a> *invoker)</td></tr>
+<tr class="memdesc:abf665c18b3deca7ea24c85a05dcc108b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the keybindings that are currently stored in the game keypress invoker, overwrites the last file.  <a href="class_command_builder.html#abf665c18b3deca7ea24c85a05dcc108b">More...</a><br /></td></tr>
+<tr class="separator:abf665c18b3deca7ea24c85a05dcc108b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -101,6 +103,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_builder.html#a7cf9a29f967308b6b656401972183350">initGlobalCommandFactory</a> ()</td></tr>
 <tr class="memdesc:a7cf9a29f967308b6b656401972183350"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialise the global command factory and register it's commands <br /></td></tr>
 <tr class="separator:a7cf9a29f967308b6b656401972183350"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63c04d815fb90251ea1515d40d9df012"><td class="memItemLeft" align="right" valign="top"><a id="a63c04d815fb90251ea1515d40d9df012"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_builder.html#a63c04d815fb90251ea1515d40d9df012">parseKeybindingsToJson</a> (nlohmann::json &amp;json, unordered_map&lt; KeyCode, string &gt; &amp;collection)</td></tr>
+<tr class="memdesc:a63c04d815fb90251ea1515d40d9df012"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the given keybinding collection to a json in key value pairs. <br /></td></tr>
+<tr class="separator:a63c04d815fb90251ea1515d40d9df012"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae27b73df2f7810054bdc5ab401c75813"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_builder.html#ae27b73df2f7810054bdc5ab401c75813">parseCommandList</a> (nlohmann::json &amp;subCollection, unordered_map&lt; KeyCode, string &gt; &amp;commandListRef)</td></tr>
+<tr class="memdesc:ae27b73df2f7810054bdc5ab401c75813"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper method for parsing the generic keybinding list on the lowest level since the structure is equal places them directly into the given map.  <a href="class_command_builder.html#ae27b73df2f7810054bdc5ab401c75813">More...</a><br /></td></tr>
+<tr class="separator:ae27b73df2f7810054bdc5ab401c75813"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a677e6313cd8e63fec7c8a43e69281756"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_builder.html#a677e6313cd8e63fec7c8a43e69281756">parseKeybindingsToMap</a> (unordered_map&lt; KeyCode, string &gt; &amp;playerBindings, unordered_map&lt; KeyCode, string &gt; &amp;globalBindings)</td></tr>
+<tr class="memdesc:a677e6313cd8e63fec7c8a43e69281756"><td class="mdescLeft">&#160;</td><td class="mdescRight">wrapper method for parsing the bindings for each list since the player is structured as an array  <a href="class_command_builder.html#a677e6313cd8e63fec7c8a43e69281756">More...</a><br /></td></tr>
+<tr class="separator:a677e6313cd8e63fec7c8a43e69281756"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a426d722ae6a91b75564e5740cb6b7893"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_builder.html#a426d722ae6a91b75564e5740cb6b7893">createDefaultbindings</a> (unordered_map&lt; KeyCode, string &gt; &amp;playerBindings, unordered_map&lt; KeyCode, string &gt; &amp;globalBindings)</td></tr>
+<tr class="memdesc:a426d722ae6a91b75564e5740cb6b7893"><td class="mdescLeft">&#160;</td><td class="mdescRight">create the default keybindings, this method is generally called when bindings cannot be loaded to prevent the user from being locked out  <a href="class_command_builder.html#a426d722ae6a91b75564e5740cb6b7893">More...</a><br /></td></tr>
+<tr class="separator:a426d722ae6a91b75564e5740cb6b7893"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -110,8 +125,62 @@ shared_ptr&lt; <a class="el" href="class_character_command_factory.html">Charact
 <tr class="memitem:aef962488e831f794ca2544c001a3965c"><td class="memItemLeft" align="right" valign="top"><a id="aef962488e831f794ca2544c001a3965c"></a>
 shared_ptr&lt; <a class="el" href="class_global_command_factory.html">GlobalCommandFactory</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>globalCommandFactory</b></td></tr>
 <tr class="separator:aef962488e831f794ca2544c001a3965c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2714b012cf6ed1aac0ab63d0bd4b0c6"><td class="memItemLeft" align="right" valign="top"><a id="ac2714b012cf6ed1aac0ab63d0bd4b0c6"></a>
+const string&#160;</td><td class="memItemRight" valign="bottom"><b>keybindingConfigFilepath</b> = &quot;Assets/config/keybindings.json&quot;</td></tr>
+<tr class="separator:ac2714b012cf6ed1aac0ab63d0bd4b0c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59642ce3f7d478b0de3efc23ece07cfe"><td class="memItemLeft" align="right" valign="top"><a id="a59642ce3f7d478b0de3efc23ece07cfe"></a>
+nlohmann::json&#160;</td><td class="memItemRight" valign="bottom"><b>json</b></td></tr>
+<tr class="separator:a59642ce3f7d478b0de3efc23ece07cfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d1d889e8b6925f3ae4ef5939f398a5d"><td class="memItemLeft" align="right" valign="top"><a id="a2d1d889e8b6925f3ae4ef5939f398a5d"></a>
+FileLoader&#160;</td><td class="memItemRight" valign="bottom"><b>fileLoader</b></td></tr>
+<tr class="separator:a2d1d889e8b6925f3ae4ef5939f398a5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a426d722ae6a91b75564e5740cb6b7893"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a426d722ae6a91b75564e5740cb6b7893">&#9670;&nbsp;</a></span>createDefaultbindings()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CommandBuilder::createDefaultbindings </td>
+          <td>(</td>
+          <td class="paramtype">unordered_map&lt; KeyCode, string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>playerBindings</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unordered_map&lt; KeyCode, string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>globalBindings</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>create the default keybindings, this method is generally called when bindings cannot be loaded to prevent the user from being locked out </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">playerBindings</td><td></td></tr>
+    <tr><td class="paramname">globalBindings</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a44c1c392bc7ea6e3bdbc69a9ff93d481"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a44c1c392bc7ea6e3bdbc69a9ff93d481">&#9670;&nbsp;</a></span>linkCommandToToggle()</h2>
 
@@ -158,6 +227,162 @@ shared_ptr&lt; <a class="el" href="class_global_command_factory.html">GlobalComm
     <tr><td class="paramname">invoker</td><td>the pointer to the currently active game invoker </td></tr>
     <tr><td class="paramname">layerId</td><td>the identifier for the given layer for the toggleCommand </td></tr>
     <tr><td class="paramname">identifier</td><td>the identifier for the command </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_i_command_builder.html">ICommandBuilder</a>.</p>
+
+</div>
+</div>
+<a id="ae27b73df2f7810054bdc5ab401c75813"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae27b73df2f7810054bdc5ab401c75813">&#9670;&nbsp;</a></span>parseCommandList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CommandBuilder::parseCommandList </td>
+          <td>(</td>
+          <td class="paramtype">nlohmann::json &amp;&#160;</td>
+          <td class="paramname"><em>subCollection</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unordered_map&lt; KeyCode, string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>commandListRef</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wrapper method for parsing the generic keybinding list on the lowest level since the structure is equal places them directly into the given map. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">commandListRef</td><td>the list to place the parsed commands into </td></tr>
+    <tr><td class="paramname">subCollection</td><td>the subcollection containing the bindings on the lowest level of the json structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a677e6313cd8e63fec7c8a43e69281756"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a677e6313cd8e63fec7c8a43e69281756">&#9670;&nbsp;</a></span>parseKeybindingsToMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CommandBuilder::parseKeybindingsToMap </td>
+          <td>(</td>
+          <td class="paramtype">unordered_map&lt; KeyCode, string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>playerBindings</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unordered_map&lt; KeyCode, string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>globalBindings</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>wrapper method for parsing the bindings for each list since the player is structured as an array </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">playerBindings</td><td></td></tr>
+    <tr><td class="paramname">globalBindings</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8b6523104008081d14f4242f55996a30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b6523104008081d14f4242f55996a30">&#9670;&nbsp;</a></span>readBindingsAndCreateInvoker()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_game_keypress_invoker.html">GameKeypressInvoker</a> * CommandBuilder::readBindingsAndCreateInvoker </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>read the bindings from the given input source, create a new game keypress invoker and register the bindings in pairs </p>
+<dl class="section return"><dt>Returns</dt><dd>GamekeypressInvoker with the bindings that were registered in the config file. When it fails it attempts to go back to the default bindings </dd></dl>
+
+<p>Implements <a class="el" href="class_i_command_builder.html">ICommandBuilder</a>.</p>
+
+</div>
+</div>
+<a id="abf665c18b3deca7ea24c85a05dcc108b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf665c18b3deca7ea24c85a05dcc108b">&#9670;&nbsp;</a></span>saveKeybindings()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CommandBuilder::saveKeybindings </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_game_keypress_invoker.html">GameKeypressInvoker</a> *&#160;</td>
+          <td class="paramname"><em>invoker</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Saves the keybindings that are currently stored in the game keypress invoker, overwrites the last file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">invoker</td><td>the invoker which contains the bindings to save </td></tr>
   </table>
   </dd>
 </dl>
