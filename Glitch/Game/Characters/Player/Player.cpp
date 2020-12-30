@@ -37,12 +37,9 @@ Player::Player(const int id, EventDispatcher& _dispatcher) : ICharacter(id, _dis
 	});
 
 	dispatcher.setEventCallback<KeyReleasedEvent>([this](const Event& event) -> bool {
-		const Event* newEvent = &event;
-		if (Event* e = const_cast<Event*>(newEvent)) {
-			if (KeyEvent* k = dynamic_cast<KeyEvent*>(e)) {
-				if (k->getKeyCode() == invoker->getKeycodeFromIdentifier("jump")) { return false;  };
-			}
-		}
+		auto& k = (KeyEvent&)event;
+		if (k.getKeyCode() == invoker->getKeycodeFromIdentifier("jump")) { return false;  };
+			
 		releasedKeyLastFrame = true;
 		return false;
 	});
