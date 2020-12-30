@@ -11,9 +11,9 @@ public:
 		if (character.getCanJump()) {
 			character.changeToState(SpriteState::RUN_RIGHT);
 		}
-		else if (character.getYAxisVelocity() > 0)
+		else if (character.getYAxisVelocity() > 1) 
 			character.changeToState(SpriteState::AIR_FALL_RIGHT);
-		else
+		else if (character.getYAxisVelocity() < -1)
 			character.changeToState(SpriteState::AIR_JUMP_RIGHT);
 	}
 };
