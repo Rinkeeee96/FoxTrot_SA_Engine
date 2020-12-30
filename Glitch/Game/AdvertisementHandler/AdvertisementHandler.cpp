@@ -133,6 +133,9 @@ void AdvertisementHandler::downloadLatestAdvertisements()
 	}	
 }
 
+/// @brief 
+/// Returns adFileNames
+/// @return 
 vector<string> AdvertisementHandler::getAvailableAdFileNames()
 {
 	return adFileNames;
