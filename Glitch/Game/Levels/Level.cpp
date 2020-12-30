@@ -166,7 +166,7 @@ void Level::onDetach()
 
 	if (player->getCurrentHealth() > 0) save.characterData.totalHealth = player->getCurrentHealth();
 	else
-		save.characterData.totalHealth = 1;
+		save.characterData.totalHealth = 3;
 	
 	save.characterData.inventory = player->inventory;
 	savegame->saveCurrentGameData(save);
