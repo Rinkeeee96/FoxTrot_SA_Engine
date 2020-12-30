@@ -41,6 +41,11 @@ private:
 		moveToNextScene = true;
 		nextScene = "CreditsSreen";
 	};
+
+	function<void(void)> onInfoBtnClick = [this]() {
+		moveToNextScene = true;
+		nextScene = "GameInfo";
+	};
 };
 
 inline MainMenu::~MainMenu()
