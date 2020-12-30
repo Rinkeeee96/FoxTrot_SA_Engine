@@ -34,14 +34,6 @@ void Level::start(bool playSound) {
 	TogglePauseEvent e{false};
 	dispatcher.dispatchEvent<TogglePauseEvent>(e);
 	loadScoreBoard();
-		
-	string helpstring{ "Help: " };
-	KeyCode k = gameInvoker->getKeycodeFromIdentifier("help");
-	helpstring.append(keycodeStringMap[k]);
-
-	helpText = shared_ptr<Text>(new Text(-99999999, new ColoredText(helpstring, Color(0, 0, 0)), 80, 30, 1770, 130));
-	helpText->setDrawStatic(true);
-	addNewObjectToLayer(8, helpText, false, true);
 
 	hudPopUpZIndex = this->getHighestLayerIndex() + 1;
 	inventoryPopupZIndex = hudPopUpZIndex + 1;
@@ -275,9 +267,9 @@ void Level::loadScoreBoard()
 	block1->setStatic(true);
 	block1->setDrawStatic(true);
 	block1->setPositionX(1600);
-	block1->setPositionY(120);
+	block1->setPositionY(150);
 	block1->setWidth(300);
-	block1->setHeight(100);
+	block1->setHeight(130);
 	block1->registerSprite(SpriteState::DEFAULT, emptyBlock);
 	block1->changeToState(SpriteState::DEFAULT);
 
@@ -292,6 +284,14 @@ void Level::loadScoreBoard()
 	addNewObjectToLayer(7, scoreText, false, true);
 
 	addNewObjectToLayer(6, block1, false, true);
+
+	string helpstring{ "Help: " };
+	KeyCode k = gameInvoker->getKeycodeFromIdentifier("help");
+	helpstring.append(keycodeStringMap[k]);
+
+	helpText = shared_ptr<Text>(new Text(-99999999, new ColoredText(helpstring, Color(0, 0, 0)), 80, 30, 1740, 130));
+	helpText->setDrawStatic(true);
+	addNewObjectToLayer(8, helpText, false, true);
 }
 
 /// @brief 
