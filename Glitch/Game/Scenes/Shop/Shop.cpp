@@ -155,7 +155,7 @@ void Shop::loadButtons()
 void Shop::calculateCurrentPrice() {
 	int price = HEALTH_PRICE;
 	for (int i = 0; i < savegame->getCurrentGameData().characterData.totalHealth-1; i++) {
-		price *= INFLATION;
+		price *= (int)INFLATION;
 	}
 	currentPrice = price;
 	updateTextBoxes();

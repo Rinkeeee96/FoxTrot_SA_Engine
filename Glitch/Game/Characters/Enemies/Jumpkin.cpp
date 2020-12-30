@@ -12,7 +12,7 @@ void Jumpkin::onUpdate(float deltaTime) {
 	float yPositionDifference = abs((player->getPositionY() + player->getHeight() / 2) - (this->getPositionY() + this->getHeight() / 2));
 
 	// Distance is calculated using the Pythagorean theorem from the middle of both objects
-	float distanceFromPlayer = sqrt(pow(xPositionDifference, 2) + pow(yPositionDifference, 2));
+	float distanceFromPlayer = (float)sqrt(pow(xPositionDifference, 2) + pow(yPositionDifference, 2));
 
 	// Jumpkin's vertical range is calculated separately from distance to ensure it doesn't follow the player when there are multiple layers of height to the level (lvl3)
 	bool playerIsInRange = distanceFromPlayer <= JUMPKIN_HORIZONTAL_RANGE;

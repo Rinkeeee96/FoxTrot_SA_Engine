@@ -127,7 +127,7 @@ void SlimeBoss::onUpdate(float deltaTime) {
 	float yPositionDifference = abs((player->getPositionY() + player->getHeight() / 2) - (this->getPositionY() + this->getHeight() / 2));
 
 	// Distance is calculated using the Pythagorean theorem from the middle of both objects
-	float distanceFromPlayer = sqrt(pow(xPositionDifference, 2) + pow(yPositionDifference, 2));
+	float distanceFromPlayer = (float)sqrt(pow(xPositionDifference, 2) + pow(yPositionDifference, 2));
 
 	// Direction is based on the x position of the player
 	Direction direction = player->getPositionX() < this->positionX ? Direction::LEFT : Direction::RIGHT;
