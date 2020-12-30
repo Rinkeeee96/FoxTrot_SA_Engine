@@ -40,11 +40,14 @@ private:
 		SaveGameData save = savegame->getCurrentGameData();
 		save.characterData.inventory.coins += 100;
 		savegame->saveCurrentGameData(save);
-		calculateCurrentPrice();
+		moveToNextScene = true;
+		nextScene = "Shop";
 	};
 
 	function<void(void)> onShopBuyClick = [this]() {
 		handlePurchase = true;
+		moveToNextScene = true;
+		nextScene = "Shop";
 	};
 
 
