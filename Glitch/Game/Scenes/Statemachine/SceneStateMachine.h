@@ -2,6 +2,7 @@
 #include "Game/Scenes/Factory/FactoryMethod.h"
 #include "Game/Scenes/Scenes.h"
 #include "Game/Scenes/Factory/CreatorImpl.h"
+class IPopup;
 class Savegame;
 
 /// @brief Class for the scene state machine
@@ -15,6 +16,23 @@ public:
 
 	string& getCurrentLevelIdentifier();
 
+	void registerActivePopup(IPopup* popup) {
+		activePopups.push_back(popup);
+	}
+
+	int activePopupCount() { return activePopups.size(); }
+
+	void deregisterActivePopup(IPopup* popupToDeregister) {
+		activePopups.erase(
+			std::remove_if(
+				activePopups.begin(),
+				activePopups.end(),
+				[&popupToDeregister](const auto& p) { return popupToDeregister == p; }
+			),
+			activePopups.end()
+		);
+	}
+
 	int levelToBuild = 0;
 private:
 
@@ -23,6 +41,8 @@ private:
 
 	unique_ptr<Scene> loadLevel(const string& identifier);
 	unique_ptr<Engine>& engine;
+
+	vector<IPopup*> activePopups;
 
 	int currentSceneId = -1;
 	int sceneId = 0;

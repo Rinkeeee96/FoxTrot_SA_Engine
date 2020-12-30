@@ -31,8 +31,10 @@ void Level::onAttach() {
 /// @brief
 /// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
 void Level::start(bool playSound) {
+	TogglePauseEvent e{false};
+	dispatcher.dispatchEvent<TogglePauseEvent>(e);
+	loadScoreBoard();
 
-	// TODO kan ik de inventory layers aanmaken in de onAttach?
 	hudPopUpZIndex = this->getHighestLayerIndex() + 1;
 	inventoryPopupZIndex = hudPopUpZIndex + 1;
 	helpPopupZIndex = inventoryPopupZIndex + 1;
@@ -51,14 +53,6 @@ void Level::start(bool playSound) {
 	commandBuilder->linkCommandToToggle(gameInvoker, inventoryPopupZIndex, "inventory");
 	commandBuilder->linkCommandToToggle(gameInvoker, pausePopupZIndex, "pause");
 	commandBuilder->linkCommandToToggle(gameInvoker, helpPopupZIndex, "help");
-	
-	string helpstring{ "Help: " };
-	KeyCode k = gameInvoker->getKeycodeFromIdentifier("help");
-	helpstring.append(keycodeStringMap[k]);
-
-	helpText = shared_ptr<Text>(new Text(-99999999, new ColoredText(helpstring, Color(0, 0, 0)), 80, 30, 1770, 130));
-	helpText->setDrawStatic(true);
-	addNewObjectToLayer(8, helpText, false, true);
 
 	player->respawn();
 	player->setTotalHealth(savegame->getCurrentGameData().characterData.totalHealth);
@@ -68,7 +62,7 @@ void Level::start(bool playSound) {
 	hudPopUp->setPlayer(player);
 	hudPopUp->setBoss(boss);
 
-	loadScoreBoard();
+	
 	this->win = false;
 
 	this->setObjectToFollow(this->follow);
@@ -113,7 +107,13 @@ void Level::onUpdate(float deltaTime)
 		SaveGameData save = savegame->getCurrentGameData();
 		save.levelData[stateMachine->levelToBuild].completed = true;
 		savegame->saveCurrentGameData(save);
-		stateMachine->switchToScene("WinScreen", false);
+		handleLevelScore();
+		if (this->shouldChangeToScene) {
+			stateMachine->switchToScene(this->next, false);
+		}
+		else {
+			stateMachine->switchToScene("WinScreen", false);
+		}
 		return;
 	}
 	if (player->getIsDead())
@@ -141,6 +141,15 @@ void Level::onUpdate(float deltaTime)
 	}
 }
 
+/// @brief
+// Set changes to scene to true with the string as next scene, the next game loop changes scene
+// @param shouldChange bool
+// @param _next identifier to next scene
+void Level::changeToScene(bool shouldChange, string _next) {
+	this->shouldChangeToScene = shouldChange;
+	this->next = _next;
+}
+
 void Level::restartPhysics() {
 	engine->restartPhysicsWorld();
 }
@@ -153,26 +162,35 @@ void Level::onDetach()
 
 	if (player->getCurrentHealth() > 0) save.characterData.totalHealth = player->getCurrentHealth();
 	else
-		save.characterData.totalHealth = 1;
+		save.characterData.totalHealth = 3;
 	
 	save.characterData.inventory = player->inventory;
 	savegame->saveCurrentGameData(save);
 	gameInvoker->destroyPlayercommands();
 
-
-
 	Scene::onDetach();
 }
 /// @brief
 /// toggle a layer received from the event and set its state oposite to its current render state
-/// "toggeling" it
+/// "toggeling" it, it only toggles when layers with a higher z index aren't toggled
 bool Level::onToggleLayerEvent(const Event& event) {
 	auto layerEvent = dynamic_cast<const ToggleLayerEvent&>(event);
 
 	int layerIndex = layerEvent.getLayerIndex();
 	bool currentRenderstate = this->getLayers()[layerIndex]->getRender();
 
-	this->toggleLayer(layerIndex, ! currentRenderstate);
+	bool layerAboveMeIsRendered = false;
+	// runs in o n
+	for (size_t i = layerIndex + 1; i <= this->getHighestLayerIndex(); i++)
+	{
+		shared_ptr<Layer> layer = this->layers[i];
+		layerAboveMeIsRendered = layer->getRender();
+
+		if (layerAboveMeIsRendered) 
+			return true;
+	}
+
+	this->toggleLayer(layerIndex, !currentRenderstate);
 	return true;
 }
 
@@ -226,10 +244,20 @@ void Level::throwAchievement(Achievement achievement)
 /// @param amount 
 void Level::increaseTotalGameScore(const int amount)
 {
+	levelScore += amount;
+}
+
+void Level::handleLevelScore()
+{
 	SaveGameData temp = savegame->getCurrentGameData();
-	temp.levelData[stateMachine->levelToBuild - 1].score += amount;
-	temp.totalScore += amount;
-	savegame->saveCurrentGameData(temp);
+	if (levelScore > temp.levelData[stateMachine->levelToBuild - 1].score)
+	{
+		int oldScore = temp.levelData[stateMachine->levelToBuild - 1].score;
+		temp.levelData[stateMachine->levelToBuild - 1].score = levelScore;
+		temp.totalScore -= oldScore;
+		temp.totalScore += levelScore;
+		savegame->saveCurrentGameData(temp);
+	}
 }
 
 /// @brief 
@@ -241,9 +269,9 @@ void Level::loadScoreBoard()
 	block1->setStatic(true);
 	block1->setDrawStatic(true);
 	block1->setPositionX(1600);
-	block1->setPositionY(120);
+	block1->setPositionY(150);
 	block1->setWidth(300);
-	block1->setHeight(100);
+	block1->setHeight(130);
 	block1->registerSprite(SpriteState::DEFAULT, emptyBlock);
 	block1->changeToState(SpriteState::DEFAULT);
 
@@ -251,20 +279,28 @@ void Level::loadScoreBoard()
 
 	shared_ptr<Text> text2 = shared_ptr<Text>(new Text(textIDCount++, new ColoredText(savegame->getCurrentGameData().saveGameName + " " + savegame->getCurrentGameData().getReadableTimeStamp(), Color(0, 0, 0)), 200, 30, 1550, 40));
 	text2->setDrawStatic(true);
-	addNewObjectToLayer(5, text2, false, true);
+	addNewObjectToLayer(7, text2, false, true);
 
-	scoreText = shared_ptr<Text>(new Text(textIDCount++, new ColoredText("Total score: " + to_string(savegame->getCurrentGameData().totalScore), Color(0, 0, 0)), 200, 30, 1550, 90));
+	scoreText = shared_ptr<Text>(new Text(textIDCount++, new ColoredText("Score: " + to_string(savegame->getCurrentGameData().totalScore), Color(0, 0, 0)), 200, 30, 1550, 90));
 	scoreText->setDrawStatic(true);
-	addNewObjectToLayer(5, scoreText, false, true);
+	addNewObjectToLayer(7, scoreText, false, true);
 
-	addNewObjectToLayer(4, block1, false, true);
+	addNewObjectToLayer(6, block1, false, true);
+
+	string helpstring{ "Help: " };
+	KeyCode k = gameInvoker->getKeycodeFromIdentifier("help");
+	helpstring.append(keycodeStringMap[k]);
+
+	helpText = shared_ptr<Text>(new Text(-99999999, new ColoredText(helpstring, Color(0, 0, 0)), 80, 30, 1740, 130));
+	helpText->setDrawStatic(true);
+	addNewObjectToLayer(8, helpText, false, true);
 }
 
 /// @brief 
 /// Updates the scoreboard
 void Level::updateScoreBoard()
 {
-	string text = "Total score: " + to_string(savegame->getCurrentGameData().totalScore);
+	string text = "Total score: " + to_string(levelScore);
 	scoreText->changeText(text);
 }
 

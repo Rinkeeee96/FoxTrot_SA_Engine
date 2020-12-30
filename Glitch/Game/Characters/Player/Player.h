@@ -8,9 +8,9 @@
 
 #include "Game/Commands/CharacterCommands/StopMovementCommand.h"
 
-#define RESTITUTION_CORRECTION 1
-#define PLAYER_SPRITE_HEIGHT 37
-#define PLAYER_SPRITE_WIDTH 50
+#define RESTITUTION_CORRECTION 7.5
+#define PLAYER_SPRITE_HEIGHT 31//37
+#define PLAYER_SPRITE_WIDTH 33//50
 
 /// @brief
 /// Handles player logic, stats and movement

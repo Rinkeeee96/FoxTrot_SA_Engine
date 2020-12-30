@@ -49,7 +49,7 @@ void SaveScreen::onUpdate(float deltaTime)
 void SaveScreen::loadBackground()
 {
 	shared_ptr<SpriteObject> BG_LAYER_0 = shared_ptr<SpriteObject>(new SpriteObject(-999, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_0.png"));
-	shared_ptr<SpriteObject> BG_LAYER_ADVENTRUE = shared_ptr<SpriteObject>(new SpriteObject(-998, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png"));
+	shared_ptr<SpriteObject> BG_LAYER_ADVENTRUE = shared_ptr<SpriteObject>(new SpriteObject(-998, 31, 33, 6, 300, "Assets/Sprites/Character/adventure_run_right.png"));
 	shared_ptr<SpriteObject> BG_LAYER_2 = shared_ptr<SpriteObject>(new SpriteObject(-997, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_2.png"));
 	shared_ptr<SpriteObject> emptyBlock = shared_ptr<SpriteObject>(new SpriteObject(-996, 309, 253, 1, 300, "Assets/Inventory/text_background.png"));
 
@@ -94,7 +94,7 @@ void SaveScreen::loadBackground()
 	animation->setPositionX(175);
 	animation->setPositionY(875);
 	animation->setWidth(370);
-	animation->setHeight(500);
+	animation->setHeight(370);
 	animation->registerSprite(SpriteState::DEFAULT, BG_LAYER_ADVENTRUE);
 	animation->changeToState(SpriteState::DEFAULT);
 	animation->setScalable(false);
@@ -208,11 +208,6 @@ void SaveScreen::loadText()
 			text = "Totalscore: " + to_string(savegame->getSaveGameData(i + 1).totalScore);
 			text2 = shared_ptr<Text>(new Text(textIDCount++, new ColoredText(text, Color(0, 0, 0)), 120, 30, 520 + (float)(i * SPACING_INCREMENT), 540));
 			addNewObjectToLayer(5, text2, false, true);
-
-			text = "Total items: " + to_string(savegame->getSaveGameData(i + 1).characterData.inventory.items.size());
-			text2 = shared_ptr<Text>(new Text(textIDCount++, new ColoredText(text, Color(0, 0, 0)), 120, 30, 520 + (float)(i * SPACING_INCREMENT), 580));
-			addNewObjectToLayer(5, text2, false, true);
-
 		}
 		shared_ptr<Text> text1 = shared_ptr<Text>(new Text(textIDCount++, new ColoredText(name, Color(0, 0, 0)), 100, 60, 520 + (float)(i* SPACING_INCREMENT), 380));
 		addNewObjectToLayer(5, text1, false, true);

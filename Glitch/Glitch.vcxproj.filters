@@ -49,7 +49,11 @@
     <ClCompile Include="Game\Levels\Builders\LevelBuilder.cpp" />
     <ClCompile Include="Game\Scenes\Statemachine\SceneStateMachine.cpp" />
     <ClCompile Include="Game\Scenes\Shop\Shop.cpp" />
+    <ClCompile Include="Game\Scenes\Story\ChapterTwoScene.cpp" />
+    <ClCompile Include="Game\Scenes\Story\ChapterThreeScene.cpp" />
     <ClCompile Include="Game\PopUps\hud\HudPopUp.cpp" />
+    <ClCompile Include="Game\AdvertisementHandler\AdvertisementHandler.cpp" />
+    <ClCompile Include="Game\Scenes\GameInfo\GameInfo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Characters\Enemies\Skryo.h" />
@@ -140,11 +144,15 @@
     <ClInclude Include="Game\Triggers\WinTrigger.h" />
     <ClInclude Include="Game\Scenes\Statemachine\SceneStateMachine.h" />
     <ClInclude Include="Game\Scenes\Shop\Shop.h" />
+    <ClInclude Include="Game\Scenes\Story\ChapterTwoScene.h" />
+    <ClInclude Include="Game\Scenes\Story\ChapterThreeScene.h" />
     <ClInclude Include="Game\PopUps\hud\HudPopUp.h" />
-    <ClInclude Include="Game\Commands\GlobalCommands\IncreaseGameSpeedCommand.h" />
-    <ClInclude Include="Game\Commands\GlobalCommands\DecreaseGameSpeedCommand.h" />
+    <ClInclude Include="Game\AdvertisementHandler\AdvertisementHandler.h" />
+    <ClInclude Include="Game\Scenes\GameInfo\GameInfo.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\Levels\Story\ChapterOne.txt" />
+    <Text Include="Assets\Levels\Story\ChapterTwo.txt" />
+    <Text Include="Assets\Levels\Story\ChapterThree.txt" />
   </ItemGroup>
 </Project>

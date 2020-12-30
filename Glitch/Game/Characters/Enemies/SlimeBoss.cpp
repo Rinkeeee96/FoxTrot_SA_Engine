@@ -106,7 +106,7 @@ void SlimeBoss::createSlime(int id, int startingTextureId, int x, int y) {
 		it++;
 	}
 	slime1->changeToState(0);
-	level.addNewObjectToLayer(4, slime1, true, false);
+	level.addNewObjectToLayer(5, slime1, true, false);
 }
 
 /// @brief
@@ -118,6 +118,7 @@ void SlimeBoss::createSlime(int id, int startingTextureId, int x, int y) {
 void SlimeBoss::onUpdate(float deltaTime) {
 	if (this->getIsDead()) {
 		this->level.setWin(true);
+		this->level.changeToScene(true, "ChapterThree");
 		return;
 	}
 

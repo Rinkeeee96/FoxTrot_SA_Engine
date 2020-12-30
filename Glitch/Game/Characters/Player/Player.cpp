@@ -12,18 +12,18 @@ Player::Player(const int id, EventDispatcher& _dispatcher) : ICharacter(id, _dis
 	this->setPositionY(80);
 
 	this->setSpeed(7);
-	this->setJumpHeight(10);
+	this->setJumpHeight(12);
 	this->setDensity(10);
 	this->setFriction(0);
 	this->setRestitution(0.1f);
 	this->setTotalHealth(3);
 	this->setStatic(false);
 	this->setRotatable(false);
+	this->setScalable(true);
+	this->setScale(3);
 
 	this->setCurrentHealth(3);
 	this->setTotalHealth(3);
-	this->setScalable(true);
-	this->setScale(2);
 
 	this->stateMachine.setCurrentState(make_unique<NormalState>(), *this);
 	this->stateMachine.setGlobalState(make_unique<PlayerGlobalState>(), *this);
@@ -37,6 +37,12 @@ Player::Player(const int id, EventDispatcher& _dispatcher) : ICharacter(id, _dis
 	});
 
 	dispatcher.setEventCallback<KeyReleasedEvent>([this](const Event& event) -> bool {
+		const Event* newEvent = &event;
+		if (Event* e = const_cast<Event*>(newEvent)) {
+			if (KeyEvent* k = dynamic_cast<KeyEvent*>(e)) {
+				if (k->getKeyCode() == invoker->getKeycodeFromIdentifier("jump")) { return false;  };
+			}
+		}
 		releasedKeyLastFrame = true;
 		return false;
 	});
@@ -54,14 +60,6 @@ bool Player::onCollisionBeginEvent(const Event& event) {
 		auto map = collisionEvent.getDirectionMap();
 		auto collidedDirection = map[this->getObjectId()];
 
-		if (std::find(collidedDirection.begin(), collidedDirection.end(), Direction::DOWN) != collidedDirection.end()) {
-			if (this->getXAxisVelocity() == 0)
-				this->changeToState(SpriteState::DEFAULT);
-			else if (this->getXAxisVelocity() > 0)
-				this->changeToState(SpriteState::RUN_RIGHT);
-			else
-				this->changeToState(SpriteState::RUN_LEFT);
-		}
 	}
 	return false;
 }
@@ -136,19 +134,18 @@ map<SpriteState, shared_ptr<SpriteObject>> Player::buildSpritemap(int textureId)
 	std::map<SpriteState, shared_ptr<SpriteObject>> spriteMap;
 
 	auto playerDefault = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 1, 200, "Assets/Sprites/Character/adventure.png"));
-	auto playerAirAttack = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 4, 300, "Assets/Sprites/Character/adventure_air_attack1.png"));
+
 	auto playerRunRight = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 6, 200, "Assets/Sprites/Character/adventure_run_right.png"));
-	auto playerSlide = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_slide.png"));
+	auto playerRunLeft = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 6, 200, "Assets/Sprites/Character/adventure_run_left.png"));
+
 	auto playerFallLeft = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_fall_left.png"));
 	auto playerFallRight = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_fall_right.png"));
+
 	auto playerJumpLeft = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_jump_left.png"));
-	auto playerRunLeft = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 6, 200, "Assets/Sprites/Character/adventure_run_left.png"));
 	auto playerJumpRight = shared_ptr<SpriteObject>(new SpriteObject(textureId++, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_WIDTH, 2, 300, "Assets/Sprites/Character/adventure_jump_right.png"));
 
 	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::DEFAULT, playerDefault));
-	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::AIR_ATTACK, playerAirAttack));
 	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::RUN_RIGHT, playerRunRight));
-	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::SLIDE, playerSlide));
 	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::AIR_FALL_LEFT, playerFallLeft));
 	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::AIR_JUMP_LEFT, playerJumpLeft));
 	spriteMap.insert(std::pair<SpriteState, shared_ptr<SpriteObject>>(SpriteState::AIR_FALL_RIGHT, playerFallRight));

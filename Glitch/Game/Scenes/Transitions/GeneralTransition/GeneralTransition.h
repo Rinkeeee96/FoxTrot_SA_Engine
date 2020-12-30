@@ -1,5 +1,6 @@
 #pragma once
 #include "Game/Scenes/GameScene.h"
+#include "Game/AdvertisementHandler/AdvertisementHandler.h"
 
 #define TRANSITION_SCENE_DURATION_S		3
 
@@ -7,7 +8,10 @@
 class GeneralTransition : public GameScene
 {
 public:
-	GeneralTransition(const int id, unique_ptr<Engine>& engine, shared_ptr<SceneStateMachine> _statemachine) : GameScene(id, engine, _statemachine) {};
+	GeneralTransition(const int id, unique_ptr<Engine>& engine, shared_ptr<SceneStateMachine> _statemachine) : GameScene(id, engine, _statemachine) 
+	{
+		adHandler = unique_ptr<AdvertisementHandler>(new AdvertisementHandler());
+	};
 	~GeneralTransition() {};
 
 	// Inherited via Scene
@@ -18,11 +22,14 @@ public:
 
 	void setNextScene(string const identifier);
 
-	int getFileAdfileCount();
-
 private:
+
+	string getRandomAdFileName();
+
 	void loadBackground();
 	shared_ptr<Drawable> animation = nullptr;
+
+	unique_ptr<AdvertisementHandler> adHandler;
 
 	string nextScene = "";
 	float timer = 0;

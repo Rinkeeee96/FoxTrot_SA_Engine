@@ -34,12 +34,15 @@ void Jumpkin::onUpdate(float deltaTime) {
 
 	if (jumping) {
 		jumpTimer += deltaTime;
-		if (jumpTimer >= (JUMPKIN_JUMP_ANIMATION_TIME / 2) && jumpTimer <= JUMPKIN_JUMP_ANIMATION_TIME) {
+		if (jumpTimer >= (JUMPKIN_JUMP_ANIMATION_TIME / 2) && jumpTimer < JUMPKIN_JUMP_ANIMATION_TIME / 1.05) {
 			changeToState(direction == Direction::LEFT ? SpriteState::ACTION_LEFT_1 : SpriteState::ACTION_RIGHT_1);
 		}
-		if (jumpTimer >= JUMPKIN_JUMP_ANIMATION_TIME) {
+		if (jumpTimer >= JUMPKIN_JUMP_ANIMATION_TIME / 1.05 && jumpTimer < JUMPKIN_JUMP_ANIMATION_TIME) {
 			changeToState(direction == Direction::LEFT ? SpriteState::ACTION_LEFT_3 : SpriteState::ACTION_RIGHT_3);
 			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
+			
+		}
+		if (jumpTimer >= JUMPKIN_JUMP_ANIMATION_TIME) {
 			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(direction, this->getObjectId()));
 			jumpTimer = 0;
 			jumping = false;

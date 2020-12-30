@@ -22,6 +22,7 @@ public:
         SMOKE,
         SNOW,
         RAIN,
+        TORCH
     };
 
     ParticleStyle style_ = ParticleStyle::NONE;

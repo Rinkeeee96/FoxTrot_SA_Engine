@@ -60,13 +60,13 @@ void Shop::loadBackground()
 
 	shared_ptr<Text> level1TextBtn = shared_ptr<Text>(new Text(2, new ColoredText("How can I help you today?", Color(0, 0, 0)), 400, 100, 840, 865));
 
-	shared_ptr<Text> heartText = shared_ptr<Text>(new Text(3, new ColoredText("Need extra help? Get some extra hearts!", Color(0, 0, 0)), 400, 80, 150, 260));
-	heartText2 = shared_ptr<Text>(new Text(4, new ColoredText("Will cost only " + to_string(currentPrice) + " coins!", Color(0, 0, 0)), 400, 80, 150, 450));
+	shared_ptr<Text> heartText = shared_ptr<Text>(new Text(3, new ColoredText("Need extra help?", Color(0, 0, 0)), 400, 80, 150, 260));
+	heartText2 = shared_ptr<Text>(new Text(4, new ColoredText("Price: " + to_string(currentPrice), Color(0, 0, 0)), 100, 40, 370, 325));
 
 	shared_ptr<SpriteObject> HealthHUD = shared_ptr<SpriteObject>(new SpriteObject(-660, 50, 50, 1, 300, "Assets/Sprites/HUD/Full.png"));
 	shared_ptr<Drawable> health = shared_ptr<Drawable>(new Drawable(-700));
 	health->setStatic(true);
-	health->setPositionX(400);
+	health->setPositionX(340);
 	health->setPositionY(350);
 	health->setWidth(50);
 	health->setHeight(50);
@@ -140,12 +140,17 @@ void Shop::loadButtons()
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
+	shared_ptr<PrimaryButton> coins = shared_ptr<PrimaryButton>(new PrimaryButton(-950, "Get Coins", freeCoins, this->dispatcher));
+	coins->setPositionX(1680);
+	coins->setPositionY(950);
+
 	buyBTN = shared_ptr<PrimaryButton>(new PrimaryButton(-970, "", onShopBuyClick, this->dispatcher));
 
-	buyBTN->setPositionX(480);
+	buyBTN->setPositionX(550);
 	buyBTN->setPositionY(350);
 	buyBTN->disable();
 
+	addNewObjectToLayer(3, coins);
 	addNewObjectToLayer(3, stopBtn);
 	addNewObjectToLayer(3, buyBTN);
 }
@@ -185,7 +190,7 @@ void Shop::updateTextBoxes() {
 		buyBTN->enable(); 
 	}
 
-	string cost = "Will cost only " + to_string(currentPrice) + " coins!";
+	string cost = "Price: " + to_string(currentPrice);
 	heartText2->changeText(cost);
 
 	string coins = to_string(savegame->getCurrentGameData().characterData.inventory.coins);

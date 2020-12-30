@@ -2,6 +2,20 @@
 #include "FileLoader.h"
 #include <FileParser\JsonValidator.h>
 
+#include <filesystem>
+#include <iostream>
+#include <fstream>
+#include <cstdint>
+namespace fs = std::filesystem;
+
+#include<Windows.h>
+
+#include <tchar.h>
+#include <urlmon.h>
+#pragma comment(lib, "urlmon.lib")
+#pragma comment(lib,"wininet.lib")
+
+
 /// @brief 
 /// Reads a file and returns the stream, strem should be closed
 /// @param path to the file
@@ -32,4 +46,35 @@ bool FileLoader::validateDocument(string path, string validationPath) {
 		throw exception("FileLoader: unsupported file type");
 	}
 	return false;
+}
+
+/// @brief 
+/// Checks if the given filepath points to an existing file
+/// @param path 
+/// @return 
+bool FileLoader::doesFileExist(const string& path)
+{
+	return fs::exists(path);
+}
+
+///  @brief
+/// Downloads a file from the web and saves it to the given filepath
+void FileLoader::downloadFile(const string& url, const string& pathAndFilename)
+{
+	HRESULT hr;
+	const char* t = url.c_str();
+	const char* p = pathAndFilename.c_str();
+	hr = URLDownloadToFileA(0, t, p, 0, 0);
+}
+
+/// @brief 
+/// Returns a file listing of existing files in the given path
+/// @param path 
+/// @return 
+vector<string> FileLoader::getDirFiles(const string& path)
+{
+	vector<string> files;
+	for (const auto& entry : fs::directory_iterator(path))
+		files.push_back(entry.path().string());
+	return files;
 }
