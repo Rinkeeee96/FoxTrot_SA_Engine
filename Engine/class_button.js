@@ -2,7 +2,6 @@ var class_button =
 [
     [ "Button", "class_button.html#afa98d45bf9667f5afdeff49d3956d44e", null ],
     [ "~Button", "class_button.html#a6d35cf666b119be6153a717427f9b5e2", null ],
-    [ "changeText", "class_button.html#a1e8ad517a45d882b2791ac3efad1aed7", null ],
     [ "disable", "class_button.html#a5d3bdf3aa8a1d08a5e3a3572d641e6eb", null ],
     [ "enable", "class_button.html#a5867597842b62629c5861aeed1e12b36", null ],
     [ "isClicked", "class_button.html#a5ce777e27c53a61605397b1353819c6c", null ],

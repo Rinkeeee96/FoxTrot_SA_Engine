@@ -95,9 +95,6 @@ API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <tr class="memitem:a6dc0d1aed09086bdd7002dc5f41f9bbc"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_facade.html#a6dc0d1aed09086bdd7002dc5f41f9bbc">addStaticObject</a> (shared_ptr&lt; <a class="el" href="class_physics_body.html">PhysicsBody</a> &gt; object) override</td></tr>
 <tr class="memdesc:a6dc0d1aed09086bdd7002dc5f41f9bbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function for register a non static object.  <a href="class_physics_facade.html#a6dc0d1aed09086bdd7002dc5f41f9bbc">More...</a><br /></td></tr>
 <tr class="separator:a6dc0d1aed09086bdd7002dc5f41f9bbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa87722bba7b9fb5bbe54aaf520617989"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_facade.html#aa87722bba7b9fb5bbe54aaf520617989">addKinamaticObject</a> (shared_ptr&lt; <a class="el" href="class_physics_body.html">PhysicsBody</a> &gt; object) override</td></tr>
-<tr class="memdesc:aa87722bba7b9fb5bbe54aaf520617989"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function for register a non static object.  <a href="class_physics_facade.html#aa87722bba7b9fb5bbe54aaf520617989">More...</a><br /></td></tr>
-<tr class="separator:aa87722bba7b9fb5bbe54aaf520617989"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ec2e53bf183eaf3911dc3dd68bb22aa"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_facade.html#a6ec2e53bf183eaf3911dc3dd68bb22aa">addDynamicObject</a> (shared_ptr&lt; <a class="el" href="class_physics_body.html">PhysicsBody</a> &gt; object) override</td></tr>
 <tr class="memdesc:a6ec2e53bf183eaf3911dc3dd68bb22aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function for register a non static object.  <a href="class_physics_facade.html#a6ec2e53bf183eaf3911dc3dd68bb22aa">More...</a><br /></td></tr>
 <tr class="separator:a6ec2e53bf183eaf3911dc3dd68bb22aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,19 +120,13 @@ API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_facade.html#a385afe67398479d31386edfc92371bd2">update</a> () override</td></tr>
 <tr class="memdesc:a385afe67398479d31386edfc92371bd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to update the position information of all objects The position is set to the bottom left. <br /></td></tr>
 <tr class="separator:a385afe67398479d31386edfc92371bd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83dab18e3a5d0a69c465fc6a191db862"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_facade.html#a83dab18e3a5d0a69c465fc6a191db862">stopObject</a> (int objectId, bool stopVertical, bool stopHorizontal)</td></tr>
-<tr class="memdesc:a83dab18e3a5d0a69c465fc6a191db862"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to stop an object from moving vertically, horizontally or both.  <a href="class_physics_facade.html#a83dab18e3a5d0a69c465fc6a191db862">More...</a><br /></td></tr>
+<tr class="memitem:a83dab18e3a5d0a69c465fc6a191db862"><td class="memItemLeft" align="right" valign="top"><a id="a83dab18e3a5d0a69c465fc6a191db862"></a>
+API void&#160;</td><td class="memItemRight" valign="bottom"><b>stopObject</b> (int objectId, bool stopVertical, bool stopHorizontal)</td></tr>
 <tr class="separator:a83dab18e3a5d0a69c465fc6a191db862"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae773071bd73c7592c8c4e27ba5a0bb66"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_facade.html#ae773071bd73c7592c8c4e27ba5a0bb66">moveObjectTo</a> (<a class="el" href="class_object.html">Object</a> &amp;object, float x, float y)</td></tr>
-<tr class="memdesc:ae773071bd73c7592c8c4e27ba5a0bb66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the given object's velocity towards the given x and y position, based on it's speed.  <a href="class_physics_facade.html#ae773071bd73c7592c8c4e27ba5a0bb66">More...</a><br /></td></tr>
-<tr class="separator:ae773071bd73c7592c8c4e27ba5a0bb66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20da72d44f1f0a0501797d43d6d07a41"><td class="memItemLeft" align="right" valign="top"><a id="a20da72d44f1f0a0501797d43d6d07a41"></a>
 API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_facade.html#a20da72d44f1f0a0501797d43d6d07a41">cleanMap</a> ()</td></tr>
 <tr class="memdesc:a20da72d44f1f0a0501797d43d6d07a41"><td class="mdescLeft">&#160;</td><td class="mdescRight">destroy all the bodies of the world <br /></td></tr>
 <tr class="separator:a20da72d44f1f0a0501797d43d6d07a41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5556ae80ea761baeea6dda966ff6494"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_facade.html#aa5556ae80ea761baeea6dda966ff6494">updatePhysicsBody</a> (<a class="el" href="class_object.html">Object</a> &amp;obj) override</td></tr>
-<tr class="memdesc:aa5556ae80ea761baeea6dda966ff6494"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the physics body to the new obj values of the given object.  <a href="class_physics_facade.html#aa5556ae80ea761baeea6dda966ff6494">More...</a><br /></td></tr>
-<tr class="separator:aa5556ae80ea761baeea6dda966ff6494"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -178,42 +169,6 @@ unique_ptr&lt; <a class="el" href="class_frame_data.html">FrameData</a> &gt; &am
       <table class="memname">
         <tr>
           <td class="memname">void PhysicsFacade::addDynamicObject </td>
-          <td>(</td>
-          <td class="paramtype">shared_ptr&lt; <a class="el" href="class_physics_body.html">PhysicsBody</a> &gt;&#160;</td>
-          <td class="paramname"><em>object</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>A function for register a non static object. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_object.html" title="Object class. Object is linked with a sprite id in SVI.">Object</a></td><td>The object to register </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Implements <a class="el" href="class_i_physics_facade.html">IPhysicsFacade</a>.</p>
-
-</div>
-</div>
-<a id="aa87722bba7b9fb5bbe54aaf520617989"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa87722bba7b9fb5bbe54aaf520617989">&#9670;&nbsp;</a></span>addKinamaticObject()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PhysicsFacade::addKinamaticObject </td>
           <td>(</td>
           <td class="paramtype">shared_ptr&lt; <a class="el" href="class_physics_body.html">PhysicsBody</a> &gt;&#160;</td>
           <td class="paramname"><em>object</em></td><td>)</td>
@@ -526,60 +481,6 @@ unique_ptr&lt; <a class="el" href="class_frame_data.html">FrameData</a> &gt; &am
 
 </div>
 </div>
-<a id="ae773071bd73c7592c8c4e27ba5a0bb66"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae773071bd73c7592c8c4e27ba5a0bb66">&#9670;&nbsp;</a></span>moveObjectTo()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PhysicsFacade::moveObjectTo </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_object.html">Object</a> &amp;&#160;</td>
-          <td class="paramname"><em>object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the given object's velocity towards the given x and y position, based on it's speed. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">object</td><td>The object to set the velocity of </td></tr>
-    <tr><td class="paramname">x</td><td>The x position to move to </td></tr>
-    <tr><td class="paramname">y</td><td>The y position to move to </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Implements <a class="el" href="class_i_physics_facade.html">IPhysicsFacade</a>.</p>
-
-</div>
-</div>
 <a id="a986be15be922656f6a43513ff177b181"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a986be15be922656f6a43513ff177b181">&#9670;&nbsp;</a></span>MoveRight()</h2>
 
@@ -608,98 +509,6 @@ unique_ptr&lt; <a class="el" href="class_frame_data.html">FrameData</a> &gt; &am
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">objectId</td><td>Identifier for ObjectID </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Implements <a class="el" href="class_i_physics_facade.html">IPhysicsFacade</a>.</p>
-
-</div>
-</div>
-<a id="a83dab18e3a5d0a69c465fc6a191db862"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a83dab18e3a5d0a69c465fc6a191db862">&#9670;&nbsp;</a></span>stopObject()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PhysicsFacade::stopObject </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>objectId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>stopVertical</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>stopHorizontal</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>A function to stop an object from moving vertically, horizontally or both. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">objectId</td><td>Identifier for ObjectID </td></tr>
-    <tr><td class="paramname">stopVertical</td><td>Whether the object should stop moving vertically </td></tr>
-    <tr><td class="paramname">stopHorizontal</td><td>Whether the object should stop moving horizontally <br  />
- </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Implements <a class="el" href="class_i_physics_facade.html">IPhysicsFacade</a>.</p>
-
-</div>
-</div>
-<a id="aa5556ae80ea761baeea6dda966ff6494"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5556ae80ea761baeea6dda966ff6494">&#9670;&nbsp;</a></span>updatePhysicsBody()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PhysicsFacade::updatePhysicsBody </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_object.html">Object</a> &amp;&#160;</td>
-          <td class="paramname"><em>obj</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Updates the physics body to the new obj values of the given object. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">objId</td><td>The id of the object to update </td></tr>
-    <tr><td class="paramname">obj</td><td>The object to update from </td></tr>
   </table>
   </dd>
 </dl>

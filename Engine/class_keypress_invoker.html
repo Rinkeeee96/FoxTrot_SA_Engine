@@ -73,9 +73,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab56d9d836c09a3260b63026d3ead62d8"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_keypress_invoker.html#ab56d9d836c09a3260b63026d3ead62d8">registerCommand</a> (KeyCode code, <a class="el" href="class_i_command.html">ICommand</a> *command)</td></tr>
 <tr class="memdesc:ab56d9d836c09a3260b63026d3ead62d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register keybinds in the invoker for the first time, throws exception when trying to register multiple commands under the same binding.  <a href="class_keypress_invoker.html#ab56d9d836c09a3260b63026d3ead62d8">More...</a><br /></td></tr>
 <tr class="separator:ab56d9d836c09a3260b63026d3ead62d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1cba51dec2598fbca6420864f162134b"><td class="memItemLeft" align="right" valign="top">virtual API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_keypress_invoker.html#a1cba51dec2598fbca6420864f162134b">updateCommand</a> (KeyCode code, const string &amp;identifier)</td></tr>
-<tr class="memdesc:a1cba51dec2598fbca6420864f162134b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the keycode that is set to this command.  <a href="class_keypress_invoker.html#a1cba51dec2598fbca6420864f162134b">More...</a><br /></td></tr>
-<tr class="separator:a1cba51dec2598fbca6420864f162134b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d5d5e83770deb3d97cb8e6fd9463bf8"><td class="memItemLeft" align="right" valign="top">virtual API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_keypress_invoker.html#a2d5d5e83770deb3d97cb8e6fd9463bf8">updateCommand</a> (KeyCode code, <a class="el" href="class_i_command.html">ICommand</a> *command)</td></tr>
+<tr class="memdesc:a2d5d5e83770deb3d97cb8e6fd9463bf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the keycode that is set to this command.  <a href="class_keypress_invoker.html#a2d5d5e83770deb3d97cb8e6fd9463bf8">More...</a><br /></td></tr>
+<tr class="separator:a2d5d5e83770deb3d97cb8e6fd9463bf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a800d795e493af32b698d5ede3afc2639"><td class="memItemLeft" align="right" valign="top"><a id="a800d795e493af32b698d5ede3afc2639"></a>
 API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_keypress_invoker.html#a800d795e493af32b698d5ede3afc2639">deleteCommandThatBelongsTo</a> (const KeyCode &amp;code)</td></tr>
 <tr class="memdesc:a800d795e493af32b698d5ede3afc2639"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete a command registered to the given keycode. <br /></td></tr>
@@ -85,17 +85,8 @@ API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <tr class="memdesc:a493b21439f6b9365a51cd0a3a1e3b3a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle commands placed in the command queue each frame. <br /></td></tr>
 <tr class="separator:a493b21439f6b9365a51cd0a3a1e3b3a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f8bcdedef9f044ec207ed3429691845"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_keypress_invoker.html#a5f8bcdedef9f044ec207ed3429691845">enqueueCommand</a> (const KeyCode &amp;code)</td></tr>
-<tr class="memdesc:a5f8bcdedef9f044ec207ed3429691845"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to execute a command for a given keycode, fails silently when the keycode has no binding or when it cannot execute to prevent unwanted exceptions.  <a href="class_keypress_invoker.html#a5f8bcdedef9f044ec207ed3429691845">More...</a><br /></td></tr>
+<tr class="memdesc:a5f8bcdedef9f044ec207ed3429691845"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to execute a command for a given keycode, fails silently when no bind is registered to prevent unwanted exceptions.  <a href="class_keypress_invoker.html#a5f8bcdedef9f044ec207ed3429691845">More...</a><br /></td></tr>
 <tr class="separator:a5f8bcdedef9f044ec207ed3429691845"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7563ad504e930451e00add1bf15869a7"><td class="memItemLeft" align="right" valign="top"><a id="a7563ad504e930451e00add1bf15869a7"></a>
-API <a class="el" href="class_i_command.html">ICommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getCommandByIdentifier</b> (const string &amp;identifier)</td></tr>
-<tr class="separator:a7563ad504e930451e00add1bf15869a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6609bb334ab9fc9adb4c0f5043c9bb02"><td class="memItemLeft" align="right" valign="top"><a id="a6609bb334ab9fc9adb4c0f5043c9bb02"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>pause</b> ()</td></tr>
-<tr class="separator:a6609bb334ab9fc9adb4c0f5043c9bb02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a664d8aaeedb5dd54c10d904071e533b3"><td class="memItemLeft" align="right" valign="top"><a id="a664d8aaeedb5dd54c10d904071e533b3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>unpause</b> ()</td></tr>
-<tr class="separator:a664d8aaeedb5dd54c10d904071e533b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -114,9 +105,6 @@ unordered_map&lt; KeyCode, <a class="el" href="class_i_command.html">ICommand</a
 <tr class="memitem:ae95240f96221bf5b7917c281e99eb5e6"><td class="memItemLeft" align="right" valign="top"><a id="ae95240f96221bf5b7917c281e99eb5e6"></a>
 queue&lt; KeyCode &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>executionQueue</b></td></tr>
 <tr class="separator:ae95240f96221bf5b7917c281e99eb5e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeefad7b5ba8e7139755f1fd460bb11b2"><td class="memItemLeft" align="right" valign="top"><a id="aeefad7b5ba8e7139755f1fd460bb11b2"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isPaused</b></td></tr>
-<tr class="separator:aeefad7b5ba8e7139755f1fd460bb11b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a5f8bcdedef9f044ec207ed3429691845"></a>
@@ -135,7 +123,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isPaused</b></td></tr
       </table>
 </div><div class="memdoc">
 
-<p>Attempts to execute a command for a given keycode, fails silently when the keycode has no binding or when it cannot execute to prevent unwanted exceptions. </p>
+<p>Attempts to execute a command for a given keycode, fails silently when no bind is registered to prevent unwanted exceptions. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">code</td><td>Keycode for the to execute command </td></tr>
@@ -182,8 +170,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isPaused</b></td></tr
 
 </div>
 </div>
-<a id="a1cba51dec2598fbca6420864f162134b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1cba51dec2598fbca6420864f162134b">&#9670;&nbsp;</a></span>updateCommand()</h2>
+<a id="a2d5d5e83770deb3d97cb8e6fd9463bf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d5d5e83770deb3d97cb8e6fd9463bf8">&#9670;&nbsp;</a></span>updateCommand()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -200,8 +188,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isPaused</b></td></tr
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const string &amp;&#160;</td>
-          <td class="paramname"><em>identifier</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_i_command.html">ICommand</a> *&#160;</td>
+          <td class="paramname"><em>command</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
