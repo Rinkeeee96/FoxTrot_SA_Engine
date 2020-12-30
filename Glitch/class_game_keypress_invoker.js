@@ -8,7 +8,7 @@ var class_game_keypress_invoker =
     [ "getKeycodeFromIdentifier", "class_game_keypress_invoker.html#af378cd522c0f1a7e964280707d5eedda", null ],
     [ "getPlayerCommands", "class_game_keypress_invoker.html#a4c20f9110a66a4d2bf4f93b8fb5715c0", null ],
     [ "updateGlobalCommand", "class_game_keypress_invoker.html#a9eb104c006d1b6536e69655bbf1951fd", null ],
-    [ "updateKeycodeInCollection", "class_game_keypress_invoker.html#ae6469e8513b7ae62605c536c39523d30", null ],
+    [ "updateKeycodeInCollection", "class_game_keypress_invoker.html#a47c503fe9fa1581bf3c4aa9329e1d2d5", null ],
     [ "updatePlayerCommand", "class_game_keypress_invoker.html#a6d5a6647f98b75032d348656268f6d09", null ],
     [ "globalCommands", "class_game_keypress_invoker.html#a3a59848d0095beb0d9f280febd961088", null ],
     [ "playerCommands", "class_game_keypress_invoker.html#a88f79816d600915748d6df5cba3903a2", null ]
