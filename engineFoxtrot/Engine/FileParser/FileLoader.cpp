@@ -48,6 +48,10 @@ bool FileLoader::validateDocument(string path, string validationPath) {
 	return false;
 }
 
+/// @brief 
+/// Checks if the given filepath points to an existing file
+/// @param path 
+/// @return 
 bool FileLoader::doesFileExist(const string& path)
 {
 	return fs::exists(path);
@@ -63,6 +67,10 @@ void FileLoader::downloadFile(const string& url, const string& pathAndFilename)
 	hr = URLDownloadToFileA(0, t, p, 0, 0);
 }
 
+/// @brief 
+/// Returns a file listing of existing files in the given path
+/// @param path 
+/// @return 
 vector<string> FileLoader::getDirFiles(const string& path)
 {
 	vector<string> files;
