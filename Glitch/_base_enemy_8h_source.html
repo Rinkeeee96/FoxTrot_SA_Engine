@@ -70,14 +70,16 @@ $(document).ready(function(){initNavTree('_base_enemy_8h_source.html',''); initR
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_base_enemy.html">BaseEnemy</a>(EventDispatcher&amp; _dispatcher) : <a class="code" href="class_i_enemy.html">IEnemy</a>(_dispatcher) {}</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="class_base_enemy.html">BaseEnemy</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, EventDispatcher&amp; _dispatcher) : <a class="code" href="class_i_enemy.html">IEnemy</a>(<span class="keywordtype">id</span>, _dispatcher) {</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        _dispatcher.setEventCallback&lt;OnCollisionBeginEvent&gt;(BIND_EVENT_FN(<a class="code" href="class_base_enemy.html#a0d31ec16a5c54afc7396b73353c8565b">BaseEnemy::onCollisionBeginEvent</a>));</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    }</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_base_enemy.html#a0d31ec16a5c54afc7396b73353c8565b">onCollisionBeginEvent</a>(<span class="keyword">const</span> Event&amp; event);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">int</span> jumpTimer = 0;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">bool</span> jumping = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        this-&gt;setScalable(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        this-&gt;setScale(3);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    }</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_base_enemy.html#a0d31ec16a5c54afc7396b73353c8565b">onCollisionBeginEvent</a>(<span class="keyword">const</span> Event&amp; event);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">int</span> jumpTimer = 0;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">bool</span> jumping = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_i_enemy_html"><div class="ttname"><a href="class_i_enemy.html">IEnemy</a></div><div class="ttdoc">Enemy base class.</div><div class="ttdef"><b>Definition:</b> IEnemy.h:9</div></div>
