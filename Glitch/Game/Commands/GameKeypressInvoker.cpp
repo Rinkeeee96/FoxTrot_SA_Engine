@@ -79,11 +79,9 @@ void GameKeypressInvoker::updateKeycodeInCollection(unordered_map<KeyCode, strin
 			// binding is present in both the list to update and the control map
 			else if (inControlMap)
 			{
-				KeyCode k = commandIt->first;
-				string oldCommand = commandIt->second;
 				mapToUpdate[code] = identifier;
-				
-				controlMap.insert(make_pair(k, controlMap[code]));
+				controlMap.insert(make_pair(commandIt->first, controlMap[code]));
+
 				controlMap.erase(code);
 				mapToUpdate.erase(commandIt);
 			}
