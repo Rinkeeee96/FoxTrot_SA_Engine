@@ -63,29 +63,23 @@ $(document).ready(function(){initNavTree('_pause_pop_up_8h_source.html',''); ini
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;Game/PopUps/IPopup.h&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;Game/PopUps/BasePopup.h&quot;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="class_pause_pop_up.html">    5</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_pause_pop_up.html">PausePopUp</a> : <span class="keyword">public</span> <a class="code" href="class_i_popup.html">IPopup</a></div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="class_pause_pop_up.html">    5</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_pause_pop_up.html">PausePopUp</a> : <span class="keyword">public</span> <a class="code" href="class_base_popup.html">BasePopup</a></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_pause_pop_up.html">PausePopUp</a>(unique_ptr&lt;Engine&gt;&amp; _engine, EventDispatcher&amp; _dispacther, shared_ptr&lt;SceneStateMachine&gt; _stateMachine)</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        : <a class="code" href="class_i_popup.html">IPopup</a>(_engine, _dispacther, _stateMachine) {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_pause_pop_up.html">PausePopUp</a>(EventDispatcher&amp; _dispacther, shared_ptr&lt;SceneStateMachine&gt; _stateMachine)</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        : <a class="code" href="class_base_popup.html">BasePopup</a>(_dispacther, _stateMachine) {</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    };</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="comment">// Inherited via BasePopup</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_pause_pop_up.html#ae52312b0a4104e2a3eff2493c41d8f6a">setupPopUp</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">void</span> onUpdate()<span class="keyword"> override </span>{};</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="comment">// Inherited via IPopup</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> cleanPopUp() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> onAttach() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> onDetach() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_pause_pop_up.html#a450e10bdd6bd3932cd7d0d8de54094cc">onBackButtonClick</a>();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;};</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_pause_pop_up.html#a450e10bdd6bd3932cd7d0d8de54094cc">onBackButtonClick</a>();</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_pause_pop_up_html_a450e10bdd6bd3932cd7d0d8de54094cc"><div class="ttname"><a href="class_pause_pop_up.html#a450e10bdd6bd3932cd7d0d8de54094cc">PausePopUp::onBackButtonClick</a></div><div class="ttdeci">void onBackButtonClick()</div><div class="ttdoc">Called when Back to overworld button is clicked.</div><div class="ttdef"><b>Definition:</b> PausePopUp.cpp:42</div></div>
-<div class="ttc" id="aclass_i_popup_html"><div class="ttname"><a href="class_i_popup.html">IPopup</a></div><div class="ttdoc">Interface class for a popUp.</div><div class="ttdef"><b>Definition:</b> IPopup.h:7</div></div>
+<div class="ttc" id="aclass_base_popup_html"><div class="ttname"><a href="class_base_popup.html">BasePopup</a></div><div class="ttdef"><b>Definition:</b> BasePopup.h:7</div></div>
 <div class="ttc" id="aclass_pause_pop_up_html_ae52312b0a4104e2a3eff2493c41d8f6a"><div class="ttname"><a href="class_pause_pop_up.html#ae52312b0a4104e2a3eff2493c41d8f6a">PausePopUp::setupPopUp</a></div><div class="ttdeci">void setupPopUp() override</div><div class="ttdoc">Setup the Pause Pop Up.</div><div class="ttdef"><b>Definition:</b> PausePopUp.cpp:10</div></div>
 <div class="ttc" id="aclass_pause_pop_up_html"><div class="ttname"><a href="class_pause_pop_up.html">PausePopUp</a></div><div class="ttdoc">Pause Pop Up.</div><div class="ttdef"><b>Definition:</b> PausePopUp.h:6</div></div>
 <!-- start footer part -->
