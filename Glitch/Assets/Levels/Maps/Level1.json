@@ -200,54 +200,6 @@
                 }, 
                 {
                  "gid":150,
-                 "height":40.3333333333334,
-                 "id":9,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"density",
-                         "type":"int",
-                         "value":50
-                        }, 
-                        {
-                         "name":"friction",
-                         "type":"int",
-                         "value":0
-                        }, 
-                        {
-                         "name":"health",
-                         "type":"int",
-                         "value":10
-                        }, 
-                        {
-                         "name":"jump_height",
-                         "type":"int",
-                         "value":16
-                        }, 
-                        {
-                         "name":"restitution",
-                         "type":"int",
-                         "value":0
-                        }, 
-                        {
-                         "name":"speed",
-                         "type":"int",
-                         "value":4
-                        }, 
-                        {
-                         "name":"type",
-                         "type":"string",
-                         "value":"slime"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":41.3333333333334,
-                 "x":827,
-                 "y":698.166666666667
-                }, 
-                {
-                 "gid":150,
                  "height":40.3333,
                  "id":14,
                  "name":"",
