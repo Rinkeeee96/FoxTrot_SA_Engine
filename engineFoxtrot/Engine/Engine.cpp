@@ -30,6 +30,7 @@ void Engine::setCurrentScene(const int sceneID)
 	inputEngine.start(*this->eventDispatcher);
 	inputEngine.registerKeypressInvoker(this->keypressInvoker);
 	physicsEngine.start(*this->eventDispatcher);
+	frameData->setEventDispatcher(eventDispatcher);
 
 	if(sceneManager.currentScene)sceneManager.currentScene->onAttach();
 }
@@ -81,11 +82,6 @@ void Engine::startCurrentScene(bool playSound)
 	sceneManager.currentScene->start(playSound);
 }
 
-void Engine::setDeltaTimeMultiplier(float multiplier)
-{
-	this->frameData->setMultiplier(multiplier);
-}
-
 /// @brief
 /// Returns the deltaTime from the frameData class using default physics timestep
 /// @param timeStep
@@ -100,13 +96,13 @@ float Engine::getDeltaTime(int timeStep)
 void Engine::start()
 {
 	frameData = make_unique<FrameData>();
+	
 	videoEngine.pointerToCurrentScene = &sceneManager.currentScene;
 	physicsEngine.pointerToCurrentScene = &sceneManager.currentScene;
 	particleEngine.pointerToCurrentScene = &sceneManager.currentScene;
 
 	// register default invoker
 	useCustomCommandInvoker(new KeypressInvoker());
-
 	videoEngine.start(*this->eventDispatcher);
 }
 

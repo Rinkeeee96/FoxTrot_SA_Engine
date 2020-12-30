@@ -140,7 +140,9 @@ void CommandBuilder::createDefaultbindings(unordered_map<KeyCode, string>& playe
 	globalBindings = {
 		{ KeyCode::KEY_H, "help" },
 		{ KeyCode::KEY_P, "pause" },
-		{ KeyCode::KEY_I, "inventory" }
+		{ KeyCode::KEY_I, "inventory" },
+		{ KeyCode::KEY_PAGEUP, "faster" },
+		{ KeyCode::KEY_PAGEDOWN, "slower" }
 	};
 }
 
@@ -205,10 +207,14 @@ void CommandBuilder::initGlobalCommandFactory()
 {
 	globalCommandFactory = std::shared_ptr<GlobalCommandFactory>(new GlobalCommandFactory());
 	auto toggleInventoryCommand = new GlobalCommandCreator<ToggleLayerCommand>("inventory");
+	auto increaseSpeedCommand = new GlobalCommandCreator<ToggleLayerCommand>("faster");
+	auto decreaseSpeedCommand = new GlobalCommandCreator<ToggleLayerCommand>("slower");
 	auto togglePauseCommand = new GlobalCommandCreator<ToggleLayerCommand>("pause");
 	auto toggleHelpCommand = new GlobalCommandCreator<ToggleLayerCommand>("help");
 
 	toggleInventoryCommand->registerClass(globalCommandFactory);
+	increaseSpeedCommand->registerClass(globalCommandFactory);
+	decreaseSpeedCommand->registerClass(globalCommandFactory);
 	togglePauseCommand->registerClass(globalCommandFactory);
 	toggleHelpCommand->registerClass(globalCommandFactory);
 }

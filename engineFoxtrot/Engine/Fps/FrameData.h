@@ -16,7 +16,11 @@ public:
 	API const float calculateDeltaTime(int timeStep);
 	API void setMultiplier(float multiplier) { this->multiplier = multiplier; };
 
+	void setEventDispatcher(EventDispatcher* _dispatcher);
+
 private:
+
+	EventDispatcher* dispatcher = nullptr;
 
 	double fps = 0;
 

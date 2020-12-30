@@ -141,6 +141,8 @@
     <ClInclude Include="Game\Scenes\Statemachine\SceneStateMachine.h" />
     <ClInclude Include="Game\Scenes\Shop\Shop.h" />
     <ClInclude Include="Game\PopUps\hud\HudPopUp.h" />
+    <ClInclude Include="Game\Commands\GlobalCommands\IncreaseGameSpeedCommand.h" />
+    <ClInclude Include="Game\Commands\GlobalCommands\DecreaseGameSpeedCommand.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\Levels\Story\ChapterOne.txt" />

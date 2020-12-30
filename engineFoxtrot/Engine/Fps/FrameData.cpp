@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "FrameData.h"
-
+#include "Events/Action/IncreaseGameSpeedEvent.h"
+#include "Events/Action/DecreaseGameSpeedEvent.h"
 
 FrameData::FrameData() {
 }
@@ -22,6 +23,20 @@ void FrameData::startTimer() {
 const float FrameData::calculateDeltaTime(int timeStep)
 {
 	return static_cast<const float>(lastFrameFps != 0 ? timeStep / lastFrameFps : 1);
+}
+
+void FrameData::setEventDispatcher(EventDispatcher* _dispatcher)
+{
+	dispatcher = _dispatcher;
+	dispatcher->setEventCallback<DecreaseGameSpeedEvent>([this](const Event& event) -> bool {
+		multiplier -= 0.1f;
+		return true;
+	});
+	dispatcher->setEventCallback<IncreaseGameSpeedEvent>([this](const Event& event) -> bool {
+		multiplier += 0.1f;
+		return true;
+	});
+
 }
 
 /// @brief
