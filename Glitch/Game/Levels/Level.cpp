@@ -48,6 +48,8 @@ void Level::start(bool playSound) {
 	this->addLayerOnZIndex(helpPopupZIndex, shared_ptr<Layer>(new HelpMenu(this->engine, this->dispatcher, this->stateMachine)));
 	this->addLayerOnZIndex(hudPopUpZIndex, hudPopUp);
 
+	commandBuilder->buildGlobalCommands(gameInvoker);
+
 	commandBuilder->linkCommandToToggle(gameInvoker, inventoryPopupZIndex, "inventory");
 	commandBuilder->linkCommandToToggle(gameInvoker, pausePopupZIndex, "pause");
 	commandBuilder->linkCommandToToggle(gameInvoker, helpPopupZIndex, "help");

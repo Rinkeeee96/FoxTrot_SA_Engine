@@ -30,6 +30,7 @@ void Engine::setCurrentScene(const int sceneID)
 	inputEngine.start(*this->eventDispatcher);
 	inputEngine.registerKeypressInvoker(this->keypressInvoker);
 	physicsEngine.start(*this->eventDispatcher);
+	frameData->setEventDispatcher(eventDispatcher);
 
 	if(sceneManager.currentScene)sceneManager.currentScene->onAttach();
 }
@@ -45,6 +46,7 @@ void Engine::insertScene(unique_ptr<Scene> scene)
 /// @param id 
 void Engine::deregisterCurrentScene()
 {
+	frameData->setMultiplier(1.f);
 	inputEngine.shutdown();
 	sceneManager.deregisterCurrentScene();
 	videoEngine.clearVideoEngine();
@@ -95,13 +97,13 @@ float Engine::getDeltaTime(int timeStep)
 void Engine::start()
 {
 	frameData = make_unique<FrameData>();
+	
 	videoEngine.pointerToCurrentScene = &sceneManager.currentScene;
 	physicsEngine.pointerToCurrentScene = &sceneManager.currentScene;
 	particleEngine.pointerToCurrentScene = &sceneManager.currentScene;
 
 	// register default invoker
 	useCustomCommandInvoker(new KeypressInvoker());
-
 	videoEngine.start(*this->eventDispatcher);
 }
 

@@ -24,3 +24,17 @@ GlobalCommand* GlobalCommandFactory::createCommand(const std::string& classname,
 	else
 		throw exception(string("GlobalCommandFactory: Unknown command " + classname).c_str());
 }
+
+/// @brief
+/// search a command with the given identiefier and create it
+/// @param classname
+/// the previously registered identifier of the command instance to find 
+GlobalCommand* GlobalCommandFactory::createCommand(const std::string& classname)
+{
+	auto i = table.find(classname);
+
+	if (i != table.end())
+		return i->second->createCommand();
+	else
+		throw exception(string("GlobalCommandFactory: Unknown command " + classname).c_str());
+}

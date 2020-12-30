@@ -19,11 +19,23 @@
           "type": "number",
           "minimum": 0,
           "maximum": 231
+        },
+        "slower": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 231
+        },
+        "faster": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 231
         }
       },
       "required": [
         "inventory",
-        "pause"
+        "pause",
+        "slower",
+        "faster"
       ]
     },
     "player": {

@@ -7,12 +7,12 @@ void HelpMenu::setupPopUp()
 {
 	shared_ptr<SpriteObject> backgroundSprite = shared_ptr<SpriteObject>(new SpriteObject(-564577, 300, 500, 1, 1, "Assets/Sprites/PopUp/PopUpText-300x500.png"));
 	shared_ptr<Drawable> background = shared_ptr<Drawable>(new Drawable(-564574));
-	background->setHeight(700);
+	background->setHeight(800);
 	background->setWidth(1000);
 	background->setDrawStatic(true);
 
 	background->setPositionX(WINDOW_WIDTH_CENTER - 500);
-	background->setPositionY(WINDOW_HEIGHT_CENTER + 300);
+	background->setPositionY(WINDOW_HEIGHT_CENTER + 400);
 
 	background->registerSprite(SpriteState::DEFAULT, backgroundSprite);
 	background->changeToState(SpriteState::DEFAULT);

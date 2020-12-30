@@ -184,6 +184,8 @@
     <ClInclude Include="Engine\Input\Commands\Creator\CommandFactory.h" />
     <ClInclude Include="Engine\Input\Commands\Creator\ICommandCreator.h" />
     <ClInclude Include="Engine\Events\Action\ObjectMoveToEvent.h" />
+    <ClInclude Include="Engine\Events\Action\IncreaseGameSpeedEvent.h" />
+    <ClInclude Include="Engine\Events\Action\DecreaseGameSpeedEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

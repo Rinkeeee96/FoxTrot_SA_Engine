@@ -13,6 +13,8 @@
 
 #include "Game/Commands/GameKeypressInvoker.h"
 #include "Game/Commands/GlobalCommands/ToggleLayerCommand.h"
+#include "Game/Commands/GlobalCommands/IncreaseGameSpeedCommand.h"
+#include "Game/Commands/GlobalCommands/DecreaseGameSpeedCommand.h"
 
 CommandBuilder::CommandBuilder()
 {
@@ -140,7 +142,9 @@ void CommandBuilder::createDefaultbindings(unordered_map<KeyCode, string>& playe
 	globalBindings = {
 		{ KeyCode::KEY_H, "help" },
 		{ KeyCode::KEY_P, "pause" },
-		{ KeyCode::KEY_I, "inventory" }
+		{ KeyCode::KEY_I, "inventory" },
+		{ KeyCode::KEY_PAGEUP, "faster" },
+		{ KeyCode::KEY_PAGEDOWN, "slower" }
 	};
 }
 
@@ -181,6 +185,21 @@ void CommandBuilder::linkCommandToToggle(GameKeypressInvoker* invoker, int layer
 		globalCommandFactory->createCommand(identifier, layerId)
 	);
 }
+/// @brief
+/// Creates a link between the global commands and the invoker
+/// @param invoker the pointer to the currently active game invoker
+void CommandBuilder::buildGlobalCommands(GameKeypressInvoker* invoker)
+{
+	const vector<string> identifiers = { "faster", "slower" };
+
+	for (const string& identifier : identifiers)
+	{
+		invoker->registerCommand(
+			invoker->getKeycodeFromIdentifier(identifier),
+			globalCommandFactory->createCommand(identifier)
+		);
+	}
+}
 
 /// @brief
 /// initialise the character command factory and register it's commands
@@ -205,10 +224,14 @@ void CommandBuilder::initGlobalCommandFactory()
 {
 	globalCommandFactory = std::shared_ptr<GlobalCommandFactory>(new GlobalCommandFactory());
 	auto toggleInventoryCommand = new GlobalCommandCreator<ToggleLayerCommand>("inventory");
+	auto increaseSpeedCommand = new GlobalCommandCreator<IncreaseGameSpeedCommand>("faster");
+	auto decreaseSpeedCommand = new GlobalCommandCreator<DecreaseGameSpeedCommand>("slower");
 	auto togglePauseCommand = new GlobalCommandCreator<ToggleLayerCommand>("pause");
 	auto toggleHelpCommand = new GlobalCommandCreator<ToggleLayerCommand>("help");
 
 	toggleInventoryCommand->registerClass(globalCommandFactory);
+	increaseSpeedCommand->registerClass(globalCommandFactory);
+	decreaseSpeedCommand->registerClass(globalCommandFactory);
 	togglePauseCommand->registerClass(globalCommandFactory);
 	toggleHelpCommand->registerClass(globalCommandFactory);
 }
