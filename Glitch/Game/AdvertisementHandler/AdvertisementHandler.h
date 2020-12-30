@@ -2,6 +2,8 @@
 
 #define BASE_PATH_AD_FOLDER "./Assets/Advertisements/"
 #define JSON_AD_PATH		"./Assets/Advertisements/advertisements.json"
+#define JSON_URL			"https://raw.githubusercontent.com/Rinkeeee96/FoxTrot_SA_Engine/master/Glitch/Assets/Advertisements/advertisements.json"
+
 
 class AdvertisementHandler
 {

@@ -67,8 +67,9 @@ void AdvertisementHandler::downloadMissingAds()
 			string path = BASE_PATH_AD_FOLDER + fileName;
 			fileLoader.downloadFile(url, path);
 		}
-		// "File exists locally, no need to download"
-		adFileNames.push_back(fileName);
+
+		if(fileLoader.doesFileExist(BASE_PATH_AD_FOLDER + fileName))
+			adFileNames.push_back(fileName);
 	}
 }
 
@@ -117,8 +118,7 @@ bool AdvertisementHandler::readFileAndParseJson(const string& path)
 void AdvertisementHandler::downloadLatestAdvertisements()
 {
     // Get Json
-    // https://raw.githubusercontent.com/Rinkeeee96/FoxTrot_SA_Engine/master/Glitch/Assets/Advertisements/advertisements.json
-    string url = "https://raw.githubusercontent.com/Rinkeeee96/FoxTrot_SA_Engine/master/Glitch/Assets/Advertisements/advertisements.json";
+    string url = JSON_URL;
     string path = JSON_AD_PATH;
     fileLoader.downloadFile(url,path);
 
