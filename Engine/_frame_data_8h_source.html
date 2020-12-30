@@ -65,44 +65,36 @@ $(document).ready(function(){initNavTree('_frame_data_8h_source.html',''); initR
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define FRAME_VALUES 10</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define TIMESTEP 1.f</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define BASE_DELTATIME_MULTIPLIER 1</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_frame_data.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_frame_data.html">FrameData</a></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    API <a class="code" href="class_frame_data.html">FrameData</a>();</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    API ~<a class="code" href="class_frame_data.html">FrameData</a>();</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    API <span class="keywordtype">double</span> <a class="code" href="class_frame_data.html#a6828d7e1d3c4b1df131a5e992065c56d">calculateAverageFps</a>();</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    API <span class="keywordtype">void</span> <a class="code" href="class_frame_data.html#a7890e9bbccc31d81d11fa3aac1817cd6">updateFps</a>();</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    API <span class="keywordtype">void</span> <a class="code" href="class_frame_data.html#ab291ac496d88ac9145e13afb39a56bd6">startTimer</a>();</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    API <span class="keyword">const</span> <span class="keywordtype">double</span> getFps() { <span class="keywordflow">return</span> fps; };</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    API <span class="keyword">const</span> <span class="keywordtype">double</span> getLastFrameFps() { <span class="keywordflow">return</span> lastFrameFps; };</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    API <span class="keyword">const</span> <span class="keywordtype">float</span> <a class="code" href="class_frame_data.html#a8596e7991bb934f861815af953d83f2a">calculateDeltaTime</a>(<span class="keywordtype">int</span> timeStep);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    API <span class="keywordtype">void</span> setMultiplier(<span class="keywordtype">float</span> multiplier) { this-&gt;multiplier = multiplier; };</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="class_frame_data.html">    5</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_frame_data.html">FrameData</a></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    API <a class="code" href="class_frame_data.html">FrameData</a>();</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    API ~<a class="code" href="class_frame_data.html">FrameData</a>();</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    API <span class="keywordtype">double</span> <a class="code" href="class_frame_data.html#a6828d7e1d3c4b1df131a5e992065c56d">calculateAverageFps</a>();</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    API <span class="keywordtype">void</span> <a class="code" href="class_frame_data.html#a7890e9bbccc31d81d11fa3aac1817cd6">updateFps</a>();</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    API <span class="keywordtype">void</span> <a class="code" href="class_frame_data.html#ab291ac496d88ac9145e13afb39a56bd6">startTimer</a>();</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    API <span class="keyword">const</span> <span class="keywordtype">double</span> getFps() { <span class="keywordflow">return</span> fps; };</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    API <span class="keyword">const</span> <span class="keywordtype">double</span> getLastFrameFps() { <span class="keywordflow">return</span> lastFrameFps; };</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    API <span class="keyword">const</span> <span class="keywordtype">float</span> <a class="code" href="class_frame_data.html#a8596e7991bb934f861815af953d83f2a">calculateDeltaTime</a>(<span class="keywordtype">int</span> timeStep);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> setEventDispatcher(<a class="code" href="class_event_dispatcher.html">EventDispatcher</a>* _dispatcher);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">double</span> fps = 0;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_event_dispatcher.html">EventDispatcher</a>* dispatcher = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">double</span> fps = 0;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    list&lt;chrono::duration&lt;double&gt;&gt; frametimes;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    chrono::high_resolution_clock::time_point startTime;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">double</span> framesPerSecond = 0;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">double</span> lastFrameFps = 0;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">bool</span> reset = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">float</span> multiplier = BASE_DELTATIME_MULTIPLIER;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    list&lt;chrono::duration&lt;double&gt;&gt; frametimes;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    chrono::high_resolution_clock::time_point startTime;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">double</span> framesPerSecond = 0;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">double</span> lastFrameFps = 0;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">bool</span> reset = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_frame_data_html"><div class="ttname"><a href="class_frame_data.html">FrameData</a></div><div class="ttdef"><b>Definition:</b> FrameData.h:7</div></div>
-<div class="ttc" id="aclass_frame_data_html_a6828d7e1d3c4b1df131a5e992065c56d"><div class="ttname"><a href="class_frame_data.html#a6828d7e1d3c4b1df131a5e992065c56d">FrameData::calculateAverageFps</a></div><div class="ttdeci">API double calculateAverageFps()</div><div class="ttdoc">Calculates the average fps of the last few ticks.</div><div class="ttdef"><b>Definition:</b> FrameData.cpp:44</div></div>
-<div class="ttc" id="aclass_frame_data_html_a7890e9bbccc31d81d11fa3aac1817cd6"><div class="ttname"><a href="class_frame_data.html#a7890e9bbccc31d81d11fa3aac1817cd6">FrameData::updateFps</a></div><div class="ttdeci">API void updateFps()</div><div class="ttdoc">Determines when to update the fps.</div><div class="ttdef"><b>Definition:</b> FrameData.cpp:68</div></div>
-<div class="ttc" id="aclass_event_dispatcher_html"><div class="ttname"><a href="class_event_dispatcher.html">EventDispatcher</a></div><div class="ttdef"><b>Definition:</b> EventDispatcher.h:12</div></div>
-<div class="ttc" id="aclass_frame_data_html_ab291ac496d88ac9145e13afb39a56bd6"><div class="ttname"><a href="class_frame_data.html#ab291ac496d88ac9145e13afb39a56bd6">FrameData::startTimer</a></div><div class="ttdeci">API void startTimer()</div><div class="ttdoc">Sets the start time for the fps counter (use at beginning of loop)</div><div class="ttdef"><b>Definition:</b> FrameData.cpp:14</div></div>
-<div class="ttc" id="aclass_frame_data_html_a8596e7991bb934f861815af953d83f2a"><div class="ttname"><a href="class_frame_data.html#a8596e7991bb934f861815af953d83f2a">FrameData::calculateDeltaTime</a></div><div class="ttdeci">API const float calculateDeltaTime(int timeStep)</div><div class="ttdoc">returns the current deltaTime (1 / fps of the last frame)</div><div class="ttdef"><b>Definition:</b> FrameData.cpp:23</div></div>
+<div class="ttc" id="aclass_frame_data_html"><div class="ttname"><a href="class_frame_data.html">FrameData</a></div><div class="ttdef"><b>Definition:</b> FrameData.h:6</div></div>
+<div class="ttc" id="aclass_frame_data_html_a6828d7e1d3c4b1df131a5e992065c56d"><div class="ttname"><a href="class_frame_data.html#a6828d7e1d3c4b1df131a5e992065c56d">FrameData::calculateAverageFps</a></div><div class="ttdeci">API double calculateAverageFps()</div><div class="ttdoc">Calculates the average fps of the last few ticks.</div><div class="ttdef"><b>Definition:</b> FrameData.cpp:29</div></div>
+<div class="ttc" id="aclass_frame_data_html_a7890e9bbccc31d81d11fa3aac1817cd6"><div class="ttname"><a href="class_frame_data.html#a7890e9bbccc31d81d11fa3aac1817cd6">FrameData::updateFps</a></div><div class="ttdeci">API void updateFps()</div><div class="ttdoc">Determines when to update the fps.</div><div class="ttdef"><b>Definition:</b> FrameData.cpp:53</div></div>
+<div class="ttc" id="aclass_frame_data_html_ab291ac496d88ac9145e13afb39a56bd6"><div class="ttname"><a href="class_frame_data.html#ab291ac496d88ac9145e13afb39a56bd6">FrameData::startTimer</a></div><div class="ttdeci">API void startTimer()</div><div class="ttdoc">Sets the start time for the fps counter (use at beginning of loop)</div><div class="ttdef"><b>Definition:</b> FrameData.cpp:13</div></div>
+<div class="ttc" id="aclass_frame_data_html_a8596e7991bb934f861815af953d83f2a"><div class="ttname"><a href="class_frame_data.html#a8596e7991bb934f861815af953d83f2a">FrameData::calculateDeltaTime</a></div><div class="ttdeci">API const float calculateDeltaTime(int timeStep)</div><div class="ttdoc">returns the current deltaTime (1 / fps of the last frame)</div><div class="ttdef"><b>Definition:</b> FrameData.cpp:22</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
