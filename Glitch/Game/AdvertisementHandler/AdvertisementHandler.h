@@ -1,7 +1,7 @@
 #pragma once
 
 #define BASE_PATH_AD_FOLDER "./Assets/Advertisements/"
-#define JSON_AD_PATH		"./Assets/Advertisements/ads.json"
+#define JSON_AD_PATH		"./Assets/Advertisements/advertisements.json"
 
 class AdvertisementHandler
 {

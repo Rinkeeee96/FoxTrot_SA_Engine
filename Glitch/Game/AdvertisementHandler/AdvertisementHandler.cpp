@@ -57,7 +57,6 @@ void AdvertisementHandler::downloadMissingAds()
 	for (auto ad : adPaths)
 	{
 		auto fileName = ad.substr(ad.find_last_of("/")+1);
-		cout << fileName << endl;
 		// Verify if we have the file locally
 
 		bool result = fileLoader.doesFileExist(BASE_PATH_AD_FOLDER + fileName);
