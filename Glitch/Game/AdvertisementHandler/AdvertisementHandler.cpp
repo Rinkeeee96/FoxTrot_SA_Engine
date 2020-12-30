@@ -35,7 +35,7 @@ vector<string> AdvertisementHandler::parseJson(nlohmann::json json)
 		// Verify if the amount of paths is correct
 		if (json["URLCount"] != paths.size())
 		{
-			// Dont know what to do else
+			cout << "AdvertisementHandler: Json size mismatch" << endl;
 			return vector<string>();
 		}
 
