@@ -99,9 +99,15 @@ API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a934274d6d30baac10dd6d5142522d2f4">handleAction</a> (const <a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
 <tr class="memdesc:a934274d6d30baac10dd6d5142522d2f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles a <a class="el" href="class_action_event.html" title="AppTickEvent is fired when a tick happened in the engine. Derived class of event.">ActionEvent</a> and according to the given direction moves the object. <br /></td></tr>
 <tr class="separator:a934274d6d30baac10dd6d5142522d2f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5926f9529039f9056a0504891cf5251b"><td class="memItemLeft" align="right" valign="top">API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a5926f9529039f9056a0504891cf5251b">handleUpdateBodyEvent</a> (const <a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
+<tr class="memdesc:a5926f9529039f9056a0504891cf5251b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the UpdatePhysicsEvent and updates the physics body belonging to the object.  <a href="class_physics_engine.html#a5926f9529039f9056a0504891cf5251b">More...</a><br /></td></tr>
+<tr class="separator:a5926f9529039f9056a0504891cf5251b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c94fb9996654e0d495e3a680a431102"><td class="memItemLeft" align="right" valign="top">API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a9c94fb9996654e0d495e3a680a431102">stopObject</a> (const <a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
 <tr class="memdesc:a9c94fb9996654e0d495e3a680a431102"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the vertical movement of an object.  <a href="class_physics_engine.html#a9c94fb9996654e0d495e3a680a431102">More...</a><br /></td></tr>
 <tr class="separator:a9c94fb9996654e0d495e3a680a431102"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af427139dcb182edc9d748f8bc1350916"><td class="memItemLeft" align="right" valign="top">API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#af427139dcb182edc9d748f8bc1350916">moveObjectTo</a> (const <a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
+<tr class="memdesc:af427139dcb182edc9d748f8bc1350916"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the velocity of the given object towards the given position.  <a href="class_physics_engine.html#af427139dcb182edc9d748f8bc1350916">More...</a><br /></td></tr>
+<tr class="separator:af427139dcb182edc9d748f8bc1350916"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c68030f567749eb63ae68b60cb88914"><td class="memItemLeft" align="right" valign="top"><a id="a2c68030f567749eb63ae68b60cb88914"></a>
 API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_engine.html#a2c68030f567749eb63ae68b60cb88914">onPauseEvent</a> (const <a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
 <tr class="memdesc:a2c68030f567749eb63ae68b60cb88914"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes on pause event for physics engine. <br /></td></tr>
@@ -211,6 +217,60 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>paused</b> = false</t
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5926f9529039f9056a0504891cf5251b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5926f9529039f9056a0504891cf5251b">&#9670;&nbsp;</a></span>handleUpdateBodyEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PhysicsEngine::handleUpdateBodyEvent </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_event.html">Event</a> &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles the UpdatePhysicsEvent and updates the physics body belonging to the object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td>The given <a class="el" href="class_update_physics_body_event.html">UpdatePhysicsBodyEvent</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
+
+</div>
+</div>
+<a id="af427139dcb182edc9d748f8bc1350916"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af427139dcb182edc9d748f8bc1350916">&#9670;&nbsp;</a></span>moveObjectTo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PhysicsEngine::moveObjectTo </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_event.html">Event</a> &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the velocity of the given object towards the given position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td>The <a class="el" href="class_object_move_to_event.html" title="AppTickEvent is fired when a tick happened in the engine. Derived class of event.">ObjectMoveToEvent</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
+
+</div>
+</div>
 <a id="a1211e342e28078b0774a98e43599fcb7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1211e342e28078b0774a98e43599fcb7">&#9670;&nbsp;</a></span>start()</h2>
 
@@ -271,8 +331,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>paused</b> = false</t
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><br  />
- </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 </div>
 </div>
