@@ -43,10 +43,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_abstract_level_builder_8h_source.html",
-"class_credits_scene.html#aad98e16bff682b0e07d6892a898285c3",
-"class_inventory_popup.html#aa5dfbe0f58c6be91fa39ba4a0088fd0b",
-"class_savegame.html#afdf909def700f47e986f59cc572979aa",
-"struct_character_data.html"
+"class_credits_scene.html#a9be1f1943881ecff211ecbbef738f724",
+"class_i_popup.html#afadd85db38ccdb838d54601dd12d8b88",
+"class_save_screen.html#ab3f8798ac9d83d265648c6d4f4f815c5",
+"functions_func_p.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

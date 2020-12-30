@@ -169,6 +169,10 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>blockId</b> = 1</td></
 <tr class="separator:a02a0ef24c8f583aa29ea62a7f71a618e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a159e0021795feb932a5192e76f3380ce"><td class="memItemLeft" align="right" valign="top">function&lt; void(void)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>onHelpBtnClick</b></td></tr>
 <tr class="separator:a159e0021795feb932a5192e76f3380ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae68d551b2c288fbd27215514b9e90923"><td class="memItemLeft" align="right" valign="top">function&lt; void(void)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>onFasterBtnClick</b></td></tr>
+<tr class="separator:ae68d551b2c288fbd27215514b9e90923"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a139ba34978094fa4e278f96c01bb6ee4"><td class="memItemLeft" align="right" valign="top">function&lt; void(void)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>onSlowerBtnClick</b></td></tr>
+<tr class="separator:a139ba34978094fa4e278f96c01bb6ee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab72430b94a2cccf77c5bc6808dc68f40"><td class="memItemLeft" align="right" valign="top">function&lt; void(void)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>onStopBtnClick</b></td></tr>
 <tr class="separator:ab72430b94a2cccf77c5bc6808dc68f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -245,6 +249,31 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>playSound</b> = false
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="ae68d551b2c288fbd27215514b9e90923"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae68d551b2c288fbd27215514b9e90923">&#9670;&nbsp;</a></span>onFasterBtnClick</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">function&lt;void(void)&gt; MappingScene::onFasterBtnClick</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= [<span class="keyword">this</span>]() {</div>
+<div class="line">        updateGlobalCommand(<span class="stringliteral">&quot;faster&quot;</span>);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a2ae9cb30cee7eaa6c37673e8410667ec"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2ae9cb30cee7eaa6c37673e8410667ec">&#9670;&nbsp;</a></span>onGodModeBtnClick</h2>
 
@@ -416,6 +445,31 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>playSound</b> = false
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= [<span class="keyword">this</span>]() {</div>
 <div class="line">        updateGlobalCommand(<span class="stringliteral">&quot;pause&quot;</span>);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a139ba34978094fa4e278f96c01bb6ee4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a139ba34978094fa4e278f96c01bb6ee4">&#9670;&nbsp;</a></span>onSlowerBtnClick</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">function&lt;void(void)&gt; MappingScene::onSlowerBtnClick</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= [<span class="keyword">this</span>]() {</div>
+<div class="line">        updateGlobalCommand(<span class="stringliteral">&quot;slower&quot;</span>);</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
 </div>
