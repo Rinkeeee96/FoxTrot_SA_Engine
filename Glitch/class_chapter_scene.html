@@ -78,8 +78,10 @@ Inheritance diagram for ChapterScene:</div>
  <div class="center">
   <img src="class_chapter_scene.png" usemap="#ChapterScene_map" alt=""/>
   <map id="ChapterScene_map" name="ChapterScene_map">
-<area href="class_game_scene.html" title="Base class for game scenes, derived from engine scene." alt="GameScene" shape="rect" coords="0,56,117,80"/>
-<area href="class_chapter_one_scene.html" title="Class for the chapter one screen." alt="ChapterOneScene" shape="rect" coords="0,168,117,192"/>
+<area href="class_game_scene.html" title="Base class for game scenes, derived from engine scene." alt="GameScene" shape="rect" coords="136,56,262,80"/>
+<area href="class_chapter_one_scene.html" title="Class for the chapter one screen." alt="ChapterOneScene" shape="rect" coords="0,168,126,192"/>
+<area href="class_chapter_three_scene.html" title="Class for the chapter one screen." alt="ChapterThreeScene" shape="rect" coords="136,168,262,192"/>
+<area href="class_chapter_two_scene.html" title="Class for the chapter one screen." alt="ChapterTwoScene" shape="rect" coords="272,168,398,192"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -111,6 +113,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:aa30ce2155e8eeef74e93dda570805e01 inherit pub_methods_class_game_scene"><td class="memItemLeft" align="right" valign="top"><a id="aa30ce2155e8eeef74e93dda570805e01"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>GameScene</b> (const int id, const int _sceneHeight, const int _sceneWidth, unique_ptr&lt; Engine &gt; &amp;_engine, shared_ptr&lt; <a class="el" href="class_scene_state_machine.html">SceneStateMachine</a> &gt; _sceneStateMachine)</td></tr>
 <tr class="separator:aa30ce2155e8eeef74e93dda570805e01 inherit pub_methods_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae358d001d9ca809698c175ff623cdaf5 inherit pub_methods_class_game_scene"><td class="memItemLeft" align="right" valign="top"><a id="ae358d001d9ca809698c175ff623cdaf5"></a>
+unique_ptr&lt; Engine &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getEngine</b> ()</td></tr>
+<tr class="separator:ae358d001d9ca809698c175ff623cdaf5 inherit pub_methods_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa692bb4e4737fa6b5e34d6e6c600c933 inherit pub_methods_class_game_scene"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_scene.html#aa692bb4e4737fa6b5e34d6e6c600c933">registerSavegame</a> (shared_ptr&lt; <a class="el" href="class_savegame.html">Savegame</a> &gt; _savegame)</td></tr>
 <tr class="memdesc:aa692bb4e4737fa6b5e34d6e6c600c933 inherit pub_methods_class_game_scene"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register the savegame pointer.  <a href="class_game_scene.html#aa692bb4e4737fa6b5e34d6e6c600c933">More...</a><br /></td></tr>
 <tr class="separator:aa692bb4e4737fa6b5e34d6e6c600c933 inherit pub_methods_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -215,7 +220,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>playSound</b> = false
 
 <p>Implements <a class="el" href="class_game_scene.html">GameScene</a>.</p>
 
-<p>Reimplemented in <a class="el" href="class_chapter_one_scene.html#a393b2a7ddbed36480a35e06994c7ff7b">ChapterOneScene</a>.</p>
+<p>Reimplemented in <a class="el" href="class_chapter_two_scene.html#a396e49f31d7cbae20da24885875254cf">ChapterTwoScene</a>, <a class="el" href="class_chapter_three_scene.html#af9190fe0198aafafcecf7f6688700b80">ChapterThreeScene</a>, and <a class="el" href="class_chapter_one_scene.html#a393b2a7ddbed36480a35e06994c7ff7b">ChapterOneScene</a>.</p>
 
 </div>
 </div>
