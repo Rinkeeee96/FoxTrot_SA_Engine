@@ -43,8 +43,6 @@ var hierarchy =
     ] ],
     [ "ICommand", null, [
       [ "GlobalCommand", "class_global_command.html", [
-        [ "DecreaseGameSpeedCommand", "class_decrease_game_speed_command.html", null ],
-        [ "IncreaseGameSpeedCommand", "class_increase_game_speed_command.html", null ],
         [ "ToggleLayerCommand", "class_toggle_layer_command.html", null ]
       ] ],
       [ "ICharacterCommand", "class_i_character_command.html", [

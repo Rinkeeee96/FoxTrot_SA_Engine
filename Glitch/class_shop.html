@@ -283,7 +283,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>playSound</b> = false
 <div class="line">        <a class="code" href="struct_save_game_data.html">SaveGameData</a> save = savegame-&gt;getCurrentGameData();</div>
 <div class="line">        save.characterData.inventory.coins += 100;</div>
 <div class="line">        savegame-&gt;saveCurrentGameData(save);</div>
-<div class="line">        <a class="code" href="class_shop.html#acf8935d49b6b68851a2b2b5284c7abba">calculateCurrentPrice</a>();</div>
+<div class="line">        moveToNextScene = <span class="keyword">true</span>;</div>
+<div class="line">        nextScene = <span class="stringliteral">&quot;Shop&quot;</span>;</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
 </div>
@@ -309,6 +310,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>playSound</b> = false
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= [<span class="keyword">this</span>]() {</div>
 <div class="line">        handlePurchase = <span class="keyword">true</span>;</div>
+<div class="line">        moveToNextScene = <span class="keyword">true</span>;</div>
+<div class="line">        nextScene = <span class="stringliteral">&quot;Shop&quot;</span>;</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
 </div>
@@ -346,7 +349,6 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>playSound</b> = false
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="astruct_save_game_data_html"><div class="ttname"><a href="struct_save_game_data.html">SaveGameData</a></div><div class="ttdoc">Struct for a saveGameData containing al info of a saveGame.</div><div class="ttdef"><b>Definition:</b> Savegame.h:40</div></div>
-<div class="ttc" id="aclass_shop_html_acf8935d49b6b68851a2b2b5284c7abba"><div class="ttname"><a href="class_shop.html#acf8935d49b6b68851a2b2b5284c7abba">Shop::calculateCurrentPrice</a></div><div class="ttdeci">void calculateCurrentPrice()</div><div class="ttdoc">Calculate the current price for a new health item in the shop.</div><div class="ttdef"><b>Definition:</b> Shop.cpp:160</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

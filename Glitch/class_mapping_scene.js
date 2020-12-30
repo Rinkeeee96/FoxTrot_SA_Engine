@@ -19,7 +19,6 @@ var class_mapping_scene =
     [ "invoker", "class_mapping_scene.html#a7457e81e406fcfc3fb0400c21b999657", null ],
     [ "listStartX", "class_mapping_scene.html#aa48138f11e0aaf472ce9e13282b669c4", null ],
     [ "listStartY", "class_mapping_scene.html#abe8a20ba7bc324fccf5dc2aeda3f32aa", null ],
-    [ "onFasterBtnClick", "class_mapping_scene.html#ae68d551b2c288fbd27215514b9e90923", null ],
     [ "onGodModeBtnClick", "class_mapping_scene.html#a2ae9cb30cee7eaa6c37673e8410667ec", null ],
     [ "onHelpBtnClick", "class_mapping_scene.html#a159e0021795feb932a5192e76f3380ce", null ],
     [ "onInventoryBtnClick", "class_mapping_scene.html#a04b91da82c94de898c15241ebe115783", null ],
@@ -27,7 +26,6 @@ var class_mapping_scene =
     [ "onMoveLeftBtnClick", "class_mapping_scene.html#a55816ec102004c59b42bbb05acaf5a5e", null ],
     [ "onMoveRightBtnClick", "class_mapping_scene.html#a4a4fbd3d1a23c9ae2b3599bcd38321d6", null ],
     [ "onPauseBtnClick", "class_mapping_scene.html#a02a0ef24c8f583aa29ea62a7f71a618e", null ],
-    [ "onSlowerBtnClick", "class_mapping_scene.html#a139ba34978094fa4e278f96c01bb6ee4", null ],
     [ "onStopBtnClick", "class_mapping_scene.html#ab72430b94a2cccf77c5bc6808dc68f40", null ],
     [ "textId", "class_mapping_scene.html#ac5e7fcfbf04b8d549e99727a7f7e0ee3", null ]
 ];
