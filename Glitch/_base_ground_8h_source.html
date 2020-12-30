@@ -64,58 +64,16 @@ $(document).ready(function(){initNavTree('_base_ground_8h_source.html',''); init
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;Game/Ground/IGround.h&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;Game/Characters/Player/Player.h&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_base_ground.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_base_ground.html">BaseGround</a> : <span class="keyword">public</span> <a class="code" href="class_i_ground.html">IGround</a> {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    EventDispatcher&amp; dispatcher;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_base_ground.html">BaseGround</a>(EventDispatcher&amp; _dispatcher, <span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>) : <a class="code" href="class_i_ground.html">IGround</a>(<span class="keywordtype">id</span>), dispatcher{ _dispatcher } {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        this-&gt;staticObject = BodyType::KINEMATIC;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        dispatcher.setEventCallback&lt;OnCollisionBeginEvent&gt;(BIND_EVENT_FN(<a class="code" href="class_base_ground.html#a28ffe851ccd35fc3b22584cd610cd25e">BaseGround::onCollisionBeginEvent</a>));</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    }</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_base_ground.html#a28ffe851ccd35fc3b22584cd610cd25e">   19</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_base_ground.html#a28ffe851ccd35fc3b22584cd610cd25e">onCollisionBeginEvent</a>(<span class="keyword">const</span> Event&amp; event) {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">auto</span> collisionEvent = <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>OnCollisionBeginEvent&amp;<span class="keyword">&gt;</span>(event);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordflow">if</span> (collisionEvent.getObjectOne()-&gt;getObjectId() != this-&gt;getObjectId() &amp;&amp; collisionEvent.getObjectTwo()-&gt;getObjectId() != this-&gt;getObjectId()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">auto</span> map = collisionEvent.getDirectionMap();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">auto</span> collidedDirection = map[this-&gt;getObjectId()];</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">if</span> (std::find(collidedDirection.begin(), collidedDirection.end(), Direction::UP) != collidedDirection.end()) {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="keywordflow">if</span> (collisionEvent.getObjectOne()-&gt;getObjectId() == this-&gt;getObjectId()) {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                shared_ptr&lt;Object&gt; otherEntity = collisionEvent.getObjectTwo();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_player.html">Player</a>* player = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="class_player.html">Player</a>*<span class="keyword">&gt;</span>(otherEntity.get())) {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                    player-&gt;setDensity(10);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                    player-&gt;setFriction(0);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                    player-&gt;setRestitution(0.1f);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                    UpdatePhysicsBodyEvent e{ *player };</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                    dispatcher.dispatchEvent&lt;UpdatePhysicsBodyEvent&gt;(e);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            }</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (collisionEvent.getObjectTwo()-&gt;getObjectId() == this-&gt;getObjectId()) {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                shared_ptr&lt;Object&gt; otherEntity = collisionEvent.getObjectTwo();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_player.html">Player</a>* player = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="class_player.html">Player</a>*<span class="keyword">&gt;</span>(otherEntity.get())) {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                    player-&gt;setDensity(10);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                    player-&gt;setFriction(0);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                    player-&gt;setRestitution(0.1f);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                    UpdatePhysicsBodyEvent e{ *player };</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                    dispatcher.dispatchEvent&lt;UpdatePhysicsBodyEvent&gt;(e);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> onUpdate(<span class="keywordtype">float</span> deltaTime)<span class="keyword"> override </span>{ };</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;};</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_base_ground.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_base_ground.html">BaseGround</a> : <span class="keyword">public</span> <a class="code" href="class_i_ground.html">IGround</a> {</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_base_ground.html">BaseGround</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>) : <a class="code" href="class_i_ground.html">IGround</a>(<span class="keywordtype">id</span>) {}</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> onUpdate(<span class="keywordtype">float</span> deltaTime)<span class="keyword"> override </span>{};</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_base_ground_html"><div class="ttname"><a href="class_base_ground.html">BaseGround</a></div><div class="ttdoc">&quot;Normal&quot; ground class</div><div class="ttdef"><b>Definition:</b> BaseGround.h:7</div></div>
-<div class="ttc" id="aclass_base_ground_html_a28ffe851ccd35fc3b22584cd610cd25e"><div class="ttname"><a href="class_base_ground.html#a28ffe851ccd35fc3b22584cd610cd25e">BaseGround::onCollisionBeginEvent</a></div><div class="ttdeci">bool onCollisionBeginEvent(const Event &amp;event)</div><div class="ttdoc">This function is called when a object has collision.</div><div class="ttdef"><b>Definition:</b> BaseGround.h:19</div></div>
-<div class="ttc" id="aclass_player_html"><div class="ttname"><a href="class_player.html">Player</a></div><div class="ttdoc">Handles player logic, stats and movement.</div><div class="ttdef"><b>Definition:</b> Player.h:17</div></div>
+<div class="ttc" id="aclass_base_ground_html"><div class="ttname"><a href="class_base_ground.html">BaseGround</a></div><div class="ttdoc">&quot;Normal&quot; ground class</div><div class="ttdef"><b>Definition:</b> BaseGround.h:6</div></div>
 <div class="ttc" id="aclass_i_ground_html"><div class="ttname"><a href="class_i_ground.html">IGround</a></div><div class="ttdoc">Ground interface.</div><div class="ttdef"><b>Definition:</b> IGround.h:6</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
