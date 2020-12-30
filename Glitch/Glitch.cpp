@@ -13,6 +13,7 @@ void detectMemoryLeak() {
     _CrtDumpMemoryLeaks();
 }
 
+
 int main() {
     Game game;
     auto result = game.run();
