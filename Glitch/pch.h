@@ -1,5 +1,7 @@
 #pragma once
 
+#define _HAS_STD_BYTE 0
+
 #include <conio.h>
 #include <vector> 
 #include <iostream>
