@@ -46,7 +46,7 @@ var NAVTREEINDEX =
 "class_credits_scene.html#aad98e16bff682b0e07d6892a898285c3",
 "class_inventory_popup.html#aa5dfbe0f58c6be91fa39ba4a0088fd0b",
 "class_savegame.html#afdf909def700f47e986f59cc572979aa",
-"struct_character_data.html#a8e0ea1d1f9468f9ef12e59ac94d651d2"
+"struct_character_data.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

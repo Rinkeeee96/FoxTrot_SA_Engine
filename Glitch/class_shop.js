@@ -13,6 +13,7 @@ var class_shop =
     [ "updateTextBoxes", "class_shop.html#a401134318fd4f148bcd6698de647fac1", null ],
     [ "buyBTN", "class_shop.html#a32423e7be394bf33b41eb9e655795f5d", null ],
     [ "currentPrice", "class_shop.html#a77fea54b65e55df28c29c18b8760a420", null ],
+    [ "freeCoins", "class_shop.html#a9667ddd862235a48af729ec78dc0ac36", null ],
     [ "handlePurchase", "class_shop.html#aae2050fc63d33cdb478bf3beaa8160eb", null ],
     [ "heartText2", "class_shop.html#a8090068c219bbec83ca1547b39a30ec5", null ],
     [ "onShopBuyClick", "class_shop.html#a389b1c4cd7ddae6e383e87e41187188f", null ],

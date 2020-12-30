@@ -155,6 +155,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>handlePurchase</b> = 
 <tr class="separator:aae2050fc63d33cdb478bf3beaa8160eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae893fe5ba15f4bddae9c0b4a24878a47"><td class="memItemLeft" align="right" valign="top">function&lt; void(void)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>onStopBtnClick</b></td></tr>
 <tr class="separator:ae893fe5ba15f4bddae9c0b4a24878a47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9667ddd862235a48af729ec78dc0ac36"><td class="memItemLeft" align="right" valign="top">function&lt; void(void)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>freeCoins</b></td></tr>
+<tr class="separator:a9667ddd862235a48af729ec78dc0ac36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a389b1c4cd7ddae6e383e87e41187188f"><td class="memItemLeft" align="right" valign="top">function&lt; void(void)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>onShopBuyClick</b></td></tr>
 <tr class="separator:a389b1c4cd7ddae6e383e87e41187188f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -258,6 +260,34 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>playSound</b> = false
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a9667ddd862235a48af729ec78dc0ac36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9667ddd862235a48af729ec78dc0ac36">&#9670;&nbsp;</a></span>freeCoins</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">function&lt;void(void)&gt; Shop::freeCoins</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= [<span class="keyword">this</span>]() {</div>
+<div class="line">        <a class="code" href="struct_save_game_data.html">SaveGameData</a> save = savegame-&gt;getCurrentGameData();</div>
+<div class="line">        save.characterData.inventory.coins += 100;</div>
+<div class="line">        savegame-&gt;saveCurrentGameData(save);</div>
+<div class="line">        <a class="code" href="class_shop.html#acf8935d49b6b68851a2b2b5284c7abba">calculateCurrentPrice</a>();</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a389b1c4cd7ddae6e383e87e41187188f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a389b1c4cd7ddae6e383e87e41187188f">&#9670;&nbsp;</a></span>onShopBuyClick</h2>
 
@@ -278,10 +308,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>playSound</b> = false
 </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= [<span class="keyword">this</span>]() {</div>
-<div class="line">        cout &lt;&lt; <span class="stringliteral">&quot;Button called&quot;</span> &lt;&lt; endl;</div>
 <div class="line">        handlePurchase = <span class="keyword">true</span>;</div>
-<div class="line">        moveToNextScene = <span class="keyword">true</span>;</div>
-<div class="line">        nextScene = <span class="stringliteral">&quot;Shop&quot;</span>;</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
 </div>
@@ -318,6 +345,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>playSound</b> = false
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="astruct_save_game_data_html"><div class="ttname"><a href="struct_save_game_data.html">SaveGameData</a></div><div class="ttdoc">Struct for a saveGameData containing al info of a saveGame.</div><div class="ttdef"><b>Definition:</b> Savegame.h:40</div></div>
+<div class="ttc" id="aclass_shop_html_acf8935d49b6b68851a2b2b5284c7abba"><div class="ttname"><a href="class_shop.html#acf8935d49b6b68851a2b2b5284c7abba">Shop::calculateCurrentPrice</a></div><div class="ttdeci">void calculateCurrentPrice()</div><div class="ttdoc">Calculate the current price for a new health item in the shop.</div><div class="ttdef"><b>Definition:</b> Shop.cpp:160</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
