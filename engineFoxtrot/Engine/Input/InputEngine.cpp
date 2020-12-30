@@ -12,6 +12,7 @@ InputEngine::InputEngine(Engine& _engine):
 InputEngine::~InputEngine()
 {
 }
+
 /// @brief Register a custom invoker
 /// @param _keypressInvoker
 void InputEngine::registerKeypressInvoker(KeypressInvoker* _keypressInvoker) {
