@@ -28,6 +28,7 @@ vector<string> AdvertisementHandler::parseJson(nlohmann::json json)
 		if (json["URLCount"] != paths.size())
 		{
 			// Dont know what to do else
+			return vector<string>();
 		}
 
 		return paths;
@@ -50,17 +51,12 @@ void AdvertisementHandler::downloadMissingAds()
 		bool result = fileLoader.doesFileExist(BASE_PATH_AD_FOLDER + fileName);
 		if (!result)
 		{
-			cout << "File does not exists locally, downloading!" << endl;
 			// Doesnt exists offline so download it.
 			string url = ad;
 			string path = BASE_PATH_AD_FOLDER + fileName;
 			fileLoader.downloadFile(url, path);
 		}
-		else
-		{
-			cout << "File exists locally, no need to download" << endl;
-		}
-
+		// "File exists locally, no need to download"
 		adFileNames.push_back(fileName);
 	}
 }
@@ -80,33 +76,22 @@ bool AdvertisementHandler::readFileAndParseJson(const string& path)
 		// Doesnt matter in our case as we will work with the ads we have
 		cout << "Ad file empty or non existent, using blank" << endl;
 	}
-	bool validLevel = true;
-	//try
-	//{
-	//	validLevel = fileLoader.validateDocument(path, "Assets/Savegame/savegamedataschema.json");
-	//}
-	//catch (const std::exception& exc)
-	//{
-	//	cout << "Something went wrong parsing the file, make sure the file is correctly structured" << "\n";
-	//	cout << exc.what() << "\n";
-	//	throw exc;
-	//}
 
-	if (validLevel) {
-		try {
-			filestream >> json;
-			adPaths = parseJson(json);
-			filestream.close();
-			return true;
-		}
-		catch (exception exc) {
-			cout << "Something went wrong parsing the file, make sure the file is correctly structured" << "\n";
-			cout << exc.what() << "\n";
-		}
+	// TODO
+	// Json schema to validate
+	// Dont do it now as its such a small json
+
+	try {
+		filestream >> json;
+		adPaths = parseJson(json);
+		filestream.close();
+		return true;
 	}
-	else {
-		throw exception("SaveGame: Something went wrong validating file, make sure the file is correct");
+	catch (exception exc) {
+		cout << "Something went wrong parsing the file, make sure the file is correctly structured" << "\n";
+		cout << exc.what() << "\n";
 	}
+
 	filestream.close();
 	return false;
 }
@@ -123,19 +108,11 @@ void AdvertisementHandler::downloadLatestAdvertisements()
 
 	// Verify how many ads we have locally and store it. 
 	// If we have ads online that we dont have locally we download them
-	if (result && adPaths.size() >= 0)
+	if (result)
 	{
 		// The file has been downloaded and is parsed. Links have been placed into the vector
 		downloadMissingAds();
-	}
-	else
-	{
-		// The file has not been downloaded and the vector is empty
-	}
-
-
-
-	
+	}	
 }
 
 vector<string> AdvertisementHandler::getAvailableAdFileNames()
