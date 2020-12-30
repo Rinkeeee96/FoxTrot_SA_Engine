@@ -67,49 +67,59 @@ $(document).ready(function(){initNavTree('_chapter_scene_8h_source.html',''); in
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;SceneManager/Objects/Button.h&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Game/Scenes/GameScene.h&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define NUMBER_OF_CHARACTERS_ON_LINE 70</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define TEXT_SIZE_DIVIDER 80</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define START_Y_POS -200</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define MAX_SPEED 200</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define TEXT_SPEED_INCREMENT 10</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_chapter_scene.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_chapter_scene.html">ChapterScene</a> : <span class="keyword">public</span> <a class="code" href="class_game_scene.html">GameScene</a></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="class_chapter_scene.html">ChapterScene</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, unique_ptr&lt;Engine&gt;&amp; _engine, shared_ptr&lt;SceneStateMachine&gt; _statemachine);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_chapter_scene.html">ChapterScene</a>() { };</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">// Inherited via Scene</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> onAttach()<span class="keyword"> override </span>{};</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> start(<span class="keywordtype">bool</span> playSound)<span class="keyword"> override </span>{};</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_chapter_scene.html#aa3753bb7960fe91820798a4795ef2ad6">onUpdate</a>(<span class="keywordtype">float</span> deltaTime) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> onDetach()<span class="keyword"> override </span>{ Scene::onDetach(); };</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_chapter_scene.html#ac4f8efc251c8cb35026adec8f9db0077">onKeyPressed</a>(<span class="keyword">const</span> Event&amp; event);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    vector&lt;shared_ptr&lt;Text&gt;&gt; text;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    FileLoader fileLoader;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_chapter_scene.html#a4096524a97a380bef8ad99d50010196b">setTextFromFile</a>(<span class="keywordtype">string</span> path, <span class="keywordtype">int</span> startingId);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> loadText() {};</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> loadBackground() {};</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> loadMusic() {};</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_chapter_scene.html#ace7f973abf54a183bf5821206b0ec0f8">loadButtons</a>();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">function</span>&lt;void(<span class="keywordtype">void</span>)&gt; onSkipClick = [<span class="keyword">this</span>]() {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        moveToNextScene = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        nextScene = <span class="stringliteral">&quot;Overworld&quot;</span>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    };</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    vector&lt;string&gt; <a class="code" href="class_chapter_scene.html#a738f3b141b3f52fac3cbeaee121af4f6">splitToLines</a>(<span class="keywordtype">string</span> stringToSplit, <span class="keywordtype">int</span> maximumLineLength);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    vector&lt;shared_ptr&lt;Text&gt;&gt; <a class="code" href="class_chapter_scene.html#a6f9ac82a8cc45ddc005d430b9e71aedf">splitText</a>(<span class="keywordtype">string</span> text, <span class="keywordtype">int</span> startingId);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">int</span> speed_ = 1;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define CENTER_X  (WINDOW_WIDTH / 2)</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define CENTER_Y (WINDOW_HEIGHT / 2)</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define SHORT_NAME_WIDTH 300</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define LONG_NAME_WIDTH 350</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define LEFT_X_CENTER 500</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define RIGHT_X_CENTER 50</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define TEXT_HEIGHT 50</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#define BASE_TEXT_SPEED 80</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#define NUMBER_OF_CHARACTERS_ON_LINE 70</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define TEXT_SIZE_DIVIDER 80</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#define TEXT_SIZE_DIVIDER_HELP 50</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define START_Y_POS -200</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define MAX_SPEED 200</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define TEXT_SPEED_INCREMENT 10</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_chapter_scene.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_chapter_scene.html">ChapterScene</a> : <span class="keyword">public</span> <a class="code" href="class_game_scene.html">GameScene</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_chapter_scene.html">ChapterScene</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, unique_ptr&lt;Engine&gt;&amp; _engine, shared_ptr&lt;SceneStateMachine&gt; _statemachine);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_chapter_scene.html">ChapterScene</a>() { };</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment">// Inherited via Scene</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> onAttach()<span class="keyword"> override </span>{};</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> start(<span class="keywordtype">bool</span> playSound)<span class="keyword"> override </span>{};</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_chapter_scene.html#aa3753bb7960fe91820798a4795ef2ad6">onUpdate</a>(<span class="keywordtype">float</span> deltaTime) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> onDetach()<span class="keyword"> override </span>{ Scene::onDetach(); };</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_chapter_scene.html#ac4f8efc251c8cb35026adec8f9db0077">onKeyPressed</a>(<span class="keyword">const</span> Event&amp; event);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    vector&lt;shared_ptr&lt;Text&gt;&gt; text;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    FileLoader fileLoader;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_chapter_scene.html#a4096524a97a380bef8ad99d50010196b">setTextFromFile</a>(<span class="keywordtype">string</span> path, <span class="keywordtype">int</span> startingId);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> loadText() {};</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> loadBackground() {};</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> loadMusic() {};</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_chapter_scene.html#ace7f973abf54a183bf5821206b0ec0f8">loadButtons</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">function</span>&lt;void(<span class="keywordtype">void</span>)&gt; onSkipClick = [<span class="keyword">this</span>]() {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        moveToNextScene = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        nextScene = <span class="stringliteral">&quot;Overworld&quot;</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    };</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    vector&lt;string&gt; <a class="code" href="class_chapter_scene.html#a738f3b141b3f52fac3cbeaee121af4f6">splitToLines</a>(<span class="keywordtype">string</span> stringToSplit, <span class="keywordtype">int</span> maximumLineLength);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    vector&lt;shared_ptr&lt;Text&gt;&gt; <a class="code" href="class_chapter_scene.html#a6f9ac82a8cc45ddc005d430b9e71aedf">splitText</a>(<span class="keywordtype">string</span> text, <span class="keywordtype">int</span> startingId);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">int</span> speed_ = 1;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_game_scene_html"><div class="ttname"><a href="class_game_scene.html">GameScene</a></div><div class="ttdoc">Base class for game scenes, derived from engine scene.</div><div class="ttdef"><b>Definition:</b> GameScene.h:11</div></div>
-<div class="ttc" id="aclass_chapter_scene_html"><div class="ttname"><a href="class_chapter_scene.html">ChapterScene</a></div><div class="ttdoc">Base class for the chapter screen.</div><div class="ttdef"><b>Definition:</b> ChapterScene.h:14</div></div>
+<div class="ttc" id="aclass_chapter_scene_html"><div class="ttname"><a href="class_chapter_scene.html">ChapterScene</a></div><div class="ttdoc">Base class for the chapter screen.</div><div class="ttdef"><b>Definition:</b> ChapterScene.h:24</div></div>
 <div class="ttc" id="aclass_chapter_scene_html_a4096524a97a380bef8ad99d50010196b"><div class="ttname"><a href="class_chapter_scene.html#a4096524a97a380bef8ad99d50010196b">ChapterScene::setTextFromFile</a></div><div class="ttdeci">virtual void setTextFromFile(string path, int startingId)</div><div class="ttdoc">Creates text to parse from .txt.</div><div class="ttdef"><b>Definition:</b> ChapterScene.cpp:102</div></div>
 <div class="ttc" id="aclass_chapter_scene_html_a6f9ac82a8cc45ddc005d430b9e71aedf"><div class="ttname"><a href="class_chapter_scene.html#a6f9ac82a8cc45ddc005d430b9e71aedf">ChapterScene::splitText</a></div><div class="ttdeci">vector&lt; shared_ptr&lt; Text &gt; &gt; splitText(string text, int startingId)</div><div class="ttdoc">Splits text on  .</div><div class="ttdef"><b>Definition:</b> ChapterScene.cpp:67</div></div>
 <div class="ttc" id="aclass_chapter_scene_html_ace7f973abf54a183bf5821206b0ec0f8"><div class="ttname"><a href="class_chapter_scene.html#ace7f973abf54a183bf5821206b0ec0f8">ChapterScene::loadButtons</a></div><div class="ttdeci">void loadButtons()</div><div class="ttdoc">Create all buttons for this scene.</div><div class="ttdef"><b>Definition:</b> ChapterScene.cpp:91</div></div>
