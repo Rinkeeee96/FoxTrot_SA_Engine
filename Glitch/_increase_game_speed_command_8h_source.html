@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Glitch: Game/Commands/GlobalCommands/ToggleLayerCommand.h Source File</title>
+<title>Glitch: Game/Commands/GlobalCommands/IncreaseGameSpeedCommand.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -53,41 +53,39 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('_toggle_layer_command_8h_source.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('_increase_game_speed_command_8h_source.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">ToggleLayerCommand.h</div>  </div>
+<div class="title">IncreaseGameSpeedCommand.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;Game/Commands/ICharacterCommand.h&quot;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Game/Commands/GlobalCommand.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Game/PopUps/Inventory/InventoryPopup.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Events/Action/IncreaseGameSpeedEvent.h&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;Engine/Events/Action/ToggleEventLayer.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_toggle_layer_command.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_toggle_layer_command.html">ToggleLayerCommand</a> : <span class="keyword">public</span> <a class="code" href="class_global_command.html">GlobalCommand</a></div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_increase_game_speed_command.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_increase_game_speed_command.html">IncreaseGameSpeedCommand</a> : <span class="keyword">public</span> <a class="code" href="class_global_command.html">GlobalCommand</a></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="class_toggle_layer_command.html">ToggleLayerCommand</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> _layerId, <span class="keywordtype">string</span> identifier) : <a class="code" href="class_global_command.html">GlobalCommand</a>(_layerId, identifier) {}</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="class_toggle_layer_command.html">ToggleLayerCommand</a>(<span class="keywordtype">string</span> identifier) : <a class="code" href="class_global_command.html">GlobalCommand</a>(0, identifier) {}</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="comment">// Inherited via ICommand</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">void</span> execute(EventDispatcher&amp; dispatcher)<span class="keyword"> override </span>{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        ToggleLayerEvent toggleLayer(layerId);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        dispatcher.dispatchEvent&lt;ToggleLayerEvent&gt;(toggleLayer);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    }</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;};</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="class_increase_game_speed_command.html">IncreaseGameSpeedCommand</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> _layerId, <span class="keywordtype">string</span> identifier) : <a class="code" href="class_global_command.html">GlobalCommand</a>(_layerId, identifier) {}</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_increase_game_speed_command.html">IncreaseGameSpeedCommand</a>(<span class="keywordtype">string</span> identifier) : <a class="code" href="class_global_command.html">GlobalCommand</a>(identifier) {}</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="comment">// Inherited via ICommand</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">void</span> execute(EventDispatcher&amp; dispatcher)<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        IncreaseGameSpeedEvent increaseSpeed;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        dispatcher.dispatchEvent&lt;IncreaseGameSpeedEvent&gt;(increaseSpeed);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    }</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_toggle_layer_command_html"><div class="ttname"><a href="class_toggle_layer_command.html">ToggleLayerCommand</a></div><div class="ttdef"><b>Definition:</b> ToggleLayerCommand.h:8</div></div>
+<div class="ttc" id="aclass_increase_game_speed_command_html"><div class="ttname"><a href="class_increase_game_speed_command.html">IncreaseGameSpeedCommand</a></div><div class="ttdoc">Command for decreasing game speed.</div><div class="ttdef"><b>Definition:</b> IncreaseGameSpeedCommand.h:8</div></div>
 <div class="ttc" id="aclass_global_command_html"><div class="ttname"><a href="class_global_command.html">GlobalCommand</a></div><div class="ttdef"><b>Definition:</b> GlobalCommand.h:6</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_c33286056d2acf479cd8641ef845fec1.html">Game</a></li><li class="navelem"><a class="el" href="dir_089f2ce7781b89cda114a38f3467c8f3.html">Commands</a></li><li class="navelem"><a class="el" href="dir_52be6457bd6cfefd6df5b92c8a3e24df.html">GlobalCommands</a></li><li class="navelem"><b>ToggleLayerCommand.h</b></li>
+    <li class="navelem"><a class="el" href="dir_c33286056d2acf479cd8641ef845fec1.html">Game</a></li><li class="navelem"><a class="el" href="dir_089f2ce7781b89cda114a38f3467c8f3.html">Commands</a></li><li class="navelem"><a class="el" href="dir_52be6457bd6cfefd6df5b92c8a3e24df.html">GlobalCommands</a></li><li class="navelem"><b>IncreaseGameSpeedCommand.h</b></li>
     <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
   </ul>
 </div>

@@ -2,6 +2,7 @@ var class_command_builder =
 [
     [ "CommandBuilder", "class_command_builder.html#aaec12068c15ae945007863575ea94fc7", null ],
     [ "~CommandBuilder", "class_command_builder.html#ac37121d81a0a38b670cb8fd916794ffb", null ],
+    [ "buildGlobalCommands", "class_command_builder.html#a91de9e9071696bfeb1d3d8373df0f0c3", null ],
     [ "buildPlayerCommands", "class_command_builder.html#a47e6e7996c36e89ec71bf50e54f3494a", null ],
     [ "createDefaultbindings", "class_command_builder.html#a426d722ae6a91b75564e5740cb6b7893", null ],
     [ "initCharacterFactory", "class_command_builder.html#ab3a95d6a98db8cf4b94b958cfa0ebc8b", null ],
