@@ -12,18 +12,18 @@ Player::Player(const int id, EventDispatcher& _dispatcher) : ICharacter(id, _dis
 	this->setPositionY(80);
 
 	this->setSpeed(7);
-	this->setJumpHeight(10);
+	this->setJumpHeight(12);
 	this->setDensity(10);
 	this->setFriction(0);
 	this->setRestitution(0.1f);
 	this->setTotalHealth(3);
 	this->setStatic(false);
 	this->setRotatable(false);
+	this->setScalable(true);
+	this->setScale(3);
 
 	this->setCurrentHealth(3);
 	this->setTotalHealth(3);
-	this->setScalable(true);
-	this->setScale(2);
 
 	this->stateMachine.setCurrentState(make_unique<NormalState>(), *this);
 	this->stateMachine.setGlobalState(make_unique<PlayerGlobalState>(), *this);

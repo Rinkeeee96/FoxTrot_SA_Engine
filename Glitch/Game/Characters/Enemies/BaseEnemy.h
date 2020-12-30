@@ -8,6 +8,8 @@ public:
 	BaseEnemy(EventDispatcher& _dispatcher) : IEnemy(_dispatcher) {}
 	BaseEnemy(const int id, EventDispatcher& _dispatcher) : IEnemy(id, _dispatcher) {
 		_dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(BaseEnemy::onCollisionBeginEvent));
+		this->setScalable(true);
+		this->setScale(3);
 	}
 
 	/// @brief

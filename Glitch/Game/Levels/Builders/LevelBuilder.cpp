@@ -407,4 +407,3 @@ void LevelBuilder::initFactory() {
 
 	std::map<std::string, std::map<SpriteState, shared_ptr<SpriteObject>>> spriteObjectMap;
 }
-
