@@ -83,32 +83,40 @@ $(document).ready(function(){initNavTree('_main_menu_8h_source.html',''); initRe
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_menu.html#a3bccc57bcdadb82720c7e54da65038da">loadMusic</a>();</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_menu.html#a70affed5daa898a62140aaf8883cea61">loadButtons</a>();</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">function</span>&lt;void(<span class="keywordtype">void</span>)&gt; onStartBtnClick = [<span class="keyword">this</span>]() {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        moveToNextScene = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        nextScene = <span class="stringliteral">&quot;SaveScreen&quot;</span>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    };</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">function</span>&lt;void(<span class="keywordtype">void</span>)&gt; onStopBtnClick = [<span class="keyword">this</span>]() {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        engine-&gt;setEngineRunning(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    };</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">function</span>&lt;void(<span class="keywordtype">void</span>)&gt; onCreditsBtnClick = [<span class="keyword">this</span>]() {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        moveToNextScene = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        nextScene = <span class="stringliteral">&quot;CreditsSreen&quot;</span>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    };</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">inline</span> MainMenu::~MainMenu()</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">bool</span> playMusicCredits = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">function</span>&lt;void(<span class="keywordtype">void</span>)&gt; onStartBtnClick = [<span class="keyword">this</span>]() {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        moveToNextScene = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        nextScene = <span class="stringliteral">&quot;SaveScreen&quot;</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    };</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">function</span>&lt;void(<span class="keywordtype">void</span>)&gt; onStopBtnClick = [<span class="keyword">this</span>]() {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        engine-&gt;setEngineRunning(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    };</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">function</span>&lt;void(<span class="keywordtype">void</span>)&gt; onMappingBtnClick = [<span class="keyword">this</span>]() {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        moveToNextScene = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        nextScene = <span class="stringliteral">&quot;MappingScreen&quot;</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    };</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">function</span>&lt;void(<span class="keywordtype">void</span>)&gt; onCreditsBtnClick = [<span class="keyword">this</span>]() {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        playMusicCredits = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        moveToNextScene = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        nextScene = <span class="stringliteral">&quot;CreditsSreen&quot;</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    };</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">inline</span> MainMenu::~MainMenu()</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_game_scene_html"><div class="ttname"><a href="class_game_scene.html">GameScene</a></div><div class="ttdoc">Base class for game scenes, derived from engine scene.</div><div class="ttdef"><b>Definition:</b> GameScene.h:11</div></div>
-<div class="ttc" id="aclass_main_menu_html_a720a73f428af52df2b6a40ca137f9d27"><div class="ttname"><a href="class_main_menu.html#a720a73f428af52df2b6a40ca137f9d27">MainMenu::onDetach</a></div><div class="ttdeci">void onDetach() override</div><div class="ttdoc">Remove the sounds of the soundengine.</div><div class="ttdef"><b>Definition:</b> MainMenu.cpp:107</div></div>
-<div class="ttc" id="aclass_main_menu_html_a45af7e182660d1196aff14131701a3ce"><div class="ttname"><a href="class_main_menu.html#a45af7e182660d1196aff14131701a3ce">MainMenu::onUpdate</a></div><div class="ttdeci">void onUpdate(float deltaTime) override</div><div class="ttdef"><b>Definition:</b> MainMenu.cpp:97</div></div>
-<div class="ttc" id="aclass_main_menu_html_a3bccc57bcdadb82720c7e54da65038da"><div class="ttname"><a href="class_main_menu.html#a3bccc57bcdadb82720c7e54da65038da">MainMenu::loadMusic</a></div><div class="ttdeci">void loadMusic()</div><div class="ttdoc">Load the sounds for this scene.</div><div class="ttdef"><b>Definition:</b> MainMenu.cpp:83</div></div>
-<div class="ttc" id="aclass_main_menu_html_a6fdc611f08bb35d8b9c642b892507cdc"><div class="ttname"><a href="class_main_menu.html#a6fdc611f08bb35d8b9c642b892507cdc">MainMenu::start</a></div><div class="ttdeci">void start(bool playSound) override</div><div class="ttdoc">Create the sounds for this scene.</div><div class="ttdef"><b>Definition:</b> MainMenu.cpp:89</div></div>
-<div class="ttc" id="aclass_main_menu_html_ae08f1dadd6ca0a6ea3a80dd4652a748c"><div class="ttname"><a href="class_main_menu.html#ae08f1dadd6ca0a6ea3a80dd4652a748c">MainMenu::loadBackground</a></div><div class="ttdeci">void loadBackground()</div><div class="ttdoc">Create the background for this scene.</div><div class="ttdef"><b>Definition:</b> MainMenu.cpp:43</div></div>
+<div class="ttc" id="aclass_main_menu_html_a720a73f428af52df2b6a40ca137f9d27"><div class="ttname"><a href="class_main_menu.html#a720a73f428af52df2b6a40ca137f9d27">MainMenu::onDetach</a></div><div class="ttdeci">void onDetach() override</div><div class="ttdoc">Remove the sounds of the soundengine.</div><div class="ttdef"><b>Definition:</b> MainMenu.cpp:112</div></div>
+<div class="ttc" id="aclass_main_menu_html_a45af7e182660d1196aff14131701a3ce"><div class="ttname"><a href="class_main_menu.html#a45af7e182660d1196aff14131701a3ce">MainMenu::onUpdate</a></div><div class="ttdeci">void onUpdate(float deltaTime) override</div><div class="ttdef"><b>Definition:</b> MainMenu.cpp:102</div></div>
+<div class="ttc" id="aclass_main_menu_html_a3bccc57bcdadb82720c7e54da65038da"><div class="ttname"><a href="class_main_menu.html#a3bccc57bcdadb82720c7e54da65038da">MainMenu::loadMusic</a></div><div class="ttdeci">void loadMusic()</div><div class="ttdoc">Load the sounds for this scene.</div><div class="ttdef"><b>Definition:</b> MainMenu.cpp:88</div></div>
+<div class="ttc" id="aclass_main_menu_html_a6fdc611f08bb35d8b9c642b892507cdc"><div class="ttname"><a href="class_main_menu.html#a6fdc611f08bb35d8b9c642b892507cdc">MainMenu::start</a></div><div class="ttdeci">void start(bool playSound) override</div><div class="ttdoc">Create the sounds for this scene.</div><div class="ttdef"><b>Definition:</b> MainMenu.cpp:94</div></div>
+<div class="ttc" id="aclass_main_menu_html_ae08f1dadd6ca0a6ea3a80dd4652a748c"><div class="ttname"><a href="class_main_menu.html#ae08f1dadd6ca0a6ea3a80dd4652a748c">MainMenu::loadBackground</a></div><div class="ttdeci">void loadBackground()</div><div class="ttdoc">Create the background for this scene.</div><div class="ttdef"><b>Definition:</b> MainMenu.cpp:48</div></div>
 <div class="ttc" id="aclass_main_menu_html"><div class="ttname"><a href="class_main_menu.html">MainMenu</a></div><div class="ttdoc">Class for main menu screen.</div><div class="ttdef"><b>Definition:</b> MainMenu.h:8</div></div>
 <div class="ttc" id="aclass_main_menu_html_a70affed5daa898a62140aaf8883cea61"><div class="ttname"><a href="class_main_menu.html#a70affed5daa898a62140aaf8883cea61">MainMenu::loadButtons</a></div><div class="ttdeci">void loadButtons()</div><div class="ttdoc">Create all buttons for this scene.</div><div class="ttdef"><b>Definition:</b> MainMenu.cpp:21</div></div>
 <!-- start footer part -->

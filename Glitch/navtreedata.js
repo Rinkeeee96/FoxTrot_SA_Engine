@@ -30,8 +30,8 @@ var NAVTREE =
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
-        [ "Functions", "functions_func.html", null ]
+        [ "All", "functions.html", "functions_dup" ],
+        [ "Functions", "functions_func.html", "functions_func" ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -43,8 +43,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_abstract_level_builder_8h_source.html",
-"class_game_keypress_invoker.html#af378cd522c0f1a7e964280707d5eedda",
-"class_overworld.html#a6a79df3c9db30d56c21b19a13591b26f"
+"class_death_screen.html",
+"class_level.html#a4ab4e3ab1b2ca5844725b742afc8161f",
+"class_shop.html#a32423e7be394bf33b41eb9e655795f5d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

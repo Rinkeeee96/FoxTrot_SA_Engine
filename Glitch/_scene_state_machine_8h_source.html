@@ -66,39 +66,60 @@ $(document).ready(function(){initNavTree('_scene_state_machine_8h_source.html','
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;Game/Scenes/Factory/FactoryMethod.h&quot;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Game/Scenes/Scenes.h&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Game/Scenes/Factory/CreatorImpl.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">class </span><a class="code" href="class_savegame.html">Savegame</a>;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_scene_state_machine.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_scene_state_machine.html">SceneStateMachine</a> : <span class="keyword">public</span> enable_shared_from_this&lt;SceneStateMachine&gt;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_scene_state_machine.html#ab21a5f4971289d3e68d43384aff31201">SceneStateMachine</a>(unique_ptr&lt;Engine&gt;&amp; engine, shared_ptr&lt;Savegame&gt; savegame);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    ~<a class="code" href="class_scene_state_machine.html">SceneStateMachine</a>();</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_scene_state_machine.html#a26137e740c92022293084968c98fb824">switchToScene</a>(<span class="keywordtype">string</span> <span class="keyword">const</span> identifier, <span class="keywordtype">bool</span> useTransitionScreen, <span class="keywordtype">bool</span> playSound = <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">string</span>&amp; <a class="code" href="class_scene_state_machine.html#a60c3e2c0de18d17852f42c3d1695f318">getCurrentLevelIdentifier</a>();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">int</span> levelToBuild = 0;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    shared_ptr&lt;Savegame&gt; savegame;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    shared_ptr&lt;SceneFactory&gt;  factory = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    unique_ptr&lt;Scene&gt; <a class="code" href="class_scene_state_machine.html#a7a33af939077840134813fb299985807">loadLevel</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; identifier);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    unique_ptr&lt;Engine&gt;&amp; engine;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">int</span> currentSceneId = -1;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">int</span> sceneId = 0;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">string</span> currentLevelIdentifier = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">class </span><a class="code" href="class_i_popup.html">IPopup</a>;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">class </span><a class="code" href="class_savegame.html">Savegame</a>;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_scene_state_machine.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_scene_state_machine.html">SceneStateMachine</a> : <span class="keyword">public</span> enable_shared_from_this&lt;SceneStateMachine&gt;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="class_scene_state_machine.html#ab21a5f4971289d3e68d43384aff31201">SceneStateMachine</a>(unique_ptr&lt;Engine&gt;&amp; engine, shared_ptr&lt;Savegame&gt; savegame);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    ~<a class="code" href="class_scene_state_machine.html">SceneStateMachine</a>();</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_scene_state_machine.html#a26137e740c92022293084968c98fb824">switchToScene</a>(<span class="keywordtype">string</span> <span class="keyword">const</span> identifier, <span class="keywordtype">bool</span> useTransitionScreen, <span class="keywordtype">bool</span> playSound = <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">string</span>&amp; <a class="code" href="class_scene_state_machine.html#a60c3e2c0de18d17852f42c3d1695f318">getCurrentLevelIdentifier</a>();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> registerActivePopup(<a class="code" href="class_i_popup.html">IPopup</a>* popup) {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        activePopups.push_back(popup);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    }</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">int</span> activePopupCount() { <span class="keywordflow">return</span> activePopups.size(); }</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">void</span> deregisterActivePopup(<a class="code" href="class_i_popup.html">IPopup</a>* popupToDeregister) {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        activePopups.erase(</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            std::remove_if(</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                activePopups.begin(),</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                activePopups.end(),</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                [&amp;popupToDeregister](<span class="keyword">const</span> <span class="keyword">auto</span>&amp; p) { return popupToDeregister == p; }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            ),</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            activePopups.end()</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        );</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">int</span> levelToBuild = 0;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    shared_ptr&lt;Savegame&gt; savegame;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    shared_ptr&lt;SceneFactory&gt;  factory = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    unique_ptr&lt;Scene&gt; <a class="code" href="class_scene_state_machine.html#a7a33af939077840134813fb299985807">loadLevel</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; identifier);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    unique_ptr&lt;Engine&gt;&amp; engine;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    vector&lt;IPopup*&gt; activePopups;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">int</span> currentSceneId = -1;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">int</span> sceneId = 0;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">string</span> currentLevelIdentifier = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_scene_state_machine_html_a26137e740c92022293084968c98fb824"><div class="ttname"><a href="class_scene_state_machine.html#a26137e740c92022293084968c98fb824">SceneStateMachine::switchToScene</a></div><div class="ttdeci">void switchToScene(string const identifier, bool useTransitionScreen, bool playSound=true)</div><div class="ttdoc">Switch to the scene according the the identifier.</div><div class="ttdef"><b>Definition:</b> SceneStateMachine.cpp:66</div></div>
-<div class="ttc" id="aclass_savegame_html"><div class="ttname"><a href="class_savegame.html">Savegame</a></div><div class="ttdoc">Class used for all savegame handling.</div><div class="ttdef"><b>Definition:</b> Savegame.h:86</div></div>
-<div class="ttc" id="aclass_scene_state_machine_html_ab21a5f4971289d3e68d43384aff31201"><div class="ttname"><a href="class_scene_state_machine.html#ab21a5f4971289d3e68d43384aff31201">SceneStateMachine::SceneStateMachine</a></div><div class="ttdeci">SceneStateMachine(unique_ptr&lt; Engine &gt; &amp;engine, shared_ptr&lt; Savegame &gt; savegame)</div><div class="ttdoc">Creates all scene states.</div><div class="ttdef"><b>Definition:</b> SceneStateMachine.cpp:7</div></div>
-<div class="ttc" id="aclass_scene_state_machine_html"><div class="ttname"><a href="class_scene_state_machine.html">SceneStateMachine</a></div><div class="ttdoc">Class for the scene state machine.</div><div class="ttdef"><b>Definition:</b> SceneStateMachine.h:9</div></div>
-<div class="ttc" id="aclass_scene_state_machine_html_a60c3e2c0de18d17852f42c3d1695f318"><div class="ttname"><a href="class_scene_state_machine.html#a60c3e2c0de18d17852f42c3d1695f318">SceneStateMachine::getCurrentLevelIdentifier</a></div><div class="ttdeci">string &amp; getCurrentLevelIdentifier()</div><div class="ttdoc">Returns currentLevelIdentifier.</div><div class="ttdef"><b>Definition:</b> SceneStateMachine.cpp:120</div></div>
-<div class="ttc" id="aclass_scene_state_machine_html_a7a33af939077840134813fb299985807"><div class="ttname"><a href="class_scene_state_machine.html#a7a33af939077840134813fb299985807">SceneStateMachine::loadLevel</a></div><div class="ttdeci">unique_ptr&lt; Scene &gt; loadLevel(const string &amp;identifier)</div><div class="ttdoc">Load level according to the identifier.</div><div class="ttdef"><b>Definition:</b> SceneStateMachine.cpp:44</div></div>
+<div class="ttc" id="aclass_i_popup_html"><div class="ttname"><a href="class_i_popup.html">IPopup</a></div><div class="ttdoc">Interface class for a popUp.</div><div class="ttdef"><b>Definition:</b> IPopup.h:7</div></div>
+<div class="ttc" id="aclass_scene_state_machine_html_a26137e740c92022293084968c98fb824"><div class="ttname"><a href="class_scene_state_machine.html#a26137e740c92022293084968c98fb824">SceneStateMachine::switchToScene</a></div><div class="ttdeci">void switchToScene(string const identifier, bool useTransitionScreen, bool playSound=true)</div><div class="ttdoc">Switch to the scene according the the identifier.</div><div class="ttdef"><b>Definition:</b> SceneStateMachine.cpp:77</div></div>
+<div class="ttc" id="aclass_savegame_html"><div class="ttname"><a href="class_savegame.html">Savegame</a></div><div class="ttdoc">Class used for all savegame handling.</div><div class="ttdef"><b>Definition:</b> Savegame.h:91</div></div>
+<div class="ttc" id="aclass_scene_state_machine_html_ab21a5f4971289d3e68d43384aff31201"><div class="ttname"><a href="class_scene_state_machine.html#ab21a5f4971289d3e68d43384aff31201">SceneStateMachine::SceneStateMachine</a></div><div class="ttdeci">SceneStateMachine(unique_ptr&lt; Engine &gt; &amp;engine, shared_ptr&lt; Savegame &gt; savegame)</div><div class="ttdoc">Creates all scene states.</div><div class="ttdef"><b>Definition:</b> SceneStateMachine.cpp:9</div></div>
+<div class="ttc" id="aclass_scene_state_machine_html"><div class="ttname"><a href="class_scene_state_machine.html">SceneStateMachine</a></div><div class="ttdoc">Class for the scene state machine.</div><div class="ttdef"><b>Definition:</b> SceneStateMachine.h:10</div></div>
+<div class="ttc" id="aclass_scene_state_machine_html_a60c3e2c0de18d17852f42c3d1695f318"><div class="ttname"><a href="class_scene_state_machine.html#a60c3e2c0de18d17852f42c3d1695f318">SceneStateMachine::getCurrentLevelIdentifier</a></div><div class="ttdeci">string &amp; getCurrentLevelIdentifier()</div><div class="ttdoc">Returns currentLevelIdentifier.</div><div class="ttdef"><b>Definition:</b> SceneStateMachine.cpp:133</div></div>
+<div class="ttc" id="aclass_scene_state_machine_html_a7a33af939077840134813fb299985807"><div class="ttname"><a href="class_scene_state_machine.html#a7a33af939077840134813fb299985807">SceneStateMachine::loadLevel</a></div><div class="ttdeci">unique_ptr&lt; Scene &gt; loadLevel(const string &amp;identifier)</div><div class="ttdoc">Load level according to the identifier.</div><div class="ttdef"><b>Definition:</b> SceneStateMachine.cpp:55</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
