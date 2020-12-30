@@ -130,7 +130,24 @@ void AdvertisementHandler::downloadLatestAdvertisements()
 	{
 		// The file has been downloaded and is parsed. Links have been placed into the vector
 		downloadMissingAds();
+		
 	}	
+	else
+	{
+		// If json is corrupt or something but you have local files use these
+		// Search for local png files
+		vector<string> files = fileLoader.getDirFiles(BASE_PATH_AD_FOLDER);
+
+		for (auto file : files)
+		{
+			// Check if png
+			if (file.substr(file.find_last_of(".")) == ".png")
+			{
+				auto fileName = file.substr(file.find_last_of("/") + 1);
+				adFileNames.push_back(fileName);
+			}
+		}
+	}
 }
 
 /// @brief 

@@ -62,3 +62,11 @@ void FileLoader::downloadFile(const string& url, const string& pathAndFilename)
 	const char* p = pathAndFilename.c_str();
 	hr = URLDownloadToFileA(0, t, p, 0, 0);
 }
+
+vector<string> FileLoader::getDirFiles(const string& path)
+{
+	vector<string> files;
+	for (const auto& entry : fs::directory_iterator(path))
+		files.push_back(entry.path().string());
+	return files;
+}
