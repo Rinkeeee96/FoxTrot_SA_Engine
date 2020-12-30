@@ -92,7 +92,7 @@ bool AdvertisementHandler::readFileAndParseJson(const string& path)
 		cout << "AdvertisementHandler: Ad file empty or non existent, using blank" << endl;
 	}
 
-	// TODO
+	// Potential TODO
 	// Json schema to validate
 	// Dont do it now as its such a small json
 
@@ -125,18 +125,11 @@ void AdvertisementHandler::downloadLatestAdvertisements()
 
 	// If result is true it means the json file was downloaded and parsed into the vector
 	// If the size is smaller then 0 we continue without ads, as we dont know what to use. 
-	// TODO check locally for the json file
 	if (result && adPaths.size() > 0)
 	{
 		// The file has been downloaded and is parsed. Links have been placed into the vector
 		downloadMissingAds();
 	}	
-	else
-	{
-		// TODO
-		// The file is not located online so check offline
-
-	}
 }
 
 vector<string> AdvertisementHandler::getAvailableAdFileNames()

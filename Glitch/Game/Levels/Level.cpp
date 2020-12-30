@@ -172,8 +172,6 @@ void Level::onDetach()
 	savegame->saveCurrentGameData(save);
 	gameInvoker->destroyPlayercommands();
 
-
-
 	Scene::onDetach();
 }
 /// @brief
