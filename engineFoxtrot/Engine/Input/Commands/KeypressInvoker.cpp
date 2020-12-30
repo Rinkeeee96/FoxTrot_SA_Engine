@@ -100,9 +100,10 @@ bool KeypressInvoker::isRegistered(const KeyCode& keyCode) {
 }
 
 ICommand* KeypressInvoker::getCommandByIdentifier(const string& identifier) {
-	for (auto it : commands) {
+	for (auto& it : commands) {
 		if (it.second->getIdentifier() == identifier) {
 			return it.second;
 		}
 	}
+	return nullptr;
 }

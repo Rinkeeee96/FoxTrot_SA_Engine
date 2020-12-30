@@ -181,7 +181,7 @@ bool Level::onToggleLayerEvent(const Event& event) {
 
 	bool layerAboveMeIsRendered = false;
 	// runs in o n
-	for (size_t i = layerIndex + 1; i <= this->getHighestLayerIndex(); i++)
+	for (int i = layerIndex + 1; i <= this->getHighestLayerIndex(); i++)
 	{
 		shared_ptr<Layer> layer = this->layers[i];
 		layerAboveMeIsRendered = layer->getRender();

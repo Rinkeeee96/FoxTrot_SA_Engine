@@ -102,13 +102,13 @@ void GameKeypressInvoker::updateKeycodeInCollection(unordered_map<KeyCode, strin
 /// @param identifier the given identifier string for the command
 const KeyCode& GameKeypressInvoker::getKeycodeFromIdentifier(const string& identifier)
 {
-	for (auto pair : globalCommands)
+	for (auto& pair : globalCommands)
 	{
 		if (identifier == pair.second)
 			return pair.first;
 	}
 
-	for (auto pair : playerCommands)
+	for (auto& pair : playerCommands)
 	{
 		if (identifier == pair.second)
 			return pair.first;

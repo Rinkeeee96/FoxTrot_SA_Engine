@@ -226,8 +226,8 @@ void PhysicsFacade::moveObjectTo(Object& object, float x, float y)
 	auto ob = getPhysicsObject(object.getObjectId());
 	if (!body || !ob) return;
 
-	float xModifer = x < object.getPositionX() ? -1 : 1;
-	float yModifer = y < object.getPositionY() ? -1 : 1;
+	float xModifer = x < object.getPositionX() ? -1.f : 1.f;
+	float yModifer = y < object.getPositionY() ? -1.f : 1.f;
 	float xPositionDifference = abs(x - (object.getPositionX() + object.getWidth() / 2));
 	float yPositionDifference = abs(y - (object.getPositionY() + object.getHeight() / 2));
 

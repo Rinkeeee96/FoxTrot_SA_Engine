@@ -63,8 +63,8 @@ namespace UnitTestsGlitch
 			player.setPositionX(oldX);
 			player.setPositionY(oldY);
 
-			int spawnX = 10;
-			int spawnY = 10;
+			float spawnX = 10;
+			float spawnY = 10;
 			player.setSpawnX(spawnX);
 			player.setSpawnY(spawnY);
 			// Act

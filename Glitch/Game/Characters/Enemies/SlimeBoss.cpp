@@ -84,7 +84,7 @@ void SlimeBoss::spawnEnemies() {
 
 /// @brief 
 /// Adds new slime to the level
-void SlimeBoss::createSlime(int id, int startingTextureId, int x, int y) {
+void SlimeBoss::createSlime(int id, int startingTextureId, float x, float y) {
 	shared_ptr<Slime> slime1 = shared_ptr<Slime>(new Slime(id, level.getEventDispatcher()));
 	slime1->setPositionX(x);
 	slime1->setPositionY(y);
@@ -127,7 +127,7 @@ void SlimeBoss::onUpdate(float deltaTime) {
 	float yPositionDifference = abs((player->getPositionY() + player->getHeight() / 2) - (this->getPositionY() + this->getHeight() / 2));
 
 	// Distance is calculated using the Pythagorean theorem from the middle of both objects
-	float distanceFromPlayer = sqrt(pow(xPositionDifference, 2) + pow(yPositionDifference, 2));
+	float distanceFromPlayer = (float)sqrt(pow(xPositionDifference, 2) + pow(yPositionDifference, 2));
 
 	// Direction is based on the x position of the player
 	Direction direction = player->getPositionX() < this->positionX ? Direction::LEFT : Direction::RIGHT;

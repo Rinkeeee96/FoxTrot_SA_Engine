@@ -22,7 +22,7 @@ public:
 
 	StateMachine<SlimeBoss>& getStateMachine() { return this->stateMachine; }
 
-	void createSlime(int id, int startingTextureId, int x, int y);
+	void createSlime(int id, int startingTextureId, float x, float y);
 	void spawnEnemies();
 
 	void setJumSpeedTime(float f) { this->jumpSpeedTimer = f; }

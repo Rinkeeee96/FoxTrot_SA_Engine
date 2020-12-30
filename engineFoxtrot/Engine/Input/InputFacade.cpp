@@ -71,4 +71,6 @@ KeyCode InputFacade::getSingleKeyStroke()
 			}
 		}
 	}
+
+	return KeyCode::KEY_UNKNOWN;
 }

@@ -245,8 +245,8 @@ namespace UnitTestsGlitch
 			entity.setPositionX(oldX);
 			entity.setPositionY(oldY);
 
-			int spawnX = 10;
-			int spawnY = 10;
+			float spawnX = 10;
+			float spawnY = 10;
 			entity.setSpawnX(spawnX);
 			entity.setSpawnY(spawnY);
 			// Act
