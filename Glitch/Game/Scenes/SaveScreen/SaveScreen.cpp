@@ -208,11 +208,6 @@ void SaveScreen::loadText()
 			text = "Totalscore: " + to_string(savegame->getSaveGameData(i + 1).totalScore);
 			text2 = shared_ptr<Text>(new Text(textIDCount++, new ColoredText(text, Color(0, 0, 0)), 120, 30, 520 + (float)(i * SPACING_INCREMENT), 540));
 			addNewObjectToLayer(5, text2, false, true);
-
-			text = "Total items: " + to_string(savegame->getSaveGameData(i + 1).characterData.inventory.items.size());
-			text2 = shared_ptr<Text>(new Text(textIDCount++, new ColoredText(text, Color(0, 0, 0)), 120, 30, 520 + (float)(i * SPACING_INCREMENT), 580));
-			addNewObjectToLayer(5, text2, false, true);
-
 		}
 		shared_ptr<Text> text1 = shared_ptr<Text>(new Text(textIDCount++, new ColoredText(name, Color(0, 0, 0)), 100, 60, 520 + (float)(i* SPACING_INCREMENT), 380));
 		addNewObjectToLayer(5, text1, false, true);

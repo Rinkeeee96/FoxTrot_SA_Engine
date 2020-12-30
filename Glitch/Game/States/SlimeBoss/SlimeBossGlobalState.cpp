@@ -17,8 +17,6 @@ void SlimeBossGlobalState::execute(SlimeBoss& entity) {
 	if (entity.getCurrentHealth() <= entity.getTotalHealth() / 3 * 1) {
 
 		if (!this->upgradeTrigger2) {
-			entity.setSpeed(entity.getSpeed() + 0.7f);
-			entity.setJumSpeedTime(0.6f);
 			entity.spawnEnemies();
 			upgradeTrigger2 = true;
 		}
