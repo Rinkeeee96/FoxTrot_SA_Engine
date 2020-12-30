@@ -2,6 +2,7 @@
 #include "SceneStateMachine.h"
 #include <Game/Scenes/Story/ChapterTwoScene.h>
 #include <Game/Scenes/Story/ChapterThreeScene.h>
+#include <Game/Scenes/GameInfo/GameInfo.h>
 
 /// @brief Creates all scene states
 /// @param _engine 
@@ -45,6 +46,9 @@ SceneStateMachine::SceneStateMachine(unique_ptr<Engine>& _engine, shared_ptr<Sav
 
 	CreatorImpl <MappingScene>* mappingScreen = new CreatorImpl <MappingScene>();
 	mappingScreen->registerClass("MappingScreen", factory);
+
+	CreatorImpl <GameInfo>* infoScreen = new CreatorImpl <GameInfo>();
+	infoScreen->registerClass("GameInfo", factory);
 }
 
 SceneStateMachine::~SceneStateMachine() {}
