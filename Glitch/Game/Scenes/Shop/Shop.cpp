@@ -42,7 +42,6 @@ void Shop::onUpdate(float deltaTime)
 		save.characterData.totalHealth++;
 		save.characterData.inventory.coins -= currentPrice;
 		savegame->saveCurrentGameData(save); 
-		handlePurchase = false;
 	}
 
 	if (moveToNextScene)
