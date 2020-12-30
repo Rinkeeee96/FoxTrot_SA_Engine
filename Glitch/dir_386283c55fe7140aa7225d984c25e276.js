@@ -3,6 +3,7 @@ var dir_386283c55fe7140aa7225d984c25e276 =
     [ "Credits", "dir_e5f924c86b8e3079623262f8c3db57f4.html", "dir_e5f924c86b8e3079623262f8c3db57f4" ],
     [ "DeathScreen", "dir_703b6af2b65bd080cc6e55a91d374842.html", "dir_703b6af2b65bd080cc6e55a91d374842" ],
     [ "Factory", "dir_de54efa7d5ac317850dc09171ef6c2a6.html", "dir_de54efa7d5ac317850dc09171ef6c2a6" ],
+    [ "GameInfo", "dir_3e28c9d925dffb1b75b82957b53e93bd.html", "dir_3e28c9d925dffb1b75b82957b53e93bd" ],
     [ "MainMenu", "dir_f7c1cd8f3838d8136162afea9c15d7fb.html", "dir_f7c1cd8f3838d8136162afea9c15d7fb" ],
     [ "MappingScreen", "dir_03b317631c95ca1b53acae59d6f79235.html", "dir_03b317631c95ca1b53acae59d6f79235" ],
     [ "Overworld", "dir_c240c0a9cdf92dbbb311a84355625df6.html", "dir_c240c0a9cdf92dbbb311a84355625df6" ],

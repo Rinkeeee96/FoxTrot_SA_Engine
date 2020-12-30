@@ -24,6 +24,7 @@ var annotated_dup =
     [ "DeathTrigger", "class_death_trigger.html", "class_death_trigger" ],
     [ "Fleye", "class_fleye.html", "class_fleye" ],
     [ "Game", "class_game.html", "class_game" ],
+    [ "GameInfo", "class_game_info.html", "class_game_info" ],
     [ "GameKeypressInvoker", "class_game_keypress_invoker.html", "class_game_keypress_invoker" ],
     [ "GameScene", "class_game_scene.html", "class_game_scene" ],
     [ "GeneralTransition", "class_general_transition.html", "class_general_transition" ],

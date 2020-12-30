@@ -112,6 +112,7 @@ var hierarchy =
         ] ],
         [ "CreditsScene", "class_credits_scene.html", null ],
         [ "DeathScreen", "class_death_screen.html", null ],
+        [ "GameInfo", "class_game_info.html", null ],
         [ "GeneralTransition", "class_general_transition.html", null ],
         [ "Level", "class_level.html", null ],
         [ "MainMenu", "class_main_menu.html", null ],
