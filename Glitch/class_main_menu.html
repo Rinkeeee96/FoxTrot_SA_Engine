@@ -107,6 +107,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:aa30ce2155e8eeef74e93dda570805e01 inherit pub_methods_class_game_scene"><td class="memItemLeft" align="right" valign="top"><a id="aa30ce2155e8eeef74e93dda570805e01"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>GameScene</b> (const int id, const int _sceneHeight, const int _sceneWidth, unique_ptr&lt; Engine &gt; &amp;_engine, shared_ptr&lt; <a class="el" href="class_scene_state_machine.html">SceneStateMachine</a> &gt; _sceneStateMachine)</td></tr>
 <tr class="separator:aa30ce2155e8eeef74e93dda570805e01 inherit pub_methods_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae358d001d9ca809698c175ff623cdaf5 inherit pub_methods_class_game_scene"><td class="memItemLeft" align="right" valign="top"><a id="ae358d001d9ca809698c175ff623cdaf5"></a>
+unique_ptr&lt; Engine &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getEngine</b> ()</td></tr>
+<tr class="separator:ae358d001d9ca809698c175ff623cdaf5 inherit pub_methods_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa692bb4e4737fa6b5e34d6e6c600c933 inherit pub_methods_class_game_scene"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_scene.html#aa692bb4e4737fa6b5e34d6e6c600c933">registerSavegame</a> (shared_ptr&lt; <a class="el" href="class_savegame.html">Savegame</a> &gt; _savegame)</td></tr>
 <tr class="memdesc:aa692bb4e4737fa6b5e34d6e6c600c933 inherit pub_methods_class_game_scene"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register the savegame pointer.  <a href="class_game_scene.html#aa692bb4e4737fa6b5e34d6e6c600c933">More...</a><br /></td></tr>
 <tr class="separator:aa692bb4e4737fa6b5e34d6e6c600c933 inherit pub_methods_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -128,10 +131,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:a7c970dd16fe20051b1cc59458dd5b0d3"><td class="memItemLeft" align="right" valign="top"><a id="a7c970dd16fe20051b1cc59458dd5b0d3"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>playMusicCredits</b> = false</td></tr>
+<tr class="separator:a7c970dd16fe20051b1cc59458dd5b0d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1efc5cf82fa3e333f0614e7d5db9988"><td class="memItemLeft" align="right" valign="top">function&lt; void(void)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>onStartBtnClick</b></td></tr>
 <tr class="separator:ad1efc5cf82fa3e333f0614e7d5db9988"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65e256e808bf3d1bea43e0eb7e9f5960"><td class="memItemLeft" align="right" valign="top">function&lt; void(void)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>onStopBtnClick</b></td></tr>
 <tr class="separator:a65e256e808bf3d1bea43e0eb7e9f5960"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a21528981b3259985b81e656721fe9e"><td class="memItemLeft" align="right" valign="top">function&lt; void(void)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>onMappingBtnClick</b></td></tr>
+<tr class="separator:a2a21528981b3259985b81e656721fe9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee0f80f1442dee85c534ba7ffbd8f977"><td class="memItemLeft" align="right" valign="top">function&lt; void(void)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>onCreditsBtnClick</b></td></tr>
 <tr class="separator:aee0f80f1442dee85c534ba7ffbd8f977"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -218,8 +226,35 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>playSound</b> = false
 </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= [<span class="keyword">this</span>]() {</div>
+<div class="line">        playMusicCredits = <span class="keyword">true</span>;</div>
 <div class="line">        moveToNextScene = <span class="keyword">true</span>;</div>
 <div class="line">        nextScene = <span class="stringliteral">&quot;CreditsSreen&quot;</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a2a21528981b3259985b81e656721fe9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a21528981b3259985b81e656721fe9e">&#9670;&nbsp;</a></span>onMappingBtnClick</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">function&lt;void(void)&gt; MainMenu::onMappingBtnClick</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= [<span class="keyword">this</span>]() {</div>
+<div class="line">        moveToNextScene = <span class="keyword">true</span>;</div>
+<div class="line">        nextScene = <span class="stringliteral">&quot;MappingScreen&quot;</span>;</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
 </div>
