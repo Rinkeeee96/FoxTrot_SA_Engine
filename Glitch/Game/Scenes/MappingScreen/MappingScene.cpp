@@ -276,6 +276,54 @@ void MappingScene::createButtons() {
 	addNewObjectToLayer(4, helpIdentifierString);
 	addNewObjectToLayer(4, helpBtn);
 	addNewObjectToLayer(5, helpString);
+
+	shared_ptr<PrimaryButton> slowerBtn = shared_ptr<PrimaryButton>(new PrimaryButton(textId--, "", onSlowerBtnClick, this->dispatcher));
+	slowerBtn->setWidth((((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1) + 25);
+	slowerBtn->setHeight(45);
+	slowerBtn->setPositionX(listStartX);
+	slowerBtn->setPositionY(listStartY += 50);
+
+	shared_ptr<Text> slowerString = shared_ptr<Text>(new Text(textId--,
+		new ColoredText(keycodeStringMap[KeyCode(invoker->getKeycodeFromIdentifier("slower"))],
+			Color(0, 0, 0),
+			false
+		),
+		((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1, 50.f, listStartX + 10, listStartY));
+
+	shared_ptr<Text> slowerIdentifierString = shared_ptr<Text>(new Text(textId--,
+		new ColoredText("Decrease game speed",
+			Color(0, 0, 0),
+			false
+		),
+		((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * string("Help screen").length(), 50.f, listStartX + 80, listStartY));
+
+	addNewObjectToLayer(4, slowerIdentifierString);
+	addNewObjectToLayer(4, slowerBtn);
+	addNewObjectToLayer(5, slowerString);
+
+	shared_ptr<PrimaryButton> fasterBtn = shared_ptr<PrimaryButton>(new PrimaryButton(textId--, "", onFasterBtnClick, this->dispatcher));
+	fasterBtn->setWidth((((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1) + 25);
+	fasterBtn->setHeight(45);
+	fasterBtn->setPositionX(listStartX);
+	fasterBtn->setPositionY(listStartY += 50);
+
+	shared_ptr<Text> fasterString = shared_ptr<Text>(new Text(textId--,
+		new ColoredText(keycodeStringMap[KeyCode(invoker->getKeycodeFromIdentifier("help"))],
+			Color(0, 0, 0),
+			false
+		),
+		((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1, 50.f, listStartX + 10, listStartY));
+
+	shared_ptr<Text> fasterIdentifierString = shared_ptr<Text>(new Text(textId--,
+		new ColoredText("Help screen",
+			Color(0, 0, 0),
+			false
+		),
+		((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * string("Help screen").length(), 50.f, listStartX + 80, listStartY));
+
+	addNewObjectToLayer(4, fasterIdentifierString);
+	addNewObjectToLayer(4, fasterBtn);
+	addNewObjectToLayer(5, fasterString);
 }
 
 void MappingScene::updatePlayerCommand(const string& identifier)
