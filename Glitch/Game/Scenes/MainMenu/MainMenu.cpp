@@ -31,16 +31,22 @@ void MainMenu::loadButtons() {
 	shared_ptr<PrimaryButton> creditsBtn = shared_ptr<PrimaryButton>(new PrimaryButton(12, "Credits", onCreditsBtnClick, this->dispatcher));
 	creditsBtn->setPositionX(CENTER_X - creditsBtn->getWidth() / 2);
 	creditsBtn->setPositionY(CENTER_Y - creditsBtn->getHeight() / 2 + 200);
+	
+	shared_ptr<PrimaryButton> infoBtn = shared_ptr<PrimaryButton>(new PrimaryButton(15, "Game info", onInfoBtnClick, this->dispatcher));
+	infoBtn->setPositionX(CENTER_X - infoBtn->getWidth() / 2);
+	infoBtn->setPositionY(CENTER_Y - infoBtn->getHeight() / 2 + 300);
 
 	shared_ptr<SecondaryButton> stopBtn = shared_ptr<SecondaryButton>(new SecondaryButton(14, "Exit", onStopBtnClick, this->dispatcher));
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
 
+
 	addNewObjectToLayer(3, startBtn);
 	addNewObjectToLayer(3, mappingBtn);
 	addNewObjectToLayer(3, creditsBtn);
 	addNewObjectToLayer(3, stopBtn);
+	addNewObjectToLayer(3, infoBtn);
 }
 
 /// @brief 
