@@ -56,6 +56,7 @@ var annotated_dup =
     [ "PhysicsFacade", "class_physics_facade.html", "class_physics_facade" ],
     [ "Pointf", "struct_pointf.html", "struct_pointf" ],
     [ "Position", "struct_position.html", "struct_position" ],
+    [ "Rectangle", "struct_rectangle.html", "struct_rectangle" ],
     [ "ReleaseInputEvent", "class_release_input_event.html", "class_release_input_event" ],
     [ "Scene", "class_scene.html", "class_scene" ],
     [ "SceneManager", "class_scene_manager.html", "class_scene_manager" ],

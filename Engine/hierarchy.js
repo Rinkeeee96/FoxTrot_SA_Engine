@@ -87,6 +87,7 @@ var hierarchy =
     [ "PhysicsBody", "class_physics_body.html", null ],
     [ "Pointf", "struct_pointf.html", null ],
     [ "Position", "struct_position.html", null ],
+    [ "Rectangle", "struct_rectangle.html", null ],
     [ "Scene", "class_scene.html", null ],
     [ "SceneManager", "class_scene_manager.html", null ],
     [ "SpriteObject", "class_sprite_object.html", null ]
