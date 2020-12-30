@@ -6,6 +6,7 @@ var class_physics_body =
     [ "getFriction", "class_physics_body.html#a5663ab620e5c1b5330d41ac00da9c4ea", null ],
     [ "getGravity", "class_physics_body.html#aa34040d0b47d12549ef3c6cd857a2257", null ],
     [ "getHeight", "class_physics_body.html#a35755815b4f473156241b0d348fd6df5", null ],
+    [ "getIsRemoved", "class_physics_body.html#ac8915b34fae12744741ea6c75724e84b", null ],
     [ "getJumpHeight", "class_physics_body.html#a24b822739d39ff66a85f889fc4a69c49", null ],
     [ "getObject", "class_physics_body.html#a718bd7e5118b8c6f1b3036702b361ac3", null ],
     [ "getObjectId", "class_physics_body.html#a6d8608698a45a475fd519fc5c78895f8", null ],
