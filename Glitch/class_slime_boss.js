@@ -4,7 +4,7 @@ var class_slime_boss =
     [ "SlimeBoss", "class_slime_boss.html#a6e83609c2391beda9ff376df0e4daf20", null ],
     [ "buildSpritemap", "class_slime_boss.html#a87716fe2470e59525f87c4b3d001a869", null ],
     [ "clone", "class_slime_boss.html#a7abb08cf58bd97d5fcf420a7a118bd07", null ],
-    [ "createSlime", "class_slime_boss.html#a3561a49e98cd50d1f6380a77ff9324a5", null ],
+    [ "createSlime", "class_slime_boss.html#aa0627232d3481eb9317aebe91fd580c9", null ],
     [ "getJumSpeedTime", "class_slime_boss.html#a5b35e9f8d8f811f47f44feca21c9151b", null ],
     [ "getStateMachine", "class_slime_boss.html#acc78aaba310972863557bba3a0b49424", null ],
     [ "onCollisionBeginEvent", "class_slime_boss.html#a5472d7c70a397b7f33442ad886865337", null ],
