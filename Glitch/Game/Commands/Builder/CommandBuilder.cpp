@@ -13,6 +13,8 @@
 
 #include "Game/Commands/GameKeypressInvoker.h"
 #include "Game/Commands/GlobalCommands/ToggleLayerCommand.h"
+#include "Game/Commands/GlobalCommands/IncreaseGameSpeedCommand.h"
+#include "Game/Commands/GlobalCommands/DecreaseGameSpeedCommand.h"
 
 CommandBuilder::CommandBuilder()
 {
@@ -222,8 +224,8 @@ void CommandBuilder::initGlobalCommandFactory()
 {
 	globalCommandFactory = std::shared_ptr<GlobalCommandFactory>(new GlobalCommandFactory());
 	auto toggleInventoryCommand = new GlobalCommandCreator<ToggleLayerCommand>("inventory");
-	auto increaseSpeedCommand = new GlobalCommandCreator<ToggleLayerCommand>("faster");
-	auto decreaseSpeedCommand = new GlobalCommandCreator<ToggleLayerCommand>("slower");
+	auto increaseSpeedCommand = new GlobalCommandCreator<IncreaseGameSpeedCommand>("faster");
+	auto decreaseSpeedCommand = new GlobalCommandCreator<DecreaseGameSpeedCommand>("slower");
 	auto togglePauseCommand = new GlobalCommandCreator<ToggleLayerCommand>("pause");
 	auto toggleHelpCommand = new GlobalCommandCreator<ToggleLayerCommand>("help");
 

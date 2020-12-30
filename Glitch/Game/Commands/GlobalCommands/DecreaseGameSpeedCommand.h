@@ -3,10 +3,11 @@
 #include "Game/Commands/GlobalCommand.h"
 #include "Events/Action/DecreaseGameSpeedEvent.h"
 
-class IncreaseGamesSpeedCommand : public GlobalCommand
+class DecreaseGameSpeedCommand: public GlobalCommand
 {
 public:
-	IncreaseGamesSpeedCommand(string identifier) : GlobalCommand(identifier) {}
+	DecreaseGameSpeedCommand(const int _layerId, string identifier) : GlobalCommand(_layerId, identifier) {}
+	DecreaseGameSpeedCommand(string identifier) : GlobalCommand(identifier) {}
 	// Inherited via ICommand
 	void execute(EventDispatcher& dispatcher) override {
 		DecreaseGameSpeedEvent decreaseSpeed;
