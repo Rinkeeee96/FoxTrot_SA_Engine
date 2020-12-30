@@ -11,7 +11,7 @@ unordered_map<KeyCode, string>& GameKeypressInvoker::getGlobalCommands() { retur
 /// @param command the command to update
 void GameKeypressInvoker::updatePlayerCommand(KeyCode code, const string& identifier)
 {
-	updateKeycodeInCollection(playerCommands, code, identifier);
+	updateKeycodeInCollection(playerCommands, globalCommands, code, identifier);
 }
 
 /// @brief
@@ -20,7 +20,7 @@ void GameKeypressInvoker::updatePlayerCommand(KeyCode code, const string& identi
 /// @param command the command to update
 void GameKeypressInvoker::updateGlobalCommand(KeyCode code, const string& identifier)
 {
-	updateKeycodeInCollection(globalCommands, code, identifier);
+	updateKeycodeInCollection(globalCommands, playerCommands, code, identifier);
 }
 
 /// @brief
@@ -49,26 +49,48 @@ void GameKeypressInvoker::destroyCollection(unordered_map<KeyCode, string>& comm
 
 /// @brief
 /// update a keycode / command binding collection within the gamekeypressinvoker
-/// @param commandList the list with commands
+/// @param mapToUpdate the list with commands to update
+/// @param controlMap the list to check for occurences of the keybind that sent with the code parameter
 /// @param code the new keycode for a command
 /// @param command the command to update
-void GameKeypressInvoker::updateKeycodeInCollection(unordered_map<KeyCode, string>& commandList, KeyCode code, const string& identifier) {
-	for (auto commandIt = commandList.begin(); commandIt != commandList.end(); ++commandIt)
+void GameKeypressInvoker::updateKeycodeInCollection(unordered_map<KeyCode, string>& mapToUpdate, unordered_map<KeyCode, string>& controlMap, KeyCode code, const string& identifier) {
+		
+	bool inControlMap = false;
+	bool inCommandList = ! mapToUpdate[code].empty();
+	for (auto commandIt = controlMap.begin(); commandIt != controlMap.end(); ++commandIt)
+	{
+		if ((commandIt->first == code))
+		{
+			inControlMap = true;
+		}
+	}
+
+	for (auto commandIt = mapToUpdate.begin(); commandIt != mapToUpdate.end(); ++commandIt)
 	{
 		if ((commandIt->second == identifier))
 		{
-			// swap the commands with a custom method instead of the built in 
-			// because we cannot use keycodes
-			if (! commandList[code].empty())
+			// binding is only present in the list to update
+			if (inCommandList && ! inControlMap)
 			{
-				string oldCommand = commandList[code];
-				commandList[code] = identifier;
-				commandIt->second = oldCommand;
+				string oldCommand = mapToUpdate[code];
+				mapToUpdate[code] = identifier;
+				commandIt->second = oldCommand;				
 			}
+			// binding is present in both the list to update and the control map
+			else if (inControlMap)
+			{
+				mapToUpdate[code] = identifier;
+				controlMap.insert(make_pair(commandIt->first, controlMap[code]));
+
+				controlMap.erase(code);
+				mapToUpdate.erase(commandIt);
+			}
+			// new keybinding for command which is not present
 			else {
-				commandList[code] = identifier;
-				commandList.erase(commandIt);
+				mapToUpdate[code] = identifier;
+				mapToUpdate.erase(commandIt);
 			}
+
 			return;
 		}
 	}

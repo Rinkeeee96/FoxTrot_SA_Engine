@@ -14,21 +14,18 @@ void GeneralTransition::onAttach()
 void GeneralTransition::onDetach(){}
 
 /// @brief 
-void GeneralTransition::start(bool playSound){}
+void GeneralTransition::start(bool playSound)
+{
+	
+}
 
 /// @brief 
 /// Loads all the sprites 
 void GeneralTransition::loadBackground()
 {
-	int fileCount = this->getFileAdfileCount();
-
-	int randomNumber = 1 + (rand() % static_cast<int>(fileCount - 1 + 1));
-	string* imageLoc = new string("Assets/Advertisments/" + to_string(randomNumber) + ".png");
-
 	shared_ptr<SpriteObject> BG_LAYER_0 = shared_ptr<SpriteObject>(new SpriteObject(-500, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_0.png"));
 	shared_ptr<SpriteObject> BG_LAYER_ADVENTRUE = shared_ptr<SpriteObject>(new SpriteObject(-501, 31, 33, 6, 300, "Assets/Sprites/Character/adventure_run_right.png"));
 	shared_ptr<SpriteObject> BG_LAYER_2 = shared_ptr<SpriteObject>(new SpriteObject(-502, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_2.png"));
-	shared_ptr<SpriteObject> AD_IMAGE = shared_ptr<SpriteObject>(new SpriteObject(-503, 185, 606, 1, 300, imageLoc->c_str()));
 	shared_ptr<SpriteObject> ADVERTISMENT_BLOCK = shared_ptr<SpriteObject>(new SpriteObject(-504, 309, 253, 1, 300, "Assets/Inventory/text_background.png"));
 
 	shared_ptr<Drawable> layer0 = shared_ptr<Drawable>(new Drawable(-505));
@@ -68,24 +65,32 @@ void GeneralTransition::loadBackground()
 	adBlcok->registerSprite(SpriteState::DEFAULT, ADVERTISMENT_BLOCK);
 	adBlcok->changeToState(SpriteState::DEFAULT);
 
-	shared_ptr<Drawable> ad = shared_ptr<Drawable>(new Drawable(-509));
-	ad->setStatic(true);
-	ad->setPositionX(1420);
-	ad->setPositionY(1040);
-	ad->setWidth(431);
-	ad->setHeight(127);
-	ad->registerSprite(SpriteState::DEFAULT, AD_IMAGE);
-	ad->changeToState(SpriteState::DEFAULT);
+	adHandler->downloadLatestAdvertisements();
+	if (adHandler->getAvailableAdFileNames().size() >0)
+	{
+		string adFileName = getRandomAdFileName();
+		string* imageLoc = new string("Assets/Advertisements/" + adFileName);
 
-	shared_ptr<Text> advertisment = shared_ptr<Text>(new Text(-510, new ColoredText("Advertisement:", Color(0, 0, 0)), 120, 30, 1420, 895));
+		shared_ptr<SpriteObject> AD_IMAGE = shared_ptr<SpriteObject>(new SpriteObject(-503, 185, 606, 1, 300, imageLoc->c_str()));
+		shared_ptr<Drawable> ad = shared_ptr<Drawable>(new Drawable(-509));
+		ad->setStatic(true);
+		ad->setPositionX(1420);
+		ad->setPositionY(1040);
+		ad->setWidth(431);
+		ad->setHeight(127);
+		ad->registerSprite(SpriteState::DEFAULT, AD_IMAGE);
+		ad->changeToState(SpriteState::DEFAULT);
+		addNewObjectToLayer(4, ad, false, true);
+		shared_ptr<Text> advertisment = shared_ptr<Text>(new Text(-510, new ColoredText("Advertisement:", Color(0, 0, 0)), 120, 30, 1420, 895));
+		addNewObjectToLayer(4, advertisment, false, true);
+	}
+
 	
 	
 	addNewObjectToLayer(0, layer0, false, true);
 	addNewObjectToLayer(1, animation);
 	addNewObjectToLayer(2, layer2, false, true);
 	addNewObjectToLayer(3, adBlcok, false, true);
-	addNewObjectToLayer(4, ad, false, true);
-	addNewObjectToLayer(4, advertisment, false, true);
 }
 
 /// @brief 
@@ -105,19 +110,13 @@ void GeneralTransition::onUpdate(float deltaTime)
 	}
 }
 
-/// @brief Sets the next scene identifier
+/// @brief 
 /// @param identifier 
-int GeneralTransition::getFileAdfileCount()
+string GeneralTransition::getRandomAdFileName()
 {
-	auto dirIter = filesystem::directory_iterator("Assets/Advertisments/");
-
-	int fileCount = std::count_if(
-		begin(dirIter),
-		end(dirIter),
-		[](auto& entry) { return entry.is_regular_file(); }
-	);
-
-	return fileCount;
+	vector<string> ads = adHandler->getAvailableAdFileNames();
+	int randomNumber = 0 + (rand() % static_cast<int>(ads.size()));
+	return ads[randomNumber];
 }
 
 void GeneralTransition::setNextScene(string const identifier)
