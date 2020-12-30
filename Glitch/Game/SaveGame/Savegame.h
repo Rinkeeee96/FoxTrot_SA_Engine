@@ -67,7 +67,7 @@ struct SaveGameData
 		{
 			if (data.completed) progress++;
 		}
-		return (int)((progress / (MAX_AMOUNT_OF_LEVELS - 1)) * 100);
+		return (int)((progress / ((int64_t)MAX_AMOUNT_OF_LEVELS - 1)) * 100);
 	}
 
 	/// @brief Returns the timestamp in readable format.
