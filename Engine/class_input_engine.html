@@ -60,7 +60,6 @@ $(document).ready(function(){initNavTree('class_input_engine.html',''); initResi
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_input_engine-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -90,6 +89,9 @@ API&#160;</td><td class="memItemRight" valign="bottom"><b>InputEngine</b> (<a cl
 <tr class="memitem:aba8f5f8cbea770b91d8251def4e7db57"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_engine.html#aba8f5f8cbea770b91d8251def4e7db57">registerKeypressInvoker</a> (<a class="el" href="class_keypress_invoker.html">KeypressInvoker</a> *_keypressInvoker)</td></tr>
 <tr class="memdesc:aba8f5f8cbea770b91d8251def4e7db57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a custom invoker.  <a href="class_input_engine.html#aba8f5f8cbea770b91d8251def4e7db57">More...</a><br /></td></tr>
 <tr class="separator:aba8f5f8cbea770b91d8251def4e7db57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ffd6a32a6671ce70f283fdfa0700e52"><td class="memItemLeft" align="right" valign="top"><a id="a2ffd6a32a6671ce70f283fdfa0700e52"></a>
+API KeyCode&#160;</td><td class="memItemRight" valign="bottom"><b>getSingleKeyStroke</b> ()</td></tr>
+<tr class="separator:a2ffd6a32a6671ce70f283fdfa0700e52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a082f29fa0a4bd45802048ee560bbda06"><td class="memItemLeft" align="right" valign="top">API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_engine.html#a082f29fa0a4bd45802048ee560bbda06">start</a> (<a class="el" href="class_event_dispatcher.html">EventDispatcher</a> &amp;dispatcher) override</td></tr>
 <tr class="memdesc:a082f29fa0a4bd45802048ee560bbda06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the <a class="el" href="class_input_engine.html" title="Input engine for handling input.">InputEngine</a>. Setting up the inputFacade. Connecting de dispatcher.  <a href="class_input_engine.html#a082f29fa0a4bd45802048ee560bbda06">More...</a><br /></td></tr>
 <tr class="separator:a082f29fa0a4bd45802048ee560bbda06"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -97,20 +99,13 @@ API&#160;</td><td class="memItemRight" valign="bottom"><b>InputEngine</b> (<a cl
 API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_engine.html#a40f0b299416a98b334dee568fd4adf58">update</a> () override</td></tr>
 <tr class="memdesc:a40f0b299416a98b334dee568fd4adf58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Polls for input from the inputFacade. <br /></td></tr>
 <tr class="separator:a40f0b299416a98b334dee568fd4adf58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa545a112b41abd4b1a9d0a82123eb894"><td class="memItemLeft" align="right" valign="top"><a id="aa545a112b41abd4b1a9d0a82123eb894"></a>
-API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_engine.html#aa545a112b41abd4b1a9d0a82123eb894">shutdown</a> () override</td></tr>
-<tr class="memdesc:aa545a112b41abd4b1a9d0a82123eb894"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the inputFacade. <br /></td></tr>
-<tr class="separator:aa545a112b41abd4b1a9d0a82123eb894"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d95c85ea6f267f9f2d8635d6774eaa6"><td class="memItemLeft" align="right" valign="top"><a id="a1d95c85ea6f267f9f2d8635d6774eaa6"></a>
+API void&#160;</td><td class="memItemRight" valign="bottom"><b>shutdown</b> () override</td></tr>
+<tr class="separator:a1d95c85ea6f267f9f2d8635d6774eaa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_i_subsystem"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_i_subsystem')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_i_subsystem.html">ISubsystem</a></td></tr>
 <tr class="memitem:adb8851f68718af8dc0e8abea61d15fb9 inherit pub_methods_class_i_subsystem"><td class="memItemLeft" align="right" valign="top"><a id="adb8851f68718af8dc0e8abea61d15fb9"></a>
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isPaused</b> ()</td></tr>
 <tr class="separator:adb8851f68718af8dc0e8abea61d15fb9 inherit pub_methods_class_i_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:ab7226dfe2df84a0c0279b411e9c90225"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_engine.html#ab7226dfe2df84a0c0279b411e9c90225">onKeyPressed</a> (const <a class="el" href="class_event.html">Event</a> &amp;event)</td></tr>
-<tr class="memdesc:ab7226dfe2df84a0c0279b411e9c90225"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function is called when a keyPressed event is fired. If F1 is pressed FPS is toggled If F4 is pressed the game will shutdown.  <a href="class_input_engine.html#ab7226dfe2df84a0c0279b411e9c90225">More...</a><br /></td></tr>
-<tr class="separator:ab7226dfe2df84a0c0279b411e9c90225"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -121,11 +116,16 @@ Private Attributes</h2></td></tr>
 unique_ptr&lt; <a class="el" href="class_i_input_facade.html">IInputFacade</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>inputFacade</b></td></tr>
 <tr class="separator:a88f8c9b9767327f6034c1209ad087349"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab642ad1c2ba61666d8fb927254392d55"><td class="memItemLeft" align="right" valign="top"><a id="ab642ad1c2ba61666d8fb927254392d55"></a>
-<a class="el" href="class_event_dispatcher.html">EventDispatcher</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>dispatcher</b></td></tr>
+<a class="el" href="class_event_dispatcher.html">EventDispatcher</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>dispatcher</b> = nullptr</td></tr>
 <tr class="separator:ab642ad1c2ba61666d8fb927254392d55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04505e4f109e77e9ec99f54f8b259001"><td class="memItemLeft" align="right" valign="top"><a id="a04505e4f109e77e9ec99f54f8b259001"></a>
-<a class="el" href="class_keypress_invoker.html">KeypressInvoker</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>keypressInvoker</b></td></tr>
+<a class="el" href="class_keypress_invoker.html">KeypressInvoker</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>keypressInvoker</b> = nullptr</td></tr>
 <tr class="separator:a04505e4f109e77e9ec99f54f8b259001"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c7c2a359d0ef3565dc18eeb2f39afe0"><td class="memItemLeft" align="right" valign="top">EventCallbackFn&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_engine.html#a7c7c2a359d0ef3565dc18eeb2f39afe0">onKeyPressed</a></td></tr>
+<tr class="memdesc:a7c7c2a359d0ef3565dc18eeb2f39afe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function is called when a keyPressed event is fired. If F1 is pressed FPS is toggled If F4 is pressed the game will shutdown.  <a href="class_input_engine.html#a7c7c2a359d0ef3565dc18eeb2f39afe0">More...</a><br /></td></tr>
+<tr class="separator:a7c7c2a359d0ef3565dc18eeb2f39afe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa27e9dc6eb86d5f0e44553214f2a041b"><td class="memItemLeft" align="right" valign="top">EventCallbackFn&#160;</td><td class="memItemRight" valign="bottom"><b>onPause</b></td></tr>
+<tr class="separator:aa27e9dc6eb86d5f0e44553214f2a041b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -137,42 +137,6 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>paused</b> = false</t
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Input engine for handling input. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab7226dfe2df84a0c0279b411e9c90225"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7226dfe2df84a0c0279b411e9c90225">&#9670;&nbsp;</a></span>onKeyPressed()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool InputEngine::onKeyPressed </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_event.html">Event</a> &amp;&#160;</td>
-          <td class="paramname"><em>event</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Function is called when a keyPressed event is fired. If F1 is pressed FPS is toggled If F4 is pressed the game will shutdown. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">event</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><br  />
- </dd></dl>
-
-</div>
-</div>
 <a id="aba8f5f8cbea770b91d8251def4e7db57"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aba8f5f8cbea770b91d8251def4e7db57">&#9670;&nbsp;</a></span>registerKeypressInvoker()</h2>
 
@@ -236,12 +200,82 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>paused</b> = false</t
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a7c7c2a359d0ef3565dc18eeb2f39afe0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c7c2a359d0ef3565dc18eeb2f39afe0">&#9670;&nbsp;</a></span>onKeyPressed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EventCallbackFn InputEngine::onKeyPressed</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= [<span class="keyword">this</span>](<span class="keyword">const</span> <a class="code" href="class_event.html">Event</a>&amp; event)-&gt; <span class="keywordtype">bool</span> {</div>
+<div class="line">        <span class="keyword">auto</span>&amp; keyPressedEvent = <span class="keyword">static_cast&lt;</span><span class="keyword">const </span><a class="code" href="class_key_pressed_event.html">KeyPressedEvent</a>&amp;<span class="keyword">&gt;</span>(event);</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">if</span> (keypressInvoker)</div>
+<div class="line">            keypressInvoker-&gt;<a class="code" href="class_keypress_invoker.html#a5f8bcdedef9f044ec207ed3429691845">enqueueCommand</a>(keyPressedEvent.getKeyCode());</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+<p>Function is called when a keyPressed event is fired. If F1 is pressed FPS is toggled If F4 is pressed the game will shutdown. </p>
+
+</div>
+</div>
+<a id="aa27e9dc6eb86d5f0e44553214f2a041b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa27e9dc6eb86d5f0e44553214f2a041b">&#9670;&nbsp;</a></span>onPause</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EventCallbackFn InputEngine::onPause</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= [<span class="keyword">this</span>](<span class="keyword">const</span> <a class="code" href="class_event.html">Event</a>&amp; event)-&gt; <span class="keywordtype">bool</span> {</div>
+<div class="line">        <span class="keyword">auto</span>&amp; pauseEvent = (<a class="code" href="class_toggle_pause_event.html">TogglePauseEvent</a>&amp;)event;</div>
+<div class="line">        <span class="keywordflow">if</span> (keypressInvoker)</div>
+<div class="line">        {</div>
+<div class="line">            <span class="keywordflow">if</span> (pauseEvent.isPaused())</div>
+<div class="line">                this-&gt;keypressInvoker-&gt;pause();</div>
+<div class="line">            <span class="keywordflow">else</span></div>
+<div class="line">                this-&gt;keypressInvoker-&gt;unpause();</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>Engine/Input/<a class="el" href="_input_engine_8h_source.html">InputEngine.h</a></li>
 <li>Engine/Input/InputEngine.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_toggle_pause_event_html"><div class="ttname"><a href="class_toggle_pause_event.html">TogglePauseEvent</a></div><div class="ttdef"><b>Definition:</b> TogglePause.h:4</div></div>
+<div class="ttc" id="aclass_key_pressed_event_html"><div class="ttname"><a href="class_key_pressed_event.html">KeyPressedEvent</a></div><div class="ttdoc">KeyPressedEvent is triggered when a key is released.</div><div class="ttdef"><b>Definition:</b> KeyPressed.h:7</div></div>
+<div class="ttc" id="aclass_event_html"><div class="ttname"><a href="class_event.html">Event</a></div><div class="ttdef"><b>Definition:</b> Event.h:10</div></div>
+<div class="ttc" id="aclass_keypress_invoker_html_a5f8bcdedef9f044ec207ed3429691845"><div class="ttname"><a href="class_keypress_invoker.html#a5f8bcdedef9f044ec207ed3429691845">KeypressInvoker::enqueueCommand</a></div><div class="ttdeci">API void enqueueCommand(const KeyCode &amp;code)</div><div class="ttdoc">Attempts to execute a command for a given keycode, fails silently when the keycode has no binding or ...</div><div class="ttdef"><b>Definition:</b> KeypressInvoker.cpp:82</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

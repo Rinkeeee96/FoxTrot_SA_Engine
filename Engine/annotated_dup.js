@@ -39,6 +39,7 @@ var annotated_dup =
     [ "MouseMovedEvent", "class_mouse_moved_event.html", "class_mouse_moved_event" ],
     [ "MouseScrolledEvent", "class_mouse_scrolled_event.html", "class_mouse_scrolled_event" ],
     [ "Object", "class_object.html", "class_object" ],
+    [ "ObjectMoveToEvent", "class_object_move_to_event.html", "class_object_move_to_event" ],
     [ "ObjectSize", "struct_object_size.html", "struct_object_size" ],
     [ "ObjectStopEvent", "class_object_stop_event.html", "class_object_stop_event" ],
     [ "OnCollisionBeginEvent", "class_on_collision_begin_event.html", "class_on_collision_begin_event" ],
@@ -55,6 +56,7 @@ var annotated_dup =
     [ "PhysicsFacade", "class_physics_facade.html", "class_physics_facade" ],
     [ "Pointf", "struct_pointf.html", "struct_pointf" ],
     [ "Position", "struct_position.html", "struct_position" ],
+    [ "Rectangle", "struct_rectangle.html", "struct_rectangle" ],
     [ "ReleaseInputEvent", "class_release_input_event.html", "class_release_input_event" ],
     [ "Scene", "class_scene.html", "class_scene" ],
     [ "SceneManager", "class_scene_manager.html", "class_scene_manager" ],
@@ -66,6 +68,7 @@ var annotated_dup =
     [ "ToggleFpsCommand", "class_toggle_fps_command.html", "class_toggle_fps_command" ],
     [ "ToggleLayerEvent", "class_toggle_layer_event.html", "class_toggle_layer_event" ],
     [ "TogglePauseEvent", "class_toggle_pause_event.html", "class_toggle_pause_event" ],
+    [ "UpdatePhysicsBodyEvent", "class_update_physics_body_event.html", "class_update_physics_body_event" ],
     [ "VideoEngine", "class_video_engine.html", "class_video_engine" ],
     [ "VideoFacade", "class_video_facade.html", "class_video_facade" ],
     [ "WindowResizeEvent", "class_window_resize_event.html", "class_window_resize_event" ]
