@@ -31,6 +31,8 @@ void Level::onAttach() {
 /// @brief
 /// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
 void Level::start(bool playSound) {
+	TogglePauseEvent e{false};
+	dispatcher.dispatchEvent<TogglePauseEvent>(e);
 	loadScoreBoard();
 
 	hudPopUpZIndex = this->getHighestLayerIndex() + 1;
@@ -275,13 +277,13 @@ void Level::loadScoreBoard()
 
 	shared_ptr<Text> text2 = shared_ptr<Text>(new Text(textIDCount++, new ColoredText(savegame->getCurrentGameData().saveGameName + " " + savegame->getCurrentGameData().getReadableTimeStamp(), Color(0, 0, 0)), 200, 30, 1550, 40));
 	text2->setDrawStatic(true);
-	addNewObjectToLayer(5, text2, false, true);
+	addNewObjectToLayer(7, text2, false, true);
 
 	scoreText = shared_ptr<Text>(new Text(textIDCount++, new ColoredText("Score: " + to_string(savegame->getCurrentGameData().totalScore), Color(0, 0, 0)), 200, 30, 1550, 90));
 	scoreText->setDrawStatic(true);
-	addNewObjectToLayer(5, scoreText, false, true);
+	addNewObjectToLayer(7, scoreText, false, true);
 
-	addNewObjectToLayer(4, block1, false, true);
+	addNewObjectToLayer(6, block1, false, true);
 
 	string helpstring{ "Help: " };
 	KeyCode k = gameInvoker->getKeycodeFromIdentifier("help");
