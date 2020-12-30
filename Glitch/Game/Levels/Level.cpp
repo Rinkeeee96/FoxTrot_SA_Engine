@@ -31,6 +31,8 @@ void Level::onAttach() {
 /// @brief
 /// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
 void Level::start(bool playSound) {
+	TogglePauseEvent e{false};
+	dispatcher.dispatchEvent<TogglePauseEvent>(e);
 	loadScoreBoard();
 		
 	string helpstring{ "Help: " };
