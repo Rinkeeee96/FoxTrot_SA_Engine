@@ -1,16 +1,24 @@
 #include "pch.h"
 #include "AdvertisementHandler.h"
 
+/// @brief 
 AdvertisementHandler::AdvertisementHandler()
 {
 
 }
 
+/// @brief 
 AdvertisementHandler::~AdvertisementHandler()
 {
 
 }
 
+/// @brief 
+/// Parses the json into a vector of urls
+/// Also verifys the json
+/// If the json does not contain the expected elements we return a empty vector.
+/// @param json 
+/// @return 
 vector<string> AdvertisementHandler::parseJson(nlohmann::json json)
 {
 	if (json.contains("URLS") && json.contains("URLCount"))
@@ -35,10 +43,14 @@ vector<string> AdvertisementHandler::parseJson(nlohmann::json json)
 	}
 	else
 	{
-		throw exception("Json does not contain expected elements");
+		return vector<string>();
 	}
 }
 
+/// @brief 
+/// This function loops through the url vector and check if the files are downloaded locally
+/// If the file is located offline it will not be downloaded.
+/// All located ads are placed in adFileNames vector
 void AdvertisementHandler::downloadMissingAds()
 {
 	// First check if we dont have the ads locally
@@ -61,7 +73,10 @@ void AdvertisementHandler::downloadMissingAds()
 	}
 }
 
-
+/// @brief 
+/// Reads and parses the json file
+/// @param path 
+/// @return 
 bool AdvertisementHandler::readFileAndParseJson(const string& path)
 {
 	nlohmann::json json;
@@ -74,7 +89,7 @@ bool AdvertisementHandler::readFileAndParseJson(const string& path)
 	{
 		// If error is thrown this means the document is empty or non existant. 
 		// Doesnt matter in our case as we will work with the ads we have
-		cout << "Ad file empty or non existent, using blank" << endl;
+		cout << "AdvertisementHandler: Ad file empty or non existent, using blank" << endl;
 	}
 
 	// TODO
@@ -88,7 +103,7 @@ bool AdvertisementHandler::readFileAndParseJson(const string& path)
 		return true;
 	}
 	catch (exception exc) {
-		cout << "Something went wrong parsing the file, make sure the file is correctly structured" << "\n";
+		cout << "AdvertisementHandler: Something went wrong parsing the file, make sure the file is correctly structured" << "\n";
 		cout << exc.what() << "\n";
 	}
 
@@ -96,6 +111,8 @@ bool AdvertisementHandler::readFileAndParseJson(const string& path)
 	return false;
 }
 
+/// @brief 
+/// Downloads the latest advertisements
 void AdvertisementHandler::downloadLatestAdvertisements()
 {
     // Get Json
@@ -106,13 +123,20 @@ void AdvertisementHandler::downloadLatestAdvertisements()
 
 	bool result = readFileAndParseJson(path);
 
-	// Verify how many ads we have locally and store it. 
-	// If we have ads online that we dont have locally we download them
-	if (result)
+	// If result is true it means the json file was downloaded and parsed into the vector
+	// If the size is smaller then 0 we continue without ads, as we dont know what to use. 
+	// TODO check locally for the json file
+	if (result && adPaths.size() > 0)
 	{
 		// The file has been downloaded and is parsed. Links have been placed into the vector
 		downloadMissingAds();
 	}	
+	else
+	{
+		// TODO
+		// The file is not located online so check offline
+
+	}
 }
 
 vector<string> AdvertisementHandler::getAvailableAdFileNames()
