@@ -7,9 +7,9 @@ var class_game_keypress_invoker =
     [ "getGlobalCommands", "class_game_keypress_invoker.html#a9da00b49776765d62465f9f4dadef454", null ],
     [ "getKeycodeFromIdentifier", "class_game_keypress_invoker.html#af378cd522c0f1a7e964280707d5eedda", null ],
     [ "getPlayerCommands", "class_game_keypress_invoker.html#a4c20f9110a66a4d2bf4f93b8fb5715c0", null ],
-    [ "updateGlobalCommand", "class_game_keypress_invoker.html#a9eb104c006d1b6536e69655bbf1951fd", null ],
-    [ "updateKeycodeInCollection", "class_game_keypress_invoker.html#a47c503fe9fa1581bf3c4aa9329e1d2d5", null ],
-    [ "updatePlayerCommand", "class_game_keypress_invoker.html#a6d5a6647f98b75032d348656268f6d09", null ],
+    [ "updateCollection", "class_game_keypress_invoker.html#a957b9f23b824e8ad5161621acb456ad5", null ],
+    [ "updateGlobalCommand", "class_game_keypress_invoker.html#a374e8e94e47a5c7163a1e31e5c6eb570", null ],
+    [ "updatePlayerCommand", "class_game_keypress_invoker.html#a41e6856fb94c121cb46ce00be8030040", null ],
     [ "globalCommands", "class_game_keypress_invoker.html#a3a59848d0095beb0d9f280febd961088", null ],
     [ "playerCommands", "class_game_keypress_invoker.html#a88f79816d600915748d6df5cba3903a2", null ]
 ];

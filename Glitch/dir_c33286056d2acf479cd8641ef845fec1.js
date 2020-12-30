@@ -1,6 +1,5 @@
 var dir_c33286056d2acf479cd8641ef845fec1 =
 [
-    [ "AdvertisementHandler", "dir_f975446bc3c47e2466bc47fd4f7fa1b1.html", "dir_f975446bc3c47e2466bc47fd4f7fa1b1" ],
     [ "Buttons", "dir_db26fad3ef013a70389cbf2cf0b3c81b.html", "dir_db26fad3ef013a70389cbf2cf0b3c81b" ],
     [ "Characters", "dir_afba35ce66c5127214c3803580fa1d42.html", "dir_afba35ce66c5127214c3803580fa1d42" ],
     [ "Commands", "dir_089f2ce7781b89cda114a38f3467c8f3.html", "dir_089f2ce7781b89cda114a38f3467c8f3" ],
