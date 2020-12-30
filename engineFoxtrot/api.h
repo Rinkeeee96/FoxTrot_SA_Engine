@@ -8,6 +8,7 @@
 #include "Engine/Events/Mouse/MousePressed.h"
 #include "Engine/Events/Action/ObjectStopEvent.h"
 #include "Engine/Events/Action/ObjectMoveToEvent.h"
+#include "Engine/Events/Video/VideoZoomEvent.h"
 // ----- scene manager --------------------
 #include "Engine/SceneManager/Scene.h"
 // ----- Objects / behavior --------------------

@@ -3,7 +3,7 @@
 
 VideoEngine::VideoEngine(unique_ptr<FrameData>& _frameData) : frameData(_frameData)
 {
-
+	videoFacade = unique_ptr<VideoFacade>(new VideoFacade());
 }
 
 VideoEngine::~VideoEngine()
@@ -72,23 +72,23 @@ void VideoEngine::calculateOffset(shared_ptr<Object> obj, int sceneWidth, int sc
 
 	if (objectPosX + objectWidth >= cameraOffsetX + CAMERA_BOX_X + CAMERA_BOX_WIDTH)
 	{
-		newXOffset = objectPosX + objectWidth - (CAMERA_BOX_X + CAMERA_BOX_WIDTH);
+		newXOffset = (objectPosX + objectWidth - (CAMERA_BOX_X + CAMERA_BOX_WIDTH)) - 1920 - (1920 / currentScale);
 		changedX = true;
 	}
 	else if (objectPosX <= cameraOffsetX + CAMERA_BOX_X)
 	{
-		newXOffset = objectPosX - CAMERA_BOX_X;
+		newXOffset = objectPosX - CAMERA_BOX_X - 1920 - (1920 / currentScale);
 		changedX = true;
 	}
 
 	if (objectPosY + objectHeight >= cameraOffsetY + CAMERA_BOX_Y + CAMERA_BOX_HEIGHT)
 	{
-		newYOffset = objectPosY + objectHeight - (CAMERA_BOX_Y + CAMERA_BOX_HEIGHT);
+		newYOffset = objectPosY + objectHeight - (CAMERA_BOX_Y + CAMERA_BOX_HEIGHT) + 1080 - (1080 / currentScale);
 		changedY = true;
 	}
 	else if (objectPosY <= cameraOffsetY + CAMERA_BOX_Y)
 	{
-		newYOffset = objectPosY - CAMERA_BOX_Y;
+		newYOffset = objectPosY - CAMERA_BOX_Y + 1080 - (1080 / currentScale);
 		changedY = true;
 	}
 
@@ -97,11 +97,11 @@ void VideoEngine::calculateOffset(shared_ptr<Object> obj, int sceneWidth, int sc
 	{
 		if (newYOffset < sceneHeight - CAMERA_BOX_HEIGHT - (CAMERA_BOX_Y * 2))
 		{
-			videoFacade->setYCameraOffset(newYOffset);
+			videoFacade->setYCameraOffset(newYOffset + 1080 - (1080/currentScale));
 		}
 		else
 		{
-			videoFacade->setYCameraOffset(sceneHeight - CAMERA_BOX_HEIGHT - CAMERA_BOX_Y*2);
+			videoFacade->setYCameraOffset(sceneHeight - CAMERA_BOX_HEIGHT - CAMERA_BOX_Y*2 + 1080 - (1080/currentScale));
 		}
 	}
 
@@ -109,7 +109,7 @@ void VideoEngine::calculateOffset(shared_ptr<Object> obj, int sceneWidth, int sc
 	{
 		if (newXOffset < sceneWidth - CAMERA_BOX_WIDTH - (CAMERA_BOX_X * 2))
 		{
-			videoFacade->setXCameraOffset(newXOffset);
+			videoFacade->setXCameraOffset(newXOffset - 1080 - (1080/currentScale));
 		}
 		else
 		{
@@ -163,7 +163,7 @@ void VideoEngine::clearVideoEngine()
 /// @param dispatcher 
 void VideoEngine::start(EventDispatcher& dispatcher)
 {
-	videoFacade = unique_ptr<VideoFacade>(new VideoFacade());
+	dispatcher.setEventCallback<VideoZoomEvent>(BIND_EVENT_FN(VideoEngine::zoom));
 }
 
 /// @brief Calls the functions to render a screen.
@@ -180,6 +180,14 @@ void VideoEngine::update()
 void VideoEngine::shutdown()
 {
 	clearVideoEngine();
+}
+
+bool VideoEngine::zoom(const Event& event)
+{
+	auto zoomEvent = static_cast<const VideoZoomEvent&>(event);
+	this->currentScale = zoomEvent.getScale();
+	this->videoFacade->zoom(zoomEvent.getScale());
+	return true;
 }
 
 /// @brief 

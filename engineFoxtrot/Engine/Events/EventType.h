@@ -30,5 +30,7 @@ enum class EventType
 	CollisionBegin,
 
 	ObjectStop,
-	ObjectMoveTo
+	ObjectMoveTo,
+
+	VideoZoom
 };

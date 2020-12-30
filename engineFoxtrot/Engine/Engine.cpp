@@ -30,6 +30,7 @@ void Engine::setCurrentScene(const int sceneID)
 	inputEngine.start(*this->eventDispatcher);
 	inputEngine.registerKeypressInvoker(this->keypressInvoker);
 	physicsEngine.start(*this->eventDispatcher);
+	videoEngine.start(*this->eventDispatcher);
 
 	if(sceneManager.currentScene)sceneManager.currentScene->onAttach();
 }
@@ -101,8 +102,6 @@ void Engine::start()
 
 	// register default invoker
 	useCustomCommandInvoker(new KeypressInvoker());
-
-	videoEngine.start(*this->eventDispatcher);
 }
 
 /// @brief Calls the update function on all the subsystems

@@ -8,6 +8,7 @@
 #include "Game/PopUps/Popups.h"
 #include "Engine/Events/Action/ToggleEventLayer.h"
 #include "Game/General/KeyCodeStringMap.h"
+#include "Engine/Events/Video/VideoZoomEvent.h"
 
 #include "Game/Characters/Enemies/BaseEnemy.h"
 
@@ -31,6 +32,10 @@ void Level::onAttach() {
 /// @brief
 /// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
 void Level::start(bool playSound) {
+
+	VideoZoomEvent e{1.25f};
+	dispatcher.dispatchEvent<VideoZoomEvent>(e);
+
 	loadScoreBoard();
 		
 	string helpstring{ "Help: " };

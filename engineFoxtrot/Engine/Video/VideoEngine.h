@@ -5,6 +5,7 @@
 #include "SceneManager/Scene.h"
 #include "ParticleSystem/ParticleAdapter.h"
 #include "General/ISubsystem.h"
+#include "Events/Video/VideoZoomEvent.h"
 
 #define NO_RED					0
 #define NO_BLUE					0
@@ -21,6 +22,8 @@
 
 #define FPS_MESSAGE_WIDTH		100
 #define FPS_MESSAGE_HEIGHT		50
+
+#define BASE_SCALE				1
 
 /// @brief 
 /// VideoEngine is the SDL2 wrapper
@@ -44,6 +47,8 @@ public:
 	API void update() override;
 	API void shutdown() override;
 
+	API bool zoom(const Event& event);
+
 	unique_ptr<Scene>* pointerToCurrentScene = nullptr;
 
 	const IVideoFacade& getVideoFacade() const { return *this->videoFacade; }
@@ -58,4 +63,5 @@ private:
 	
 	unique_ptr<FrameData>& frameData;
 	bool shouldDrawFps = false;
+	float currentScale = BASE_SCALE;
 };

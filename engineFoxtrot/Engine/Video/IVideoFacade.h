@@ -25,6 +25,8 @@ public:
 	virtual void setYCameraOffset(int) = 0;
 	virtual int getXCameraOffset() const = 0;
 	virtual int getYCameraOffset() const = 0;
+
+	virtual void zoom(float scale) = 0;
 private:
 
 };

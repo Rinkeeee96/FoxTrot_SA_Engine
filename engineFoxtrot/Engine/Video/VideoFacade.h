@@ -39,6 +39,8 @@ public:
 	void setYCameraOffset(int y) override { yCameraOffset = y; }
 	int getXCameraOffset() const { return xCameraOffset; };
 	int getYCameraOffset() const { return yCameraOffset; };
+
+	void zoom(float scale);
 private:
 	SDL_Rect createRect(shared_ptr<Drawable> object);
 

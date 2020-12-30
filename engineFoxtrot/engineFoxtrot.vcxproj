@@ -206,6 +206,7 @@
     <ClInclude Include="Engine\Events\InputMapping\CaptureInputEvent.h" />
     <ClInclude Include="Engine\Events\InputMapping\ReleaseInputEvent.h" />
     <ClInclude Include="Engine\Events\EventDispatcher.h" />
+    <ClInclude Include="Engine\Events\Video\VideoZoomEvent.h" />
     <ClInclude Include="Engine\FileParser\IFileValidator.h" />
     <ClInclude Include="Engine\FileParser\JsonValidator.h" />
     <ClInclude Include="Engine\General\ISubsystem.h" />

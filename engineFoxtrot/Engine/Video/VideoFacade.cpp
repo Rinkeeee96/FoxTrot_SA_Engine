@@ -94,6 +94,11 @@ void VideoFacade::loadImage(const shared_ptr<SpriteObject> spriteObject) {
 	SDL_FreeSurface(surface);
 }
 
+void VideoFacade::zoom(float scale)
+{
+	SDL_RenderSetScale(renderer, scale, scale);
+}
+
 /// @brief Creates a SDL_rect acording to the object dimensions
 /// @param object 
 /// @return 
