@@ -29,11 +29,11 @@ void FrameData::setEventDispatcher(EventDispatcher* _dispatcher)
 {
 	dispatcher = _dispatcher;
 	dispatcher->setEventCallback<DecreaseGameSpeedEvent>([this](const Event& event) -> bool {
-		multiplier -= 0.1f;
+		if(multiplier > 0.1) multiplier -= 0.1f;
 		return true;
 	});
 	dispatcher->setEventCallback<IncreaseGameSpeedEvent>([this](const Event& event) -> bool {
-		multiplier += 0.1f;
+		if (multiplier < 2.5) multiplier += 0.1f;
 		return true;
 	});
 

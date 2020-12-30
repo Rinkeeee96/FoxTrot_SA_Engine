@@ -46,6 +46,7 @@ void Engine::insertScene(unique_ptr<Scene> scene)
 /// @param id 
 void Engine::deregisterCurrentScene()
 {
+	frameData->setMultiplier(1.f);
 	inputEngine.shutdown();
 	sceneManager.deregisterCurrentScene();
 	videoEngine.clearVideoEngine();
