@@ -22,19 +22,19 @@ void MainMenu::loadButtons() {
 
 	shared_ptr<PrimaryButton> startBtn = shared_ptr<PrimaryButton>(new PrimaryButton(10, "Start", onStartBtnClick, this->dispatcher));
 	startBtn->setPositionX(CENTER_X - startBtn->getWidth() / 2);
-	startBtn->setPositionY(CENTER_Y - startBtn->getHeight() / 2);
+	startBtn->setPositionY(CENTER_Y - startBtn->getHeight() / 2 - 100);
 
 	shared_ptr<PrimaryButton> mappingBtn = shared_ptr<PrimaryButton>(new PrimaryButton(13, "Mapping", onMappingBtnClick, this->dispatcher));
 	mappingBtn->setPositionX(CENTER_X - mappingBtn->getWidth() / 2);
-	mappingBtn->setPositionY(CENTER_Y - mappingBtn->getHeight() / 2 + 100);
+	mappingBtn->setPositionY(CENTER_Y - mappingBtn->getHeight() / 2);
 
 	shared_ptr<PrimaryButton> creditsBtn = shared_ptr<PrimaryButton>(new PrimaryButton(12, "Credits", onCreditsBtnClick, this->dispatcher));
 	creditsBtn->setPositionX(CENTER_X - creditsBtn->getWidth() / 2);
-	creditsBtn->setPositionY(CENTER_Y - creditsBtn->getHeight() / 2 + 200);
+	creditsBtn->setPositionY(CENTER_Y - creditsBtn->getHeight() / 2 + 100);
 	
 	shared_ptr<PrimaryButton> infoBtn = shared_ptr<PrimaryButton>(new PrimaryButton(15, "Game info", onInfoBtnClick, this->dispatcher));
 	infoBtn->setPositionX(CENTER_X - infoBtn->getWidth() / 2);
-	infoBtn->setPositionY(CENTER_Y - infoBtn->getHeight() / 2 + 300);
+	infoBtn->setPositionY(CENTER_Y - infoBtn->getHeight() / 2 + 200);
 
 	shared_ptr<SecondaryButton> stopBtn = shared_ptr<SecondaryButton>(new SecondaryButton(14, "Exit", onStopBtnClick, this->dispatcher));
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
