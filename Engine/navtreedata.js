@@ -48,8 +48,8 @@ var NAVTREEINDEX =
 "_action_event_8h_source.html",
 "class_i_sound_facade.html#a22994390b35a678bb814b078b0c26f25",
 "class_on_collision_event.html",
-"class_physics_body.html#a3efa4ce11223e299bc6d68eacab68375",
-"class_update_physics_body_event.html#afee5d883bca6728a612cec640920959b"
+"class_physics_body.html#a3e61766dc30cf0e697a2667791896c4c",
+"class_update_physics_body_event.html#ac7f2eab56c8b3f0cca14fedab0170e8a"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
