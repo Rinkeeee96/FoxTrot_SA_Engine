@@ -36,6 +36,14 @@ private:
 		nextScene = "Overworld";
 	};
 
+	function<void(void)> freeCoins = [this]() {
+		SaveGameData save = savegame->getCurrentGameData();
+		save.characterData.inventory.coins += 100;
+		savegame->saveCurrentGameData(save);
+		moveToNextScene = true;
+		nextScene = "Shop";
+	};
+
 	function<void(void)> onShopBuyClick = [this]() {
 		cout << "Button called" << endl;
 		handlePurchase = true;

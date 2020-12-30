@@ -140,12 +140,17 @@ void Shop::loadButtons()
 	stopBtn->setPositionX(WINDOW_WIDTH - 40 - stopBtn->getWidth());
 	stopBtn->setPositionY(WINDOW_HEIGHT - 10 - stopBtn->getHeight());
 
+	shared_ptr<PrimaryButton> coins = shared_ptr<PrimaryButton>(new PrimaryButton(-950, "Get Coins", freeCoins, this->dispatcher));
+	coins->setPositionX(1680);
+	coins->setPositionY(950);
+
 	buyBTN = shared_ptr<PrimaryButton>(new PrimaryButton(-970, "", onShopBuyClick, this->dispatcher));
 
 	buyBTN->setPositionX(550);
 	buyBTN->setPositionY(350);
 	buyBTN->disable();
 
+	addNewObjectToLayer(3, coins);
 	addNewObjectToLayer(3, stopBtn);
 	addNewObjectToLayer(3, buyBTN);
 }
