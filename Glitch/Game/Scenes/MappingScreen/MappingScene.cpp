@@ -277,7 +277,7 @@ void MappingScene::createButtons() {
 	addNewObjectToLayer(4, helpBtn);
 	addNewObjectToLayer(5, helpString);
 
-	shared_ptr<PrimaryButton> slowerBtn = shared_ptr<PrimaryButton>(new PrimaryButton(textId--, "", onSlowerBtnClick, this->dispatcher));
+	/*shared_ptr<PrimaryButton> slowerBtn = shared_ptr<PrimaryButton>(new PrimaryButton(textId--, "", onSlowerBtnClick, this->dispatcher));
 	slowerBtn->setWidth((((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1) + 25);
 	slowerBtn->setHeight(45);
 	slowerBtn->setPositionX(listStartX);
@@ -295,7 +295,31 @@ void MappingScene::createButtons() {
 			Color(0, 0, 0),
 			false
 		),
-		((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * string("Help screen").length(), 50.f, listStartX + 80, listStartY));
+		((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * string("Decrease game speed").length(), 50.f, listStartX + 80, listStartY));
+
+	addNewObjectToLayer(4, slowerIdentifierString);
+	addNewObjectToLayer(4, slowerBtn);
+	addNewObjectToLayer(5, slowerString);*/
+
+	shared_ptr<PrimaryButton> slowerBtn = shared_ptr<PrimaryButton>(new PrimaryButton(textId--, "", onSlowerBtnClick, this->dispatcher));
+	slowerBtn->setWidth((((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1) + 25);
+	slowerBtn->setHeight(45);
+	slowerBtn->setPositionX(listStartX);
+	slowerBtn->setPositionY(listStartY += 50);
+
+	shared_ptr<Text> slowerString = shared_ptr<Text>(new Text(textId--,
+		new ColoredText(keycodeStringMap[KeyCode(invoker->getKeycodeFromIdentifier("slower"))],
+			Color(0, 0, 0),
+			false
+		),
+		((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1, 50.f, listStartX + 10, listStartY));
+
+	shared_ptr<Text> slowerIdentifierString = shared_ptr<Text>(new Text(textId--,
+		new ColoredText("Slower game speed",
+			Color(0, 0, 0),
+			false
+		),
+		((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * string("Slower game speed").length(), 50.f, listStartX + 80, listStartY));
 
 	addNewObjectToLayer(4, slowerIdentifierString);
 	addNewObjectToLayer(4, slowerBtn);
@@ -308,18 +332,18 @@ void MappingScene::createButtons() {
 	fasterBtn->setPositionY(listStartY += 50);
 
 	shared_ptr<Text> fasterString = shared_ptr<Text>(new Text(textId--,
-		new ColoredText(keycodeStringMap[KeyCode(invoker->getKeycodeFromIdentifier("help"))],
+		new ColoredText(keycodeStringMap[KeyCode(invoker->getKeycodeFromIdentifier("faster"))],
 			Color(0, 0, 0),
 			false
 		),
 		((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * 1, 50.f, listStartX + 10, listStartY));
 
 	shared_ptr<Text> fasterIdentifierString = shared_ptr<Text>(new Text(textId--,
-		new ColoredText("Help screen",
+		new ColoredText("Faster game speed",
 			Color(0, 0, 0),
 			false
 		),
-		((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * string("Help screen").length(), 50.f, listStartX + 80, listStartY));
+		((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * string("Faster game speed").length(), 50.f, listStartX + 80, listStartY));
 
 	addNewObjectToLayer(4, fasterIdentifierString);
 	addNewObjectToLayer(4, fasterBtn);
