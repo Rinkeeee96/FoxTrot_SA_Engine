@@ -12,6 +12,8 @@ var hierarchy =
     [ "Event", "class_event.html", [
       [ "ActionEvent", "class_action_event.html", null ],
       [ "CaptureInputEvent", "class_capture_input_event.html", null ],
+      [ "DecreaseGameSpeedEvent", "class_decrease_game_speed_event.html", null ],
+      [ "IncreaseGameSpeedEvent", "class_increase_game_speed_event.html", null ],
       [ "KeyEvent", "class_key_event.html", [
         [ "KeyPressedEvent", "class_key_pressed_event.html", null ],
         [ "KeyReleasedEvent", "class_key_released_event.html", null ],

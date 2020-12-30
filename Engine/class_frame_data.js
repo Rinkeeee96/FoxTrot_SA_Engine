@@ -6,12 +6,16 @@ var class_frame_data =
     [ "calculateDeltaTime", "class_frame_data.html#a8596e7991bb934f861815af953d83f2a", null ],
     [ "getFps", "class_frame_data.html#a799f538700525b3d1f6a72e894cdde99", null ],
     [ "getLastFrameFps", "class_frame_data.html#ad9405c711fa366b7812e6fd8bddf4020", null ],
+    [ "setEventDispatcher", "class_frame_data.html#ab700c73a7e20e43d0970c93c4bd8e2a5", null ],
+    [ "setMultiplier", "class_frame_data.html#add4985db51efc98cb068b2c69b00f398", null ],
     [ "startTimer", "class_frame_data.html#ab291ac496d88ac9145e13afb39a56bd6", null ],
     [ "updateFps", "class_frame_data.html#a7890e9bbccc31d81d11fa3aac1817cd6", null ],
+    [ "dispatcher", "class_frame_data.html#a3dc4d7d3d7707ac19bf68bfb64824456", null ],
     [ "fps", "class_frame_data.html#a64c5d8f688715ca21ff0d18e324a8eac", null ],
     [ "framesPerSecond", "class_frame_data.html#a7f747deee20e2ff9b55f9120bd22fabc", null ],
     [ "frametimes", "class_frame_data.html#add5301424de08f0dec9c065974b80514", null ],
     [ "lastFrameFps", "class_frame_data.html#a6a9409ff49cab916536b809f72825468", null ],
+    [ "multiplier", "class_frame_data.html#a8338c25473e13cc60dc8b7956b5b8b89", null ],
     [ "reset", "class_frame_data.html#a094ca201b899b7eec0d9c501805d617e", null ],
     [ "startTime", "class_frame_data.html#a4aa64d421a98c0c7c7fd96e5a4873e56", null ]
 ];
