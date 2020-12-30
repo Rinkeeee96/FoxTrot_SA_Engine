@@ -89,6 +89,8 @@ bool AdvertisementHandler::readFileAndParseJson(const string& path)
 		// If error is thrown this means the document is empty or non existant. 
 		// Doesnt matter in our case as we will work with the ads we have
 		cout << "AdvertisementHandler: Ad file empty or non existent, using blank" << endl;
+		filestream.close();
+		return false;
 	}
 
 	// Potential TODO

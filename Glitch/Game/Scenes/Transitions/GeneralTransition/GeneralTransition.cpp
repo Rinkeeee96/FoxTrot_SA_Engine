@@ -66,11 +66,11 @@ void GeneralTransition::loadBackground()
 	adBlcok->changeToState(SpriteState::DEFAULT);
 
 	adHandler->downloadLatestAdvertisements();
-	string adFileName = getRandomAdFileName();
-	string* imageLoc = new string("Assets/Advertisements/" + adFileName);
-
 	if (adHandler->getAvailableAdFileNames().size() >0)
 	{
+		string adFileName = getRandomAdFileName();
+		string* imageLoc = new string("Assets/Advertisements/" + adFileName);
+
 		shared_ptr<SpriteObject> AD_IMAGE = shared_ptr<SpriteObject>(new SpriteObject(-503, 185, 606, 1, 300, imageLoc->c_str()));
 		shared_ptr<Drawable> ad = shared_ptr<Drawable>(new Drawable(-509));
 		ad->setStatic(true);
