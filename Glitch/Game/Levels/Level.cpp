@@ -285,13 +285,13 @@ void Level::loadScoreBoard()
 
 	shared_ptr<Text> text2 = shared_ptr<Text>(new Text(textIDCount++, new ColoredText(savegame->getCurrentGameData().saveGameName + " " + savegame->getCurrentGameData().getReadableTimeStamp(), Color(0, 0, 0)), 200, 30, 1550, 40));
 	text2->setDrawStatic(true);
-	addNewObjectToLayer(5, text2, false, true);
+	addNewObjectToLayer(7, text2, false, true);
 
 	scoreText = shared_ptr<Text>(new Text(textIDCount++, new ColoredText("Score: " + to_string(savegame->getCurrentGameData().totalScore), Color(0, 0, 0)), 200, 30, 1550, 90));
 	scoreText->setDrawStatic(true);
-	addNewObjectToLayer(5, scoreText, false, true);
+	addNewObjectToLayer(7, scoreText, false, true);
 
-	addNewObjectToLayer(4, block1, false, true);
+	addNewObjectToLayer(6, block1, false, true);
 }
 
 /// @brief 
