@@ -25,6 +25,8 @@ const float FrameData::calculateDeltaTime(int timeStep)
 	return (static_cast<const float>(lastFrameFps != 0 ? timeStep / lastFrameFps : 1)) * multiplier;
 }
 
+/// @brief Sets the dispatcher and event callbacks
+/// @param _dispatcher 
 void FrameData::setEventDispatcher(EventDispatcher* _dispatcher)
 {
 	dispatcher = _dispatcher;

@@ -1,6 +1,7 @@
 #pragma once
 #include "Events/Event.h"
 
+/// @brief Event for lowering Game speed
 class DecreaseGameSpeedEvent : public Event
 {
 public:

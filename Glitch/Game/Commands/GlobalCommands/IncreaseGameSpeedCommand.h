@@ -3,6 +3,7 @@
 #include "Game/Commands/GlobalCommand.h"
 #include "Events/Action/IncreaseGameSpeedEvent.h"
 
+/// @brief Command for decreasing game speed
 class IncreaseGameSpeedCommand : public GlobalCommand
 {
 public:
