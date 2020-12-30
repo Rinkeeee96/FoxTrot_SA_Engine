@@ -8,10 +8,14 @@ class KeypressInvoker
 public:
 	API virtual ~KeypressInvoker() {};
 	API void registerCommand(KeyCode code, ICommand* command);
-	API virtual void updateCommand(KeyCode code, ICommand* command);
+	API virtual void updateCommand(KeyCode code, const string& identifier);
 	API void deleteCommandThatBelongsTo(const KeyCode& code);
 	API void executeCommandQueue(EventDispatcher& dispatcher);
 	API void enqueueCommand(const KeyCode& code);
+	API ICommand* getCommandByIdentifier(const string& identifier);
+
+	void pause() { isPaused = true; };
+	void unpause() { isPaused = false; };
 
 protected:
 	API bool isRegistered(const ICommand& command);
@@ -19,4 +23,5 @@ protected:
 private:
 	unordered_map<KeyCode, ICommand*> commands;
 	queue<KeyCode> executionQueue;
+	bool isPaused = false;;
 };

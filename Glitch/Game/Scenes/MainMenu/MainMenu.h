@@ -20,6 +20,8 @@ private:
 	void loadMusic();
 	void loadButtons();
 
+	bool playMusicCredits = false;
+
 	function<void(void)> onStartBtnClick = [this]() {
 		moveToNextScene = true;
 		nextScene = "SaveScreen";
@@ -29,9 +31,20 @@ private:
 		engine->setEngineRunning(false);
 	};
 
+	function<void(void)> onMappingBtnClick = [this]() {
+		moveToNextScene = true;
+		nextScene = "MappingScreen";
+	};
+
 	function<void(void)> onCreditsBtnClick = [this]() {
+		playMusicCredits = true;
 		moveToNextScene = true;
 		nextScene = "CreditsSreen";
+	};
+
+	function<void(void)> onInfoBtnClick = [this]() {
+		moveToNextScene = true;
+		nextScene = "GameInfo";
 	};
 };
 

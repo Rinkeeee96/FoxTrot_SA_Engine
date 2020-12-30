@@ -1,6 +1,7 @@
 #pragma once
 #define FRAME_VALUES 10
 #define TIMESTEP 1.f
+#define BASE_DELTATIME_MULTIPLIER 1
 
 class FrameData
 {
@@ -13,8 +14,13 @@ public:
 	API const double getFps() { return fps; };
 	API const double getLastFrameFps() { return lastFrameFps; };
 	API const float calculateDeltaTime(int timeStep);
+	API void setMultiplier(float multiplier) { this->multiplier = multiplier; };
+
+	void setEventDispatcher(EventDispatcher* _dispatcher);
 
 private:
+
+	EventDispatcher* dispatcher = nullptr;
 
 	double fps = 0;
 
@@ -23,4 +29,5 @@ private:
 	double framesPerSecond = 0;
 	double lastFrameFps = 0;
 	bool reset = true;
+	float multiplier = BASE_DELTATIME_MULTIPLIER;
 };

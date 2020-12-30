@@ -34,6 +34,9 @@ shared_ptr<ICharacter> CharacterFactory::create(string name, int id) {
 		if (name == "player") {
 			level.setPlayer(shared_ptr<Object>(clone));
 		}
+		if (name == "slimeboss") {
+			level.setBoss(shared_ptr<ICharacter>(clone));
+		}
 
 		auto sprites = spriteObjectMap[name];
 

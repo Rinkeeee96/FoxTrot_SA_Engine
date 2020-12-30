@@ -1,5 +1,8 @@
 #include "pch.h"
 #include "SceneStateMachine.h"
+#include <Game/Scenes/Story/ChapterTwoScene.h>
+#include <Game/Scenes/Story/ChapterThreeScene.h>
+#include <Game/Scenes/GameInfo/GameInfo.h>
 
 /// @brief Creates all scene states
 /// @param _engine 
@@ -32,8 +35,20 @@ SceneStateMachine::SceneStateMachine(unique_ptr<Engine>& _engine, shared_ptr<Sav
 	CreatorImpl <ChapterOneScene>* chap = new CreatorImpl <ChapterOneScene>();
 	chap->registerClass("ChapterOne", factory);
 
+	CreatorImpl <ChapterTwoScene>* chap2 = new CreatorImpl <ChapterTwoScene>();
+	chap2->registerClass("ChapterTwo", factory);
+
+	CreatorImpl <ChapterThreeScene>* chap3 = new CreatorImpl <ChapterThreeScene>();
+	chap3->registerClass("ChapterThree", factory);
+
 	CreatorImpl <Shop>* shop = new CreatorImpl <Shop>();
 	shop->registerClass("Shop", factory);
+
+	CreatorImpl <MappingScene>* mappingScreen = new CreatorImpl <MappingScene>();
+	mappingScreen->registerClass("MappingScreen", factory);
+
+	CreatorImpl <GameInfo>* infoScreen = new CreatorImpl <GameInfo>();
+	infoScreen->registerClass("GameInfo", factory);
 }
 
 SceneStateMachine::~SceneStateMachine() {}
@@ -106,6 +121,8 @@ void SceneStateMachine::switchToScene(string identifier, const bool _useTransiti
 		((GeneralTransition*)newScene.get())->setNextScene(transition);
 
 	currentSceneId = newScene->getSceneID();
+
+	activePopups.clear();
 
 	engine->insertScene(std::move(newScene));
 	engine->setCurrentScene(currentSceneId);

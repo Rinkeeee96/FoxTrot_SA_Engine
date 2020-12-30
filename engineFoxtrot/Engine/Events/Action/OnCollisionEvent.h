@@ -58,3 +58,18 @@ public:
 	API virtual const char* getName() const override { return "Collision begin Event"; }
 	API virtual EventType getEventType() const override { return EventType::CollisionBegin; }
 };
+
+class UpdatePhysicsBodyEvent : public Event
+{
+public:
+	API UpdatePhysicsBodyEvent(Object& _object) :
+		object{ _object } {};
+
+	/// @brief
+	/// The id of one of the objects where collision happend
+	API Object& getObject() const { return object; }
+	API virtual const char* getName() const override { return "Collision begin Event"; }
+	API virtual EventType getEventType() const override { return EventType::CollisionBegin; }
+protected:
+	Object& object;
+};

@@ -1,10 +1,25 @@
 #pragma once
 
 //TODO change when new levels are built
-#define MAX_AMOUNT_OF_LEVELS 4
+#define MAX_AMOUNT_OF_LEVELS 6
 
 #define EXPORT_GAME_DATA true
 
+#define HEALTH_PRICE 25
+#define INFLATION 1.25
 
+#define CENTER_X  (WINDOW_WIDTH / 2)
+#define CENTER_Y (WINDOW_HEIGHT / 2)
 
-
+#define SHORT_NAME_WIDTH 300
+#define LONG_NAME_WIDTH 350
+#define LEFT_X_CENTER 500
+#define RIGHT_X_CENTER 50
+#define TEXT_HEIGHT 50
+#define BASE_TEXT_SPEED 80
+#define NUMBER_OF_CHARACTERS_ON_LINE 70
+#define TEXT_SIZE_DIVIDER 80
+#define TEXT_SIZE_DIVIDER_HELP 50
+#define START_Y_POS -200
+#define MAX_SPEED 200
+#define TEXT_SPEED_INCREMENT 10

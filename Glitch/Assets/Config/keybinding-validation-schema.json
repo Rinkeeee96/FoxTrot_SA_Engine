@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "global": {
+      "type": "object",
+      "properties": {
+        "inventory": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 231
+        },
+        "help": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 231
+        },
+        "pause": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 231
+        },
+        "slower": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 231
+        },
+        "faster": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 231
+        }
+      },
+      "required": [
+        "inventory",
+        "pause",
+        "slower",
+        "faster"
+      ]
+    },
+    "player": {
+      "type": "object",
+      "properties": {
+        "godmode": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 231
+        },
+        "moveLeft": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 231
+        },
+        "jump": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 231
+        },
+        "moveRight": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 231
+        }
+      },
+      "required": [
+        "godmode",
+        "moveLeft",
+        "moveRight",
+        "jump"
+      ]
+    }
+  },
+  "required": [
+    "global",
+    "player"
+  ]
+}

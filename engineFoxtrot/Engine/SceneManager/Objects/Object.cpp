@@ -37,14 +37,17 @@ float Object::getHeight() const { return height; }
 void Object::setWidth(const float w) { this->width = w; }
 float Object::getWidth() const { return width; }
 
-void Object::setStatic(const bool s) { this->staticObject = s; }
-bool Object::getStatic() const { return staticObject; }
+void Object::setStatic(const bool s) { if(s) this->staticObject = BodyType::STATIC; }
+bool Object::getStatic() const { return this->staticObject == BodyType::STATIC ? true : false; }
+BodyType Object::getBodyType() const { return this->staticObject;  }
 
 float Object::getRestitution() const { return this->restitution;}
 void Object::setRestitution(const float val) {this->restitution = val;}
 
 float Object::getFriction() const {return this->friction;}
-void Object::setFriction(const float val) {this->friction = val;}
+void Object::setFriction(const float val) {
+	this->friction = val;
+}
 
 float Object::getDensity() const {	return this->density;}
 void Object::setDensity(const float val) {this->density = val;}

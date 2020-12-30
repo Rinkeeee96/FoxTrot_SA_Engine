@@ -5,7 +5,8 @@
 class GlobalCommand : public ICommand
 {
 public:
-	GlobalCommand(int _layerId, string identifier) : layerId{ _layerId }, ICommand(identifier) {}
+	GlobalCommand(int _layerId, string identifier) : layerId{ _layerId }, ICommand(identifier) {};
+	GlobalCommand(string identifier) : GlobalCommand(0, identifier) {}
 	virtual void execute(EventDispatcher& dispatcher) override = 0;
 protected:
 	int layerId;

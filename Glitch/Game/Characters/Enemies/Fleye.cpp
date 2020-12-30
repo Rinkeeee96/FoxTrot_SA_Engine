@@ -19,7 +19,7 @@ void Fleye::onUpdate(float deltaTime) {
 	float yPositionDifference = abs((player->getPositionY() + player->getHeight() / 2) - (this->getPositionY() + this->getHeight() / 2));
 
 	// Distance is calculated using the Pythagorean theorem from the middle of both objects
-	float distanceFromPlayer = sqrt(pow(xPositionDifference, 2) + pow(yPositionDifference, 2));
+	float distanceFromPlayer = (float)sqrt(pow(xPositionDifference, 2) + pow(yPositionDifference, 2));
 
 	// Calculates if the enemy is in range of the player
 	bool playerIsInRange = distanceFromPlayer <= FLEYE_RANGE;

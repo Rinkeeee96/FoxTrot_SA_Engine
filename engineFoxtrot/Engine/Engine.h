@@ -62,15 +62,17 @@ public:
 
 	API float getDeltaTime(int timeStep);
 	API void restartPhysicsWorld();
+
+	API KeyCode getSingleKeyStroke();
 private:
 	void constructDefaultCommands(KeypressInvoker* invoker);
-	EventDispatcher* eventDispatcher;
+	EventDispatcher* eventDispatcher = nullptr;
 	bool running = false;
 
 	unique_ptr<FrameData> frameData = make_unique<FrameData>(FrameData{});
 	float deltaTimePhysics = 0;
 	float deltaTimeRender = 0;
-	KeypressInvoker* keypressInvoker;
+	KeypressInvoker* keypressInvoker = nullptr;
 
 	SceneManager sceneManager;
 	ParticleEngine particleEngine{ frameData };

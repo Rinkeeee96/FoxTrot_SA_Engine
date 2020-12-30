@@ -57,6 +57,7 @@ public:
 	API shared_ptr<Object> getObject() const { return this->object; }
 	API bool objectExists() const { return object != nullptr; }
 
+	API bool getIsRemoved() const { return object->getIsRemoved(); }
 protected:
 	int objectID = 0;
 	float height = 0;

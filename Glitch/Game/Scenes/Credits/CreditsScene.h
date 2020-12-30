@@ -27,10 +27,14 @@ private:
 	void loadBackground();
 	void loadMusic();
 	void loadButtons();
+	void loadAnimations(); 
+	void handleAnimation(float deltaTime);
 
 	function<void(void)> onBackClick = [this]() {
 		moveToNextScene = true;
 		nextScene = "MainMenu";
 	};
 
+	shared_ptr<Drawable> animation = nullptr;
+	bool falling = false;
 };

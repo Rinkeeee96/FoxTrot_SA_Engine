@@ -1,5 +1,8 @@
 #pragma once
 
+#define _HAS_STD_BYTE 0
+
+#include <conio.h>
 #include <vector> 
 #include <iostream>
 #include <math.h>
@@ -17,6 +20,8 @@
 #include <filesystem>
 #include <algorithm>
 #include <ctime>
+#include <random>
+#include <iterator>
 #include "api.h"
 
 #include "SceneManager/Objects/Button.h"

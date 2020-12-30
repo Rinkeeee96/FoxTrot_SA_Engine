@@ -16,6 +16,7 @@ public:
 
 	API virtual void registerSprite(int state, shared_ptr<SpriteObject> spriteObject);
 	API virtual void changeToState(const int state);
+	API int getCurrentState() const;
 
 	API virtual const ColoredText* toString() { return nullptr; }
 

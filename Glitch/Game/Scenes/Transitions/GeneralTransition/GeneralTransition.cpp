@@ -8,24 +8,25 @@
 void GeneralTransition::onAttach()
 {
 	loadBackground();
-	moveCharacter = false;
 }
 
 /// @brief 
 void GeneralTransition::onDetach(){}
 
 /// @brief 
-void GeneralTransition::start(bool playSound){}
+void GeneralTransition::start(bool playSound)
+{
+	
+}
 
 /// @brief 
 /// Loads all the sprites 
 void GeneralTransition::loadBackground()
 {
 	shared_ptr<SpriteObject> BG_LAYER_0 = shared_ptr<SpriteObject>(new SpriteObject(-500, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_0.png"));
-	shared_ptr<SpriteObject> BG_LAYER_ADVENTRUE = shared_ptr<SpriteObject>(new SpriteObject(-501, 37, 50, 6, 300, "Assets/Sprites/Character/adventure_run_right.png"));
+	shared_ptr<SpriteObject> BG_LAYER_ADVENTRUE = shared_ptr<SpriteObject>(new SpriteObject(-501, 31, 33, 6, 300, "Assets/Sprites/Character/adventure_run_right.png"));
 	shared_ptr<SpriteObject> BG_LAYER_2 = shared_ptr<SpriteObject>(new SpriteObject(-502, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_2.png"));
-	shared_ptr<SpriteObject> PROGRESSBAR_EMPTY = shared_ptr<SpriteObject>(new SpriteObject(-503, 24, 192, 1, 1, "Assets/LoadingBar/progress-bar-empty.png"));
-	shared_ptr<SpriteObject> PROGRESSBAR_FULL = shared_ptr<SpriteObject>(new SpriteObject(-504, 24, 192, 1, 1, "Assets/LoadingBar/progress-bar-full.png"));
+	shared_ptr<SpriteObject> ADVERTISMENT_BLOCK = shared_ptr<SpriteObject>(new SpriteObject(-504, 309, 253, 1, 300, "Assets/Inventory/text_background.png"));
 
 	shared_ptr<Drawable> layer0 = shared_ptr<Drawable>(new Drawable(-505));
 	layer0->setStatic(true);
@@ -36,35 +37,17 @@ void GeneralTransition::loadBackground()
 	layer0->registerSprite(SpriteState::DEFAULT, BG_LAYER_0);
 	layer0->changeToState(SpriteState::DEFAULT);
 
-	shared_ptr<Drawable> progressBar = shared_ptr<Drawable>(new Drawable(-506));
-	progressBar->setStatic(true);
-	progressBar->setPositionX(585);
-	progressBar->setPositionY(950);
-	progressBar->setWidth(750);
-	progressBar->setHeight(100);
-	progressBar->registerSprite(SpriteState::DEFAULT, PROGRESSBAR_EMPTY);
-	progressBar->changeToState(SpriteState::DEFAULT);
-
-	progressBarFiller = shared_ptr<Drawable>(new Drawable(-507));
-	progressBarFiller->setStatic(true);
-	progressBarFiller->setPositionX(616);
-	progressBarFiller->setPositionY(921);
-	progressBarFiller->setWidth(10);
-	progressBarFiller->setHeight(42);
-	progressBarFiller->registerSprite(SpriteState::DEFAULT, PROGRESSBAR_FULL);
-	progressBarFiller->changeToState(SpriteState::DEFAULT);
-
-	animation = shared_ptr<Drawable>(new Drawable(-508));
+	animation = shared_ptr<Drawable>(new Drawable(-506));
 	animation->setStatic(true);
 	animation->setPositionX(175);
 	animation->setPositionY(875);
 	animation->setWidth(370);
-	animation->setHeight(500);
+	animation->setHeight(370);
 	animation->registerSprite(SpriteState::DEFAULT, BG_LAYER_ADVENTRUE);
 	animation->changeToState(SpriteState::DEFAULT);
 	animation->setScalable(false);
 
-	shared_ptr<Drawable> layer2 = shared_ptr<Drawable>(new Drawable(-509));
+	shared_ptr<Drawable> layer2 = shared_ptr<Drawable>(new Drawable(-507));
 	layer2->setStatic(true);
 	layer2->setPositionX(0);
 	layer2->setPositionY(1080);
@@ -73,11 +56,41 @@ void GeneralTransition::loadBackground()
 	layer2->registerSprite(SpriteState::DEFAULT, BG_LAYER_2);
 	layer2->changeToState(SpriteState::DEFAULT);
 
+	shared_ptr<Drawable> adBlcok = shared_ptr<Drawable>(new Drawable(-508));
+	adBlcok->setStatic(true);
+	adBlcok->setPositionX(1380);
+	adBlcok->setPositionY(1055);
+	adBlcok->setWidth(505);
+	adBlcok->setHeight(180);
+	adBlcok->registerSprite(SpriteState::DEFAULT, ADVERTISMENT_BLOCK);
+	adBlcok->changeToState(SpriteState::DEFAULT);
+
+	adHandler->downloadLatestAdvertisements();
+	if (adHandler->getAvailableAdFileNames().size() >0)
+	{
+		string adFileName = getRandomAdFileName();
+		string* imageLoc = new string("Assets/Advertisements/" + adFileName);
+
+		shared_ptr<SpriteObject> AD_IMAGE = shared_ptr<SpriteObject>(new SpriteObject(-503, 185, 606, 1, 300, imageLoc->c_str()));
+		shared_ptr<Drawable> ad = shared_ptr<Drawable>(new Drawable(-509));
+		ad->setStatic(true);
+		ad->setPositionX(1420);
+		ad->setPositionY(1040);
+		ad->setWidth(431);
+		ad->setHeight(127);
+		ad->registerSprite(SpriteState::DEFAULT, AD_IMAGE);
+		ad->changeToState(SpriteState::DEFAULT);
+		addNewObjectToLayer(4, ad, false, true);
+		shared_ptr<Text> advertisment = shared_ptr<Text>(new Text(-510, new ColoredText("Advertisement:", Color(0, 0, 0)), 120, 30, 1420, 895));
+		addNewObjectToLayer(4, advertisment, false, true);
+	}
+
+	
+	
 	addNewObjectToLayer(0, layer0, false, true);
 	addNewObjectToLayer(1, animation);
 	addNewObjectToLayer(2, layer2, false, true);
-	addNewObjectToLayer(3, progressBar);
-	addNewObjectToLayer(4, progressBarFiller);
+	addNewObjectToLayer(3, adBlcok, false, true);
 }
 
 /// @brief 
@@ -90,38 +103,22 @@ void GeneralTransition::onUpdate(float deltaTime)
 {
 	timer += deltaTime;
 
-	if (timer > 0.75 && !moveCharacter)
+	animation->setPositionX(animation->getPositionX() + (600 * deltaTime));
+	if (animation->getPositionX() > WINDOW_WIDTH)
 	{
-		if (progressBarFiller->getWidth() >= 685)
-		{
-			moveCharacter = true;
-			return;
-		}
-
-		int generated = rand() % 685 + 1;
-		if (progressBarFiller->getWidth() + generated > 688)
-		{
-			progressBarFiller->setWidth(688);
-			return;
-		}
-		else
-		{
-			progressBarFiller->setWidth(progressBarFiller->getWidth() + generated);
-		}
-	}
-
-	if (timer > 0.05 && moveCharacter)
-	{
-		animation->setPositionX(animation->getPositionX() + (600 * deltaTime));
-		if (animation->getPositionX() > WINDOW_WIDTH)
-		{
-			stateMachine->switchToScene(nextScene,false);
-		}
+		stateMachine->switchToScene(nextScene,false);
 	}
 }
 
-/// @brief Sets the next scene identifier
+/// @brief 
 /// @param identifier 
+string GeneralTransition::getRandomAdFileName()
+{
+	vector<string> ads = adHandler->getAvailableAdFileNames();
+	int randomNumber = 0 + (rand() % static_cast<int>(ads.size()));
+	return ads[randomNumber];
+}
+
 void GeneralTransition::setNextScene(string const identifier)
 {
 	nextScene = identifier;

@@ -10,4 +10,8 @@ public:
 	/// @param scene
 	/// This is the scene this command is used uppon
 	virtual GlobalCommand* createCommand(int zIndex) = 0;
+
+	/// @brief
+	/// Create an instance of a ui command class 
+	virtual GlobalCommand* createCommand() = 0;
 };

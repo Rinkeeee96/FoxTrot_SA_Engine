@@ -66,6 +66,9 @@
     <ClCompile Include="GlitchTests\src\Triggers\DeathTriggerTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GlitchTests\src\Characters\Enemies\SlimeBossTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -90,6 +93,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GlitchTests\src\mocks\MockState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GlitchTests\src\mocks\MockSlimeBoss.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GlitchTests\src\States\SlimeBoss\SlimeBossGodState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

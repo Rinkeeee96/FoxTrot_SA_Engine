@@ -11,4 +11,5 @@ public:
 	virtual ~IInputFacade() {};
 
 	virtual void pollEvents() = 0;
+	virtual KeyCode getSingleKeyStroke() = 0;
 };

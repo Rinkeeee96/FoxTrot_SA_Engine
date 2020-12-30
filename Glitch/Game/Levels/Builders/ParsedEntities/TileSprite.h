@@ -12,5 +12,5 @@ public:
 	std::string path;
 	const float width;
 	const float height;
+	map<string, string> properties;
 };
-

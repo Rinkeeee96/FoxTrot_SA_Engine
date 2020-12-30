@@ -21,3 +21,10 @@ void Drawable::changeToState(const int state)
 	this->currentSprite = spriteObject;
 }
 
+/// @brief
+/// get sprite state
+/// @returns sprite state int
+int Drawable::getCurrentState() const {
+	return this->currentSpriteState;
+}
+

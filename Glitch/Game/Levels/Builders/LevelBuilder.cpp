@@ -3,8 +3,14 @@
 #include "Game/Characters/Enemies/IEnemy.h"
 #include "Game/Ground/IGround.h"
 #include "Game/Ground/BaseGround.h"
+#include "Game/Ground/SnowyGround.h"
+#include "Game/Ground/BouncingGround.h"
 #include "Game/Characters/Enemies/Slime.h"
+#include "Game/Characters/Enemies/Skryo.h"
+#include "Game/Characters/Enemies/SlimeBoss.h"
 #include "Game/Factories/CharacterFactory.h"
+#include <Game/Triggers/MusicTrigger.h>
+#include <Game/Triggers/SpikeTrigger.h>
 
 LevelBuilder::LevelBuilder(unique_ptr<Engine>& _engine, int levelId, shared_ptr<SceneStateMachine> _statemachine)
 	: AbstractLevelBuilder(_engine), bLevel(new Level(levelId, 0, 0, _engine, _statemachine)) {}
@@ -90,6 +96,8 @@ void LevelBuilder::createLevel(nlohmann::json json) {
 
 	this->triggerFactory.registerTrigger("death", shared_ptr<DeathTrigger>(new DeathTrigger(bLevel->getEventDispatcher())));
 	this->triggerFactory.registerTrigger("win", shared_ptr<WinTrigger>(new WinTrigger(*bLevel, bLevel->getEventDispatcher())));
+	this->triggerFactory.registerTrigger("music", shared_ptr<MusicTrigger>(new MusicTrigger(*bLevel, bLevel->getEngine(), bLevel->getEventDispatcher())));
+	this->triggerFactory.registerTrigger("spike", shared_ptr<SpikeTrigger>(new SpikeTrigger(bLevel->getEventDispatcher())));
 	characterFactory = std::make_unique<CharacterFactory>(engine, *bLevel);
 	this->initFactory();
 }
@@ -158,7 +166,7 @@ void LevelBuilder::createEntities(nlohmann::json layerValue) {
 			for (size_t j = 0; j < temp.size(); j++)
 			{
 				if (IEnemy* _enemy = dynamic_cast<IEnemy*>(temp[j].get())) {
-					_enemy->setPlayer(_player);
+					_enemy->setPlayer(&bLevel->getPlayer());
 				}
 			}
 			break;
@@ -173,7 +181,7 @@ void LevelBuilder::createBackground(nlohmann::json layerValue) {
 	bool alwaysDrawLayer = getAlwaysDrawFromJson(layerValue);
 	for (auto& [objectKey, objectValue] : layerValue["objects"].items())
 	{
-		shared_ptr<IGround> tile = shared_ptr<BaseGround>(new BaseGround(id++));
+		shared_ptr<IGround> tile = shared_ptr<BaseGround>(new BaseGround(bLevel->getEventDispatcher(), id++));
 
 		int gid = objectValue["gid"];
 		float width = objectValue["width"];
@@ -209,7 +217,7 @@ void LevelBuilder::createDecoration(nlohmann::json layerValue)
 	for (int tileId : layerValue["data"]) {
 
 		if (tileId != 0) {
-			shared_ptr<IGround> tile = shared_ptr<BaseGround>(new BaseGround(id++));
+			shared_ptr<IGround> tile = shared_ptr<BaseGround>(new BaseGround(bLevel->getEventDispatcher(), id++));
 
 			shared_ptr<SpriteObject> tileSprite = nullptr;
 			TileSprite* sprite = nullptr;
@@ -227,8 +235,6 @@ void LevelBuilder::createDecoration(nlohmann::json layerValue)
 			tile->setStatic(true);
 			tile->setPositionX(currentX * mapTileWidth);
 			tile->setPositionY((currentY * mapTileHeight) + mapTileHeight);
-			tile->setScalable(true);
-			tile->setScale(2);
 			tile->registerSprite(SpriteState::DEFAULT, tileSprite);
 			tile->changeToState(SpriteState::DEFAULT);
 
@@ -290,8 +296,6 @@ void LevelBuilder::createTiles(nlohmann::json layerValue) {
 	for (int tileId : layerValue["data"]) {
 
 		if (tileId != 0) {
-			shared_ptr<IGround> tile = shared_ptr<BaseGround>(new BaseGround(id++));
-
 			shared_ptr<SpriteObject> tileSprite = nullptr;
 			TileSprite* sprite = nullptr;
 
@@ -302,6 +306,22 @@ void LevelBuilder::createTiles(nlohmann::json layerValue) {
 			}
 			else {
 				tileSprite = spriteMap[tileId];
+			}
+
+			shared_ptr<IGround> tile;
+
+			if (sprite->properties.size() == 0) {
+				tile = shared_ptr<BaseGround>(new BaseGround(bLevel->getEventDispatcher(), id++));
+			}
+
+			// TODO Factory
+			for (auto [Key, Value] : sprite->properties) {
+				if (Key == "type" && Value == "ice") {
+					tile = shared_ptr<SnowyGround>(new SnowyGround(bLevel->getEventDispatcher(), id++));
+				}
+				if (Key == "type" && Value == "bounce") {
+					tile = shared_ptr<BouncingGround>(new BouncingGround(*bLevel, bLevel->getEventDispatcher(), id++));
+				}
 			}
 
 			tile->setWidth(sprite->width);
@@ -353,6 +373,10 @@ void LevelBuilder::loadTileSets(nlohmann::json json) {
 
 							TileSprite* currentTile = new TileSprite(spritePath, spriteWidth, spriteHeight);
 
+							for (auto& [Key, Value] : spriteValue["properties"].items()) {
+								currentTile->properties.insert(pair<string, string>(Value["name"], Value["value"]));
+							}
+
 							textureMap.insert(pair<int, TileSprite*>(currentGid, currentTile));
 							currentGid++;
 						}
@@ -371,11 +395,15 @@ void LevelBuilder::initFactory() {
 	characterFactory->registerCharacter("player", shared_ptr<Player>(new Player(bLevel->getEventDispatcher())), &textureId);
 
 	characterFactory->registerCharacter("slime", shared_ptr<Slime>(new Slime(bLevel->getEventDispatcher())), &textureId);
+	characterFactory->registerCharacter("iceslime", shared_ptr<Slime>(new Slime(bLevel->getEventDispatcher(), SlimeType::Ice)), &textureId);
 
 	characterFactory->registerCharacter("fleye", shared_ptr<Fleye>(new Fleye(bLevel->getEventDispatcher())), &textureId);
 
 	characterFactory->registerCharacter("jumpkin", shared_ptr<Jumpkin>(new Jumpkin(bLevel->getEventDispatcher())), &textureId);
 
+	characterFactory->registerCharacter("skryo", shared_ptr<Skryo>(new Skryo(bLevel->getEventDispatcher())), &textureId);
+
+	characterFactory->registerCharacter("slimeboss", shared_ptr<SlimeBoss>(new SlimeBoss(*bLevel, bLevel->getEventDispatcher())), &textureId);
+
 	std::map<std::string, std::map<SpriteState, shared_ptr<SpriteObject>>> spriteObjectMap;
 }
-

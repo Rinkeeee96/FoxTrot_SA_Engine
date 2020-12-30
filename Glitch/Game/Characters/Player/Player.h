@@ -8,9 +8,9 @@
 
 #include "Game/Commands/CharacterCommands/StopMovementCommand.h"
 
-#define RESTITUTION_CORRECTION 1
-#define PLAYER_SPRITE_HEIGHT 37
-#define PLAYER_SPRITE_WIDTH 50
+#define RESTITUTION_CORRECTION 7.5
+#define PLAYER_SPRITE_HEIGHT 31//37
+#define PLAYER_SPRITE_WIDTH 33//50
 
 /// @brief
 /// Handles player logic, stats and movement
@@ -36,14 +36,20 @@ public:
 	void onUpdate(float deltaTime) override {
 		if (releasedKeyLastFrame)
 		{
-			StopMovementCommand(*this, "stopMovement").execute(this->dispatcher);
+			if(this->friction == 0 || (this->getYAxisVelocity() < -5 || this->getYAxisVelocity() > 5))
+				StopMovementCommand(*this, "stopMovement").execute(this->dispatcher);
 		}
 		stateMachine.update(*this);
 	};
 	
 	StateMachine<Player>& getStateMachine() { return this->stateMachine; }
 	shared_ptr<ICharacter> clone(int id) override;
+
+	Inventory inventory;
+
 private:
 	GameKeypressInvoker* invoker; 
 	StateMachine<Player> stateMachine;
+
+	
 };

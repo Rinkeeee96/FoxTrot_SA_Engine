@@ -12,7 +12,7 @@ void Jumpkin::onUpdate(float deltaTime) {
 	float yPositionDifference = abs((player->getPositionY() + player->getHeight() / 2) - (this->getPositionY() + this->getHeight() / 2));
 
 	// Distance is calculated using the Pythagorean theorem from the middle of both objects
-	float distanceFromPlayer = sqrt(pow(xPositionDifference, 2) + pow(yPositionDifference, 2));
+	float distanceFromPlayer = (float)sqrt(pow(xPositionDifference, 2) + pow(yPositionDifference, 2));
 
 	// Jumpkin's vertical range is calculated separately from distance to ensure it doesn't follow the player when there are multiple layers of height to the level (lvl3)
 	bool playerIsInRange = distanceFromPlayer <= JUMPKIN_HORIZONTAL_RANGE;
@@ -34,12 +34,15 @@ void Jumpkin::onUpdate(float deltaTime) {
 
 	if (jumping) {
 		jumpTimer += deltaTime;
-		if (jumpTimer >= (JUMPKIN_JUMP_ANIMATION_TIME / 2) && jumpTimer <= JUMPKIN_JUMP_ANIMATION_TIME) {
+		if (jumpTimer >= (JUMPKIN_JUMP_ANIMATION_TIME / 2) && jumpTimer < JUMPKIN_JUMP_ANIMATION_TIME / 1.05) {
 			changeToState(direction == Direction::LEFT ? SpriteState::ACTION_LEFT_1 : SpriteState::ACTION_RIGHT_1);
 		}
-		if (jumpTimer >= JUMPKIN_JUMP_ANIMATION_TIME) {
+		if (jumpTimer >= JUMPKIN_JUMP_ANIMATION_TIME / 1.05 && jumpTimer < JUMPKIN_JUMP_ANIMATION_TIME) {
 			changeToState(direction == Direction::LEFT ? SpriteState::ACTION_LEFT_3 : SpriteState::ACTION_RIGHT_3);
 			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(Direction::UP, this->getObjectId()));
+			
+		}
+		if (jumpTimer >= JUMPKIN_JUMP_ANIMATION_TIME) {
 			dispatcher.dispatchEvent<ActionEvent>((Event&)ActionEvent(direction, this->getObjectId()));
 			jumpTimer = 0;
 			jumping = false;

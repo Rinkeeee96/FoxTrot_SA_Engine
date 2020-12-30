@@ -14,6 +14,7 @@ void CreditsScene::onAttach()
 	loadText();
 	loadBackground();
 	loadMusic();
+	loadAnimations();
 }
 
 /// @brief 
@@ -63,58 +64,49 @@ void CreditsScene::loadBackground() {
 	bgLayer->registerSprite(SpriteState::DEFAULT, bg);
 	bgLayer->changeToState(SpriteState::DEFAULT);
 
-	shared_ptr<SpriteObject>fgTop = shared_ptr<SpriteObject>(new SpriteObject(-1010, 1080, 1920, 1, 300, "Assets/Backgrounds/credits_foreground_top.png"));
+	shared_ptr<SpriteObject>BG_IMAGE = shared_ptr<SpriteObject>(new SpriteObject(-1011, 1080, 1920, 1, 300, "Assets/Backgrounds/game_win_layer_0.png"));
 
-	shared_ptr<Drawable> foregroundTop = shared_ptr<Drawable>(new Drawable(14));
-	foregroundTop->setStatic(true);
-	foregroundTop->setPositionX(0);
-	foregroundTop->setPositionY(0 + 250);
-	foregroundTop->setWidth(1920);
-	foregroundTop->setHeight(250);
-	foregroundTop->registerSprite(SpriteState::DEFAULT, fgTop);
-	foregroundTop->changeToState(SpriteState::DEFAULT);
+	shared_ptr<Drawable> bgImage = shared_ptr<Drawable>(new Drawable(15));
+	bgImage->setStatic(true);
+	bgImage->setPositionX(0);
+	bgImage->setPositionY(1080);
+	bgImage->setWidth(1920);
+	bgImage->setHeight(1080);
+	bgImage->registerSprite(SpriteState::DEFAULT, BG_IMAGE);
+	bgImage->changeToState(SpriteState::DEFAULT);
 
-	shared_ptr<SpriteObject>BG_LAYER_1 = shared_ptr<SpriteObject>(new SpriteObject(-1011, 1080, 1920, 1, 300, "Assets/Backgrounds/credits_foreground_bottom.png"));
-
-	shared_ptr<Drawable> foregroundBottom = shared_ptr<Drawable>(new Drawable(15));
-	foregroundBottom->setStatic(true);
-	foregroundBottom->setPositionX(0);
-	foregroundBottom->setPositionY(1080);
-	foregroundBottom->setWidth(1920);
-	foregroundBottom->setHeight(250);
-	foregroundBottom->registerSprite(SpriteState::DEFAULT, BG_LAYER_1);
-	foregroundBottom->changeToState(SpriteState::DEFAULT);
-
-	addNewObjectToLayer(0, bgLayer, false, true);
-	addNewObjectToLayer(4, foregroundTop, false, true);
-	addNewObjectToLayer(4, foregroundBottom, false, true);
+	addNewObjectToLayer(4, bgLayer, false, true);
+	addNewObjectToLayer(0, bgImage, false, true);
 }
 
 /// @brief 
 /// Load the sounds for this scene
 void CreditsScene::loadMusic() {
-	engine->loadSound("WIN_SOUND", "Assets/Sound/TremLoadingloopl.wav");
+	engine->loadSound("GOOD_GAME", "Assets/Sound/applause.wav");
 }
 
 /// @brief 
 /// Create the sounds for this scene
 void CreditsScene::start(bool playSound)
 {
-	if(playSound)engine->startSound("WIN_SOUND");
+	if(playSound)engine->startSound("GOOD_GAME");
 }
 
 void CreditsScene::onUpdate(float deltaTime)
 {
-	if (moveToNextScene)
-	{
-		stateMachine->switchToScene(nextScene, useTransition, playSound);
-	}
-
 	for (size_t i = 0; i < this->text.size(); i++)
 	{
 		this->text[i]->setPositionY(this->text[i]->getPositionY() - 1);
 		if (text[i]->getPositionY() == 0) this->text[i]->setPositionY(WINDOW_HEIGHT);
 	}
+
+	handleAnimation(deltaTime);
+
+	if (moveToNextScene)
+	{
+		stateMachine->switchToScene(nextScene, useTransition, true);
+	}
+
 }
 
 /// @brief 
@@ -122,4 +114,47 @@ void CreditsScene::onUpdate(float deltaTime)
 void CreditsScene::onDetach()
 {
 	Scene::onDetach();
+}
+
+
+/// @brief 
+/// Load the animatio for the screen
+void CreditsScene::loadAnimations() {
+
+	shared_ptr<SpriteObject> SLIME_JUMP = shared_ptr<SpriteObject>(new SpriteObject(-992883, 24, 33, 1, 300, "Assets/Sprites/Enemies/Slime/Slime_action_2.png"));
+	shared_ptr<SpriteObject> SLIME_FALL = shared_ptr<SpriteObject>(new SpriteObject(-992884, 24, 33, 1, 300, "Assets/Sprites/Enemies/Slime/Slime_action_3.png"));
+
+	animation = shared_ptr<Drawable>(new Drawable(35));
+	animation->setStatic(true);
+	animation->setPositionX(1675);
+	animation->setPositionY(948);
+	animation->setWidth(213);
+	animation->setHeight(177);
+	animation->registerSprite(SpriteState::DEFAULT, SLIME_JUMP);
+	animation->registerSprite(SpriteState::AIR_JUMP_RIGHT, SLIME_JUMP);
+	animation->registerSprite(SpriteState::AIR_FALL_RIGHT, SLIME_FALL);
+	animation->changeToState(SpriteState::DEFAULT);
+	animation->setScalable(false);
+
+	addNewObjectToLayer(2, animation);
+}
+
+/// @brief 
+/// Handle the fake animation in the screen
+void CreditsScene::handleAnimation(float deltaTime) {
+	if (animation->getPositionY() < 648) {
+		animation->changeToState(SpriteState::AIR_FALL_RIGHT);
+		falling = true;
+	}
+	else if (animation->getPositionY() > 860) {
+		animation->changeToState(SpriteState::AIR_JUMP_RIGHT);
+		falling = false;
+	}
+
+	if (falling) {
+		animation->setPositionY(animation->getPositionY() + deltaTime * 300);
+	}
+	else {
+		animation->setPositionY(animation->getPositionY() + deltaTime * -300);
+	}
 }

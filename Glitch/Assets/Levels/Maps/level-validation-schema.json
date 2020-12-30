@@ -99,173 +99,6 @@
           "properties": {
             "name": {
               "type": "string",
-              "enum": [ "Entities" ]
-            },
-            "objects": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "x": {
-                    "type": "number",
-                    "minimum": 0
-                  },
-                  "y": {
-                    "type": "number",
-                    "minimum": 0
-                  },
-                  "height": {
-                    "type": "number",
-                    "minimum": 1
-                  },
-                  "width": {
-                    "type": "number",
-                    "minimum": 1
-                  },
-                  "rotation": {
-                    "type": "number",
-                    "minimum": 0
-                  },
-                  "properties": {
-                    "type": "array",
-                    "items": {
-                      "oneOf": [
-                        {
-                          "properties": {
-                            "name": {
-                              "type": "string",
-                              "enum": [ "type" ]
-                            },
-                            "value": {
-                              "type": "string",
-                              "enum": [ "player", "slime", "jumpkin", "fleye" ]
-                            }
-                          }
-                        },
-                        {
-                          "properties": {
-                            "name": {
-                              "type": "string",
-                              "enum": [ "speed", "restitution", "jump_height", "health", "friction", "density" ]
-                            },
-                            "type": {
-                              "type": "string",
-                              "const": "int"
-                            },
-                            "value": {
-                              "type": "integer",
-                              "minimum": 0
-                            }
-                          }
-                        }
-                      ]
-                    }
-                  }
-                },
-                "required": [ "x", "y", "height", "width", "rotation", "properties" ]
-              }
-            },
-            "properties": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "type": {
-                    "type": "string"
-                  },
-                  "value": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [ "name", "type", "value" ]
-              }
-            }
-          },
-          "required": [ "name", "objects", "properties" ]
-        },
-        {
-          "properties": {
-            "name": {
-              "type": "string",
-              "enum": [ "Triggers" ]
-            },
-            "objects": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "x": {
-                    "type": "number",
-                    "minimum": 0
-                  },
-                  "y": {
-                    "type": "number",
-                    "minimum": 0
-                  },
-                  "width": {
-                    "type": "number",
-                    "minimum": 0
-                  },
-                  "height": {
-                    "type": "number",
-                    "minimum": 0
-                  },
-                  "rotation": {
-                    "type": "number",
-                    "minimum": 0
-                  },
-                  "properties": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": "string",
-                          "const": "type"
-                        },
-                        "value": {
-                          "type": "string",
-                          "enum": [
-                            "win",
-                            "death"
-                          ]
-                        }
-                      },
-                      "required": [ "name", "value" ]
-                    }
-                  }
-                },
-                "required": [ "x", "y", "width", "height", "rotation", "properties" ]
-              }
-            },
-            "properties": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "type": {
-                    "type": "string"
-                  },
-                  "value": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [ "name", "type", "value" ]
-              }
-            }
-          },
-          "required": [ "name", "objects", "properties" ]
-        },
-        {
-          "properties": {
-            "name": {
-              "type": "string",
               "enum": [ "Particles" ]
             },
             "objects": {
@@ -301,7 +134,7 @@
                         "value": {
                           "type": "number",
                           "minimum": 0,
-                          "maximum": 11
+                          "maximum": 12
                         }
                       },
                       "required": [ "name", "value" ]
@@ -363,6 +196,175 @@
             }
           },
           "required": [ "name", "data", "properties" ]
+        },
+		{
+          "properties": {
+            "name": {
+              "type": "string",
+              "enum": [ "Triggers" ]
+            },
+            "objects": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "y": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "width": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "height": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "rotation": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "properties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "const": "type"
+                        },
+                        "value": {
+                          "type": "string",
+                          "enum": [
+                            "win",
+                            "death",
+                            "music",
+                            "spike"
+                          ]
+                        }
+                      },
+                      "required": [ "name", "value" ]
+                    }
+                  }
+                },
+                "required": [ "x", "y", "width", "height", "rotation", "properties" ]
+              }
+            },
+            "properties": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [ "name", "type", "value" ]
+              }
+            }
+          },
+          "required": [ "name", "objects", "properties" ]
+        },
+		{
+          "properties": {
+            "name": {
+              "type": "string",
+              "enum": [ "Entities" ]
+            },
+            "objects": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "y": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "height": {
+                    "type": "number",
+                    "minimum": 1
+                  },
+                  "width": {
+                    "type": "number",
+                    "minimum": 1
+                  },
+                  "rotation": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "properties": {
+                    "type": "array",
+                    "items": {
+                      "oneOf": [
+                        {
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "enum": [ "type" ]
+                            },
+                            "value": {
+                              "type": "string",
+                              "enum": [ "player", "slime", "iceslime", "jumpkin", "fleye", "skryo", "slimeboss" ]
+                            }
+                          }
+                        },
+                        {
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "enum": [ "speed", "restitution", "jump_height", "health", "friction", "density" ]
+                            },
+                            "type": {
+                              "type": "string",
+                              "const": "int"
+                            },
+                            "value": {
+                              "type": "integer",
+                              "minimum": 0
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "required": [ "x", "y", "height", "width", "rotation", "properties" ]
+              }
+            },
+            "properties": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [ "name", "type", "value" ]
+              }
+            }
+          },
+          "required": [ "name", "objects", "properties" ]
         }
       ]
     },

@@ -7,6 +7,9 @@
 #include "Game/Game.h"
 #include "Game/PopUps/Popups.h"
 #include "Engine/Events/Action/ToggleEventLayer.h"
+#include "Game/General/KeyCodeStringMap.h"
+
+#include "Game/Characters/Enemies/BaseEnemy.h"
 
 Level::Level(const int id, const int _sceneHeight, const int _sceneWidth, unique_ptr<Engine>& engine, shared_ptr<SceneStateMachine> _stateMachine)
 				: GameScene::GameScene(id, _sceneHeight, _sceneWidth, engine, _stateMachine), commandBuilder{new CommandBuilder()},
@@ -28,22 +31,38 @@ void Level::onAttach() {
 /// @brief
 /// Start is called when a scene is ready to execute its logic, this can be percieved as the "main loop" of a scene
 void Level::start(bool playSound) {
+	TogglePauseEvent e{false};
+	dispatcher.dispatchEvent<TogglePauseEvent>(e);
+	loadScoreBoard();
 
-	// TODO kan ik de inventory layers aanmaken in de onAttach?
-	inventoryPopupZIndex = this->getHighestLayerIndex() + 1;
-	pausePopupZIndex = inventoryPopupZIndex + 1;
+	hudPopUpZIndex = this->getHighestLayerIndex() + 1;
+	inventoryPopupZIndex = hudPopUpZIndex + 1;
+	helpPopupZIndex = inventoryPopupZIndex + 1;
+	pausePopupZIndex = helpPopupZIndex + 1;
 
-	this->addLayerOnZIndex(inventoryPopupZIndex, shared_ptr<Layer>(new InventoryPopup(this->dispatcher, this->stateMachine)));
-	this->addLayerOnZIndex(pausePopupZIndex, shared_ptr<Layer>(new PausePopUp(this->dispatcher, this->stateMachine)));
+	inventoryPopup = shared_ptr<InventoryPopup>(new InventoryPopup(this->engine, this->dispatcher, this->stateMachine));
+	hudPopUp = shared_ptr<HudPopUp>(new HudPopUp(this->engine, this->dispatcher, this->stateMachine));
+
+	this->addLayerOnZIndex(inventoryPopupZIndex, inventoryPopup);
+	this->addLayerOnZIndex(pausePopupZIndex, shared_ptr<Layer>(new PausePopUp(this->engine, this->dispatcher, this->stateMachine)));
+	this->addLayerOnZIndex(helpPopupZIndex, shared_ptr<Layer>(new HelpMenu(this->engine, this->dispatcher, this->stateMachine)));
+	this->addLayerOnZIndex(hudPopUpZIndex, hudPopUp);
+
+	commandBuilder->buildGlobalCommands(gameInvoker);
 
 	commandBuilder->linkCommandToToggle(gameInvoker, inventoryPopupZIndex, "inventory");
 	commandBuilder->linkCommandToToggle(gameInvoker, pausePopupZIndex, "pause");
+	commandBuilder->linkCommandToToggle(gameInvoker, helpPopupZIndex, "help");
 
 	player->respawn();
-	player->setCurrentHealth(3);
-	player->setTotalHealth(3);
-	this->addHuds();
-	loadScoreBoard();
+	player->setTotalHealth(savegame->getCurrentGameData().characterData.totalHealth);
+	player->setCurrentHealth(savegame->getCurrentGameData().characterData.totalHealth);
+	player->inventory = savegame->getCurrentGameData().characterData.inventory;
+	
+	hudPopUp->setPlayer(player);
+	hudPopUp->setBoss(boss);
+
+	
 	this->win = false;
 
 	this->setObjectToFollow(this->follow);
@@ -53,6 +72,8 @@ void Level::start(bool playSound) {
 			engine->startSound(s.first);
 		}
 	}
+
+	this->restartPhysics();
 }
 
 /// @brief Updates the level data such as objects that are removed or player is dead or won the level
@@ -60,7 +81,14 @@ void Level::start(bool playSound) {
 /// DeltaTime should be used when calculating timers/manual movements
 void Level::onUpdate(float deltaTime)
 {
-	this->addHuds();
+	if (init) {
+		this->restartPhysics();
+		init = false;
+	}
+
+	hudPopUp->onUpdate();
+
+	if (player && inventoryPopup)inventoryPopup->changeCoinCount(player->inventory.coins);
 
 	updateScoreBoard();
 
@@ -74,13 +102,18 @@ void Level::onUpdate(float deltaTime)
 
 	if (this->win)
 	{
-		player->kill();
 		increaseTotalGameScore(100);
 		throwAchievement("Level " + to_string(stateMachine.get()->levelToBuild) + " completed!");
 		SaveGameData save = savegame->getCurrentGameData();
 		save.levelData[stateMachine->levelToBuild].completed = true;
 		savegame->saveCurrentGameData(save);
-		stateMachine->switchToScene("WinScreen", false);
+		handleLevelScore();
+		if (this->shouldChangeToScene) {
+			stateMachine->switchToScene(this->next, false);
+		}
+		else {
+			stateMachine->switchToScene("WinScreen", false);
+		}
 		return;
 	}
 	if (player->getIsDead())
@@ -91,44 +124,73 @@ void Level::onUpdate(float deltaTime)
 
 	for (auto object : this->getAllObjectsInScene()) // TODO get only the non static objects, without looping thru them again and again
 	{
-		if (!object->getStatic())
-		{
-			object->onUpdate(engine->getDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
+		object->onUpdate(engine->getDeltaTime(DELTATIME_TIMESTEP_PHYSICS));
 
-			if (ICharacter *character = dynamic_cast<ICharacter *>(object.get()))
+		if (ICharacter *character = dynamic_cast<ICharacter *>(object.get()))
+		{
+			if (character->getIsDead() && !character->getIsRemoved())
 			{
-				if (character->getIsDead() && !character->getIsRemoved())
-				{
-					// TODO Death animation
-					object->setIsRemoved(true);
-					removeObjectFromScene(object);
-					engine->restartPhysicsWorld();
-					increaseTotalGameScore(10);
-					throwAchievement("First Kill");
-				}
+				// TODO Death animation
+ 				object->setIsRemoved(true);
+				removeObjectFromScene(object);
+				this->restartPhysics();
+				increaseTotalGameScore(10);
+				throwAchievement("First Kill");
 			}
 		}
 	}
 }
 
 /// @brief
+// Set changes to scene to true with the string as next scene, the next game loop changes scene
+// @param shouldChange bool
+// @param _next identifier to next scene
+void Level::changeToScene(bool shouldChange, string _next) {
+	this->shouldChangeToScene = shouldChange;
+	this->next = _next;
+}
+
+void Level::restartPhysics() {
+	engine->restartPhysicsWorld();
+}
+
+/// @brief
 // Destroys player commands and calls scene base
 void Level::onDetach()
 {
+	SaveGameData save = savegame->getCurrentGameData();
+
+	if (player->getCurrentHealth() > 0) save.characterData.totalHealth = player->getCurrentHealth();
+	else
+		save.characterData.totalHealth = 3;
+	
+	save.characterData.inventory = player->inventory;
+	savegame->saveCurrentGameData(save);
 	gameInvoker->destroyPlayercommands();
 
 	Scene::onDetach();
 }
 /// @brief
 /// toggle a layer received from the event and set its state oposite to its current render state
-/// "toggeling" it
+/// "toggeling" it, it only toggles when layers with a higher z index aren't toggled
 bool Level::onToggleLayerEvent(const Event& event) {
 	auto layerEvent = dynamic_cast<const ToggleLayerEvent&>(event);
 
 	int layerIndex = layerEvent.getLayerIndex();
 	bool currentRenderstate = this->getLayers()[layerIndex]->getRender();
 
-	this->toggleLayer(layerIndex, ! currentRenderstate);
+	bool layerAboveMeIsRendered = false;
+	// runs in o n
+	for (int i = layerIndex + 1; i <= this->getHighestLayerIndex(); i++)
+	{
+		shared_ptr<Layer> layer = this->layers[i];
+		layerAboveMeIsRendered = layer->getRender();
+
+		if (layerAboveMeIsRendered) 
+			return true;
+	}
+
+	this->toggleLayer(layerIndex, !currentRenderstate);
 	return true;
 }
 
@@ -158,47 +220,6 @@ void Level::setSound(map<string, string> _sounds)
 	sounds = _sounds;
 }
 
-/// @brief
-/// Add HUD for lifes of player
-void Level::addHuds() {
-	this->huds.clear();
-	// Health HUDS
-	int startingID = -662;
-	int xAxisChange = 75;
-	int startingXAxis = 25;
-	int current = 0;
-	shared_ptr<SpriteObject> HealthHUD = shared_ptr<SpriteObject>(new SpriteObject(-660, 50, 50, 1, 300, "Assets/Sprites/HUD/Full.png"));
-	shared_ptr<SpriteObject> EmptyHealthHUD = shared_ptr<SpriteObject>(new SpriteObject(-661, 50, 50, 1, 300, "Assets/Sprites/HUD/Empty.png"));
-
-	for (size_t i = 0; i < player->getCurrentHealth(); i++)
-	{
-		this->addHealthHud(startingID, startingXAxis, xAxisChange, current, HealthHUD);
-	}
-	int damageTaken = player->getTotalHealth() - player->getCurrentHealth();
-	for (size_t i = 0; i < damageTaken; i++)
-	{
-		this->addHealthHud(startingID, startingXAxis, xAxisChange, current, EmptyHealthHUD);
-	}
-}
-
-/// @brief
-/// Add single HUD for lifes of player
-void Level::addHealthHud(int& startingID, int& startingXAxis, int& xAxisChange, int& current, shared_ptr<SpriteObject> HUD) {
-	shared_ptr<Drawable> health = shared_ptr<Drawable>(new Drawable(startingID--));
-	health->setStatic(true);
-	health->setPositionX(((startingXAxis + (float)(xAxisChange * (current + 1)))));
-	health->setPositionY(100);
-	health->setWidth(50);
-	health->setHeight(50);
-	health->setDrawStatic(true);
-	health->registerSprite(SpriteState::DEFAULT, HUD);
-	health->changeToState(SpriteState::DEFAULT);
-	
-	addNewObjectToLayer(100, health, false, true);
-	this->huds.push_back(health);
-	current++;
-}
-
 /// @brief 
 /// Activates the achievement popup and adds the Achievement param to the Achievement vector. If a achievement is already given, it wont be added or shown.
 /// @param achievement 
@@ -223,10 +244,20 @@ void Level::throwAchievement(Achievement achievement)
 /// @param amount 
 void Level::increaseTotalGameScore(const int amount)
 {
+	levelScore += amount;
+}
+
+void Level::handleLevelScore()
+{
 	SaveGameData temp = savegame->getCurrentGameData();
-	temp.levelData[stateMachine->levelToBuild - 1].score += amount;
-	temp.totalScore += amount;
-	savegame->saveCurrentGameData(temp);
+	if (levelScore > temp.levelData[stateMachine->levelToBuild - 1].score)
+	{
+		int oldScore = temp.levelData[stateMachine->levelToBuild - 1].score;
+		temp.levelData[stateMachine->levelToBuild - 1].score = levelScore;
+		temp.totalScore -= oldScore;
+		temp.totalScore += levelScore;
+		savegame->saveCurrentGameData(temp);
+	}
 }
 
 /// @brief 
@@ -238,9 +269,9 @@ void Level::loadScoreBoard()
 	block1->setStatic(true);
 	block1->setDrawStatic(true);
 	block1->setPositionX(1600);
-	block1->setPositionY(120);
+	block1->setPositionY(150);
 	block1->setWidth(300);
-	block1->setHeight(100);
+	block1->setHeight(130);
 	block1->registerSprite(SpriteState::DEFAULT, emptyBlock);
 	block1->changeToState(SpriteState::DEFAULT);
 
@@ -248,21 +279,28 @@ void Level::loadScoreBoard()
 
 	shared_ptr<Text> text2 = shared_ptr<Text>(new Text(textIDCount++, new ColoredText(savegame->getCurrentGameData().saveGameName + " " + savegame->getCurrentGameData().getReadableTimeStamp(), Color(0, 0, 0)), 200, 30, 1550, 40));
 	text2->setDrawStatic(true);
-	addNewObjectToLayer(5, text2, false, true);
+	addNewObjectToLayer(7, text2, false, true);
 
-
-	scoreText = shared_ptr<Text>(new Text(textIDCount++, new ColoredText("Total score: " + to_string(savegame->getCurrentGameData().totalScore), Color(0, 0, 0)), 200, 30, 1550, 90));
+	scoreText = shared_ptr<Text>(new Text(textIDCount++, new ColoredText("Score: " + to_string(savegame->getCurrentGameData().totalScore), Color(0, 0, 0)), 200, 30, 1550, 90));
 	scoreText->setDrawStatic(true);
-	addNewObjectToLayer(5, scoreText, false, true);
+	addNewObjectToLayer(7, scoreText, false, true);
 
-	addNewObjectToLayer(4, block1, false, true);
+	addNewObjectToLayer(6, block1, false, true);
+
+	string helpstring{ "Help: " };
+	KeyCode k = gameInvoker->getKeycodeFromIdentifier("help");
+	helpstring.append(keycodeStringMap[k]);
+
+	helpText = shared_ptr<Text>(new Text(-99999999, new ColoredText(helpstring, Color(0, 0, 0)), 80, 30, 1740, 130));
+	helpText->setDrawStatic(true);
+	addNewObjectToLayer(8, helpText, false, true);
 }
 
 /// @brief 
 /// Updates the scoreboard
 void Level::updateScoreBoard()
 {
-	string text = "Total score: " + to_string(savegame->getCurrentGameData().totalScore);
+	string text = "Total score: " + to_string(levelScore);
 	scoreText->changeText(text);
 }
 

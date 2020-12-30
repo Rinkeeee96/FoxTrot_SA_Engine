@@ -29,5 +29,10 @@ enum class EventType
 	CollisionEnd,
 	CollisionBegin,
 
-	ObjectStop
+	ObjectStop,
+	ObjectMoveTo,
+
+	IncreaseGameSpeed,
+	DecreaseGameSpeed
+
 };

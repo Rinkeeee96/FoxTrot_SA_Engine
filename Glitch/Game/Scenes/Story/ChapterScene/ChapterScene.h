@@ -2,12 +2,7 @@
 #include "api.h"
 #include "SceneManager/Objects/Button.h"
 #include "Game/Scenes/GameScene.h"
-
-#define NUMBER_OF_CHARACTERS_ON_LINE 70
-#define TEXT_SIZE_DIVIDER 80
-#define START_Y_POS -200
-#define MAX_SPEED 200
-#define TEXT_SPEED_INCREMENT 10
+#include "Game/General/GeneralGameDefines.h"
 
 /// @brief Base class for the chapter screen
 class ChapterScene : public GameScene
