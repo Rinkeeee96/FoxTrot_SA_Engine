@@ -183,6 +183,21 @@ void CommandBuilder::linkCommandToToggle(GameKeypressInvoker* invoker, int layer
 		globalCommandFactory->createCommand(identifier, layerId)
 	);
 }
+/// @brief
+/// Creates a link between the global commands and the invoker
+/// @param invoker the pointer to the currently active game invoker
+void CommandBuilder::buildGlobalCommands(GameKeypressInvoker* invoker)
+{
+	const vector<string> identifiers = { "faster", "slower" };
+
+	for (const string& identifier : identifiers)
+	{
+		invoker->registerCommand(
+			invoker->getKeycodeFromIdentifier(identifier),
+			globalCommandFactory->createCommand(identifier)
+		);
+	}
+}
 
 /// @brief
 /// initialise the character command factory and register it's commands

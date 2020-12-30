@@ -17,6 +17,7 @@ public:
 	// Inherited via ICommandBuilder
 	void buildPlayerCommands(Player& player, GameKeypressInvoker* invoker) override;
 	void linkCommandToToggle(GameKeypressInvoker* invoker, int layerId, const string& identifier) override;
+	void buildGlobalCommands(GameKeypressInvoker* invoker) override;
 
 	void saveKeybindings(GameKeypressInvoker* invoker);
 

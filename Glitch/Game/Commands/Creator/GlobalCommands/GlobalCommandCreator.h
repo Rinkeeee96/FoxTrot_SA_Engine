@@ -12,6 +12,7 @@ public:
 	};
 
 	GlobalCommand* createCommand(int zIndex) override { return new T(zIndex, key); }
+	GlobalCommand* createCommand() override { return new T(key); }
 private:
 	string key;
 };
