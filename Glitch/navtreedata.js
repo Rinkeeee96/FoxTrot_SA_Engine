@@ -43,9 +43,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_abstract_level_builder_8h_source.html",
-"class_death_screen.html",
-"class_level.html#a4ab4e3ab1b2ca5844725b742afc8161f",
-"class_shop.html#a32423e7be394bf33b41eb9e655795f5d"
+"class_credits_scene.html#ad95809ec3597ad309a91d6407967d482",
+"class_level.html#a0504dae4cd7bae17c912a309ea9572b3",
+"class_scene_state_machine.html#a57faf2c4d68db1da5597f2b21bbdc242",
+"struct_save_game_data.html#ab638c14b07dd4ad3dd44920fadfb6e8e"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

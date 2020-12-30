@@ -64,42 +64,50 @@ $(document).ready(function(){initNavTree('_general_transition_8h_source.html',''
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;Game/Scenes/GameScene.h&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define TRANSITION_SCENE_DURATION_S     3</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_general_transition.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_general_transition.html">GeneralTransition</a> : <span class="keyword">public</span> <a class="code" href="class_game_scene.html">GameScene</a></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="class_general_transition.html">GeneralTransition</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, unique_ptr&lt;Engine&gt;&amp; engine, shared_ptr&lt;SceneStateMachine&gt; _statemachine) : <a class="code" href="class_game_scene.html">GameScene</a>(<span class="keywordtype">id</span>, engine, _statemachine) {};</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    ~<a class="code" href="class_general_transition.html">GeneralTransition</a>() {};</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="comment">// Inherited via Scene</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_general_transition.html#a082421e8569f82c38066a64c774baa5e">onAttach</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> onDetach() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> start(<span class="keywordtype">bool</span> playSound) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_general_transition.html#ae4c5f792213ba981a29329f264d29190">onUpdate</a>(<span class="keywordtype">float</span> deltaTime) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> setNextScene(<span class="keywordtype">string</span> <span class="keyword">const</span> identifier);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_general_transition.html#a472cab40123435e06430d6a988f4375b">getFileAdfileCount</a>();</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Game/AdvertisementHandler/AdvertisementHandler.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#define TRANSITION_SCENE_DURATION_S     3</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_general_transition.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_general_transition.html">GeneralTransition</a> : <span class="keyword">public</span> <a class="code" href="class_game_scene.html">GameScene</a></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_general_transition.html">GeneralTransition</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, unique_ptr&lt;Engine&gt;&amp; engine, shared_ptr&lt;SceneStateMachine&gt; _statemachine) : <a class="code" href="class_game_scene.html">GameScene</a>(<span class="keywordtype">id</span>, engine, _statemachine) </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        adHandler = unique_ptr&lt;AdvertisementHandler&gt;(<span class="keyword">new</span> <a class="code" href="class_advertisement_handler.html">AdvertisementHandler</a>());</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    };</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    ~<a class="code" href="class_general_transition.html">GeneralTransition</a>() {};</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="comment">// Inherited via Scene</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_general_transition.html#a082421e8569f82c38066a64c774baa5e">onAttach</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> onDetach() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> start(<span class="keywordtype">bool</span> playSound) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_general_transition.html#ae4c5f792213ba981a29329f264d29190">onUpdate</a>(<span class="keywordtype">float</span> deltaTime) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_general_transition.html#a71a79a43b313a2f39266e06884dc9d7a">loadBackground</a>();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    shared_ptr&lt;Drawable&gt; animation = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">void</span> setNextScene(<span class="keywordtype">string</span> <span class="keyword">const</span> identifier);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">string</span> nextScene = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">float</span> timer = 0;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">string</span> <a class="code" href="class_general_transition.html#a048d9c3affeb3b527631e33310ab957a">getRandomAdFileName</a>();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_general_transition.html#a71a79a43b313a2f39266e06884dc9d7a">loadBackground</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    shared_ptr&lt;Drawable&gt; animation = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    unique_ptr&lt;AdvertisementHandler&gt; adHandler;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">string</span> nextScene = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">float</span> timer = 0;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_game_scene_html"><div class="ttname"><a href="class_game_scene.html">GameScene</a></div><div class="ttdoc">Base class for game scenes, derived from engine scene.</div><div class="ttdef"><b>Definition:</b> GameScene.h:11</div></div>
-<div class="ttc" id="aclass_general_transition_html_ae4c5f792213ba981a29329f264d29190"><div class="ttname"><a href="class_general_transition.html#ae4c5f792213ba981a29329f264d29190">GeneralTransition::onUpdate</a></div><div class="ttdeci">virtual void onUpdate(float deltaTime) override</div><div class="ttdoc">Runs the scene. Calculates every 0.5s and random nr between 1 and 150 to increase the loading bar wit...</div><div class="ttdef"><b>Definition:</b> GeneralTransition.cpp:97</div></div>
-<div class="ttc" id="aclass_general_transition_html"><div class="ttname"><a href="class_general_transition.html">GeneralTransition</a></div><div class="ttdoc">Transition Screen.</div><div class="ttdef"><b>Definition:</b> GeneralTransition.h:8</div></div>
-<div class="ttc" id="aclass_general_transition_html_a71a79a43b313a2f39266e06884dc9d7a"><div class="ttname"><a href="class_general_transition.html#a71a79a43b313a2f39266e06884dc9d7a">GeneralTransition::loadBackground</a></div><div class="ttdeci">void loadBackground()</div><div class="ttdoc">Loads all the sprites</div><div class="ttdef"><b>Definition:</b> GeneralTransition.cpp:21</div></div>
+<div class="ttc" id="aclass_general_transition_html_ae4c5f792213ba981a29329f264d29190"><div class="ttname"><a href="class_general_transition.html#ae4c5f792213ba981a29329f264d29190">GeneralTransition::onUpdate</a></div><div class="ttdeci">virtual void onUpdate(float deltaTime) override</div><div class="ttdoc">Runs the scene. Calculates every 0.5s and random nr between 1 and 150 to increase the loading bar wit...</div><div class="ttdef"><b>Definition:</b> GeneralTransition.cpp:102</div></div>
+<div class="ttc" id="aclass_general_transition_html"><div class="ttname"><a href="class_general_transition.html">GeneralTransition</a></div><div class="ttdoc">Transition Screen.</div><div class="ttdef"><b>Definition:</b> GeneralTransition.h:9</div></div>
+<div class="ttc" id="aclass_general_transition_html_a71a79a43b313a2f39266e06884dc9d7a"><div class="ttname"><a href="class_general_transition.html#a71a79a43b313a2f39266e06884dc9d7a">GeneralTransition::loadBackground</a></div><div class="ttdeci">void loadBackground()</div><div class="ttdoc">Loads all the sprites</div><div class="ttdef"><b>Definition:</b> GeneralTransition.cpp:24</div></div>
 <div class="ttc" id="aclass_general_transition_html_a082421e8569f82c38066a64c774baa5e"><div class="ttname"><a href="class_general_transition.html#a082421e8569f82c38066a64c774baa5e">GeneralTransition::onAttach</a></div><div class="ttdeci">virtual void onAttach() override</div><div class="ttdoc">Loads the background and sets the starttime of this scene;.</div><div class="ttdef"><b>Definition:</b> GeneralTransition.cpp:8</div></div>
-<div class="ttc" id="aclass_general_transition_html_a472cab40123435e06430d6a988f4375b"><div class="ttname"><a href="class_general_transition.html#a472cab40123435e06430d6a988f4375b">GeneralTransition::getFileAdfileCount</a></div><div class="ttdeci">int getFileAdfileCount()</div><div class="ttdoc">Sets the next scene identifier.</div><div class="ttdef"><b>Definition:</b> GeneralTransition.cpp:110</div></div>
+<div class="ttc" id="aclass_general_transition_html_a048d9c3affeb3b527631e33310ab957a"><div class="ttname"><a href="class_general_transition.html#a048d9c3affeb3b527631e33310ab957a">GeneralTransition::getRandomAdFileName</a></div><div class="ttdeci">string getRandomAdFileName()</div><div class="ttdef"><b>Definition:</b> GeneralTransition.cpp:115</div></div>
+<div class="ttc" id="aclass_advertisement_handler_html"><div class="ttname"><a href="class_advertisement_handler.html">AdvertisementHandler</a></div><div class="ttdef"><b>Definition:</b> AdvertisementHandler.h:9</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

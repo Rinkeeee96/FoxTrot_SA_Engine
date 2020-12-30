@@ -1,5 +1,6 @@
 var hierarchy =
 [
+    [ "AdvertisementHandler", "class_advertisement_handler.html", null ],
     [ "Button", null, [
       [ "PrimaryButton", "class_primary_button.html", null ],
       [ "SecondaryButton", "class_secondary_button.html", null ]

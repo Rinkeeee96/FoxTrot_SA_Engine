@@ -2,6 +2,7 @@ var annotated_dup =
 [
     [ "AbstractLevelBuilder", "class_abstract_level_builder.html", "class_abstract_level_builder" ],
     [ "AchievementPopup", "class_achievement_popup.html", "class_achievement_popup" ],
+    [ "AdvertisementHandler", "class_advertisement_handler.html", "class_advertisement_handler" ],
     [ "BaseEnemy", "class_base_enemy.html", "class_base_enemy" ],
     [ "BaseGround", "class_base_ground.html", "class_base_ground" ],
     [ "BaseTrigger", "class_base_trigger.html", "class_base_trigger" ],
