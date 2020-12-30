@@ -65,6 +65,14 @@ private:
 		updateGlobalCommand("help");
 	};
 
+	function<void(void)> onFasterBtnClick = [this]() {
+		updateGlobalCommand("faster");
+	};
+
+	function<void(void)> onSlowerBtnClick = [this]() {
+		updateGlobalCommand("slower");
+	};
+
 	function<void(void)> onStopBtnClick = [this]() {
 		moveToNextScene = true;
 		nextScene = "MainMenu";
