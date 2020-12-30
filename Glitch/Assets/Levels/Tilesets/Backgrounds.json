@@ -16,8 +16,8 @@
  "margin":0,
  "name":"Backgrounds",
  "spacing":0,
- "tilecount":7,
- "tiledversion":"1.4.2",
+ "tilecount":9,
+ "tiledversion":"1.4.3",
  "tileheight":1080,
  "tiles":[
         {
@@ -59,8 +59,8 @@
         {
          "id":6,
          "image":"..\/Tiles\/cavebg.png",
-         "imageheight":550,
-         "imagewidth":1000
+         "imageheight":184,
+         "imagewidth":320
         }],
  "tilewidth":1920,
  "type":"tileset",

@@ -106,7 +106,7 @@ void SlimeBoss::createSlime(int id, int startingTextureId, float x, float y) {
 		it++;
 	}
 	slime1->changeToState(0);
-	level.addNewObjectToLayer(4, slime1, true, false);
+	level.addNewObjectToLayer(5, slime1, true, false);
 }
 
 /// @brief
