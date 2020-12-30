@@ -3,7 +3,6 @@ var class_object =
     [ "Object", "class_object.html#a7453266b335466bcb267ae816cb716b8", null ],
     [ "Object", "class_object.html#a40860402e64d8008fb42329df7097cdb", null ],
     [ "~Object", "class_object.html#ae8f5483f459e46687bd01e6f9977afd3", null ],
-    [ "getBodyType", "class_object.html#a9ac0b3791472c86e379a83586779484e", null ],
     [ "getDensity", "class_object.html#ad21af4ef109d8c60f22e702419db8ada", null ],
     [ "getFriction", "class_object.html#af653187a71c850214040ce93935fb338", null ],
     [ "getGravity", "class_object.html#a6443a6431f6618194faa38bf3dab2cee", null ],
@@ -60,7 +59,7 @@ var class_object =
     [ "scalable", "class_object.html#a2674570b3b9af8ebd6c71af67d294a33", null ],
     [ "scale", "class_object.html#a7856e394ae169ef2acac75bf1398ba38", null ],
     [ "speed", "class_object.html#a7013eaf1c55e51dc0d4c62ea11156110", null ],
-    [ "staticObject", "class_object.html#a735864003f9e4779ca05c9af70e9dd2e", null ],
+    [ "staticObject", "class_object.html#a1c9270f18f17a76c94a5974bcc3b5449", null ],
     [ "width", "class_object.html#a49ac59a7fb5c7c130ffc625af4384d08", null ],
     [ "xAxisVelocity", "class_object.html#a4018aaa4309d5714972aa8b46cd7c3b5", null ],
     [ "yAxisVelocity", "class_object.html#a4f9a74751f6c75bc561882bc7fd335a2", null ]

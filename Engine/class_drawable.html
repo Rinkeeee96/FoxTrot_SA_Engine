@@ -100,9 +100,6 @@ virtual API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 virtual API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_drawable.html#a5c7a5ed9163633d454d78f215b311ea0">changeToState</a> (const int state)</td></tr>
 <tr class="memdesc:a5c7a5ed9163633d454d78f215b311ea0"><td class="mdescLeft">&#160;</td><td class="mdescRight">change the state change the textureID to the current state <br /></td></tr>
 <tr class="separator:a5c7a5ed9163633d454d78f215b311ea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac372ce798ac501541e7c5128bbdd2cbd"><td class="memItemLeft" align="right" valign="top">API int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_drawable.html#ac372ce798ac501541e7c5128bbdd2cbd">getCurrentState</a> () const</td></tr>
-<tr class="memdesc:ac372ce798ac501541e7c5128bbdd2cbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">get sprite state  <a href="class_drawable.html#ac372ce798ac501541e7c5128bbdd2cbd">More...</a><br /></td></tr>
-<tr class="separator:ac372ce798ac501541e7c5128bbdd2cbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74ff5fd2c473a790d29756acc600f59c"><td class="memItemLeft" align="right" valign="top"><a id="a74ff5fd2c473a790d29756acc600f59c"></a>
 virtual API const <a class="el" href="struct_colored_text.html">ColoredText</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> ()</td></tr>
 <tr class="separator:a74ff5fd2c473a790d29756acc600f59c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -171,14 +168,11 @@ API void&#160;</td><td class="memItemRight" valign="bottom"><b>setWidth</b> (con
 API float&#160;</td><td class="memItemRight" valign="bottom"><b>getWidth</b> () const</td></tr>
 <tr class="separator:a6c1edada408d830ea9001d89daa898df inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53e7fe8ff944a5e3eee66b4f6ea22ebc inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top"><a id="a53e7fe8ff944a5e3eee66b4f6ea22ebc"></a>
-virtual API void&#160;</td><td class="memItemRight" valign="bottom"><b>setStatic</b> (const bool)</td></tr>
+API void&#160;</td><td class="memItemRight" valign="bottom"><b>setStatic</b> (const bool)</td></tr>
 <tr class="separator:a53e7fe8ff944a5e3eee66b4f6ea22ebc inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d8ba0a76c18a026e040959be8c8ee2f inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top"><a id="a7d8ba0a76c18a026e040959be8c8ee2f"></a>
 API bool&#160;</td><td class="memItemRight" valign="bottom"><b>getStatic</b> () const</td></tr>
 <tr class="separator:a7d8ba0a76c18a026e040959be8c8ee2f inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ac0b3791472c86e379a83586779484e inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top"><a id="a9ac0b3791472c86e379a83586779484e"></a>
-API BodyType&#160;</td><td class="memItemRight" valign="bottom"><b>getBodyType</b> () const</td></tr>
-<tr class="separator:a9ac0b3791472c86e379a83586779484e inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66e7c194cb3c29903834bacb816dd5ea inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top"><a id="a66e7c194cb3c29903834bacb816dd5ea"></a>
 API void&#160;</td><td class="memItemRight" valign="bottom"><b>setRestitution</b> (const float val)</td></tr>
 <tr class="separator:a66e7c194cb3c29903834bacb816dd5ea inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -321,9 +315,9 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>friction</b> = 0</td
 <tr class="memitem:a38cbcd72bd4d51687826c77dd83298dd inherit pro_attribs_class_object"><td class="memItemLeft" align="right" valign="top"><a id="a38cbcd72bd4d51687826c77dd83298dd"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>restitution</b> = 0</td></tr>
 <tr class="separator:a38cbcd72bd4d51687826c77dd83298dd inherit pro_attribs_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a735864003f9e4779ca05c9af70e9dd2e inherit pro_attribs_class_object"><td class="memItemLeft" align="right" valign="top"><a id="a735864003f9e4779ca05c9af70e9dd2e"></a>
-BodyType&#160;</td><td class="memItemRight" valign="bottom"><b>staticObject</b> = BodyType::DYNAMIC</td></tr>
-<tr class="separator:a735864003f9e4779ca05c9af70e9dd2e inherit pro_attribs_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c9270f18f17a76c94a5974bcc3b5449 inherit pro_attribs_class_object"><td class="memItemLeft" align="right" valign="top"><a id="a1c9270f18f17a76c94a5974bcc3b5449"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>staticObject</b> = false</td></tr>
+<tr class="separator:a1c9270f18f17a76c94a5974bcc3b5449 inherit pro_attribs_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5444c990a396045e73b0b0eb21c761cb inherit pro_attribs_class_object"><td class="memItemLeft" align="right" valign="top"><a id="a5444c990a396045e73b0b0eb21c761cb"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>gravity</b> = BASE_GRAVITY</td></tr>
 <tr class="separator:a5444c990a396045e73b0b0eb21c761cb inherit pro_attribs_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -336,28 +330,7 @@ const bool&#160;</td><td class="memItemRight" valign="bottom"><b>isParticle</b> 
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base class for all objects that can be drawn. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac372ce798ac501541e7c5128bbdd2cbd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac372ce798ac501541e7c5128bbdd2cbd">&#9670;&nbsp;</a></span>getCurrentState()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Drawable::getCurrentState </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>get sprite state </p>
-<dl class="section return"><dt>Returns</dt><dd>sprite state int </dd></dl>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>Engine/SceneManager/Objects/<a class="el" href="_drawable_8h_source.html">Drawable.h</a></li>
 <li>Engine/SceneManager/Objects/Drawable.cpp</li>
 </ul>
