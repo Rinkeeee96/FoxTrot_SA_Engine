@@ -16,7 +16,8 @@ public:
 		factory->registerit(key, this); 
 	};
 
-	GlobalCommand* createCommand(int zIndex) override { return new T(zIndex, key, freeze); }
+	GlobalCommand* createCommand(int zIndex) override { return new T(zIndex, key); }
+	GlobalCommand* createCommand() override { return new T(key); }
 private:
 	string key;
 	bool freeze;
