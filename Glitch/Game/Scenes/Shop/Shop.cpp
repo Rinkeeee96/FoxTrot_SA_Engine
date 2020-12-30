@@ -42,7 +42,7 @@ void Shop::onUpdate(float deltaTime)
 		save.characterData.totalHealth++;
 		save.characterData.inventory.coins -= currentPrice;
 		savegame->saveCurrentGameData(save); 
-		calculateCurrentPrice();
+		handlePurchase = false;
 	}
 
 	if (moveToNextScene)
@@ -170,25 +170,18 @@ void Shop::calculateCurrentPrice() {
 /// A function change all changable textboxes after a update off the currentPrice
 void Shop::updateTextBoxes() {
 	string name = "Buy!";
-	bool lock = false;
+	buyBTN->enable();
 	if (savegame->getCurrentGameData().characterData.inventory.coins < currentPrice)
 	{
 		name = "Not enough coins";
-		lock = true;
+		buyBTN->disable();
 	}
 	if (savegame->getCurrentGameData().characterData.totalHealth >= 10)
 	{
 		name = "Max amount of health!";
-		lock = true;
+		buyBTN->disable();
 	}
 	buyBTN->changeText(name);
-
-	if (lock) { 
-		buyBTN->disable(); 
-	}
-	else { 
-		buyBTN->enable(); 
-	}
 
 	string cost = "Price: " + to_string(currentPrice);
 	heartText2->changeText(cost);
