@@ -9,6 +9,7 @@ public:
 	Fleye(const int id, EventDispatcher& _dispatcher) : BaseEnemy(id, _dispatcher) {
 		this->setGravity(0);
 		this->damage = 2;
+		this->setScale(1);
 	}
 
 	void onUpdate(float deltaTime) override;
