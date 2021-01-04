@@ -93,7 +93,7 @@ vector<shared_ptr<Text>> ChapterScene::splitText(string text, int startingId) {
 /// @brief 
 /// Create all buttons for this scene
 void ChapterScene::loadButtons() {
-	shared_ptr<Text> help = shared_ptr<Text>(new Text(-5645585, new ColoredText("arrow key controls for text speed:", Color(255, 255, 255), false),
+	shared_ptr<Text> help = shared_ptr<Text>(new Text(-5645585, new ColoredText("Arrow key controls for text speed:", Color(255, 255, 255), false),
 		550, 50, WINDOW_WIDTH - 900, WINDOW_HEIGHT - 80));
 	shared_ptr<Text> text = shared_ptr<Text>(new Text(-564573, new ColoredText(keycodeStringMap[KeyCode::KEY_DOWN] + " = stop : " + keycodeStringMap[KeyCode::KEY_LEFT] + " = slower : " + keycodeStringMap[KeyCode::KEY_RIGHT] + " = faster", Color(255, 255, 255), false),
 		550, 50, WINDOW_WIDTH - 900, WINDOW_HEIGHT - 30));
