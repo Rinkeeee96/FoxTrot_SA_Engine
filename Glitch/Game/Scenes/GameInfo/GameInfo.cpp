@@ -17,9 +17,15 @@ void GameInfo::onAttach()
 /// @brief 
 /// Create all text for this scene
 void GameInfo::loadText() {
+
+	shared_ptr<Text> header = shared_ptr<Text>(new Text(-564573, new ColoredText("Game info", Color(0, 0, 0), false),
+		300, 100, WINDOW_WIDTH_CENTER - 100, 150));
+
+	header->setDrawStatic(true);
+	addNewObjectToLayer(4, header);
 	
 	this->text = splitText(
-		"Story \n\nThe story is told by optional chapter markers on the map, you can click on them to read the story! \n \nGameplay \nPlay each level to the end and win by grabbing the present! \nif the game is too hard you can buy extra hearts in the shop, beware, their cost increases over time.. \n \nEnemies \n\nKill enemies by jumping on top of them! \n"
+		"Controls \n\nThe controls can be changed in the mapping screen by pressing the buttons in front of the commands, the popups inventory, help and pause can be open and closed by pressing their binding. \n \nStory \n\nThe story is told by optional chapter markers on the map, you can click on them to read the story! \n \nGameplay \nPlay each level to the end and win by grabbing the present! \nif the game is too hard you can buy extra hearts in the shop, beware, their cost increases over time.. \n \nEnemies \n\nKill enemies by jumping on top of them! \n"
 		, 1);
 
 	for (size_t i = 0; i < this->text.size(); i++)
@@ -41,17 +47,19 @@ void GameInfo::loadButtons() {
 /// @brief 
 /// Create the background for this scene
 void GameInfo::loadBackground() {
-	shared_ptr<SpriteObject> bg = shared_ptr<SpriteObject>(new SpriteObject(-1012, 1080, 1920, 1, 300, "Assets/Backgrounds/credits_foreground.png"));
-	shared_ptr<Drawable> bgLayer = shared_ptr<Drawable>(new Drawable(13));
-	bgLayer->setStatic(true);
-	bgLayer->setPositionX(0);
-	bgLayer->setPositionY(1080);
-	bgLayer->setWidth(1920);
-	bgLayer->setHeight(1080);
-	bgLayer->registerSprite(SpriteState::DEFAULT, bg);
-	bgLayer->changeToState(SpriteState::DEFAULT);	
 
-	addNewObjectToLayer(3, bgLayer, false, true);
+	shared_ptr<SpriteObject>BG_IMAGE = shared_ptr<SpriteObject>(new SpriteObject(-1011, 1080, 1920, 1, 300, "Assets/Backgrounds/game_win_layer_0.png"));
+
+	shared_ptr<Drawable> bgImage = shared_ptr<Drawable>(new Drawable(15));
+	bgImage->setStatic(true);
+	bgImage->setPositionX(0);
+	bgImage->setPositionY(1080);
+	bgImage->setWidth(1920);
+	bgImage->setHeight(1080);
+	bgImage->registerSprite(SpriteState::DEFAULT, BG_IMAGE);
+	bgImage->changeToState(SpriteState::DEFAULT);
+
+	addNewObjectToLayer(0, bgImage, false, true);
 }
 
 /// @brief 
@@ -94,7 +102,7 @@ vector<string> GameInfo::splitToLines(string stringToSplit, int maximumLineLengt
 /// Splits text on \n 
 /// @param the text
 vector<shared_ptr<Text>> GameInfo::splitText(string text, int startingId) {
-	auto startingPos = 250;
+	auto startingPos = 200;
 
 	vector<shared_ptr<Text>> ret;
 	std::string delimiter = "\n";
