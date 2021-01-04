@@ -127,11 +127,12 @@ $(document).ready(function(){initNavTree('_drawable_8h_source.html',''); initRes
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    };</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    API <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="struct_colored_text.html">ColoredText</a>* toString() { <span class="keywordflow">return</span> colortext; }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="struct_colored_text.html">ColoredText</a>* colortext = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    API <span class="keywordtype">void</span> setColor(<span class="keyword">const</span> <a class="code" href="struct_color.html">Color</a> rgb) { colortext-&gt;color = rgb; }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="struct_colored_text.html">ColoredText</a>* colortext = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;};</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_drawable_html_ac372ce798ac501541e7c5128bbdd2cbd"><div class="ttname"><a href="class_drawable.html#ac372ce798ac501541e7c5128bbdd2cbd">Drawable::getCurrentState</a></div><div class="ttdeci">API int getCurrentState() const</div><div class="ttdoc">get sprite state</div><div class="ttdef"><b>Definition:</b> Drawable.cpp:27</div></div>
