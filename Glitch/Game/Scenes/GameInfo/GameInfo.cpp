@@ -18,7 +18,7 @@ void GameInfo::onAttach()
 /// Create all text for this scene
 void GameInfo::loadText() {
 
-	shared_ptr<Text> header = shared_ptr<Text>(new Text(-564573, new ColoredText("Game info", Color(255, 255, 255), false),
+	shared_ptr<Text> header = shared_ptr<Text>(new Text(-564573, new ColoredText("Game info", Color(255,255, 255), false),
 		300, 100, WINDOW_WIDTH_CENTER - 100, 150));
 
 	header->setDrawStatic(true);
@@ -50,19 +50,29 @@ void GameInfo::loadButtons() {
 /// @brief 
 /// Create the background for this scene
 void GameInfo::loadBackground() {
+	shared_ptr<SpriteObject> BG_LAYER_0 = shared_ptr<SpriteObject>(new SpriteObject(-1010, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_0.png"));
+	shared_ptr<SpriteObject> BG_LAYER_2 = shared_ptr<SpriteObject>(new SpriteObject(-1012, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_2.png"));
 
-	shared_ptr<SpriteObject>BG_IMAGE = shared_ptr<SpriteObject>(new SpriteObject(-1011, 1080, 1920, 1, 300, "Assets/Backgrounds/game_win_layer_0.png"));
+	shared_ptr<Drawable> layer0 = shared_ptr<Drawable>(new Drawable(14));
+	layer0->setStatic(true);
+	layer0->setPositionX(0);
+	layer0->setPositionY(1080);
+	layer0->setWidth(1920);
+	layer0->setHeight(1080);
+	layer0->registerSprite(SpriteState::DEFAULT, BG_LAYER_0);
+	layer0->changeToState(SpriteState::DEFAULT);
 
-	shared_ptr<Drawable> bgImage = shared_ptr<Drawable>(new Drawable(15));
-	bgImage->setStatic(true);
-	bgImage->setPositionX(0);
-	bgImage->setPositionY(1080);
-	bgImage->setWidth(1920);
-	bgImage->setHeight(1080);
-	bgImage->registerSprite(SpriteState::DEFAULT, BG_IMAGE);
-	bgImage->changeToState(SpriteState::DEFAULT);
+	shared_ptr<Drawable> layer2 = shared_ptr<Drawable>(new Drawable(16));
+	layer2->setStatic(true);
+	layer2->setPositionX(0);
+	layer2->setPositionY(1080);
+	layer2->setWidth(1920);
+	layer2->setHeight(1080);
+	layer2->registerSprite(SpriteState::DEFAULT, BG_LAYER_2);
+	layer2->changeToState(SpriteState::DEFAULT);
 
-	addNewObjectToLayer(0, bgImage, false, true);
+	addNewObjectToLayer(0, layer0, false, true);
+	addNewObjectToLayer(2, layer2, false, true);
 }
 
 /// @brief 
