@@ -65,6 +65,7 @@ public:
 	};
 
 	API virtual const ColoredText* toString() { return colortext; }
+	API void setColor(const Color rgb) { colortext->color = rgb; }
 
 private:
 	ColoredText* colortext = nullptr;
