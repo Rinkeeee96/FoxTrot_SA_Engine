@@ -14,10 +14,10 @@ struct Color
 /// @brief Struct for ColoredText, has the Color struct and a Text string
 struct ColoredText
 {
-	ColoredText(const string _text, const Color _color, bool _centered = true)
+	ColoredText(const string _text, Color _color, bool _centered = true)
 		: text{ _text }, color(_color), centered(_centered) {}
 	string text;
-	const Color color;
+	Color color;
 	bool centered;
 };
 

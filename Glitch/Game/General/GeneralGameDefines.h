@@ -5,8 +5,8 @@
 
 #define EXPORT_GAME_DATA true
 
-#define HEALTH_PRICE 25
-#define INFLATION 1.25
+#define HEALTH_PRICE 5
+#define INFLATION 2
 
 #define CENTER_X  (WINDOW_WIDTH / 2)
 #define CENTER_Y (WINDOW_HEIGHT / 2)
