@@ -61,6 +61,7 @@ void Shop::loadBackground()
 
 	shared_ptr<Text> heartText = shared_ptr<Text>(new Text(3, new ColoredText("Need extra help?", Color(0, 0, 0)), 400, 80, 150, 260));
 	heartText2 = shared_ptr<Text>(new Text(4, new ColoredText("Price: " + to_string(currentPrice), Color(0, 0, 0)), 100, 40, 370, 325));
+	shared_ptr<Text> currentHealthText = shared_ptr<Text>(new Text(5, new ColoredText("Current Health: " + to_string(savegame->getCurrentGameData().characterData.totalHealth), Color(0, 0, 0)), 130, 40, 339, 355));
 
 	shared_ptr<SpriteObject> HealthHUD = shared_ptr<SpriteObject>(new SpriteObject(-660, 50, 50, 1, 300, "Assets/Sprites/HUD/Full.png"));
 	shared_ptr<Drawable> health = shared_ptr<Drawable>(new Drawable(-700));
@@ -123,6 +124,7 @@ void Shop::loadBackground()
 	addNewObjectToLayer(2, healthBox, false, true);
 	addNewObjectToLayer(2, heartText, false, true);
 	addNewObjectToLayer(2, heartText2, false, true);
+	addNewObjectToLayer(2, currentHealthText, false, true);
 
 }
 
