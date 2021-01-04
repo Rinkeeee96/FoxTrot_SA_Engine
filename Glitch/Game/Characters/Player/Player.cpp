@@ -25,9 +25,6 @@ Player::Player(const int id, EventDispatcher& _dispatcher) : ICharacter(id, _dis
 	this->setCurrentHealth(3);
 	this->setTotalHealth(3);
 
-	this->stateMachine.setCurrentState(make_unique<NormalState>(), *this);
-	this->stateMachine.setGlobalState(make_unique<PlayerGlobalState>(), *this);
-
 	dispatcher.setEventCallback<OnCollisionBeginEvent>(BIND_EVENT_FN(Player::onCollisionBeginEvent));
 	dispatcher.setEventCallback<OnCollisionEndEvent>(BIND_EVENT_FN(Player::onCollisionEndEvent));
 
