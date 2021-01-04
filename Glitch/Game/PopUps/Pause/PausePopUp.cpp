@@ -19,7 +19,7 @@ void PausePopUp::setupPopUp()
 	string sKey = keycodeStringMap[key];
 
 	shared_ptr<Text> retText = shared_ptr<Text>(new Text(-564571, new ColoredText("Press " + sKey + " to return to game", Color(0, 0, 0), false),
-		200, 50, WINDOW_WIDTH_CENTER - 100, WINDOW_HEIGHT_CENTER - 40));
+		240, 50, WINDOW_WIDTH_CENTER - 120, WINDOW_HEIGHT_CENTER - 40));
 
 	shared_ptr<PrimaryButton> backButton = shared_ptr<PrimaryButton>(new PrimaryButton(-564572, "Back to Overworld", BIND_FN(onBackButtonClick), dispatcher));
 	backButton->setHeight(50);
