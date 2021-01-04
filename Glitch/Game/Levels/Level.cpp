@@ -62,6 +62,8 @@ void Level::start(bool playSound) {
 	hudPopUp->setPlayer(player);
 	hudPopUp->setBoss(boss);
 
+	player->getStateMachine().setCurrentState(make_unique<NormalState>(), *player);
+	player->getStateMachine().setGlobalState(make_unique<PlayerGlobalState>(), *player);
 	
 	this->win = false;
 

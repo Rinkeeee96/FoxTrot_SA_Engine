@@ -734,6 +734,23 @@
                  "width":138.723333333333,
                  "x":2495.305,
                  "y":1629.66668333333
+                }, 
+                {
+                 "height":210.667,
+                 "id":97,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"win"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":12.667,
+                 "x":0.666499999999999,
+                 "y":667.6665
                 }],
          "opacity":1,
          "properties":[
@@ -926,7 +943,7 @@
          "y":0
         }],
  "nextlayerid":11,
- "nextobjectid":96,
+ "nextobjectid":98,
  "orientation":"orthogonal",
  "properties":[
         {
@@ -935,7 +952,7 @@
          "value":"file_example_WAV_2MG.wav"
         }],
  "renderorder":"right-down",
- "tiledversion":"1.4.3",
+ "tiledversion":"1.4.2",
  "tileheight":32,
  "tilesets":[
         {

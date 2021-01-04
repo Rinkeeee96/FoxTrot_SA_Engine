@@ -3,6 +3,7 @@
 #include "Game/Buttons/PrimaryButton.h"
 #include "Game/Buttons/SecondaryButton.h"
 #include "Game/Game.h"
+#include "Game/General/KeyCodeStringMap.h"
 
 ChapterScene::ChapterScene(const int id, unique_ptr<Engine>& _engine, shared_ptr<SceneStateMachine> _statemachine) : GameScene(id, _engine, _statemachine)
 {
@@ -17,6 +18,9 @@ bool ChapterScene::onKeyPressed(const Event& event)
 
 	switch (keyPressedEvent.getKeyCode())
 	{
+	case KeyCode::KEY_DOWN:
+		this->speed_ = 0;
+		break; 
 	case KeyCode::KEY_LEFT:
 		if (this->speed_ == MAX_SPEED * -1) break;
 		this->speed_ -= TEXT_SPEED_INCREMENT;
@@ -89,6 +93,13 @@ vector<shared_ptr<Text>> ChapterScene::splitText(string text, int startingId) {
 /// @brief 
 /// Create all buttons for this scene
 void ChapterScene::loadButtons() {
+	shared_ptr<Text> help = shared_ptr<Text>(new Text(-5645585, new ColoredText("Arrow key controls for text speed:", Color(255, 255, 255), false),
+		550, 50, WINDOW_WIDTH - 900, WINDOW_HEIGHT - 80));
+	shared_ptr<Text> text = shared_ptr<Text>(new Text(-564573, new ColoredText(keycodeStringMap[KeyCode::KEY_DOWN] + " = stop | " + keycodeStringMap[KeyCode::KEY_LEFT] + " = slower | " + keycodeStringMap[KeyCode::KEY_RIGHT] + " = faster", Color(255, 255, 255), false),
+		550, 50, WINDOW_WIDTH - 900, WINDOW_HEIGHT - 30));
+	addNewObjectToLayer(5, text);
+	addNewObjectToLayer(5, help);
+	
 	// Back button
 	shared_ptr<SecondaryButton> backBtn = shared_ptr<SecondaryButton>(new SecondaryButton(3, "Skip", onSkipClick, this->dispatcher));
 	backBtn->setPositionX(WINDOW_WIDTH - 40 - backBtn->getWidth());
