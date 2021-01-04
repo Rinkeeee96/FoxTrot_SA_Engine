@@ -41,6 +41,16 @@ void MappingScene::loadBackground()
 	background->changeToState(SpriteState::DEFAULT);
 
 	addNewObjectToLayer(0, background, false, true);
+
+	
+	string remap = "Press a button and then a key to remap it.";
+	shared_ptr<Text> text = shared_ptr<Text>(new Text(textId--,
+		new ColoredText(remap,
+			Color(0, 0, 0),
+			false
+		),
+		((float)WINDOW_WIDTH / TEXT_SIZE_DIVIDER_HELP) * remap.length(), 50.f, 175, 350));
+	addNewObjectToLayer(1, text, false, true);
 }
 
 void MappingScene::loadMusic()
