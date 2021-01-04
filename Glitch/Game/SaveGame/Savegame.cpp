@@ -80,36 +80,35 @@ bool Savegame::readSaveGameDataFromJson(string& path)
 		// If error is thrown this means the document is empty or non existant. 
 		// Doesnt matter in our case as we use 3 empty savegames. 
 		// Dont throw an error but we do notify the developer
-		cout << "Error thrown in fileloader, starting with 3 empty savegames" << endl;
+		cout << "No savefile, starting with 3 empty savegames" << endl;
+		parseErrors = true;
 	}
-	bool validLevel;
-	try
+	if (!parseErrors)
 	{
-		validLevel = fileLoader.validateDocument(path, "Assets/Savegame/savegamedataschema.json");
-	}
-	catch (const std::exception& exc)
-	{
-		cout << "Something went wrong parsing the file, make sure the file is correctly structured" << "\n";
-		cout << exc.what() << "\n";
-		throw exc;
-	}
+		bool validLevel = false;
 
-
-	if (validLevel) {
-		try {
-
-			filestream >> json;
-			parseJsonToMap(json);
+		try
+		{
+			validLevel = fileLoader.validateDocument(path, "Assets/Savegame/savegamedataschema.json");
 		}
-		catch (exception exc) {
-			cout << "Something went wrong parsing the file, make sure the file is correctly structured" << "\n";
-			cout << exc.what() << "\n";	
+		catch (const std::exception& exc)
+		{
+			cout << "Savegame:: Something went wrong parsing the file, make sure the file is correctly structured" << "\n";
+			cout << "Using empty savegames" << endl;
+			cout << exc.what() << endl;
+		}
+		if (validLevel) {
+			try {
+
+				filestream >> json;
+				parseJsonToMap(json);
+			}
+			catch (exception exc) {
+				cout << "Something went wrong parsing the file, make sure the file is correctly structured" << "\n";
+				cout << exc.what() << "\n";
+			}
 		}
 	}
-	else {
-		throw exception("SaveGame: Something went wrong validating file, make sure the file is correct");
-	}
-
 	filestream.close();
 
 	return true;
