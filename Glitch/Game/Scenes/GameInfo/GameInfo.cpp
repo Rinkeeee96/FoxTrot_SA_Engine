@@ -22,11 +22,14 @@ void GameInfo::loadText() {
 		"Story \n\nThe story is told by optional chapter markers on the map, you can click on them to read the story! \n \nGameplay \nPlay each level to the end and win by grabbing the present! \nif the game is too hard you can buy extra hearts in the shop, beware, their cost increases over time.. \n \nEnemies \n\nKill enemies by jumping on top of them! \n"
 		, 1);
 
+
 	for (size_t i = 0; i < this->text.size(); i++)
 	{
+		text[i]->setColor(Color(255, 255, 255));
 		addNewObjectToLayer(4, this->text[i]);
 	}
 }
+
 /// @brief 
 /// Create all buttons for this scene
 void GameInfo::loadButtons() {
@@ -41,17 +44,29 @@ void GameInfo::loadButtons() {
 /// @brief 
 /// Create the background for this scene
 void GameInfo::loadBackground() {
-	shared_ptr<SpriteObject> bg = shared_ptr<SpriteObject>(new SpriteObject(-1012, 1080, 1920, 1, 300, "Assets/Backgrounds/credits_foreground.png"));
-	shared_ptr<Drawable> bgLayer = shared_ptr<Drawable>(new Drawable(13));
-	bgLayer->setStatic(true);
-	bgLayer->setPositionX(0);
-	bgLayer->setPositionY(1080);
-	bgLayer->setWidth(1920);
-	bgLayer->setHeight(1080);
-	bgLayer->registerSprite(SpriteState::DEFAULT, bg);
-	bgLayer->changeToState(SpriteState::DEFAULT);	
+	shared_ptr<SpriteObject> BG_LAYER_0 = shared_ptr<SpriteObject>(new SpriteObject(-1010, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_0.png"));
+	shared_ptr<SpriteObject> BG_LAYER_2 = shared_ptr<SpriteObject>(new SpriteObject(-1012, 1080, 1920, 1, 300, "Assets/Backgrounds/menu_Layer_2.png"));
 
-	addNewObjectToLayer(3, bgLayer, false, true);
+	shared_ptr<Drawable> layer0 = shared_ptr<Drawable>(new Drawable(14));
+	layer0->setStatic(true);
+	layer0->setPositionX(0);
+	layer0->setPositionY(1080);
+	layer0->setWidth(1920);
+	layer0->setHeight(1080);
+	layer0->registerSprite(SpriteState::DEFAULT, BG_LAYER_0);
+	layer0->changeToState(SpriteState::DEFAULT);
+
+	shared_ptr<Drawable> layer2 = shared_ptr<Drawable>(new Drawable(16));
+	layer2->setStatic(true);
+	layer2->setPositionX(0);
+	layer2->setPositionY(1080);
+	layer2->setWidth(1920);
+	layer2->setHeight(1080);
+	layer2->registerSprite(SpriteState::DEFAULT, BG_LAYER_2);
+	layer2->changeToState(SpriteState::DEFAULT);
+
+	addNewObjectToLayer(0, layer0, false, true);
+	addNewObjectToLayer(2, layer2, false, true);
 }
 
 /// @brief 
