@@ -39,7 +39,7 @@ void PausePopUp::setupPopUp()
 	background->changeToState(SpriteState::DEFAULT);
 
 	text->setDrawStatic(true);
-
+	retText->setDrawStatic(true);
 	addObjectInLayer(backButton);
 	addObjectInLayer(text);
 	addObjectInLayer(background);
