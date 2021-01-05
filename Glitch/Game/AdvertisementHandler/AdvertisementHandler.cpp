@@ -28,7 +28,7 @@ vector<string> AdvertisementHandler::parseJson(nlohmann::json json)
 		{
 			// Remove the ""
 			string path = jsonObject;
-			path = path.substr(1,path.size()-1);
+			path = path.substr(0,path.size());
 			paths.push_back(path);
 		}
 
